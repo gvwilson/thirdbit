@@ -6,6 +6,7 @@ template: page
 | Title | Author | ISBN | Year |
 | ----- | ------ | ---- | ---- |
 | Technological Revolutions and Financial Capital | Carlota Perez | 978-1843763314 | 2003 |
+| Travel Light | Naomi Mitchison | 978-1931520140 | 2005 |
 | An Elemental Thing | Eliot Weinberger | 978-0811216944 | 2007 |
 | Psychology and the Real World | Morton Ann Gernsbacher, Richard W. Pew | 978-1429230438 | 2009 |
 | After the Prophet | Lesley Hazleton | 978-0385523943 | 2010 |
@@ -13,88 +14,62 @@ template: page
 | Is That a Fish in Your Ear?: Translation and the Meaning of Everything | David Bellos | 978-0241954300 | 2012 |
 | Caring Democracy: Markets, Equality, and Justice | Joan C. Tronto | 978-0814782774 | 2013 |
 | Lex Talionis | R.S.A. Garcia | 978-1940076126 | 2014 |
-| Great Tide Rising | Kathleen Dean Moore | 978-1619029064 | 2016 |
 | How Reason Almost Lost Its Mind | Paul Erickson and Judy L. Klein | 978-0226324159 | 2016 |
 | Slavery's Exiles | Sylviane A Diouf | 978-0814760284 | 2016 |
-| Good Morning, Midnight | Lily Brooks-Dalton | 978-0812988192 | 2017 |
 | The Gauntlet | Karuna Riazi | 978-1536435443 | 2017 |
 | A History of America in Ten Strikes | Erik Loomis | 978-1620971628 | 2018 |
 | Elements of Surprise: Our Mental Limits and the Satisfactions of Plot | Vera Tobin | 978-0674919587 | 2018 |
-| Impossible Owls: Essays | Brian Phillips | 978-0374175337 | 2018 |
 | No Shortcuts: Organizing for Power in the New Gilded Age | Jane F. McAlevey | 978-0190868659 | 2018 |
 | Societal Problems as Public Bads | Nan de Graaf, Dingeman Wiertz | 978-1351063463 | 2019 |
 | Steel Frame | Andrew Skinner | 978-1781087046 | 2019 |
-| The Good Thieves | Katherine Rundell | 978-1481419505 | 2019 |
 | Glimpses of Utopia | Jess Scully | 978-0369347510 | 2020 |
 | How Fascism Works | Jason Stanley | 978-0525511854 | 2020 |
 | Local Disaster Management | Gina Yannitell Reinhardt, Lex Drennan | 978-1032839523 | 2020 |
 | Trust in Numbers: The Pursuit of Objectivity in Science and Public Life | Theodore M. Porter | 978-0691208411 | 2020 |
-| Complaint! | Sara Ahmed | 978-1478015093 | 2021 |
 | The Commoner's Catalog for Changemaking: Tools for the Transitions Ahead | David Bollier | 978-0578961323 | 2021 |
 | The Overstory | Richard Powers | 978-1039000681 | 2021 |
 | The Philosophers' Library | Adam Ferner, Chris Meyns | 978-0711253094 | 2021 |
-| The Promise of Access: Technology, Inequality, and the Political Economy of Hope | Daniel Greene | 978-0262363358 | 2021 |
-| The Wiggly World of Organization: Muddling Through with Purpose, Courage and Skill | Chris Rodgers | 978-0367744670 | 2021 |
+| The Wiggly World of Organization | Chris Rodgers | 978-0367744670 | 2021 |
 | UI State Management: From Object-Oriented to Functional | Cristian Salcescu | 979-8711726913 | 2021 |
 | A Necessary Chaos | Brent Lambert | 978-1952086465 | 2022 |
 | Beautiful Solutions: A Toolbox for Liberation | Eli Feghali, Rachel Plattus | 978-1682193372 | 2022 |
-| How Sex Changed the Internet and the Internet Changed Sex | Samantha Cole | 978-1523513840 | 2022 |
-| Psychology of Great Teaching | Pedro de Bruyckere | 978-1529767506 | 2022 |
-| The Book of Delights | Ross Gay | 978-1643753287 | 2022 |
 | The Golden Mole | Katherine Rundell | 978-0571362493 | 2022 |
 | We Are Your Children: A History of LGBTQ+ Activism | David Roberts | 978-1529015362 | 2022 |
-| Abeni's Song | P. Djèlí Clark | 979-8855024340 | 2023 |
 | Archaeology of Logic | Andrew Schumann | 978-1032327372 | 2023 |
 | Cooperatives at Work | George Cheney and Matt Noyes | 978-1838678289 | 2023 |
-| Funeral Songs for Dying Girls | Cherie Dimaline | 978-0735265639 | 2023 |
 | It's Not You, It's Capitalism: Why It's Time to Break Up and How to Move On | Malaika Jabali | 978-1643752648 | 2023 |
-| Just a Pinch of Magic | Alechia Dow | 9798855035544 | 2023 |
 | Late Soviet Britain: Why Materialist Utopias Fail | Abby Innes | 978-1009373630 | 2023 |
-| Lei and the Fire Goddess | Malia Maunakea | 9798855085907 | 2023 |
 | Liberty's Daughter | Naomi Kritzer | 978-1958880166 | 2023 |
-| Life and Afterlife in Ancient China | Jessica Rawson | 978-0295754499 | 2023 |
 | Murder on the Lamplight Express | Morgan Stang | 979-8851465598 | 2023 |
-| Not So Black and White: A History of Race from White Supremacy to Identity Politics | Kenan Malik | 978-1805260097 | 2023 |
+| Not So Black and White | Kenan Malik | 978-1805260097 | 2023 |
 | The Case for Good Jobs | Zeynep Ton | 978-1647824174 | 2023 |
 | The Quiet Before | Gal Beckerman | 978-1529177404 | 2023 |
 | The Serpents of Eden | RW Goldsmith | 978-1955062763 | 2023 |
 | The Unseen Leader: How History Can Help Us Rethink Leadership | Martin Gutmann | 978-3031378287 | 2023 |
-| Archangels of Funk | Andrea Hairston | 978-1250807298 | 2024 |
 | Beyond Here Be Monsters | Gregory Frost | 978-1958880265 | 2024 |
 | Big Time | Ben H. Winters | 978-0316305778 | 2024 |
-| Book and Dagger: How Scholars and Librarians Became the Unlikely Spies of World War II | Elyse Graham | 978-0063417304 | 2024 |
-| Evil in Me | Brom | 978-1250622020 | 2024 |
 | Fire Weather: The Making of a Beast | John Vaillant | 978-0735273177 | 2024 |
 | Foul Days | Genoveva Dimova | 978-1250877314 | 2024 |
 | Glass Houses | Madeline Ashby | 978-1250362292 | 2024 |
-| Lost Ark Dreaming | Suyi Davies Okungbowa | 978-1250890757 | 2024 |
 | Over Work: Transforming the Daily Grind in the Quest for a Better Life | Brigid Schulte | 978-1250861528 | 2024 |
-| Playing with Reality: How Games Have Shaped Our World | Kelly Clancy | 978-0593538180 | 2024 |
 | Poverty, by America | Matthew Desmond | 978-0593239933 | 2024 |
 | Question 7 | Richard Flanagan | 978-1529935479 | 2024 |
 | Rabbit in the Moon | Fiona Moore | 978-1734648676 | 2024 |
 | River Mumma | Zalika Reid-Benta | 978-1645661351 | 2024 |
 | Seaborn | Michael Livingston | 978-1035905751 | 2024 |
 | Shadow of the Endless | Stephen Gaskell | 978-1835410448 | 2024 |
-| Shopkeeping | Peter Miller | 978-1797228761 | 2024 |
-| Someone You Can Build a Nest In | John Wiswell | 978-0756418861 | 2024 |
-| Such Charming Liars | Karen M. McManus | 978-0593784235 | 2024 |
 | The Black Hunger | Nicholas Pullen | 978-0316573054 | 2024 |
 | The Bloodless Queen | Joshua Phillip Johnson | 978-0756419196 | 2024 |
 | The City in Glass | Nghi Vo | 978-1250348272 | 2024 |
 | The Failures | Benjamin Liar | 978-0756419776 | 2024 |
 | The Forest of a Thousand Eyes | Frances Hardinge | 978-1419777783 | 2024 |
 | The Long Retreat | Boris Kagarlitsky, Patrick Bond | 978-0745350288 | 2024 |
-| The Losting Fountain | Lora Senf | 978-1454955290 | 2024 |
 | The Naming Song | Jedediah Berry | 978-1250390905 | 2024 |
 | The Nature of Code | Daniel Shiffman | 978-1718503700 | 2024 |
 | The Patriarchs: The Origins of Inequality | Angela Saini | 978-0807093337 | 2024 |
-| The Sky on Fire | Jenn Lyons | 978-1250378637 | 2024 |
 | Wheeling through Toronto: A History of the Bicycle and Its Riders | Albert Koehl | 978-1487549572 | 2024 |
-| Womb City | Tlotlo Tsamaase | 978-1645660569 | 2024 |
 | A History of the World in 50 Pieces | Tom Service | 978-1785949371 | 2025 |
 | Adventures in Democracy: The Turbulent World of People Power | Erica Benner | 978-1802061444 | 2025 |
-| Age of Deception | Jon R. Lindsay | 978-1501783470 | 2025 |
 | Alive: Our Bodies and the Richness and Brevity of Existence | Gabriel Weston | 978-1529931716 | 2025 |
 | All That We See or Seem | Ken Liu | 978-1668083185 | 2025 |
 | America, America: A New History of the New World | Greg Grandin | 978-0593831274 | 2025 |
@@ -117,13 +92,12 @@ template: page
 | Idolfire | Grace Curtis | 978-1399730624 | 2025 |
 | Keep Your Friends Close | Cynthia Murphy | 978-0593805787 | 2025 |
 | Little Miss Marple: Muddle at the Vicarage | Adam Hargreaves, Roger Hargreaves | 978-0008742911 | 2025 |
+| Mr. Poirot: Mischief on the Nile | Adam Hargreaves, Roger Hargreaves | 978-0008740948 | 2025 |
 | Meet Me at the Crossroads | Megan Giddings | 978-0063337985 | 2025 |
 | Moderation | Elaine Castillo | 978-0593489680 | 2025 |
 | Moonbound | Robin Sloan | 978-1250390509 | 2025 |
-| Mr. Poirot: Mischief on the Nile | Adam Hargreaves, Roger Hargreaves | 978-0008740948 | 2025 |
 | No Refuge | Joe Brady | 978-1788451192 | 2025 |
 | Once Was Willem | M. R. Carey | 978-0316505123 | 2025 |
-| Practical Purple Teaming: The Art of Collaborative Defense | Alfie Champion | 978-1718504288 | 2025 |
 | Rebels, Robbers, and Radicals: The Story of the Bill of Rights | Teri Kanefield | 978-1419768262 | 2025 |
 | Sea Change | Susan Fletcher | 978-1419773938 | 2025 |
 | Sea of Grass | Dave Hage and Josephine Marcotty | 978-0593447406 | 2025 |
@@ -131,15 +105,13 @@ template: page
 | Songs for Ghosts | Clara Kumagai | 978-1803288086 | 2025 |
 | Stories Are Weapons: Psychological Warfare and the American Mind | Annalee Newitz | 978-1324110460 | 2025 |
 | The Buffalo Hunter Hunter | Stephen Graham Jones | 978-1668095485 | 2025 |
-| The CIA Book Club: The Secret Mission to Win the Cold War with Forbidden Literature | Charlie English | 978-0008495169 | 2025 |
-| The Data Management Workbook | Kristin Briney | 978-1784275730 | 2025 |
+| The CIA Book Club | Charlie English | 978-0008495169 | 2025 |
 | The Floating World | Axie Oh | 978-1399746816 | 2025 |
 | The Golden Throne | Christopher de Bellaigue | 978-1529967050 | 2025 |
 | The Heart-Shaped Tin: Love, Loss, and Kitchen Objects | Bee Wilson | 978-1324134374 | 2025 |
 | The Hour of the Predator | Giuliano da Empoli, Sam Taylor | 978-1805680161 | 2025 |
 | The Incandescent | Emily Tesh | 978-0356525648 | 2025 |
 | The Instability of Truth: Brainwashing, Mind Control, and Hyper-Persuasion | Rebecca Lemov | 978-1324075264 | 2025 |
-| The Last Bloodcarver | Vanessa Le | 978-1250362698 | 2025 |
 | The Lighthouse at the Edge of the World | J.R. Dawson | 978-1250805591 | 2025 |
 | The Midnight Project | Christy Climenhage | 978-1998408184 | 2025 |
 | The Moon the Sun Forgot | B.J. Wagner | 978-1738125449 | 2025 |
@@ -156,7 +128,7 @@ template: page
 | We Just Build Hammers | Coraline Ada Ehmke | 979-8868812484 | 2025 |
 | When There Are Wolves Again | E.J. Swift | 978-1529436488 | 2025 |
 | Where the Axe Is Buried | Ray Nayler | 978-1250420015 | 2025 |
-| The Incandescent |  Emily Tesh | 9781250835017 | 2025 |
+| The Incandescent | Emily Tesh | 9781250835017 | 2025 |
 | A Secret of Birds & Bone | Kiran Millwood Hargrave | 978-1913322960 | 2026 |
 | A World Appears | Michael Pollan | 979-8217294534 | 2026 |
 | Alchemists of Dawn | G.S. Valiant | 978-1067755102 | 2026 |
@@ -167,7 +139,6 @@ template: page
 | Auntie Heroes | Rita Beeman | 979-8257583667 | 2026 |
 | Bewilderness | Jonathan Maberry | 978-1680577969 | 2026 |
 | Bitcoin Bros | Dan Cassino | 978-1350508088 | 2026 |
-| Bodies of Magic | Freya Marske | 978-1250341655 | 2026 |
 | Both Your Houses | Emmet O'Brien |  | 2026 |
 | Brief History of Climate Folly | Tim Flannery and Emma Flannery | 978-1923058965 | 2026 |
 | Elemental: The New Geography of Climate Change and How We Survive It | Arthur Snell | 978-1035412983 | 2026 |
@@ -178,12 +149,10 @@ template: page
 | Luminous | Silvia Park | 978-1836430834 | 2026 |
 | Maiden | Georgia Leighton | 978-0857505934 | 2026 |
 | Modern Guide to Querying Literary Agents | Alyssa Matesic and Patrick McDonald | 978-1637749005 | 2026 |
-| Move Slow and Upgrade | Evan Selinger and Albert Fox Cahn | 978-1009466578 | 2026 |
 | Nonesuch | Francis Spufford | 978-0571397174 | 2026 |
 | Our Brains, Our Selves | Masud Husain | 978-1837261109 | 2026 |
 | Prophecy | Carissa Veliz | 978-0385552776 | 2026 |
 | Reactionary Worldbuilding | Anindita Banerjee, Sherryl Vint | 978-0262053679 | 2026 |
-| Secret World of Twilight | Sally Coulthard | 978-1035912131 | 2026 |
 | Simply Plants | Sadia Badiei | 978-0525613145 | 2026 |
 | Sublimation | Isabel J. Kim | 978-1035065523 | 2026 |
 | Techno-Negative | Thomas Dekeyser | 978-1517917739 | 2026 |
@@ -197,7 +166,7 @@ template: page
 | The Lighthouse at the End of the World | Philip A. Suggars | 978-1835412497 | 2026 |
 | The Nerd Reich | Gil Durán | 978-1668221402 | 2026 |
 | The People's Library | Veronica G. Henry | 978-1662520297 | 2026 |
-| The Problem of Personhood: Giving Rights to Trees, Corporations and Robots | Lisa Siraganian | 978-1804293447 | 2026 |
+| The Problem of Personhood | Lisa Siraganian | 978-1804293447 | 2026 |
 | The Spacecraft Hacker's Handbook | Andrzej Olchawa | 978-1718504745 | 2026 |
 | The SpecOps Method | Mark Headd | 979-8994454718 | 2026 |
 | The Tinder Box | M.R. Carey | 978-0316595490 | 2026 |

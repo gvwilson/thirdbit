@@ -2,7 +2,7 @@
 title: "Cocaine and Conway's Law"
 subtitle: "what young software engineers need to learn and how we should teach it"
 template: slides
-date: "2025-10-23"
+date: "2026-10-06"
 ---
 
 ## Outline
@@ -142,7 +142,8 @@ date: "2025-10-23"
 
 -   *Cognitive pollution* is a better model
     -   [Tetraethyl lead](https://en.wikipedia.org/wiki/Tetraethyllead)
-    -   [Asbestos](https://en.wikipedia.org/wiki/Asbestos)
+        and [asbestos](https://en.wikipedia.org/wiki/Asbestos)
+    -   Tobacco vs. pesticides
     -   Oxycodone and [Purdue Pharma](https://en.wikipedia.org/wiki/Purdue_Pharma)
     -   The [fossil fuels lobby](https://en.wikipedia.org/wiki/Fossil_fuels_lobby)'s campaign
         to promote [climate change denial](https://en.wikipedia.org/wiki/Climate_change_denial)
@@ -256,6 +257,23 @@ date: "2025-10-23"
 -   People in "hard" disciplines tend to look down on the "soft" ones
     -   Until they become managers…
 -   But these insights can help us build better software *and* a better society
+
+---
+
+## Speaking of Taboo
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/cole-sex.jpg" alt="Cole: How Sex Changed the Internet" width="200px">
+  </div>
+  <div class="col-8">
+    Samantha Cole: <em><a href="https://isbnsearch.org/isbn/9781523520145">How Sex Changed the Internet (and the Internet Changed Sex)</a></em> (2022)
+    <ul>
+      <li>This is going to drive a lot of the regulation around AI</li>
+      <li>So we ought to be talking about it</li>
+    </ul>
+  </div>
+</div>
 
 ---
 
