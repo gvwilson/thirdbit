@@ -3,12 +3,122 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-10-02T00:00:00Z</updated>
+ <updated>2026-10-05T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Introducing Frml</title>
+   <link href="https://third-bit.com/2026/10/05/frml-intro/"/>
+   <updated>2026-10-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/10/05/frml-intro/</id>
+   <content type="html">&lt;p&gt;A few months ago I set out to learn how program verification works.
+I tried &lt;a href=&#34;https://lean-lang.org/&#34;&gt;Lean&lt;/a&gt; and &lt;a href=&#34;https://dafny.org/&#34;&gt;Dafny&lt;/a&gt;,
+but kept wondering how verification actually worked.
+To find out,
+DeepSeek and I built &lt;a href=&#34;https://github.io/gvwilson/frml&#34;&gt;Frml&lt;/a&gt;,
+which is a very simple imperative language with its own verifier.&lt;/p&gt;
+&lt;p&gt;This post walks through the Frml verification engine, explaining how a Frml
+program becomes Boolean logic that the &lt;a href=&#34;https://github.com/Z3Prover/z3&#34;&gt;Z3&lt;/a&gt; solver can check, and what Z3 does
+with that logic.
+The language and its verifier are layered: the &lt;code&gt;scalar&lt;/code&gt; level
+handles straight-line and branching code with no functions or loops,
+while successive levels add features one by one.&lt;/p&gt;
+&lt;p&gt;Frml is aimed at experienced programmers: you should understand basic
+Boolean logic (&lt;code&gt;and&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;, &lt;code&gt;not&lt;/code&gt;, implication) and already know what a lexer,
+parser, and abstract syntax tree (AST) are, but you need no prior background in
+formal verification.&lt;/p&gt;
+&lt;h2&gt;The big picture&lt;/h2&gt;
+&lt;p&gt;Frml&amp;rsquo;s lexer and parser turn program text into an AST, and the typechecker rejects
+programs with type errors. The prover then turns the AST into &lt;em&gt;verification
+conditions&lt;/em&gt; of the form:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;hypotheses =&amp;gt; goal
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The prover asks Z3 to confirm every verification condition, and if Z3 confirms
+all of them, the program is verified.&lt;/p&gt;
+&lt;p&gt;OK, so what&amp;rsquo;s a verifier?
+To start,
+a &lt;em&gt;proof obligation&lt;/em&gt; is a claim:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;from these hypotheses, this goal always follows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Symbolically:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;h1 and h2 and ... and hn  =&amp;gt;  goal
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;h1 ... hn&lt;/code&gt; are facts known at some point in the program, and &lt;code&gt;goal&lt;/code&gt; is a
+fact that must hold at that point. Example claims from a real program are
+&amp;ldquo;knowing &lt;code&gt;x &amp;gt;= 0&lt;/code&gt;, prove &lt;code&gt;0 &amp;lt;= x&lt;/code&gt;&amp;rdquo;, &amp;ldquo;knowing &lt;code&gt;i &amp;lt; n&lt;/code&gt;, prove &lt;code&gt;i + 1 &amp;lt;= n&lt;/code&gt;&amp;rdquo;, and
+&amp;ldquo;knowing nothing, prove &lt;code&gt;x &amp;gt; x&lt;/code&gt;&amp;rdquo;, where the last one is false. The prover&amp;rsquo;s job
+is to produce claims in this shape.&lt;/p&gt;
+&lt;h2&gt;What Z3 is and what it does&lt;/h2&gt;
+&lt;p&gt;Z3 is an &lt;em&gt;SMT solver&lt;/em&gt;, where SMT means Satisfiability Modulo Theories. It knows
+the theory of integers, arrays, strings, and Boolean logic. A formula is
+&lt;em&gt;satisfiable&lt;/em&gt; when some assignment of values to its variables makes it true.
+Given a formula, Z3 returns one of three answers: &lt;code&gt;sat&lt;/code&gt;, meaning a satisfying
+assignment exists and Z3 can show you one; &lt;code&gt;unsat&lt;/code&gt;, meaning no satisfying
+assignment exists; or &lt;code&gt;unknown&lt;/code&gt;, meaning Z3 gave up or timed out. An example
+that can be satisfied:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;formula:  x &amp;gt; 3 and x &amp;lt; 5
+answer:   sat          (x = 4 works)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;An example that cannot:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;formula:  x &amp;gt; 3 and x &amp;lt; 4
+answer:   unsat        (no integer fits)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;From &amp;ldquo;is it valid?&amp;rdquo; to &amp;ldquo;is it unsatisfiable?&amp;rdquo;&lt;/h2&gt;
+&lt;p&gt;The prover wants to prove that &lt;code&gt;hypotheses =&amp;gt; goal&lt;/code&gt; is &lt;em&gt;valid&lt;/em&gt;, meaning true
+for every possible assignment of the variables. Z3 does not directly check
+validity; it checks &lt;em&gt;satisfiability&lt;/em&gt;. The two are connected, because &lt;code&gt;A =&amp;gt; B&lt;/code&gt;
+is valid exactly when &lt;code&gt;not (A =&amp;gt; B)&lt;/code&gt; is unsatisfiable. So the prover asks Z3
+about:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;not (hypotheses =&amp;gt; goal)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If Z3 says &lt;code&gt;unsat&lt;/code&gt;, then no counterexample exists, so the goal is proved. If Z3
+says &lt;code&gt;sat&lt;/code&gt;, it found a counterexample, so the goal is false. If Z3 says
+&lt;code&gt;unknown&lt;/code&gt;, the proof is inconclusive. That is the entire proof mechanism, and
+everything else is just building the hypotheses and goals, for a rather large
+value of &amp;ldquo;just&amp;rdquo;.&lt;/p&gt;
+&lt;h2&gt;Z3 in Python&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://third-bit.com/sdxpy/pack/&#34;&gt;package manager lesson&lt;/a&gt; in &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example&lt;/em&gt;&lt;/a&gt;
+used Z3 to find compatible versions of packages.
+Here&amp;rsquo;s a simple example of its use:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;z3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Solver&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;B&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;A&lt;/code&gt;, &lt;code&gt;B&lt;/code&gt;, and &lt;code&gt;C&lt;/code&gt; do not have specific values. Each instead represents the set
+of possible Boolean values, so we can specify constraints like &lt;code&gt;A == B&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Solver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;report&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;A == B &amp;amp; B == C&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;check&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can then ask Z3 to find a &lt;em&gt;model&lt;/em&gt; that satisfies those constraints:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;A == B &amp;amp; B == C: sat
+A False
+B False
+C False
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To see unsatisfiability, require &lt;code&gt;A&lt;/code&gt; to equal &lt;code&gt;B&lt;/code&gt; and &lt;code&gt;B&lt;/code&gt; to equal &lt;code&gt;C&lt;/code&gt; but &lt;code&gt;A&lt;/code&gt;
+and &lt;code&gt;C&lt;/code&gt; to be unequal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;B&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Solver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;report&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;A == B &amp;amp; B == C &amp;amp; B != C&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;solver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;check&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;A == B &amp;amp; B == C &amp;amp; B != C: unsat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The next post in this series will show how Frml builds proof obligations
+for simple programs that manipulate scalar variables without loops or conditionals.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Heroes and Villains</title>
@@ -1437,92 +1547,6 @@ I had an email from someone else saying that he&amp;rsquo;d be working with me.&
 &lt;p&gt;Time for another cup of tea.
 If you came in peace,
 be welcome.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Disruptive Behaviors</title>
-   <link href="https://third-bit.com/2026/07/18/disruptive-behaviors/"/>
-   <updated>2026-07-18T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/07/18/disruptive-behaviors/</id>
-   <content type="html">&lt;p&gt;NOAA&amp;rsquo;s &lt;a href=&#34;https://coast.noaa.gov/ddb/&#34;&gt;Dealing with Disruptive Behaviors&lt;/a&gt;
-describes ten different kinds of people who can disrupt meetings and gives advice for handling each.
-I&amp;rsquo;ve been a big fan of this taxonomy since I first encountered it several years ago,
-but going through it again yesterday,
-I realized that there&amp;rsquo;s a fair bit of overlap between some of the types.
-In order to slim it down,
-I grouped them as follows:&lt;/p&gt;
-&lt;table&gt;
-  &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Aggressive&lt;/th&gt;&lt;th&gt;Assertive&lt;/th&gt;&lt;th&gt;Passive&lt;/th&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;th&gt;People-focused&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Blowfish, Dolphin&lt;/td&gt;&lt;td&gt;Sea Otter, Flounder&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;th&gt;Task-focused&lt;/th&gt;&lt;td&gt;Jellyfish, Shark&lt;/td&gt;&lt;td&gt;Sea Lion&lt;/td&gt;&lt;td&gt;Crab, Clam, Octopus&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;p&gt;I then picked one from each group,
-looked at the result,
-and added Clam back into the mix
-because I felt this type was distinct enough from Crab to merit inclusion.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This came up as part of an exercise to analyze
-how people are responding to AI mandates (both positively and negatively)
-and how to manage those responses.
-If you have seen other work that looks at this,
-or have feedback on how I&amp;rsquo;ve slimmed these categories down,
-I&amp;rsquo;d be &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;grateful for feedback&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;Talkative Blowfish&lt;/h2&gt;
-&lt;p&gt;Blowfish is a very chatty, assertive people person.
-Blowfish wants everyone to feel comfortable and positive about the process.
-They have a tendency to be overly talkative (almost compulsively)
-because they are enthusiastic, want to show off, or are well-informed and eager to use their knowledge.
-Blowfish can dominate the floor time at the expense of other group members.
-While they frequently have good ideas and strong contributions to make,
-they also ramble, monopolize the discussion, and do not give others an opportunity to express their thoughts.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Subsumes Dolphin: Blowfish rambles about the work, Dolphin diverts from it.&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;Eager Sea Otter&lt;/h2&gt;
-&lt;p&gt;The sea otter is a passive people person and wants everyone to get along.
-Sea otters are super agreeable, overly positive people
-who are optimistic, very reasonable, sincere, and supportive.
-They are people-oriented and aim to please those nearby (for instance, by always saying yes).
-They seek approval by giving approval.
-This may cause difficulty in group situations because they overcommit or are unreliable.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Subsumes Flounder: the Sea Otter is eager to please, not detached.&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;Dominating Shark&lt;/h2&gt;
-&lt;p&gt;The shark is aggressive and focused on efficiency and the task.
-They can be hostile and dominating and might try to intimidate and bully people.
-They make cutting remarks or throw temper tantrums when they do not get their own way.
-Some hostile individuals will be task-focused and want to get the job done while maintaining control.
-These individuals will generally have a more focused attack
-on the failure of others to complete a specific task or take necessary actions.
-Others may explode and attack other people in a more random fashion,
-which is typically done to command attention.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Subsumes Jellyfish: the Shark&amp;rsquo;s aggression is about domination, not intellectual sport.&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;Complaining Crab&lt;/h2&gt;
-&lt;p&gt;The complainer can come in many forms: whiner, critic, or obstructionist.
-Crabs are passive and task-focused, and they want to get it done.
-Despite the negative connotation, this person is often motivated by perfection.
-Negative, complaining people may seem to object to everything,
-asserting that ideas proposed will not work or are impossible.
-The complainer may completely deflate any optimism others express for a project
-and may block others from accomplishing goals.
-Crabs gripe and do little to improve the situation,
-either because they feel powerless
-or because they refuse to bear the responsibility for an imperfect solution.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Subsumes Octopus: the Crab complains outward rather than freezing inward.&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;Arrogant Sea Lion&lt;/h2&gt;
-&lt;p&gt;Sea lions are assertive and need the group to accept their expertise,
-and they can become know-it-alls when questioned.
-They believe that they have more credibility than has been acknowledged
-and want everyone to understand and agree with them.
-The sea lion knows a lot about the topic but does not contribute in a way that sits well with other participants,
-sometimes using their credentials, age, length of service, or residency to disparage an idea.
-With cockiness and an inflated ego,
-the sea lion can be condescending, imposing, pompous, or arrogant toward others.
-In all likelihood, this behavior will make others feel as though there is no point in contributing.&lt;/p&gt;
-&lt;h2&gt;Shy Clam&lt;/h2&gt;
-&lt;p&gt;The clam is shy and quiet, passive, and task-focused.
-Clam wants to get it right.
-Shy individuals may be reluctant or afraid to express their ideas in a group setting,
-so they may appear to be unresponsive.&lt;/p&gt;</content>
  </entry>
  
 </feed>

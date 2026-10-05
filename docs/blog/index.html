@@ -132,6 +132,118 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/10/05/frml-intro/">
+      Introducing Frml
+    </a>
+  </h3>
+  <p><time datetime="2026-10-05" class="post-date">2026-10-05</time></p>
+  <p>A few months ago I set out to learn how program verification works.
+I tried <a href="https://lean-lang.org/">Lean</a> and <a href="https://dafny.org/">Dafny</a>,
+but kept wondering how verification actually worked.
+To find out,
+DeepSeek and I built <a href="https://github.io/gvwilson/frml">Frml</a>,
+which is a very simple imperative language with its own verifier.</p>
+<p>This post walks through the Frml verification engine, explaining how a Frml
+program becomes Boolean logic that the <a href="https://github.com/Z3Prover/z3">Z3</a> solver can check, and what Z3 does
+with that logic.
+The language and its verifier are layered: the <code>scalar</code> level
+handles straight-line and branching code with no functions or loops,
+while successive levels add features one by one.</p>
+<p>Frml is aimed at experienced programmers: you should understand basic
+Boolean logic (<code>and</code>, <code>or</code>, <code>not</code>, implication) and already know what a lexer,
+parser, and abstract syntax tree (AST) are, but you need no prior background in
+formal verification.</p>
+<h2>The big picture</h2>
+<p>Frml&rsquo;s lexer and parser turn program text into an AST, and the typechecker rejects
+programs with type errors. The prover then turns the AST into <em>verification
+conditions</em> of the form:</p>
+<div class="highlight"><pre><span></span><code>hypotheses =&gt; goal
+</code></pre></div>
+<p>The prover asks Z3 to confirm every verification condition, and if Z3 confirms
+all of them, the program is verified.</p>
+<p>OK, so what&rsquo;s a verifier?
+To start,
+a <em>proof obligation</em> is a claim:</p>
+<div class="highlight"><pre><span></span><code>from these hypotheses, this goal always follows
+</code></pre></div>
+<p>Symbolically:</p>
+<div class="highlight"><pre><span></span><code>h1 and h2 and ... and hn  =&gt;  goal
+</code></pre></div>
+<p>The <code>h1 ... hn</code> are facts known at some point in the program, and <code>goal</code> is a
+fact that must hold at that point. Example claims from a real program are
+&ldquo;knowing <code>x &gt;= 0</code>, prove <code>0 &lt;= x</code>&rdquo;, &ldquo;knowing <code>i &lt; n</code>, prove <code>i + 1 &lt;= n</code>&rdquo;, and
+&ldquo;knowing nothing, prove <code>x &gt; x</code>&rdquo;, where the last one is false. The prover&rsquo;s job
+is to produce claims in this shape.</p>
+<h2>What Z3 is and what it does</h2>
+<p>Z3 is an <em>SMT solver</em>, where SMT means Satisfiability Modulo Theories. It knows
+the theory of integers, arrays, strings, and Boolean logic. A formula is
+<em>satisfiable</em> when some assignment of values to its variables makes it true.
+Given a formula, Z3 returns one of three answers: <code>sat</code>, meaning a satisfying
+assignment exists and Z3 can show you one; <code>unsat</code>, meaning no satisfying
+assignment exists; or <code>unknown</code>, meaning Z3 gave up or timed out. An example
+that can be satisfied:</p>
+<div class="highlight"><pre><span></span><code>formula:  x &gt; 3 and x &lt; 5
+answer:   sat          (x = 4 works)
+</code></pre></div>
+<p>An example that cannot:</p>
+<div class="highlight"><pre><span></span><code>formula:  x &gt; 3 and x &lt; 4
+answer:   unsat        (no integer fits)
+</code></pre></div>
+<h2>From &ldquo;is it valid?&rdquo; to &ldquo;is it unsatisfiable?&rdquo;</h2>
+<p>The prover wants to prove that <code>hypotheses =&gt; goal</code> is <em>valid</em>, meaning true
+for every possible assignment of the variables. Z3 does not directly check
+validity; it checks <em>satisfiability</em>. The two are connected, because <code>A =&gt; B</code>
+is valid exactly when <code>not (A =&gt; B)</code> is unsatisfiable. So the prover asks Z3
+about:</p>
+<div class="highlight"><pre><span></span><code>not (hypotheses =&gt; goal)
+</code></pre></div>
+<p>If Z3 says <code>unsat</code>, then no counterexample exists, so the goal is proved. If Z3
+says <code>sat</code>, it found a counterexample, so the goal is false. If Z3 says
+<code>unknown</code>, the proof is inconclusive. That is the entire proof mechanism, and
+everything else is just building the hypotheses and goals, for a rather large
+value of &ldquo;just&rdquo;.</p>
+<h2>Z3 in Python</h2>
+<p>The <a href="https://third-bit.com/sdxpy/pack/">package manager lesson</a> in <a href="https://third-bit.com/sdxpy/"><em>Software Design by Example</em></a>
+used Z3 to find compatible versions of packages.
+Here&rsquo;s a simple example of its use:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">z3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Solver</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><code>A</code>, <code>B</code>, and <code>C</code> do not have specific values. Each instead represents the set
+of possible Boolean values, so we can specify constraints like <code>A == B</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">report</span><span class="p">(</span><span class="s2">&quot;A == B &amp; B == C&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+</code></pre></div>
+<p>We can then ask Z3 to find a <em>model</em> that satisfies those constraints:</p>
+<div class="highlight"><pre><span></span><code>A == B &amp; B == C: sat
+A False
+B False
+C False
+</code></pre></div>
+<p>To see unsatisfiability, require <code>A</code> to equal <code>B</code> and <code>B</code> to equal <code>C</code> but <code>A</code>
+and <code>C</code> to be unequal:</p>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">!=</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">report</span><span class="p">(</span><span class="s2">&quot;A == B &amp; B == C &amp; B != C&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>A == B &amp; B == C &amp; B != C: unsat
+</code></pre></div>
+<p>The next post in this series will show how Frml builds proof obligations
+for simple programs that manipulate scalar variables without loops or conditionals.</p>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/10/02/heroes-and-villains/">
       Heroes and Villains
     </a>
@@ -656,27 +768,6 @@ but I hope you&rsquo;ll find it informative, entertaining, and inspiring.
 If you do,
 or if you have suggestions for improving it,
 I&rsquo;d enjoy hearing from you.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/08/31/acm-certificate/">
-      ACM Certificate
-    </a>
-  </h3>
-  <p><time datetime="2026-08-31" class="post-date">2026-08-31</time></p>
-  <p>This arrived out of the blue in today&rsquo;s mail:</p>
-<div class="center">
-  <img src="../files/2026/acm-certificate.jpg" alt="photograph of ACM SIGSOFT certificate" width="80%">
-</div>
-
-<p>As I wrote <a href="../2020/07/09/acm-sigsoft-award/">when I received the original award</a>,
-I am very honored,
-but wish I&rsquo;d had more impact on how software engineering is taught
-and how software engineering researchers interact with practitioners.
-Having just finished packing my daughter&rsquo;s belongings into a truck
-so that she can move back to university,
-I&rsquo;m going to spend the evening thinking about roads not taken…</p>
 </article>
 
 
