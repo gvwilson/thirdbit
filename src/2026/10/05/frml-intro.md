@@ -150,7 +150,7 @@ The next post in this series will show how Frml builds proof obligations
 for simple programs that manipulate scalar variables without loops or conditionals.
 
 [dafny]: https://dafny.org/
-[frml]: https://github.io/gvwilson/frml
+[frml]: https://gvwilson.github.io/frml
 [lean]: https://lean-lang.org/
 [sdxpy]: https://third-bit.com/sdxpy/
 [sdxpy-pack]: https://third-bit.com/sdxpy/pack/

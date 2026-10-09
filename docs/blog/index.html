@@ -132,6 +132,394 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/10/09/anniversary/">
+      Anniversary Thoughts
+    </a>
+  </h3>
+  <p><time datetime="2026-10-09" class="post-date">2026-10-09</time></p>
+  <p>Coming up on the anniversary of being laid off,
+I&rsquo;m thinking about what I&rsquo;d like to do differently in year 2:</p>
+<ol>
+<li>
+<p>Find people in the east end of Toronto who want to play some jazz once a week.
+    I&rsquo;m currently commuting to the west end to do that:
+    I enjoy playing, but the travel time is wearying.
+    If you&rsquo;re interested, I&rsquo;m <a href="mailto:gvwilson@third-bit.com">easy to reach</a>.</p>
+</li>
+<li>
+<p>Find a small F&amp;SF writers&rsquo; group, also in the east end, to swap crits with.
+    I&rsquo;m currently getting great feedback from a friend,
+    but would like more perspectives and an excuse to drink coffee.
+    (Scribophile has been moderately useful,
+    Wattpad hardly at all.)
+    Again,
+    if you&rsquo;re interested, please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
+</li>
+<li>
+<p>Go on long bike rides.
+    A friend has been going on 50km+ rides this year;
+    it&rsquo;ll take me a long time (and probably a new bike) to get up to that,
+    but it&rsquo;s a shame not to be out on sunny days like today.</p>
+</li>
+<li>
+<p>Teach something that I&rsquo;m interested in learning myself.
+    I built a <a href="https://gvwilson.github.io/asimpy">discrete event simulation framework</a> last winter,
+    and a <a href="https://gvwilson.github.io/frml">little formal verifier</a> this summer,
+    with an eye to building lessons on top of them,
+    but no-one seemed interested.
+    The <a href="https://third-bit.com/change/">organizational change</a> and <a href="https://third-bit.com/closure/">project closure</a> workshops
+    have had a bit more traction,
+    but aren&rsquo;t about programming,
+    and <a href="https://third-bit.com/sdgc/">SDGC</a> is stalled.</p>
+</li>
+<li>
+<p>I started working on <a href="https://catmaid.readthedocs.io/">CATMAID</a> a few weeks ago;
+    between teaching and other commitments I haven&rsquo;t been able to immerse myself yet,
+    but I&rsquo;m hoping to do that in November.
+    On the upside,
+    fixing bugs in software that scientists use is pretty rewarding.
+    On the other hand,
+    it&rsquo;s all remote work,
+    and I miss being able to grab a cup of coffee with colleagues in person.</p>
+</li>
+<li>
+<p>Over (almost) 12 months I sent more than 60 job applications,
+    which led to four interviews and three offers
+    (one of which I now wish I&rsquo;d taken).
+    I don&rsquo;t think I&rsquo;m going to send CVs to people I don&rsquo;t know any more,
+    but if something interesting comes up in Toronto,
+    see the note above about coffee with colleagues.</p>
+</li>
+<li>
+<p>I&rsquo;m using Jon Udell&rsquo;s <a href="https://github.com/judell/bram">Bram</a> to experiment with AI coding,
+    mostly so that I won&rsquo;t just be recycling other people&rsquo;s talking points
+    in discussions about the subject.
+    I expect I&rsquo;ll keep doing this,
+    and hope to start contributing to the tool itself.</p>
+</li>
+<li>
+<p>I&rsquo;ve nominated myself for a seat on the <a href="https://carpentries.org/">Carpentries</a> board.
+    I dithered about this for a long time,
+    but in the end decided that I&rsquo;d regret <em>not</em> doing it.
+    Let&rsquo;s see how the voting goes…</p>
+</li>
+<li>
+<p>I&rsquo;d like to run some <a href="../2026/09/25/student-projects/">undergraduate projects</a> next semester.
+    I have students lined up for one of the games,
+    but am still looking for people for the others.
+    As always, please <a href="mailto:gvwilson@third-bit.com">reach out</a> if you&rsquo;re interested
+    (or if you have students who might be).</p>
+</li>
+<li>
+<p>Most of all,
+    I&rsquo;d like to be happier in the coming year than I have been in the one gone past.
+    Losing my job just a few weeks after my daughter left home for university
+    put me in a tailspin.
+    I&rsquo;ve <a href="../2011/02/09/lets-talk/">dealt with depression</a> off and on for years;
+    the last twelve months weren&rsquo;t as bad as some dips,
+    but the trough has lasted longer.
+    Let&rsquo;s see what the next year brings.</p>
+</li>
+</ol>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
+    <a href="../2026/10/08/frml-scalar/">
+      Scalar Code in Frml
+    </a>
+  </h3>
+  <p><time datetime="2026-10-08" class="post-date">2026-10-08</time></p>
+  <p>The <a href="../2026/10/05/frml-intro/">first post</a> in this series introduced <a href="https://gvwilson.github.io/frml">Frml</a>,
+a little procedural language I created
+so that I could learn how program verification works.
+This post explains how Frml checks <code>scalar</code>-level programs
+that have straight-line and branching code over scalar values
+with no function calls, contracts, loops, or quantifiers.</p>
+<h2>The Prover&rsquo;s Data Model</h2>
+<p>The prover tracks a program point with a <code>State</code> object.
+<code>State.vars</code> holds the symbolic values of scalar variables,
+and <code>State.path</code> holds every fact assumed to hold so far.
+The prover never stores concrete numbers in variables;
+it stores <a href="https://github.com/Z3Prover/z3">Z3</a> formulas about numbers.
+For example,
+<code>x</code> might hold the symbolic integer <code>x!1</code> rather than the number 5,
+where <code>x!1</code> means &ldquo;the first fresh symbol named <code>x</code>&rdquo;.</p>
+<p>An <code>Obligation</code> records one claim to prove.
+Its <code>kind</code> can be <code>assert</code> or <code>division</code> at this level,
+its <code>description</code> is the human readable text of the claim,
+<code>hyp</code> is the list of hypothesis terms,
+<code>goal</code> is the goal term,
+and <code>pos</code> is the source position of the claim
+(shown in <code>--trace</code> output).</p>
+<h2>Fresh Names</h2>
+<p>The prover keeps a counter and calls <code>_fresh(name)</code>
+to get <code>name!N</code> with an increasing <code>N</code>,
+so <code>x!1</code>, <code>x!2</code>, and <code>x!3</code> are different symbols
+even though they all relate to the source variable <code>x</code>.
+This matters because when <code>x</code> is reassigned,
+the old <code>x!1</code> is not overwritten;
+the new value becomes a new symbol such as <code>x!5</code>,
+which keeps the symbolic execution correct.
+For example, after the statement:</p>
+<div class="highlight"><pre><span></span><code>x = x + 1;
+</code></pre></div>
+<p>the state maps <code>x</code> to the term <code>x!1 + 1</code>, not to a number.</p>
+<h2>Operation</h2>
+<p>The prover works in two phases:
+it generates obligations by walking the AST and collecting <code>Obligation</code> objects,
+then checks them by handing each obligation to Z3 and turning the answers into outcomes.
+<code>verify()</code> is the generation phase for the whole program:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obligations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_fn</span> <span class="o">=</span> <span class="n">fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verify_function</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ProverResult</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obligations</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">obligations</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+<p><code>verify</code> verifies one function at a time in source order;
+<code>self.obligations</code> is reset per function so obligations stay grouped by function.
+<code>verify_function()</code> handles one function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
+
+    <span class="c1"># Entry state: fresh constants for the parameters.</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">fn</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fresh_scalar</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="c1"># Snapshot for `old(...)` (unused at this level; higher levels read it).</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">old_vars</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_assume_spec</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+
+    <span class="c1"># Run the body.  Surviving states reached the end without `return`; for</span>
+    <span class="c1"># a value-returning function that is an error.</span>
+    <span class="n">end_states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt_seq</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fn</span><span class="o">.</span><span class="n">return_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">end_states</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">FrmlVerificationError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;function </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> has a path that does not return&quot;</span><span class="p">,</span> <span class="n">fn</span><span class="o">.</span><span class="n">pos</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">end_states</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_ensures</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p><code>_assume_spec</code> and <code>_check_ensures</code> do nothing at this language level
+because there are no <code>requires</code>, <code>ensures</code>, or <code>decreases</code> clauses,
+so the entry path is empty and the body&rsquo;s fall-through is simply checked.
+<code>exec_stmt_seq</code> returns the states of paths that fell off the end of the body.
+A <code>return</code> produces no end state (see below),
+so if a value-returning function has any end state,
+some path never returned,
+which is an error.</p>
+<h2>Statements</h2>
+<p>Statements are handled by three related methods:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">exec_stmt_seq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmts</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">state</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">stmt</span> <span class="ow">in</span> <span class="n">stmts</span><span class="p">:</span>
+        <span class="n">new_states</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+            <span class="n">new_states</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+        <span class="n">states</span> <span class="o">=</span> <span class="n">new_states</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">states</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">states</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exec_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmts</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">before_vars</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">)</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt_seq</span><span class="p">(</span><span class="n">stmts</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">vars</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">before_vars</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">s</span><span class="o">.</span><span class="n">vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">states</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exec_stmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">stmt</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</code></pre></div>
+<p>In <code>exec_stmt_seq</code>, <code>states</code> is the set of live paths,
+starting with the single entry state,
+and each statement maps every live state to zero or more successor states (see below).
+<code>exec_stmt</code> calls <code>stmt.accept(self, state)</code>,
+which dispatches to <code>visit_StmtAssign</code>, <code>visit_StmtIf</code>, <code>visit_StmtLet</code>, and so on.
+The &ldquo;zero or more&rdquo; matters because of <code>return</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_StmtReturn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_rhs</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_ensures</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_fn</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[]</span>
+</code></pre></div>
+<p>A <code>return</code> returns the empty list.
+<code>new_states.extend([])</code> adds nothing,
+so that path is dropped from <code>states</code>;
+execution stops there, exactly as it does at run time.
+This is also what makes the <code>verify_function</code> fall-through check work,
+since only paths that reach the end of the body survive in <code>end_states</code>.</p>
+<p><code>exec_block</code> is <code>exec_stmt_seq</code> plus scoping.
+After a nested block (i.e., an <code>if</code> body) runs,
+any variables introduced inside it are deleted from the resulting states,
+so local declarations do not leak outward.</p>
+<h2>Expressions</h2>
+<p>Expressions use the same visitor pattern as statements:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">eval_expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">use_old</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">result_term</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">expr</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">use_old</span><span class="o">=</span><span class="n">use_old</span><span class="p">,</span> <span class="n">result_term</span><span class="o">=</span><span class="n">result_term</span><span class="p">)</span>
+</code></pre></div>
+<p><code>expr.accept(...)</code> calls <code>visit_ExprBinary</code>, <code>visit_ExprVar</code>, and so on.
+Each visitor returns a Z3 term.
+<code>eval_expr</code> never actually computes anything;
+as noted above,
+it translates a Frml expression into the Z3 formula that describes it
+using the current symbolic state.</p>
+<h2>A Complete Trace</h2>
+<p>Let&rsquo;s trace a complete verification:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let x: Int = 3;
+  assert x &gt; 0;
+  return 0;
+}
+</code></pre></div>
+<ol>
+<li><code>verify_program</code> builds the <code>ScalarProver</code> and calls <code>verify()</code>.</li>
+<li><code>verify()</code> sets <code>current_fn = main</code> and calls <code>verify_function(main)</code>.</li>
+<li><code>verify_function</code> builds the entry state: <code>state.vars</code> is empty (no
+    parameters), and the path is empty.</li>
+<li><code>exec_stmt_seq([let, assert, return], state)</code> starts with <code>states = [state]</code>.</li>
+<li><code>let x: Int = 3;</code> evaluates the literal <code>3</code> and stores it in
+    <code>state.vars["x"]</code> as the Z3 integer <code>3</code> (not a fresh symbol).</li>
+<li>At <code>assert x &gt; 0;</code>, the prover evaluates the assertion expression:<ul>
+<li><code>x</code> looks up the stored term <code>3</code>.</li>
+<li><code>&gt;</code> builds the Z3 term <code>3 &gt; 0</code>.</li>
+</ul>
+</li>
+<li>The prover emits one obligation:<ul>
+<li>kind: <code>assert</code></li>
+<li>description: <code>assert (x &gt; 0)</code></li>
+<li>hypotheses: the current path (empty here)</li>
+<li>goal: <code>3 &gt; 0</code></li>
+</ul>
+</li>
+<li><code>return 0</code> drops the path, so <code>end_states</code> is empty and no error is raised.</li>
+<li><code>verify()</code> records <code>ProverResult("main", [the one obligation])</code>.</li>
+<li><code>verify_program</code> hands the obligation to <code>check_obligations</code>, which builds
+    the claim <code>not (True =&gt; 3 &gt; 0)</code> and asks Z3 to satisfy it (see &ldquo;The Z3 check
+    loop&rdquo; below).</li>
+<li>Z3 finds no assignment that makes <code>not (3 &gt; 0)</code> true, so it returns <code>unsat</code>,
+    and the obligation is <code>VERIFIED</code>.</li>
+</ol>
+<p><code>uv run frml check --trace examples/scalar/ex01_assign_then_assert.frml</code> prints:</p>
+<div class="highlight"><pre><span></span><code>fn main
+--- assert:4:3: assert (x &gt; 0)
+    prove: (&gt; 3 0)
+    =&gt; VERIFIED
+VERIFIED
+</code></pre></div>
+<h2>Translating expressions to Z3</h2>
+<p><code>eval_expr</code> maps each Frml expression node to a Z3 term.</p>
+<ul>
+<li>Literals:
+    <code>42</code> becomes <code>z3.IntVal(42)</code>,
+    <code>true</code> becomes <code>z3.BoolVal(True)</code>,
+    and <code>"hi"</code> becomes <code>z3.StringVal("hi")</code>.</li>
+<li>Variables:
+    the variable <code>x</code> becomes the term currently stored in <code>state.vars["x"]</code>.</li>
+<li>Operators:
+    <code>a and b</code> becomes <code>z3.And(a, b)</code> and so on for other unary and binary operators.</li>
+</ul>
+<p>Division by zero is undefined,
+the verifier turns it into another proof obligation.
+n the prover evaluates <code>a / b</code> or <code>a % b</code>, it first emits:</p>
+<div class="highlight"><pre><span></span><code>hypotheses:  current path
+goal:        b != 0
+</code></pre></div>
+<p>and then returns the Z3 division or modulo term. For example:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let x: Int = 10;
+  let y: Int = 2;
+  if y != 0 {
+    assert x / y == 5;
+  }
+  return 0;
+}
+</code></pre></div>
+<p>The <code>if y != 0</code> guard puts <code>y != 0</code> on the path before the division. The
+division emits <code>y != 0</code>, which the path already contains, so Z3 proves it
+immediately.</p>
+<h2>Branching</h2>
+<p>A conditional statement forks the symbolic execution.
+The condition is evaluated once,
+then the <code>then</code> branch continues with the condition added to the path,
+while the <code>else</code> branch continues with <code>not condition</code> added to the path.
+(If there is no <code>else</code>, the fall-through branch still gets <code>not condition</code>.)</p>
+<p>The prover tracks a <em>list</em> of states, one per path through the code.
+Here is the code that does the forking:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_StmtIf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">cond</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_rhs</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">cond</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="n">then_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">then_state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cond</span><span class="p">)</span>
+    <span class="n">then_ends</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_block</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">then</span><span class="p">,</span> <span class="n">then_state</span><span class="p">)</span>
+    <span class="n">ends</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">then_ends</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">stmt</span><span class="o">.</span><span class="n">else_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">else_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">else_state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">cond</span><span class="p">))</span>
+        <span class="n">ends</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exec_block</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">else_</span><span class="p">,</span> <span class="n">else_state</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">else_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">else_state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">cond</span><span class="p">))</span>
+        <span class="n">ends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">else_state</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ends</span>
+</code></pre></div>
+<h2><code>assert</code></h2>
+<p>An <code>assert</code> statement produces a goal from the current path:</p>
+<div class="highlight"><pre><span></span><code>assert 1 &lt; 2;
+</code></pre></div>
+<p>The prover evaluates the condition, emits an obligation with the current path
+as hypotheses and the condition as goal, and if Z3 proves it, execution
+continues with the fact now guaranteed.</p>
+<blockquote>
+<p>The prover does not add the assertion to the path after checking
+because <code>assert</code> is a check, not an assumption.
+The programmer asserts what should already be true,
+so the verifier must prove it from what came before.</p>
+</blockquote>
+<h2>The Z3 Check Loop</h2>
+<p><code>check_obligations</code> is where Z3 is actually called:</p>
+<div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">z3</span><span class="o">.</span><span class="n">Solver</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout_ms</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ob</span> <span class="ow">in</span> <span class="n">obligations</span><span class="p">:</span>
+    <span class="n">solver</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+    <span class="n">hyp</span> <span class="o">=</span> <span class="n">z3</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="o">*</span><span class="n">ob</span><span class="o">.</span><span class="n">hyp</span><span class="p">)</span> <span class="k">if</span> <span class="n">ob</span><span class="o">.</span><span class="n">hyp</span> <span class="k">else</span> <span class="n">z3</span><span class="o">.</span><span class="n">BoolVal</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Implies</span><span class="p">(</span><span class="n">hyp</span><span class="p">,</span> <span class="n">ob</span><span class="o">.</span><span class="n">goal</span><span class="p">)))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="n">z3</span><span class="o">.</span><span class="n">unsat</span><span class="p">:</span>
+        <span class="o">-&gt;</span> <span class="n">VERIFIED</span>
+    <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="n">z3</span><span class="o">.</span><span class="n">sat</span><span class="p">:</span>
+        <span class="o">-&gt;</span> <span class="n">FAILED</span> <span class="k">with</span> <span class="n">the</span> <span class="n">counterexample</span> <span class="n">model</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="o">-&gt;</span> <span class="n">UNKNOWN</span>
+
+    <span class="n">solver</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</code></pre></div>
+<p>Each obligation gets a fresh solver context via <code>push</code> and <code>pop</code>.
+The empty hypothesis list becomes <code>True</code>.
+With no hypotheses, the claim is <code>goal</code> alone, i.e. <code>True =&gt; goal</code>.
+The code writes <code>z3.BoolVal(True)</code> so <code>z3.And(*ob.hyp)</code> always has a value,
+because Z3&rsquo;s <code>And()</code> is not defined over an empty argument list.
+Z3 is asked to satisfy <code>not (hyp =&gt; goal)</code>.
+<code>unsat</code> means the claim holds,
+<code>sat</code> means a counterexample exists,
+and anything else is <code>unknown</code>.</p>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/10/05/frml-intro/">
       Introducing Frml
     </a>
@@ -141,7 +529,7 @@
 I tried <a href="https://lean-lang.org/">Lean</a> and <a href="https://dafny.org/">Dafny</a>,
 but kept wondering how verification actually worked.
 To find out,
-DeepSeek and I built <a href="https://github.io/gvwilson/frml">Frml</a>,
+DeepSeek and I built <a href="https://gvwilson.github.io/frml">Frml</a>,
 which is a very simple imperative language with its own verifier.</p>
 <p>This post walks through the Frml verification engine, explaining how a Frml
 program becomes Boolean logic that the <a href="https://github.com/Z3Prover/z3">Z3</a> solver can check, and what Z3 does
@@ -612,162 +1000,6 @@ and the rest will come out between now and September 26.
 If you enjoy it,
 I&rsquo;d be grateful if you would share it with friends (particularly young ones).
 I&rsquo;m also always grateful for <a href="mailto:gvwilson@third-bit.com">feedback</a>.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/09/08/looking-for-work/">
-      Looking for Work
-    </a>
-  </h3>
-  <p><time datetime="2026-09-08" class="post-date">2026-09-08</time></p>
-  <p>A friend and I found out last week that our proposal for some government work wasn&rsquo;t accepted,
-so I am once again looking for work.
-I&rsquo;m open to both part-time and full-time positions, or long-term contracts,
-either in downtown Toronto or remote.
-My last few jobs have included managing software teams,
-education &amp; training,
-community management,
-and programming (mostly Python and SQL).
-I&rsquo;d like to help make the world a better place;
-if you&rsquo;d like to chat, my details are <a href="https://third-bit.com/about/">https://third-bit.com/about/</a>,
-and you can <a href="mailto:gvwilson@third-bit.com">reach me by email</a>.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/09/08/sdgc-reboot-intro/">
-      Rebooting SDGC: Introduction
-    </a>
-  </h3>
-  <p><time datetime="2026-09-08" class="post-date">2026-09-08</time></p>
-  <blockquote>
-<p>While I&rsquo;m <a href="../2026/09/08/looking-for-work/">looking for work</a>,
-I&rsquo;m going to try writing <a href="../sdgc/">this series of essays</a>.
-Feedback is always appreciated.</p>
-</blockquote>
-<p>My best friend died of cancer in 2018 at the age of 52.
-His death led to <a href="../sdgc/">these essays</a> in two ways:</p>
-<ol>
-<li>
-<p>The particular kind of cancer he had was mesothelioma,
-    which was almost certainly caused by exposure to asbestos when he was in his teens.
-    Asbestos was widely used in construction for decades:
-    it was cheap, easy to work with, a good insulator, and an excellent fire retardant.
-    It took many years to recognize that it was also killing people,
-    and many more years before victims got compensation,
-    but it is now banned or tightly regulated in most countries.</p>
-</li>
-<li>
-<p>My friend wasn&rsquo;t actually killed by his cancer—he was killed by
-    a lethal injection administered by a doctor with his consent
-    after many long discussions with his family.
-    Doctors have probably been helping people end their lives with dignity
-    for as long as there have been doctors,
-    but the practice was illegal and the subject was taboo until quite recently.
-    It is still controversial and tightly regulated,
-    but I think we are all better off now that the conversation is happening in public.</p>
-</li>
-</ol>
-<p>Today, eight years later,
-some of the worst people in the world are using social media and AI
-in ways that undermine democracy and our mental health.
-I think the best way to think about these technologies
-and how we should manage them
-is in terms of cognitive pollution.
-I&rsquo;m allowed to own and use chemicals like turpentine and acetone,
-but if I dump them in a stream or put them in your dinner,
-I expect to be fined or jailed for damaging your physical health.
-Similarly,
-if my recommendation algorithm amplifies your eating disorder,
-or my chatbot teaches you that &ldquo;no&rdquo; actually means &ldquo;make me&rdquo;,
-I should be held liable for harming your mental health.</p>
-<p>This is a simple argument,
-but also a dangerous one.
-A lot of people think that talking about gay or transgender rights is harmful to children.
-I think they&rsquo;re wrong,
-but what gives me the right to draw the line?
-And just as no single cigarette causes lung cancer,
-no single meme radicalizes someone,
-so how do we decide who is liable for what?
-Finally,
-even if we agree,
-how do we get society to change?</p>
-<p>I started thinking about these questions in 2017.
-The UK had begun its long, slow stumble out of Europe,
-Donald Trump had been inaugurated as president,
-and the government of Myanmar was using Facebook to incite genocide.
-Somehow,
-the Internet had gone from being a way to bring people closer together
-to being a slow social poison—or rather,
-we had finally realized that it was both at once,
-and didn&rsquo;t know what to do about it.</p>
-<p>These essays have taken almost a decade to put together for two reasons.
-The first is that life happens:
-between COVID,
-other projects,
-and being laid off a couple of times,
-I never ~found~ made time to focus on it.
-The more important reason is impostor syndrome.
-Some of the people I will cite have spent decades thinking about these issues,
-only to reach the conclusion that, &ldquo;It&rsquo;s complicated&rdquo;.
-I&rsquo;m just a tourist,
-and an impatient one at that:
-I skim rather than reading deeply,
-and prefer simple explanations to accurate ones.</p>
-<p>After years of searching,
-though,
-I haven&rsquo;t found anything that talks about these issues
-in a way that will appeal to young programmers
-who haven&rsquo;t ever taken a course on politics or sociology
-but don&rsquo;t like being made to feel ignorant.
-I don&rsquo;t understand everything I&rsquo;ve read,
-but I think I understand <em>you</em>.
-I want you to understand the world so that you can make it better,
-because that&rsquo;s the greatest adventure of all time.</p>
-<p>In the year I was born most of the world&rsquo;s people suffered under totalitarian rule,
-judges could and did order electroshock therapy to &ldquo;cure&rdquo; homosexuals,
-people could legally be denied jobs because of their skin color,
-and women couldn&rsquo;t open bank accounts without their husband&rsquo;s permission.
-Yes,
-a lot of things are bad and getting worse,
-but look at how far we&rsquo;ve come.
-Look at how many more choices you have than your grandparents did.
-Look at how many more things you can know,
-and be,
-and enjoy.
-And most importantly,
-look at how many other people can too.</p>
-<p>That didn&rsquo;t happen by chance.
-Every time you buy one brand of t-shirt rather than another
-or take a minutes to vote
-you are choosing one future over another.
-Every time you help someone do something they couldn&rsquo;t do before,
-you are giving them more more control over their own life.
-The world doesn&rsquo;t get better on its own.
-It gets better because we <em>make</em> it better:
-penny by penny,
-vote by vote,
-and one lesson at a time.</p>
-<p>The climate crisis, mass extinction, surveillance capitalism,
-inequality on a scale we haven&rsquo;t seen in a century,
-the re-emergence of racist nationalism:
-my generation could have prevented them,
-but decided that quarterly earnings were more important.
-The bills for our cowardice, lethargy, and greed are now coming due;
-as they do,
-we have left you no easy solutions to these problems.</p>
-<p>That doesn&rsquo;t mean there are no solutions at all, though.
-The essays that follow will explore a few things I wish I had known earlier:
-where power comes from,
-how it is used,
-how its use is hidden,
-and how people have held the powerful accountable and made the world a fairer place.
-I&rsquo;m not going to try to be comprehensive or even-handed,
-but I hope you&rsquo;ll find it informative, entertaining, and inspiring.
-If you do,
-or if you have suggestions for improving it,
-I&rsquo;d enjoy hearing from you.</p>
 </article>
 
 

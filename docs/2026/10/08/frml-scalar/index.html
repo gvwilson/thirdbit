@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Scalar Code in Frml</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Scalar Code in Frml</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/10/05/frml-intro/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-10-08" class="post-date">2026-10-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2026/10/09/anniversary/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The <a href="../../../../2026/10/05/frml-intro/">first post</a> in this series introduced <a href="https://gvwilson.github.io/frml">Frml</a>,
+a little procedural language I created
+so that I could learn how program verification works.
+This post explains how Frml checks <code>scalar</code>-level programs
+that have straight-line and branching code over scalar values
+with no function calls, contracts, loops, or quantifiers.</p>
+<h2>The Prover&rsquo;s Data Model</h2>
+<p>The prover tracks a program point with a <code>State</code> object.
+<code>State.vars</code> holds the symbolic values of scalar variables,
+and <code>State.path</code> holds every fact assumed to hold so far.
+The prover never stores concrete numbers in variables;
+it stores <a href="https://github.com/Z3Prover/z3">Z3</a> formulas about numbers.
+For example,
+<code>x</code> might hold the symbolic integer <code>x!1</code> rather than the number 5,
+where <code>x!1</code> means &ldquo;the first fresh symbol named <code>x</code>&rdquo;.</p>
+<p>An <code>Obligation</code> records one claim to prove.
+Its <code>kind</code> can be <code>assert</code> or <code>division</code> at this level,
+its <code>description</code> is the human readable text of the claim,
+<code>hyp</code> is the list of hypothesis terms,
+<code>goal</code> is the goal term,
+and <code>pos</code> is the source position of the claim
+(shown in <code>--trace</code> output).</p>
+<h2>Fresh Names</h2>
+<p>The prover keeps a counter and calls <code>_fresh(name)</code>
+to get <code>name!N</code> with an increasing <code>N</code>,
+so <code>x!1</code>, <code>x!2</code>, and <code>x!3</code> are different symbols
+even though they all relate to the source variable <code>x</code>.
+This matters because when <code>x</code> is reassigned,
+the old <code>x!1</code> is not overwritten;
+the new value becomes a new symbol such as <code>x!5</code>,
+which keeps the symbolic execution correct.
+For example, after the statement:</p>
+<div class="highlight"><pre><span></span><code>x = x + 1;
+</code></pre></div>
+<p>the state maps <code>x</code> to the term <code>x!1 + 1</code>, not to a number.</p>
+<h2>Operation</h2>
+<p>The prover works in two phases:
+it generates obligations by walking the AST and collecting <code>Obligation</code> objects,
+then checks them by handing each obligation to Z3 and turning the answers into outcomes.
+<code>verify()</code> is the generation phase for the whole program:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obligations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_fn</span> <span class="o">=</span> <span class="n">fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verify_function</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ProverResult</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obligations</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">obligations</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+<p><code>verify</code> verifies one function at a time in source order;
+<code>self.obligations</code> is reset per function so obligations stay grouped by function.
+<code>verify_function()</code> handles one function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
+
+    <span class="c1"># Entry state: fresh constants for the parameters.</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">fn</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fresh_scalar</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="c1"># Snapshot for `old(...)` (unused at this level; higher levels read it).</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">old_vars</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_assume_spec</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+
+    <span class="c1"># Run the body.  Surviving states reached the end without `return`; for</span>
+    <span class="c1"># a value-returning function that is an error.</span>
+    <span class="n">end_states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt_seq</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fn</span><span class="o">.</span><span class="n">return_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">end_states</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">FrmlVerificationError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;function </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> has a path that does not return&quot;</span><span class="p">,</span> <span class="n">fn</span><span class="o">.</span><span class="n">pos</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">end_states</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_ensures</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p><code>_assume_spec</code> and <code>_check_ensures</code> do nothing at this language level
+because there are no <code>requires</code>, <code>ensures</code>, or <code>decreases</code> clauses,
+so the entry path is empty and the body&rsquo;s fall-through is simply checked.
+<code>exec_stmt_seq</code> returns the states of paths that fell off the end of the body.
+A <code>return</code> produces no end state (see below),
+so if a value-returning function has any end state,
+some path never returned,
+which is an error.</p>
+<h2>Statements</h2>
+<p>Statements are handled by three related methods:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">exec_stmt_seq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmts</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">state</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">stmt</span> <span class="ow">in</span> <span class="n">stmts</span><span class="p">:</span>
+        <span class="n">new_states</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+            <span class="n">new_states</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+        <span class="n">states</span> <span class="o">=</span> <span class="n">new_states</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">states</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">states</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exec_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmts</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">before_vars</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">)</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt_seq</span><span class="p">(</span><span class="n">stmts</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">vars</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">before_vars</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">s</span><span class="o">.</span><span class="n">vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">states</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exec_stmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">stmt</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</code></pre></div>
+<p>In <code>exec_stmt_seq</code>, <code>states</code> is the set of live paths,
+starting with the single entry state,
+and each statement maps every live state to zero or more successor states (see below).
+<code>exec_stmt</code> calls <code>stmt.accept(self, state)</code>,
+which dispatches to <code>visit_StmtAssign</code>, <code>visit_StmtIf</code>, <code>visit_StmtLet</code>, and so on.
+The &ldquo;zero or more&rdquo; matters because of <code>return</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_StmtReturn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_rhs</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_ensures</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_fn</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[]</span>
+</code></pre></div>
+<p>A <code>return</code> returns the empty list.
+<code>new_states.extend([])</code> adds nothing,
+so that path is dropped from <code>states</code>;
+execution stops there, exactly as it does at run time.
+This is also what makes the <code>verify_function</code> fall-through check work,
+since only paths that reach the end of the body survive in <code>end_states</code>.</p>
+<p><code>exec_block</code> is <code>exec_stmt_seq</code> plus scoping.
+After a nested block (i.e., an <code>if</code> body) runs,
+any variables introduced inside it are deleted from the resulting states,
+so local declarations do not leak outward.</p>
+<h2>Expressions</h2>
+<p>Expressions use the same visitor pattern as statements:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">eval_expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">use_old</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">result_term</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">expr</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">use_old</span><span class="o">=</span><span class="n">use_old</span><span class="p">,</span> <span class="n">result_term</span><span class="o">=</span><span class="n">result_term</span><span class="p">)</span>
+</code></pre></div>
+<p><code>expr.accept(...)</code> calls <code>visit_ExprBinary</code>, <code>visit_ExprVar</code>, and so on.
+Each visitor returns a Z3 term.
+<code>eval_expr</code> never actually computes anything;
+as noted above,
+it translates a Frml expression into the Z3 formula that describes it
+using the current symbolic state.</p>
+<h2>A Complete Trace</h2>
+<p>Let&rsquo;s trace a complete verification:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let x: Int = 3;
+  assert x &gt; 0;
+  return 0;
+}
+</code></pre></div>
+<ol>
+<li><code>verify_program</code> builds the <code>ScalarProver</code> and calls <code>verify()</code>.</li>
+<li><code>verify()</code> sets <code>current_fn = main</code> and calls <code>verify_function(main)</code>.</li>
+<li><code>verify_function</code> builds the entry state: <code>state.vars</code> is empty (no
+    parameters), and the path is empty.</li>
+<li><code>exec_stmt_seq([let, assert, return], state)</code> starts with <code>states = [state]</code>.</li>
+<li><code>let x: Int = 3;</code> evaluates the literal <code>3</code> and stores it in
+    <code>state.vars["x"]</code> as the Z3 integer <code>3</code> (not a fresh symbol).</li>
+<li>At <code>assert x &gt; 0;</code>, the prover evaluates the assertion expression:<ul>
+<li><code>x</code> looks up the stored term <code>3</code>.</li>
+<li><code>&gt;</code> builds the Z3 term <code>3 &gt; 0</code>.</li>
+</ul>
+</li>
+<li>The prover emits one obligation:<ul>
+<li>kind: <code>assert</code></li>
+<li>description: <code>assert (x &gt; 0)</code></li>
+<li>hypotheses: the current path (empty here)</li>
+<li>goal: <code>3 &gt; 0</code></li>
+</ul>
+</li>
+<li><code>return 0</code> drops the path, so <code>end_states</code> is empty and no error is raised.</li>
+<li><code>verify()</code> records <code>ProverResult("main", [the one obligation])</code>.</li>
+<li><code>verify_program</code> hands the obligation to <code>check_obligations</code>, which builds
+    the claim <code>not (True =&gt; 3 &gt; 0)</code> and asks Z3 to satisfy it (see &ldquo;The Z3 check
+    loop&rdquo; below).</li>
+<li>Z3 finds no assignment that makes <code>not (3 &gt; 0)</code> true, so it returns <code>unsat</code>,
+    and the obligation is <code>VERIFIED</code>.</li>
+</ol>
+<p><code>uv run frml check --trace examples/scalar/ex01_assign_then_assert.frml</code> prints:</p>
+<div class="highlight"><pre><span></span><code>fn main
+--- assert:4:3: assert (x &gt; 0)
+    prove: (&gt; 3 0)
+    =&gt; VERIFIED
+VERIFIED
+</code></pre></div>
+<h2>Translating expressions to Z3</h2>
+<p><code>eval_expr</code> maps each Frml expression node to a Z3 term.</p>
+<ul>
+<li>Literals:
+    <code>42</code> becomes <code>z3.IntVal(42)</code>,
+    <code>true</code> becomes <code>z3.BoolVal(True)</code>,
+    and <code>"hi"</code> becomes <code>z3.StringVal("hi")</code>.</li>
+<li>Variables:
+    the variable <code>x</code> becomes the term currently stored in <code>state.vars["x"]</code>.</li>
+<li>Operators:
+    <code>a and b</code> becomes <code>z3.And(a, b)</code> and so on for other unary and binary operators.</li>
+</ul>
+<p>Division by zero is undefined,
+the verifier turns it into another proof obligation.
+n the prover evaluates <code>a / b</code> or <code>a % b</code>, it first emits:</p>
+<div class="highlight"><pre><span></span><code>hypotheses:  current path
+goal:        b != 0
+</code></pre></div>
+<p>and then returns the Z3 division or modulo term. For example:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let x: Int = 10;
+  let y: Int = 2;
+  if y != 0 {
+    assert x / y == 5;
+  }
+  return 0;
+}
+</code></pre></div>
+<p>The <code>if y != 0</code> guard puts <code>y != 0</code> on the path before the division. The
+division emits <code>y != 0</code>, which the path already contains, so Z3 proves it
+immediately.</p>
+<h2>Branching</h2>
+<p>A conditional statement forks the symbolic execution.
+The condition is evaluated once,
+then the <code>then</code> branch continues with the condition added to the path,
+while the <code>else</code> branch continues with <code>not condition</code> added to the path.
+(If there is no <code>else</code>, the fall-through branch still gets <code>not condition</code>.)</p>
+<p>The prover tracks a <em>list</em> of states, one per path through the code.
+Here is the code that does the forking:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_StmtIf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">cond</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_rhs</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">cond</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="n">then_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">then_state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cond</span><span class="p">)</span>
+    <span class="n">then_ends</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_block</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">then</span><span class="p">,</span> <span class="n">then_state</span><span class="p">)</span>
+    <span class="n">ends</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">then_ends</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">stmt</span><span class="o">.</span><span class="n">else_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">else_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">else_state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">cond</span><span class="p">))</span>
+        <span class="n">ends</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exec_block</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">else_</span><span class="p">,</span> <span class="n">else_state</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">else_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">else_state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">cond</span><span class="p">))</span>
+        <span class="n">ends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">else_state</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ends</span>
+</code></pre></div>
+<h2><code>assert</code></h2>
+<p>An <code>assert</code> statement produces a goal from the current path:</p>
+<div class="highlight"><pre><span></span><code>assert 1 &lt; 2;
+</code></pre></div>
+<p>The prover evaluates the condition, emits an obligation with the current path
+as hypotheses and the condition as goal, and if Z3 proves it, execution
+continues with the fact now guaranteed.</p>
+<blockquote>
+<p>The prover does not add the assertion to the path after checking
+because <code>assert</code> is a check, not an assumption.
+The programmer asserts what should already be true,
+so the verifier must prove it from what came before.</p>
+</blockquote>
+<h2>The Z3 Check Loop</h2>
+<p><code>check_obligations</code> is where Z3 is actually called:</p>
+<div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">z3</span><span class="o">.</span><span class="n">Solver</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout_ms</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ob</span> <span class="ow">in</span> <span class="n">obligations</span><span class="p">:</span>
+    <span class="n">solver</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+    <span class="n">hyp</span> <span class="o">=</span> <span class="n">z3</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="o">*</span><span class="n">ob</span><span class="o">.</span><span class="n">hyp</span><span class="p">)</span> <span class="k">if</span> <span class="n">ob</span><span class="o">.</span><span class="n">hyp</span> <span class="k">else</span> <span class="n">z3</span><span class="o">.</span><span class="n">BoolVal</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">z3</span><span class="o">.</span><span class="n">Implies</span><span class="p">(</span><span class="n">hyp</span><span class="p">,</span> <span class="n">ob</span><span class="o">.</span><span class="n">goal</span><span class="p">)))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="n">z3</span><span class="o">.</span><span class="n">unsat</span><span class="p">:</span>
+        <span class="o">-&gt;</span> <span class="n">VERIFIED</span>
+    <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="n">z3</span><span class="o">.</span><span class="n">sat</span><span class="p">:</span>
+        <span class="o">-&gt;</span> <span class="n">FAILED</span> <span class="k">with</span> <span class="n">the</span> <span class="n">counterexample</span> <span class="n">model</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="o">-&gt;</span> <span class="n">UNKNOWN</span>
+
+    <span class="n">solver</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</code></pre></div>
+<p>Each obligation gets a fresh solver context via <code>push</code> and <code>pop</code>.
+The empty hypothesis list becomes <code>True</code>.
+With no hypotheses, the claim is <code>goal</code> alone, i.e. <code>True =&gt; goal</code>.
+The code writes <code>z3.BoolVal(True)</code> so <code>z3.And(*ob.hyp)</code> always has a value,
+because Z3&rsquo;s <code>And()</code> is not defined over an empty argument list.
+Z3 is asked to satisfy <code>not (hyp =&gt; goal)</code>.
+<code>unsat</code> means the claim holds,
+<code>sat</code> means a counterexample exists,
+and anything else is <code>unknown</code>.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/education/">education</a>, <a href="../../../../blog/software-engineering/">software-engineering</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>
