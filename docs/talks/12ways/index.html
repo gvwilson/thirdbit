@@ -19,15 +19,15 @@
     id="MathJax-script"
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
-  <title>Twelve Ways to Be Wrong About AI-Assisted Coding</title>
+  <title>How to Be Right About AI-Assisted Coding</title>
 </head>
 
   <body>
     <textarea id="source">
 
 <div class="center">
-  <h1>Twelve Ways to Be Wrong About AI-Assisted Coding</h1>
-  
+  <h1>How to Be Right About AI-Assisted Coding</h1>
+  <p><em>assessing the impact and value of AI coding tools without fooling yourself</em></p>
   <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
   <h2>Greg Wilson</h2>
   <p>2026-05-21</p>
@@ -37,217 +37,396 @@
 ---
 
 
+## What This Talk Is About
+
+-   In 2023, GitHub announced that its AI tools made developers 55% faster [Peng2023]
+
+-   That number appeared in every executive presentation for a year
+
+-   How would you know whether to believe it?
+
+-   This talk
+
+    -   How we get the answer wrong
+
+    -   How we can get it right
+
+---
+
 ## Why Should You Listen to Me?
 
--   Forty years writing and teaching software
+-   Forty years writing software and teaching programming
 
--   Spent the last few years reading research on software engineering methods
+-   The last few years reading research on how we know things about software
 
--   The question: how do we *know* AI coding tools are working?
+-   I am not going to tell you AI-assisted coding doesn't work
+
+-   I am going to tell you how to find out whether it works *for you*
+    -   Singular and plural
+
+---
+
+## The Real Question
+
+-   "Is AI helping my team?" sounds simple
+
+-   It hides three questions:
+
+    -   Helping with *what*?
+
+    -   Measured *how*?
+
+    -   Compared to *what*?
+
+-   These are not pedantic questions
+
+-   The answer you get depends entirely on how you operationalize them
+
+---
+
+## Measuring Productivity Is Genuinely Hard
+
+-   Software output is not homogeneous
+
+    -   A ten-line bugfix may be worth more than a thousand-line feature
+
+-   Much of software work is invisible
+
+    -   Developers spend only about a quarter of their day writing code [Meyer2017]
+
+-   [Sadowski2019] is an entire book devoted to "this is difficult"
+
+---
+
+## For Example
+
+-   Prechelt had 73 professional developers solve the same task [Prechelt2000]
+
+-   Completion times ranged from 0.6 to 63 hours (a 105X spread)
+
+-   Controlling for programming language: 17X
+
+-   With a careful definition of "more productive": 5X
+
+-   The answer depends on exactly what question you ask
+
+---
+
+## How We Get It Wrong
+
+-   Four recurring mistakes sit underneath the hype
+
+    -   Measuring the easy thing
+
+    -   Measuring too small
+
+    -   Comparing to nothing
+
+    -   Asking people how they feel
+
+-   Each is a way of mistaking activity for value
+
+---
+
+## Wrong #1: Measure the Easy Thing
+
+-   A *proxy metric* stands in for something harder to measure directly
+
+-   Lines of code: a 40% increase per developer measures verbosity, not value [Sadowski2019]
+
+-   Commit and PR counts: developers make more, smaller commits when commits are tracked [McKinsey2023]
+
+-   Adoption rate: measures whether the tool is installed, not whether it helps
+
+-   Acceptance rate: measures whether code looked plausible enough to press Tab [Bakal2025]
 
 --
 
--   I am not going to say AI-assisted coding doesn't work: I'm going to say *we don't know*
+-   *Goodhart's Law*: when a measure becomes a target, it ceases to be a good measure [Goodhart1984]
 
--   Because most of the "evidence" I've seen is methodologically broken
-
----
-
-## 1. Counting Lines of Code
-
--   Lines of code is a proxy metric for productivity
-
--   LLMs generate more code, not necessarily better outcomes
-
--   A 40% increase in lines per developer measures verbosity
-
--   Deleting 2000 tangled lines and replacing them with 200 clean ones
-    looks like a *loss* on this metric [Sadowski2019]
-
--   More code also means more to read, maintain, and debug
+-   Activity is not output, and output is not value
 
 ---
 
-## 2. Timing Artificial Tasks
+## Wrong #2: Measure Too Small
 
--   Copilot users completed a greenfield task 55% faster [Peng2023]
+-   Timing a 90-minute greenfield task tells you about a 90-minute greenfield task [Peng2023]
 
--   The task: implement an HTTP server in JavaScript from scratch, in 90 minutes
+-   Real work: unfamiliar codebases, ambiguous tickets, coordinating with colleagues
 
--   Real work: navigate an unfamiliar codebase, interpret ambiguous tickets,
-    coordinate with colleagues, attend meetings
+-   Individual speed is not system throughput
 
--   A randomized controlled trial with experienced open-source developers
-    found AI tools *increased* task completion time by 19% [Becker2025]
+    -   If review is the bottleneck, more code makes cycle time worse [Forsgren2021]
 
----
+--
 
-## 3. No Control Group
+-   The easy half gets measured: code generation speed
 
--   You adopt LLMs in January; pull requests ship faster by June
-
--   But you also hired twelve engineers, refactored CI, and switched cloud providers
-
--   Without a control group, you cannot separate LLM effects
-    from everything else that changed
-
--   Internal validity requires a credible counterfactual
-
----
-
-## 4. Asking Developers
-
--   "87% of developers report feeling more productive with AI tools" [Liang2024]
-
--   Hawthorne effect: people work differently when they know they're being watched
-
--   Novelty effect: new tools feel faster because they're new — and that fades
-
--   Social desirability bias: respondents say what they think management wants to hear
-
----
-
-## 5. Counting the Obvious
-
--   McKinsey proposed measuring productivity via commit and PR counts [McKinsey2023]
-
--   Goodhart's Law: when a measure becomes a target, it ceases to be a good measure [Goodhart1984]
-
--   Developers make more, smaller commits when commit count is tracked
-
--   Tickets get split when ticket count is tracked
-
--   Activity is not output; output is not value [Beck2023]
-
----
-
-## 6. Measuring Only the Easy Half
-
--   Code generation speed is easy to measure, so it gets measured
-
--   The other half: review time, debugging wrong suggestions, security debt
-
--   A substantial fraction of Copilot-generated code contained security vulnerabilities
-
--   Developers under time pressure accepted insecure suggestions at higher rates [Pearce2022]
+-   The hard half doesn't: review time, debugging confidently-wrong suggestions, security debt [Pearce2022]
 
 -   Five major LLMs evaluated in 2025: none produced web code meeting industry security standards [Dora2025]
 
--   15% of AI-authored commits introduce a quality issue; nearly a quarter persist long-term [Liu2026]
+---
+
+## Wrong #3: Compare to Nothing
+
+-   Before/after with no control group cannot separate the AI from
+    the twelve new engineers, the refactored CI, and the new cloud provider
+
+-   Comparing AI to "nothing" uses a baseline that does not exist in practice
+
+    -   Developers without LLMs use documentation, colleagues, and their own thinking
+
+-   The question is whether AI beats the alternatives developers already have
 
 ---
 
-## 7. Treating Adoption as Success
+## Wrong #4: Ask People How They Feel
 
--   "90% AI tool adoption across engineering" is a procurement outcome, not a productivity outcome
+-   "87% of developers report feeling more productive with AI tools" [Liang2024]
 
--   Adoption measures whether the tool is installed and opened
+    -   Novelty effect: new tools feel faster because they are new — and that fades
 
--   Says nothing about whether suggestions are useful, accepted thoughtlessly, or correct
+    -   Hawthorne effect: people work differently when they know they are being watched
 
--   Gains from IBM's enterprise AI assistant were not experienced uniformly across users [Weisz2025]
+    -   Social desirability bias: respondents say what they think management wants to hear
 
--   Adoption is easier to measure than benefit, which is exactly why it gets reported
+--
 
----
+-   Volunteers vs. non-volunteers:
+    *early adopters* are more motivated and more likely to be high performers
 
-## 8. Volunteers vs. Non-Volunteers
-
--   Studies comparing LLM adopters to non-adopters are comparing two different populations
-
--   Early adopters are more motivated, more comfortable with new tooling, more likely to be high performers
-
--   Selection bias: any observed difference may be a property of the *person*, not the tool
-
--   A two-year longitudinal study found Copilot users were consistently more active than non-users
-    *even before* the tool was introduced [Stray2026]
+    -   A two-year study found Copilot users were more active than non-users
+        even before the tool was introduced [Stray2026]
 
 ---
 
-## 9. Individual vs. System
+## The Human Sciences Already Know This
 
--   Individual coding speed is the easiest thing to measure, so it gets measured
+-   *Empirical Software Engineering* studies how software is actually built
 
--   But if developers write code 30% faster and cycle time doesn't change,
-    writing code wasn't the bottleneck
+    -   The field has existed since the 1960s
 
--   More code means more review: AI volume without increased review capacity
-    can *worsen* cycle time [Forsgren2021]
+    -   Draws on psychology, sociology, economics, and statistics as well as computer science
 
--   Senior developers experienced a 19% productivity decline as they absorbed
-    a 6.5% increase in code review load from AI-generated code [Xu2025]
+-   Bad news: most studies don't address questions practitioners care about [Begel2014]
 
----
-
-## 10. Measuring the Novelty Period
-
--   A four-week study that finds a productivity boost has found a *four-week* boost
-
--   The novelty effect inflates observed performance relative to the long-run baseline
-
--   Effects that matter emerge over months: skill atrophy, technical debt accumulation,
-    changes in team collaboration
-
--   Analysis of 807 open-source repos adopting Cursor: large but transient velocity increase,
-    alongside substantial and *persistent* increase in code complexity [He2026]
+-   Good news: "most" isn't "all"
 
 ---
 
-## 11. Suggestion Acceptance
+## Where to Start
 
--   Higher acceptance rates are presented as evidence the tool is useful
+-   *Goal-Question-Metric* provides a structured path from intent to measurement [Basili1994]
 
--   Acceptance measures whether code looked plausible enough to press Tab
+-   Define the goal: what object, what property, from whose viewpoint, in what context
 
--   Developers under time pressure accept more suggestions, including insecure ones [Pearce2022]
+-   Generate the questions whose answers would tell you whether the goal was achieved
 
--   An enterprise study found 33% average acceptance rate and high satisfaction,
-    but tracked no measure of correctness or security of accepted code [Bakal2025]
+-   Then pick the metric that answers each question
 
--   A metric that rewards *looking good enough* is not a metric that rewards *being good*
+--
 
----
+-   Does the metric actually measure what you care about?
 
-## 12. Comparing AI to Nothing
-
--   Studies comparing AI-assisted developers to a control group using *nothing*
-    have chosen a baseline that does not exist in practice
-
--   Developers without LLM assistants use documentation, colleagues, and their own thinking
-
--   The relevant question: do LLM tools outperform the alternatives developers already have?
-
--   Choosing a weak baseline makes any tool look good; it does not make the tool useful
+-   If possible, get someone *outside* your organization to challenge you on this
 
 ---
 
-## Old Man Shakes Fist at Clouds
+## Measure Outcomes, Not Activity
 
--   [It Will Never Work in Theory](https://neverworkintheory.org/)
-    was a multi-year attempt to get researchers and practitioners to talk to each other
+-   The *DORA metrics* have better construct validity than activity counts [Forsgren2018]
 
--   [It didn't work](https://www.computer.org/csdl/magazine/so/2024/03/10424425/1Ulj1Qa8tJ6)
+    -   Deployment frequency
 
--   I think we should replace today's undergraduate introductions to software engineering
-    with a course on what we actually know and why we believe it's true
+    -   Lead time for changes
 
--   If we had done that ten years ago, we would have been ready for today
+    -   Change failure rate
 
--   But everyone is overwhelmed and morale is low
+    -   Time to restore service
+
+-   They are tied to customer outcomes rather than developer busyness
+
+-   Blind spots remain: a team can score well while building the wrong product
+
+---
+
+## When You Don't Know What to Measure
+
+-   Use *qualitative methods* when you do not yet know what to measure
+
+-   They answer "what is happening?" and "why?" rather than "how much?"
+
+-   E.g., a study of 410 developers revealed where AI helps and where it gets in the way [Liang2024]
+
+    -   Invisible to any study that only measures task completion times
+
+---
+
+## A Checklist for Any Study
+
+-   *Conclusion validity*: was the sample large enough? are effect sizes reported?
+
+-   *Internal validity*: was there a control group? random assignment? novelty and learning ruled out?
+
+-   *Construct validity*: does the measurement actually capture the claim?
+
+-   *External validity*: are the subjects representative of the population you care about?
+
+---
+
+## Interviews
+
+-   Do interviews before creating surveys
+
+-   *Semi-structured interviews* have a guide but allow follow-up
+
+    -   Consistent enough to compare, flexible enough to surprise
+
+-   *Open questions* invite narrative; *closed questions* invite classification
+
+-   Avoid leading questions: "Don't you find it faster?" assumes the answer
+
+-   Pilot with 3–5 people before distributing it
+
+    -   And make the changes
+
+---
+
+## Thematic Analysis
+
+-   *Open coding*: read through the data and tag segments with descriptive labels
+
+-   *Gerund coding*: "avoiding AI for security tasks" rather than "AI distrust"
+
+    -   This preserves what participants are actually doing
+
+-   A theme is a claim you could write as a sentence, not a bucket for related quotes
+
+-   Stop collecting data when new interviews stop introducing new codes [Braun2019]
+
+---
+
+## Controlled Experiments
+
+-   Manipulate one variable and measure its effect while holding others constant
+
+-   Randomization assigns participants to conditions randomly, distributing unknown confounders
+
+    -   This is the mechanism that makes causal claims defensible
+
+-   Full *blinding* is rarely possible in software engineering
+
+    -   The developers know if they're using AI
+
+---
+
+## A Note on Statistics
+
+-   Underpowered studies (20–30 participants) can only detect very large effects [Kampenes2007]
+
+-   The effects they do detect tend to be inflated (the *winner's curse*)
+
+---
+
+## Pitfalls
+
+-   *HARKing*: hypothesizing after the results are known
+
+    -   I.e., writing the paper as if the pattern you found after analysis was predicted in advance
+
+-   *p-hacking*: running twenty analyses and reporting only the one with p < 0.05
+
+    -   With 20 independent tests, you expect one false positive by chance
+
+-   *Pre-registration* commits hypotheses before data collection, making both problems visible
+
+-   If authors will not share data, there is a decent chance of errors in the work [Wicherts2011]
+
+---
+
+## Observational Studies
+
+-   Measure the world as it is: real behavior, large datasets, no ethical problem withholding an intervention
+
+-   Disadvantage: you can't establish causation because confounders cannot be ruled out
+
+-   GitHub data is not a representative sample of software development
+
+    -   Survivorship bias and "looking where the light is"
+
+-   Projects with more tests also tend to have more experienced developers
+
+    -   So you cannot attribute lower defect rates to testing alone
+
+---
+
+## Do It Cheaply First
+
+-   A small, informal study produces better evidence than a meeting [Hall2019]
+
+-   Five sessions are enough to find most problems in a specific workflow [Nielsen1993]
+
+    -   Enough for "we observed developers getting stuck here"
+
+    -   Not enough for "X% of developers have this problem" or "AI causes more bugs"
+
+--
+
+-   *Formative evaluation* improves a thing; *summative evaluation* decides whether to deploy it
+
+-   Mislabeling formative evidence as summative kills credibility
+
+---
+
+## Think-Aloud and RITE
+
+-   *Think-aloud*: "say out loud whatever you are thinking" while doing a concrete task
+
+    -   "Given this pull request, use the assistant to summarize the changes"
+
+-   Observe hesitation, backtracking, and expectations that turn out wrong
+
+-   Do not help when they get stuck: you will not be there in production
+
+-   RITE (Rapid Iterative Testing and Evaluation):
+    fix the worst problem you observed before the next session [Medlock2002]
+
+---
+
+## What to Do Next
+
+-   Ask for evidence before adopting
+
+    -   What study supports the claim?
+
+    -   Is it applicable to your context?
+
+    -   Can you see the raw data?
+
+-   When an executive cites a productivity statistic, ask:
+
+    -   Who funded the study?
+
+    -   What task was studied?
+
+    -   Was there was a control group?
+
+--
+
+-   Please document and share your organization's experience
 
 ---
 
 ## Conclusion
 
--   These errors are not unique to AI research
+-   These mistakes are not unique to AI research
 
 -   The same problems appear in studies of agile, TDD, and other practices
 
 -   The fix is to apply what the human sciences already know
 
--   The full post, with citations: <https://third-bit.com/2026/05/20/twelve-ways-to-be-wrong/>
-
--   If you'd like to know more: [gvwilson@third-bit.com](mailto:gvwilson@third-bit.com)
+-   We do not have to settle for hype: the methods are ready
 
 ---
 
