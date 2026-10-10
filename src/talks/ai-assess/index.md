@@ -1,8 +1,8 @@
 ---
-title: "How to Be Right About AI-Assisted Coding"
-subtitle: "assessing the impact and value of AI coding tools without fooling yourself"
+title: "Assessing AI"
+subtitle: "how to tell if AI coding tools are working without fooling yourself"
 template: slides
-date: "2026-05-21"
+date: "2026-11-01"
 ---
 
 ## What This Talk Is About
@@ -52,7 +52,7 @@ date: "2026-05-21"
 
 ---
 
-## Measuring Productivity Is Genuinely Hard
+## This Is Hard
 
 -   Software output is not homogeneous
 
@@ -149,7 +149,7 @@ date: "2026-05-21"
 
 ---
 
-## Wrong #4: Ask People How They Feel
+## Wrong #4: Ask People
 
 -   "87% of developers report feeling more productive with AI tools" [Liang2024]
 
@@ -169,7 +169,7 @@ date: "2026-05-21"
 
 ---
 
-## The Human Sciences Already Know This
+## Who Does This?
 
 -   *Empirical Software Engineering* studies how software is actually built
 
@@ -180,6 +180,34 @@ date: "2026-05-21"
 -   Bad news: most studies don't address questions practitioners care about [Begel2014]
 
 -   Good news: "most" isn't "all"
+
+--
+
+-   Bad news: you don't have ESE researchers in house
+
+-   Good news: you (probably) have someone just as good
+
+---
+
+## Turn to the UX Researchers
+
+-   Your organization does not need to invent an AI assessment program from scratch
+
+-   UX researchers already have the right intellectual tools
+
+    -   They do rigorous *qualitative* research: interviews, think-aloud
+        sessions, and thematic analysis [Braun2006, Goodman2012]
+
+    -   They do rigorous *quantitative* research: usability metrics and
+        the statistics to interpret them [Tullis2013, Sauro2016]
+
+-   They are already trained to ask "does this actually help people do their work?"
+
+--
+
+-   So turn to your UX research team to create the assessment program
+
+-   The rest of this talk is a tour of their toolkit
 
 ---
 
@@ -219,7 +247,7 @@ date: "2026-05-21"
 
 ---
 
-## When You Don't Know What to Measure
+## Getting Started
 
 -   Use *qualitative methods* when you do not yet know what to measure
 
@@ -289,14 +317,6 @@ date: "2026-05-21"
 
 ---
 
-## A Note on Statistics
-
--   Underpowered studies (20–30 participants) can only detect very large effects [Kampenes2007]
-
--   The effects they do detect tend to be inflated (the *winner's curse*)
-
----
-
 ## Pitfalls
 
 -   *HARKing*: hypothesizing after the results are known
@@ -362,7 +382,7 @@ date: "2026-05-21"
 
 ---
 
-## What to Do Next
+## Please
 
 -   Ask for evidence before adopting
 
@@ -394,6 +414,10 @@ date: "2026-05-21"
 
 -   The fix is to apply what the human sciences already know
 
+-   Better yet: hand the job to your UX researchers
+
+    -   They already practice the rigorous qualitative and quantitative methods described here
+
 -   We do not have to settle for hype: the methods are ready
 
 ---
@@ -409,10 +433,197 @@ date: "2026-05-21"
   <div class="col-6">
   <p><a href="http://third-bit.com">Greg Wilson</a></p>
   <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/12ways/">http://third-bit.com/talks/12ways/</a></p>
+  <p><a href="http://third-bit.com/talks/ai-assess/">http://third-bit.com/talks/ai-assess/</a></p>
   </div>
   </div>
   <div class="center">
   <p><em>start where you are &middot; use what you have &middot; help who you can</em></p>
   </div>
 </div>
+
+---
+
+## References
+
+<p id="Bakal2025">[Bakal2025]
+Gal Bakal, Ali Dasdan, Yaniv Katz, Michael Kaufman, and Guy Levin:
+"<a href="https://arxiv.org/abs/2501.13282">Experience with GitHub Copilot for Developer Productivity at Zoominfo</a>".
+arXiv:2501.13282, 2025.
+</p>
+
+<p id="Basili1994">[Basili1994]
+Victor R. Basili, Gianluigi Caldiera, and H. Dieter Rombach:
+"The Goal Question Metric Approach".
+<em>Encyclopedia of Software Engineering</em>, 1994,
+<a class="isbn" href="https://isbnsearch.org/9780471540021">978-0471540021</a>.
+</p>
+
+<p id="Begel2014">[Begel2014]
+Andrew Begel and Nachiappan Nagappan:
+"<a href="https://doi.org/10.1145/2568225.2568233">Analyze This! 145 Questions for Data Scientists in Software Engineering</a>".
+<em>Proc. ICSE'14</em>, 2014,
+<a class="doi" href="https://doi.org/10.1145/2568225.2568233">10.1145/2568225.2568233</a>.
+</p>
+
+<p id="Braun2006">[Braun2006]
+Virginia Braun and Victoria Clarke:
+"<a href="https://doi.org/10.1191/1478088706qp063oa">Using thematic analysis in psychology</a>".
+<em>Qualitative Research in Psychology</em>, 3(2), 2006,
+<a class="doi" href="https://doi.org/10.1191/1478088706qp063oa">10.1191/1478088706qp063oa</a>.
+</p>
+
+---
+
+## References
+
+<p id="Braun2019">[Braun2019]
+Virginia Braun and Victoria Clarke:
+"<a href="https://doi.org/10.1080/2159676X.2019.1628806">Reflecting on Reflexive Thematic Analysis</a>".
+<em>Qualitative Research in Sport, Exercise and Health</em>, 11(4), 2019,
+<a class="doi" href="https://doi.org/10.1080/2159676X.2019.1628806">10.1080/2159676X.2019.1628806</a>.
+</p>
+
+<p id="Dora2025">[Dora2025]
+Swaroop Dora, Deven Lunkad, Naziya Aslam, S. Venkatesan, and Sandeep Kumar Shukla:
+"<a href="https://arxiv.org/abs/2504.20612">The Hidden Risks of LLM-Generated Web Application Code: A Security-Centric Evaluation of Code Generation Capabilities in Large Language Models</a>".
+arXiv:2504.20612, 2025.
+</p>
+
+<p id="Forsgren2018">[Forsgren2018]
+Nicole Forsgren, Jez Humble, and Gene Kim:
+<em>Accelerate: The Science of Lean Software and DevOps</em>.
+IT Revolution Press, 2018,
+<a class="isbn" href="https://isbnsearch.org/9781942788331">978-1942788331</a>.
+</p>
+
+<p id="Forsgren2021">[Forsgren2021]
+Nicole Forsgren, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, and Jenna Butler:
+"<a href="https://doi.org/10.1145/3454122.3454124">The SPACE of Developer Productivity</a>".
+<em>ACM Queue</em>, 19(1), 2021,
+<a class="doi" href="https://doi.org/10.1145/3454122.3454124">10.1145/3454122.3454124</a>.
+</p>
+
+---
+
+## References
+
+<p id="Goodhart1984">[Goodhart1984]
+Charles Goodhart:
+"Problems of Monetary Management: The U.K. Experience".
+<em>Inflation, Depression, and Economic Policy in the West</em>, 1984.
+</p>
+
+<p id="Goodman2012">[Goodman2012]
+Elizabeth Goodman, Mike Kuniavsky, and Andrea Moed:
+<em>Observing the User Experience: A Practitioner's Guide to User Research</em> (2nd edition).
+Morgan Kaufmann, 2012,
+<a class="isbn" href="https://isbnsearch.org/9780123848697">978-0123848697</a>.
+</p>
+
+<p id="Hall2019">[Hall2019]
+Erika Hall:
+<em>Just Enough Research</em>.
+A Book Apart, 2019,
+<a class="isbn" href="https://isbnsearch.org/9781952616082">978-1952616082</a>.
+</p>
+
+<p id="Liang2024">[Liang2024]
+Jenny T. Liang, Chenyang Yang, and Brad A. Myers:
+"<a href="https://doi.org/10.1145/3597503.3608128">A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges</a>".
+<em>Proc. ICSE'24</em>, 2024,
+<a class="doi" href="https://doi.org/10.1145/3597503.3608128">10.1145/3597503.3608128</a>.
+</p>
+
+---
+
+## References
+
+<p id="McKinsey2023">[McKinsey2023]
+Nora Elsayed, Tarek Elhounsri, and Sven Blumberg:
+"<a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity">Yes, You Can Measure Software Developer Productivity</a>".
+McKinsey & Company, 2023.
+</p>
+
+<p id="Medlock2002">[Medlock2002]
+Michael C. Medlock, Dennis Wixon, Mark Terrano, Ramon Ruflair, and Darrell Vaughan:
+"Using the RITE Method to Improve Products: A Definition and a Case Study".
+<em>Proc. Usability Professionals Association Conference</em>, 2002.
+</p>
+
+<p id="Meyer2017">[Meyer2017]
+André N. Meyer, Laura E. Barton, Gail C. Murphy, Thomas Zimmermann, and Thomas Fritz:
+"<a href="https://doi.org/10.1109/tse.2017.2656886">The Work Life of Developers: Activities, Switches and Perceived Productivity</a>".
+<em>IEEE Trans. Software Engineering</em>, 43(12), 2017,
+<a class="doi" href="https://doi.org/10.1109/tse.2017.2656886">10.1109/tse.2017.2656886</a>.
+</p>
+
+<p id="Nielsen1993">[Nielsen1993]
+Jakob Nielsen and Thomas K. Landauer:
+"<a href="https://doi.org/10.1145/169059.169166">A Mathematical Model of the Finding of Usability Problems</a>".
+<em>Proc. INTERACT'93 and CHI'93</em>, 1993,
+<a class="doi" href="https://doi.org/10.1145/169059.169166">10.1145/169059.169166</a>.
+</p>
+
+---
+
+## References
+
+<p id="Pearce2022">[Pearce2022]
+Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri:
+"<a href="https://doi.org/10.1109/SP46214.2022.9833571">Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions</a>".
+<em>Proc. S&P'22</em>, 2022,
+<a class="doi" href="https://doi.org/10.1109/SP46214.2022.9833571">10.1109/SP46214.2022.9833571</a>.
+</p>
+
+<p id="Peng2023">[Peng2023]
+Sida Peng, Eirini Kalliamvakou, Peter Cihon, and Mert Demirer:
+"<a href="https://doi.org/10.48550/arXiv.2302.06590">The Impact of AI on Developer Productivity: Evidence from GitHub Copilot</a>".
+arXiv:2302.06590, 2023,
+<a class="doi" href="https://doi.org/10.48550/arXiv.2302.06590">10.48550/arXiv.2302.06590</a>.
+</p>
+
+<p id="Prechelt2000">[Prechelt2000]
+Lutz Prechelt:
+"<a href="https://doi.org/10.1109/2.876288">An Empirical Comparison of Seven Programming Languages</a>".
+<em>IEEE Computer</em>, 33(10), 2000,
+<a class="doi" href="https://doi.org/10.1109/2.876288">10.1109/2.876288</a>.
+</p>
+
+<p id="Sadowski2019">[Sadowski2019]
+Caitlin Sadowski and Thomas Zimmermann (eds.):
+<em>Rethinking Productivity in Software Engineering</em>.
+Apress, 2019,
+<a class="isbn" href="https://isbnsearch.org/9781484242216">978-1484242216</a>.
+</p>
+
+<p id="Sauro2016">[Sauro2016]
+Jeff Sauro and James R. Lewis:
+<em>Quantifying the User Experience: Practical Statistics for User Research</em> (2nd edition).
+Morgan Kaufmann, 2016,
+<a class="isbn" href="https://isbnsearch.org/9780128023082">978-0128023082</a>.
+</p>
+
+---
+
+## References
+
+<p id="Stray2026">[Stray2026]
+Viktoria Stray, Elias Goldmann Brandtzæg, Viggo Tellefsen Wivestad, Astri Barbala, and Nils Brede Moe:
+"<a href="https://doi.org/10.24251/hicss.2026.880">Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study</a>".
+<em>Proc. HICSS'26</em>, 2026,
+<a class="doi" href="https://doi.org/10.24251/hicss.2026.880">10.24251/hicss.2026.880</a>.
+</p>
+
+<p id="Tullis2013">[Tullis2013]
+Thomas S. Tullis and William Albert:
+<em>Measuring the User Experience: Collecting, Analyzing, and Presenting Usability Metrics</em> (2nd edition).
+Morgan Kaufmann, 2013,
+<a class="isbn" href="https://isbnsearch.org/9780124157811">978-0124157811</a>.
+</p>
+
+<p id="Wicherts2011">[Wicherts2011]
+J.M. Wicherts, M. Bakker, and D. Molenaar:
+"<a href="https://doi.org/10.1371/journal.pone.0026828">Willingness to Share Research Data Is Related to the Strength of the Evidence and the Quality of Reporting of Statistical Results</a>".
+<em>PLoS ONE</em>, 6(11), 2011,
+<a class="doi" href="https://doi.org/10.1371/journal.pone.0026828">10.1371/journal.pone.0026828</a>.
+</p>
