@@ -132,6 +132,248 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/10/10/frml-contracts/">
+      Contracts in Frml
+    </a>
+  </h3>
+  <p><time datetime="2026-10-10" class="post-date">2026-10-10</time></p>
+  <p>The <a href="../2026/10/05/frml-intro/">first post</a> in this series introduced <a href="https://gvwilson.github.io/frml">Frml</a>,
+a little procedural language I created
+so that I could learn how program verification works.
+The <a href="../2026/10/08/frml-scalar/">second</a> explained how Frml checks simple scalar code;
+this one explains how it checks programs with multiple functions.
+As a reminder,
+the scalar prover owns the engine and leaves two hooks for higher levels:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">fn</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">vars</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fresh_scalar</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_assume_spec</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="n">end_states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_stmt_seq</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fn</span><span class="o">.</span><span class="n">return_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">end_states</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">FrmlVerificationError</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">end_states</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_ensures</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p><code>_assume_spec</code> and <code>_check_ensures</code> do nothing at the scalar level;
+the <code>contracts</code> prover overrides them:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Prover</span><span class="p">(</span><span class="n">ScalarProver</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_assume_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">req</span> <span class="ow">in</span> <span class="n">fn</span><span class="o">.</span><span class="n">requires</span><span class="p">:</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eval_expr</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">fn</span><span class="o">.</span><span class="n">decreases</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_expr</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">entry_decreases</span> <span class="o">=</span> <span class="n">d</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_emit</span><span class="p">(</span>
+                <span class="s2">&quot;decreases&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;decreases </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="o">.</span><span class="n">render</span><span class="p">()</span><span class="si">}</span><span class="s2"> &gt;= 0&quot;</span><span class="p">,</span>
+                <span class="n">state</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+                <span class="n">d</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_ensures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ens</span> <span class="ow">in</span> <span class="n">fn</span><span class="o">.</span><span class="n">ensures</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_postcondition</span><span class="p">(</span><span class="n">ens</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<h2><code>requires</code> and <code>ensures</code></h2>
+<p>Contracts are the source of most hypotheses and goals.
+At function entry,
+every <code>requires</code> clause is evaluated,
+the result is appended to the path,
+and later obligations may assume it.
+At every <code>return</code>,
+every <code>ensures</code> clause is evaluated,
+the <code>result</code> placeholder is replaced by the returned expression,
+and the result becomes a goal checked against the current path.
+Multiple <code>requires</code> clauses are and&rsquo;ed,
+one fact per clause in the path,
+and multiple <code>ensures</code> clauses produce one obligation per clause.
+For example:</p>
+<div class="highlight"><pre><span></span><code>fn max(a: Int, b: Int) -&gt; Int
+  ensures result &gt;= a
+  ensures result &gt;= b
+  ensures result == a or result == b
+{
+  if a &gt;= b {
+    return a;
+  } else {
+    return b;
+  }
+}
+</code></pre></div>
+<p>The <code>if</code> produces two end states,
+and there are three <code>ensures</code> clauses,
+so there are six postcondition obligations, three per branch.
+The <code>if</code> branch goals are <code>a &gt;= a</code>, <code>a &gt;= b</code>, and <code>a == a or a == b</code>;
+the <code>else</code> branch goals are <code>b &gt;= a</code>, <code>b &gt;= b</code>, and <code>b == a or b == b</code>.
+Each is proved with the appropriate branch condition in the path.</p>
+<p><code>check_postcondition</code> turns an <code>ensures</code> clause into one obligation:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">check_postcondition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ens</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+    <span class="n">goal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_expr</span><span class="p">(</span><span class="n">ens</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result_term</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_emit</span><span class="p">(</span><span class="s2">&quot;postcondition&quot;</span><span class="p">,</span> <span class="n">ens</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span> <span class="n">state</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">ens</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
+</code></pre></div>
+<p><code>result_term</code> supplies the term that <code>result</code> denotes inside the clause.</p>
+<h2>A Complete Trace</h2>
+<p>Let&rsquo;s trace a tiny function through the whole machine:</p>
+<div class="highlight"><pre><span></span><code>fn double(x: Int) -&gt; Int
+  ensures result == x + x
+{
+  return x + x;
+}
+
+fn main() -&gt; Int
+{
+  return double(4);
+}
+</code></pre></div>
+<ol>
+<li><code>verify_program</code> builds the <code>Prover</code> and calls <code>verify()</code>.</li>
+<li><code>verify()</code> sets <code>current_fn = double</code> and calls <code>verify_function(double)</code>.</li>
+<li><code>verify_function</code> builds the entry state:<ul>
+<li><code>state.vars["x"] = Int("x!1")</code>: a fresh integer symbol.</li>
+<li><code>state.old_vars["x"] = Int("x!1")</code>: the <code>old(...)</code> snapshot.</li>
+<li>No <code>requires</code>, no <code>decreases</code>, so <code>_assume_spec</code> leaves the path <code>[]</code>.</li>
+</ul>
+</li>
+<li><code>exec_stmt_seq([return x + x], state)</code> starts with <code>states = [state]</code>.</li>
+<li>The single statement is <code>return x + x</code>, so <code>exec_stmt</code> calls <code>visit_StmtReturn</code>.</li>
+<li><code>eval_rhs(x + x, state)</code> falls through to <code>eval_expr(x + x, state)</code>:<ul>
+<li><code>visit_ExprBinary</code> sees the operator <code>+</code>.</li>
+<li>The left <code>x</code> becomes <code>Int("x!1")</code>; the right <code>x</code> becomes <code>Int("x!1")</code>.</li>
+<li>It returns the Z3 term <code>x!1 + x!1</code>.</li>
+</ul>
+</li>
+<li>Back in <code>visit_StmtReturn</code>, <code>value = x!1 + x!1</code>.</li>
+<li><code>_check_ensures</code> runs for the single <code>ensures result == x + x</code>:<ul>
+<li>It calls <code>check_postcondition</code>, which evaluates <code>result == x + x</code> with
+    <code>result_term = x!1 + x!1</code>.</li>
+<li><code>result</code> looks up <code>result_term</code>, giving <code>x!1 + x!1</code>.</li>
+<li>Each <code>x</code> looks up <code>state.vars["x"]</code>, giving <code>x!1</code>.</li>
+<li>The goal is the Z3 term <code>(x!1 + x!1) == (x!1 + x!1)</code>.</li>
+<li>One obligation is emitted with the empty path <code>[]</code>.</li>
+</ul>
+</li>
+<li><code>visit_StmtReturn</code> returns <code>[]</code>, so <code>states</code> becomes <code>[]</code> and the loop breaks.</li>
+<li><code>end_states == []</code>; <code>double</code> has a return type and no fall-through path, so no
+    error is raised.</li>
+<li><code>verify()</code> records <code>ProverResult("double", [the one obligation])</code>.</li>
+<li><code>verify_program</code> hands the obligation to <code>check_obligations</code>, which asks Z3
+    to refute <code>not (True =&gt; (x!1 + x!1) == (x!1 + x!1))</code>. No value of <code>x!1</code> makes
+    it true, so Z3 answers <code>unsat</code> and the obligation is <code>VERIFIED</code>.</li>
+</ol>
+<h2><code>old(...)</code></h2>
+<p><code>old(e)</code> means &ldquo;the value of <code>e</code> at the moment the function was entered&rdquo;.
+The prover snapshots parameters at entry into <code>old_vars</code>;
+inside an <code>ensures</code> clause,
+<code>old(x)</code> reads that snapshot rather than the current value.
+For example:</p>
+<div class="highlight"><pre><span></span><code>fn bump(x: Int) -&gt; Int
+  ensures result == old(x) + 1
+{
+  x = x + 1;
+  return x;
+}
+</code></pre></div>
+<p>At entry,
+<code>x</code> is a fresh integer symbol <code>x!1</code>,
+and <code>old_vars["x"]</code> keeps that original <code>x!1</code>.
+After the assignment,
+<code>state.vars["x"]</code> is the term <code>x!1 + 1</code>,
+so <code>x</code> in the postcondition reads the updated value while <code>old(x)</code> reads the original <code>x!1</code>.
+The emitted postcondition goal looks like:</p>
+<div class="highlight"><pre><span></span><code>x!1 + 1 == x!1 + 1
+</code></pre></div>
+<p>Both sides are the same term, so Z3 proves it.</p>
+<h2>Function Calls</h2>
+<p>When one function calls another, the prover uses the callee&rsquo;s contract.
+For a statement call <code>f(args)</code>,
+the prover proves the callee&rsquo;s <code>requires</code> clauses under the caller&rsquo;s current path,
+assumes the callee&rsquo;s <code>ensures</code> clauses,
+and adds those assumptions to the caller&rsquo;s path.
+The caller never sees the callee&rsquo;s body;
+it only sees the callee&rsquo;s contract.
+For example:</p>
+<div class="highlight"><pre><span></span><code>fn inc(x: Int) -&gt; Int
+  requires x &gt;= 0
+  ensures result == x + 1
+{ return x + 1; }
+
+fn main() -&gt; Int
+{
+  return inc(41);
+}
+</code></pre></div>
+<p>For the call <code>inc(41)</code>,
+the prover emits a precondition obligation <code>41 &gt;= 0</code>,
+creates a fresh result <code>inc_result!N</code>,
+and assumes <code>inc_result!N == 41 + 1</code>.
+<code>main</code> returns that result, and the postcondition is proved.</p>
+<h2>Recursion</h2>
+<p>Recursive functions need a <code>decreases</code> clause.
+At function entry,
+<code>_assume_spec</code> emits <code>decreases &gt;= 0</code>.
+For <code>factorial</code>,
+that is <code>n &gt;= 0</code>, proved from <code>requires n &gt;= 0</code>.
+At a recursive call,
+the callee&rsquo;s <code>requires</code> clauses are proved at the call site.
+For <code>factorial(n - 1)</code>, the prover proves <code>n - 1 &gt;= 0</code>.</p>
+<p><code>model_call</code> emits <code>decreases_at_call &lt; decreases_at_entry</code> for a self-call.
+This applies to statement calls;
+for scalar self-calls inside expressions,
+such as the recursive call in <code>factorial</code> below,
+the current implementation proves the callee&rsquo;s precondition
+but does not emit the strict-decrease obligation.</p>
+<div class="highlight"><pre><span></span><code>fn factorial(n: Int) -&gt; Int
+  requires n &gt;= 0
+  ensures result &gt;= 1
+  decreases n
+{
+  if n == 0 {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+</code></pre></div>
+<p>The prover emits four obligations:
+<code>n &gt;= 0</code> for the entry <code>decreases n &gt;= 0</code>,
+<code>1 &gt;= 1</code> for the base-case postcondition,
+<code>n - 1 &gt;= 0</code> for the recursive call&rsquo;s precondition,
+and <code>n * factorial_result &gt;= 1</code> for the recursive postcondition.</p>
+<h2>Quantifiers</h2>
+<p>Frml supports <code>forall</code> and <code>exists</code> in specifications:</p>
+<div class="highlight"><pre><span></span><code>forall i: Int :: 0 &lt;= i and i &lt; 3 =&gt; i &gt;= 0
+</code></pre></div>
+<p>The prover translates these to Z3 quantifiers:
+<code>forall</code> becomes <code>z3.ForAll([var], body)</code>
+and <code>exists</code> becomes <code>z3.Exists([var], body)</code>.
+The quantified variable becomes a fresh symbol,
+and the body is evaluated with that variable added to the state.
+In the example above,
+the variable <code>i</code> becomes a fresh symbol added to the state,
+the body becomes the Z3 term <code>Implies(And(0 &lt;= i, i &lt; 3), i &gt;= 0)</code>,
+and the whole quantifier becomes <code>z3.ForAll([i], body)</code>.</p>
+<p>Similarly,
+if <code>exists</code> was used,
+the variable <code>i</code> would again become a fresh symbol,
+the body would become <code>And(0 &lt;= i, i &lt; 3, i == 2)</code>,
+and the whole quantifier would become <code>z3.Exists([i], body)</code>.
+Both forms can appear in an <code>ensures</code> clause:</p>
+<div class="highlight"><pre><span></span><code>fn f() -&gt; Bool
+  ensures result == (forall i: Int :: 0 &lt;= i and i &lt; 3 =&gt; i &gt;= 0)
+{ return true; }
+
+fn g() -&gt; Bool
+  ensures result == (exists i: Int :: 0 &lt;= i and i &lt; 3 and i == 2)
+{ return true; }
+</code></pre></div>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/10/09/anniversary/">
       Anniversary Thoughts
     </a>
@@ -987,21 +1229,6 @@ It also has no networking, hashing, SQLite, CSV/YAML, temporary-file, or path-ma
 </ul>
 </li>
 </ul>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/09/11/iffy/">
-      Iffy
-    </a>
-  </h3>
-  <p><time datetime="2026-09-11" class="post-date">2026-09-11</time></p>
-  <p>I have started posting chapters from my YA novel <a href="https://www.wattpad.com/story/415942282-iffy"><em>Iffy</em></a> to Wattpad.
-The first three are now available,
-and the rest will come out between now and September 26.
-If you enjoy it,
-I&rsquo;d be grateful if you would share it with friends (particularly young ones).
-I&rsquo;m also always grateful for <a href="mailto:gvwilson@third-bit.com">feedback</a>.</p>
 </article>
 
 
