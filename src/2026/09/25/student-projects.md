@@ -39,7 +39,9 @@ An I/O Library for Dafny
 Stardew Valley Murders
 :   A mod that turns [Stardew Valley][stardew] into a murder mystery game.
     Grow vegetables, then trade them for gossip and clues until you figure out
-    who murdered Evelyn and why.
+    who murdered Clint and why.
+    <br>
+	*This project now has a team for Winter 2027.*
 
 Rewind
 :   A first-person shooter with a science-fiction theme in which each player has
