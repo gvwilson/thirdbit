@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Loops in Frml</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Loops in Frml</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/10/10/frml-contracts/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-10-12" class="post-date">2026-10-12</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>The first three posts in this series <a href="../../../../2026/10/05/frml-intro/">introduced Frml</a>,
+then explained <a href="../../../../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>
+and <a href="../../../../2026/10/10/frml-contracts/">contracts between functions</a>.
+This post shows how Frml handles <code>while</code> loops
+with invariants and termination measures.</p>
+<h2>What It Does</h2>
+<p>Here&rsquo;s a minimal program with a loop:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let i: Int = 0;
+  while i &lt; 3
+    invariant 0 &lt;= i
+    invariant i &lt;= 3
+    decreases 3 - i
+  {
+    i = i + 1;
+  }
+  return i;
+}
+</code></pre></div>
+<p>The loop type checker adds one visitor to the existing code called <code>visit_StmtWhile</code>,
+and the loop prover adds the same visitor plus the logic that turns a loop into obligations.
+<code>visit_StmtWhile</code> checks four things:
+the loop condition must have type <code>Bool</code>,
+every <code>invariant</code> must have type <code>Bool</code>,
+the <code>decreases</code> expression when present must have type <code>Int</code>,
+and the loop body is type-checked in a fresh scope.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_StmtWhile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">ret</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">check_expr</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">cond</span><span class="p">,</span> <span class="n">expected</span><span class="o">=</span><span class="n">BOOL</span><span class="p">,</span> <span class="n">allow_old</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">in_spec</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">inv</span> <span class="ow">in</span> <span class="n">stmt</span><span class="o">.</span><span class="n">invariants</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_expr</span><span class="p">(</span><span class="n">inv</span><span class="p">,</span> <span class="n">expected</span><span class="o">=</span><span class="n">BOOL</span><span class="p">,</span> <span class="n">allow_old</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">stmt</span><span class="o">.</span><span class="n">decreases</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_expr</span><span class="p">(</span>
+                <span class="n">stmt</span><span class="o">.</span><span class="n">decreases</span><span class="p">,</span> <span class="n">expected</span><span class="o">=</span><span class="n">INT</span><span class="p">,</span> <span class="n">allow_old</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="kc">None</span>
+            <span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_spec</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_push_scope</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">stmt</span><span class="o">.</span><span class="n">body</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_stmt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_pop_scope</span><span class="p">()</span>
+</code></pre></div>
+<p>The <code>in_spec</code> flag is set while checking the loop&rsquo;s specifications,
+just as the contracts checker does for <code>requires</code>, <code>ensures</code>, and <code>decreases</code> clauses.
+It has no effect on scalar loops,
+but the loop checker keeps the pattern so that subsequent levels will inherit
+the same behavior.
+The body gets its own scope,
+so variables declared inside the loop do not leak out of it.</p>
+<h2>Why Loops Are Hard</h2>
+<p>A loop runs an unknown number of times,
+and the prover cannot execute the loop symbolically &ldquo;until it ends&rdquo;.
+It therefore reasons about the loop inductively using invariants.
+A loop invariant is a fact that is true before the first iteration and after every iteration;
+if both hold,
+the invariant is also true immediately after the loop exits.
+The prover generates one obligation for each of those two moments,
+plus a post-loop exit state for whatever code follows the loop.</p>
+<p>The invariant tells the prover what is true at those moments,
+but it does not say what value each variable has.
+That is a real problem:
+a loop that assigns to a variable may run any number of times,
+so there is no single value the prover can hand to the rest of the proof.
+The prover&rsquo;s answer is to deliberately forget those values
+as explained in the next section.</p>
+<h2>Causing Havoc</h2>
+<p>To <em>havoc</em> a variable is to replace its value with a fresh, unknown symbol,
+deliberately forgetting everything the prover previously knew about it.
+This is how the prover stays sound when a value is genuinely unknown:
+rather than pretending to know the final value of an assigned variable,
+it admits that it does not.</p>
+<p>This is necessary and sound because a loop may run any number of times,
+so we cannot know the exact final value of an assigned variable;
+we only know what the invariant tells us about it.
+The invariant is the only bridge from before the loop to after it.</p>
+<p>Before checking the inductive step,
+the prover scans the loop body and applies havoc to every scalar variable the body assigns.
+A <code>ScalarWriterCollector</code> walks the body
+and records every name that appears on the left of an assignment,
+including assignments inside nested <code>if</code> and <code>while</code> statements.
+It deliberately ignores <code>let</code> declarations inside the loop body,
+because those names are local to a single iteration
+and do not exist before the loop.
+Each recorded name that already exists in the state is replaced with
+a fresh symbol of the same Z3 sort:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_fresh_from_term</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">z3</span><span class="o">.</span><span class="n">is_bool</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">z3</span><span class="o">.</span><span class="n">Bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fresh</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">z3</span><span class="o">.</span><span class="n">is_string</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">z3</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fresh</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">z3</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fresh</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</code></pre></div>
+<h2>An Example</h2>
+<p>Let&rsquo;s take a look at an example:</p>
+<div class="highlight"><pre><span></span><code>fn count(n: Int) -&gt; Int
+  requires n &gt;= 0
+  ensures result == n
+{
+  let i: Int = 0;
+
+  while i &lt; n
+    invariant 0 &lt;= i
+    invariant i &lt;= n
+    decreases n - i
+  {
+    i = i + 1;
+  }
+
+  return i;
+}
+</code></pre></div>
+<p>Verifying <code>count</code> emits seven obligations:
+two initialization,
+two preservation,
+two termination,
+and one final postcondition.</p>
+<h3>Initialization Obligations</h3>
+<p>Every invariant must hold before the first iteration.
+With <code>i = 0</code>,
+<code>0 &lt;= i</code> becomes <code>0 &lt;= 0</code>
+and <code>i &lt;= n</code> becomes <code>0 &lt;= n</code>,
+proved from <code>requires n &gt;= 0</code>.
+The prover evaluates each invariant in the state that reaches the <code>while</code> and emits:</p>
+<div class="highlight"><pre><span></span><code>hypotheses:  current path
+goal:        invariant
+</code></pre></div>
+<h3>Preservation Obligations</h3>
+<p>This is the inductive step,
+which checks an arbitrary loop iteration,
+not just the first one.</p>
+<ol>
+<li>Havoc every scalar variable the loop body assigns:
+    <code>i</code> becomes a fresh, unknown symbol such as <code>i!2</code>,
+    which forgets whatever value <code>i</code> had on entry so the check is about an arbitrary iteration.</li>
+<li>Assume the invariants and the loop condition, <code>0 &lt;= i</code>, <code>i &lt;= n</code>, and <code>i &lt; n</code>.</li>
+<li>Run the loop body once symbolically, so <code>i = i + 1</code> becomes <code>i + 1</code>.</li>
+<li>Prove each invariant again for the after-body value.</li>
+</ol>
+<p>For <code>count</code>, the two preservation obligations are:</p>
+<div class="highlight"><pre><span></span><code>(0 &lt;= i and i &lt;= n and i &lt; n) =&gt; 0 &lt;= i + 1
+(0 &lt;= i and i &lt;= n and i &lt; n) =&gt; i + 1 &lt;= n
+</code></pre></div>
+<p>The second one uses <code>i &lt; n</code> to prove <code>i + 1 &lt;= n</code>.</p>
+<h3>Exit State</h3>
+<p>After the loop,
+the prover must continue with a state that satisfies the invariant and the negated loop condition.
+It havocs the modified variables again,
+assumes the invariants,
+and assumes <code>not condition</code>.
+For <code>count</code>,
+after the loop, <code>i</code> becomes a fresh symbol such as <code>i!3</code>,
+and the path gains <code>0 &lt;= i</code>, <code>i &lt;= n</code>, and <code>not (i &lt; n)</code>, so <code>i &gt;= n</code>.
+Together these force <code>i == n</code>,
+and the following <code>return i</code> proves <code>ensures result == n</code>.
+The body&rsquo;s final value is deliberately <em>not</em> connected to the exit value;
+the invariant is the only information that survives.</p>
+<h2>Termination with <code>decreases</code></h2>
+<p>A <code>decreases</code> clause proves that a loop terminates.
+It produces two obligations.</p>
+<h3>Before the Loop</h3>
+<p>Before the loop, the measure must be non-negative:</p>
+<div class="highlight"><pre><span></span><code>decreases &gt;= 0
+</code></pre></div>
+<h3>After the Body</h3>
+<p>After the body, the measure must strictly decrease:</p>
+<div class="highlight"><pre><span></span><code>new_decreases &lt; old_decreases
+</code></pre></div>
+<p>For <code>count</code>, the measure is <code>n - i</code>.
+On entry, <code>n - 0 &gt;= 0</code>, proved from <code>requires n &gt;= 0</code>.
+After the body,
+with the havoced <code>i</code> and the invariant and condition facts assumed,
+<code>n - (i + 1) &lt; n - i</code> simplifies to <code>-1 &lt; 0</code>.
+The strict-decrease check uses the same havoced <code>i</code> as the preservation check.</p>
+<p>A loop without <code>decreases</code> is still accepted;
+the verifier then proves partial correctness only.
+It cannot prove the loop terminates.</p>
+<h2>A Broken Loop Invariant</h2>
+<p>A loop invariant must hold before the first iteration
+<em>and</em> survive every execution of the loop body.
+The example below survives the first iteration but not the second.</p>
+<div class="highlight"><pre><span></span><code>fn bad() -&gt; Bool
+{
+  let i: Int = 0;
+  while i &lt; 3
+    invariant i &lt;= 2
+  {
+    i = i + 1;
+  }
+  return true;
+}
+</code></pre></div>
+<p>The initialization obligation is <code>0 &lt;= 2</code>, which holds.
+The preservation obligation is built exactly like the preservation step in <code>count</code>:
+havoc <code>i</code> into an arbitrary fresh symbol,
+assume the invariant <code>i &lt;= 2</code> and the loop condition <code>i &lt; 3</code>,
+run the body <code>i = i + 1</code> once to get the after-body value <code>i + 1</code>,
+and prove <code>i + 1 &lt;= 2</code>.
+That gives the obligation:</p>
+<div class="highlight"><pre><span></span><code>(i &lt;= 2 and i &lt; 3) =&gt; i + 1 &lt;= 2
+</code></pre></div>
+<p>Z3 finds a counterexample with <code>i = 2</code>.
+Since <code>2 &lt;= 2</code> is true,
+the invariant holds before the iteration,
+and since <code>2 &lt; 3</code> is true,
+the loop condition says to run another iteration,
+but <code>2 + 1 &lt;= 2</code> is false,
+so the invariant is broken after the iteration.
+The prover does not iterate the loop from <code>0</code> to <code>3</code>;
+the preservation check symbolically executes the body once on an arbitrary <code>i</code>,
+and the counterexample <code>i = 2</code> picks the arbitrary iteration
+where that one step breaks the invariant.
+The correct upper bound is <code>i &lt;= 3</code>, because <code>i</code> reaches <code>3</code> before the loop exits.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/education/">education</a>, <a href="../../../../blog/software-engineering/">software-engineering</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

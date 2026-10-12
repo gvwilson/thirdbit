@@ -3,12 +3,233 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-10-10T00:00:00Z</updated>
+ <updated>2026-10-12T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Loops in Frml</title>
+   <link href="https://third-bit.com/2026/10/12/frml-loops/"/>
+   <updated>2026-10-12T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/10/12/frml-loops/</id>
+   <content type="html">&lt;p&gt;The first three posts in this series &lt;a href=&#34;https://third-bit.com/2026/10/05/frml-intro/&#34;&gt;introduced Frml&lt;/a&gt;,
+then explained &lt;a href=&#34;https://third-bit.com/2026/10/08/frml-scalar/&#34;&gt;how it checks simplar scalar code&lt;/a&gt;
+and &lt;a href=&#34;https://third-bit.com/2026/10/10/frml-contracts/&#34;&gt;contracts between functions&lt;/a&gt;.
+This post shows how Frml handles &lt;code&gt;while&lt;/code&gt; loops
+with invariants and termination measures.&lt;/p&gt;
+&lt;h2&gt;What It Does&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s a minimal program with a loop:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn main() -&amp;gt; Int
+{
+  let i: Int = 0;
+  while i &amp;lt; 3
+    invariant 0 &amp;lt;= i
+    invariant i &amp;lt;= 3
+    decreases 3 - i
+  {
+    i = i + 1;
+  }
+  return i;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The loop type checker adds one visitor to the existing code called &lt;code&gt;visit_StmtWhile&lt;/code&gt;,
+and the loop prover adds the same visitor plus the logic that turns a loop into obligations.
+&lt;code&gt;visit_StmtWhile&lt;/code&gt; checks four things:
+the loop condition must have type &lt;code&gt;Bool&lt;/code&gt;,
+every &lt;code&gt;invariant&lt;/code&gt; must have type &lt;code&gt;Bool&lt;/code&gt;,
+the &lt;code&gt;decreases&lt;/code&gt; expression when present must have type &lt;code&gt;Int&lt;/code&gt;,
+and the loop body is type-checked in a fresh scope.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;visit_StmtWhile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;check_expr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cond&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expected&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BOOL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;allow_old&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_spec&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;inv&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invariants&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;check_expr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expected&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BOOL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;allow_old&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decreases&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;check_expr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decreases&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expected&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;allow_old&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_spec&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
+    &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_push_scope&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;check_stmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_pop_scope&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;in_spec&lt;/code&gt; flag is set while checking the loop&amp;rsquo;s specifications,
+just as the contracts checker does for &lt;code&gt;requires&lt;/code&gt;, &lt;code&gt;ensures&lt;/code&gt;, and &lt;code&gt;decreases&lt;/code&gt; clauses.
+It has no effect on scalar loops,
+but the loop checker keeps the pattern so that subsequent levels will inherit
+the same behavior.
+The body gets its own scope,
+so variables declared inside the loop do not leak out of it.&lt;/p&gt;
+&lt;h2&gt;Why Loops Are Hard&lt;/h2&gt;
+&lt;p&gt;A loop runs an unknown number of times,
+and the prover cannot execute the loop symbolically &amp;ldquo;until it ends&amp;rdquo;.
+It therefore reasons about the loop inductively using invariants.
+A loop invariant is a fact that is true before the first iteration and after every iteration;
+if both hold,
+the invariant is also true immediately after the loop exits.
+The prover generates one obligation for each of those two moments,
+plus a post-loop exit state for whatever code follows the loop.&lt;/p&gt;
+&lt;p&gt;The invariant tells the prover what is true at those moments,
+but it does not say what value each variable has.
+That is a real problem:
+a loop that assigns to a variable may run any number of times,
+so there is no single value the prover can hand to the rest of the proof.
+The prover&amp;rsquo;s answer is to deliberately forget those values
+as explained in the next section.&lt;/p&gt;
+&lt;h2&gt;Causing Havoc&lt;/h2&gt;
+&lt;p&gt;To &lt;em&gt;havoc&lt;/em&gt; a variable is to replace its value with a fresh, unknown symbol,
+deliberately forgetting everything the prover previously knew about it.
+This is how the prover stays sound when a value is genuinely unknown:
+rather than pretending to know the final value of an assigned variable,
+it admits that it does not.&lt;/p&gt;
+&lt;p&gt;This is necessary and sound because a loop may run any number of times,
+so we cannot know the exact final value of an assigned variable;
+we only know what the invariant tells us about it.
+The invariant is the only bridge from before the loop to after it.&lt;/p&gt;
+&lt;p&gt;Before checking the inductive step,
+the prover scans the loop body and applies havoc to every scalar variable the body assigns.
+A &lt;code&gt;ScalarWriterCollector&lt;/code&gt; walks the body
+and records every name that appears on the left of an assignment,
+including assignments inside nested &lt;code&gt;if&lt;/code&gt; and &lt;code&gt;while&lt;/code&gt; statements.
+It deliberately ignores &lt;code&gt;let&lt;/code&gt; declarations inside the loop body,
+because those names are local to a single iteration
+and do not exist before the loop.
+Each recorded name that already exists in the state is replaced with
+a fresh symbol of the same Z3 sort:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;_fresh_from_term&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;term&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is_bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;term&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_fresh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;term&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_fresh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_fresh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;An Example&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn count(n: Int) -&amp;gt; Int
+  requires n &amp;gt;= 0
+  ensures result == n
+{
+  let i: Int = 0;
+
+  while i &amp;lt; n
+    invariant 0 &amp;lt;= i
+    invariant i &amp;lt;= n
+    decreases n - i
+  {
+    i = i + 1;
+  }
+
+  return i;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Verifying &lt;code&gt;count&lt;/code&gt; emits seven obligations:
+two initialization,
+two preservation,
+two termination,
+and one final postcondition.&lt;/p&gt;
+&lt;h3&gt;Initialization Obligations&lt;/h3&gt;
+&lt;p&gt;Every invariant must hold before the first iteration.
+With &lt;code&gt;i = 0&lt;/code&gt;,
+&lt;code&gt;0 &amp;lt;= i&lt;/code&gt; becomes &lt;code&gt;0 &amp;lt;= 0&lt;/code&gt;
+and &lt;code&gt;i &amp;lt;= n&lt;/code&gt; becomes &lt;code&gt;0 &amp;lt;= n&lt;/code&gt;,
+proved from &lt;code&gt;requires n &amp;gt;= 0&lt;/code&gt;.
+The prover evaluates each invariant in the state that reaches the &lt;code&gt;while&lt;/code&gt; and emits:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;hypotheses:  current path
+goal:        invariant
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Preservation Obligations&lt;/h3&gt;
+&lt;p&gt;This is the inductive step,
+which checks an arbitrary loop iteration,
+not just the first one.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Havoc every scalar variable the loop body assigns:
+    &lt;code&gt;i&lt;/code&gt; becomes a fresh, unknown symbol such as &lt;code&gt;i!2&lt;/code&gt;,
+    which forgets whatever value &lt;code&gt;i&lt;/code&gt; had on entry so the check is about an arbitrary iteration.&lt;/li&gt;
+&lt;li&gt;Assume the invariants and the loop condition, &lt;code&gt;0 &amp;lt;= i&lt;/code&gt;, &lt;code&gt;i &amp;lt;= n&lt;/code&gt;, and &lt;code&gt;i &amp;lt; n&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run the loop body once symbolically, so &lt;code&gt;i = i + 1&lt;/code&gt; becomes &lt;code&gt;i + 1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Prove each invariant again for the after-body value.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For &lt;code&gt;count&lt;/code&gt;, the two preservation obligations are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;(0 &amp;lt;= i and i &amp;lt;= n and i &amp;lt; n) =&amp;gt; 0 &amp;lt;= i + 1
+(0 &amp;lt;= i and i &amp;lt;= n and i &amp;lt; n) =&amp;gt; i + 1 &amp;lt;= n
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The second one uses &lt;code&gt;i &amp;lt; n&lt;/code&gt; to prove &lt;code&gt;i + 1 &amp;lt;= n&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Exit State&lt;/h3&gt;
+&lt;p&gt;After the loop,
+the prover must continue with a state that satisfies the invariant and the negated loop condition.
+It havocs the modified variables again,
+assumes the invariants,
+and assumes &lt;code&gt;not condition&lt;/code&gt;.
+For &lt;code&gt;count&lt;/code&gt;,
+after the loop, &lt;code&gt;i&lt;/code&gt; becomes a fresh symbol such as &lt;code&gt;i!3&lt;/code&gt;,
+and the path gains &lt;code&gt;0 &amp;lt;= i&lt;/code&gt;, &lt;code&gt;i &amp;lt;= n&lt;/code&gt;, and &lt;code&gt;not (i &amp;lt; n)&lt;/code&gt;, so &lt;code&gt;i &amp;gt;= n&lt;/code&gt;.
+Together these force &lt;code&gt;i == n&lt;/code&gt;,
+and the following &lt;code&gt;return i&lt;/code&gt; proves &lt;code&gt;ensures result == n&lt;/code&gt;.
+The body&amp;rsquo;s final value is deliberately &lt;em&gt;not&lt;/em&gt; connected to the exit value;
+the invariant is the only information that survives.&lt;/p&gt;
+&lt;h2&gt;Termination with &lt;code&gt;decreases&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;decreases&lt;/code&gt; clause proves that a loop terminates.
+It produces two obligations.&lt;/p&gt;
+&lt;h3&gt;Before the Loop&lt;/h3&gt;
+&lt;p&gt;Before the loop, the measure must be non-negative:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;decreases &amp;gt;= 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;After the Body&lt;/h3&gt;
+&lt;p&gt;After the body, the measure must strictly decrease:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;new_decreases &amp;lt; old_decreases
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For &lt;code&gt;count&lt;/code&gt;, the measure is &lt;code&gt;n - i&lt;/code&gt;.
+On entry, &lt;code&gt;n - 0 &amp;gt;= 0&lt;/code&gt;, proved from &lt;code&gt;requires n &amp;gt;= 0&lt;/code&gt;.
+After the body,
+with the havoced &lt;code&gt;i&lt;/code&gt; and the invariant and condition facts assumed,
+&lt;code&gt;n - (i + 1) &amp;lt; n - i&lt;/code&gt; simplifies to &lt;code&gt;-1 &amp;lt; 0&lt;/code&gt;.
+The strict-decrease check uses the same havoced &lt;code&gt;i&lt;/code&gt; as the preservation check.&lt;/p&gt;
+&lt;p&gt;A loop without &lt;code&gt;decreases&lt;/code&gt; is still accepted;
+the verifier then proves partial correctness only.
+It cannot prove the loop terminates.&lt;/p&gt;
+&lt;h2&gt;A Broken Loop Invariant&lt;/h2&gt;
+&lt;p&gt;A loop invariant must hold before the first iteration
+&lt;em&gt;and&lt;/em&gt; survive every execution of the loop body.
+The example below survives the first iteration but not the second.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn bad() -&amp;gt; Bool
+{
+  let i: Int = 0;
+  while i &amp;lt; 3
+    invariant i &amp;lt;= 2
+  {
+    i = i + 1;
+  }
+  return true;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The initialization obligation is &lt;code&gt;0 &amp;lt;= 2&lt;/code&gt;, which holds.
+The preservation obligation is built exactly like the preservation step in &lt;code&gt;count&lt;/code&gt;:
+havoc &lt;code&gt;i&lt;/code&gt; into an arbitrary fresh symbol,
+assume the invariant &lt;code&gt;i &amp;lt;= 2&lt;/code&gt; and the loop condition &lt;code&gt;i &amp;lt; 3&lt;/code&gt;,
+run the body &lt;code&gt;i = i + 1&lt;/code&gt; once to get the after-body value &lt;code&gt;i + 1&lt;/code&gt;,
+and prove &lt;code&gt;i + 1 &amp;lt;= 2&lt;/code&gt;.
+That gives the obligation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;(i &amp;lt;= 2 and i &amp;lt; 3) =&amp;gt; i + 1 &amp;lt;= 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Z3 finds a counterexample with &lt;code&gt;i = 2&lt;/code&gt;.
+Since &lt;code&gt;2 &amp;lt;= 2&lt;/code&gt; is true,
+the invariant holds before the iteration,
+and since &lt;code&gt;2 &amp;lt; 3&lt;/code&gt; is true,
+the loop condition says to run another iteration,
+but &lt;code&gt;2 + 1 &amp;lt;= 2&lt;/code&gt; is false,
+so the invariant is broken after the iteration.
+The prover does not iterate the loop from &lt;code&gt;0&lt;/code&gt; to &lt;code&gt;3&lt;/code&gt;;
+the preservation check symbolically executes the body once on an arbitrary &lt;code&gt;i&lt;/code&gt;,
+and the counterexample &lt;code&gt;i = 2&lt;/code&gt; picks the arbitrary iteration
+where that one step breaks the invariant.
+The correct upper bound is &lt;code&gt;i &amp;lt;= 3&lt;/code&gt;, because &lt;code&gt;i&lt;/code&gt; reaches &lt;code&gt;3&lt;/code&gt; before the loop exits.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Contracts in Frml</title>
@@ -1999,127 +2220,6 @@ we would be very grateful.
 We would also be grateful if you could circulate the survey link to colleagues and friends,
 since we would like to reach as diverse a demographic as possible.
 Thanks in advance.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Rainy Day Thoughts on AI</title>
-   <link href="https://third-bit.com/2026/08/04/rainy-day-thoughts-on-ai/"/>
-   <updated>2026-08-04T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/08/04/rainy-day-thoughts-on-ai/</id>
-   <content type="html">&lt;p&gt;&lt;a href=&#34;https://third-bit.com/2026/07/28/orwell-dali-ai/&#34;&gt;A week ago&lt;/a&gt; I posted this here, on Mastodon, and on LinkedIn:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;In his essay on Salvador Dali,
-Orwell argued that because Dali was a repulsive human being,
-the right wouldn&amp;rsquo;t admit that he was a great artist;
-conversely, because he was a great artist,
-the left wouldn&amp;rsquo;t admit he was a repulsive human being.
-I&amp;rsquo;m seeing the same thing with AI:
-because it&amp;rsquo;s unethical,
-one side won&amp;rsquo;t acknowledge that it&amp;rsquo;s useful,
-but because it&amp;rsquo;s useful,
-the other side won&amp;rsquo;t acknowledge that it&amp;rsquo;s unethical.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The responses have depressed me a bit,
-though to be fair,
-I&amp;rsquo;ve felt that way pretty much since I was laid off last October.
-Comments have gone like this:&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;AI isn&amp;rsquo;t really intelligence.&lt;/dt&gt;
-&lt;dd&gt;Yes, thank you, we know.&lt;/dd&gt;
-&lt;dt&gt;AI isn&amp;rsquo;t useful.&lt;/dt&gt;
-&lt;dd&gt;Thoughtful, intelligent people like Simon Willison, Jon Udell, Stefan Arentz, Sue Smith, and Sadie Lewis
-believe it lets them to do things in hours that would otherwise take days,
-or that they wouldn&amp;rsquo;t be able to do at all.
-I don&amp;rsquo;t think they&amp;rsquo;re easily fooled or lying to me.&lt;/dd&gt;
-&lt;dt&gt;How can you call something &amp;ldquo;useful&amp;rdquo; if it is (accelerating the climate crisis, causing cognitive decline, destroying jobs, etc.)?&lt;/dt&gt;
-&lt;dd&gt;Something can be useful &lt;em&gt;and&lt;/em&gt; harmful;
-the question is whether the benefits outweigh the harms, and for whom.
-We decided &amp;ldquo;no&amp;rdquo; for DDT and CFCs but &amp;ldquo;yes&amp;rdquo; for long-haul flights,
-except that&amp;rsquo;s &lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;not exactly true&lt;/a&gt;:
-what actually happened was that by the time we realized how harmful jet emissions are to the climate,
-people were hooked.&lt;/dd&gt;
-&lt;dt&gt;&amp;ldquo;Arguing that AI is unethical is a fringe belief at this point, analogous to believing (in reverse chronological order) that social media, the internet, computers, mass media, industrialization, or electricity are unethical.&amp;rdquo;&lt;/dt&gt;
-&lt;dd&gt;Someone left that comment on my LinkedIn post.
-Setting aside the question of whether anyone ever actually claimed that using electricity was unethical,
-I don&amp;rsquo;t know how anyone can believe that &lt;a href=&#34;https://en.wikipedia.org/wiki/Real_socialism&#34;&gt;actually existing AI&lt;/a&gt; &lt;em&gt;isn&amp;rsquo;t&lt;/em&gt;.
-It is built on theft,
-dramatically accelerates the spread of disinformation and bias,
-further concentrates power in the hands of super-rich sociopaths,
-and,
-well,
-look at the list in the previous heading.&lt;/dd&gt;
-&lt;dt&gt;We&amp;rsquo;ll adapt just like we did to [name of previous industrial revolution].&lt;/dt&gt;
-&lt;dd&gt;Would you swap places with a Victorian factory worker circa 1850?
-Would you want your children to swap places with theirs?
-Didn&amp;rsquo;t think so.
-And if you really believe AI is going to usher in an era of prosperity
-so far-reaching that people won&amp;rsquo;t have to work unless they want to,
-put your money where your mouth is right now and implement UBI.&lt;/dd&gt;
-&lt;dt&gt;One person choosing not to use AI won&amp;rsquo;t make any difference.&lt;/dt&gt;
-&lt;dd&gt;Yes, and one raindrop won&amp;rsquo;t wear away a mountain.
-As Rieder argues in &lt;a href=&#34;https://isbnsearch.org/isbn/9780593471999&#34;&gt;&lt;em&gt;Catastrophe Ethics&lt;/em&gt;&lt;/a&gt;,
-you don&amp;rsquo;t have to do everything all the time,
-but that&amp;rsquo;s no excuse for choosing to do nothing.&lt;/dd&gt;
-&lt;dt&gt;It&amp;rsquo;s too big/too late to stop.&lt;/dt&gt;
-&lt;dd&gt;Bullshit.
-We got rid of lead in gasoline,
-asbestos in our walls,
-and a host of carcinogenic food additives I grew up with
-despite fierce opposition from people who were profiting from them.
-Society has reined in the powerful many times in the past;
-it has never been easy or perfect,
-but it can be done,
-and arguing otherwise only helps those who want to avoid accountability.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;p&gt;So what should &lt;em&gt;I&lt;/em&gt; do here and now?&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;Refuse to use AI and tell others not to either.&lt;/dt&gt;
-&lt;dd&gt;I don&amp;rsquo;t believe people are going to stop using AI
-any more than I believe they&amp;rsquo;re suddenly going to stop smoking.
-Choosing this path therefore feels like choosing to be righteous but ineffective;
-I&amp;rsquo;ve been down that road before,
-and it has always proven sterile.&lt;/dd&gt;
-&lt;dt&gt;Wait for the bubble to burst and people to come to their senses.&lt;/dt&gt;
-&lt;dd&gt;I&amp;rsquo;ve been waiting for this for 18 months.
-I still believe it&amp;rsquo;s coming,
-but that doesn&amp;rsquo;t tell me what to do while I wait or when it does.
-It also doesn&amp;rsquo;t distinguish between the (repugnant) people and companies
-currently playing a trillion-dollar shell game
-and the technology that will be left behind when they implode.&lt;/dd&gt;
-&lt;dt&gt;Try to find ethical variants of the technology and encourage others to use them.&lt;/dt&gt;
-&lt;dd&gt;I always thought I&amp;rsquo;d get back into teaching when I retired,
-but I honestly don&amp;rsquo;t know what to say to a young programmer today
-about how to build software or how to get started in their career.
-Books like Miles&amp;rsquo; &lt;a href=&#34;https://leanpub.com/thesovereignengineer&#34;&gt;&lt;em&gt;The Sovereign Engineer&lt;/em&gt;&lt;/a&gt; offer answers,
-but aren&amp;rsquo;t evidence-based and ignore the ethical questions entirely.
-&lt;a href=&#34;https://third-bit.com/notwrong/&#34;&gt;How to Not Be Wrong About AI&lt;/a&gt; is an attempt to address the former issue,
-but so far nobody&amp;rsquo;s been interested.
-(As one person said to me,
-everyone currently falls into one of three camps:
-&amp;ldquo;I know it works so I don&amp;rsquo;t need proof&amp;rdquo;,
-&amp;ldquo;I know it &lt;em&gt;doesn&amp;rsquo;t&lt;/em&gt; work so I don&amp;rsquo;t need proof&amp;rdquo;,
-and &amp;ldquo;My CEO has mandated it so I don&amp;rsquo;t &lt;em&gt;want&lt;/em&gt; proof&amp;rdquo;.)&lt;/dd&gt;
-&lt;dt&gt;Campaign to make AI companies legally accountable for the harm they do.&lt;/dt&gt;
-&lt;dd&gt;I believe that &lt;a href=&#34;https://third-bit.com/2026/03/08/cognitive-pollution/&#34;&gt;cognitive pollution&lt;/a&gt; is
-the best model to use for regulating social media and AI,
-and courts in the US may finally be starting to hold big tech companies liable for
-the damage their deliberately-addictive products do.
-I&amp;rsquo;d love to see more of this;
-I just don&amp;rsquo;t know what I can contribute, or how.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;p&gt;The truth is,
-the double whammy of being laid off
-just a few weeks after my daughter moved out for university has left me floundering
-at a time when both the tech industry and society as a whole seem to be doing the same.
-I could focus on the &lt;a href=&#34;https://third-bit.com/change/&#34;&gt;organizational change&lt;/a&gt; and &lt;a href=&#34;https://third-bit.com/closure/&#34;&gt;project closure&lt;/a&gt; workshops,
-but working on them makes me feel like I&amp;rsquo;m avoiding
-the biggest thing to happen in tech in my lifetime.
-I could try sneaking into random labs in Toronto in the middle of the night
-and fixing their software for them,
-but the beneficiaries would probably just assume some rogue AI had done it.&lt;/p&gt;
-&lt;p&gt;Time for another cup of tea.
-If you came in peace,
-be welcome.&lt;/p&gt;</content>
  </entry>
  
 </feed>
