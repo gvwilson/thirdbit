@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Arrays in Frml</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Arrays in Frml</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/10/12/frml-loops/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-10-13" class="post-date">2026-10-13</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Previous posts in this series <a href="../../../../2026/10/05/frml-intro/">introduced Frml</a>,
+then explained <a href="../../../../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>,
+handles <a href="../../../../2026/10/10/frml-contracts/">contracts between functions</a>,
+and <a href="../../../../2026/10/12/frml-loops/">deals with loops</a>.
+This post shows how Frml handles arrays.</p>
+<h2>What We&rsquo;re Doing</h2>
+<p>A minimal array program is:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let a: Array&lt;Int&gt; = [2, 3, 5];
+  assert a[2] == 5;
+  return length(a);
+}
+</code></pre></div>
+<p>The array type checker subclasses the loop type checker
+and adds visitors for the array syntax.
+Everything scalar and every <code>while</code> loop is checked exactly as before;
+the new visitors only handle array nodes.</p>
+<h3>Array Access</h3>
+<p><code>visit_ExprArrayAccess</code> checks two things:
+the expression being indexed must have an array type,
+and the index must have type <code>Int</code>.
+It then returns the array&rsquo;s element type.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_ExprArrayAccess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">):</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)</span>
+    <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
+        <span class="ow">not</span> <span class="n">arr</span><span class="o">.</span><span class="n">is_array</span><span class="p">(),</span>
+        <span class="sa">f</span><span class="s2">&quot;array access expects an array but found </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">expr</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)</span>
+    <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
+        <span class="n">idx</span> <span class="o">!=</span> <span class="n">INT</span><span class="p">,</span>
+        <span class="s2">&quot;array index must have type Int&quot;</span><span class="p">,</span>
+        <span class="n">expr</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">elem</span>
+</code></pre></div>
+<h3>Array Literals</h3>
+<p><code>visit_ExprArrayLiteral</code> requires every element to be a scalar (<code>Int</code>, <code>Bool</code>, or <code>String</code>)
+and all elements to have the same type.
+It returns <code>Array&lt;T&gt;</code> for that element type.
+An empty literal <code>[]</code> has no elements from which to infer <code>T</code>,
+so it is only accepted when the expected type is already known
+from the surrounding <code>let</code> declaration, parameter type, or return type.</p>
+<h3>Array Assignment</h3>
+<p><code>visit_StmtArrayAssign</code> checks <code>a[i] = v</code>,
+requiring <code>a</code> to have an array type,
+<code>i</code> to have type <code>Int</code>,
+and <code>v</code> to have the array&rsquo;s element type.</p>
+<h3>Array declarations</h3>
+<p>Scalar <code>let</code> declarations are inherited unchanged.
+For an array declaration,
+the checker requires the initializer to be either an array literal
+or a call to a function that returns an array.
+Array-to-array assignment such as <code>let b: Array&lt;Int&gt; = a;</code> is rejected,
+because Frml treats arrays as references
+and allowing that form would create two names for one array;
+the language avoids that aliasing.
+(If you want to extend Frml to handle this,
+please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.)</p>
+<h3>Array Returns</h3>
+<p>A function may return an array,
+but the checker rejects returning an array <em>parameter</em> directly
+(again, to avoid aliasing issues).
+Returning a literal, a function-local array, or a call that returns an array is fine.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">visit_StmtReturn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">ret</span><span class="p">):</span>
+    <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="n">ret</span><span class="o">.</span><span class="n">is_array</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="n">stmt</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">variable_name</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_params</span>
+        <span class="p">),</span>
+        <span class="s2">&quot;cannot return an array parameter (arrays are references)&quot;</span><span class="p">,</span>
+        <span class="n">stmt</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">visit_StmtReturn</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
+</code></pre></div>
+<h3><code>length(...)</code></h3>
+<p><code>visit_ExprLength</code> requires its argument to be an array and returns <code>Int</code>.</p>
+<h2>The Prover&rsquo;s Array Model</h2>
+<p>Arrays need more machinery than integers.</p>
+<h3>Representation</h3>
+<p>An array is a Z3 <code>Array(Int, elem)</code> plus a length.
+The array maps integer indexes to element values,
+and the length is a separate symbolic integer.
+The prover stores an array as an <code>ArrayVal</code>,
+which pairs the Z3 array term with its length.
+<code>State.arrays</code> maps array variable names to <code>ArrayVal</code> values,
+and <code>State.old_arrays</code> is the snapshot of those values at function entry.</p>
+<h3>Array Literals</h3>
+<p>An array literal like <code>[3, 4]</code> becomes a chain of <code>Store</code> operations:</p>
+<div class="highlight"><pre><span></span><code>Store(Store(fresh_array, 0, 3), 1, 4)
+</code></pre></div>
+<p>Its length is the literal <code>2</code>.
+An empty literal produces a fresh array over the expected element sort with length <code>0</code>.</p>
+<h3>Access and Assignment</h3>
+<p><code>a[i]</code> becomes <code>z3.Select(arr.term, i)</code>,
+and it also emits a bounds obligation <code>0 &lt;= i and i &lt; length(a)</code>.
+<code>a[i] = v</code> becomes <code>z3.Store(arr.term, i, v)</code>,
+and it also emits a bounds obligation for <code>i</code>.</p>
+<h3>Bounds Obligations</h3>
+<p>Every array read and write produces:</p>
+<div class="highlight"><pre><span></span><code>hypotheses:  current path
+goal:        0 &lt;= i and i &lt; length(a)
+</code></pre></div>
+<p>For example, from <code>increment_first</code>:</p>
+<div class="highlight"><pre><span></span><code>goal:  And(0 &gt;= 0, 0 &lt; a_len!2)
+</code></pre></div>
+<h3>Array Equality</h3>
+<p>Frml <code>a == b</code> on two arrays is not a single Z3 equality:
+the lengths must be equal,
+and every element in range must be equal.
+The prover builds:</p>
+<div class="highlight"><pre><span></span><code>length(a) == length(b)
+and
+forall i: 0 &lt;= i and i &lt; length(a) =&gt; a[i] == b[i]
+</code></pre></div>
+<h2><code>old(...)</code> with Arrays</h2>
+<p><code>old(e)</code> means &ldquo;the value of <code>e</code> at the moment the function was entered&rdquo;.
+The prover snapshots parameters at entry into <code>old_vars</code> and <code>old_arrays</code>.</p>
+<div class="highlight"><pre><span></span><code>fn increment_first(a: Array&lt;Int&gt;)
+  requires length(a) &gt; 0
+  ensures a[0] == old(a[0]) + 1
+{
+  a[0] = a[0] + 1;
+}
+</code></pre></div>
+<p>At entry, <code>a</code> is a fresh array symbol <code>a!1</code> with some length,
+and <code>old_arrays["a"]</code> keeps that original <code>a!1</code>.
+After the assignment,
+<code>state.arrays["a"]</code> is the updated array,
+so <code>a[0]</code> in the postcondition reads the updated array
+while <code>old(a[0])</code> reads the original <code>a!1</code>.
+The emitted postcondition goal looks like:</p>
+<div class="highlight"><pre><span></span><code>Store(a!1, 0, a!1[0] + 1)[0] == a!1[0] + 1
+</code></pre></div>
+<p>Both sides simplify to the same value, so Z3 proves it.</p>
+<h2>Loops and Arrays</h2>
+<p>The array level inherits loop verification from the loop level.
+The only difference is that havoc must also account for arrays.
+(As a reminder,
+this is how the prover forgets what a loop did to a variable.)
+An assigned scalar becomes a fresh symbol of the same sort,
+and an assigned array becomes a fresh array over the same index and element sorts,
+keeping its length.
+At the <code>array</code> language level,
+lengths never change inside a loop because there is no <code>push</code> or <code>pop</code> (yet).</p>
+<p>For a loop body that writes <code>a[i]</code>,
+the prover havocs the <em>contents</em> of <code>a</code> while preserving <code>length(a)</code>.
+This keeps the induction sound:
+the inductive step does not silently assume which elements were already updated.</p>
+<div class="highlight"><pre><span></span><code>while i &lt; length(a)
+  invariant forall j: Int :: 0 &lt;= j and j &lt; i =&gt; a[j] &gt;= 0
+{
+  a[i] = a[i] + 1;
+  i = i + 1;
+}
+</code></pre></div>
+<p>After havoc,
+<code>a</code> is a fresh array with the same length,
+and the invariant is the only bridge from before the loop to after it.</p>
+<h2>Function Calls with Arrays</h2>
+<p>When one function calls another, the prover uses the callee&rsquo;s contract.</p>
+<h3>Array Arguments</h3>
+<p>A callee may mutate an array argument.
+<code>written_params</code> tracks which array parameters a function writes.
+A written array gets a fresh post-array,
+while a read-only array keeps the caller&rsquo;s array unchanged.
+After the call,
+the caller&rsquo;s array argument is updated to the callee&rsquo;s post-array:</p>
+<div class="highlight"><pre><span></span><code>fn increment_first(a: Array&lt;Int&gt;)
+  requires length(a) &gt; 0
+  ensures a[0] == old(a[0]) + 1
+{
+  a[0] = a[0] + 1;
+}
+
+fn main() -&gt; Int
+{
+  let xs: Array&lt;Int&gt; = [5];
+  increment_first(xs);
+  if xs[0] == 6 { return 0; } else { return 1; }
+}
+</code></pre></div>
+<p><code>increment_first</code> writes <code>a[0]</code>, so <code>a</code> is in <code>written_params</code>.
+At the call <code>increment_first(xs)</code>,
+the precondition <code>length(a) &gt; 0</code> becomes <code>length(xs) &gt; 0</code>,
+which Z3 proves from <code>xs = [5]</code> (length <code>1</code>).
+The prover creates a fresh post-array <code>a_post!N</code> with the same length,
+assumes the postcondition <code>a_post!N[0] == xs[0] + 1</code>,
+and rebinds <code>xs</code> to <code>a_post!N</code>.
+The later check <code>xs[0] == 6</code> uses that assumed relationship, so it holds.</p>
+<h3>Array Returns</h3>
+<p>A function may return an array, but as noted earlier,
+it may only return a <em>fresh</em> one,
+i.e.,
+an array literal,
+a call to another array-returning function,
+or a function-local array variable.</p>
+<p>At a call site,
+the returned array is a fresh <code>ArrayVal</code> with an unknown <code>length &gt;= 0</code>,
+exactly like any other result.
+The callee&rsquo;s <code>ensures</code> are assumed,
+and the well-formedness obligations inside them
+like array bounds and non-zero divisors are suppressed,
+because they are part of what is being assumed
+rather than something the caller proves.
+For example:</p>
+<div class="highlight"><pre><span></span><code>fn first_primes() -&gt; Array&lt;Int&gt;
+  ensures length(result) == 4
+  ensures result[0] == 2
+  ensures result[3] == 7
+{
+  return [2, 3, 5, 7];
+}
+
+fn main() -&gt; Int
+{
+  let primes: Array&lt;Int&gt; = first_primes();
+  assert primes[3] == 7;
+  return 0;
+}
+</code></pre></div>
+<p>At the call,
+<code>primes</code> becomes a fresh array
+whose length is constrained by <code>ensures length(result) == 4</code>.
+The later <code>primes[3]</code> is therefore in bounds,
+and its value is <code>7</code> by the second <code>ensures</code>.</p>
+<h2>Quantifiers Over Arrays</h2>
+<p>Consider evaluating the body <code>0 &lt;= i and i &lt; length(a) =&gt; a[i] &gt;= 0</code>
+inside <code>forall i: Int :: ...</code>.
+<code>a[i]</code> normally emits a bounds obligation <code>0 &lt;= i and i &lt; length(a)</code>
+because an out-of-bounds array read is a proof obligation at that program point.
+Inside a quantifier there is no single program point:
+<code>i</code> is a bound variable that ranges over <em>all</em> integers,
+including ones for which <code>0 &lt;= i and i &lt; length(a)</code> is false.
+Emitting the bounds obligation there would ask Z3 to prove <code>0 &lt;= i and i &lt; length(a)</code>
+for an unconstrained <code>i</code>,
+which is false,
+so the verifier would wrongly reject the formula.</p>
+<p>Instead,
+the bounds are part of the quantified formula&rsquo;s own hypothesis,
+since the implication only requires <code>a[i]</code> to be well-defined when its left side is true.
+The prover therefore increments <code>_quant_depth</code> while it evaluates a quantified body,
+and array accesses and divisions inside that body
+skip their bounds and division obligations while <code>_quant_depth &gt; 0</code>.
+The quantified body is still built as a Z3 term,
+and Z3 reasons about the whole <code>ForAll</code>/<code>Exists</code> formula directly.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/education/">education</a>, <a href="../../../../blog/software-engineering/">software-engineering</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

@@ -3,12 +3,268 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-10-12T00:00:00Z</updated>
+ <updated>2026-10-13T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Arrays in Frml</title>
+   <link href="https://third-bit.com/2026/10/13/frml-arrays/"/>
+   <updated>2026-10-13T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/10/13/frml-arrays/</id>
+   <content type="html">&lt;p&gt;Previous posts in this series &lt;a href=&#34;https://third-bit.com/2026/10/05/frml-intro/&#34;&gt;introduced Frml&lt;/a&gt;,
+then explained &lt;a href=&#34;https://third-bit.com/2026/10/08/frml-scalar/&#34;&gt;how it checks simplar scalar code&lt;/a&gt;,
+handles &lt;a href=&#34;https://third-bit.com/2026/10/10/frml-contracts/&#34;&gt;contracts between functions&lt;/a&gt;,
+and &lt;a href=&#34;https://third-bit.com/2026/10/12/frml-loops/&#34;&gt;deals with loops&lt;/a&gt;.
+This post shows how Frml handles arrays.&lt;/p&gt;
+&lt;h2&gt;What We&amp;rsquo;re Doing&lt;/h2&gt;
+&lt;p&gt;A minimal array program is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn main() -&amp;gt; Int
+{
+  let a: Array&amp;lt;Int&amp;gt; = [2, 3, 5];
+  assert a[2] == 5;
+  return length(a);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The array type checker subclasses the loop type checker
+and adds visitors for the array syntax.
+Everything scalar and every &lt;code&gt;while&lt;/code&gt; loop is checked exactly as before;
+the new visitors only handle array nodes.&lt;/p&gt;
+&lt;h3&gt;Array Access&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;visit_ExprArrayAccess&lt;/code&gt; checks two things:
+the expression being indexed must have an array type,
+and the index must have type &lt;code&gt;Int&lt;/code&gt;.
+It then returns the array&amp;rsquo;s element type.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;visit_ExprArrayAccess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expected&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;allow_old&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result_type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;accept&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;allow_old&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result_type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;FrmlTypeError&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+        &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is_array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;
+        &lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;array access expects an array but found &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;accept&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;allow_old&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result_type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;FrmlTypeError&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;s2&#34;&gt;&amp;quot;array index must have type Int&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;elem&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Array Literals&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;visit_ExprArrayLiteral&lt;/code&gt; requires every element to be a scalar (&lt;code&gt;Int&lt;/code&gt;, &lt;code&gt;Bool&lt;/code&gt;, or &lt;code&gt;String&lt;/code&gt;)
+and all elements to have the same type.
+It returns &lt;code&gt;Array&amp;lt;T&amp;gt;&lt;/code&gt; for that element type.
+An empty literal &lt;code&gt;[]&lt;/code&gt; has no elements from which to infer &lt;code&gt;T&lt;/code&gt;,
+so it is only accepted when the expected type is already known
+from the surrounding &lt;code&gt;let&lt;/code&gt; declaration, parameter type, or return type.&lt;/p&gt;
+&lt;h3&gt;Array Assignment&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;visit_StmtArrayAssign&lt;/code&gt; checks &lt;code&gt;a[i] = v&lt;/code&gt;,
+requiring &lt;code&gt;a&lt;/code&gt; to have an array type,
+&lt;code&gt;i&lt;/code&gt; to have type &lt;code&gt;Int&lt;/code&gt;,
+and &lt;code&gt;v&lt;/code&gt; to have the array&amp;rsquo;s element type.&lt;/p&gt;
+&lt;h3&gt;Array declarations&lt;/h3&gt;
+&lt;p&gt;Scalar &lt;code&gt;let&lt;/code&gt; declarations are inherited unchanged.
+For an array declaration,
+the checker requires the initializer to be either an array literal
+or a call to a function that returns an array.
+Array-to-array assignment such as &lt;code&gt;let b: Array&amp;lt;Int&amp;gt; = a;&lt;/code&gt; is rejected,
+because Frml treats arrays as references
+and allowing that form would create two names for one array;
+the language avoids that aliasing.
+(If you want to extend Frml to handle this,
+please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;give me a shout&lt;/a&gt;.)&lt;/p&gt;
+&lt;h3&gt;Array Returns&lt;/h3&gt;
+&lt;p&gt;A function may return an array,
+but the checker rejects returning an array &lt;em&gt;parameter&lt;/em&gt; directly
+(again, to avoid aliasing issues).
+Returning a literal, a function-local array, or a call that returns an array is fine.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;visit_StmtReturn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;FrmlTypeError&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
+            &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is_array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;variable_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;current_params&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+        &lt;span class=&#34;s2&#34;&gt;&amp;quot;cannot return an array parameter (arrays are references)&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;visit_StmtReturn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;&lt;code&gt;length(...)&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;visit_ExprLength&lt;/code&gt; requires its argument to be an array and returns &lt;code&gt;Int&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;The Prover&amp;rsquo;s Array Model&lt;/h2&gt;
+&lt;p&gt;Arrays need more machinery than integers.&lt;/p&gt;
+&lt;h3&gt;Representation&lt;/h3&gt;
+&lt;p&gt;An array is a Z3 &lt;code&gt;Array(Int, elem)&lt;/code&gt; plus a length.
+The array maps integer indexes to element values,
+and the length is a separate symbolic integer.
+The prover stores an array as an &lt;code&gt;ArrayVal&lt;/code&gt;,
+which pairs the Z3 array term with its length.
+&lt;code&gt;State.arrays&lt;/code&gt; maps array variable names to &lt;code&gt;ArrayVal&lt;/code&gt; values,
+and &lt;code&gt;State.old_arrays&lt;/code&gt; is the snapshot of those values at function entry.&lt;/p&gt;
+&lt;h3&gt;Array Literals&lt;/h3&gt;
+&lt;p&gt;An array literal like &lt;code&gt;[3, 4]&lt;/code&gt; becomes a chain of &lt;code&gt;Store&lt;/code&gt; operations:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Store(Store(fresh_array, 0, 3), 1, 4)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Its length is the literal &lt;code&gt;2&lt;/code&gt;.
+An empty literal produces a fresh array over the expected element sort with length &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Access and Assignment&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;a[i]&lt;/code&gt; becomes &lt;code&gt;z3.Select(arr.term, i)&lt;/code&gt;,
+and it also emits a bounds obligation &lt;code&gt;0 &amp;lt;= i and i &amp;lt; length(a)&lt;/code&gt;.
+&lt;code&gt;a[i] = v&lt;/code&gt; becomes &lt;code&gt;z3.Store(arr.term, i, v)&lt;/code&gt;,
+and it also emits a bounds obligation for &lt;code&gt;i&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Bounds Obligations&lt;/h3&gt;
+&lt;p&gt;Every array read and write produces:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;hypotheses:  current path
+goal:        0 &amp;lt;= i and i &amp;lt; length(a)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For example, from &lt;code&gt;increment_first&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;goal:  And(0 &amp;gt;= 0, 0 &amp;lt; a_len!2)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Array Equality&lt;/h3&gt;
+&lt;p&gt;Frml &lt;code&gt;a == b&lt;/code&gt; on two arrays is not a single Z3 equality:
+the lengths must be equal,
+and every element in range must be equal.
+The prover builds:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;length(a) == length(b)
+and
+forall i: 0 &amp;lt;= i and i &amp;lt; length(a) =&amp;gt; a[i] == b[i]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;code&gt;old(...)&lt;/code&gt; with Arrays&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;old(e)&lt;/code&gt; means &amp;ldquo;the value of &lt;code&gt;e&lt;/code&gt; at the moment the function was entered&amp;rdquo;.
+The prover snapshots parameters at entry into &lt;code&gt;old_vars&lt;/code&gt; and &lt;code&gt;old_arrays&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn increment_first(a: Array&amp;lt;Int&amp;gt;)
+  requires length(a) &amp;gt; 0
+  ensures a[0] == old(a[0]) + 1
+{
+  a[0] = a[0] + 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At entry, &lt;code&gt;a&lt;/code&gt; is a fresh array symbol &lt;code&gt;a!1&lt;/code&gt; with some length,
+and &lt;code&gt;old_arrays[&#34;a&#34;]&lt;/code&gt; keeps that original &lt;code&gt;a!1&lt;/code&gt;.
+After the assignment,
+&lt;code&gt;state.arrays[&#34;a&#34;]&lt;/code&gt; is the updated array,
+so &lt;code&gt;a[0]&lt;/code&gt; in the postcondition reads the updated array
+while &lt;code&gt;old(a[0])&lt;/code&gt; reads the original &lt;code&gt;a!1&lt;/code&gt;.
+The emitted postcondition goal looks like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Store(a!1, 0, a!1[0] + 1)[0] == a!1[0] + 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Both sides simplify to the same value, so Z3 proves it.&lt;/p&gt;
+&lt;h2&gt;Loops and Arrays&lt;/h2&gt;
+&lt;p&gt;The array level inherits loop verification from the loop level.
+The only difference is that havoc must also account for arrays.
+(As a reminder,
+this is how the prover forgets what a loop did to a variable.)
+An assigned scalar becomes a fresh symbol of the same sort,
+and an assigned array becomes a fresh array over the same index and element sorts,
+keeping its length.
+At the &lt;code&gt;array&lt;/code&gt; language level,
+lengths never change inside a loop because there is no &lt;code&gt;push&lt;/code&gt; or &lt;code&gt;pop&lt;/code&gt; (yet).&lt;/p&gt;
+&lt;p&gt;For a loop body that writes &lt;code&gt;a[i]&lt;/code&gt;,
+the prover havocs the &lt;em&gt;contents&lt;/em&gt; of &lt;code&gt;a&lt;/code&gt; while preserving &lt;code&gt;length(a)&lt;/code&gt;.
+This keeps the induction sound:
+the inductive step does not silently assume which elements were already updated.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;while i &amp;lt; length(a)
+  invariant forall j: Int :: 0 &amp;lt;= j and j &amp;lt; i =&amp;gt; a[j] &amp;gt;= 0
+{
+  a[i] = a[i] + 1;
+  i = i + 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After havoc,
+&lt;code&gt;a&lt;/code&gt; is a fresh array with the same length,
+and the invariant is the only bridge from before the loop to after it.&lt;/p&gt;
+&lt;h2&gt;Function Calls with Arrays&lt;/h2&gt;
+&lt;p&gt;When one function calls another, the prover uses the callee&amp;rsquo;s contract.&lt;/p&gt;
+&lt;h3&gt;Array Arguments&lt;/h3&gt;
+&lt;p&gt;A callee may mutate an array argument.
+&lt;code&gt;written_params&lt;/code&gt; tracks which array parameters a function writes.
+A written array gets a fresh post-array,
+while a read-only array keeps the caller&amp;rsquo;s array unchanged.
+After the call,
+the caller&amp;rsquo;s array argument is updated to the callee&amp;rsquo;s post-array:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn increment_first(a: Array&amp;lt;Int&amp;gt;)
+  requires length(a) &amp;gt; 0
+  ensures a[0] == old(a[0]) + 1
+{
+  a[0] = a[0] + 1;
+}
+
+fn main() -&amp;gt; Int
+{
+  let xs: Array&amp;lt;Int&amp;gt; = [5];
+  increment_first(xs);
+  if xs[0] == 6 { return 0; } else { return 1; }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;increment_first&lt;/code&gt; writes &lt;code&gt;a[0]&lt;/code&gt;, so &lt;code&gt;a&lt;/code&gt; is in &lt;code&gt;written_params&lt;/code&gt;.
+At the call &lt;code&gt;increment_first(xs)&lt;/code&gt;,
+the precondition &lt;code&gt;length(a) &amp;gt; 0&lt;/code&gt; becomes &lt;code&gt;length(xs) &amp;gt; 0&lt;/code&gt;,
+which Z3 proves from &lt;code&gt;xs = [5]&lt;/code&gt; (length &lt;code&gt;1&lt;/code&gt;).
+The prover creates a fresh post-array &lt;code&gt;a_post!N&lt;/code&gt; with the same length,
+assumes the postcondition &lt;code&gt;a_post!N[0] == xs[0] + 1&lt;/code&gt;,
+and rebinds &lt;code&gt;xs&lt;/code&gt; to &lt;code&gt;a_post!N&lt;/code&gt;.
+The later check &lt;code&gt;xs[0] == 6&lt;/code&gt; uses that assumed relationship, so it holds.&lt;/p&gt;
+&lt;h3&gt;Array Returns&lt;/h3&gt;
+&lt;p&gt;A function may return an array, but as noted earlier,
+it may only return a &lt;em&gt;fresh&lt;/em&gt; one,
+i.e.,
+an array literal,
+a call to another array-returning function,
+or a function-local array variable.&lt;/p&gt;
+&lt;p&gt;At a call site,
+the returned array is a fresh &lt;code&gt;ArrayVal&lt;/code&gt; with an unknown &lt;code&gt;length &amp;gt;= 0&lt;/code&gt;,
+exactly like any other result.
+The callee&amp;rsquo;s &lt;code&gt;ensures&lt;/code&gt; are assumed,
+and the well-formedness obligations inside them
+like array bounds and non-zero divisors are suppressed,
+because they are part of what is being assumed
+rather than something the caller proves.
+For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn first_primes() -&amp;gt; Array&amp;lt;Int&amp;gt;
+  ensures length(result) == 4
+  ensures result[0] == 2
+  ensures result[3] == 7
+{
+  return [2, 3, 5, 7];
+}
+
+fn main() -&amp;gt; Int
+{
+  let primes: Array&amp;lt;Int&amp;gt; = first_primes();
+  assert primes[3] == 7;
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At the call,
+&lt;code&gt;primes&lt;/code&gt; becomes a fresh array
+whose length is constrained by &lt;code&gt;ensures length(result) == 4&lt;/code&gt;.
+The later &lt;code&gt;primes[3]&lt;/code&gt; is therefore in bounds,
+and its value is &lt;code&gt;7&lt;/code&gt; by the second &lt;code&gt;ensures&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Quantifiers Over Arrays&lt;/h2&gt;
+&lt;p&gt;Consider evaluating the body &lt;code&gt;0 &amp;lt;= i and i &amp;lt; length(a) =&amp;gt; a[i] &amp;gt;= 0&lt;/code&gt;
+inside &lt;code&gt;forall i: Int :: ...&lt;/code&gt;.
+&lt;code&gt;a[i]&lt;/code&gt; normally emits a bounds obligation &lt;code&gt;0 &amp;lt;= i and i &amp;lt; length(a)&lt;/code&gt;
+because an out-of-bounds array read is a proof obligation at that program point.
+Inside a quantifier there is no single program point:
+&lt;code&gt;i&lt;/code&gt; is a bound variable that ranges over &lt;em&gt;all&lt;/em&gt; integers,
+including ones for which &lt;code&gt;0 &amp;lt;= i and i &amp;lt; length(a)&lt;/code&gt; is false.
+Emitting the bounds obligation there would ask Z3 to prove &lt;code&gt;0 &amp;lt;= i and i &amp;lt; length(a)&lt;/code&gt;
+for an unconstrained &lt;code&gt;i&lt;/code&gt;,
+which is false,
+so the verifier would wrongly reject the formula.&lt;/p&gt;
+&lt;p&gt;Instead,
+the bounds are part of the quantified formula&amp;rsquo;s own hypothesis,
+since the implication only requires &lt;code&gt;a[i]&lt;/code&gt; to be well-defined when its left side is true.
+The prover therefore increments &lt;code&gt;_quant_depth&lt;/code&gt; while it evaluates a quantified body,
+and array accesses and divisions inside that body
+skip their bounds and division obligations while &lt;code&gt;_quant_depth &amp;gt; 0&lt;/code&gt;.
+The quantified body is still built as a Z3 term,
+and Z3 reasons about the whole &lt;code&gt;ForAll&lt;/code&gt;/&lt;code&gt;Exists&lt;/code&gt; formula directly.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Loops in Frml</title>
@@ -2206,20 +2462,6 @@ incorrect.&lt;/dd&gt;
 prompting an LLM, then discuss which parts of computational thinking are
 shared between the two approaches.&lt;/dd&gt;
 &lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>A Survey of Programmers&#39; Beliefs</title>
-   <link href="https://third-bit.com/2026/08/05/programmer-beliefs-survey/"/>
-   <updated>2026-08-05T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/08/05/programmer-beliefs-survey/</id>
-   <content type="html">&lt;p&gt;Please help if you can:
-I am working with some students who are studying programmers&amp;rsquo; beliefs about software engineering folklore.
-If you can spare a few minutes to answer the question in &lt;a href=&#34;https://survey.bth.se/survey/2545&#34;&gt;https://survey.bth.se/survey/2545&lt;/a&gt;,
-we would be very grateful.
-We would also be grateful if you could circulate the survey link to colleagues and friends,
-since we would like to reach as diverse a demographic as possible.
-Thanks in advance.&lt;/p&gt;</content>
  </entry>
  
 </feed>
