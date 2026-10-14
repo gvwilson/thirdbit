@@ -3,12 +3,109 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-10-13T00:00:00Z</updated>
+ <updated>2026-10-14T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Built-in Functions in Frml</title>
+   <link href="https://third-bit.com/2026/10/14/frml-builtin/"/>
+   <updated>2026-10-14T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/10/14/frml-builtin/</id>
+   <content type="html">&lt;p&gt;Previous posts in this series &lt;a href=&#34;https://third-bit.com/2026/10/05/frml-intro/&#34;&gt;introduced Frml&lt;/a&gt;,
+then explained &lt;a href=&#34;https://third-bit.com/2026/10/08/frml-scalar/&#34;&gt;how it checks simplar scalar code&lt;/a&gt;,
+handles &lt;a href=&#34;https://third-bit.com/2026/10/10/frml-contracts/&#34;&gt;contracts between functions&lt;/a&gt;,
+&lt;a href=&#34;https://third-bit.com/2026/10/12/frml-loops/&#34;&gt;deals with loops&lt;/a&gt;,
+and &lt;a href=&#34;https://third-bit.com/2026/10/13/frml-arrays/&#34;&gt;checks arrays&lt;/a&gt;.
+This post shows how Frml handles built-in functions like &lt;code&gt;push&lt;/code&gt; and &lt;code&gt;pop&lt;/code&gt;.
+Here&amp;rsquo;s an example program to motivate the discussion:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn main() -&amp;gt; Int
+{
+  let a: Array&amp;lt;Int&amp;gt; = [1];
+  push(a, 2);
+  assert length(a) == 2;
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Built-in Functions&lt;/h2&gt;
+&lt;p&gt;Frml&amp;rsquo;s built-in functions live in &lt;code&gt;frml/builtins.py&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;read(path: String) -&amp;gt; String&lt;/code&gt; returns the contents of a file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;write(path: String, text: String)&lt;/code&gt; writes text to a file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;print(text: String)&lt;/code&gt; writes text to standard output&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;split(text: String, sep: String) -&amp;gt; Array&amp;lt;String&amp;gt;&lt;/code&gt; splits text on a separator&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;args() -&amp;gt; Array&amp;lt;String&amp;gt;&lt;/code&gt; returns the command-line arguments&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;push(array, value)&lt;/code&gt; appends a value to an array&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pop(array) -&amp;gt; value&lt;/code&gt; removes and returns the last element&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;TypeChecker.check_call&lt;/code&gt; first looks the name up in &lt;code&gt;BUILTINS&lt;/code&gt;.
+For a non-polymorphic built-in,
+it checks the argument count and each argument type against the recorded signature,
+then checks that a value-returning built-in is not used as a statement.
+The same path is reached whether the built-in appears as a statement or as an expression.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;push&lt;/code&gt; and &lt;code&gt;pop&lt;/code&gt; are marked &lt;code&gt;poly=True&lt;/code&gt;
+because their signatures depend on the element type of the array argument:
+&lt;code&gt;_check_poly_builtin&lt;/code&gt; resolves them.
+&lt;code&gt;push(a, v)&lt;/code&gt; requires &lt;code&gt;a&lt;/code&gt; to be an array variable and &lt;code&gt;v&lt;/code&gt; to have &lt;code&gt;a&lt;/code&gt;&amp;rsquo;s element type;
+since it is a procedure, it returns no value.
+&lt;code&gt;pop(a)&lt;/code&gt; requires &lt;code&gt;a&lt;/code&gt; to be an array variable,
+returns &lt;code&gt;a&lt;/code&gt;&amp;rsquo;s element type,
+and cannot be used as a statement.
+Both are also rejected inside specifications,
+because a specification must describe a function without mutating arrays.&lt;/p&gt;
+&lt;h2&gt;Verifying Built-Ins&lt;/h2&gt;
+&lt;p&gt;The prover models most built-ins as uninterpreted values:
+&lt;code&gt;read&lt;/code&gt; becomes a fresh string,
+&lt;code&gt;split&lt;/code&gt; and &lt;code&gt;args&lt;/code&gt; become fresh arrays of strings,
+and &lt;code&gt;print&lt;/code&gt; and &lt;code&gt;write&lt;/code&gt; evaluate their arguments and then have no further effect.
+The verifier can therefore prove nothing about a built-in&amp;rsquo;s contents,
+which is sound because file contents and command-line arguments are external to the program.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;push&lt;/code&gt; and &lt;code&gt;pop&lt;/code&gt; are the only built-ins that mutate a program array,
+so the prover treats them specially.
+The prover models &lt;code&gt;push(a, v)&lt;/code&gt; as appending &lt;code&gt;v&lt;/code&gt; at the current length:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;a = Store(a, length(a), v)
+length(a) = length(a) + 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is no bounds obligation: appending is always legal.
+The array variable is rebound to the new &lt;code&gt;ArrayVal&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The prover models &lt;code&gt;pop(a)&lt;/code&gt; as removing the last element:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;result = a[length(a) - 1]
+length(a) = length(a) - 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Unlike &lt;code&gt;push&lt;/code&gt;, &lt;code&gt;pop&lt;/code&gt; emits an obligation that the array is non-empty:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;hypotheses:  current path
+goal:        0 &amp;lt; length(a)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Popping an empty array is therefore a failed verification condition
+rather than a runtime error.&lt;/p&gt;
+&lt;h3&gt;Resizing in Loops&lt;/h3&gt;
+&lt;p&gt;A loop that calls &lt;code&gt;push&lt;/code&gt; or &lt;code&gt;pop&lt;/code&gt; changes an array&amp;rsquo;s length,
+so loop havoc must forget both the contents and the length.
+A scalar assignment havocs the scalar&amp;rsquo;s value,
+a fixed-size array assignment havocs the array&amp;rsquo;s contents but keeps its length,
+and an array changed by &lt;code&gt;push&lt;/code&gt; or &lt;code&gt;pop&lt;/code&gt; havocs the contents and the length.
+This is the same induction soundness argument as in the loop and array tutorials:
+the invariant is the only information that survives the havoc.&lt;/p&gt;
+&lt;h3&gt;Resizing Across Function Calls&lt;/h3&gt;
+&lt;p&gt;The builtin prover also tracks which array parameters a callee resizes.
+&lt;code&gt;written_params&lt;/code&gt; contains the array parameters the callee writes,
+and &lt;code&gt;resized_params&lt;/code&gt; is the subset of &lt;code&gt;written_params&lt;/code&gt; that the callee resizes with &lt;code&gt;push&lt;/code&gt; or &lt;code&gt;pop&lt;/code&gt;.
+At a call site,
+a written-but-not-resized array parameter gets a fresh post-array with the same length,
+while a resized array parameter gets a fresh post-array with a fresh,
+unknown length,
+and the prover assumes that length is non-negative.&lt;/p&gt;
+&lt;h2&gt;So How Do I Feel About This?&lt;/h2&gt;
+&lt;p&gt;The short answer is &amp;ldquo;unsatisfied&amp;rdquo;.
+I didn&amp;rsquo;t want to handle &lt;code&gt;push&lt;/code&gt; and &lt;code&gt;pop&lt;/code&gt; as special cases,
+and I hoped to build some sort of effects system for I/O,
+but this project is already larger than I originally intended it to be.
+If some students want to take this on,
+please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;reach out&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Arrays in Frml</title>
@@ -2379,89 +2476,6 @@ please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;give me a shout&lt;
     What framework do you use to decide to prioritize prevention vs mitigation?&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>LLM Programming Exercises</title>
-   <link href="https://third-bit.com/2026/08/12/llm-programming-exercises/"/>
-   <updated>2026-08-12T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/08/12/llm-programming-exercises/</id>
-   <content type="html">&lt;p&gt;What do you do when teaching programming with LLMs that isn&amp;rsquo;t in this list?&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;Critically review AI output.&lt;/dt&gt;
-&lt;dd&gt;Have the LLM answer a programming question or explain a concept, then ask
-learners to review its response collectively for correctness, clarity, and
-omissions, testing claims against examples or documentation.&lt;/dd&gt;
-&lt;dt&gt;Predict, solve, and compare.&lt;/dt&gt;
-&lt;dd&gt;Have learners predict what code an LLM will generate for a problem (or solve
-it independently), then compare their work with the AI-generated solution
-and explain the differences.&lt;/dd&gt;
-&lt;dt&gt;Debug and minimally repair code.&lt;/dt&gt;
-&lt;dd&gt;Give learners a deliberately flawed program, tell them it was generated by
-AI (even if it wasn&amp;rsquo;t), and ask them to identify, explain, and find the
-smallest possible fix for each bug without initially asking the AI for help.&lt;/dd&gt;
-&lt;dt&gt;Compare and rank multiple solutions.&lt;/dt&gt;
-&lt;dd&gt;Have the LLM generate several different solutions to the same programming
-problem, then have learners compare them for correctness, readability, and
-efficiency.&lt;/dd&gt;
-&lt;dt&gt;Guided discovery.&lt;/dt&gt;
-&lt;dd&gt;Have learners prompt the LLM to provide only progressively stronger hints or
-Socratic questions rather than complete solutions.&lt;/dd&gt;
-&lt;dt&gt;Code translation.&lt;/dt&gt;
-&lt;dd&gt;Give learners a short program in one language and prompt the LLM to
-translate it into another, then have learners annotate the translation to
-identify which programming concepts carried over and which changed.&lt;/dd&gt;
-&lt;dt&gt;Test the tests.&lt;/dt&gt;
-&lt;dd&gt;Prompt the LLM to generate test cases for a learner&amp;rsquo;s function, then have
-learners determine which are redundant and what edge cases the AI missed.&lt;/dd&gt;
-&lt;dt&gt;Prompt improvement.&lt;/dt&gt;
-&lt;dd&gt;Give learners a vague programming prompt and have them iteratively refine it
-for an LLM, comparing how changes affect the resulting code.&lt;/dd&gt;
-&lt;dt&gt;Understand unfamiliar code.&lt;/dt&gt;
-&lt;dd&gt;Give learners a large program without explanation and have them explore its
-structure and purpose using an LLM.&lt;/dd&gt;
-&lt;dt&gt;Fill in the blanks.&lt;/dt&gt;
-&lt;dd&gt;Give learners an incomplete program and have the LLM suggest several
-possible completions for learners to evaluate and test.&lt;/dd&gt;
-&lt;dt&gt;Error-message dialogue.&lt;/dt&gt;
-&lt;dd&gt;Have learners paste compiler or runtime error messages into an LLM, predict
-what advice it will give, and then assess whether that advice actually fixes
-the underlying problem.&lt;/dd&gt;
-&lt;dt&gt;Spot the hallucination.&lt;/dt&gt;
-&lt;dd&gt;Give learners explanations containing a mixture of correct and invented
-&amp;ldquo;facts&amp;rdquo; and have them use experiments and documentation to identify the
-false claims.&lt;/dd&gt;
-&lt;dt&gt;Refactor and improve.&lt;/dt&gt;
-&lt;dd&gt;Have learners refactor poorly structured or badly written code, then compare
-their changes with an LLM&amp;rsquo;s suggestions and defend their design choices.&lt;/dd&gt;
-&lt;dt&gt;Test-driven AI.&lt;/dt&gt;
-&lt;dd&gt;Have learners write the expected behavior and test cases for a function
-before prompting an LLM to implement it, then use the tests to evaluate and
-revise the generated code.&lt;/dd&gt;
-&lt;dt&gt;Role reversal.&lt;/dt&gt;
-&lt;dd&gt;Have learners write a program and prompt the LLM to act as a novice
-programmer who misunderstands it, then identify and correct the
-misconceptions in the AI&amp;rsquo;s interpretation.&lt;/dd&gt;
-&lt;dt&gt;AI-generated homework critique.&lt;/dt&gt;
-&lt;dd&gt;Have learners prompt an LLM to generate a beginner programming exercise,
-then critique whether the problem is well-designed.&lt;/dd&gt;
-&lt;dt&gt;Rubric construction.&lt;/dt&gt;
-&lt;dd&gt;Have learners prompt an LLM to propose a grading rubric for a programming
-assignment, then revise it as a class to make the criteria clearer and more
-meaningful.&lt;/dd&gt;
-&lt;dt&gt;Concept misconception.&lt;/dt&gt;
-&lt;dd&gt;Prompt an LLM to explain a programming concept as if it held a common
-beginner misconception, then have learners diagnose and correct the
-misconception.&lt;/dd&gt;
-&lt;dt&gt;Documentation detective.&lt;/dt&gt;
-&lt;dd&gt;Give learners documentation for a small program and have them inspect the
-actual code to find statements in the documentation that are unsupported or
-incorrect.&lt;/dd&gt;
-&lt;dt&gt;Prompt versus program.&lt;/dt&gt;
-&lt;dd&gt;Have learners solve a problem once by writing code and once by carefully
-prompting an LLM, then discuss which parts of computational thinking are
-shared between the two approaches.&lt;/dd&gt;
-&lt;/dl&gt;</content>
  </entry>
  
 </feed>

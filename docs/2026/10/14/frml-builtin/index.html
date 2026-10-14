@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Built-in Functions in Frml</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Built-in Functions in Frml</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/10/13/frml-arrays/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-10-14" class="post-date">2026-10-14</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Previous posts in this series <a href="../../../../2026/10/05/frml-intro/">introduced Frml</a>,
+then explained <a href="../../../../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>,
+handles <a href="../../../../2026/10/10/frml-contracts/">contracts between functions</a>,
+<a href="../../../../2026/10/12/frml-loops/">deals with loops</a>,
+and <a href="../../../../2026/10/13/frml-arrays/">checks arrays</a>.
+This post shows how Frml handles built-in functions like <code>push</code> and <code>pop</code>.
+Here&rsquo;s an example program to motivate the discussion:</p>
+<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
+{
+  let a: Array&lt;Int&gt; = [1];
+  push(a, 2);
+  assert length(a) == 2;
+  return 0;
+}
+</code></pre></div>
+<h2>Built-in Functions</h2>
+<p>Frml&rsquo;s built-in functions live in <code>frml/builtins.py</code>:</p>
+<ul>
+<li><code>read(path: String) -&gt; String</code> returns the contents of a file</li>
+<li><code>write(path: String, text: String)</code> writes text to a file</li>
+<li><code>print(text: String)</code> writes text to standard output</li>
+<li><code>split(text: String, sep: String) -&gt; Array&lt;String&gt;</code> splits text on a separator</li>
+<li><code>args() -&gt; Array&lt;String&gt;</code> returns the command-line arguments</li>
+<li><code>push(array, value)</code> appends a value to an array</li>
+<li><code>pop(array) -&gt; value</code> removes and returns the last element</li>
+</ul>
+<p><code>TypeChecker.check_call</code> first looks the name up in <code>BUILTINS</code>.
+For a non-polymorphic built-in,
+it checks the argument count and each argument type against the recorded signature,
+then checks that a value-returning built-in is not used as a statement.
+The same path is reached whether the built-in appears as a statement or as an expression.</p>
+<p><code>push</code> and <code>pop</code> are marked <code>poly=True</code>
+because their signatures depend on the element type of the array argument:
+<code>_check_poly_builtin</code> resolves them.
+<code>push(a, v)</code> requires <code>a</code> to be an array variable and <code>v</code> to have <code>a</code>&rsquo;s element type;
+since it is a procedure, it returns no value.
+<code>pop(a)</code> requires <code>a</code> to be an array variable,
+returns <code>a</code>&rsquo;s element type,
+and cannot be used as a statement.
+Both are also rejected inside specifications,
+because a specification must describe a function without mutating arrays.</p>
+<h2>Verifying Built-Ins</h2>
+<p>The prover models most built-ins as uninterpreted values:
+<code>read</code> becomes a fresh string,
+<code>split</code> and <code>args</code> become fresh arrays of strings,
+and <code>print</code> and <code>write</code> evaluate their arguments and then have no further effect.
+The verifier can therefore prove nothing about a built-in&rsquo;s contents,
+which is sound because file contents and command-line arguments are external to the program.</p>
+<p><code>push</code> and <code>pop</code> are the only built-ins that mutate a program array,
+so the prover treats them specially.
+The prover models <code>push(a, v)</code> as appending <code>v</code> at the current length:</p>
+<div class="highlight"><pre><span></span><code>a = Store(a, length(a), v)
+length(a) = length(a) + 1
+</code></pre></div>
+<p>There is no bounds obligation: appending is always legal.
+The array variable is rebound to the new <code>ArrayVal</code>.</p>
+<p>The prover models <code>pop(a)</code> as removing the last element:</p>
+<div class="highlight"><pre><span></span><code>result = a[length(a) - 1]
+length(a) = length(a) - 1
+</code></pre></div>
+<p>Unlike <code>push</code>, <code>pop</code> emits an obligation that the array is non-empty:</p>
+<div class="highlight"><pre><span></span><code>hypotheses:  current path
+goal:        0 &lt; length(a)
+</code></pre></div>
+<p>Popping an empty array is therefore a failed verification condition
+rather than a runtime error.</p>
+<h3>Resizing in Loops</h3>
+<p>A loop that calls <code>push</code> or <code>pop</code> changes an array&rsquo;s length,
+so loop havoc must forget both the contents and the length.
+A scalar assignment havocs the scalar&rsquo;s value,
+a fixed-size array assignment havocs the array&rsquo;s contents but keeps its length,
+and an array changed by <code>push</code> or <code>pop</code> havocs the contents and the length.
+This is the same induction soundness argument as in the loop and array tutorials:
+the invariant is the only information that survives the havoc.</p>
+<h3>Resizing Across Function Calls</h3>
+<p>The builtin prover also tracks which array parameters a callee resizes.
+<code>written_params</code> contains the array parameters the callee writes,
+and <code>resized_params</code> is the subset of <code>written_params</code> that the callee resizes with <code>push</code> or <code>pop</code>.
+At a call site,
+a written-but-not-resized array parameter gets a fresh post-array with the same length,
+while a resized array parameter gets a fresh post-array with a fresh,
+unknown length,
+and the prover assumes that length is non-negative.</p>
+<h2>So How Do I Feel About This?</h2>
+<p>The short answer is &ldquo;unsatisfied&rdquo;.
+I didn&rsquo;t want to handle <code>push</code> and <code>pop</code> as special cases,
+and I hoped to build some sort of effects system for I/O,
+but this project is already larger than I originally intended it to be.
+If some students want to take this on,
+please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/education/">education</a>, <a href="../../../../blog/software-engineering/">software-engineering</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>
