@@ -34,6 +34,12 @@ An I/O Library for Dafny
     offer what the examples need. This project will build those libraries,
     starting with what's listed in [this blog post][dafny-io].
 
+A Software Development Simulator
+:   I created [asimpy][asimpy] so that I could build simulations of software
+    development teams similar to [these ones][curious-duck]. The goal of this
+    project is to build those simulations and use them to explore the impact
+    of AI tooling on the software lifecycle.
+
 ## Games
 
 Stardew Valley Murders
@@ -41,7 +47,7 @@ Stardew Valley Murders
     Grow vegetables, then trade them for gossip and clues until you figure out
     who murdered Clint and why.
     <br>
-	*This project now has a team for Winter 2027.*
+    *This project now has a team for Winter 2027.*
 
 Rewind
 :   A first-person shooter with a science-fiction theme in which each player has
@@ -68,6 +74,7 @@ Tower Support Game
 [asimpy]: https://asimpy.readthedocs.io/
 [bram]: https://github.com/judell/bram
 [chart.xkcd]: https://github.com/gvwilson/chart.xkcd/
+[curious-duck]: https://sim.curiousduck.io/
 [dafny]: https://dafny.org/
 [dafny-io]: @root/2026/09/20/io-for-sd/
 [frml]: https://github.com/gvwilson/frml/
