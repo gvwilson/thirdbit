@@ -132,6 +132,107 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/10/15/frml-complete/">
+      Frml: Next Steps
+    </a>
+  </h3>
+  <p><time datetime="2026-10-15" class="post-date">2026-10-15</time></p>
+  <p>Previous posts in this series <a href="../2026/10/05/frml-intro/">introduced Frml</a>,
+explained <a href="../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>
+and handles <a href="../2026/10/10/frml-contracts/">contracts between functions</a>,
+and then discussed how it <a href="../2026/10/12/frml-loops/">deals with loops</a>,
+<a href="../2026/10/13/frml-arrays/">checks arrays</a>,
+and <a href="../2026/10/14/frml-builtin/">checks built-in functions</a>.
+The final language level, <code>complete</code>,
+doesn&rsquo;t add any new features.
+Instead,
+it serves as a placeholder in case we want to extend the language further.
+I&rsquo;m not going to do this myself,
+but if you are a student (or a professor looking for projects for students)
+please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
+<h2>Algebraic Data Types and Pattern Matching</h2>
+<p>Add <code>enum</code> sum types and a <code>match</code> expression
+to teach structural induction over data and Z3&rsquo;s datatype theory.
+A sample program would be:</p>
+<div class="highlight"><pre><span></span><code>enum Option&lt;T&gt; { None, Some(T) }
+
+fn get_or(a: Option&lt;Int&gt;, d: Int) -&gt; Int
+  ensures result == d or result != d
+{
+  match a {
+    None =&gt; d,
+    Some(v) =&gt; v,
+  }
+}
+</code></pre></div>
+<p>Frml currently proves things about numbers and arrays
+but never about the shape of a value.
+Lists, options, and trees are where induction over data structures becomes real,
+and the classic proofs
+(list length, <code>append</code> associativity, <code>map</code> distributes over <code>append</code>)
+are exactly what separates &ldquo;checked the arithmetic&rdquo; from &ldquo;verified a data structure&rdquo;.
+Z3 has a native datatype sort,
+so this is more a type-checker and visitor addition than new solver machinery.
+It would sit as a <code>datatype</code> level above <code>contracts</code>,
+and recursive types would reuse the existing <code>decreases</code> machinery.</p>
+<h2>Explicit Frame Clauses (<code>modifies</code> / <code>reads</code>)</h2>
+<p>Frml already infers <code>written_params</code>,
+but the language gives the programmer no way to state what a call may touch.
+An explicit, checked clause makes that contract visible:</p>
+<div class="highlight"><pre><span></span><code>fn increment_first(a: Array&lt;Int&gt;)
+  modifies a
+  ensures a[0] == old(a[0]) + 1
+</code></pre></div>
+<p>This would teach the frame problem, modular verification, and information hiding.
+The pedagogical payoff is the frame problem:
+proving that a call does not change everything else.
+A student who writes <code>modifies a</code> and then has the verifier flag an unlisted write
+learns why modularity fails without framing,
+and why &ldquo;what may this function change?&rdquo; is a first-class specification question
+rather than an implementation detail.
+It also becomes the bridge to the hardest topics:
+aliasing and separation logic,
+which the current &ldquo;arrays are references but aliasing is forbidden&rdquo; design
+deliberately sidesteps.</p>
+<h2>Machine Integers (Bit Vectors) vs. Mathematical Integers</h2>
+<p>Frml&rsquo;s <code>Int</code> is an unbounded mathematical integer,
+so <code>x + 1 &gt; x</code> is always true.
+If we add a bounded type or a <code>--int-model bitvector</code> switch,
+that theorem quietly breaks:</p>
+<div class="highlight"><pre><span></span><code>fn add_one(x: Int32) -&gt; Bool
+  ensures x + 1 &gt; x   // false when x == Int32.max
+</code></pre></div>
+<p>This is arguably the most important caveat in applied verification:
+the model is not the machine.
+It teaches why SMT solvers are split into theories,
+why overflow is a real bug class,
+and why a verified program can still be wrong if the verification model diverges from the runtime.
+It also gives a natural way to discuss the tradeoff,
+since bit-vector reasoning is harder for the solver than integer arithmetic.</p>
+<h2>Ghost Code and Lemmas</h2>
+<p>The final idea is to extend the language
+so that programmers can introduce names and functions that exist only in specifications:</p>
+<div class="highlight"><pre><span></span><code>ghost var count: Int = 0;
+
+lemma append_len(a: List&lt;Int&gt;, b: List&lt;Int&gt;)
+  ensures length(a ++ b) == length(a) + length(b);
+</code></pre></div>
+<p>These <em>ghost variables</em> are the classic trick for proving properties
+that the running program has no reason to record,
+and lemmas are how a verified fact gets packaged and reused across functions
+instead of being re-derived inline.
+Together they teach that a proof is a structure of its own
+that can be layered on top of,
+but kept separate from,
+the executable program,
+and they unlock the &ldquo;mathematical library&rdquo; style of verification
+that makes large programs tractable.
+This composes naturally with the first feature idea,
+since inductive lemmas over data types are the standard way to prove list properties.</p>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/10/14/frml-builtin/">
       Built-in Functions in Frml
     </a>
@@ -1450,40 +1551,6 @@ and <code>C</code> to be unequal:</p>
 </code></pre></div>
 <p>The next post in this series will show how Frml builds proof obligations
 for simple programs that manipulate scalar variables without loops or conditionals.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/10/02/heroes-and-villains/">
-      Heroes and Villains
-    </a>
-  </h3>
-  <p><time datetime="2026-10-02" class="post-date">2026-10-02</time></p>
-  <p>Earlier this week I asked a question on Mastodon:
-&ldquo;Who are the Jane Goodalls and David Attenboroughs of software?&rdquo;
-<a href="https://en.wikipedia.org/wiki/Jane_Goodall">Goodall</a> was a primatologist best known for
-decades of research on chimpanzees,
-and <a href="https://en.wikipedia.org/wiki/David_Attenborough">Attenborough</a> has been making nature documentaries
-longer than I&rsquo;ve been alive.
-Both are well-known to the general public
-(at least in the English speaking world)
-and have been powerful forces for good.</p>
-<p>Which means that the answer to my question is,
-&ldquo;We don&rsquo;t have any.&rdquo;
-If you ask someone who isn&rsquo;t in tech to name people who are,
-they will say Gates or Musk or Zuckerberg.
-They know our corporate super-villains,
-not the people who have been trying to make the world a better place.
-It&rsquo;s as if the only people you knew who had something to do with the environment
-were the presidents of oil companies,
-none of whom I could name without doing an online search.</p>
-<p>I don&rsquo;t know why this is,
-how to change it,
-or whether changing it would matter.
-Now that I&rsquo;ve noticed it, though,
-I can&rsquo;t stop thinking about it.
-If there&rsquo;s someone outside the Anglosphere who fits the bill,
-I&rsquo;d be grateful for a pointer.</p>
 </article>
 
 

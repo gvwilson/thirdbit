@@ -3,12 +3,111 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-10-14T00:00:00Z</updated>
+ <updated>2026-10-15T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Frml: Next Steps</title>
+   <link href="https://third-bit.com/2026/10/15/frml-complete/"/>
+   <updated>2026-10-15T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/10/15/frml-complete/</id>
+   <content type="html">&lt;p&gt;Previous posts in this series &lt;a href=&#34;https://third-bit.com/2026/10/05/frml-intro/&#34;&gt;introduced Frml&lt;/a&gt;,
+explained &lt;a href=&#34;https://third-bit.com/2026/10/08/frml-scalar/&#34;&gt;how it checks simplar scalar code&lt;/a&gt;
+and handles &lt;a href=&#34;https://third-bit.com/2026/10/10/frml-contracts/&#34;&gt;contracts between functions&lt;/a&gt;,
+and then discussed how it &lt;a href=&#34;https://third-bit.com/2026/10/12/frml-loops/&#34;&gt;deals with loops&lt;/a&gt;,
+&lt;a href=&#34;https://third-bit.com/2026/10/13/frml-arrays/&#34;&gt;checks arrays&lt;/a&gt;,
+and &lt;a href=&#34;https://third-bit.com/2026/10/14/frml-builtin/&#34;&gt;checks built-in functions&lt;/a&gt;.
+The final language level, &lt;code&gt;complete&lt;/code&gt;,
+doesn&amp;rsquo;t add any new features.
+Instead,
+it serves as a placeholder in case we want to extend the language further.
+I&amp;rsquo;m not going to do this myself,
+but if you are a student (or a professor looking for projects for students)
+please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Algebraic Data Types and Pattern Matching&lt;/h2&gt;
+&lt;p&gt;Add &lt;code&gt;enum&lt;/code&gt; sum types and a &lt;code&gt;match&lt;/code&gt; expression
+to teach structural induction over data and Z3&amp;rsquo;s datatype theory.
+A sample program would be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;enum Option&amp;lt;T&amp;gt; { None, Some(T) }
+
+fn get_or(a: Option&amp;lt;Int&amp;gt;, d: Int) -&amp;gt; Int
+  ensures result == d or result != d
+{
+  match a {
+    None =&amp;gt; d,
+    Some(v) =&amp;gt; v,
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Frml currently proves things about numbers and arrays
+but never about the shape of a value.
+Lists, options, and trees are where induction over data structures becomes real,
+and the classic proofs
+(list length, &lt;code&gt;append&lt;/code&gt; associativity, &lt;code&gt;map&lt;/code&gt; distributes over &lt;code&gt;append&lt;/code&gt;)
+are exactly what separates &amp;ldquo;checked the arithmetic&amp;rdquo; from &amp;ldquo;verified a data structure&amp;rdquo;.
+Z3 has a native datatype sort,
+so this is more a type-checker and visitor addition than new solver machinery.
+It would sit as a &lt;code&gt;datatype&lt;/code&gt; level above &lt;code&gt;contracts&lt;/code&gt;,
+and recursive types would reuse the existing &lt;code&gt;decreases&lt;/code&gt; machinery.&lt;/p&gt;
+&lt;h2&gt;Explicit Frame Clauses (&lt;code&gt;modifies&lt;/code&gt; / &lt;code&gt;reads&lt;/code&gt;)&lt;/h2&gt;
+&lt;p&gt;Frml already infers &lt;code&gt;written_params&lt;/code&gt;,
+but the language gives the programmer no way to state what a call may touch.
+An explicit, checked clause makes that contract visible:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn increment_first(a: Array&amp;lt;Int&amp;gt;)
+  modifies a
+  ensures a[0] == old(a[0]) + 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This would teach the frame problem, modular verification, and information hiding.
+The pedagogical payoff is the frame problem:
+proving that a call does not change everything else.
+A student who writes &lt;code&gt;modifies a&lt;/code&gt; and then has the verifier flag an unlisted write
+learns why modularity fails without framing,
+and why &amp;ldquo;what may this function change?&amp;rdquo; is a first-class specification question
+rather than an implementation detail.
+It also becomes the bridge to the hardest topics:
+aliasing and separation logic,
+which the current &amp;ldquo;arrays are references but aliasing is forbidden&amp;rdquo; design
+deliberately sidesteps.&lt;/p&gt;
+&lt;h2&gt;Machine Integers (Bit Vectors) vs. Mathematical Integers&lt;/h2&gt;
+&lt;p&gt;Frml&amp;rsquo;s &lt;code&gt;Int&lt;/code&gt; is an unbounded mathematical integer,
+so &lt;code&gt;x + 1 &amp;gt; x&lt;/code&gt; is always true.
+If we add a bounded type or a &lt;code&gt;--int-model bitvector&lt;/code&gt; switch,
+that theorem quietly breaks:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;fn add_one(x: Int32) -&amp;gt; Bool
+  ensures x + 1 &amp;gt; x   // false when x == Int32.max
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is arguably the most important caveat in applied verification:
+the model is not the machine.
+It teaches why SMT solvers are split into theories,
+why overflow is a real bug class,
+and why a verified program can still be wrong if the verification model diverges from the runtime.
+It also gives a natural way to discuss the tradeoff,
+since bit-vector reasoning is harder for the solver than integer arithmetic.&lt;/p&gt;
+&lt;h2&gt;Ghost Code and Lemmas&lt;/h2&gt;
+&lt;p&gt;The final idea is to extend the language
+so that programmers can introduce names and functions that exist only in specifications:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ghost var count: Int = 0;
+
+lemma append_len(a: List&amp;lt;Int&amp;gt;, b: List&amp;lt;Int&amp;gt;)
+  ensures length(a ++ b) == length(a) + length(b);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;These &lt;em&gt;ghost variables&lt;/em&gt; are the classic trick for proving properties
+that the running program has no reason to record,
+and lemmas are how a verified fact gets packaged and reused across functions
+instead of being re-derived inline.
+Together they teach that a proof is a structure of its own
+that can be layered on top of,
+but kept separate from,
+the executable program,
+and they unlock the &amp;ldquo;mathematical library&amp;rdquo; style of verification
+that makes large programs tractable.
+This composes naturally with the first feature idea,
+since inductive lemmas over data types are the standard way to prove list properties.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Built-in Functions in Frml</title>
@@ -2412,75 +2511,6 @@ For reference, the materials are in &lt;a href=&#34;https://github.com/gvwilson/
 &lt;/ol&gt;
 &lt;p&gt;If you have solutions to any of these problems, please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;give me a shout&lt;/a&gt;;
 thanks in advance for your help.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>First Closure Workshop</title>
-   <link href="https://third-bit.com/2026/08/13/first-closure-workshop/"/>
-   <updated>2026-08-13T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/08/13/first-closure-workshop/</id>
-   <content type="html">&lt;p&gt;Thanks to a lot of hard work by &lt;a href=&#34;https://www.linkedin.com/in/lizneeley/&#34;&gt;Liz Neeley&lt;/a&gt;,
-I had a chance to run the &lt;a href=&#34;https://third-bit.com/closure&#34;&gt;project closure workshop&lt;/a&gt; online yesterday.
-I think it went pretty well,
-and I really enjoyed meeting all the participants,
-but as the saying goes,
-no lesson survives first contact with learners.
-In particular,
-there&amp;rsquo;s a lot of duplication,
-and I think I need to reorganize the material in a 2x2 scheme:&lt;/p&gt;
-&lt;table&gt;
-&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Sudden&lt;/th&gt;&lt;th&gt;Gradual&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;th&gt;Project Continues&lt;/th&gt;&lt;td&gt;Emergency planning&lt;/td&gt;&lt;td&gt;Success planning&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;th&gt;Project Ends&lt;/th&gt;&lt;td&gt;Abrupt closure&lt;/td&gt;&lt;td&gt;Deliberate closure&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;p&gt;I hope to put it back together by September;
-if you&amp;rsquo;d interested in having me run it for your team or your colleagues,
-please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;give me a shout&lt;/a&gt;.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;Here are some of the questions people still had at the end of the workshop:&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Universities/departments/programs are already very lean. How do we advise
-    more trimming vs cutting/closing when there doesn’t appear to be more
-    opportunities to cut?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What do you do when you are the only one left on the project?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;This workshop is apparently aimed at leaders of research teams. Which
-    specific parts would be suitable for junior/early-career people who &lt;em&gt;aren&amp;rsquo;t&lt;/em&gt;
-    in charge of things (yet)?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;How do we maintain connections with (former) colleagues when there is
-    outright conflict during a wind-down?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For soft-funded units, with people in mixed hard/soft roles, how do you
-    close parts of an organization while others may remain or persist?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;How do you know if it&amp;rsquo;s the right time to shut down?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;At what point in the lifecycle of a project is it most important to create
-    an emergency/shutdown plan?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;how do we help people who might be in denial come out of that mode without
-    compromising the psychological safety we&amp;rsquo;re trying to build?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;How do we navigate shutdown in the kind of organization in which there are
-    many stakeholders who have decision-making power over that?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;How/what do you prepare when shut down is a possibility but not certain?
-    What framework do you use to decide to prioritize prevention vs mitigation?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</content>
  </entry>
  
 </feed>

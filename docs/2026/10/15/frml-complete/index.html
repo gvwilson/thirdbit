@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Frml: Next Steps</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Frml: Next Steps</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/10/14/frml-builtin/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-10-15" class="post-date">2026-10-15</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Previous posts in this series <a href="../../../../2026/10/05/frml-intro/">introduced Frml</a>,
+explained <a href="../../../../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>
+and handles <a href="../../../../2026/10/10/frml-contracts/">contracts between functions</a>,
+and then discussed how it <a href="../../../../2026/10/12/frml-loops/">deals with loops</a>,
+<a href="../../../../2026/10/13/frml-arrays/">checks arrays</a>,
+and <a href="../../../../2026/10/14/frml-builtin/">checks built-in functions</a>.
+The final language level, <code>complete</code>,
+doesn&rsquo;t add any new features.
+Instead,
+it serves as a placeholder in case we want to extend the language further.
+I&rsquo;m not going to do this myself,
+but if you are a student (or a professor looking for projects for students)
+please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
+<h2>Algebraic Data Types and Pattern Matching</h2>
+<p>Add <code>enum</code> sum types and a <code>match</code> expression
+to teach structural induction over data and Z3&rsquo;s datatype theory.
+A sample program would be:</p>
+<div class="highlight"><pre><span></span><code>enum Option&lt;T&gt; { None, Some(T) }
+
+fn get_or(a: Option&lt;Int&gt;, d: Int) -&gt; Int
+  ensures result == d or result != d
+{
+  match a {
+    None =&gt; d,
+    Some(v) =&gt; v,
+  }
+}
+</code></pre></div>
+<p>Frml currently proves things about numbers and arrays
+but never about the shape of a value.
+Lists, options, and trees are where induction over data structures becomes real,
+and the classic proofs
+(list length, <code>append</code> associativity, <code>map</code> distributes over <code>append</code>)
+are exactly what separates &ldquo;checked the arithmetic&rdquo; from &ldquo;verified a data structure&rdquo;.
+Z3 has a native datatype sort,
+so this is more a type-checker and visitor addition than new solver machinery.
+It would sit as a <code>datatype</code> level above <code>contracts</code>,
+and recursive types would reuse the existing <code>decreases</code> machinery.</p>
+<h2>Explicit Frame Clauses (<code>modifies</code> / <code>reads</code>)</h2>
+<p>Frml already infers <code>written_params</code>,
+but the language gives the programmer no way to state what a call may touch.
+An explicit, checked clause makes that contract visible:</p>
+<div class="highlight"><pre><span></span><code>fn increment_first(a: Array&lt;Int&gt;)
+  modifies a
+  ensures a[0] == old(a[0]) + 1
+</code></pre></div>
+<p>This would teach the frame problem, modular verification, and information hiding.
+The pedagogical payoff is the frame problem:
+proving that a call does not change everything else.
+A student who writes <code>modifies a</code> and then has the verifier flag an unlisted write
+learns why modularity fails without framing,
+and why &ldquo;what may this function change?&rdquo; is a first-class specification question
+rather than an implementation detail.
+It also becomes the bridge to the hardest topics:
+aliasing and separation logic,
+which the current &ldquo;arrays are references but aliasing is forbidden&rdquo; design
+deliberately sidesteps.</p>
+<h2>Machine Integers (Bit Vectors) vs. Mathematical Integers</h2>
+<p>Frml&rsquo;s <code>Int</code> is an unbounded mathematical integer,
+so <code>x + 1 &gt; x</code> is always true.
+If we add a bounded type or a <code>--int-model bitvector</code> switch,
+that theorem quietly breaks:</p>
+<div class="highlight"><pre><span></span><code>fn add_one(x: Int32) -&gt; Bool
+  ensures x + 1 &gt; x   // false when x == Int32.max
+</code></pre></div>
+<p>This is arguably the most important caveat in applied verification:
+the model is not the machine.
+It teaches why SMT solvers are split into theories,
+why overflow is a real bug class,
+and why a verified program can still be wrong if the verification model diverges from the runtime.
+It also gives a natural way to discuss the tradeoff,
+since bit-vector reasoning is harder for the solver than integer arithmetic.</p>
+<h2>Ghost Code and Lemmas</h2>
+<p>The final idea is to extend the language
+so that programmers can introduce names and functions that exist only in specifications:</p>
+<div class="highlight"><pre><span></span><code>ghost var count: Int = 0;
+
+lemma append_len(a: List&lt;Int&gt;, b: List&lt;Int&gt;)
+  ensures length(a ++ b) == length(a) + length(b);
+</code></pre></div>
+<p>These <em>ghost variables</em> are the classic trick for proving properties
+that the running program has no reason to record,
+and lemmas are how a verified fact gets packaged and reused across functions
+instead of being re-derived inline.
+Together they teach that a proof is a structure of its own
+that can be layered on top of,
+but kept separate from,
+the executable program,
+and they unlock the &ldquo;mathematical library&rdquo; style of verification
+that makes large programs tractable.
+This composes naturally with the first feature idea,
+since inductive lemmas over data types are the standard way to prove list properties.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/education/">education</a>, <a href="../../../../blog/software-engineering/">software-engineering</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>
