@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: A Simple Web Server</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>A Simple Web Server</h1>
+
+
+
+<p><em>by Greg Wilson</em></p>
+<p><em><a href="https://twitter.com/gvwilson">Greg Wilson</a> is the founder of Software Carpentry, a crash course in computing skills for scientists and engineers.  He has worked for 30 years in both industry and academia, and is the author or editor of several books on computing, including the 2008 Jolt Award winner <em>Beautiful Code</em> and the first two volumes of <em>The Architecture of Open Source Applications</em>. Greg received a PhD in Computer Science from the University of Edinburgh in 1993.</em></p>
+<h2>Introduction</h2>
+<p>The web has changed society in countless ways over the last two decades,
+but its core has changed very little.
+Most systems still follow the rules that Tim Berners-Lee laid out
+a quarter of a century ago.
+In particular,
+most web servers still handle the same kinds of messages they did then,
+in the same way.</p>
+<p>This chapter will explore how they do that.
+At the same time,
+it will explore how developers can create software systems
+that don&rsquo;t need to be rewritten
+in order to add new features.</p>
+<h2>Background</h2>
+<p>Pretty much every program on the web
+runs on a family of communication standards called Internet Protocol (IP).
+The member of that family which concerns us is the Transmission Control Protocol (TCP/IP),
+which makes communication between computers look like reading and writing files.</p>
+<p>Programs using IP communicate through sockets.
+Each socket is one end of a point-to-point communication channel,
+just like a phone is one end of a phone call.
+A socket consists of an IP address that identifies a particular machine
+and a port number on that machine.
+The IP address consists of four 8-bit numbers,
+such as <code>174.136.14.108</code>;
+the Domain Name System (DNS) matches these numbers to symbolic names like <code>aosabook.org</code>
+that are easier for human beings to remember.</p>
+<p>A port number is a number in the range 0-65535
+that uniquely identifies the socket on the host machine.
+(If an IP address is like a company&rsquo;s phone number,
+then a port number is like an extension.)
+Ports 0-1023 are reserved for the operating system&rsquo;s use;
+anyone else can use the remaining ports.</p>
+<p>The Hypertext Transfer Protocol (HTTP) describes one way that
+programs can exchange data over IP.
+HTTP is deliberately simple:
+the client sends a request specifying what it wants over a socket connection,
+and the server sends some data in response (Figure: The HTTP Cycle.)
+The data may be copied from a file on disk,
+generated dynamically by a program,
+or some mix of the two.</p>
+<p><img alt="The HTTP Cycle" src="web-server-images/http-cycle.png" />The most important thing about an HTTP request is that it&rsquo;s just text:
+any program that wants to can create one or parse one.
+In order to be understood,
+though,
+that text must have the parts shown in Figure: An HTTP Request.</p>
+<p><img alt="An HTTP Request" src="web-server-images/http-request.png" />The HTTP method is almost always either &ldquo;GET&rdquo; (to fetch information)
+or &ldquo;POST&rdquo; (to submit form data or upload files).
+The URL specifies what the client wants;
+it is often a path to a file on disk,
+such as <code>/research/experiments.html</code>,
+but (and this is the crucial part)
+it&rsquo;s completely up to the server to decide what to do with it.
+The HTTP version is usually &ldquo;HTTP/1.0&rdquo; or &ldquo;HTTP/1.1&rdquo;;
+the differences between the two don&rsquo;t matter to us.</p>
+<p>HTTP headers are key/value pairs like the three shown below:</p>
+<div class="highlight"><pre><span></span><code>Accept: text/html
+Accept-Language: en, fr
+If-Modified-Since: 16-May-2005
+</code></pre></div>
+<p>Unlike the keys in hash tables,
+keys may appear any number of times in HTTP headers.
+This allows a request to do things like
+specify that it&rsquo;s willing to accept several types of content.</p>
+<p>Finally,
+the body of the request is any extra data associated with the request.
+This is used when submitting data via web forms,
+when uploading files,
+and so on.
+There must be a blank line between the last header and the start of the body
+to signal the end of the headers.</p>
+<p>One header,
+called <code>Content-Length</code>,
+tells the server how many bytes to expect to read in the body of the request.</p>
+<p>HTTP responses are formatted like HTTP requests (Figure: An HTTP Response):</p>
+<p><img alt="An HTTP Response" src="web-server-images/http-response.png" />The version, headers, and body have the same form and meaning.
+The status code is a number indicating what happened when the request was processed:
+200 means &ldquo;everything worked&rdquo;,
+404 means &ldquo;not found&rdquo;,
+and other codes have other meanings.
+The status phrase repeats that information in a human-readable phrase like &ldquo;OK&rdquo; or &ldquo;not found&rdquo;.</p>
+<p>For the purposes of this chapter
+there are only two other things we need to know about HTTP.</p>
+<p>The first is that it is <em>stateless</em>:
+each request is handled on its own,
+and the server doesn&rsquo;t remember anything between one request and the next.
+If an application wants to keep track of something like a user&rsquo;s identity,
+it must do so itself.</p>
+<p>The usual way to do this is with a cookie,
+which is a short character string that the server sends to the client,
+and the client later returns to the server.
+When a user performs some function that requires state to be saved across several requests,
+the server creates a new cookie,
+stores it in a database,
+and sends it to her browser.
+Each time her browser sends the cookie back,
+the server uses it to look up information about what the user is doing.</p>
+<p>The second thing we need to know about HTTP 
+is that a URL can be supplemented with parameters
+to provide even more information.
+For example,
+if we&rsquo;re using a search engine,
+we have to specify what our search terms are.
+We could add these to the path in the URL,
+but what we should do is add parameters to the URL.
+We do this by adding &lsquo;?&rsquo; to the URL
+followed by &lsquo;key=value&rsquo; pairs separated by &lsquo;&amp;&lsquo;.
+For example,
+the URL <code>http://www.google.ca?q=Python</code>
+asks Google to search for pages related to Python:
+the key is the letter &lsquo;q&rsquo;,
+and the value is &lsquo;Python&rsquo;.
+The longer query
+<code>http://www.google.ca/search?q=Python&amp;amp;client=Firefox</code>
+tells Google that we&rsquo;re using Firefox,
+and so on.
+We can pass whatever parameters we want,
+but again,
+it&rsquo;s up to the application running on the web site to decide
+which ones to pay attention to,
+and how to interpret them.</p>
+<p>Of course,
+if &lsquo;?&rsquo; and &lsquo;&amp;&rsquo; are special characters,
+there must be a way to escape them,
+just as there must be a way to put a double quote character inside a character string
+delimited by double quotes.
+The URL encoding standard
+represents special characters using &lsquo;%&rsquo; followed by a 2-digit code,
+and replaces spaces with the &lsquo;+&rsquo; character.
+Thus,
+to search Google for &ldquo;grade&nbsp;=&nbsp;A+&rdquo; (with the spaces),
+we would use the URL <code>http://www.google.ca/search?q=grade+%3D+A%2B</code>.</p>
+<p>Opening sockets, constructing HTTP requests, and parsing responses is tedious,
+so most people use libraries to do most of the work.
+Python comes with such a library called <code>urllib2</code>
+(because it&rsquo;s a replacement for an earlier library called <code>urllib</code>),
+but it exposes a lot of plumbing that most people never want to care about.
+The <a href="https://pypi.python.org/pypi/requests">Requests</a> library is an easier-to-use alternative to <code>urllib2</code>.
+Here&rsquo;s an example that uses it to download a page from the AOSA book site:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://aosabook.org/en/500L/web-server/testpage.html&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s1">&#39;status code:&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="nb">print</span> <span class="s1">&#39;content length:&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;content-length&#39;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>status code: 200
+content length: 61
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;p&gt;Test page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p><code>request.get</code> sends an HTTP GET request to a server
+and returns an object containing the response.
+That object&rsquo;s <code>status_code</code> member is the response&rsquo;s status code;
+its <code>content_length</code> member  is the number of bytes in the response data,
+and <code>text</code> is the actual data
+(in this case, an HTML page).</p>
+<h2>Hello, Web</h2>
+<p>We&rsquo;re now ready to write our first simple web server.
+The basic idea is simple:</p>
+<ol>
+<li>Wait for someone to connect to our server and send an HTTP request;</li>
+<li>parse that request;</li>
+<li>figure out what it&rsquo;s asking for;</li>
+<li>fetch that data (or generate it dynamically);</li>
+<li>format the data as HTML; and</li>
+<li>send it back.</li>
+</ol>
+<p>Steps 1, 2, and 6 are the same from one application to another,
+so the Python standard library has a module called <code>BaseHTTPServer</code>
+that does those for us.
+We just have to take care of steps 3-5,
+which we do in the little program below:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">BaseHTTPServer</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RequestHandler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Handle HTTP requests by returning a fixed &#39;page&#39;.&#39;&#39;&#39;</span>
+
+    <span class="c1"># Page to send back.</span>
+    <span class="n">Page</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">&lt;html&gt;</span>
+<span class="s1">&lt;body&gt;</span>
+<span class="s1">&lt;p&gt;Hello, web!&lt;/p&gt;</span>
+<span class="s1">&lt;/body&gt;</span>
+<span class="s1">&lt;/html&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+    <span class="c1"># Handle a GET request.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Page</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Page</span><span class="p">)</span>
+
+<span class="c1">#----------------------------------------------------------------------</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">serverAddress</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">(</span><span class="n">serverAddress</span><span class="p">,</span> <span class="n">RequestHandler</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</code></pre></div>
+<p>The library&rsquo;s <code>BaseHTTPRequestHandler</code> class
+takes care of parsing the incoming HTTP request
+and deciding what method it contains.
+If the method is GET,
+the class calls a method named <code>do_GET</code>.
+Our class <code>RequestHandler</code> overrides this method
+to dynamically generate a simple page:
+the text is stored in the class-level variable <code>Page</code>,
+which we send back to the client after sending
+a 200 response code,
+a <code>Content-Type</code> header telling the client to interpret our data as HTML,
+and the page&rsquo;s length.
+(The <code>end_headers</code> method call inserts the blank line
+that separates our headers from the page itself.)</p>
+<p>But <code>RequestHandler</code> isn&rsquo;t the whole story:
+we still need the last three lines to actually start a server running.
+The first of these lines defines the server&rsquo;s address as a tuple:
+the empty string means &ldquo;run on the current machine&rdquo;,
+and 8080 is the port.
+We then create an instance of  <code>BaseHTTPServer.HTTPServer</code>
+with that address and the name of our request handler class as parameters,
+then ask it to run forever
+(which in practice means until we kill it with Control-C).</p>
+<p>If we run this program from the command line,
+it doesn&rsquo;t display anything:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>server.py
+</code></pre></div>
+<p>If we then go to <code>http://localhost:8080</code> with our browser,
+though,
+we get this in our browser:</p>
+<div class="highlight"><pre><span></span><code>Hello, web!
+</code></pre></div>
+<p>and this in our shell:</p>
+<div class="highlight"><pre><span></span><code>127.0.0.1 - - [24/Feb/2014 10:26:28] &quot;GET / HTTP/1.1&quot; 200 -
+127.0.0.1 - - [24/Feb/2014 10:26:28] &quot;GET /favicon.ico HTTP/1.1&quot; 200 -
+</code></pre></div>
+<p>The first line is straightforward:
+since we didn&rsquo;t ask for a particular file,
+our browser has asked for &lsquo;/&rsquo; (the root directory of whatever the server is serving).
+The second line appears because
+our browser automatically sends a second request
+for an image file called <code>/favicon.ico</code>,
+which it will display as an icon in the address bar if it exists.</p>
+<h2>Displaying Values</h2>
+<p>Let&rsquo;s modify our web server to display some of the values
+included in the HTTP request.
+(We&rsquo;ll do this pretty frequently when debugging,
+so we might as well get some practice.)
+To keep our code clean,
+we&rsquo;ll separate creating the page from sending it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RequestHandler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+
+    <span class="c1"># ...page template...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_page</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_page</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># ...fill in...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+        <span class="c1"># ...fill in...</span>
+</code></pre></div>
+<p><code>send_page</code> is pretty much what we had before:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">send_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">page</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</code></pre></div>
+<p>The template for the page we want to display is
+just a string containing an HTML table
+with some formatting placeholders:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Page</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">&lt;html&gt;</span>
+<span class="s1">&lt;body&gt;</span>
+<span class="s1">&lt;table&gt;</span>
+<span class="s1">&lt;tr&gt;  &lt;td&gt;Header&lt;/td&gt;         &lt;td&gt;Value&lt;/td&gt;          &lt;/tr&gt;</span>
+<span class="s1">&lt;tr&gt;  &lt;td&gt;Date and time&lt;/td&gt;  &lt;td&gt;</span><span class="si">{date_time}</span><span class="s1">&lt;/td&gt;    &lt;/tr&gt;</span>
+<span class="s1">&lt;tr&gt;  &lt;td&gt;Client host&lt;/td&gt;    &lt;td&gt;</span><span class="si">{client_host}</span><span class="s1">&lt;/td&gt;  &lt;/tr&gt;</span>
+<span class="s1">&lt;tr&gt;  &lt;td&gt;Client port&lt;/td&gt;    &lt;td&gt;</span><span class="si">{client_port}</span><span class="s1">s&lt;/td&gt; &lt;/tr&gt;</span>
+<span class="s1">&lt;tr&gt;  &lt;td&gt;Command&lt;/td&gt;        &lt;td&gt;</span><span class="si">{command}</span><span class="s1">&lt;/td&gt;      &lt;/tr&gt;</span>
+<span class="s1">&lt;tr&gt;  &lt;td&gt;Path&lt;/td&gt;           &lt;td&gt;</span><span class="si">{path}</span><span class="s1">&lt;/td&gt;         &lt;/tr&gt;</span>
+<span class="s1">&lt;/table&gt;</span>
+<span class="s1">&lt;/body&gt;</span>
+<span class="s1">&lt;/html&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</code></pre></div>
+<p>and the method that fills this in is:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">create_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;date_time&#39;</span>   <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_time_string</span><span class="p">(),</span>
+            <span class="s1">&#39;client_host&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_address</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s1">&#39;client_port&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_address</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s1">&#39;command&#39;</span>     <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">,</span>
+            <span class="s1">&#39;path&#39;</span>        <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
+        <span class="p">}</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Page</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">page</span>
+</code></pre></div>
+<p>The main body of the program is unchanged:
+as before,
+it creates an instance of the <code>HTTPServer</code> class
+with an address and this request handler as parameters,
+then serves requests forever.
+If we run it and send a request from a browser
+for <code>http://localhost:8080/something.html</code>,
+we get:</p>
+<div class="highlight"><pre><span></span><code>  Date and time  Mon, 24 Feb 2014 17:17:12 GMT
+  Client host    127.0.0.1
+  Client port    54548
+  Command        GET
+  Path           /something.html
+</code></pre></div>
+<p>Notice that we do <em>not</em> get a 404 error,
+even though the page <code>something.html</code> doesn&rsquo;t exist as a file on disk.
+That&rsquo;s because a web server is just a program,
+and can do whatever it wants when it gets a request:
+send back the file named in the previous request,
+serve up a Wikipedia page chosen at random,
+or whatever else we program it to.</p>
+<h2>Serving Static Pages</h2>
+<p>The obvious next step is to start serving pages from the disk
+instead of generating them on the fly.
+We&rsquo;ll start by rewriting <code>do_GET</code>:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="c1"># Figure out what exactly is being requested.</span>
+            <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
+
+            <span class="c1"># It doesn&#39;t exist...</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">ServerException</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; not found&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+
+            <span class="c1"># ...it&#39;s a file...</span>
+            <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">handle_file</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+
+            <span class="c1"># ...it&#39;s something we don&#39;t handle.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ServerException</span><span class="p">(</span><span class="s2">&quot;Unknown object &#39;</span><span class="si">{0}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+
+        <span class="c1"># Handle errors.</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<p>This method assumes that it&rsquo;s allowed to serve any files in or below
+the directory that the web server is running in
+(which it gets using <code>os.getcwd</code>).
+It combines this with the path provided in the URL
+(which the library automatically puts in <code>self.path</code>,
+and which always starts with a leading &lsquo;/&rsquo;)
+to get the path to the file the user wants.</p>
+<p>If that doesn&rsquo;t exist,
+or if it isn&rsquo;t a file,
+the method reports an error by raising and catching an exception.
+If the path matches a file,
+on the other hand,
+it calls a helper method named <code>handle_file</code>
+to read and return the contents.
+This method just reads the file
+and uses our existing <code>send_content</code> to send it back to the client:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">handle_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; cannot be read: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<p>Note that we open the file in binary mode&mdash;the &lsquo;b&rsquo; in &lsquo;rb&rsquo;&mdash;so that
+Python won&rsquo;t try to &ldquo;help&rdquo; us by altering byte sequences that look like a Windows line ending.
+Note also that reading the whole file into memory when serving it is a bad idea in real life,
+where the file might be several gigabytes of video data.
+Handling that situation is outside the scope of this chapter.</p>
+<p>To finish off this class,
+we need to write the error handling method
+and the template for the error reporting page:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Error_Page</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">        &lt;html&gt;</span>
+<span class="s2">        &lt;body&gt;</span>
+<span class="s2">        &lt;h1&gt;Error accessing </span><span class="si">{path}</span><span class="s2">&lt;/h1&gt;</span>
+<span class="s2">        &lt;p&gt;</span><span class="si">{msg}</span><span class="s2">&lt;/p&gt;</span>
+<span class="s2">        &lt;/body&gt;</span>
+<span class="s2">        &lt;/html&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Error_Page</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<p>This program works,
+but only if we don&rsquo;t look too closely.
+The problem is that it always returns a status code of 200,
+even when the page being requested doesn&rsquo;t exist.
+Yes,
+the page sent back in that case contains an error message,
+but since our browser can&rsquo;t read English,
+it doesn&rsquo;t know that the request actually failed.
+In order to make that clear,
+we need to modify <code>handle_error</code> and <code>send_content</code> as follows:</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Handle unknown objects.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Error_Page</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+
+    <span class="c1"># Send actual content.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<p>Note that we don&rsquo;t raise <code>ServerException</code> when a file can&rsquo;t be found,
+but generate an error page instead.
+A <code>ServerException</code> is meant to signal an internal error in the server code,
+i.e.,
+something that <em>we</em> got wrong.
+The error page created by <code>handle_error</code>,
+on the other hand,
+appears when the <em>user</em> got something wrong,
+i.e.,
+sent us the URL of a file that doesn&rsquo;t exist. <sup id="fnref:handleerror"><a class="footnote-ref" href="#fn:handleerror">1</a></sup></p>
+<h2>Listing Directories</h2>
+<p>As our next step,
+we could teach the web server to display a listing of a directory&rsquo;s contents
+when the path in the URL is a directory rather than a file.
+We could even go one step further
+and have it look in that directory for an <code>index.html</code> file to display,
+and only show a listing of the directory&rsquo;s contents if that file is not present.</p>
+<p>But building these rules into <code>do_GET</code> would be a mistake,
+since the resulting method would be a long tangle of <code>if</code> statements
+controlling special behaviors.
+The right solution is to step back and solve the general problem,
+which is figuring out what to do with a URL.
+Here&rsquo;s a rewrite of the <code>do_GET</code> method:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="c1"># Figure out what exactly is being requested.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
+
+            <span class="c1"># Figure out how to handle it.</span>
+            <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cases</span><span class="p">:</span>
+                <span class="n">handler</span> <span class="o">=</span> <span class="n">case</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">handler</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="n">handler</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+        <span class="c1"># Handle errors.</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<p>The first step is the same:
+figure out the full path to the thing being requested.
+After that,
+though,
+the code looks quite different.
+Instead of a bunch of inline tests,
+this version loops over a set of cases stored in a list.
+Each case is an object with two methods:
+<code>test</code>,
+which tells us whether it&rsquo;s able to handle the request,
+and <code>act</code>,
+which actually takes some action.
+As soon as we find the right case,
+we let it handle the request
+and break out of the loop.</p>
+<p>These three case classes reproduce the behavior of our previous server:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">case_no_file</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;File or directory does not exist.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ServerException</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; not found&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">case_existing_file</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;File exists.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="n">handler</span><span class="o">.</span><span class="n">handle_file</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">case_always_fail</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Base case if nothing else worked.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ServerException</span><span class="p">(</span><span class="s2">&quot;Unknown object &#39;</span><span class="si">{0}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+</code></pre></div>
+<p>and here&rsquo;s how we construct the list of case handlers
+at the top of the <code>RequestHandler</code> class:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RequestHandler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    If the requested path maps to a file, that file is served.</span>
+<span class="sd">    If anything goes wrong, an error page is constructed.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">Cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">case_no_file</span><span class="p">(),</span>
+             <span class="n">case_existing_file</span><span class="p">(),</span>
+             <span class="n">case_always_fail</span><span class="p">()]</span>
+
+    <span class="o">...</span><span class="n">everything</span> <span class="k">else</span> <span class="k">as</span> <span class="n">before</span><span class="o">...</span>
+</code></pre></div>
+<p>Now,
+on the surface this has made our server more complicated,
+not less:
+the file has grown from 74 lines to 99,
+and there&rsquo;s an extra level of indirection
+without any new functionality.
+The benefit comes when we go back to the task that started this chapter
+and try to teach our server to serve up
+the <code>index.html</code> page for a directory if there is one,
+and a listing of the directory if there isn&rsquo;t.
+The handler for the former is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">case_directory_index_file</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Serve index.html page for a directory.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">index_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span> <span class="ow">and</span> \
+               <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index_path</span><span class="p">(</span><span class="n">handler</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="n">handler</span><span class="o">.</span><span class="n">handle_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index_path</span><span class="p">(</span><span class="n">handler</span><span class="p">))</span>
+</code></pre></div>
+<p>Here,
+the helper method <code>index_path</code> constructs the path to the <code>index.html</code> file;
+putting it in the case handler prevents clutter in the main <code>RequestHandler</code>.
+<code>test</code> checks whether the path is a directory containing an <code>index.html</code> page,
+and <code>act</code> asks the main request handler to serve that page.</p>
+<p>The only change needed to <code>RequestHandler</code> is to add a <code>case_directory_index_file</code> object to our <code>Cases</code> list:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">case_no_file</span><span class="p">(),</span>
+             <span class="n">case_existing_file</span><span class="p">(),</span>
+             <span class="n">case_directory_index_file</span><span class="p">(),</span>
+             <span class="n">case_always_fail</span><span class="p">()]</span>
+</code></pre></div>
+<p>What about directories that don&rsquo;t contain <code>index.html</code> pages?
+The test is the same as the one above
+with a <code>not</code> strategically inserted,
+but what about the <code>act</code> method?
+What should it do?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">case_directory_no_index_file</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Serve listing for a directory without an index.html page.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">index_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span> <span class="ow">and</span> \
+               <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index_path</span><span class="p">(</span><span class="n">handler</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="err">???</span>
+</code></pre></div>
+<p>It seems we&rsquo;ve backed ourselves into a corner.
+Logically,
+the <code>act</code> method should create and return the directory listing,
+but our existing code doesn&rsquo;t allow for that:
+<code>RequestHandler.do_GET</code> calls <code>act</code>,
+but doesn&rsquo;t expect or handle a return value from it.
+For now,
+let&rsquo;s add a method to <code>RequestHandler</code> to generate a directory listing,
+and call that from the case handler&rsquo;s <code>act</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">case_directory_no_index_file</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Serve listing for a directory without an index.html page.&#39;&#39;&#39;</span>
+
+    <span class="c1"># ...index_path and test as above...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="n">handler</span><span class="o">.</span><span class="n">list_dir</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RequestHandler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+
+    <span class="c1"># ...all the other code...</span>
+
+    <span class="c1"># How to display a directory listing.</span>
+    <span class="n">Listing_Page</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">        &lt;html&gt;</span>
+<span class="s1">        &lt;body&gt;</span>
+<span class="s1">        &lt;ul&gt;</span>
+<span class="s1">        </span><span class="si">{0}</span>
+<span class="s1">        &lt;/ul&gt;</span>
+<span class="s1">        &lt;/body&gt;</span>
+<span class="s1">        &lt;/html&gt;</span>
+<span class="s1">        &#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+            <span class="n">bullets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;li&gt;</span><span class="si">{0}</span><span class="s1">&lt;/li&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> 
+                <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">e</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)]</span>
+            <span class="n">page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Listing_Page</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bullets</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; cannot be listed: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<h2>The CGI Protocol</h2>
+<p>Of course,
+most people won&rsquo;t want to edit the source of their web server
+in order to add new functionality.
+To save them from having to do so,
+servers have always supported a mechanism called
+the Common Gateway Interface (CGI),
+which provides a standard way for a web server to run an external program
+in order to satisfy a request.</p>
+<p>For example,
+suppose we want the server to be able to display the local time
+in an HTML page.
+We can do this in a standalone program with just a few lines of code:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="nb">print</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">&lt;html&gt;</span>
+<span class="s1">&lt;body&gt;</span>
+<span class="s1">&lt;p&gt;Generated </span><span class="si">{0}</span><span class="s1">&lt;/p&gt;</span>
+<span class="s1">&lt;/body&gt;</span>
+<span class="s1">&lt;/html&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</code></pre></div>
+<p>In order to get the web server to run this program for us,
+we add this case handler:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">case_cgi_file</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Something runnable.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span> <span class="ow">and</span> \
+               <span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="n">handler</span><span class="o">.</span><span class="n">run_cgi</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+</code></pre></div>
+<p>The test is simple:
+does the file path end with <code>.py</code>? 
+If so, <code>RequestHandler</code> runs this program.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">run_cgi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_path</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;python &quot;</span> <span class="o">+</span> <span class="n">full_path</span>
+        <span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen2</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="n">child_stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">child_stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">child_stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<p>This is horribly insecure:
+if someone knows the path to a Python file on our server,
+we&rsquo;re just letting them run it
+without worrying about what data it has access to,
+whether it might contain an infinite loop,
+or anything else.<sup id="fnref:popen"><a class="footnote-ref" href="#fn:popen">2</a></sup></p>
+<p>Sweeping that aside,
+the core idea is simple:</p>
+<ol>
+<li>Run the program in a subprocess.</li>
+<li>Capture whatever that subprocess sends to standard output.</li>
+<li>Send that back to the client that made the request.</li>
+</ol>
+<p>The full CGI protocol is much richer than this&mdash;in particular,
+it allows for parameters in the URL,
+which the server passes into the program being run&mdash;but
+those details don&rsquo;t affect the overall architecture of the system&hellip;</p>
+<p>&hellip;which is once again becoming rather tangled.
+<code>RequestHandler</code> initially had one method,
+<code>handle_file</code>,
+for dealing with content.
+We have now added two special cases
+in the form of <code>list_dir</code> and <code>run_cgi</code>.
+These three methods don&rsquo;t really belong where they are,
+since they&rsquo;re primarily used by others.</p>
+<p>The fix is straightforward:
+create a parent class for all our case handlers,
+and move other methods to that class
+if (and only if) they are shared by two or more handlers.
+When we&rsquo;re done,
+the <code>RequestHandler</code> class looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RequestHandler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+
+    <span class="n">Cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">case_no_file</span><span class="p">(),</span>
+             <span class="n">case_cgi_file</span><span class="p">(),</span>
+             <span class="n">case_existing_file</span><span class="p">(),</span>
+             <span class="n">case_directory_index_file</span><span class="p">(),</span>
+             <span class="n">case_directory_no_index_file</span><span class="p">(),</span>
+             <span class="n">case_always_fail</span><span class="p">()]</span>
+
+    <span class="c1"># How to display an error.</span>
+    <span class="n">Error_Page</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">        &lt;html&gt;</span>
+<span class="s2">        &lt;body&gt;</span>
+<span class="s2">        &lt;h1&gt;Error accessing </span><span class="si">{path}</span><span class="s2">&lt;/h1&gt;</span>
+<span class="s2">        &lt;p&gt;</span><span class="si">{msg}</span><span class="s2">&lt;/p&gt;</span>
+<span class="s2">        &lt;/body&gt;</span>
+<span class="s2">        &lt;/html&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+    <span class="c1"># Classify and handle request.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="c1"># Figure out what exactly is being requested.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
+
+            <span class="c1"># Figure out how to handle it.</span>
+            <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cases</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">case</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="k">case</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+        <span class="c1"># Handle errors.</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="c1"># Handle unknown objects.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Error_Page</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+
+    <span class="c1"># Send actual content.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<p>while the parent class for our case handlers is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">base_case</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Parent for case handlers.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">full_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">handler</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; cannot be read: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="n">handler</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">index_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Not implemented.&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Not implemented.&#39;</span>
+</code></pre></div>
+<p>and the handler for an existing file
+(just to pick an example at random) is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">case_existing_file</span><span class="p">(</span><span class="n">base_case</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;File exists.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_file</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">handler</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>
+</code></pre></div>
+<h2>Discussion</h2>
+<p>The differences between our original code
+and the refactored version
+reflect two important ideas.
+The first is to think of a class as a collection of related services.
+<code>RequestHandler</code> and <code>base_case</code> don&rsquo;t make decisions or take actions;
+they provide tools that other classes can use to do those things.</p>
+<p>The second is extensibility:
+people can add new functionality to our web server
+either by writing an external CGI program,
+or by adding a case handler class.
+The latter does require a one-line change to <code>RequestHandler</code>
+(to insert the case handler in the <code>Cases</code> list),
+but we could get rid of that by having the web server read a configuration file
+and load handler classes from that.
+In both cases,
+they can ignore most lower-level details,
+just as the authors of the <code>BaseHTTPRequestHandler</code> class
+have allowed us to ignore the details of handling socket connections
+and parsing HTTP requests.</p>
+<p>These ideas are generally useful; 
+see if you can find ways to use them in your own projects.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:handleerror">
+<p>We&rsquo;re going to use <code>handle_error</code> several times throughout this chapter, including several cases where the status code <code>404</code> isn&rsquo;t appropriate. As you read on, try to think of how you would extend this program so that the status response code can be supplied easily in each case.&#160;<a class="footnote-backref" href="#fnref:handleerror" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:popen">
+<p>Our code also uses the <code>popen2</code> library function, which has been deprecated in favor of the <code>subprocess</code> module. However, <code>popen2</code> was the less distracting tool to use in this example.&#160;<a class="footnote-backref" href="#fnref:popen" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

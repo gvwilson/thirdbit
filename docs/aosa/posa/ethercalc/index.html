@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: From SocialCalc to EtherCalc</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>From SocialCalc to EtherCalc</h1>
+
+
+
+<p><em>by Audrey Tang</em></p>
+<p><a href="http://ethercalc.net/">EtherCalc</a> is an online spreadsheet system optimized toward simultaneous editing, using SocialCalc as its in-browser spreadsheet engine. Designed by Dan Bricklin (the inventor of spreadsheets), SocialCalc is part of the Socialtext platform, a suite of social collaboration tools for enterprise users.</p>
+<p>For the Socialtext team, performance was the primary goal behind SocialCalc&rsquo;s development in 2006. The key observation was this: Client-side computation in JavaScript, while an order of magnitude slower than server-side computation in Perl, was still much faster than the network latency incurred during AJAX round trips.</p>
+<p><img alt="Figure 1: WikiCalc and SocialCalc’s performance model. Since 2009, advances in JavaScript runtimes have reduced the 50 ms to less than 10 ms." src="wikicalc-socialcalc.png" /></p>
+<p>SocialCalc performs all of its computations in the browser; it uses the server only for loading and saving spreadsheets. Toward the end of the <em>Architecture of Open Source Applications</em> (An Analysis of TCP Processing Overhead) chapter on SocialCalc, we introduced simultaneous collaboration on spreadsheets using a simple, chatroom-like architecture.</p>
+<p><img alt="Figure 2: Multiplayer SocialCalc" src="multiplayer-socialcalc.png" /></p>
+<p>However, as we began to test it for production deployment, we discovered several shortcomings in its performance and scalability characteristics, motivating a series of system-wide rewrites in order to reach acceptable performance. In this chapter, we&rsquo;ll see how we arrived at that architecture, how we used profiling tools, and how we made new tools to overcome performance problems.</p>
+<h3>Design Constraints</h3>
+<p>The Socialtext platform has both behind-the-firewall and on-the-cloud deployment options, imposing unique constraints on EtherCalc&rsquo;s resource and performance requirements.</p>
+<p>At the time of this writing, Socialtext requires 2 CPU cores and 4 GB RAM for VMWare vSphere-based intranet deployment. For cloud-based hosting, a typical Amazon EC2 instance provides about twice that capacity, with 4 cores and 7.5 GB of RAM.</p>
+<p>Behind-the-firewall deployment means that we can&rsquo;t simply throw hardware at the problem in the same way multi-tenant, hosted-only systems did (e.g., DocVerse, which later became part of Google Docs); we can assume only a modest amount of server capacity.</p>
+<p>Compared to intranet deployments, cloud-hosted instances offer better capacity and on-demand extension, but network connections from browsers are usually slower and fraught with frequent disconnections and reconnections.</p>
+<p>Therefore, the following resource constraints shaped EtherCalc&rsquo;s architecture directions:</p>
+<p>::: description
+An event-based server allows us to scale to thousands of concurrent connections with a small amount of RAM.</p>
+<p>Based on SocialCalc&rsquo;s original design, we offload most computations and all content rendering to client-side JavaScript.</p>
+<p>By sending spreadsheet operations, instead of spreadsheet content, we reduce bandwidth use and allow recovering over unreliable network connections.
+:::</p>
+<h2>Initial Prototype</h2>
+<p>We started with a WebSocket server implemented in Perl 5, backed by <a href="https://metacpan.org/release/Feersum">Feersum</a>, a <a href="http://software.schmorp.de/pkg/libev.html">libev</a>-based non-blocking web server developed at Socialtext. Feersum is very fast, capable of handling over 10,000 requests per second on a single CPU. On top of Feersum, we use the <a href="https://metacpan.org/release/PocketIO">PocketIO</a> middleware to leverage the popular Socket.io JavaScript client, which provides backward compatibility for legacy browsers without WebSocket support.</p>
+<p>The initial prototype closely resembles a chat server. Each collaborative session is a chatroom; clients sends their locally executed commands and cursor movements to the server, which relays them to all other clients in the same room.</p>
+<p>The diagram below shows a typical flow of operation.</p>
+<p><img alt="Figure 3: Prototype server with log and playback" src="flow-prototype.png" /></p>
+<p>The server logs each command with a timestamp. If a client drops and reconnects, it can resume by asking for a log of all requests since it was disconnected, then replay those commands locally to get to the same state as its peers.</p>
+<p>This simple design minimized server-side CPU and RAM requirements, and demonstrates reasonable resiliency against network failure.</p>
+<h2>First Bottleneck</h2>
+<p>When we put the prototype to field testing in June 2011, we quickly discovered a performance problem with long-running sessions. Spreadsheets are long-lived documents, and a collaborative session can accumulate thousands of modifications over weeks of editing. When a client joins such an edit session under the naive backlog model, it must replay thousands of commands, incurring a significant startup delay before it can make any modifications.</p>
+<p>To mitigate this issue, we implemented a snapshot mechanism. After every 100 commands sent to a room, the server will poll the states from each active client, and save the latest snapshot it receives next to the backlog. A freshly joined client receives the snapshot along with new commands entered after the snapshot was taken, so it only needs to replay 99 commands at most.</p>
+<p><img alt="Figure 4: Prototype server with snapshot mechanism" src="flow-snapshot.png" /></p>
+<p>This workaround solved the CPU issue for new clients, but created a network performance problem of its own, as it taxes each client&rsquo;s upload bandwidth. Over a slow connection, this delays the reception of subsequent commands from the client.</p>
+<p>Moreover, the server has no way to validate the consistency of snapshots submitted by clients. Therefore, an erroneous&mdash;or malicious&mdash;snapshot can corrupt the state for all newcomers, placing them out of sync with existing peers.</p>
+<p>An astute reader may note that both problems are caused by the server&rsquo;s inability to execute spreadsheet commands. If the server can update its own state as it receives each command, it would not need to maintain a command backlog at all.</p>
+<p>The in-browser SocialCalc engine is written in JavaScript. We considered translating that logic into Perl, but that would have carried the steep cost of maintaining two code bases. We also experimented with embedded JS engines (<a href="https://metacpan.org/release/JavaScript-V8">V8</a>, <a href="https://metacpan.org/release/JavaScript-SpiderMonkey">SpiderMonkey</a>), but they imposed their own performance penalties when running inside Feersum&rsquo;s event loop.</p>
+<p>Finally, by August 2011, we resolved to rewrite the server in Node.js.</p>
+<h2>Porting to Node.js</h2>
+<p>The initial rewrite went smoothly because both Feersum and Node.js are based on the same libev event model, and Pocket.io&rsquo;s API matches Socket.io closely. It took us only an afternoon to code a functionally equivalent server in just 80 lines of code, thanks to the concise API offered by <a href="http://zappajs.com/">ZappaJS.</a></p>
+<p>Initial <a href="http://c9s.github.com/BenchmarkTest/">micro-benchmarking</a> showed that porting to Node.js cost us about one half of the maximum throughput. On a typical Intel Core i5 CPU in 2011, the original Feersum stack handled 5000 requests per second, while Express on Node.js maxed out at 2800 requests per second.</p>
+<p>This performance degradation was deemed acceptable for our first JavaScript port, as it wouldn&rsquo;t significantly increase latency for users, and we expect that it will improve over time.</p>
+<p>Subsequently, we continued the work to reduce client-side CPU use and minimize bandwidth use by tracking each session&rsquo;s ongoing state with server-side SocialCalc spreadsheets.</p>
+<p><img alt="Figure 5: Maintaining spreadsheet state with Node.js server" src="flow-nodejs.png" /></p>
+<h2>Server-Side SocialCalc</h2>
+<p>The key enabling technology for our work is <a href="https://github.com/tmpvar/jsdom">jsdom</a>, a full implementation of the W3C document object model, which enables Node.js to load client-side JavaScript libraries within a simulated browser environment.</p>
+<p>Using jsdom, it&rsquo;s trivial to create any number of server-side SocialCalc spreadsheets, each taking about 30 KB of RAM, running in its own sandbox:</p>
+<pre><code>require! &lt;[ vm jsdom ]&gt;
+create-spreadsheet = -&gt;
+  document = jsdom.jsdom \&lt;html&gt;&lt;body/&gt;&lt;/html&gt;
+  sandbox  = vm.createContext window: document.createWindow! &lt;&lt;&lt; {
+    setTimeout, clearTimeout, alert: console.log
+  }
+  vm.runInContext """
+    #packed-SocialCalc-js-code
+    window.ss = new SocialCalc.SpreadsheetControl
+  """ sandbox
+</code></pre>
+<p>Each collaboration session corresponds to a sandboxed SocialCalc controller, executing commands as they arrive. The server then transmits this up-to-date controller state to newly joined clients, removing the need for backlogs altogether.</p>
+<p>Satisfied with benchmarking results, we coded a <a href="http://redis.io/">Redis</a>-based persistence layer and launched EtherCalc.org for public beta testing. For the next six months, it scaled remarkably well, performing millions of spreadsheet operations without a single incident.</p>
+<p>In April 2012, after delivering a talk on EtherCalc at the OSDC.tw conference, I was invited by Trend Micro to participate in their hackathon, adapting EtherCalc into a programmable visualization engine for their real-time web traffic monitoring system.</p>
+<p>For their use case we created REST APIs for accessing individual cells with GET/PUT as well as POSTing commands directly to a spreadsheet. During the hackathon, the brand-new REST handler received hundreds of calls per second, updating graphs and formula cell contents on the browser without any hint of slowdown or memory leaks.</p>
+<p>However, at the end-of-day demo, as we piped traffic data into EtherCalc and started to type formulas into the in-browser spreadsheet, the server suddenly locked up, freezing all active connections. We restarted the Node.js process, only to find it consuming 100% CPU, locking up again soon after.</p>
+<p>Flabbergasted, we rolled back to a smaller data set, which did work correctly and allowed us to finish the demo. But I wondered: what caused the lock-up in the first place?</p>
+<h2>Profiling Node.js</h2>
+<p>To find out where those CPU cycles went to, we needed a profiler.</p>
+<p>Profiling the initial Perl prototype had been very straightforward, thanks largely to the illustrious <a href="https://metacpan.org/module/Devel::NYTProf">NYTProf</a> profiler, which provides per-function, per-line, per-opcode and per-block timing information, with detailed <a href="https://metacpan.org/module/nytprofcg">call-graph visualization</a> and HTML reports. In addition to NYTProf, we also traced long-running processes with Perl&rsquo;s built-in <a href="https://metacpan.org/module/perldtrace">DTrace support</a>, obtaining real-time statistics on function entry and exit.</p>
+<p>In contrast, Node.js&rsquo;s profiling tools leave much to be desired. As of this writing, DTrace support is still limited to <a href="http://blog.nodejs.org/2012/04/25/profiling-node-js/">illumos-based systems</a> in 32-bit mode, so we mostly relied on the <a href="https://github.com/c4milo/node-webkit-agent">Node Webkit Agent</a>, which provides an accessible profiling interface, albeit with only function-level statistics.</p>
+<p>A typical profiling session looks like this:</p>
+<pre><code># "lsc" is the LiveScript compiler
+# Load WebKit agent, then run app.js:
+lsc -r webkit-devtools-agent -er ./app.js
+# In another terminal tab, launch the profiler:
+killall -USR2 node
+# Open this URL in a WebKit browser to start profiling:
+open http://tinyurl.com/node0-8-agent
+</code></pre>
+<p>To recreate the heavy background load, we performed high-concurrency REST API calls with the Apache benchmarking tool <a href="http://httpd.apache.org/docs/trunk/programs/ab.html"><code>ab</code>.</a> For simulating browser-side operations, such as moving cursors and updating formulas, we used <a href="http://zombie.labnotes.org/">Zombie.js</a>, a headless browser also built with jsdom and Node.js.</p>
+<p>Ironically, the bottleneck turned out to be in jsdom itself.</p>
+<p><img alt="Figure 6: Profiler screenshot (with jsdom)" src="profiler-jsdom.png" /></p>
+<p>From the report in Figure 6, we can see that <code>RenderSheet</code> dominates the CPU use. Each time the server receives a command, it spends a few microseconds to redraw the <code>innerHTML</code> of cells to reflect the effect of each command.</p>
+<p>Because all jsdom code runs in a single thread, subsequent REST API calls are blocked until the previous command&rsquo;s rendering completes. Under high concurrency, this queue eventually triggered a latent bug that ultimately resulted in server lock-up.</p>
+<p>As we scrutinized the heap usage, we saw that the rendered result is all but unreferenced, as we don&rsquo;t really need a real-time HTML display on the server side. The only reference to it is in the HTML export API, and for that we can always reconstruct each cell&rsquo;s <code>innerHTML</code> rendering from the spreadsheet&rsquo;s in-memory structure.</p>
+<p>So, we removed jsdom from the <code>RenderSheet</code> function, re-implemented a minimal DOM in 20 lines of LiveScript<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> for HTML export, then ran the profiler again (see Figure 7).</p>
+<p><img alt="Figure 7: Updated profiler screenshot (without jsdom)" src="profiler-no-jsdom.png" /></p>
+<p>Much better! We have improved throughput by a factor of 4, HTML exporting is 20 times faster, and the lock-up problem is gone.</p>
+<h2>Multi-Core Scaling</h2>
+<p>After this round of improvement, we finally felt comfortable enough to integrate EtherCalc into the Socialtext platform, providing simultaneous editing for wiki pages and spreadsheets alike.</p>
+<p>To ensure a fair response time on production environments, we deployed a reverse-proxying nginx server, using its <code>limit_req</code><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> directive to put an upper limit on the rate of API calls. This technique proved satisfactory for both behind-the-firewall and dedicated-instance hosting scenarios.</p>
+<p>For small and medium-sized enterprise customers, though, Socialtext provides a third deployment option: multi-tenant hosting. A single, large server hosts more than 35,000 companies, each averaging around 100 users.</p>
+<p>In this multi-tenant scenario, the rate limit is shared by all customers making REST API calls. This makes each client&rsquo;s effective limit much more constraining&mdash;around 5 requests per second. As noted in the previous section, this limitation is caused by Node.js using only one CPU for all its computation.</p>
+<p><img alt="Figure 8: Event server (single-core)" src="scaling-evented.png" /></p>
+<p>Is there a way to make use of all those spare CPUs in the multi-tenant server?</p>
+<p>For other Node.js services running on multi-core hosts, we utilized a pre-forking <a href="https://npmjs.org/package/cluster-server">cluster server</a> that creates a process for each CPU.</p>
+<p><img alt="Figure 9: Event cluster server (multi-core)" src="scaling-cluster.png" /></p>
+<p>However, while EtherCalc does support multi-server scaling with Redis, the interplay of <a href="http://stackoverflow.com/a/5749667">Socket.io clustering</a> with <a href="https://github.com/LearnBoost/Socket.IO/wiki/Configuring-Socket.IO">RedisStore</a> in a single server would have massively complicated the logic, making debugging much more difficult.</p>
+<p>Moreover, if all processes in the cluster are tied in CPU-bound processing, subsequent connections would still get blocked.</p>
+<p>Instead of pre-forking a fixed number of processes, we sought a way to create one background thread for each server-side spreadsheet, thereby distributing the work of command execution among all CPU cores.</p>
+<p><img alt="Figure 10: Event threaded server (multi-core)" src="scaling-threads.png" /></p>
+<p>For our purpose, the W3C <a href="http://www.w3.org/TR/workers/">Web Worker</a> API is a perfect match. Originally intended for browsers, it defines a way to run scripts in the background independently. This allows long tasks to be executed continuously while keeping the main thread responsive.</p>
+<p>So we created <a href="https://github.com/audreyt/node-webworker-threads">webworker-threads</a>, a cross-platform implementation of the Web Worker API for Node.js.</p>
+<p>Using webworker-threads, it&rsquo;s very straightforward to create a new SocialCalc thread and communicate with it:</p>
+<pre><code>{ Worker } = require \webworker-threads
+w = new Worker \packed-SocialCalc.js
+w.onmessage = (event) -&gt; ...
+w.postMessage command
+</code></pre>
+<p>This solution offers the best of both worlds: It gives us the freedom to allocate more CPUs to EtherCalc whenever needed, and the overhead of background thread creation remains negligible on single-CPU environments.</p>
+<h2>Lessons Learned</h2>
+<h3>Constraints are Liberating</h3>
+<p>In his book <em>The Design of Design</em>, Fred Brooks argues that by shrinking the designer&rsquo;s search space, constraints can help to focus and expedite a design process. This includes self-imposed constraints:</p>
+<blockquote>
+<p>Artificial constraints for one&rsquo;s design task have the nice property that one is free to relax them. Ideally, they push one into an unexplored corner of a design space, stimulating creativity.</p>
+</blockquote>
+<p>During EtherCalc&rsquo;s development, such constraints were essential to maintain its <em>conceptual integrity</em> throughout various iterations.</p>
+<p>For example, it might seem attractive to adopt three different concurrency architectures, each tailored to one of our server flavors (behind-the-firewall, on-the-cloud, and multi-tenant hosting). However, such premature optimization would have severely hampered the conceptual integrity.</p>
+<p>Instead, I kept the focus on getting EtherCalc performing well without trading off one resource requirement for another, thereby minimizing its CPU, RAM and network uses at the same time. Indeed, since the RAM requirement is under 100 MB, even embedded platforms such as Raspberry Pi can host it easily.</p>
+<p>This self-imposed constraint made it possible to deploy EtherCalc on PaaS environments (e.g., DotCloud, Nodejitsu and Heroku) where all three resources are constrained instead of just one. This made it very easy for people to set up a personal spreadsheet service, thus prompting more contributions from independent integrators.</p>
+<h3>Worst is Best</h3>
+<p>At the YAPC::NA 2006 conference in Chicago, I was invited to predict the open-source landscape, and this was my entry: <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<blockquote>
+<p>I think, but I cannot prove, that next year JavaScript 2.0 will bootstrap itself, complete self-hosting, compile back to JavaScript 1, and replace Ruby as the Next Big Thing on all environments.</p>
+<p>I think CPAN and JSAN will merge; JavaScript will become the common backend for all dynamic languages, so you can write Perl to run in the browser, on the server, and inside databases, all with the same set of development tools.</p>
+<p>Because, as we know, <em>worse is better</em>, so the <em>worst</em> scripting language is doomed to become the <em>best</em>.</p>
+</blockquote>
+<p>The vision turned into reality around 2009 with the advent of new JavaScript engines running at the speed of native machine instructions. By the time of this writing, JavaScript has become a <em>&ldquo;write once, run anywhere&rdquo;</em> virtual machine&mdash;other major languages can compile to it with <a href="http://asmjs.org">almost no performance penalty.</a></p>
+<p>In addition to browsers on the client side and Node.js on the server, JavaScript also <a href="http://pgre.st/">made headway</a> into the Postgres database, enjoying a large collection of freely reusable <a href="https://npmjs.org/">modules</a> shared by these runtime environments.</p>
+<p>What enabled such sudden growth in the community? During the course of EtherCalc&rsquo;s development, from participating in the fledgling NPM community, I reckoned that it was precisely because JavaScript prescribes very little and bends itself to the various uses, so innovators can focus on the vocabulary and idioms (e.g., jQuery and Node.js), each team abstracting their own <em>Good Parts</em> from a common, liberal core.</p>
+<p>New users are offered a very simple subset to begin with; experienced developers are presented with the challenge to evolve better conventions from existing ones. Instead of relying on a core team of designers to get a complete language right for all anticipated uses, the grassroots development of JavaScript echoes Richard P. Gabriel&rsquo;s well-known maxim of <a href="http://www.dreamsongs.com/WorseIsBetter.html">Worse is Better.</a></p>
+<h3>LiveScript, Redux</h3>
+<p>In contrast to the straightforward Perl syntax of <a href="https://metacpan.org/module/Coro::AnyEvent">Coro::AnyEvent</a>, the callback-based API of Node.js necessitates deeply nested functions that are difficult to reuse.</p>
+<p>After experimenting with various flow-control libraries, I finally solved this issue by settling on <a href="http://livescript.net/">LiveScript</a>, a new language that compiles to JavaScript, with syntax heavily inspired by Haskell and Perl.</p>
+<p>In fact, EtherCalc was ported through a lineage of four languages: JavaScript, CoffeeScript, Coco and LiveScript. Each iteration brings more expressivity, while maintaining full back and forward compatibility, thanks to efforts such as <a href="http://js2coffee.org/">js2coffee</a> and <a href="http://js2ls.org/">js2ls.</a></p>
+<p>Because LiveScript compiles to JavaScript rather than interpreting its own bytecode, it remains completely compatible with function-scoped profilers. Its generated code performs as good as hand-tuned JavaScript, taking full advantage of modern native runtimes.</p>
+<p>On the syntactic side, LiveScript eliminated nested callbacks with novel constructs such as backcalls and cascades. It provides us with powerful syntactic tools for functional and object-oriented composition.</p>
+<p>When I first encountered LiveScript, I remarked that it&rsquo;s like &ldquo;a smaller language within Perl 6, struggling to get out&rdquo;&mdash;a goal made much easier by adopting the same semantics as JavaScript itself and focusing strictly on syntactical ergonomics.</p>
+<h3>Conclusion</h3>
+<p>Unlike the SocialCalc project&rsquo;s well-defined specification and team development process, EtherCalc was a solo experiment from mid-2011 to late-2012 and served as a proving ground for assessing Node.js&rsquo;s readiness for production use.</p>
+<p>This unconstrained freedom afforded an exciting opportunity to explore a wide variety of alternative languages, libraries, algorithms and architectures. I&rsquo;m very grateful to all contributors, collaborators and integrators, and especially to Dan Bricklin and my Socialtext colleagues for encouraging me to experiment with these technologies. Thank you, folks!</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/audreyt/ethercalc/commit/fc62c0eb#L1R97">https://github.com/audreyt/ethercalc/commit/fc62c0eb#L1R97</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><code>http://wiki.nginx.org/HttpLimitReqModule#limit_req</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>See http://pugs.blogs.com/pugs/2006/06/my_yapcna_light.html&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

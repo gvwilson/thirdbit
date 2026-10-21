@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Clustering by Consensus</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Clustering by Consensus</h1>
+
+
+
+<p><em>by Dustin J. Mitchell</em></p>
+<p><em>Dustin is an open source software developer and release engineer at Mozilla.
+He has worked on projects as varied as a host configuration system in Puppet, a
+Flask-based web framework, unit tests for firewall configurations, and a
+continuous integration framework in Twisted Python. Find him as <a href="http://github.com/djmitche">\@djmitche</a> on
+GitHub or at <a href="mailto:dustin@mozilla.com">dustin@mozilla.com</a>.</em></p>
+<h2>Introduction</h2>
+<p>In this chapter, we&rsquo;ll explore implementation of a network protocol designed to support reliable distributed computation.
+Network protocols can be difficult to implement correctly, so we&rsquo;ll look at some techniques for minimizing bugs and for catching and fixing the remaining few.
+Building reliable software, too, requires some special development and debugging techniques.</p>
+<h2>Motivating Example</h2>
+<p>The focus of this chapter is on the protocol implementation, but as a motivating example let&rsquo;s consider a simple bank account management service.
+In this service, each account has a current balance and is identified with an account number.
+Users access the accounts by requesting operations like &ldquo;deposit&rdquo;, &ldquo;transfer&rdquo;, or &ldquo;get-balance&rdquo;.
+The &ldquo;transfer&rdquo; operation operates on two accounts at once &ndash; the source and destination accounts &ndash; and must be rejected if the source account&rsquo;s balance is too low.</p>
+<p>If the service is hosted on a single server, this is easy to implement: use a lock to make sure that transfer operations don&rsquo;t run in parallel, and verify the source account&rsquo;s balance in that method.
+However, a bank cannot rely on a single server for its critical account balances.
+Instead, the service is <em>distributed</em> over multiple servers, with each running a separate instance of exactly the same code.
+Users can then contact any server to perform an operation.</p>
+<p>In a naive implementation of distributed processing, each server would keep a local copy of every account&rsquo;s balance.
+It would handle any operations it received, and send updates for account balances to other servers.
+But this approach introduces a serious failure mode: if two servers process operations for the same account at the same time, which new account balance is correct?
+Even if the servers share operations with one another instead of balances, two simultaneous transfers out of an account might overdraw the account.</p>
+<p>Fundamentally, these failures occur when servers use their local state to perform operations, without first ensuring that the local state matches the state on other servers.
+For example, imagine that server A receives a transfer operation from Account 101 to Account 202, when server B has already processed another transfer of Account 101&rsquo;s full balance to Account 202, but not yet informed server A.
+The local state on server A is different from that on server B, so server A incorrectly allows the transfer to complete, even though the result is an overdraft on Account 101.</p>
+<h2>Distributed State Machines</h2>
+<p>The technique for avoiding such problems is called a &ldquo;distributed state machine&rdquo;.
+The idea is that each server executes exactly the same deterministic state machine on exactly the same inputs.
+By the nature of state machines, then, each server will see exactly the same outputs.
+Operations such as &ldquo;transfer&rdquo; or &ldquo;get-balance&rdquo;, together with their parameters (account numbers and amounts) represent the inputs to the state machine.</p>
+<p>The state machine for this application is simple:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">execute_operation</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">operation</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;deposit&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_signature</span><span class="p">(</span><span class="n">operation</span><span class="o">.</span><span class="n">deposit_signature</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="kc">False</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">operation</span><span class="o">.</span><span class="n">destination_account</span><span class="p">]</span> <span class="o">+=</span> <span class="n">operation</span><span class="o">.</span><span class="n">amount</span>
+            <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;transfer&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">operation</span><span class="o">.</span><span class="n">source_account</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">operation</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="kc">False</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">operation</span><span class="o">.</span><span class="n">source_account</span><span class="p">]</span> <span class="o">-=</span> <span class="n">operation</span><span class="o">.</span><span class="n">amount</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">operation</span><span class="o">.</span><span class="n">destination_account</span><span class="p">]</span> <span class="o">+=</span> <span class="n">operation</span><span class="o">.</span><span class="n">amount</span>
+            <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;get-balance&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">operation</span><span class="o">.</span><span class="n">account</span><span class="p">]</span>
+</code></pre></div>
+<p>Note that executing the &ldquo;get-balance&rdquo; operation does not modify the state, but is still implemented as a state transition.
+This guarantees that the returned balance is the latest information in the cluster of servers, and is not based on the (possibly stale) local state on a single server.</p>
+<p>This may look different than the typical state machine you&rsquo;d learn about in a computer science course.
+Rather than a finite set of named states with labeled transitions, this machine&rsquo;s state is the collection of account balances, so there are infinite possible states.
+Still, the usual rules of deterministic state machines apply: starting with the same state and processing the same operations will always produce the same output.</p>
+<p>So, the distributed state machine technique ensures that the same operations occur on each host.
+But the problem remains of ensuring that every server agrees on the inputs to the state machine.
+This is a problem of <em>consensus</em>, and we&rsquo;ll address it with a derivative of the Paxos algorithm.</p>
+<h2>Consensus by Paxos</h2>
+<p>Paxos was described by Leslie Lamport in a fanciful paper, first submitted in 1990 and eventually published in 1998, entitled &ldquo;The Part-Time Parliament&rdquo;<sup id="fnref:parttime"><a class="footnote-ref" href="#fn:parttime">1</a></sup>.
+Lamport&rsquo;s paper has a great deal more detail than we will get into here, and is a fun read.
+The references at the end of the chapter describe some extensions of the algorithm that we have adapted in this implementation.</p>
+<p>The simplest form of Paxos provides a way for a set of servers to agree on one value, for all time.
+Multi-Paxos builds on this foundation by agreeing on a numbered sequence of facts, one at a time.
+To implement a distributed state machine, we use Multi-Paxos to agree on each state-machine input, and execute them in sequence.</p>
+<h3>Simple Paxos</h3>
+<p>So let&rsquo;s start with &ldquo;Simple Paxos&rdquo;, also known as the Synod protocol, which provides a way to agree on a single value that can never change.
+The name Paxos comes from the mythical island in &ldquo;The Part-Time Parliament&rdquo;, where lawmakers vote on legislation through a process Lamport dubbed the Synod protocol.</p>
+<p>The algorithm is a building block for more complex algorithms, as we&rsquo;ll see below.
+The single value we&rsquo;ll agree on in this example is the first transaction processed by our hypothetical bank.
+While the bank will process transactions every day, the first transaction will only occur once and never change, so we can use Simple Paxos to agree on its details.</p>
+<p>The protocol operates in a series of ballots, each led by a single member of the cluster, called the proposer.
+Each ballot has a unique ballot number based on an integer and the proposer&rsquo;s identity.
+The proposer&rsquo;s goal is to get a majority of cluster members, acting as acceptors, to accept its value, but only if another value has not already been decided.</p>
+<p><img alt="A Ballot" src="cluster-images/ballot.png" />A ballot begins with the proposer sending a <code>Prepare</code> message with the ballot number <em>N</em> to the acceptors and waiting to hear from a majority (Figure: A Ballot.)</p>
+<p>The <code>Prepare</code> message is a request for the accepted value (if any) with the highest ballot number less than <em>N</em>.
+Acceptors respond with a <code>Promise</code> containing any value they have already accepted, and promising not to accept any ballot numbered less than <em>N</em> in the future.
+If the acceptor has already made a promise for a larger ballot number, it includes that number in the <code>Promise</code>, indicating that the proposer has been pre-empted.
+In this case, the ballot is over, but the proposer is free to try again in another ballot (and with a larger ballot number).</p>
+<p>When the proposer has heard back from a majority of the acceptors, it sends an <code>Accept</code> message, including the ballot number and value, to all acceptors.
+If the proposer did not receive any existing value from any acceptor, then it sends its own desired value.
+Otherwise, it sends the value from the highest-numbered promise.</p>
+<p>Unless it would violate a promise, each acceptor records the value from the <code>Accept</code> message as accepted and replies with an <code>Accepted</code> message.
+The ballot is complete and the value decided when the proposer has heard its ballot number from a majority of acceptors.</p>
+<p>Returning to the example, initially no other value has been accepted, so the acceptors all send back a <code>Promise</code> with no value, and the proposer sends an <code>Accept</code> containing its value, say:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">operation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;deposit&#39;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">100.00</span><span class="p">,</span> <span class="n">destination_account</span><span class="o">=</span><span class="s1">&#39;Mike DiBernardo&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>If another proposer later initiates a ballot with a lower ballot number and a different operation (say, a transfer to acount <code>'Dustin J. Mitchell'</code>), the acceptors will simply not accept it.
+If that ballot has a larger ballot number, then the <code>Promise</code> from the acceptors will inform the proposer about Michael&rsquo;s $100.00 deposit operation, and the proposer will send that value in the <code>Accept</code> message instead of the transfer to Dustin.
+The new ballot will be accepted, but in favor of the same value as the first ballot.</p>
+<p>In fact, the protocol will never allow two different values to be decided, even if the ballots overlap, messages are delayed, or a minority of acceptors fail.</p>
+<p>When multiple proposers make a ballot at the same time, it is easy for neither ballot to be accepted.
+Both proposers then re-propose, and hopefully one wins, but the deadlock can continue indefinitely if the timing works out just right.</p>
+<p>Consider the following sequence of events:</p>
+<ul>
+<li>Proposer A performs the <code>Prepare</code>/<code>Promise</code> phase for ballot number 1.</li>
+<li>Before Proposer A manages to get its proposal accepted, Proposer B performs a  <code>Prepare</code>/<code>Promise</code> phase for ballot number 2.</li>
+<li>When Proposer A finally sends its <code>Accept</code> with ballot number 1, the acceptors reject it because they have already promised ballot number 2.</li>
+<li>Proposer A reacts by immediately sending a <code>Prepare</code> with a higher ballot number (3), before Proposer B can send its <code>Accept</code> message.</li>
+<li>Proposer B&rsquo;s subsequent <code>Accept</code> is rejected, and the process repeats.</li>
+</ul>
+<p>With unlucky timing &ndash; more common over long-distance connections where the time between sending a message and getting a response is long &ndash; this deadlock can continue for many rounds.</p>
+<h3>Multi-Paxos</h3>
+<p>Reaching consensus on a single static value is not particularly useful on its own.
+Clustered systems such as the bank account service want to agree on a particular state (account balances) that changes over time.
+We use Paxos to agree on each operation, treated as a state machine transition.</p>
+<p>Multi-Paxos is, in effect, a sequence of simple Paxos instances (slots), each numbered sequentially.
+Each state transition is given a &ldquo;slot number&rdquo;, and each member of the cluster executes transitions in strict numeric order.
+To change the cluster&rsquo;s state (to process a transfer operation, for example), we try to achieve consensus on that operation in the next slot.
+In concrete terms, this means adding a slot number to each message, with all of the protocol state tracked on a per-slot basis.</p>
+<p>Running Paxos for every slot, with its minimum of two round trips, would be too slow.
+Multi-Paxos optimizes by using the same set of ballot numbers for all slots, and performing the <code>Prepare</code>/<code>Promise</code> phase for all slots at once.</p>
+<h3>Paxos Made Pretty Hard</h3>
+<p>Implementing Multi-Paxos in practical software is notoriously difficult, spawning a number of papers mocking Lamport&rsquo;s &ldquo;Paxos Made Simple&rdquo; with titles like &ldquo;Paxos Made Practical&rdquo;.</p>
+<p>First, the multiple-proposers problem described above can become problematic in a busy environment, as each cluster member attempts to get its state machine operation decided in each slot.
+The fix is to elect a &ldquo;leader&rdquo; which is responsible for submitting ballots for each slot.
+All other cluster nodes then send new operations to the leader for execution.
+Thus, in normal operation with only one leader, ballot conflicts do not occur.</p>
+<p>The <code>Prepare</code>/<code>Promise</code> phase can function as a kind of leader election: whichever cluster member owns the most recently promised ballot number is considered the leader.
+The leader is then free to execute the <code>Accept</code>/<code>Accepted</code> phase directly without repeating the first phase.
+As we&rsquo;ll see below, leader elections are actually quite complex.</p>
+<p>Although simple Paxos guarantees that the cluster will not reach conflicting decisions, it cannot guarantee that any decision will be made.
+For example, if the initial <code>Prepare</code> message is lost and doesn&rsquo;t reach the acceptors, then the proposer will wait for a <code>Promise</code> message that will never arrive.
+Fixing this requires carefully orchestrated re-transmissions: enough to eventually make progress, but not so many that the cluster buries itself in a packet storm.</p>
+<p>Another problem is the dissemination of decisions.
+A simple broadcast of a <code>Decision</code> message can take care of this for the normal case.
+If the message is lost, though, a node can remain permanently ignorant of the decision and unable to apply state machine transitions for later slots.
+So an implementation needs some mechanism for sharing information about decided proposals.</p>
+<p>Our use of a distributed state machine presents another interesting challenge: start-up.
+When a new node starts, it needs to catch up on the existing state of the cluster.
+Although it can do so by catching up on decisions for all slots since the first, in a mature cluster this may involve millions of slots.
+Furthermore, we need some way to initialize a new cluster.</p>
+<p>But enough talk of theory and algorithms &ndash; let&rsquo;s have a look at the code.</p>
+<h2>Introducing Cluster</h2>
+<p>The <em>Cluster</em> library in this chapter implements a simple form of Multi-Paxos.
+It is designed as a library to provide a consensus service to a larger application.</p>
+<p>Users of this library will depend on its correctness, so it&rsquo;s important to structure the code so that we can see &ndash; and test &ndash; its correspondence to the specification.
+Complex protocols can exhibit complex failures, so we will build support for reproducing and debugging rare failures.</p>
+<p>The implementation in this chapter is proof-of-concept code: enough to demonstrate that the core concept is practical, but without all of the mundane equipment required for use in production.
+The code is structured so that such equipment can be added later with minimal changes to the core implementation.</p>
+<p>Let&rsquo;s get started.</p>
+<h3>Types and Constants</h3>
+<p>Cluster&rsquo;s protocol uses fifteen different message types, each defined as a Python <a href="https://docs.python.org/3/library/collections.html"><code>namedtuple</code></a>.</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Accepted</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Accepted&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;slot&#39;</span><span class="p">,</span> <span class="s1">&#39;ballot_num&#39;</span><span class="p">])</span>
+    <span class="n">Accept</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;slot&#39;</span><span class="p">,</span> <span class="s1">&#39;ballot_num&#39;</span><span class="p">,</span> <span class="s1">&#39;proposal&#39;</span><span class="p">])</span>
+    <span class="n">Decision</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Decision&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;slot&#39;</span><span class="p">,</span> <span class="s1">&#39;proposal&#39;</span><span class="p">])</span>
+    <span class="n">Invoked</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Invoked&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;client_id&#39;</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">])</span>
+    <span class="n">Invoke</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Invoke&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;caller&#39;</span><span class="p">,</span> <span class="s1">&#39;client_id&#39;</span><span class="p">,</span> <span class="s1">&#39;input_value&#39;</span><span class="p">])</span>
+    <span class="n">Join</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Join&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="n">Active</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Active&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="n">Prepare</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Prepare&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ballot_num&#39;</span><span class="p">])</span>
+    <span class="n">Promise</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Promise&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ballot_num&#39;</span><span class="p">,</span> <span class="s1">&#39;accepted_proposals&#39;</span><span class="p">])</span>
+    <span class="n">Propose</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Propose&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;slot&#39;</span><span class="p">,</span> <span class="s1">&#39;proposal&#39;</span><span class="p">])</span>
+    <span class="n">Welcome</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Welcome&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;slot&#39;</span><span class="p">,</span> <span class="s1">&#39;decisions&#39;</span><span class="p">])</span>
+    <span class="n">Decided</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Decided&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;slot&#39;</span><span class="p">])</span>
+    <span class="n">Preempted</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Preempted&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;slot&#39;</span><span class="p">,</span> <span class="s1">&#39;preempted_by&#39;</span><span class="p">])</span>
+    <span class="n">Adopted</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Adopted&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ballot_num&#39;</span><span class="p">,</span> <span class="s1">&#39;accepted_proposals&#39;</span><span class="p">])</span>
+    <span class="n">Accepting</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Accepting&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;leader&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Using named tuples to describe each message type keeps the code clean and helps avoid some simple errors.
+The named tuple constructor will raise an exception if it is not given exactly the right attributes, making typos obvious.
+The tuples format themselves nicely in log messages, and as an added bonus don&rsquo;t use as much memory as a dictionary.</p>
+<p>Creating a message reads naturally:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">msg</span> <span class="o">=</span> <span class="n">Accepted</span><span class="p">(</span><span class="n">slot</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ballot_num</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>And the fields of that message are accessible with a minimum of extra typing:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">got_ballot_num</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">ballot_num</span>
+</code></pre></div>
+<p>We&rsquo;ll see what these messages mean in the sections that follow.
+The code also introduces a few constants, most of which define timeouts for various messages:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">JOIN_RETRANSMIT</span> <span class="o">=</span> <span class="mf">0.7</span>
+    <span class="n">CATCHUP_INTERVAL</span> <span class="o">=</span> <span class="mf">0.6</span>
+    <span class="n">ACCEPT_RETRANSMIT</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">PREPARE_RETRANSMIT</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">INVOKE_RETRANSMIT</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">LEADER_TIMEOUT</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">NULL_BALLOT</span> <span class="o">=</span> <span class="n">Ballot</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># sorts before all real ballots</span>
+    <span class="n">NOOP_PROPOSAL</span> <span class="o">=</span> <span class="n">Proposal</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># no-op to fill otherwise empty slots</span>
+</code></pre></div>
+<p>Finally, Cluster uses two data types named to correspond to the protocol description:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Proposal</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Proposal&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;caller&#39;</span><span class="p">,</span> <span class="s1">&#39;client_id&#39;</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">])</span>
+    <span class="n">Ballot</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Ballot&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;leader&#39;</span><span class="p">])</span>
+</code></pre></div>
+<h3>Component Model</h3>
+<p>Humans are limited by what we can hold in our active memory.
+We can&rsquo;t reason about the entire Cluster implementation at once &ndash; it&rsquo;s just too much, so it&rsquo;s easy to miss details.
+For similar reasons, large monolithic codebases are hard to test: test cases must manipulate many moving pieces and are brittle, failing on almost any change to the code.</p>
+<p>To encourage testability and keep the code readable, we break Cluster down into a handful of classes corresponding to the roles described in the protocol.
+Each is a subclass of <code>Role</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Role</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_timer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span>
+                                           <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="ow">and</span> <span class="n">callback</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+<p>The roles that a cluster node has are glued together by the <code>Node</code> class, which represents a single node on the network.
+Roles are added to and removed from the node as execution proceeds.
+Messages that arrive on the node are relayed to all active roles, calling a method named after the message type with a <code>do_</code> prefix.
+These <code>do_</code> methods receive the message&rsquo;s attributes as keyword arguments for easy access.
+The <code>Node</code> class also provides a <code>send</code> method as a convenience, using <code>functools.partial</code> to supply some arguments to the same methods of the <code>Network</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">unique_ids</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span> <span class="ow">or</span> <span class="s1">&#39;N</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">unique_ids</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">SimTimeLogger</span><span class="p">(</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;network&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;starting&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">roles</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">roles</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="n">handler_name</span> <span class="o">=</span> <span class="s1">&#39;do_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">roles</span><span class="p">[:]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">comp</span><span class="p">,</span> <span class="n">handler_name</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">comp</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;received </span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">sender</span><span class="p">)</span>
+            <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">comp</span><span class="p">,</span> <span class="n">handler_name</span><span class="p">)</span>
+            <span class="n">fn</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">message</span><span class="o">.</span><span class="n">_asdict</span><span class="p">())</span>
+</code></pre></div>
+<h3>Application Interface</h3>
+<p>The application creates and starts a <code>Member</code> object on each cluster member, providing an application-specific state machine and a list of peers.
+The member object adds a bootstrap role to the node if it is joining an existing cluster, or seed if it is creating a new cluster.
+It then runs the protocol (via <code>Network.run</code>) in a separate thread.</p>
+<p>The application interacts with the cluster through the <code>invoke</code> method, which kicks off a proposal for a state transition.
+Once that proposal is decided and the state machine runs, <code>invoke</code> returns the machine&rsquo;s output.
+The method uses a simple synchronized <code>Queue</code> to wait for the result from the protocol thread.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Member</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_machine</span><span class="p">,</span> <span class="n">network</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">seed_cls</span><span class="o">=</span><span class="n">Seed</span><span class="p">,</span> <span class="n">bootstrap_cls</span><span class="o">=</span><span class="n">Bootstrap</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">new_node</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">startup_role</span> <span class="o">=</span> <span class="n">seed_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">peers</span><span class="o">=</span><span class="n">peers</span><span class="p">,</span>
+                                      <span class="n">execute_fn</span><span class="o">=</span><span class="n">state_machine</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">startup_role</span> <span class="o">=</span> <span class="n">bootstrap_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span>
+                                      <span class="n">execute_fn</span><span class="o">=</span><span class="n">state_machine</span><span class="p">,</span> <span class="n">peers</span><span class="o">=</span><span class="n">peers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requester</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">startup_role</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">run</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_value</span><span class="p">,</span> <span class="n">request_cls</span><span class="o">=</span><span class="n">Requester</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">requester</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requester</span> <span class="o">=</span> <span class="n">request_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="n">input_value</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requester</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requester</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">output</span>
+</code></pre></div>
+<h3>Role Classes</h3>
+<p>Let&rsquo;s look at each of the role classes in the library one by one.</p>
+<h4>Acceptor</h4>
+<p>The <code>Acceptor</code> implements the acceptor role in the protocol, so it must store the ballot number representing its most recent promise, along with the set of accepted proposals for each slot.
+It then responds to <code>Prepare</code> and <code>Accept</code> messages according to the protocol.
+The result is a short class that is easy to compare to the protocol.</p>
+<p>For acceptors, Multi-Paxos looks a lot like Simple Paxos, with the addition of slot numbers to the messages.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Acceptor</span><span class="p">(</span><span class="n">Role</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Acceptor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span> <span class="o">=</span> <span class="n">NULL_BALLOT</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accepted_proposals</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># {slot: (ballot_num, proposal)}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_Prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ballot_num</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ballot_num</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span> <span class="o">=</span> <span class="n">ballot_num</span>
+            <span class="c1"># we&#39;ve heard from a scout, so it might be the next leader</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">],</span> <span class="n">Accepting</span><span class="p">(</span><span class="n">leader</span><span class="o">=</span><span class="n">sender</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">sender</span><span class="p">],</span> <span class="n">Promise</span><span class="p">(</span>
+            <span class="n">ballot_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span><span class="p">,</span> 
+            <span class="n">accepted_proposals</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">accepted_proposals</span>
+        <span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_Accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ballot_num</span><span class="p">,</span> <span class="n">slot</span><span class="p">,</span> <span class="n">proposal</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ballot_num</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span> <span class="o">=</span> <span class="n">ballot_num</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">accepted_proposals</span>
+            <span class="k">if</span> <span class="n">slot</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">acc</span> <span class="ow">or</span> <span class="n">acc</span><span class="p">[</span><span class="n">slot</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ballot_num</span><span class="p">:</span>
+                <span class="n">acc</span><span class="p">[</span><span class="n">slot</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ballot_num</span><span class="p">,</span> <span class="n">proposal</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">sender</span><span class="p">],</span> <span class="n">Accepted</span><span class="p">(</span>
+            <span class="n">slot</span><span class="o">=</span><span class="n">slot</span><span class="p">,</span> <span class="n">ballot_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span><span class="p">))</span>
+</code></pre></div>
+<h4>Replica</h4>
+<p>The <code>Replica</code> class is the most complicated role class, as it has a few closely related responsibilities:</p>
+<ul>
+<li>Making new proposals;</li>
+<li>Invoking the local state machine when proposals are decided;</li>
+<li>Tracking the current leader; and</li>
+<li>Adding newly started nodes to the cluster.</li>
+</ul>
+<p>The replica creates new proposals in response to <code>Invoke</code> messages from clients, selecting what it believes to be an unused slot and sending a <code>Propose</code> message to the current leader (Figure: Replica Role Control Flow.)
+Furthermore, if the consensus for the selected slot is for a different proposal, the replica must re-propose with a new slot.</p>
+<p><img alt="Replica Role Control Flow" src="cluster-images/replica.png" /><code>Decision</code> messages represent slots on which the cluster has come to consensus.
+Here, replicas store the new decision, then run the state machine until it reaches an undecided slot.
+Replicas distinguish <em>decided</em> slots, on which the cluster has agreed, from <em>committed</em> slots, which the local state machine has processed.
+When slots are decided out of order, the committed proposals may lag behind, waiting for the next slot to be decided.
+When a slot is committed, each replica sends an <code>Invoked</code> message back to the requester with the result of the operation.</p>
+<p>In some circumstances, it&rsquo;s possible for a slot to have no active proposals and no decision.
+The state machine is required to execute slots one by one, so the cluster must reach a consensus on something to fill the slot.
+To protect against this possibility, replicas make a &ldquo;no-op&rdquo; proposal whenever they catch up on a slot.
+If such a proposal is eventually decided, then the state machine does nothing for that slot.</p>
+<p>Likewise, it&rsquo;s possible for the same proposal to be decided twice.
+The replica skips invoking the state machine for any such duplicate proposals, performing no transition for that slot.</p>
+<p>Replicas need to know which node is the active leader in order to send <code>Propose</code> messages to it.
+There is a surprising amount of subtlety required to get this right, as we&rsquo;ll see later.
+Each replica tracks the active leader using three sources of information.</p>
+<p>When the leader role becomes active, it sends an <code>Adopted</code> message to the replica on the same node (Figure: Adopted.)</p>
+<p><img alt="Adopted" src="cluster-images/adopted.png" />When the acceptor role sends a <code>Promise</code> to a new leader, it sends an <code>Accepting</code> message to its local replica (Figure: Accepting.)</p>
+<p><img alt="Accepting" src="cluster-images/accepting.png" />The active leader sends <code>Active</code> messages as a heartbeat (Figure: Active.) If no such message arrives before the <code>LEADER_TIMEOUT</code> expires, the replica assumes the leader is dead and moves on to the next leader.  In this case, it&rsquo;s important that all replicas choose the <em>same</em> new leader, which we accomplish by sorting the members and selecting the next one in the list.</p>
+<p><img alt="Active" src="cluster-images/active.png" />Finally, when a node joins the network, the bootstrap role sends a <code>Join</code>
+message (Figure: Bootstrap.) The replica responds with a
+<code>Welcome</code> message containing its most recent state, allowing the new node to
+come up to speed quickly.</p>
+<p><img alt="Bootstrap" src="cluster-images/bootstrap.png" />```python
+class Replica(Role):</p>
+<pre><code>def __init__(self, node, execute_fn, state, slot, decisions, peers):
+    super(Replica, self).__init__(node)
+    self.execute_fn = execute_fn
+    self.state = state
+    self.slot = slot
+    self.decisions = decisions
+    self.peers = peers
+    self.proposals = {}
+    # next slot num for a proposal (may lead slot)
+    self.next_slot = slot
+    self.latest_leader = None
+    self.latest_leader_timeout = None
+
+# making proposals
+
+def do_Invoke(self, sender, caller, client_id, input_value):
+    proposal = Proposal(caller, client_id, input_value)
+    slot = next((s for s, p in self.proposals.iteritems() if p == proposal), None)
+    # propose, or re-propose if this proposal already has a slot
+    self.propose(proposal, slot)
+
+def propose(self, proposal, slot=None):
+    """Send (or resend, if slot is specified) a proposal to the leader"""
+    if not slot:
+        slot, self.next_slot = self.next_slot, self.next_slot + 1
+    self.proposals[slot] = proposal
+    # find a leader we think is working - either the latest we know of, or
+    # ourselves (which may trigger a scout to make us the leader)
+    leader = self.latest_leader or self.node.address
+    self.logger.info(
+        "proposing %s at slot %d to leader %s" % (proposal, slot, leader))
+    self.node.send([leader], Propose(slot=slot, proposal=proposal))
+
+# handling decided proposals
+
+def do_Decision(self, sender, slot, proposal):
+    assert not self.decisions.get(self.slot, None), \
+            "next slot to commit is already decided"
+    if slot in self.decisions:
+        assert self.decisions[slot] == proposal, \
+            "slot %d already decided with %r!" % (slot, self.decisions[slot])
+        return
+    self.decisions[slot] = proposal
+    self.next_slot = max(self.next_slot, slot + 1)
+
+    # re-propose our proposal in a new slot if it lost its slot and wasn't a no-op
+    our_proposal = self.proposals.get(slot)
+    if (our_proposal is not None and 
+        our_proposal != proposal and our_proposal.caller):
+        self.propose(our_proposal)
+
+    # execute any pending, decided proposals
+    while True:
+        commit_proposal = self.decisions.get(self.slot)
+        if not commit_proposal:
+            break  # not decided yet
+        commit_slot, self.slot = self.slot, self.slot + 1
+
+        self.commit(commit_slot, commit_proposal)
+
+def commit(self, slot, proposal):
+    """Actually commit a proposal that is decided and in sequence"""
+    decided_proposals = [p for s, p in self.decisions.iteritems() if s &lt; slot]
+    if proposal in decided_proposals:
+        self.logger.info(
+            "not committing duplicate proposal %r, slot %d", proposal, slot)
+        return  # duplicate
+
+    self.logger.info("committing %r at slot %d" % (proposal, slot))
+    if proposal.caller is not None:
+        # perform a client operation
+        self.state, output = self.execute_fn(self.state, proposal.input)
+        self.node.send([proposal.caller], 
+            Invoked(client_id=proposal.client_id, output=output))
+
+# tracking the leader
+
+def do_Adopted(self, sender, ballot_num, accepted_proposals):
+    self.latest_leader = self.node.address
+    self.leader_alive()
+
+def do_Accepting(self, sender, leader):
+    self.latest_leader = leader
+    self.leader_alive()
+
+def do_Active(self, sender):
+    if sender != self.latest_leader:
+        return
+    self.leader_alive()
+
+def leader_alive(self):
+    if self.latest_leader_timeout:
+        self.latest_leader_timeout.cancel()
+
+    def reset_leader():
+        idx = self.peers.index(self.latest_leader)
+        self.latest_leader = self.peers[(idx + 1) % len(self.peers)]
+        self.logger.debug("leader timed out; tring the next one, %s", 
+            self.latest_leader)
+    self.latest_leader_timeout = self.set_timer(LEADER_TIMEOUT, reset_leader)
+
+# adding new cluster members
+
+def do_Join(self, sender):
+    if sender in self.peers:
+        self.node.send([sender], Welcome(
+            state=self.state, slot=self.slot, decisions=self.decisions))
+</code></pre>
+<p>```
+</p>
+<h4>Leader, Scout, and Commander</h4>
+<p>The leader&rsquo;s primary task is to take <code>Propose</code> messages requesting new ballots and produce decisions.
+A leader is &ldquo;active&rdquo; when it has successfully carried out the <code>Prepare</code>/<code>Promise</code> portion of the protocol.
+An active leader can immediately send an <code>Accept</code> message in response to a <code>Propose</code>.
+
+In keeping with the class-per-role model, the leader delegates to the scout and commander roles to carry out each portion of the protocol.
+
+<code>python
+class Leader(Role):
+
+    def __init__(self, node, peers, commander_cls=Commander, scout_cls=Scout):
+        super(Leader, self).__init__(node)
+        self.ballot_num = Ballot(0, node.address)
+        self.active = False
+        self.proposals = {}
+        self.commander_cls = commander_cls
+        self.scout_cls = scout_cls
+        self.scouting = False
+        self.peers = peers
+
+    def start(self):
+        # reminder others we're active before LEADER_TIMEOUT expires
+        def active():
+            if self.active:
+                self.node.send(self.peers, Active())
+            self.set_timer(LEADER_TIMEOUT / 2.0, active)
+        active()
+
+    def spawn_scout(self):
+        assert not self.scouting
+        self.scouting = True
+        self.scout_cls(self.node, self.ballot_num, self.peers).start()
+
+    def do_Adopted(self, sender, ballot_num, accepted_proposals):
+        self.scouting = False
+        self.proposals.update(accepted_proposals)
+        # note that we don't re-spawn commanders here; if there are undecided
+        # proposals, the replicas will re-propose
+        self.logger.info("leader becoming active")
+        self.active = True
+
+    def spawn_commander(self, ballot_num, slot):
+        proposal = self.proposals[slot]
+        self.commander_cls(self.node, ballot_num, slot, proposal, self.peers).start()
+
+    def do_Preempted(self, sender, slot, preempted_by):
+        if not slot:  # from the scout
+            self.scouting = False
+        self.logger.info("leader preempted by %s", preempted_by.leader)
+        self.active = False
+        self.ballot_num = Ballot((preempted_by or self.ballot_num).n + 1, 
+                                 self.ballot_num.leader)
+
+    def do_Propose(self, sender, slot, proposal):
+        if slot not in self.proposals:
+            if self.active:
+                self.proposals[slot] = proposal
+                self.logger.info("spawning commander for slot %d" % (slot,))
+                self.spawn_commander(self.ballot_num, slot)
+            else:
+                if not self.scouting:
+                    self.logger.info("got PROPOSE when not active - scouting")
+                    self.spawn_scout()
+                else:
+                    self.logger.info("got PROPOSE while scouting; ignored")
+        else:
+            self.logger.info("got PROPOSE for a slot already being proposed")</code></p>
+<p>The leader creates a scout role when it wants to become active, in response to receiving a <code>Propose</code> when it is inactive (Figure: Scout.)
+The scout sends (and re-sends, if necessary) a <code>Prepare</code> message, and collects <code>Promise</code> responses until it has heard from a majority of its peers or until it has been preempted.
+It communicates back to the leader with <code>Adopted</code> or <code>Preempted</code>, respectively. </p>
+<p><img alt="Scout" src="cluster-images/leaderscout.png" />```python
+class Scout(Role):</p>
+<pre><code>def __init__(self, node, ballot_num, peers):
+    super(Scout, self).__init__(node)
+    self.ballot_num = ballot_num
+    self.accepted_proposals = {}
+    self.acceptors = set([])
+    self.peers = peers
+    self.quorum = len(peers) / 2 + 1
+    self.retransmit_timer = None
+
+def start(self):
+    self.logger.info("scout starting")
+    self.send_prepare()
+
+def send_prepare(self):
+    self.node.send(self.peers, Prepare(ballot_num=self.ballot_num))
+    self.retransmit_timer = self.set_timer(PREPARE_RETRANSMIT, self.send_prepare)
+
+def update_accepted(self, accepted_proposals):
+    acc = self.accepted_proposals
+    for slot, (ballot_num, proposal) in accepted_proposals.iteritems():
+        if slot not in acc or acc[slot][0] &lt; ballot_num:
+            acc[slot] = (ballot_num, proposal)
+
+def do_Promise(self, sender, ballot_num, accepted_proposals):
+    if ballot_num == self.ballot_num:
+        self.logger.info("got matching promise; need %d" % self.quorum)
+        self.update_accepted(accepted_proposals)
+        self.acceptors.add(sender)
+        if len(self.acceptors) &gt;= self.quorum:
+            # strip the ballot numbers from self.accepted_proposals, now that it
+            # represents a majority
+            accepted_proposals = \ 
+                dict((s, p) for s, (b, p) in self.accepted_proposals.iteritems())
+            # We're adopted; note that this does *not* mean that no other
+            # leader is active.  # Any such conflicts will be handled by the
+            # commanders.
+            self.node.send([self.node.address],
+                Adopted(ballot_num=ballot_num, 
+                        accepted_proposals=accepted_proposals))
+            self.stop()
+    else:
+        # this acceptor has promised another leader a higher ballot number,
+        # so we've lost
+        self.node.send([self.node.address], 
+            Preempted(slot=None, preempted_by=ballot_num))
+        self.stop()
+</code></pre>
+<p><code>The leader creates a commander role for each slot where it has an active proposal (Figure: Commander.)
+Like a scout, a commander sends and re-sends ``Accept`` messages and waits for a majority of acceptors to reply with ``Accepted``, or for news of its preemption.
+When a proposal is accepted, the commander broadcasts a ``Decision`` message to all nodes.
+It responds to the leader with ``Decided`` or ``Preempted``.
+
+![Commander](cluster-images/leadercommander.png)</code>python
+class Commander(Role):
+
+    def <strong>init</strong>(self, node, ballot_num, slot, proposal, peers):
+        super(Commander, self).<strong>init</strong>(node)
+        self.ballot_num = ballot_num
+        self.slot = slot
+        self.proposal = proposal
+        self.acceptors = set([])
+        self.peers = peers
+        self.quorum = len(peers) / 2 + 1
+
+    def start(self):
+        self.node.send(set(self.peers) - self.acceptors, Accept(
+            slot=self.slot, ballot_num=self.ballot_num, proposal=self.proposal))
+        self.set_timer(ACCEPT_RETRANSMIT, self.start)
+
+    def finished(self, ballot_num, preempted):
+        if preempted:
+            self.node.send([self.node.address], 
+                           Preempted(slot=self.slot, preempted_by=ballot_num))
+        else:
+            self.node.send([self.node.address], 
+                           Decided(slot=self.slot))
+        self.stop()
+
+    def do_Accepted(self, sender, slot, ballot_num):
+        if slot != self.slot:
+            return
+        if ballot_num == self.ballot_num:
+            self.acceptors.add(sender)
+            if len(self.acceptors) &lt; self.quorum:
+                return
+            self.node.send(self.peers, Decision(
+                           slot=self.slot, proposal=self.proposal))
+            self.finished(ballot_num, False)
+        else:
+            self.finished(ballot_num, True)
+```</p>
+<p>As an aside, a surprisingly subtle bug appeared here during development.
+At the time, the network simulator introduced packet loss even on messages within a node.
+When <em>all</em> <code>Decision</code> messages were lost, the protocol could not proceed.
+The replica continued to re-transmit <code>Propose</code> messages, but the leader ignored them as it already had a proposal for that slot.
+The replica&rsquo;s catch-up process could not find the result, as no replica had heard of the decision.
+The solution was to ensure that local messages are always delivered, as is the case for real network stacks.</p>
+<h4>Bootstrap</h4>
+<p>When a node joins the cluster, it must determine the current cluster state before it can participate.
+The bootstrap role handles this by sending <code>Join</code> messages to each peer in turn until it receives a <code>Welcome</code>.
+Bootstrap&rsquo;s communication diagram is shown above in Section: Replica.</p>
+<p>An early version of the implementation started each node with a full set of roles (replica, leader, and acceptor), each of which began in a &ldquo;startup&rdquo; phase, waiting for information from the <code>Welcome</code> message.
+This spread the initialization logic around every role, requiring separate testing of each one.
+The final design has the bootstrap role adding each of the other roles to the node once startup is complete, passing the initial state to their constructors.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Bootstrap</span><span class="p">(</span><span class="n">Role</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">execute_fn</span><span class="p">,</span>
+                 <span class="n">replica_cls</span><span class="o">=</span><span class="n">Replica</span><span class="p">,</span> <span class="n">acceptor_cls</span><span class="o">=</span><span class="n">Acceptor</span><span class="p">,</span> <span class="n">leader_cls</span><span class="o">=</span><span class="n">Leader</span><span class="p">,</span>
+                 <span class="n">commander_cls</span><span class="o">=</span><span class="n">Commander</span><span class="p">,</span> <span class="n">scout_cls</span><span class="o">=</span><span class="n">Scout</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Bootstrap</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_fn</span> <span class="o">=</span> <span class="n">execute_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peers</span> <span class="o">=</span> <span class="n">peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peers_cycle</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_cls</span> <span class="o">=</span> <span class="n">replica_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acceptor_cls</span> <span class="o">=</span> <span class="n">acceptor_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leader_cls</span> <span class="o">=</span> <span class="n">leader_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commander_cls</span> <span class="o">=</span> <span class="n">commander_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scout_cls</span> <span class="o">=</span> <span class="n">scout_cls</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers_cycle</span><span class="p">)],</span> <span class="n">Join</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">JOIN_RETRANSMIT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_Welcome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">slot</span><span class="p">,</span> <span class="n">decisions</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acceptor_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="n">execute_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">execute_fn</span><span class="p">,</span> <span class="n">peers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">,</span>
+                         <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span> <span class="n">slot</span><span class="o">=</span><span class="n">slot</span><span class="p">,</span> <span class="n">decisions</span><span class="o">=</span><span class="n">decisions</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leader_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="n">peers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">,</span> <span class="n">commander_cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">commander_cls</span><span class="p">,</span>
+                        <span class="n">scout_cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scout_cls</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<h4>Seed</h4>
+<p>In normal operation, when a node joins the cluster, it expects to find the cluster already running, with at least one node willing to respond to a <code>Join</code> message.
+But how does the cluster get started?
+One option is for the bootstrap role to determine, after attempting to contact every other node, that it is the first in the cluster.
+But this has two problems.
+First, for a large cluster it means a long wait while each <code>Join</code> times out.
+More importantly, in the event of a network partition, a new node might be unable to contact any others and start a new cluster.</p>
+<p>Network partitions are the most challenging failure case for clustered applications.
+In a network partition, all cluster members remain alive, but communication fails between some members.
+For example, if the network link joining a cluster with nodes in Berlin and Taipei fails, the network is partitioned.
+If both parts of a cluster continue to operate during a partition, then re-joining the parts after the network link is restored can be challenging.
+In the Multi-Paxos case, the healed network would be hosting two clusters with different decisions for the same slot numbers.</p>
+<p>To avoid this outcome, creating a new cluster is a user-specified operation.
+Exactly one node in the cluster runs the seed role, with the others running bootstrap as usual.
+The seed waits until it has received <code>Join</code> messages from a majority of its peers, then sends a <code>Welcome</code> with an initial state for the state machine and an empty set of decisions.
+The seed role then stops itself and starts a bootstrap role to join the newly-seeded cluster.</p>
+<p>Seed emulates the <code>Join</code>/<code>Welcome</code> part of the bootstrap/replica interaction, so its communication diagram is the same as for the replica role.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Seed</span><span class="p">(</span><span class="n">Role</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">execute_fn</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> 
+                 <span class="n">bootstrap_cls</span><span class="o">=</span><span class="n">Bootstrap</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Seed</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span> <span class="o">=</span> <span class="n">initial_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_fn</span> <span class="o">=</span> <span class="n">execute_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peers</span> <span class="o">=</span> <span class="n">peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootstrap_cls</span> <span class="o">=</span> <span class="n">bootstrap_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seen_peers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exit_timer</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_Join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seen_peers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sender</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seen_peers</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># cluster is ready - welcome everyone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seen_peers</span><span class="p">),</span> <span class="n">Welcome</span><span class="p">(</span>
+            <span class="n">state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span><span class="p">,</span> <span class="n">slot</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decisions</span><span class="o">=</span><span class="p">{}))</span>
+
+        <span class="c1"># stick around for long enough that we don&#39;t hear any new JOINs from</span>
+        <span class="c1"># the newly formed cluster</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_timer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exit_timer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exit_timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">JOIN_RETRANSMIT</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">finish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># bootstrap this node into the cluster we just seeded</span>
+        <span class="n">bs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootstrap_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> 
+                                <span class="n">peers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">,</span> <span class="n">execute_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">execute_fn</span><span class="p">)</span>
+        <span class="n">bs</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<h4>Requester</h4>
+<p>The requester role manages a request to the distributed state machine.
+The role class simply sends <code>Invoke</code> messages to the local replica until it receives a corresponding <code>Invoked</code>.
+See the &ldquo;Replica&rdquo; section, above, for this role&rsquo;s communication diagram.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Requester</span><span class="p">(</span><span class="n">Role</span><span class="p">):</span>
+
+    <span class="n">client_ids</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Requester</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_ids</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">],</span> 
+                       <span class="n">Invoke</span><span class="p">(</span><span class="n">caller</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> 
+                              <span class="n">client_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoke_timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">INVOKE_RETRANSMIT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_Invoked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">client_id</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;received output </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">output</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoke_timer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<h3>Summary</h3>
+<p>To recap, cluster&rsquo;s roles are:</p>
+<ul>
+<li>Acceptor &ndash; make promises and accept proposals</li>
+<li>Replica &ndash; manage the distributed state machine: submitting proposals, committing decisions, and responding to requesters</li>
+<li>Leader &ndash; lead rounds of the Multi-Paxos algorithm</li>
+<li>Scout &ndash; perform the <code>Prepare</code>/<code>Promise</code> portion of the Multi-Paxos algorithm for a leader</li>
+<li>Commander &ndash; perform the <code>Accept</code>/<code>Accepted</code> portion of the Multi-Paxos algorithm for a leader</li>
+<li>Bootstrap &ndash; introduce a new node to an existing cluster</li>
+<li>Seed &ndash; create a new cluster</li>
+<li>Requester &ndash; request a distributed state machine operation</li>
+</ul>
+<p>There is just one more piece of equipment required to make Cluster go: the network through which all of the nodes communicate.</p>
+<h2>Network</h2>
+<p>Any network protocol needs the ability to send and receive messages and a means of calling functions at a time in the future.</p>
+<p>The <code>Network</code> class provides a simple simulated network with these capabilities and also simulates packet loss and message propagation delays.</p>
+<p>Timers are handled using Python&rsquo;s <code>heapq</code> module, allowing efficient selection of the next event.
+Setting a timer involves pushing a <code>Timer</code> object onto the heap.
+Since removing items from a heap is inefficient, cancelled timers are left in place but marked as cancelled.</p>
+<p>Message transmission uses the timer functionality to schedule a later delivery of the message at each node, using a random simulated delay.
+We again use <code>functools.partial</code> to set up a future call to the destination node&rsquo;s <code>receive</code> method with appropriate arguments.</p>
+<p>Running the simulation just involves popping timers from the heap and executing them if they have not been cancelled and if the destination node is still active.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Timer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expires</span> <span class="o">=</span> <span class="n">expires</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cancelled</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__cmp__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">cmp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expires</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">expires</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cancelled</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Network</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">PROP_DELAY</span> <span class="o">=</span> <span class="mf">0.03</span>
+    <span class="n">PROP_JITTER</span> <span class="o">=</span> <span class="mf">0.02</span>
+    <span class="n">DROP_PROB</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">=</span> <span class="mf">1000.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">new_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="k">return</span> <span class="n">node</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">timers</span><span class="p">:</span>
+            <span class="n">next_timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">next_timer</span><span class="o">.</span><span class="n">expires</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">=</span> <span class="n">next_timer</span><span class="o">.</span><span class="n">expires</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timers</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">next_timer</span><span class="o">.</span><span class="n">cancelled</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">next_timer</span><span class="o">.</span><span class="n">address</span> <span class="ow">or</span> <span class="n">next_timer</span><span class="o">.</span><span class="n">address</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+                <span class="n">next_timer</span><span class="o">.</span><span class="n">callback</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_timer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timers</span><span class="p">,</span> <span class="n">timer</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">timer</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">destinations</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;sending </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">destinations</span><span class="p">)</span>
+        <span class="c1"># avoid aliasing by making a closure containing distinct deep copy of</span>
+        <span class="c1"># message for each dest</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">sendto</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dest</span> <span class="o">==</span> <span class="n">sender</span><span class="o">.</span><span class="n">address</span><span class="p">:</span>
+                <span class="c1"># reliably deliver local messages with no delay</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">sender</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  
+                               <span class="k">lambda</span><span class="p">:</span> <span class="n">sender</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="n">sender</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">DROP_PROB</span><span class="p">:</span>
+                <span class="n">delay</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PROP_DELAY</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">PROP_JITTER</span><span class="p">,</span> 
+                                                           <span class="bp">self</span><span class="o">.</span><span class="n">PROP_JITTER</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> 
+                               <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">dest</span><span class="p">]</span><span class="o">.</span><span class="n">receive</span><span class="p">,</span> 
+                                                 <span class="n">sender</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">dest</span> <span class="ow">in</span> <span class="p">(</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">destinations</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">):</span>
+            <span class="n">sendto</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+</code></pre></div>
+<p>While it&rsquo;s not included in this implementation, the component model allows us to swap in a real-world network implementation, communicating between actual servers on a real network, with no changes to the other components.
+Testing and debugging can take place using the simulated network, with production use of the library operating over real network hardware.</p>
+<h2>Debugging Support</h2>
+<p>When developing a complex system such as this, the bugs quickly transition from trivial, like a simple <code>NameError</code>, to obscure failures that only manifest after several minutes of (simulated) proocol operation.
+Chasing down bugs like this involves working backward from the point where the error became obvious.
+Interactive debuggers are useless here, as they can only step forward in time.</p>
+<p>The most important debugging feature in Cluster is a <em>deterministic</em> simulator.
+Unlike a real network, it will behave exactly the same way on every run, given the same seed for the random number generator.
+This means that we can add additional debugging checks or output to the code and re-run the simulation to see the same failure in more detail.</p>
+<p>Of course, much of that detail is in the messages exchanged by the nodes in the cluster, so those are automatically logged in their entirety.
+That logging includes the role class sending or receiving the message, as well as the simulated timestamp injected via the <code>SimTimeLogger</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimTimeLogger</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">LoggerAdapter</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;T=</span><span class="si">%.3f</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">msg</span><span class="p">),</span> <span class="n">kwargs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">getChild</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                              <span class="p">{</span><span class="s1">&#39;network&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">]})</span>
+</code></pre></div>
+<p>A resilient protocol such as this one can often run for a long time after a bug has been triggered.
+For example, during development, a data aliasing error caused all replicas to share the same <code>decisions</code> dictionary.
+This meant that once a decision was handled on one node, all other nodes saw it as already decided.
+Even with this serious bug, the cluster produced correct results for several transactions before deadlocking.</p>
+<p>Assertions are an important tool to catch this sort of error early.
+Assertions should include any invariants from the algorithm design, but when the code doesn&rsquo;t behave as we expect, asserting our expectations is a great way to see where things go astray. </p>
+<div class="highlight"><pre><span></span><code>    <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">decisions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slot</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> \
+            <span class="s2">&quot;next slot to commit is already decided&quot;</span>
+    <span class="k">if</span> <span class="n">slot</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">decisions</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">decisions</span><span class="p">[</span><span class="n">slot</span><span class="p">]</span> <span class="o">==</span> <span class="n">proposal</span><span class="p">,</span> \
+            <span class="s2">&quot;slot </span><span class="si">%d</span><span class="s2"> already decided with </span><span class="si">%r</span><span class="s2">!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">decisions</span><span class="p">[</span><span class="n">slot</span><span class="p">])</span>
+</code></pre></div>
+<p>Identifying the right assumptions we make while reading code is a part of the art of debugging.
+In this code from <code>Replica.do_Decision</code>, the problem was that the <code>Decision</code> for the next slot to commit was being ignored because it was already in <code>self.decisions</code>.
+The underlying assumption being violated was that the next slot to be committed was not yet decided.
+Asserting this at the beginning of <code>do_Decision</code> identified the flaw and led quickly to the fix.
+Similarly, other bugs led to cases where different proposals were decided in the same slot &ndash; a serious error.</p>
+<p>Many other assertions were added during development of the protocol, but in the interests of space, only a few remain.</p>
+<h2>Testing</h2>
+<p>Some time in the last ten years, coding without tests finally became as crazy as driving without a seatbelt.
+Code without tests is probably incorrect, and modifying code is risky without a way to see if its behavior has changed.</p>
+<p>Testing is most effective when the code is organized for testability.
+There are a few active schools of thought in this area, but the approach we&rsquo;ve taken is to divide the code into small, minimally connected units that can be tested in isolation.
+This agrees nicely with the role model, where each role has a specific purpose and can operate in isolation from the others, resulting in a compact, self-sufficient class.</p>
+<p>Cluster is written to maximize that isolation: all communication between roles takes place via messages, with the exception of creating new roles.
+For the most part, then, roles can be tested by sending messages to them and observing their responses.</p>
+<h4>Unit Testing</h4>
+<p>The unit tests for Cluster are simple and short:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tests</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">ComponentTestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_propose_active</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A PROPOSE received while active spawns a commander.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate_leader</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">fake_message</span><span class="p">(</span><span class="n">Propose</span><span class="p">(</span><span class="n">slot</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">proposal</span><span class="o">=</span><span class="n">PROPOSAL1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertCommanderStarted</span><span class="p">(</span><span class="n">Ballot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;F999&#39;</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">PROPOSAL1</span><span class="p">)</span>
+</code></pre></div>
+<p>This method tests a single behavior (commander spawning) of a single unit (the <code>Leader</code> class).
+It follows the well-known &ldquo;arrange, act, assert&rdquo; pattern: set up an active leader, send it a message, and check the result.</p>
+<h4>Dependency Injection</h4>
+<p>We use a technique called &ldquo;dependency injection&rdquo; to handle creation of new roles.
+Each role class which adds other roles to the network takes a list of class objects as constructor arguments, defaulting to the actual classes.
+For example, the constructor for <code>Leader</code> looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Leader</span><span class="p">(</span><span class="n">Role</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">commander_cls</span><span class="o">=</span><span class="n">Commander</span><span class="p">,</span> <span class="n">scout_cls</span><span class="o">=</span><span class="n">Scout</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Leader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span> <span class="o">=</span> <span class="n">Ballot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proposals</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commander_cls</span> <span class="o">=</span> <span class="n">commander_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scout_cls</span> <span class="o">=</span> <span class="n">scout_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scouting</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peers</span> <span class="o">=</span> <span class="n">peers</span>
+</code></pre></div>
+<p>The <code>spawn_scout</code> method (and similarly, <code>spawn_commander</code>) creates the new role object with <code>self.scout_cls</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Leader</span><span class="p">(</span><span class="n">Role</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">spawn_scout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">scouting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scouting</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scout_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ballot_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<p>The magic of this technique is that, in testing, <code>Leader</code> can be given fake classes and thus tested separately from <code>Scout</code> and <code>Commander</code>.</p>
+<h4>Interface Correctness</h4>
+<p>One pitfall of a focus on small units is that it does not test the interfaces between units.
+For example, unit tests for the acceptor role verify the format of the <code>accepted</code> attribute of the <code>Promise</code> message, and the unit tests for the scout role supply well-formatted values for the attribute.
+Neither test checks that those formats match.</p>
+<p>One approach to fixing this issue is to make the interfaces self-enforcing.
+In Cluster, the use of named tuples and keyword arguments avoids any disagreement over messages&rsquo; attributes.
+Because the only interaction between role classes is via messages, this covers a large part of the interface.</p>
+<p>For specific issues such as the format of <code>accepted_proposals</code>, both the real and test data can be verified using the same function, in this case <code>verifyPromiseAccepted</code>.
+The tests for the acceptor use this method to verify each returned <code>Promise</code>, and the tests for the scout use it to verify every fake <code>Promise</code>.</p>
+<h4>Integration Testing</h4>
+<p>The final bulwark against interface problems and design errors is integration testing.
+An integration test assembles multiple units together and tests their combined effect.
+In our case, that means building a network of several nodes, injecting some requests into it, and verifying the results.
+If there are any interface issues not discovered in unit testing, they should cause the integration tests to fail quickly.</p>
+<p>Because the protocol is intended to handle node failure gracefully, we test a few failure scenarios as well, including the untimely failure of the active leader.</p>
+<p>Integration tests are harder to write than unit tests, because they are less well-isolated.
+For Cluster, this is clearest in testing the failed leader, as any node could be the active leader.
+Even with a deterministic network, a change in one message alters the random number generator&rsquo;s state and thus unpredictably changes later events.
+Rather than hard-coding the expected leader, the test code must dig into the internal state of each leader to find one that believes itself to be active.</p>
+<h4>Fuzz Testing</h4>
+<p>It&rsquo;s very difficult to test resilient code: it is likely to be resilient to its own bugs, so integration tests may not detect even very serious bugs.
+It is also hard to imagine and construct tests for every possible failure mode.</p>
+<p>A common approach to this sort of problem is &ldquo;fuzz testing&rdquo;: running the code repeatedly with randomly changing inputs until something breaks.
+When something <em>does</em> break, all of the debugging support becomes critical: if the failure can&rsquo;t be reproduced, and the logging information isn&rsquo;t sufficient to find the bug, then you can&rsquo;t fix it!</p>
+<p>I performed some manual fuzz testing of cluster during development, but a full fuzz-testing infrastructure is beyond the scope of this project.</p>
+<h2>Power Struggles</h2>
+<p>A cluster with many active leaders is a very noisy place, with scouts sending ever-increasing ballot numbers to acceptors, and no ballots being decided.
+A cluster with no active leader is quiet, but equally nonfunctional.
+Balancing the implementation so that a cluster almost always agrees on exactly one leader is remarkably difficult.</p>
+<p>It&rsquo;s easy enough to avoid fighting leaders: when preempted, a leader just accepts its new inactive status.
+However, this easily leads to a case where there are no active leaders, so an inactive leader will try to become active every time it gets a <code>Propose</code> message.</p>
+<p>If the whole cluster doesn&rsquo;t agree on which member is the active leader, there&rsquo;s trouble: different replicas send <code>Propose</code> messages to different leaders, leading to battling scouts.
+So it&rsquo;s important that leader elections be decided quickly, and that all cluster members find out about the result as quickly as possible.</p>
+<p>Cluster handles this by detecting a leader change as quickly as possible: when an acceptor sends a <code>Promise</code>, chances are good that the promised member will be the next leader.
+Failures are detected with a heartbeat protocol.</p>
+<h2>Further Extensions</h2>
+<p>Of course, there are plenty of ways we could extend and improve this implementation.</p>
+<h3>Catching Up</h3>
+<p>In &ldquo;pure&rdquo; Multi-Paxos, nodes which fail to receive messages can be many slots behind the rest of the cluster.
+As long as the state of the distributed state machine is never accessed except via state machine transitions, this design is functional.
+To read from the state, the client requests a state-machine transition that does not actually alter the state, but which returns the desired value.
+This transition is executed cluster-wide, ensuring that it returns the same value everywhere, based on the state at the slot in which it is proposed.</p>
+<p>Even in the optimal case, this is slow, requiring several round trips just to read a value.
+If a distributed object store made such a request for every object access, its performance would be dismal.
+But when the node receiving the request is lagging behind, the request delay is much greater as that node must catch up to the rest of the cluster before making a successful proposal.</p>
+<p>A simple solution is to implement a gossip-style protocol, where each replica periodically contacts other replicas to share the highest slot it knows about and to request information on unknown slots.
+Then even when a <code>Decision</code> message was lost, the replica would quickly find out about the decision from one of its peers.</p>
+<h3>Consistent Memory Usage</h3>
+<p>A cluster-management library provides reliability in the presence of unreliable components.
+It shouldn&rsquo;t add unreliability of its own.
+Unfortunately, Cluster will not run for long without failing due to ever-growing memory use and message size.</p>
+<p>In the protocol definition, acceptors and replicas form the &ldquo;memory&rdquo; of the protocol, so they need to remember everything.
+These classes never know when they will receive a request for an old slot, perhaps from a lagging replica or leader.
+To maintain correctness, then, they keep a list of every decision, ever, since the cluster was started.
+Worse, these decisions are transmitted between replicas in <code>Welcome</code> messages, making these messages enormous in a long-lived cluster.</p>
+<p>One technique to address this issue is to periodically &ldquo;checkpoint&rdquo; each node&rsquo;s state, keeping information about some limited number of decisions on hand.
+Nodes which are so out of date that they have not committed all slots up to the checkpoint must &ldquo;reset&rdquo; themselves by leaving and re-joining the cluster.</p>
+<h4>Persistent Storage</h4>
+<p>While it&rsquo;s OK for a minority of cluster members to fail, it&rsquo;s not OK for an acceptor to &ldquo;forget&rdquo; any of the values it has accepted or promises it has made.</p>
+<p>Unfortunately, this is exactly what happens when a cluster member fails and restarts: the newly initialized Acceptor instance has no record of the promises its predecessor made.
+The problem is that the newly-started instance takes the place of the old.</p>
+<p>There are two ways to solve this issue.
+The simpler solution involves writing acceptor state to disk and re-reading that state on startup.
+The more complex solution is to remove failed cluster members from the cluster, and require that new members be added to the cluster.
+This kind of dynamic adjustment of the cluster membership is called a &ldquo;view change&rdquo;.</p>
+<h4>View Changes</h4>
+<p>Operations engineers need to be able to resize clusters to meet load and availability requirements.
+A simple test project might begin with a minimal cluster of three nodes, where any one can fail without impact.
+When that project goes &ldquo;live&rdquo;, though, the additional load will require a larger cluster.</p>
+<p>Cluster, as written, cannot change the set of peers in a cluster without restarting the entire cluster.
+Ideally, the cluster would be able to maintain a consensus about its membership, just as it does about state machine transitions.
+This means that the set of cluster members (the <em>view</em>) can be changed by special view-change proposals.
+But the Paxos algorithm depends on universal agreement about the members in the cluster, so we must define the view for each slot.</p>
+<p>Lamport addresses this challenge in the final paragraph of &ldquo;Paxos Made Simple&rdquo;:</p>
+<blockquote>
+<p>We can allow a leader to get $\alpha$ commands ahead by letting the set of servers that execute instance $i+\alpha$ of the consensus algorithm be specified by the state after execution of the $i$th state machine command.  (Lamport, 2001)</p>
+</blockquote>
+<p>The idea is that each instance of Paxos (slot) uses the view from $\alpha$ slots earlier.
+This allows the cluster to work on, at most, $\alpha$ slots at any one time, so a very small value of $\alpha$ limits concurrency, while a very large value of $\alpha$ makes view changes slow to take effect.</p>
+<p>In early drafts of this implementation (dutifully preserved in the git history!), I implemented support for view changes (using $\alpha$ in place of 3).
+This seemingly simple change introduced a great deal of complexity:</p>
+<ul>
+<li>tracking the view for each of the last $\alpha$ committed slots and correctly sharing this with new nodes,</li>
+<li>ignoring proposals for which no slot is available,</li>
+<li>detecting failed nodes,</li>
+<li>properly serializing multiple competing view changes, and</li>
+<li>communicating view information between the leader and replica.</li>
+</ul>
+<p>The result was far too large for this book! </p>
+<h2>References</h2>
+<p>In addition to the original Paxos paper and Lamport&rsquo;s follow-up &ldquo;Paxos Made Simple&rdquo;<sup id="fnref:simple"><a class="footnote-ref" href="#fn:simple">2</a></sup>, our implementation added extensions that were informed by several other resources. The role names were taken from &ldquo;Paxos Made Moderately Complex&rdquo;<sup id="fnref:complex"><a class="footnote-ref" href="#fn:complex">3</a></sup>. &ldquo;Paxos Made Live&rdquo;<sup id="fnref:live"><a class="footnote-ref" href="#fn:live">4</a></sup> was helpful regarding snapshots in particular, and <a href="http://www.scs.stanford.edu/~dm/home/papers/paxos.pdf">&ldquo;Paxos Made Practical&rdquo;</a> described view changes (although not of the type described here.) Liskov&rsquo;s &ldquo;From Viewstamped Replication to Byzantine Fault Tolerance&rdquo;<sup id="fnref:tolerance"><a class="footnote-ref" href="#fn:tolerance">5</a></sup> provided yet another perspective on view changes. Finally, a <a href="http://stackoverflow.com/questions/21353312/in-part-time-parliament-why-does-using-the-membership-from-decree-n-3-work-to">Stack Overflow discussion</a> was helpful in learning how members are added and removed from the system.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:parttime">
+<p>L. Lamport, &ldquo;The Part-Time Parliament,&rdquo; ACM Transactions on Computer Systems, 16(2):133–169, May 1998.&#160;<a class="footnote-backref" href="#fnref:parttime" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:simple">
+<p>L. Lamport, &ldquo;Paxos Made Simple,&rdquo; ACM SIGACT News (Distributed Computing Column) 32, 4 (Whole Number 121, December 2001) 51-58.&#160;<a class="footnote-backref" href="#fnref:simple" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:complex">
+<p>R. Van Renesse and D. Altinbuken, &ldquo;Paxos Made Moderately Complex,&rdquo; ACM Comp. Survey 47, 3, Article 42 (Feb. 2015)&#160;<a class="footnote-backref" href="#fnref:complex" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:live">
+<p>T. Chandra, R. Griesemer, and J. Redstone, &ldquo;Paxos Made Live - An Engineering Perspective,&rdquo; Proceedings of the twenty-sixth annual ACM symposium on Principles of distributed computing (PODC &lsquo;07). ACM, New York, NY, USA, 398-407.&#160;<a class="footnote-backref" href="#fnref:live" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tolerance">
+<p>B. Liskov, &ldquo;From Viewstamped Replication to Byzantine Fault Tolerance,&rdquo; In <em>Replication</em>, Springer-Verlag, Berlin, Heidelberg 121-149 (2010)&#160;<a class="footnote-backref" href="#fnref:tolerance" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

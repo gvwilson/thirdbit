@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Infinispan</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Infinispan</h1>
+
+
+
+<p><em>by Manik Surtani</em></p>
+<h2>Introduction</h2>
+<p>Infinispan<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> is an open source data grid platform. It is a distributed, in-memory key-value NoSQL store. Software architects typically use data grids like Infinispan either as a performance-enhancing distributed in-memory cache in front of an expensive, slow data store such as a relational database, or as a distributed NoSQL data store to replace a relational database.  In either case, the main reason to consider a data grid in any software architecture is performance. The need for fast and low-latency access to data is becoming increasingly common.</p>
+<p>As such, performance is Infinispan&rsquo;s sole raison d&rsquo;être. Infinispan&rsquo;s code base is, in turn, extremely performance sensitive.</p>
+<h2>Overview</h2>
+<p>Before digging into Infinispan&rsquo;s depths, let us consider how Infinispan is typically used. Infinispan falls into a category of software called middleware. According to Wikipedia, middleware &ldquo;can be described as software glue&rdquo;&mdash;the components that sit on servers, in between applications, such as websites, and an operating system or database. Middleware is often used to make an application developer more productive, more effective and able to turn out&mdash;at a faster pace&mdash;applications that are also more maintainable and testable. All of this is achieved by modularisation and component reuse. Infinispan specifically is often placed in between any application processing or business logic and the data-storage tier. Data storage (and retrieval) are often the biggest bottlenecks, and placing an in-memory data grid in front of a database often makes things much faster. Further, data storage is also often a single point of contention and potential failure. Again, making use of Infinispan in front of (or even in place of) a more traditional data store, applications can achieve greater elasticity and scalability.</p>
+<h3>Who Uses Infinispan?</h3>
+<p>Infinispan has been used in several industries, ranging from telecoms to financial services, high-end e-commerce to manufacturing systems, gaming and mobile platforms. Data grids in general have always been popular in the financial services industry due to their stringent requirements around extremely fast access to large volumes of data in a way that isolates them from individual machine failure. These requirements have since spread into other industries, which contributes to Infinispan&rsquo;s popularity across such a broad range of applications.</p>
+<h3>As a Library or as a Server</h3>
+<p>Infinispan is implemented in Java (and some Scala) and can be used in two different ways. First, it can be used as a library, embedded into a Java application, by including Infinispan JAR files and referencing and instantiating Infinispan components programmatically. This way, Infinispan components sit in the same JVM as the application and a part of the application&rsquo;s heap memory is allocated as a data grid node.</p>
+<p><img alt="Figure 1: Infinispan as a library" src="image01.png" /></p>
+<p>Second, it can be used as a remote data grid by starting up Infinispan instances and allowing them to form a cluster. A client can then connect to this cluster over a socket from one of the many client libraries available. This way, each Infinispan node exists within its own isolated JVM and has the entire JVM heap memory at its disposal.</p>
+<p><img alt="Figure 2: Infinispan as a remote data grid" src="image03.png" /></p>
+<h3>Peer-to-Peer Architecture</h3>
+<p>In both cases, Infinispan instances detect one another over a network, form a cluster, and start sharing data to provide applications with an in-memory data structure that transparently spans all the servers in a cluster. This allows applications to theoretically address an unlimited amount of in-memory storage as nodes are added to the cluster, increasing overall capacity.</p>
+<p>Infinispan is a peer-to-peer technology where each instance in the cluster is equal to every other instance in the cluster. This means there is no single point of failure and no single bottleneck. Most importantly, it provides applications with an elastic data structure that can scale horizontally by adding more instances. And that can also scale back in, by shutting down some instances, all the while allowing the application to continue operating with no loss of overall functionality.</p>
+<h2>Benchmarking Infinispan</h2>
+<p>The biggest problem when benchmarking a distributed data structure like Infinispan is the tooling. There is precious little that will allow you to measure the performance of storing and retrieving data while scaling out and back in. There is also nothing that offers comparative analysis, to be able to measure and compare performance of different configurations, cluster sizes, etc. To help with this, Radar Gun was created.</p>
+<p>Radar Gun is covered in more depth in Section posa.infinispan.radargun. The other tools mentioned here&mdash;the Yahoo Cloud Serving Benchmark, The Grinder and Apache JMeter&mdash;are not covered in as much depth, despite still being very important in benchmarking Infinispan. A lot of literature about these tools already exists online.</p>
+<h3>Radar Gun</h3>
+<p>Radar Gun<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> is an open source benchmarking framework that was designed to perform comparative (as well as competitive) benchmarks, to measure scalability and to generate reports from data points collected. Radar Gun is specifically targeted at distributed data structures such as Infinispan, and has been used extensively during the development of Infinispan to identify and fix bottlenecks. See Section posa.infinispan.radargun for more information on Radar Gun.</p>
+<h3>Yahoo Cloud Serving Benchmark</h3>
+<p>The Yahoo Cloud Serving Benchmark<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> (YCSB) is an open source tool created to test latency when communicating with a remote data store to read or write data of varying sizes. YCSB treats all data stores as a single remote endpoint, so it doesn&rsquo;t attempt to measure scalability as nodes are added to or removed from a cluster. Since YCSB has no concept of a distributed data structure, it is only useful to benchmark Infinispan in client/server mode.</p>
+<h3>The Grinder and Apache JMeter</h3>
+<p>The Grinder<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> and Apache JMeter<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> are two simple open source load generators that can be used to test arbitrary servers listening on a socket. These are highly scriptable and, just like YCSB, useful for benchmarking Infinispan when used in client/server mode.</p>
+<h2 id="posa.infinispan.radargun">Radar Gun</h2>
+<h3>Early Days</h3>
+<p>Created by the Infinispan core development team, Radar Gun started as a project on Sourceforge called the Cache Benchmarking Framework<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> and was originally designed to benchmark embedded Java caches running in different modes, in various configurations. It is designed to be comparative, so it would automatically run the same benchmark against various caching libraries&mdash;or various versions of the same library, to test for performance regressions.</p>
+<p>Since its creation, it has gained a new name (Radar Gun), a new home on GitHub<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> and a host of new features.</p>
+<h3>Distributed Features</h3>
+<p>Radar Gun soon expanded to cover distributed data structures. Still focused on embedded libraries, Radar Gun is able to launch multiple instances of the framework on different servers, which in turn would launch instances of the distributed caching library. The benchmark is then run in parallel on each node in the cluster. Results are collated and reports are generated by the Radar Gun controller. The ability to automatically bring up and shut down nodes is crucial to scalability testing, as it becomes infeasible and impractical to manually run and re-run benchmarks on clusters of varying sizes, from two nodes all the way to hundreds or even thousands of nodes.</p>
+<p><img alt="Figure 3: Radar Gun" src="image02.png" /></p>
+<h3>Fast and Wrong is No Good!</h3>
+<p>Radar Gun then gained the ability to perform status checks before and after running each stage of the benchmark, to ensure the cluster is still in a valid state. This allowed for early detection of incorrect results, and allowed for re-running of a benchmark without waiting for manual intervention at the end of a run&mdash;which could take many hours.</p>
+<h3>Profiling</h3>
+<p>Radar Gun is also able to start and attach profiler instances to each data grid node and take profiler snapshots, for more insight into the goings on in each node when under load.</p>
+<h3>Memory Performance</h3>
+<p>Radar Gun also has the ability to measure the state of memory consumption of each node, to measure memory performance. In an in-memory data store, performance isn&rsquo;t all about how fast you read or write data, but also how well the structure performs with regards to memory consumption. This is particularly important in Java-based systems, as garbage collection can adversely affect the responsiveness of a system. Garbage collection is discussed in more detail later.</p>
+<h3>Metrics</h3>
+<p>Radar Gun measures performance in terms of transactions per second. This is captured for each node and then aggregated on the controller. Both reads and writes are measured and charted separately, even though they are performed simultaneously (to ensure a realistic test where such operations are interleaved). Radar Gun also captures means, medians, standard deviation, maximum and minimum values for read and write transactions, and these too are logged although they may not be charted. Memory performance is also captured, by way of a footprint for any given iteration.</p>
+<h3>Extensibility</h3>
+<p>Radar Gun is an extensible framework. It allows you to plug in your own data access patterns, data types and sizes. Further, it also allows you to add adapters to any data structure, caching library or NoSQL database that you would like to test.</p>
+<p>End-users are often encouraged to use Radar Gun too when attempting to compare the performance of different configurations of a data grid.</p>
+<h2>Prime Suspects</h2>
+<p>There are several subsystems of Infinispan that are prime suspects for performance bottlenecks, and as such, candidates for close scrutiny and potential optimization. Let&rsquo;s look at each of these in turn.</p>
+<h3>The Network</h3>
+<p>Network communication is the single most expensive part of Infinispan, whether used for communication between peers or between clients and the grid itself.</p>
+<h4 class="unnumbered" id="peer-network">Peer Network</h4>
+<p>Infinispan makes use of JGroups<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>, an open source peer-to-peer group communication library for inter-node communication. JGroups can make use of either TCP or UDP network protocols, including UDP multicast, and provides high level features such as message delivery guarantees, retransmission and message ordering even over unreliable protocols such as UDP.</p>
+<p>It becomes crucially important to tune the JGroups layer correctly, to match the characteristics of your network and application, such as time-to-live, buffer sizes, and thread pool sizes. It is also important to account for the way JGroups performs bundling&mdash;the combining of multiple small messages into single network packets&mdash;or fragmentation&mdash;the reverse of bundling, where large messages are broken down into multiple smaller network packets.</p>
+<p>The network stack on your operating system and your network equipment (switches and routers) should also be tuned to match this configuration. Operating system TCP send and receive buffer sizes, frame sizes, jumbo frames, etc. all play a part in ensuring the most expensive component in your data grid is performing optimally.</p>
+<p>Tools such as <code>netstat</code> and <code>wireshark</code> can help analyse packets, and Radar Gun can help drive load through a grid. Radar Gun can also be used to profile the JGroups layer of Infinispan to help locate bottlenecks.</p>
+<h4 class="unnumbered" id="server-sockets">Server Sockets</h4>
+<p>Infinispan makes use of the popular Netty<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup> framework to create and manage server sockets. Netty is a wrapper around the asynchronous Java NIO framework, which in turn makes use of the operating system&rsquo;s asynchronous network I/O capabilities. This allows for efficient resource utilization at the expense of some context switching. In general, this performs very well under load.</p>
+<p>Netty offers several levels of tuning to ensure optimal performance. These include buffer sizes, thread pools and the like, and should also be matched up with operating system TCP send and receive buffers.</p>
+<h3>Data Serialization</h3>
+<p>Before putting data on the network, application objects need to be serialized into bytes so that they can be pushed across a network, into the grid, and then again between peers. The bytes then need to be de-serialized back into application objects, when read by the application. In most common configurations, about 20% of the time spent in processing a request is spent in serialization and de-serialization.</p>
+<p>Default Java serialization (and de-serialization) is notoriously slow, both in terms of CPU cycles and the bytes that are produced&mdash;they are often unnecessarily large, which means more data to push around a network.</p>
+<p>Infinispan uses its own serialization scheme, where full class definitions are not written to the stream. Instead, magic numbers are used for known types where each known type is represented by a single byte. This greatly improves not just serialization and de-serialization speed, but also produces a much more compact byte stream for transmission across a network. An externalizer is registered for each known data type, registered against a magic number. This externalizer contains the logic to convert object to bytes and vice versa.</p>
+<p>This technique works well for known types, such as internal Infinispan objects that are exchanged between peer nodes. Internal objects&mdash;such as commands, envelopes, etc.&mdash;have externalizers and corresponding unique magic numbers. But what about application objects? By default, if Infinispan encounters an object type it is unaware of, it falls back to default Java serialization for that object. This allows Infinispan to work out of the box&mdash;albeit in a less efficient manner when dealing with unknown application object types.</p>
+<p>To get around this, Infinispan allows application developers to register externalizers for application data types as well. This allows powerful, fast, efficient serialization of application objects too, as long as the application developer can write and register externalizer implementations for each application object type.</p>
+<p>This externalizer code has been released as a separate, reusable library, called JBoss Marshalling.<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup> It is packaged with Infinispan and included in Infinispan distributions, but it is also used in various other open source projects to improve serialization performance.</p>
+<h3>Writing to Disk</h3>
+<p>In addition to being an in-memory data structure, Infinispan can also optionally persist to disk.</p>
+<p>Persistence can either be for durability&mdash;to survive restarts or node failures, in which case everything in memory also exists on disk&mdash;or it can be configured as an overflow when Infinispan runs out of memory, in which case it acts in a manner similar to an operating system paging to disk. In the latter case, data is only written to disk when data needs to be evicted from memory to free up space.</p>
+<p>When persisting for durability, persistence can either be online, where the application thread is blocked until data is safely written to disk, or offline, where data is flushed to disk periodically and asynchronously. In the latter case, the application thread is not blocked on the process of persistence, in exchange for uncertainty as to whether the data was successfully persisted to disk at all.</p>
+<p>Infinispan supports several pluggable cache stores&mdash;adapters that can be used to persist data to disk or any form of secondary storage. The current default implementation is a simplistic hash bucket and linked list implementation, where each hash bucket is represented by a file on the filesystem. While easy to use and configure, this isn&rsquo;t the best-performing implementation.</p>
+<p>Two high-performance, filesystem-based native cache store implementations are currently on the roadmap. Both will be written in C, with the ability to make system calls and use direct I/O where available (such as on Unix systems), to bypass kernel buffers and caches.</p>
+<p>One of the implementations will be optimized for use as a paging system, and will therefore need to have random access, possibly a b-tree structure.</p>
+<p>The other will be optimized as a durable store, and will mirror what is stored in memory. As such, it will be an append-only structure, designed for fast writing but not necessarily for fast reading/seeking.</p>
+<h3>Synchronization, Locking and Concurrency</h3>
+<p>As with most enterprise-class middleware, Infinispan is heavily biased towards modern, multi-core systems. To make use of the parallelism we have available with the large number of hardware threads in multi-core and SMP systems, as well as non-blocking, asynchronous I/O when dealing with network and disk communication, Infinispan&rsquo;s core data structures make use of software transactional memory techniques for concurrent access to shared data. This minimizes the need for explicit locks, mutexes and other forms of synchronization, preferring techniques like compare-and-set operations within a loop to achieve correctness when updating shared data structures. Such techniques have been proven to improve CPU utilization in multi-core and SMP systems, and despite the increased code complexity, has paid off in overall performance when under load.</p>
+<p>In addition to the benefits of using software transactional memory approaches, this also future-proofs Infinispan to harness the power of synchronization support instructions in CPUs&mdash;hardware transactional memory&mdash;when such CPUs become commonplace, with minimal change to Infinispan&rsquo;s design.</p>
+<p>Several data structures used in Infinispan are straight out of academic research papers. In fact, the non-blocking, lock-free dequeue<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup> used in Infinispan was the structure&rsquo;s first Java implementation. Other examples include novel designs for lock amortization<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup> and adaptive eviction policies.<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup></p>
+<h3>Threads and Context Switching</h3>
+<p>Various Infinispan subsystems make use of asynchronous operations that happen on separate threads. For example, JGroups allocates threads to monitor a network socket, which then decode messages and pass them to a message delivery thread. This may in turn attempt to store data in a cache store on disk&mdash;which may also be asynchronous and use a separate thread. Listeners may be notified of changes as well, and this can be configured to be asynchronous.</p>
+<p>When dealing with thread pools to process such asynchronous tasks, there is always a context switching overhead. That threads are not cheap resources is also noteworthy. Allocating appropriately sized and configured thread pools is important to any installation making use of any of the asynchronous features of Infinispan.</p>
+<p>Specific areas to look at are the asynchronous transport thread pool (if using asynchronous communications) and ensuring this thread pool is at least as large as the expected number of concurrent updates each node is expected to handle. Similarly, when tuning JGroups, the <em>OOB</em><sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup> and incoming thread pools should be at least as big as the expected number of concurrent updates.</p>
+<p><img alt="Figure 4: Threading in Infinispan" src="image00.png" /></p>
+<h3>Garbage Collection</h3>
+<p>General good practices with regards to working with JVM garbage collectors is an important consideration for any Java-based software, and Infinispan is no exception. If anything, it is all the more important for a data grid, since container objects may survive for long periods of time while lots of transient objects&mdash;related to a specific operation or transaction&mdash;are also created. Further, garbage collection pauses can have adverse effects on a distributed data structure, as they can render a node unresponsive and cause the node to be marked as failed.</p>
+<p>These have been taken into consideration when designing and building Infinispan, but at the same time there is a lot to consider when configuring a JVM to run Infinispan. Each JVM is different. However, some analysis<sup id="fnref:15"><a class="footnote-ref" href="#fn:15">15</a></sup> has been done on the optimal settings for certain JVMs when running Infinispan. For example, if using OpenJDK<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">16</a></sup> or Oracle&rsquo;s HotSpot JVM<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>, using the Concurrent Mark and Sweep collector<sup id="fnref:18"><a class="footnote-ref" href="#fn:18">18</a></sup> alongside large pages<sup id="fnref:19"><a class="footnote-ref" href="#fn:19">19</a></sup> for JVMs given about 12 GB of heap each appears to be an optimal configuration.</p>
+<p>Further, pauseless garbage collectors&mdash;such as C4<sup id="fnref:20"><a class="footnote-ref" href="#fn:20">20</a></sup>, used in Azul&rsquo;s Zing JVM<sup id="fnref:21"><a class="footnote-ref" href="#fn:21">21</a></sup>&mdash;are worthwhile considering cases where garbage collection pauses become a noticeable issue.</p>
+<h2>Conclusions</h2>
+<p>Performance-centric middleware like Infinispan has to be architected, designed and developed with performance in mind every step of the way.  From using the best non-blocking and lock-free algorithms to understanding the characteristics of garbage being generated, to developing with an appreciation for JVM context switching overhead, to being able to step outside the JVM where needed (writing native persistence components, for example) are all important parts of the mindset needed when developing Infinispan. Further, the right tools for benchmarking and profiling, as well as running benchmarks in a continuous integration style, helps ensure performance is never sacrificed as features are added.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="http://www.infinispan.org">http://www.infinispan.org</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://github.com/radargun/radargun/wiki">https://github.com/radargun/radargun/wiki</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://github.com/brianfrankcooper/YCSB/wiki">https://github.com/brianfrankcooper/YCSB/wiki</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="http://grinder.sourceforge.net/">http://grinder.sourceforge.net/</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="http://jmeter.apache.org/">http://jmeter.apache.org/</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="http://sourceforge.net/projects/cachebenchfwk/">http://sourceforge.net/projects/cachebenchfwk/</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p><code>http://github.com/radargun</code>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p><a href="http://www.jgroups.org">http://www.jgroups.org</a>&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p><a href="http://www.netty.io">http://www.netty.io</a>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p><a href="http://www.jboss.org/jbossmarshalling">http://www.jboss.org/jbossmarshalling</a>&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p><a href="http://www.md.chalmers.se/~tsigas/papers/Lock-Free-Deques-Doubly-Lists-JPDC.pdf">http://www.md.chalmers.se/~tsigas/papers/Lock-Free-Deques-Doubly-Lists-JPDC.pdf</a>&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p><a href="http://dl.acm.org/citation.cfm?id=1546683.1547428">http://dl.acm.org/citation.cfm?id=1546683.1547428</a>&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:13">
+<p><a href="http://dl.acm.org/citation.cfm?id=511334.511340">http://dl.acm.org/citation.cfm?id=511334.511340</a>&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+<li id="fn:14">
+<p><code>http://www.jgroups.org/manual/html/user-advanced.html#d0e3284</code>&#160;<a class="footnote-backref" href="#fnref:14" title="Jump back to footnote 14 in the text">&#8617;</a></p>
+</li>
+<li id="fn:15">
+<p><a href="http://howtojboss.com/2013/01/08/data-grid-performance-tuning/">http://howtojboss.com/2013/01/08/data-grid-performance-tuning/</a>&#160;<a class="footnote-backref" href="#fnref:15" title="Jump back to footnote 15 in the text">&#8617;</a></p>
+</li>
+<li id="fn:16">
+<p><a href="http://openjdk.java.net/">http://openjdk.java.net/</a>&#160;<a class="footnote-backref" href="#fnref:16" title="Jump back to footnote 16 in the text">&#8617;</a></p>
+</li>
+<li id="fn:17">
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>&#160;<a class="footnote-backref" href="#fnref:17" title="Jump back to footnote 17 in the text">&#8617;</a></p>
+</li>
+<li id="fn:18">
+<p><code>http://www.oracle.com/technetwork/java/javase/gc-tuning-6-140523.html#cms</code>&#160;<a class="footnote-backref" href="#fnref:18" title="Jump back to footnote 18 in the text">&#8617;</a></p>
+</li>
+<li id="fn:19">
+<p><a href="http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html">http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html</a>&#160;<a class="footnote-backref" href="#fnref:19" title="Jump back to footnote 19 in the text">&#8617;</a></p>
+</li>
+<li id="fn:20">
+<p><a href="http://www.azulsystems.com/technology/c4-garbage-collector">http://www.azulsystems.com/technology/c4-garbage-collector</a>&#160;<a class="footnote-backref" href="#fnref:20" title="Jump back to footnote 20 in the text">&#8617;</a></p>
+</li>
+<li id="fn:21">
+<p><a href="http://www.azulsystems.com/products/zing/virtual-machine">http://www.azulsystems.com/products/zing/virtual-machine</a>&#160;<a class="footnote-backref" href="#fnref:21" title="Jump back to footnote 21 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

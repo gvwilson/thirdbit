@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: A Flow Shop Scheduler</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>A Flow Shop Scheduler</h1>
+
+
+
+<p><em>by Dr. Christian Muise</em></p>
+<p><em><a href="http://haz.ca">Dr. Christian Muise</a> is a Research Fellow with the <a href="http://groups.csail.mit.edu/mers/">MERS group</a> at <a href="http://www.csail.mit.edu/">MIT&rsquo;s CSAIL</a>. He is interested in a variety of topics including AI, data-driven projects, mapping, graph theory, and data visualization, as well as celtic music, carving, soccer, and coffee.</em></p>
+<h2>A Flow Shop Scheduler</h2>
+<p><em>Flow shop scheduling</em> is one of the most challenging and well-studied problems in operations research. Like many challenging optimization problems, finding the best solution is just not possible for problems of a practical size. In this chapter we consider the implementation of a flow shop scheduling solver that uses a technique called <em>local search</em>. Local search allows us to find a solution that is &ldquo;pretty good&rdquo; when finding the best solution isn&rsquo;t possible. The solver will try and find new solutions to the problem for a given amount of time, and finish by returning the best solution found.</p>
+<p>The idea behind local search is to improve an existing solution heuristically by considering similar solutions that may be a little better. The solver uses a variety of strategies to (1) try and find similar solutions, and (2) choose one that is promising to explore next. The implementation is written in Python, and has no external requirements. By leveraging some of Python&rsquo;s lesser-known functionality, the solver dynamically changes its search strategy during the solving process based on which strategies work well.</p>
+<p>First, we provide some background material on the flow shop scheduling problem and local search techniques. We then look in detail at the general solver code and the various heuristics and neighbourhood selection strategies that we use. Next we consider the dynamic strategy selection that the solver uses to tie everything together. Finally, we conclude with a summary of the project and some lessons learned through the implementation process.</p>
+<h2>Background</h2>
+<h3>Flow Shop Scheduling</h3>
+<p>The flow shop scheduling problem is an optimization problem in which we must determine the processing time for various tasks in a job in order to schedule the tasks to minimize the total time it takes to complete the job. Take, for example, a car manufacturer with an assembly line where each part of the car is completed in sequence on different machines. Different orders may have custom requirements, making the task of painting the body, for example, vary from one car to the next. In our example, each car is a new <em>job</em> and each part for the car is called a <em>task</em>. Every job will have the same sequence of tasks to complete.</p>
+<p>The objective in flow shop scheduling is to minimize the total time it takes to process all of the tasks from every job to completion. (Typically, this total time is referred to as the <em>makespan</em>.) This problem has many applications, but is most related to optimizing production facilities.</p>
+<p>Every flow shop problem consists of $n$ machines and $m$ jobs. In our car example, there will be $n$ stations to work on the car and $m$ cars to make in total. Each job is made up of exactly $n$ tasks, and we can assume that the $i$-th task of a job must use machine $i$ and requires a predetermined amount of processing time: $p(j,i)$ is the processing time for the $i$th task of job $j$. Further, the order of the tasks for any given job should follow the order of the machines available; for a given job, task $i$ must be completed prior to the start of task $i+1$. In our car example, we wouldn&rsquo;t want to start painting the car before the frame was assembled. The final restriction is that no two tasks can be processed on a machine simultaneously.</p>
+<p>Because the order of tasks within a job is predetermined, a solution to the flow shop scheduling problem can be represented as a permutation of the jobs. The order of jobs processed on a machine will be the same for every machine, and given a permutation, a task for machine $i$ in job $j$ is scheduled to be the latest of the following two possibilities:</p>
+<ol>
+<li>
+<p>The completion of the task for machine $i$ in job $j-1$ (i.e., the most recent task on the same machine), or</p>
+</li>
+<li>
+<p>The completion of the task for machine $i-1$ in job $j$ (i.e., the most recent task on the same job)</p>
+</li>
+</ol>
+<p>Because we select the maximum of these two values, idle time for either machine $i$ or job $j$ will be created. It is this idle time that we ultimately want to minimize, as it will push the total makespan to be larger.</p>
+<p>Due to the simple form of the problem, any permutation of jobs is a valid solution, and the optimal solution will correspond to <em>some</em> permutation. Thus, we search for improved solutions by changing the permutation of jobs and measuring the corresponding makespan. In what follows, we refer to a permutation of the jobs as a <em>candidate</em>.</p>
+<p>Let&rsquo;s consider a simple example with two jobs and two machines. The first job has tasks $\mathbf{A}$ and $\mathbf{B}$, which take 1 and 2 minutes to complete respectively. The second job has tasks $\mathbf{C}$ and $\mathbf{D}$, which take 2 and 1 minutes to complete respectively. Recall that $\mathbf{A}$ must come before $\mathbf{B}$ and $\mathbf{C}$ must come before $\mathbf{D}$. Because there are two jobs, we have just two permutations to consider. If we order job 2 before job 1, the makespan is 5 (Figure: Flow Shop Example 1); on the other hand, if we order job 1 before job 2, the makespan is only 4 (Figure: Flow Shop Example 2).</p>
+<p><img alt="Flow Shop Example 1" src="flow-shop-images/example1.png" /><img alt="Flow Shop Example 2" src="flow-shop-images/example2.png" />Notice that there is no budge room to push any of the tasks earlier. A guiding principle for a good permutation is to minimize the time in which any machine is left without a task to process.</p>
+<h3>Local Search</h3>
+<p>Local search is a strategy for solving optimization problems when the optimal solution is too hard to compute. Intuitively, it moves from one solution that seems pretty good to another solution that seems even better. Rather than considering every possible solution as a candidate to focus on next, we define what is known as a <em>neighbourhood</em>: the set of solutions considered to be similar to the current solution. Because any permutation of jobs is a valid solution, we can view any mechanism that shuffles the jobs around as a local search procedure (this is in fact what we do below).</p>
+<p>To use local search formally, we must answer a few questions:</p>
+<ol>
+<li>What solution should we start with?</li>
+<li>Given a solution, what are the neighbouring solutions that we should consider?</li>
+<li>Given the set of candidate neighbours, which one should we consider moving to next?</li>
+</ol>
+<p>The following three sections address these questions in turn.</p>
+<h2>General Solver</h2>
+<p>In this section we provide the general framework for the flow shop scheduler. To begin, we have the necessary Python imports and the settings for the solver:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">neighbourhood</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">neigh</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">heuristics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">heur</span>
+
+<span class="c1">##############</span>
+<span class="c1">## Settings ##</span>
+<span class="c1">##############</span>
+<span class="n">TIME_LIMIT</span> <span class="o">=</span> <span class="mf">300.0</span> <span class="c1"># Time (in seconds) to run the solver</span>
+<span class="n">TIME_INCREMENT</span> <span class="o">=</span> <span class="mf">13.0</span> <span class="c1"># Time (in seconds) in between heuristic measurements</span>
+<span class="n">DEBUG_SWITCH</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Displays intermediate heuristic info when True</span>
+<span class="n">MAX_LNS_NEIGHBOURHOODS</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># Maximum number of neighbours to explore in LNS</span>
+</code></pre></div>
+<p>There are two settings that should be explained further. The <code>TIME_INCREMENT</code> setting will be used as part of the dynamic strategy selection, and the <code>MAX_LNS_NEIGHBOURHOODS</code> setting will be used as part of the neighbourhood selection strategy. Both are described in more detail below.</p>
+<p>These settings could be exposed to the user as command line parameters, but at this stage we instead provide the input data as parameters to the program. The input problem&mdash;a problem from the Taillard benchmark set&mdash;is assumed to be in a standard format for flow shop scheduling. The following code is used as the <code>__main__</code> method for the solver file, and calls the appropriate functions based on the number of parameters input to the program:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">parse_problem</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">parse_problem</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Usage: python flow.py &lt;Taillard problem file&gt; [&lt;instance number&gt;]</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">perm</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">print_solution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+</code></pre></div>
+<p>We will describe the parsing of Taillard problem files shortly. (The files are <a href="http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html">available online</a>.)</p>
+<p>The <code>solve</code> method expects the <code>data</code> variable to be a list of integers containing the activity durations for each job. The <code>solve</code> method starts by initializing a global set of strategies (to be described below). The key is that we use <code>strat_*</code> variables to maintain statistics on each of the strategies. This aids in selecting the strategy dynamically during the solving process.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solves an instance of the flow shop scheduling problem&quot;&quot;&quot;</span>
+
+    <span class="c1"># We initialize the strategies here to avoid cyclic import issues</span>
+    <span class="n">initialize_strategies</span><span class="p">()</span>
+    <span class="k">global</span> <span class="n">STRATEGIES</span>
+
+    <span class="c1"># Record the following for each strategy:</span>
+    <span class="c1">#  improvements: The amount a solution was improved by this strategy</span>
+    <span class="c1">#  time_spent: The amount of time spent on the strategy</span>
+    <span class="c1">#  weights: The weights that correspond to how good a strategy is</span>
+    <span class="c1">#  usage: The number of times we use a strategy</span>
+    <span class="n">strat_improvements</span> <span class="o">=</span> <span class="p">{</span><span class="n">strategy</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">}</span>
+    <span class="n">strat_time_spent</span> <span class="o">=</span> <span class="p">{</span><span class="n">strategy</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">}</span>
+    <span class="n">strat_weights</span> <span class="o">=</span> <span class="p">{</span><span class="n">strategy</span><span class="p">:</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">}</span>
+    <span class="n">strat_usage</span> <span class="o">=</span> <span class="p">{</span><span class="n">strategy</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">}</span>
+</code></pre></div>
+<p>One appealing feature of the flow shop scheduling problem is that <em>every</em> permutation is a valid solution, and at least one will have the optimal makespan (though many will have horrible makespans). Thankfully, this allows us to forgo checking that we stay within the space of feasible solutions when going from one permutation to another&mdash;everything is feasible!</p>
+<p>However, to start a local search in the space of permutations, we must have an initial permutation. To keep things simple, we seed our local search by shuffling the list of jobs randomly:</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Start with a random permutation of the jobs</span>
+    <span class="n">perm</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">perm</span><span class="p">)</span>
+</code></pre></div>
+<p>Next, we initialize the variables that allow us to keep track of the best permutation found so far, as well as the timing information for providing output. </p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Keep track of the best solution</span>
+    <span class="n">best_make</span> <span class="o">=</span> <span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+    <span class="n">best_perm</span> <span class="o">=</span> <span class="n">perm</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">best_make</span>
+
+    <span class="c1"># Maintain statistics and timing for the iterations</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">time_limit</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">TIME_LIMIT</span>
+    <span class="n">time_last_switch</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">time_delta</span> <span class="o">=</span> <span class="n">TIME_LIMIT</span> <span class="o">/</span> <span class="mi">10</span>
+    <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">time_delta</span>
+    <span class="n">percent_complete</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Solving...&quot;</span>
+</code></pre></div>
+<p>As this is a local search solver, we simply continue to try and improve solutions as long as the time limit has not been reached. We provide output indicating the progress of the solver and keep track of the number of iterations we have computed:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">time_limit</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">checkpoint</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot; </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">percent_complete</span>
+            <span class="n">percent_complete</span> <span class="o">+=</span> <span class="mi">10</span>
+            <span class="n">checkpoint</span> <span class="o">+=</span> <span class="n">time_delta</span>
+
+        <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+<p>Below we describe how the strategy is picked, but for now it is sufficient to know that the strategy provides a <code>neighbourhood</code> function and a <code>heuristic</code> function. The former gives us a set of <em>next candidates</em> to consider while the latter chooses the <em>best candidate</em> from the set. From these functions, we have a new permutation (<code>perm</code>) and a new makespan result (<code>res</code>):</p>
+<div class="highlight"><pre><span></span><code>        <span class="c1"># Heuristically choose the best strategy</span>
+        <span class="n">strategy</span> <span class="o">=</span> <span class="n">pick_strategy</span><span class="p">(</span><span class="n">STRATEGIES</span><span class="p">,</span> <span class="n">strat_weights</span><span class="p">)</span>
+
+        <span class="n">old_val</span> <span class="o">=</span> <span class="n">res</span>
+        <span class="n">old_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="c1"># Use the current strategy&#39;s heuristic to pick the next permutation from</span>
+        <span class="c1"># the set of candidates generated by the strategy&#39;s neighbourhood</span>
+        <span class="n">candidates</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="n">neighbourhood</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+        <span class="n">perm</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="n">heuristic</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">candidates</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+</code></pre></div>
+<p>The code for computing the makespan is quite simple: we can compute it from a permutation by evaluating when the final job completes. We will see below how <code>compile_solution</code> works, but for now it suffices to know that a 2D array is returned and the element at <code>[-1][-1]</code> corresponds to the start time of the final job in the schedule:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the makespan of the provided solution&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">compile_solution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>To help select a strategy, we keep statistics on (1) how much the strategy has improved the solution, (2) how much time the strategy has spent computing information, and (3) how many times the strategy was used. We also update the variables for the best permutation if we stumble upon a better solution:</p>
+<div class="highlight"><pre><span></span><code>        <span class="c1"># Record the statistics on how the strategy did</span>
+        <span class="n">strat_improvements</span><span class="p">[</span><span class="n">strategy</span><span class="p">]</span> <span class="o">+=</span> <span class="n">res</span> <span class="o">-</span> <span class="n">old_val</span>
+        <span class="n">strat_time_spent</span><span class="p">[</span><span class="n">strategy</span><span class="p">]</span> <span class="o">+=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">old_time</span>
+        <span class="n">strat_usage</span><span class="p">[</span><span class="n">strategy</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="n">best_make</span><span class="p">:</span>
+            <span class="n">best_make</span> <span class="o">=</span> <span class="n">res</span>
+            <span class="n">best_perm</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[:]</span>
+</code></pre></div>
+<p>At regular intervals, the statistics for strategy use are updated. We removed the associated snippet for readability, and detail the code below. As a final step, once the while loop is complete (i.e., the time limit is reached) we output some statistics about the solving process and return the best permutation along with its makespan:</p>
+<div class="highlight"><pre><span></span><code>    <span class="nb">print</span> <span class="s2">&quot; </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">percent_complete</span>
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Went through </span><span class="si">%d</span><span class="s2"> iterations.&quot;</span> <span class="o">%</span> <span class="n">iteration</span>
+
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">(usage) Strategy:&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([(</span><span class="n">strat_weights</span><span class="p">[</span><span class="n">STRATEGIES</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">i</span><span class="p">)</span>
+                      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">STRATEGIES</span><span class="p">))],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s2">&quot;(</span><span class="si">%d</span><span class="s2">) </span><span class="se">\t</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">strat_usage</span><span class="p">[</span><span class="n">STRATEGIES</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">STRATEGIES</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">best_perm</span><span class="p">,</span> <span class="n">best_make</span><span class="p">)</span>
+</code></pre></div>
+<h3>Parsing Problems</h3>
+<p>As input to the parsing procedure, we provide the file name where the input can be found and the example number that should be used. (Each file contains a number of instances.)</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">parse_problem</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="s2">&quot;&quot;&quot;Parse the kth instance of a Taillard problem file</span>
+
+<span class="s2">    The Taillard problem files are a standard benchmark set for the problem</span>
+<span class="s2">    of flow shop scheduling. </span>
+
+<span class="s2">    print &quot;</span><span class="se">\n</span><span class="s2">Parsing...&quot;</span>
+</code></pre></div>
+<p>We start the parsing by reading in the file and identifying the line that separates each of the problem instances:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># Identify the string that separates instances</span>
+        <span class="n">problem_line</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;/number of jobs, number of machines, initial seed, &#39;</span>
+                        <span class="s1">&#39;upper bound and lower bound :/&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Strip spaces and newline characters from every line</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+</code></pre></div>
+<p>To make locating the correct instance easier, we assume that lines will be separated by a &lsquo;/&rsquo; character. This allows us to split the file based on a common string that appears at the top of every instance, and adding a &lsquo;/&rsquo; character to the start of the first line allows the string processing below to work correctly regardless of the instance we choose. We also detect when a provided instance number is out of range given the collection of instances found in the file.</p>
+<div class="highlight"><pre><span></span><code>        <span class="c1"># We prep the first line for later</span>
+        <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># We also know &#39;/&#39; does not appear in the files, so we can use it as</span>
+        <span class="c1">#  a separator to find the right lines for the kth problem instance</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">problem_line</span><span class="p">)[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">max_instances</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">problem_line</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Error: Instance must be within 1 and </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">max_instances</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>We parse the data directly, converting the processing time of each task to an integer and storing it in a list. Finally, we zip the data to invert the rows and columns so that the format respects what is expected by the solving code above. (Every item in <code>data</code> should correspond to a particular job.)</p>
+<div class="highlight"><pre><span></span><code>        <span class="c1"># Split every line based on spaces and convert each item to an int</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+
+    <span class="c1"># We return the zipped data to rotate the rows and columns, making each</span>
+    <span class="c1">#  item in data the durations of tasks for a particular job</span>
+    <span class="k">return</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<h3>Compiling Solutions</h3>
+<p>A solution to the flow shop scheduling problem consists of precise timing for each task in every job. Because we represent a solution implicitly with a permutation of the jobs, we introduce the <code>compile_solution</code> function to convert a permutation to precise times. As input, the function takes in the data for the problem (giving us the duration of every task) and a permutation of jobs.</p>
+<p>The function begins by initializing the data structure used to store the starting time for each task, and then including the tasks from the first job in the permutation.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compile_solution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compiles a scheduling on the machines given a permutation of jobs&quot;&quot;&quot;</span>
+
+    <span class="n">num_machines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Note that using [[]] * m would be incorrect, as it would simply</span>
+    <span class="c1">#  copy the same list m times (as opposed to creating m distinct lists).</span>
+    <span class="n">machine_times</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_machines</span><span class="p">)]</span>
+
+    <span class="c1"># Assign the initial job to the machines</span>
+    <span class="n">machine_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mach</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">num_machines</span><span class="p">):</span>
+        <span class="c1"># Start the next task in the job when the previous finishes</span>
+        <span class="n">machine_times</span><span class="p">[</span><span class="n">mach</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine_times</span><span class="p">[</span><span class="n">mach</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>
+                                   <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">mach</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<p>We then add all the tasks for the remaining jobs. The first task in a job will always start as soon as the first task in the previous job completes. For the remaining tasks, we schedule the job as early as possible: the maximum out of the completion time of the previous task in the same job and the completion time of the previous task on the same machine.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Assign the remaining jobs</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">)):</span>
+
+        <span class="c1"># The first machine never contains any idle time</span>
+        <span class="n">job</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">machine_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine_times</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># For the remaining machines, the start time is the max of when the</span>
+        <span class="c1">#  previous task in the job completed, or when the current machine</span>
+        <span class="c1">#  completes the task for the previous job.</span>
+        <span class="k">for</span> <span class="n">mach</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">):</span>
+            <span class="n">machine_times</span><span class="p">[</span><span class="n">mach</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span>
+                <span class="n">machine_times</span><span class="p">[</span><span class="n">mach</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">mach</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">machine_times</span><span class="p">[</span><span class="n">mach</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="n">mach</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">machine_times</span>
+</code></pre></div>
+<h3>Printing Solutions</h3>
+<p>When the solving process is complete, the program outputs information about the solution in a compact form. Rather than providing the precise timing of every task for every job, we output the following pieces of information:</p>
+<ol>
+<li>The permutation of jobs that yielded the best makespan</li>
+<li>The computed makespan of the permutation</li>
+<li>The start time, finish time, and idle time for every machine</li>
+<li>The start time, finish time, and idle time for every job</li>
+</ol>
+<p>The start time for a job or machine corresponds to the start of the first task in the job or on the machine. Similarly, the finish time for a job or machine corresponds to the end of the final task in the job or on the machine. The idle time is the amount of slack in between tasks for a particular job or machine. Ideally we would like to reduce the amount of idle time, as it means the overall process time will be reduced as well.</p>
+<p>The code to compile the solution (i.e., to compute the start times for every task) has already been discussed, and outputting the permutation and makespan are trivial:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">print_solution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints statistics on the computed solution&quot;&quot;&quot;</span>
+
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">compile_solution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Permutation: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">([</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">])</span>
+
+    <span class="nb">print</span> <span class="s2">&quot;Makespan: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+</code></pre></div>
+<p>Next, we use the string formatting functionality in Python to print the table of start, end, and idle times for each of the machines and jobs. Note that the idle time for a job is the time from when the job started to its completion, minus the sum of the processing times for each task in the job. We compute the idle time for a machine in a similar fashion.</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">row_format</span> <span class="o">=</span><span class="s2">&quot;</span><span class="si">{:&gt;15}</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">4</span>
+    <span class="nb">print</span> <span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Machine&#39;</span><span class="p">,</span> <span class="s1">&#39;Start Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Finish Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Idle Time&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mach</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+        <span class="n">finish_time</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="n">mach</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="n">mach</span><span class="p">]</span>
+        <span class="n">idle_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="n">mach</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">job</span><span class="p">[</span><span class="n">mach</span><span class="p">]</span> <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mach</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">sol</span><span class="p">[</span><span class="n">mach</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">finish_time</span><span class="p">,</span> <span class="n">idle_time</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">finish_time</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">idle_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">time</span> <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]]])</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">finish_time</span><span class="p">,</span> <span class="n">idle_time</span><span class="p">))</span>
+
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="nb">print</span> <span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Job&#39;</span><span class="p">,</span> <span class="s1">&#39;Start Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Finish Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Idle Time&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
+
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Note: Idle time does not include initial or final wait time.</span><span class="se">\n</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2>Neighbourhoods</h2>
+<p>The idea behind local search is to move <em>locally</em> from one solution to other solutions nearby. We refer to the <em>neighbourhood</em> of a given solution as the other solutions that are local to it. In this section, we detail four potential neighbourhoods, each of increasing complexity.</p>
+<p>The first neighbourhood produces a given number of random permutations. This neighbourhood does not even consider the solution that we begin with, and so the term &ldquo;neighbourhood&rdquo; stretches the truth. However, including some randomness in the search is good practice, as it promotes exploration of the search space.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbours_random</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Returns &lt;num&gt; random job permutations, including the current one</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">perm</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="n">candidate</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[:]</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">candidates</span>
+</code></pre></div>
+<p>For the next neighbourhood, we consider swapping any two jobs in the permutation. By using the <code>combinations</code> function from the <code>itertools</code> package, we can easily iterate through every pair of indices and create a new permutation that corresponds to swapping the jobs located at each index. In a sense, this neighbourhood creates permutations that are very similar to the one we began with.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbours_swap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">):</span>
+    <span class="c1"># Returns the permutations corresponding to swapping every pair of jobs</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">perm</span><span class="p">]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">)),</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">candidate</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[:]</span>
+        <span class="n">candidate</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">candidate</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidate</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">candidate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">candidates</span>
+</code></pre></div>
+<p>The next neighbourhood we consider uses information specific to the problem at hand. We find the jobs with the most idle time and consider swapping them in every way possible. We take in a value <code>size</code> which is the number of jobs we consider: the <code>size</code> most idle jobs. The first step in the process is to compute the idle time for every job in the permutation:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbours_idle</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="c1"># Returns the permutations of the &lt;size&gt; most idle jobs</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">perm</span><span class="p">]</span>
+
+    <span class="c1"># Compute the idle time for each job</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">compile_solution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">finish_time</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">idle_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]]])</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">idle_time</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+</code></pre></div>
+<p>Next, we compute the list of <code>size</code> jobs that have the most idle time.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Take the &lt;size&gt; most idle jobs</span>
+    <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="n">job_ind</span> <span class="k">for</span> <span class="p">(</span><span class="n">idle</span><span class="p">,</span> <span class="n">job_ind</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">))][:</span><span class="n">size</span><span class="p">]</span>
+</code></pre></div>
+<p>Finally, we construct the neighbourhood by considering every permutation of the most idle jobs that we have identified. To find the permutations, we make use of the <code>permutations</code> function from the <code>itertools</code> package.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Enumerate the permutations of the idle jobs</span>
+    <span class="k">for</span> <span class="n">ordering</span> <span class="ow">in</span> <span class="n">permutations</span><span class="p">(</span><span class="n">subset</span><span class="p">):</span>
+        <span class="n">candidate</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[:]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ordering</span><span class="p">)):</span>
+            <span class="n">candidate</span><span class="p">[</span><span class="n">subset</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">ordering</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">candidates</span>
+</code></pre></div>
+<p>The final neighbourhood that we consider is commonly referred to as <em>Large Neighbourhood Search</em> (LNS). Intuitively, LNS works by considering small subsets of the current permutation in isolation&mdash;locating the best permutation of the subset of jobs gives us a single candidate for the LNS neighbourhood. By repeating this process for several (or all) subsets of a particular size, we can increase the number of candidates in the neighbourhood. We limit the number that are considered through the <code>MAX_LNS_NEIGHBOURHOODS</code> parameter, as the number of neighbours can grow quite quickly. The first step in the LNS computation is to compute the random list of job sets that we will consider swapping using the <code>combinations</code> function of the <code>itertools</code> package:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbours_LNS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="c1"># Returns the Large Neighbourhood Search neighbours</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">perm</span><span class="p">]</span>
+
+    <span class="c1"># Bound the number of neighbourhoods in case there are too many jobs</span>
+    <span class="n">neighbourhoods</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">)),</span> <span class="n">size</span><span class="p">))</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">neighbourhoods</span><span class="p">)</span>
+</code></pre></div>
+<p>Next, we iterate through the subsets to find the best permutation of jobs in each one. We have seen similar code above for iterating through all permutations of the most idle jobs. The key difference here is that we record only the best permutation for the subset, as the larger neighbourhood is constructed by choosing one permutation for each subset of the considered jobs.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="n">neighbourhoods</span><span class="p">[:</span><span class="n">flow</span><span class="o">.</span><span class="n">MAX_LNS_NEIGHBOURHOODS</span><span class="p">]:</span>
+
+        <span class="c1"># Keep track of the best candidate for each neighbourhood</span>
+        <span class="n">best_make</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">)</span>
+        <span class="n">best_perm</span> <span class="o">=</span> <span class="n">perm</span>
+
+        <span class="c1"># Enumerate every permutation of the selected neighbourhood</span>
+        <span class="k">for</span> <span class="n">ordering</span> <span class="ow">in</span> <span class="n">permutations</span><span class="p">(</span><span class="n">subset</span><span class="p">):</span>
+            <span class="n">candidate</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[:]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ordering</span><span class="p">)):</span>
+                <span class="n">candidate</span><span class="p">[</span><span class="n">subset</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">ordering</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">candidate</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="n">best_make</span><span class="p">:</span>
+                <span class="n">best_make</span> <span class="o">=</span> <span class="n">res</span>
+                <span class="n">best_perm</span> <span class="o">=</span> <span class="n">candidate</span>
+
+        <span class="c1"># Record the best candidate as part of the larger neighbourhood</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_perm</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">candidates</span>
+</code></pre></div>
+<p>If we were to set the <code>size</code> parameter to be equal to the number of jobs, then every permutation would be considered and the best one selected. In practice, however, we need to limit the size of the subset to around 3 or 4; anything larger would cause the <code>neighbours_LNS</code> function to take a prohibitive amount of time.</p>
+<h2>Heuristics</h2>
+<p>A heuristic returns a single candidate permutation from a set of provided candidates. The heuristic is also given access to the problem data in order to evaluate which candidate might be preferred.</p>
+<p>The first heuristic that we consider is <code>heur_random</code>. This heuristic randomly selects a candidate from the list without evaluating which one might be preferred:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">heur_random</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">candidates</span><span class="p">):</span>
+    <span class="c1"># Returns a random candidate choice</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+</code></pre></div>
+<p>The next heuristic <code>heur_hillclimbing</code> uses the other extreme. Rather than randomly selecting a candidate, it selects the candidate that has the best makespan. Note that the list <code>scores</code> will contain tuples of the form <code>(make,perm)</code> where <code>make</code> is the makespan value for permutation <code>perm</code>. Sorting such a list places the tuple with the best makespan at the start of the list; from this tuple we return the permutation.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">heur_hillclimbing</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">candidates</span><span class="p">):</span>
+    <span class="c1"># Returns the best candidate in the list</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[(</span><span class="n">flow</span><span class="o">.</span><span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">),</span> <span class="n">perm</span><span class="p">)</span> <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>The final heuristic, <code>heur_random_hillclimbing</code>, combines both the random and hillclimbing heuristics above. When performing local search, you may not always want to choose a random candidate, or even the best one. The <code>heur_random_hillclimbing</code> heuristic returns a &ldquo;pretty good&rdquo; solution by choosing the best candidate with probability 0.5, then the second best with probability 0.25, and so on. The while-loop essentially flips a coin at every iteration to see if it should continue increasing the index (with a limit on the size of the list). The final index chosen corresponds to the candidate that the heuristic selects.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">heur_random_hillclimbing</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">candidates</span><span class="p">):</span>
+    <span class="c1"># Returns a candidate with probability proportional to its rank in sorted quality</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[(</span><span class="n">flow</span><span class="o">.</span><span class="n">makespan</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">perm</span><span class="p">),</span> <span class="n">perm</span><span class="p">)</span> <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>Because makespan is the criteria that we are trying to optimize, hillclimbing will steer the local search process towards solutions with a better makespan. Introducing randomness allows us to explore the neighbourhood instead of going blindly towards the best-looking solution at every step.</p>
+<h2>Dynamic Strategy Selection</h2>
+<p>At the heart of the local search for a good permutation is the use of a particular heuristic and neighbourhood function to jump from one solution to another. How do we choose one set of options over another? In practice, it frequently pays off to switch strategies during the search. The dynamic strategy selection that we use will switch between combinations of heuristic and neighbourhood functions to try and shift dynamically to those strategies that work best. For us, a <em>strategy</em> is a particular configuration of heuristic and neighbourhood functions (including their parameter values.)</p>
+<p>To begin, our code constructs the range of strategies that we want to consider during solving. In the strategy initialization, we use the <code>partial</code> function from the <code>functools</code> package to partially assign the parameters for each of the neighbourhoods. Additionally, we construct a list of the heuristic functions, and finally we use the product operator to add every combination of neighbourhood and heuristic function as a new strategy.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">################</span>
+<span class="c1">## Strategies ##</span>
+<span class="c1">#################################################</span>
+<span class="c1">## A strategy is a particular configuration</span>
+<span class="c1">##  of neighbourhood generator (to compute</span>
+<span class="c1">##  the next set of candidates) and heuristic</span>
+<span class="c1">##  computation (to select the best candidate).</span>
+<span class="c1">##</span>
+
+<span class="n">STRATEGIES</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Using a namedtuple is a little cleaner than using dictionaries.</span>
+<span class="c1">#  E.g., strategy[&#39;name&#39;] versus strategy.name</span>
+<span class="n">Strategy</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;neighbourhood&#39;</span><span class="p">,</span> <span class="s1">&#39;heuristic&#39;</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize_strategies</span><span class="p">():</span>
+
+    <span class="k">global</span> <span class="n">STRATEGIES</span>
+
+    <span class="c1"># Define the neighbourhoods (and parameters) that we would like to use</span>
+    <span class="n">neighbourhoods</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;Random Permutation&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_random</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Swapped Pairs&#39;</span><span class="p">,</span> <span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_swap</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;Large Neighbourhood Search (2)&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_LNS</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Large Neighbourhood Search (3)&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_LNS</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Idle Neighbourhood (3)&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_idle</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Idle Neighbourhood (4)&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_idle</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Idle Neighbourhood (5)&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">neigh</span><span class="o">.</span><span class="n">neighbours_idle</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Define the heuristics that we would like to use</span>
+    <span class="n">heuristics</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;Hill Climbing&#39;</span><span class="p">,</span> <span class="n">heur</span><span class="o">.</span><span class="n">heur_hillclimbing</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;Random Selection&#39;</span><span class="p">,</span> <span class="n">heur</span><span class="o">.</span><span class="n">heur_random</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;Biased Random Selection&#39;</span><span class="p">,</span> <span class="n">heur</span><span class="o">.</span><span class="n">heur_random_hillclimbing</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Combine every neighbourhood and heuristic strategy</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">neighbourhoods</span><span class="p">,</span> <span class="n">heuristics</span><span class="p">):</span>
+        <span class="n">STRATEGIES</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Strategy</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
+<p>Once the strategies are defined, we do not necessarily want to stick with a single option during search. Instead, we select randomly any one of the strategies, but <em>weight the selection</em> based on how well the strategy has performed. We describe the weighting below, but for the <code>pick_strategy</code> function, we need only a list of strategies and a corresponding list of relative weights (any number will do). To select a random strategy with the given weights, we pick a number uniformly between 0 and the sum of all weights. Subsequently, we find the lowest index $i$ such that the sum of all of the weights for indices smaller than $i$ is greater than the random number that we have chosen. This technique, sometimes referred to as <em>roulette wheel selection</em>, will randomly pick a strategy for us and give a greater chance to those strategies with higher weight.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pick_strategy</span><span class="p">(</span><span class="n">strategies</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    <span class="c1"># Picks a random strategy based on its weight: roulette wheel selection</span>
+    <span class="c1">#  Rather than selecting a strategy entirely at random, we bias the</span>
+    <span class="c1">#  random selection towards strategies that have worked well in the</span>
+    <span class="c1">#  past (according to the weight value).</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">weights</span><span class="p">[</span><span class="n">strategy</span><span class="p">]</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">strategies</span><span class="p">])</span>
+    <span class="n">pick</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="n">strategies</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">pick</span> <span class="o">&gt;</span> <span class="n">count</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="n">weights</span><span class="p">[</span><span class="n">strategies</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">strategies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</code></pre></div>
+<p>What remains is to describe how the weights are augmented during the search for a solution. This occurs in the main while loop of the solver at regularly timed intervals (defined with the <code>TIME_INCREMENT</code> variable):</p>
+<div class="highlight"><pre><span></span><code>        <span class="c1"># At regular intervals, switch the weighting on the strategies available.</span>
+        <span class="c1">#  This way, the search can dynamically shift towards strategies that have</span>
+        <span class="c1">#  proven more effective recently.</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">time_last_switch</span> <span class="o">+</span> <span class="n">TIME_INCREMENT</span><span class="p">:</span>
+
+            <span class="n">time_last_switch</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</code></pre></div>
+<p>Recall that <code>strat_improvements</code> stores the sum of all improvements that a strategy has made while <code>strat_time_spent</code> stores the time that the strategy has been given during the last interval. We normalize the improvements made by the total time spent for each strategy to get a metric of how well each strategy has performed in the last interval. Because a strategy may not have had a chance to run at all, we choose a small amount of time as a default value.</p>
+<div class="highlight"><pre><span></span><code>            <span class="c1"># Normalize the improvements made by the time it takes to make them</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span>
+                <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">strat_improvements</span><span class="p">[</span><span class="n">s</span><span class="p">])</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">strat_time_spent</span><span class="p">[</span><span class="n">s</span><span class="p">]),</span> <span class="n">s</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">])</span>
+</code></pre></div>
+<p>Now that we have a ranking of how well each strategy has performed, we add $k$ to the weight of the best strategy (assuming we had $k$ strategies), $k-1$ to the next best strategy, etc. Each strategy will have its weight increased, and the worst strategy in the list will see an increase of only 1.</p>
+<div class="highlight"><pre><span></span><code>            <span class="c1"># Boost the weight for the successful strategies</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">STRATEGIES</span><span class="p">)):</span>
+                <span class="n">strat_weights</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">STRATEGIES</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span>
+</code></pre></div>
+<p>As an extra measure, we artificially bump up all of the strategies that were not used. This is done so that we do not forget about a strategy entirely. While one strategy may appear to perform badly in the beginning, later in the search it can prove quite useful.</p>
+<div class="highlight"><pre><span></span><code>                <span class="c1"># Additionally boost the unused strategies to avoid starvation</span>
+                <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">strat_weights</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">STRATEGIES</span><span class="p">)</span>
+</code></pre></div>
+<p>Finally, we output some information about the strategy ranking (if the <code>DEBUG_SWITCH</code> flag is set), and we reset the <code>strat_improvements</code> and <code>strat_time_spent</code> variables for the next interval.</p>
+<div class="highlight"><pre><span></span><code>            <span class="k">if</span> <span class="n">DEBUG_SWITCH</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Computing another switch...&quot;</span>
+                <span class="nb">print</span> <span class="s2">&quot;Best: </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="nb">print</span> <span class="s2">&quot;Worst: </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="nb">print</span> <span class="n">results</span>
+                <span class="nb">print</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">strat_weights</span><span class="p">[</span><span class="n">STRATEGIES</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> 
+                              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">STRATEGIES</span><span class="p">))])</span>
+
+            <span class="n">strat_improvements</span> <span class="o">=</span> <span class="p">{</span><span class="n">strategy</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">}</span>
+            <span class="n">strat_time_spent</span> <span class="o">=</span> <span class="p">{</span><span class="n">strategy</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">STRATEGIES</span><span class="p">}</span>
+</code></pre></div>
+<h2>Discussion</h2>
+<p>In this chapter we have seen what can be accomplished with a relatively small amount of code to solve the complex optimization problem of flow shop scheduling. Finding the best solution to a large optimization problem such as the flow shop can be difficult. In a case like this, we can turn to approximation techniques such as local search to compute a solution that is <em>good enough</em>. With local search we can move from one solution to another, aiming to find one of good quality. </p>
+<p>The general intuition behind local search can be applied to a wide range of problems. We focused on (1) generating a neighbourhood of related solutions to a problem from one candidate solution, and (2) establishing ways to evaluate and compare solutions. With these two components in hand, we can use the local search paradigm to find a valuable solution when the best option is simply too difficult to compute.</p>
+<p>Rather than using any one strategy to solve the problem, we saw how a strategy can be chosen dynamically to shift during the solving process. This simple and powerful technique gives the program the ability to mix and match partial strategies for the problem at hand, and it also means that the developer does not have to hand-tailor the strategy.</p>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

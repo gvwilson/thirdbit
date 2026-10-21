@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: A Pedometer in the Real World</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>A Pedometer in the Real World</h1>
+
+
+
+<p><em>by Dessy Daskalov</em></p>
+<p><em>Dessy is an engineer by trade, an entrepreneur by passion, and a developer at heart. She&rsquo;s currently the CTO and co-founder of <a href="http://nudgerewards.com/.">Nudge Rewards</a> When she’s not busy building product with her team, she can be found teaching others to code, attending or hosting a Toronto tech event, and online at <a href="http://www.dessydaskalov.com/">dessydaskalov.com</a> and <a href="https://twitter.com/dess_e">\@dess_e</a>.</em></p>
+<h2>A Perfect World</h2>
+<p>Many software engineers reflecting on their training will remember having the pleasure of living in a very perfect world. We were taught to solve well-defined problems in idealized domains.</p>
+<p>Then we were thrown into the real world, with all of its complexities and challenges. It&rsquo;s messy, which makes it all the more exciting. When you can solve a real-life problem, with all of its quirks, you can build software that really helps people.</p>
+<p>In this chapter, we&rsquo;ll examine a problem that looks straightforward on the surface, and gets tangled very quickly when the real world, and real people, are thrown into the mix.</p>
+<p>We&rsquo;ll work together to build a basic pedometer. We&rsquo;ll start by discussing the theory behind a pedometer and creating a step counting solution outside of code. Then, we&rsquo;ll implement our solution in code. Finally, we&rsquo;ll add a web layer to our code so that we have a friendly interface for a user to work with.</p>
+<p>Let&rsquo;s roll up our sleeves, and prepare to untangle a real-world problem.</p>
+<h2>Pedometer Theory</h2>
+<p>The rise of the mobile device brought with it a trend to collect more and more data on our daily lives. One type of data many people collect is the number of steps they&rsquo;ve taken over a period of time. This data can be used for health tracking, training for sporting events, or, for those of us obsessed with collecting and analyzing data, just for kicks. Steps can be counted using a pedometer, which often uses data from a hardware accelerometer as input.</p>
+<h3>What&rsquo;s an Accelerometer?</h3>
+<p>An accelerometer is a piece of hardware that measures acceleration in the $x$, $y$, and $z$ directions. Many people carry an accelerometer with them wherever they go, as it&rsquo;s built into almost all smartphones currently on the market. The $x$, $y$, and $z$ directions are relative to the phone.</p>
+<p>An accelerometer returns a <em>signal</em> in 3-dimensional space. A signal is a set of data points recorded over time. Each component of the signal is a time series representing acceleration in one of the $x$, $y$, or $z$ directions. Each point in a time series is the acceleration in that direction at a specific point in time. Acceleration is measured in units of g-force, or <em>g</em>. One <em>g</em> is equal to 9.8 $m/s^2$, the average acceleration due to gravity on Earth.</p>
+<p>Figure: Example acceleration signal shows an example signal from an accelerometer with the three time series.</p>
+<p><img alt="Example acceleration signal" src="pedometer-images/acceleration-total.png" />The <em>sampling rate</em> of the accelerometer, which can often be calibrated, determines the number of measurements per second. For instance, an accelerometer with a sampling rate of 100 returns 100 data points for each $x$, $y$, and $z$ time series every second.</p>
+<h3>Let&rsquo;s Talk About a Walk</h3>
+<p>When a person walks, they bounce slightly with each step. Just watch the top of a person&rsquo;s head as they walk away from you. Their head, torso, and hips are synchronized in a smooth bouncing motion. While people don&rsquo;t bounce very far, only one or two centimeters, it is one of the clearest, most constant, and most recognizable parts of a person&rsquo;s walking acceleration signal.</p>
+<p>A person bounces up and down, in the vertical direction, with each step. If you are walking on Earth (or another big ball of mass floating in space) the bounce is conveniently in the same direction as gravity.</p>
+<p>We are going to count steps by using the accelerometer to count bounces up and down. Because the phone can rotate in any direction, we will use gravity to know which direction down is. <strong>A pedometer can count steps by counting the number of bounces in the direction of gravity.</strong></p>
+<p>Let&rsquo;s look at a person walking with an accelerometer-equipped smartphone in his or her shirt pocket (Figure: Walking).</p>
+<p><img alt="Walking" src="pedometer-images/walk-1.png" />For the sake of simplicity, we&rsquo;ll assume that the person:</p>
+<ul>
+<li>is walking in the $z$ direction;</li>
+<li>bounces with each step in the $y$ direction; and</li>
+<li>maintains the phone in the same orientation throughout the entire walk.</li>
+</ul>
+<p>In our perfect world, acceleration from step bounces will form a perfect sine wave in the $y$ direction. Each peak in the sine wave is exactly one step. Step counting becomes a matter of counting these perfect peaks.</p>
+<p>Ah, the joys of a perfect world, which we only ever experience in texts like this. Don&rsquo;t fret, things are about to get a little messier, and a lot more exciting. Let&rsquo;s add a little more reality to our world.</p>
+<h3>Even Perfect Worlds Have Fundamental Forces of Nature</h3>
+<p>The force of gravity causes an acceleration in the direction of gravity, which we refer to as gravitational acceleration. This acceleration is unique because it is always present and, for the purposes of this chapter, is constant at 9.8 $m/s^2$.</p>
+<p>Suppose a smartphone is lying on a table screen-side up. In this orientation, our coordinate system is such that the negative $z$ direction is the one that gravity is acting on. Gravity will pull our phone in the negative $z$ direction, so our accelerometer, <em>even when perfectly still</em>, will record an acceleration of 9.8 $m/s^2$ in the negative $z$ direction. Accelerometer data from our phone in this orientation is shown in Figure: Example accelerometer data at rest.</p>
+<p><img alt="Example accelerometer data at rest" src="pedometer-images/acceleration-total-phone-still.png" />Note that $x(t)$ and $y(t)$ remain constant at 0, while $z(t)$ is constant at -1 <em>g</em>. Our accelerometer records all acceleration, including gravitational acceleration.</p>
+<p>Each time series measures the <em>total acceleration</em> in that direction. Total acceleration is the sum of <em>user acceleration</em> and <em>gravitational acceleration</em>.</p>
+<p>User acceleration is the acceleration of the device due to the movement of the user, and is constant at 0 when the phone is perfectly still. However, when the user is moving with the device, user acceleration is rarely constant, since it&rsquo;s difficult for a person to move with a constant acceleration.</p>
+<p><img alt="Component signals" src="pedometer-images/component-signals-2.png" />To count steps, we&rsquo;re interested in the bounces created by the user in the direction of gravity. That means we&rsquo;re interested in isolating the 1-dimensional time series which describes <strong>user acceleration in the direction of gravity</strong> from our 3-dimensional acceleration signal (Figure: Component signals).</p>
+<p>In our simple example, gravitational acceleration is 0 in $x(t)$ and $z(t)$ and constant at 9.8 $m/s^2$ in $y(t)$. Therefore, in our total acceleration plot, $x(t)$ and $z(t)$ fluctuate around 0 while $y(t)$ fluctuates around -1 <em>g</em>. In our user acceleration plot, we notice that&mdash;because we have removed gravitational acceleration&mdash;all three time series fluctuate around 0. Note the obvious peaks in $y_{u}(t)$. Those are due to step bounces! In our last plot, gravitational acceleration, $y_{g}(t)$ is constant at -1 <em>g</em>, and $x_{g}(t)$ and $z_{g}(t)$ are constant at 0.</p>
+<p>So, in our example, the 1-dimensional user acceleration in the direction of gravity time series we&rsquo;re interested in is $y_{u}(t)$. Although $y_{u}(t)$ isn&rsquo;t as smooth as our perfect sine wave, we can identify the peaks, and use those peaks to count steps. So far, so good. Now, let&rsquo;s add even more reality to our world.</p>
+<h3>People Are Complicated Creatures</h3>
+<p>What if a person carries the phone in a bag on their shoulder, with the phone in a more wonky position? To make matters worse, what if the phone rotates in the bag part way through the walk, as in Figure: A more complicated walk?</p>
+<p><img alt="A more complicated walk" src="pedometer-images/walk-2.png" />Yikes. Now all three of our components have a non-zero gravitational acceleration, so the user acceleration in the direction of gravity is now split amongst all three time series. To determine user acceleration in the direction of gravity, we first have to determine which direction gravity is acting in. To do this, we have to split total acceleration in each of the three time series into a user acceleration time series and a gravitational acceleration time series (Figure: More complicated component signals).</p>
+<p><img alt="More complicated component signals" src="pedometer-images/component-signals-3.png" />Then we can isolate the portion of user acceleration in each component that is in the direction of gravity, resulting in just the user acceleration in the direction of gravity time series.</p>
+<p>Let&rsquo;s define this as two steps below:</p>
+<ol>
+<li>Splitting total acceleration into user acceleration and gravitational acceleration.</li>
+<li>Isolating user acceleration in the direction of gravity.</li>
+</ol>
+<p>We&rsquo;ll look at each step separately, and put on our mathematician hats.</p>
+<h3>1. Splitting Total Acceleration Into User Acceleration and Gravitational Acceleration</h3>
+<p>We can use a tool called a <em>filter</em> to split a total acceleration time series into a user acceleration time series and a gravitational acceleration time series.</p>
+<h4>Low-Pass and High-Pass Filters</h4>
+<p>A filter is a tool used in signal processing to remove an unwanted component from a signal.</p>
+<p>A <em>low-pass filter</em> allows low-frequency signals through, while attenuating signals higher than a set threshold. Conversely, a <em>high-pass filter</em> allows high-frequency signals through, while attenuating signals below a set threshold. Using music as an analogy, a low-pass filter can eliminate treble, and a high-pass filter can eliminate bass.</p>
+<p>In our situation, the frequency, measured in Hz, indicates how quickly the acceleration is changing. A constant acceleration has a frequency of 0 Hz, while a non-constant acceleration has a non-zero frequency. This means that our constant gravitational acceleration is a 0 Hz signal, while user acceleration is not.</p>
+<p>For each component, we can pass total acceleration through a low-pass filter, and we&rsquo;ll be left with just the gravitational acceleration time series. Then we can subtract gravitational acceleration from total acceleration, and we&rsquo;ll have the user acceleration time series (Figure: A low-pass filter).</p>
+<p><img alt="A low-pass filter" src="pedometer-images/low-pass-filter-a.png" />There are numerous varieties of filters. The one we&rsquo;ll use is called an infinite impulse response (IIR) filter. We&rsquo;ve chosen an IIR filter because of its low overhead and ease of implementation. The IIR filter we&rsquo;ve chosen is implemented using the formula: </p>
+<p>$$
+output_{i} = \alpha_{0}(input_{i}\beta_{0} + input_{i-1}\beta_{1} + input_{i-2}\beta_{2} - output_{i-1}\alpha_{1} - output_{i-2}\alpha_{2})
+$$</p>
+<p>The design of digital filters is outside of the scope of this chapter, but a very short teaser discussion is warranted. It&rsquo;s a well-studied, fascinating topic, with numerous practical applications. A digital filter can be designed to cancel any frequency or range of frequencies desired. The $\alpha$ and $\beta$ values in the formula are coefficients, set based on the cutoff frequency, and the range of frequencies we want to preserve.</p>
+<p>We want to cancel all frequencies except for our constant gravitational acceleration, so we&rsquo;ve chosen coefficients that attenuate frequencies higher than 0.2 Hz. Notice that we&rsquo;ve set our threshold slightly higher than 0 Hz. While gravity does create a true 0 Hz acceleration, our real, imperfect world has real, imperfect accelerometers, so we&rsquo;re allowing for a slight margin of error in measurement.</p>
+<h4>Implementing a Low-Pass Filter</h4>
+<p>Let&rsquo;s work through a low-pass filter implementation using our earlier example. We&rsquo;ll split:</p>
+<ul>
+<li>$x(t)$ into $x_{g}(t)$ and $x_{u}(t)$,</li>
+<li>$y(t)$ into $y_{g}(t)$ and $y_{u}(t)$, and</li>
+<li>$z(t)$ into $z_{g}(t)$ and $z_{u}(t)$.</li>
+</ul>
+<p>We&rsquo;ll initialize the first two values of gravitational acceleration to 0, so that the formula has initial values to work with.</p>
+<p>$$x_{g}(0) = x_{g}(1) = y_{g}(0) = y_{g}(1) = z_{g}(0) = z_{g}(1) = 0$$</p>
+<p>Then we&rsquo;ll implement the filter formula for each time series.</p>
+<p>$$x_{g}(t) = \alpha_{0}(x(t)\beta_{0} + x(t-1)\beta_{1} + x(t-2)\beta_{2} - x_{g}(t-1)\alpha_{1} - x_{g}(t-2)\alpha_{2})$$</p>
+<p>$$y_{g}(t) = \alpha_{0}(y(t)\beta_{0} + y(t-1)\beta_{1} + y(t-2)\beta_{2} - y_{g}(t-1)\alpha_{1} - y_{g}(t-2)\alpha_{2})$$</p>
+<p>$$z_{g}(t) = \alpha_{0}(z(t)\beta_{0} + z(t-1)\beta_{1} + z(t-2)\beta_{2} - z_{g}(t-1)\alpha_{1} - z_{g}(t-2)\alpha_{2})$$</p>
+<p>The resulting time series after low-pass filtering are in Figure: Gravitational acceleration.</p>
+<p><img alt="Gravitational acceleration" src="pedometer-images/acceleration-gravitational.png" />$x_{g}(t)$ and $z_{g}(t)$ hover around 0, and $y_{g}(t)$ very quickly drops to $-1g$. The initial 0 value in $y_{g}(t)$ is from the initialization of the formula.</p>
+<p>Now, to calculate user acceleration, we can subtract gravitational acceleration from our total acceleration:</p>
+<p>$$
+x_{u}(t) = x(t) - x_{g}(t)
+$$
+$$
+y_{u}(t) = y(t) - y_{g}(t)
+$$
+$$
+z_{u}(t) = z(t) - z_{g}(t)
+$$</p>
+<p>The result is the time series seen in
+Figure: Split acceleration.  We&rsquo;ve successfully split our
+total acceleration into user acceleration and gravitational acceleration!</p>
+<p><img alt="Split acceleration" src="pedometer-images/acceleration-user.png" />### 2. Isolating User Acceleration in the Direction of Gravity</p>
+<p>$x_{u}(t)$, $y_{u}(t)$, and $z_{u}(t)$ include all movements of the user, not just movements in the direction of gravity. Our goal here is to end up with a 1-dimensional time series representing user acceleration in the direction of gravity. This will include portions of user acceleration in each of the directions.</p>
+<p>Let&rsquo;s get to it. First, some linear algebra 101. Don&rsquo;t take that mathematician hat off just yet!</p>
+<h4>The Dot Product</h4>
+<p>When working with coordinates, you won&rsquo;t get very far before being introduced to the <em>dot product</em>, one of the fundamental tools used in comparing the magnitude and direction of $x$, $y$, and $z$ coordinates.  </p>
+<p>The dot product takes us from 3-dimensional space to 1-dimensional space (Figure: The dot product). When we take the dot product of the two time series, user acceleration and gravitational acceleration, both of which are in 3-dimensional space, we&rsquo;ll be left with a single time series in 1-dimensional space representing the portion of user acceleration in the direction of gravity. We&rsquo;ll arbitrarily call this new time series $a(t)$, because, well, every important time series deserves a name.</p>
+<p><img alt="The dot product" src="pedometer-images/dot-product-explanation.png" />#### Implementing the Dot Product</p>
+<p>We can implement the dot product for our earlier example using the formula $a(t) = x_{u}(t)x_{g}(t) + y_{u}(t)y_{g}(t) + z_{u}(t)z_{g}(t)$, leaving us with $a(t)$ in 1-dimensional space (Figure: Implementing the dot product).</p>
+<p><img alt="Implementing the dot product" src="pedometer-images/acceleration-dotproduct.png" />We can now visually pick out where the steps are in $a(t)$. The dot product is very powerful, yet beautifully simple.</p>
+<h3>Solutions in the Real World</h3>
+<p>We saw how quickly our seemingly simple problem became more complex when we threw in the challenges of the real world and real people. However, we&rsquo;re getting a lot closer to counting steps, and we can see how $a(t)$ is starting to resemble our ideal sine wave. But, only &ldquo;kinda, sorta&rdquo; starting to. We still need to make our messy $a(t)$ time series smoother. There are four main issues (Figure: Jumpy, slow, short, bumpy) with $a(t)$ in its current state. Let&rsquo;s examine each one.</p>
+<p><img alt="Jumpy, slow, short, bumpy" src="pedometer-images/jumpy-slow-short-bumpy.png" />#### 1. Jumpy Peaks</p>
+<p>$a(t)$ is very &ldquo;jumpy&rdquo;, because a phone can jiggle with each step, adding a high-frequency component to our time series. This jumpiness is called noise. By studying numerous data sets, we&rsquo;ve determined that a step acceleration is at maximum 5 Hz. We can use a low-pass IIR filter to remove the noise, picking $\alpha$ and $\beta$ to attenuate all signals above 5 Hz.</p>
+<h4>2. Slow Peaks</h4>
+<p>With a sampling rate of 100, the slow peak displayed in $a(t)$ spans 1.5 seconds, which is too slow to be a step. In studying enough samples of data, we&rsquo;ve determined that the slowest step we can take is at a 1 Hz frequency. Slower accelerations are due to a low-frequency component, that we can again remove using a high-pass IIR filter, setting $\alpha$ and $\beta$ to cancel all signals below 1 Hz.</p>
+<h4>3. Short Peaks</h4>
+<p>As a person is using an app or making a call, the accelerometer registers small movements in the direction of gravity, presenting themselves as short peaks in our time series. We can eliminate these short peaks by setting a minimum threshold, and counting a step every time $a(t)$ crosses that threshold in the positive direction.</p>
+<h4>4. Bumpy Peaks</h4>
+<p>Our pedometer should accommodate many people with different walks, so we&rsquo;ve set minimum and maximum step frequencies based on a large sample size of people and walks. This means that we may sometimes filter slightly too much or too little. While we&rsquo;ll often have fairly smooth peaks, we can, once in a while, get a &ldquo;bumpier&rdquo; peak. Figure: Jumpy, slow, short, bumpy zooms in on one such peak.</p>
+<p>When bumpiness occurs at our threshold, we can mistakenly count too many steps for one peak. We&rsquo;ll use a method called <em>hysteresis</em> to address this. Hysteresis refers to the dependence of an output on past inputs. We can count threshold crossings in the positive direction, as well as 0 crossings in the negative direction. Then, we only count steps where a threshold crossing occurs after a 0 crossing, ensuring we count each step only once.</p>
+<h4>Peaks That Are Juuuust Right</h4>
+<p><img alt="Tweaked peaks" src="pedometer-images/acceleration-filtered.png" /> In accounting for these four scenarios, we&rsquo;ve managed to bring our messy $a(t)$ fairly close to our ideal sine wave (Figure: Tweaked peaks), allowing us to count steps.</p>
+<h3>Recap</h3>
+<p>The problem, at first glance, looked straightforward. However, the real world and real people threw a few curve balls our way. Let&rsquo;s recap how we solved the problem:</p>
+<ol>
+<li>We started with total acceleration, $(x(t), y(t), z(t))$.</li>
+<li>We used a low-pass filter to split total acceleration into user acceleration and gravitational acceleration, $(x_{u}(t), y_{u}(t), z_{u}(t))$ and $(x_{g}(t), y_{g}(t), z_{g}(t))$, respectively.</li>
+<li>We took the dot product of $(x_{u}(t), y_{u}(t), z_{u}(t))$ and $(x_{g}(t), y_{g}(t), z_{g}(t))$ to obtain the user acceleration in the direction of gravity, $a(t)$.</li>
+<li>We used a low-pass filter again to remove the high-frequency component of $a(t)$, removing noise.</li>
+<li>We used a high-pass filter to cancel the low-frequency component of $a(t)$, removing slow peaks.</li>
+<li>We set a threshold to ignore short peaks.</li>
+<li>We used hysteresis to avoid double-counting steps with bumpy peaks.</li>
+</ol>
+<p>As software developers in a training or academic setting, we may have been presented with a perfect signal and asked to write code to count the steps in that signal. While that may have been an interesting coding challenge, it wouldn&rsquo;t have been something we could apply in a live situation. We saw that in reality, with gravity and people thrown into the mix, the problem was a little more complex. We used mathematical tools to address the complexities, and were able to solve a real-world problem. It&rsquo;s time to translate our solution into code.</p>
+<h2>Diving Into Code</h2>
+<p>Our goal for this chapter is to create a web application in Ruby that accepts accelerometer data, parses, processes, and analyzes the data, and returns the number of steps taken, the distance travelled, and the elapsed time.</p>
+<h3>Preliminary Work</h3>
+<p>Our solution requires us to filter our time series several times. Rather than peppering filtering code throughout our program, it makes sense to create a class that takes care of the filtering, and if we ever need to enhance or modify it, we&rsquo;ll only ever need to change that one class. This strategy is called <em>separation of concerns</em>, a commonly used design principle which promotes splitting a program into distinct pieces, where every piece has one primary concern. It&rsquo;s a beautiful way to write clean, maintainable code that&rsquo;s easily extensible. We&rsquo;ll revisit this idea several times throughout the chapter.</p>
+<p>Let&rsquo;s dive into the filtering code, contained in, logically, a <code>Filter</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Filter</span>
+
+<span class="w">  </span><span class="no">COEFFICIENTS_LOW_0_HZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="ss">alpha</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">979133761292768</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">979521463540373</span><span class="o">]</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">beta</span><span class="p">:</span><span class="w">  </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mo">0000</span><span class="mi">86384997973502</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mo">00017276</span><span class="mi">9995947004</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mo">0000</span><span class="mi">86384997973502</span><span class="o">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="no">COEFFICIENTS_LOW_5_HZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="ss">alpha</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">80898117793047</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">827224480562408</span><span class="o">]</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">beta</span><span class="p">:</span><span class="w">  </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mi">095465967120306</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="mi">172688631608676</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">095465967120306</span><span class="o">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="no">COEFFICIENTS_HIGH_1_HZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="ss">alpha</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">905384612118461</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">910092542787947</span><span class="o">]</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">beta</span><span class="p">:</span><span class="w">  </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mi">953986986993339</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">907503180919730</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">953986986993339</span><span class="o">]</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">low_0_hz</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="no">COEFFICIENTS_LOW_0_HZ</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">low_5_hz</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="no">COEFFICIENTS_LOW_5_HZ</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">high_1_hz</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="no">COEFFICIENTS_HIGH_1_HZ</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="kp">private</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">coefficients</span><span class="p">)</span>
+<span class="w">    </span><span class="n">filtered_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="n">data</span><span class="o">.</span><span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<span class="w">      </span><span class="n">filtered_data</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">coefficients</span><span class="o">[</span><span class="ss">:alpha</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">*</span>
+<span class="w">                      </span><span class="p">(</span><span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w">            </span><span class="o">*</span><span class="w"> </span><span class="n">coefficients</span><span class="o">[</span><span class="ss">:beta</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                       </span><span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="w">          </span><span class="o">*</span><span class="w"> </span><span class="n">coefficients</span><span class="o">[</span><span class="ss">:beta</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                       </span><span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span><span class="w">          </span><span class="o">*</span><span class="w"> </span><span class="n">coefficients</span><span class="o">[</span><span class="ss">:beta</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">-</span>
+<span class="w">                       </span><span class="n">filtered_data</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">coefficients</span><span class="o">[</span><span class="ss">:alpha</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">-</span>
+<span class="w">                       </span><span class="n">filtered_data</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">coefficients</span><span class="o">[</span><span class="ss">:alpha</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">filtered_data</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p>Anytime our program needs to filter a time series, we can call one of the class methods in <code>Filter</code> with the data we need filtered:</p>
+<ul>
+<li><code>low_0_hz</code> is used to low-pass filter signals near 0 Hz</li>
+<li><code>low_5_hz</code> is used to low-pass filter signals at or below 5 Hz</li>
+<li><code>high_1_hz</code> is used to high-pass filter signals above 1 Hz</li>
+</ul>
+<p>Each class method calls <code>filter</code>, which implements the IIR filter and returns the result. If we wish to add more filters in the future, we only need to change this one class. Note is that all magic numbers are defined at the top. This makes our class easier to read and understand.</p>
+<h3>Input Formats</h3>
+<p>Our input data is coming from mobile devices such as Android phones and iPhones. Most mobile phones on the market today have accelerometers built in, that are able to record total acceleration. Let&rsquo;s call the input data format that records total acceleration the <em>combined format</em>. Many, but not all, devices can also record user acceleration and gravitational acceleration separately. Let&rsquo;s call this format the <em>separated format</em>. A device that has the ability to return data in the separated format necessarily has the ability to return data in the combined format. However, the inverse is not always true. Some devices can only record data in the combined format. Input data in the combined format will need to be passed through a low-pass filter to turn it into the separated format.</p>
+<p>We want our program to handle all mobile devices on the market with accelerometers, so we&rsquo;ll need to accept data in both formats. Let&rsquo;s look at the two formats we&rsquo;ll be accepting individually.</p>
+<h4>Combined Format</h4>
+<p>Data in the combined format is total acceleration in the $x$, $y$, and $z$ directions, over time. $x$, $y$, and $z$ values will be separated by a comma, and samples per unit time will be separated by a semi-colon.</p>
+<p>$$
+x_1,y_1,z_1; … x_n,y_n,z_n;
+$$</p>
+<h4>Separated Format</h4>
+<p>The separated format returns user acceleration and gravitational acceleration in the $x$, $y$, and $z$ directions, over time. User acceleration values will be separated from gravitational acceleration values by a pipe.</p>
+<p>$$
+x^{u}_1,y^{u}_1,z^{u}_1 \vert x^{g}_1,y^{g}_1,z^{g}_1; … x^{u}_n,y^{u}_n,z^{u}_n \vert x^{g}_n,y^{g}_n,z^{g}_n;
+$$</p>
+<h3>I Got Multiple Input Formats But a Standard Ain&rsquo;t One</h3>
+<p>Dealing with multiple input formats is a common programming problem. If we want our entire program to work with both formats, every single piece of code dealing with the data would need to know how to handle both formats. This can become very messy, very quickly, especially if a third (or a fourth, or a fifth, or a hundredth) input format is added.</p>
+<h4>Standard Format</h4>
+<p>The cleanest way for us to deal with this is to take our two input formats and fit them into a standard format as soon as possible, allowing the rest of the program to work with this new standard format. Our solution requires that we work with user acceleration and gravitational acceleration separately, so our standard format will need to be split into the two accelerations (Figure: Standard format).</p>
+<p><img alt="Standard format" src="pedometer-images/standard-format.png" />Our standard format allows us to store a time series, as each element represents acceleration at a point in time. We&rsquo;ve defined it as an array of arrays of arrays. Let&rsquo;s peel that onion.</p>
+<ul>
+<li>The first array is just a wrapper to hold the all of the data.</li>
+<li>The second set of arrays contains one array per data sample taken. If our sampling rate is 100 and we sample data for 10 seconds, we&rsquo;ll have $100 * 10$, or 1000, arrays in this second set.</li>
+<li>The third set of arrays is the pair of arrays enclosed within the second set. They both contain acceleration data in the $x$, $y$, and $z$ directions; the first representing user acceleration and the second, gravitational acceleration.</li>
+</ul>
+<h3>The Pipeline</h3>
+<p>The input into our system will be data from an accelerometer, information on the user taking the walk (gender, stride, etc.), and information on the trial walk itself (sampling rate, actual steps taken, etc.). Our system will apply the signal processing solution, and output the number of steps calculated, the delta between the actual steps and calculated steps, the distance travelled, and the elapsed time. The entire process from input to output can be viewed as a pipeline (Figure: The pipeline).</p>
+<p><img alt="The pipeline" src="pedometer-images/pipeline.png" />In the spirit of separation of concerns, we&rsquo;ll write the code for each distinct component of the pipeline&mdash;parsing, processing, and analyzing&mdash;individually.</p>
+<h3>Parsing</h3>
+<p>Given that we want our data in the standard format as early as possible, it makes sense to write a parser that allows us to take our two known input formats and convert them to a standard output format as the first component of our pipeline. Our standard format splits out user acceleration and gravitational acceleration, which means that if our data is in the combined format, our parser will need to first pass it through a low-pass filter to convert it to the standard format.</p>
+<p><img alt="Initial workflow" src="pedometer-images/input-data-workflow-1.png" />In the future, if we ever have to add another input format, the only code we&rsquo;ll have to touch is this parser. Let&rsquo;s separate concerns once more, and create a <code>Parser</code> class to handle the parsing.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Parser</span>
+
+<span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:parsed_data</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Parser</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span>
+<span class="w">    </span><span class="n">parser</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">parse</span>
+<span class="w">    </span><span class="vi">@parsed_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@data</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                   </span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:to_f</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">unless</span><span class="w"> </span><span class="vi">@parsed_data</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:length</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span><span class="w"> </span><span class="p">}</span><span class="o">.</span><span class="n">uniq</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">[[</span><span class="mi">3</span><span class="o">]]</span>
+<span class="w">      </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Bad Input. Ensure data is properly formatted.&#39;</span>
+<span class="w">    </span><span class="k">end</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="vi">@parsed_data</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">filtered_accl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@parsed_data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:flatten</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">total_accl</span><span class="o">|</span>
+<span class="w">        </span><span class="n">grav</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Filter</span><span class="o">.</span><span class="n">low_0_hz</span><span class="p">(</span><span class="n">total_accl</span><span class="p">)</span>
+<span class="w">        </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total_accl</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">grav</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="o">[</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">grav</span><span class="o">]</span>
+<span class="w">      </span><span class="k">end</span>
+
+<span class="w">      </span><span class="vi">@parsed_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@parsed_data</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<span class="w">        </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filtered_accl</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:first</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="n">elem</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="n">grav</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filtered_accl</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:last</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="n">elem</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="o">[</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">grav</span><span class="o">]</span>
+<span class="w">      </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p><code>Parser</code> has a class-level <code>run</code> method as well as an initializer. This is a pattern we&rsquo;ll use several times, so it&rsquo;s worth a discussion. Initializers should generally be used for setting up an object, and shouldn&rsquo;t do a lot of work. <code>Parser</code>&rsquo;s initializer simply takes <code>data</code> in the combined or separated format and stores it in the instance variable <code>@data</code>. The <code>parse</code> instance method uses <code>@data</code> internally, and does the heavy lifting of parsing and setting the result in the standard format to <code>@parsed_data</code>. In our case, we&rsquo;ll never need to instantiate a <code>Parser</code> instance without having to immediately call <code>parse</code>. Therefore, we add a convenient class-level <code>run</code> method that instantiates an instance of <code>Parser</code>, calls <code>parse</code> on it, and returns the instance of the object. We can now pass our input data to <code>run</code>, knowing we&rsquo;ll receive an instance of <code>Parser</code> with <code>@parsed_data</code> already set.</p>
+<p>Let&rsquo;s take a look at our hard-working <code>parse</code> method. The first step in the process is to take string data and convert it to numerical data, giving us an array of arrays of arrays. Sound familiar? The next thing we do is ensure that the format is as expected. Unless we have exactly three elements per the innermost arrays, we throw an exception. Otherwise, we continue on.</p>
+<p>Note the differences in <code>@parsed_data</code> between the two formats at this stage. In the <em>combined format</em> it contains arrays of exactly <em>one</em> array: </p>
+<p>$$
+[[[x_1, y_1, z_1]], … [[x_n, y_n, z_n]]
+$$</p>
+<p>In the <em>separated format</em> it contains arrays of exactly <em>two</em> arrays: </p>
+<p>$$[[[x_{u}^1,y_{u}^1,z_{u}^1], [x_{g}^1,y_{g}^1,z_{g}^1]], &hellip; [[x_{u}^n,y_{u}^n,z_{u}^n], [x_{g}^n,y_{g}^n,z_{g}^n]]]$$</p>
+<p>The separated format is already in our desired standard format after this operation. Amazing. However, if the data is combined (or, equivalently, has exactly one array where the separated format would have two), then we proceed with two loops. The first loop splits total acceleration into gravitational and user, using <code>Filter</code> with a <code>:low_0_hz</code> type, and the second loop reorganizes the data into the standard format.</p>
+<p><code>parse</code> leaves us with <code>@parsed_data</code> holding data in the standard format, regardless of whether we started off with combined or separated data. What a relief!</p>
+<p>As our program becomes more sophisticated, one area for improvement is to make our users&rsquo; lives easier by throwing exceptions with more specific error messages, allowing them to more quickly track down common input formatting problems.</p>
+<h3>Processing</h3>
+<p>Based on the solution we defined, we&rsquo;ll need our code to do a couple of things to our parsed data before we can count steps:</p>
+<ol>
+<li>Isolate movement in the direction of gravity using the dot product.</li>
+<li>Remove jumpy (high-frequency) and slow (low-frequency) peaks with a low-pass filter followed by a high-pass filter.</li>
+</ol>
+<p>We&rsquo;ll handle short and bumpy peaks by avoiding them during step counting.</p>
+<p>Now that we have our data in the standard format, we can process it to get in into a state where we can analyze it to count steps (Figure: Processing).</p>
+<p><img alt="Processing" src="pedometer-images/input-data-workflow-2.png" />The purpose of processing is to take our data in the standard format and incrementally clean it up to get it to a state as close as possible to our ideal sine wave. Our two processing operations, taking the dot product and filtering, are quite distinct, but both are intended to process our data, so we&rsquo;ll create one class called a <code>Processor</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Processor</span>
+
+<span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:dot_product_data</span><span class="p">,</span><span class="w"> </span><span class="ss">:filtered_data</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">processor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Processor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">processor</span><span class="o">.</span><span class="n">dot_product</span>
+<span class="w">    </span><span class="n">processor</span><span class="o">.</span><span class="n">filter</span>
+<span class="w">    </span><span class="n">processor</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">dot_product</span>
+<span class="w">    </span><span class="vi">@dot_product_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@data</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span>
+<span class="w">      </span><span class="n">x</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">filter</span>
+<span class="w">    </span><span class="vi">@filtered_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Filter</span><span class="o">.</span><span class="n">low_5_hz</span><span class="p">(</span><span class="vi">@dot_product_data</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@filtered_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Filter</span><span class="o">.</span><span class="n">high_1_hz</span><span class="p">(</span><span class="vi">@filtered_data</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p>Again, we see the <code>run</code> and <code>initialize</code> methods pattern. <code>run</code> calls our two processor methods, <code>dot_product</code> and <code>filter</code>, directly. Each method accomplishes one of our two processing operations. <code>dot_product</code> isolates movement in the direction of gravity, and <code>filter</code> applies the low-pass and high-pass filters in sequence to remove jumpy and slow peaks.</p>
+<h3>Pedometer Functionality</h3>
+<p>Provided information about the person using the pedometer is available, we can measure more than just steps. Our pedometer will measure <strong>distance travelled</strong> and <strong>elapsed time</strong>, as well as <strong>steps taken</strong>.</p>
+<h3>Distance Travelled</h3>
+<p>A mobile pedometer is generally used by one person. Distance travelled during a walk is calculated by multiplying the steps taken by the person&rsquo;s stride length. If the stride length is unknown, we can use optional user information like gender and height to approximate it. Let&rsquo;s create a <code>User</code> class to encapsulate this related information.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">User</span>
+
+<span class="w">  </span><span class="no">GENDER</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;female&#39;</span><span class="o">]</span>
+<span class="w">  </span><span class="no">MULTIPLIERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;female&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">413</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;male&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">415</span><span class="p">}</span>
+<span class="w">  </span><span class="no">AVERAGES</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;female&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">70</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;male&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">78</span><span class="o">.</span><span class="mi">0</span><span class="p">}</span>
+
+<span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:gender</span><span class="p">,</span><span class="w"> </span><span class="ss">:height</span><span class="p">,</span><span class="w"> </span><span class="ss">:stride</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">nil</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">nil</span><span class="p">,</span><span class="w"> </span><span class="n">stride</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">nil</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gender</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">downcase</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">gender</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">empty?</span>
+<span class="w">    </span><span class="vi">@height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Float</span><span class="p">(</span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">height</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">empty?</span>
+<span class="w">    </span><span class="vi">@stride</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Float</span><span class="p">(</span><span class="n">stride</span><span class="p">)</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">stride</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">empty?</span>
+
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Invalid gender&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="vi">@gender</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="no">GENDER</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="vi">@gender</span><span class="p">)</span>
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Invalid height&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="vi">@height</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="vi">@height</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Invalid stride&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="vi">@stride</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="vi">@stride</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="vi">@stride</span><span class="w"> </span><span class="o">||=</span><span class="w"> </span><span class="n">calculate_stride</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="kp">private</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_stride</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">gender</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">height</span>
+<span class="w">      </span><span class="no">MULTIPLIERS</span><span class="o">[</span><span class="vi">@gender</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span>
+<span class="w">    </span><span class="k">elsif</span><span class="w"> </span><span class="n">height</span>
+<span class="w">      </span><span class="n">height</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="no">MULTIPLIERS</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="no">MULTIPLIERS</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="w">    </span><span class="k">elsif</span><span class="w"> </span><span class="n">gender</span>
+<span class="w">      </span><span class="no">AVERAGES</span><span class="o">[</span><span class="n">gender</span><span class="o">]</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="no">AVERAGES</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="no">AVERAGES</span><span class="o">.</span><span class="n">size</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p>At the top of our class, we define constants to avoid hardcoding magic numbers and strings throughout. For the purposes of this discussion, let&rsquo;s assume that the values in <code>MULTIPLIERS</code> and <code>AVERAGES</code> have been determined from a large sample size of diverse people.</p>
+<p>Our initializer accepts <code>gender</code>, <code>height</code>, and <code>stride</code> as optional arguments. If the optional parameters are passed in, our initializer sets instance variables of the same names, after some data formatting. We raise an exception for invalid values.</p>
+<p>Even when all optional parameters are provided, the input stride takes precedence. If it&rsquo;s not provided, the <code>calculate_stride</code> method determines the most accurate stride length possible for the user. This is done with an <code>if</code> statement:</p>
+<ul>
+<li>The most accurate way to calculate stride length is to use a person&rsquo;s height and a multiplier based on gender, provided we have a valid gender and height.</li>
+<li>A person&rsquo;s height is a better predictor of stride than their gender is. If we have height but not gender, we can multiply the height by the average of the two values in <code>MULTIPLIERS</code>.</li>
+<li>If all we have is a gender, we can use the average stride length from <code>AVERAGES</code>.</li>
+<li>Finally, if we don&rsquo;t have anything, we can take the average of the two values in <code>AVERAGES</code> and use that as our stride.</li>
+</ul>
+<p>Note that the further down the <code>if</code> statement we get, the less accurate our stride length becomes. In any case, our <code>User</code> class determines the stride length as best it can.</p>
+<h3>Elapsed Time</h3>
+<p>The time spent travelling is measured by dividing the number of data samples in our <code>Processor</code>&rsquo;s <code>@parsed_data</code> by the sampling rate of the device, if we have it. Since the rate has more to do with the trial walk itself than the user, and the <code>User</code> class in fact does not have to be aware of the sampling rate, this is a good time to create a very small <code>Trial</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Trial</span>
+
+<span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:name</span><span class="p">,</span><span class="w"> </span><span class="ss">:rate</span><span class="p">,</span><span class="w"> </span><span class="ss">:steps</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">nil</span><span class="p">,</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">nil</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@name</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">name</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@rate</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">Integer</span><span class="p">(</span><span class="n">rate</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">rate</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">empty?</span>
+<span class="w">    </span><span class="vi">@steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Integer</span><span class="p">(</span><span class="n">steps</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">steps</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">empty?</span>
+
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Invalid name&#39;</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="vi">@name</span><span class="o">.</span><span class="n">empty?</span>
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Invalid rate&#39;</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="vi">@rate</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="vi">@rate</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="s1">&#39;Invalid steps&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="vi">@steps</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="vi">@steps</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p>All of the attribute readers in <code>Trial</code> are set in the initializer based on parameters passed in:</p>
+<ul>
+<li><code>name</code> is a name for the specific trial, to help differentiate between the different trials.</li>
+<li><code>rate</code> is the sampling rate of the accelerometer during the trial.</li>
+<li><code>steps</code> is used to set the actual steps taken, so that we can record the difference between the actual steps the user took and the ones our program counted.</li>
+</ul>
+<p>Much like our <code>User</code> class, some information is optional. We&rsquo;re given the opportunity to input details of the trial, if we have it. If we don&rsquo;t have those details, our program bypasses calculating the additional results, such as time spent travelling. Another similarity to our <code>User</code> class is the prevention of invalid values.</p>
+<h3>Steps Taken</h3>
+<p>It&rsquo;s time to implement our step counting strategy in code. So far, we have a <code>Processor</code> class that contains <code>@filtered_data</code>, which is our clean time series representing user acceleration in the direction of gravity. We also have classes that give us the necessary information about the user and the trial. What we&rsquo;re missing is a way to analyze <code>@filtered_data</code> with the information from <code>User</code> and <code>Trial</code>, and count steps, measure distance, and measure time.</p>
+<p>The analysis portion of our program is different from the data manipulation of the <code>Processor</code>, and different from the information collection and aggregation of the <code>User</code> and <code>Trial</code> classes. Let&rsquo;s create a new class called <code>Analyzer</code> to perform this data analysis.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Analyzer</span>
+
+<span class="w">  </span><span class="no">THRESHOLD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">09</span>
+
+<span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:steps</span><span class="p">,</span><span class="w"> </span><span class="ss">:delta</span><span class="p">,</span><span class="w"> </span><span class="ss">:distance</span><span class="p">,</span><span class="w"> </span><span class="ss">:time</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="n">analyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Analyzer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="n">analyzer</span><span class="o">.</span><span class="n">measure_steps</span>
+<span class="w">    </span><span class="n">analyzer</span><span class="o">.</span><span class="n">measure_delta</span>
+<span class="w">    </span><span class="n">analyzer</span><span class="o">.</span><span class="n">measure_distance</span>
+<span class="w">    </span><span class="n">analyzer</span><span class="o">.</span><span class="n">measure_time</span>
+<span class="w">    </span><span class="n">analyzer</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@data</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">data</span>
+<span class="w">    </span><span class="vi">@user</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">user</span>
+<span class="w">    </span><span class="vi">@trial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trial</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">measure_steps</span>
+<span class="w">    </span><span class="vi">@steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">count_steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span>
+
+<span class="w">    </span><span class="vi">@data</span><span class="o">.</span><span class="n">each_with_index</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">|</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="no">THRESHOLD</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="vi">@data</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">THRESHOLD</span><span class="p">)</span>
+<span class="w">        </span><span class="k">next</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">count_steps</span>
+
+<span class="w">        </span><span class="vi">@steps</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="n">count_steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">false</span>
+<span class="w">      </span><span class="k">end</span>
+
+<span class="w">      </span><span class="n">count_steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="vi">@data</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">measure_delta</span>
+<span class="w">    </span><span class="vi">@delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@steps</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="vi">@trial</span><span class="o">.</span><span class="n">steps</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="vi">@trial</span><span class="o">.</span><span class="n">steps</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">measure_distance</span>
+<span class="w">    </span><span class="vi">@distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@user</span><span class="o">.</span><span class="n">stride</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="vi">@steps</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">measure_time</span>
+<span class="w">    </span><span class="vi">@time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@data</span><span class="o">.</span><span class="n">count</span><span class="o">/</span><span class="vi">@trial</span><span class="o">.</span><span class="n">rate</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="vi">@trial</span><span class="o">.</span><span class="n">rate</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p>The first thing we do in <code>Analyzer</code> is define a <code>THRESHOLD</code> constant, which we&rsquo;ll use to avoid counting short peaks as steps. For the purposes of this discussion, let&rsquo;s assume we&rsquo;ve analyzed numerous diverse data sets and determined a threshold value that accommodated the largest number of those data sets. The threshold can eventually become dynamic and vary with different users, based on the calculated versus actual steps they&rsquo;ve taken; a learning algorithm, if you will.</p>
+<p>Our <code>Analyzer</code>&rsquo;s initializer takes a <code>data</code> parameter and instances of <code>User</code> and <code>Trial</code>, and sets the instance variables <code>@data</code>, <code>@user</code>, and <code>@trial</code> to the passed-in parameters. The <code>run</code> method calls <code>measure_steps</code>, <code>measure_delta</code>, <code>measure_distance</code>, and <code>measure_time</code>. Let&rsquo;s take a look at each method.</p>
+<h4><code>measure_steps</code></h4>
+<p>Finally! The step counting portion of our step counting app. The first thing we do in <code>measure_steps</code> is initialize two variables:</p>
+<ul>
+<li><code>@steps</code> is used to count the number of steps.</li>
+<li><code>count_steps</code> is used for hysteresis to determine if we&rsquo;re allowed to count steps at a point in time.</li>
+</ul>
+<p>We then iterate through <code>@processor.filtered_data</code>. If the current value is greater than or equal to <code>THRESHOLD</code>, and the previous value was less than <code>THRESHOLD</code>, then we&rsquo;ve crossed the threshold in the positive direction, which could indicate a step. The <code>unless</code> statement skips ahead to the next data point if <code>count_steps</code> is <code>false</code>, indicating that we&rsquo;ve already counted a step for that peak. If we haven&rsquo;t, we increment <code>@steps</code> by 1, and set <code>count_steps</code> to <code>false</code> to prevent any more steps from being counted for that peak. The next <code>if</code> statement sets <code>count_steps</code> to true once our time series has crossed the $x$-axis in the negative direction, and we&rsquo;re on to the next peak.</p>
+<p>There we have it, the step counting portion of our program! Our <code>Processor</code> class did a lot of work to clean up the time series and remove frequencies that would result in counting false steps, so our actual step counting implementation is not complex.</p>
+<p>It&rsquo;s worth noting that we store the entire time series for the walk in memory. Our trials are all short walks, so that&rsquo;s not currently a problem, but eventually we&rsquo;d like to analyze long walks with large amounts of data. Ideally, we&rsquo;d want to stream data in, only storing very small portions of the time series in memory. Keeping this in mind, we&rsquo;ve put in the work to ensure that we only need the current data point and the data point before it. Additionally, we&rsquo;ve implemented hysteresis using a Boolean value, so we don&rsquo;t need to look backward in the time series to ensure we&rsquo;ve crossed the $x$-axis at 0.</p>
+<p>There&rsquo;s a fine balance between accounting for likely future iterations of the product, and over-engineering a solution for every conceivable product direction under the sun. In this case, it&rsquo;s reasonable to assume that we&rsquo;ll have to handle longer walks in the near future, and the costs of accounting for that in step counting are fairly low.</p>
+<h4><code>measure_delta</code></h4>
+<p>If the trial provides actual steps taken during the walk, <code>measure_delta</code> will return the difference between the calculated and actual steps.</p>
+<h4><code>measure_distance</code></h4>
+<p>The distance is measured by multiplying our user&rsquo;s stride by the number of steps. Since the distance depends on the step count, <code>measure_steps</code> must be called before <code>measure_distance</code>.</p>
+<h4><code>measure_time</code></h4>
+<p>As long as we have a sampling rate, time is calculated by dividing the total number of samples in <code>filtered_data</code> by the sampling rate. It follows, then, that time is calculated in seconds.</p>
+<h3>Tying It All Together With the Pipeline</h3>
+<p>Our <code>Parser</code>, <code>Processor</code>, and <code>Analyzer</code> classes, while useful individually, are definitely better together. Our program will often use them to run through the pipeline we introduced earlier. Since the pipeline will need to be run frequently, we&rsquo;ll create a <code>Pipeline</code> class to run it for us. </p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Pipeline</span>
+
+<span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:data</span><span class="p">,</span><span class="w"> </span><span class="ss">:user</span><span class="p">,</span><span class="w"> </span><span class="ss">:trial</span><span class="p">,</span><span class="w"> </span><span class="ss">:parser</span><span class="p">,</span><span class="w"> </span><span class="ss">:processor</span><span class="p">,</span><span class="w"> </span><span class="ss">:analyzer</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Pipeline</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pipeline</span><span class="o">.</span><span class="n">feed</span>
+<span class="w">    </span><span class="n">pipeline</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@data</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">data</span>
+<span class="w">    </span><span class="vi">@user</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">user</span>
+<span class="w">    </span><span class="vi">@trial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trial</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">feed</span>
+<span class="w">    </span><span class="vi">@parser</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="no">Parser</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="vi">@data</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@processor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Processor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="vi">@parser</span><span class="o">.</span><span class="n">parsed_data</span><span class="p">)</span>
+<span class="w">    </span><span class="vi">@analyzer</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="no">Analyzer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="vi">@processor</span><span class="o">.</span><span class="n">filtered_data</span><span class="p">,</span><span class="w"> </span><span class="vi">@user</span><span class="p">,</span><span class="w"> </span><span class="vi">@trial</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+<p>We use our now-familiar <code>run</code> pattern and supply <code>Pipeline</code> with accelerometer data, and instances of <code>User</code> and <code>Trial</code>. The <code>feed</code> method implements the pipeline, which entails running <code>Parser</code> with the accelerometer data, then using the parser&rsquo;s parsed data to run <code>Processor</code>, and finally using the processor&rsquo;s filtered data to run <code>Analyzer</code>. The <code>Pipeline</code> keeps <code>@parser</code>, <code>@processor</code>, and <code>@analyzer</code> instance variables, so that the program has access to information from those objects for display purposes through the app.</p>
+<h2>Adding A Friendly Interface</h2>
+<p>We&rsquo;re through the most labour intensive part of our program. Next, we&rsquo;ll build a web app to present the data in a format that is pleasing to a user. A web app naturally separates the data processing from the presentation of the data. Let&rsquo;s look at our app from a user&rsquo;s perspective before the code.</p>
+<h3>A User Scenario</h3>
+<p>When a user first enters the app by navigating to <code>/uploads</code>, they see a table of existing data and a form to submit new data by uploading an accelerometer output file and trial and user information (Figure: Upload view).</p>
+<p><img alt="Upload view" src="pedometer-images/app1.png" />Submitting the form stores the data to the file system, parses, processes, and analyzes it, and redirects back to <code>/uploads</code> with the new entry in the table.</p>
+<p>Clicking the <strong>Detail</strong> link for an entry presents the user with the following view in Figure: Detail view.</p>
+<p><img alt="Detail view" src="pedometer-images/app3.png" />The information presented includes values input by the user through the upload form, values calculated by our program, and graphs of the time series following the dot product operation, and again following filtering. The user can navigate back to <code>/uploads</code> using the <em>Back to Uploads</em> link.</p>
+<p>Let&rsquo;s look at what the outlined functionality above implies for us, technically. We&rsquo;ll need two major components that we don&rsquo;t yet have:</p>
+<ol>
+<li>A way to store and retrieve user input data.</li>
+<li>A web application with a basic interface.</li>
+</ol>
+<p>Let&rsquo;s examine each of these two requirements.</p>
+<h3>1. Storing and Retrieving Data</h3>
+<p>Our app needs to store input data to, and retrieve data from, the file system. We&rsquo;ll create an <code>Upload</code> class to do this. Since the class deals only with the file system and doesn&rsquo;t relate directly to the implementation of the pedometer, we&rsquo;ve left it out for brevity, but it&rsquo;s worth discussing its basic functionality. Our <code>Upload</code> class has three class-level methods for file system access and retrieval, all of which return one or more instances of <code>Upload</code>:</p>
+<ul>
+<li><code>create</code> takes a file along with user and trial information. It stores the file to the file system, under a filename it generates to contain the user and trial information. The <code>@file_path</code>, <code>@user</code>, and <code>@trial</code> instance variables allow access to the file path, user object, and trial object, respectively.</li>
+<li><code>find</code> takes a file path and returns an instance of <code>Upload</code>.</li>
+<li><code>all</code> returns an array of <code>Upload</code> instances, one for each accelerometer data file in the file system.</li>
+</ul>
+<h4>Separation of Concerns in Upload</h4>
+<p>Once again, we&rsquo;ve been wise to separate concerns in our program. All code related to storage and retrieval is contained in the <code>Upload</code> class. As our application grows, we&rsquo;ll likely want to use a database rather than saving everything to the file system. When the time comes for that, all we have to do it change the <code>Upload</code> class. This makes our refactoring simple and clean.</p>
+<p>In the future, we can save <code>User</code> and <code>Trial</code> objects to the database. The <code>create</code>, <code>find</code>, and <code>all</code> methods in <code>Upload</code> will then be relevant to <code>User</code> and <code>Trial</code> as well. That means we&rsquo;d likely refactor those out into their own class to deal with data storage and retrieval in general, and each of our <code>User</code>, <code>Trial</code>, and <code>Upload</code> classes would inherit from that class. We might eventually add helper query methods to that class, and continue building it up from there.</p>
+<h3>2. Building a Web Application</h3>
+<p>Web apps have been built many times over, so we&rsquo;ll leverage the important work of the open source community and use an existing framework to do the boring plumbing work for us. The Sinatra framework does just that. In the tool&rsquo;s own words, Sinatra is &ldquo;a DSL for quickly creating web applications in Ruby&rdquo;. Perfect.</p>
+<p>Our web app will need to respond to HTTP requests, so we&rsquo;ll need a file that defines a route and associated code block for each combination of HTTP method and URL. Let&rsquo;s call it <code>pedometer.rb</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">get</span><span class="w"> </span><span class="s1">&#39;/uploads&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="vi">@error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A </span><span class="si">#{</span><span class="n">params</span><span class="o">[</span><span class="ss">:error</span><span class="o">]</span><span class="si">}</span><span class="s2"> error has occurred.&quot;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">params</span><span class="o">[</span><span class="ss">:error</span><span class="o">]</span>
+<span class="w">  </span><span class="vi">@pipelines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Upload</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">upload</span><span class="o">|</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="no">Pipeline</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">upload</span><span class="o">.</span><span class="n">file_path</span><span class="p">),</span><span class="w"> </span><span class="n">upload</span><span class="o">.</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">upload</span><span class="o">.</span><span class="n">trial</span><span class="p">)</span>
+<span class="w">    </span><span class="n">a</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="n">erb</span><span class="w"> </span><span class="ss">:uploads</span>
+<span class="k">end</span>
+
+<span class="n">get</span><span class="w"> </span><span class="s1">&#39;/upload/*&#39;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">file_path</span><span class="o">|</span>
+<span class="w">  </span><span class="n">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Upload</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="w">  </span><span class="vi">@pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Pipeline</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span><span class="w"> </span><span class="n">upload</span><span class="o">.</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">upload</span><span class="o">.</span><span class="n">trial</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">erb</span><span class="w"> </span><span class="ss">:upload</span>
+<span class="k">end</span>
+
+<span class="n">post</span><span class="w"> </span><span class="s1">&#39;/create&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">begin</span>
+<span class="w">    </span><span class="no">Upload</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:data</span><span class="o">][</span><span class="ss">:tempfile</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">[</span><span class="ss">:user</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">[</span><span class="ss">:trial</span><span class="o">]</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">redirect</span><span class="w"> </span><span class="s1">&#39;/uploads&#39;</span>
+<span class="w">  </span><span class="k">rescue</span><span class="w"> </span><span class="no">Exception</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">e</span>
+<span class="w">    </span><span class="n">redirect</span><span class="w"> </span><span class="s1">&#39;/uploads?error=creation&#39;</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>pedometer.rb</code> allows our app to respond to HTTP requests for each of our routes. Each route&rsquo;s code block either retrieves data from, or stores data to, the file system through <code>Upload</code>, and then renders a view or redirects. The instance variables instantiated will be used directly in our views. The views simply display the data and aren&rsquo;t the focus of our app, so we we&rsquo;ll leave the code for them out of this chapter.</p>
+<p>Let&rsquo;s look at each of the routes in <code>pedometer.rb</code> individually.</p>
+<h4><code>GET /uploads</code></h4>
+<p>Navigating to <code>http://localhost:4567/uploads</code> sends an HTTP GET request to our app, triggering our <code>get '/uploads'</code> code. The code runs the pipeline for all of the uploads in the file system and renders the <code>uploads</code> view, which displays a list of the uploads, and a form to submit new uploads. If an error parameter is included, an error string is created, and the <code>uploads</code> view will display the error.</p>
+<h4><code>GET /upload/*</code></h4>
+<p>Clicking the <strong>Detail</strong> link for each upload sends an HTTP GET to <code>/upload</code> with the file path for that upload. The pipeline runs, and the <code>upload</code> view is rendered. The view displays the details of the upload, including the charts, which are created using a JavaScript library called HighCharts.</p>
+<h4><code>POST /create</code></h4>
+<p>Our final route, an HTTP POST to <code>create</code>, is called when a user submits the form in the <code>uploads</code> view. The code block creates a new <code>Upload</code>, using the <code>params</code> hash to grab the values input by the user through the form, and redirects back to <code>/uploads</code>. If an error occurs in the creation process, the redirect to <code>/uploads</code> includes an error parameter to let the user know that something went wrong.</p>
+<h2>A Fully Functional App</h2>
+<p>Voilà! We&rsquo;ve built a fully functional app, with true applicability.</p>
+<p>The real world presents us with intricate, complex challenges. Software is uniquely capable of addressing these challenges at scale with minimal resources. As software engineers, we have the power to create positive change in our homes, our communities, and our world. Our training, academic or otherwise, likely equipped us with the problem-solving skills to write code that solves isolated, well-defined problems. As we grow and hone our craft, it&rsquo;s up to us to extend that training to address practical problems, tangled up with all of the messy realities of our world. I hope that this chapter gave you a taste of breaking down a real problem into small, addressable parts, and writing beautiful, clean, extensible code to build a solution.</p>
+<p>Here&rsquo;s to solving interesting problems in an endlessly exciting world.</p>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

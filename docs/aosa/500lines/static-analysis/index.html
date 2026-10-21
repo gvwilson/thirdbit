@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Static Analysis</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Static Analysis</h1>
+
+
+
+<p><em>by Leah Hanson</em></p>
+<p><em>Leah Hanson is a proud alumni of Hacker School and loves helping people learn about Julia. She blogs at <a href="http://blog.leahhanson.us/">http://blog.leahhanson.us/</a> and tweets at <a href="https://twitter.com/astrieanna">\@astrieanna</a>.</em></p>
+<h2>Introduction</h2>
+<p>You may be familiar with a fancy IDE that draws red underlines under parts of your code that don&rsquo;t compile. You may have run a linter on your code to check for formatting or style problems. You might run your compiler in super-picky mode with all the warnings turned on. All of these tools are applications of static analysis.</p>
+<p>Static analysis is a way to check for problems in your code without running it. &ldquo;Static&rdquo; means at compile time rather than at run time, and &ldquo;analysis&rdquo; means we&rsquo;re analyzing the code. When you&rsquo;ve used the tools I mentioned above, it may have felt like magic. But those tools are just programs&mdash;they are made of source code that was written by a person, a programmer like you. In this chapter, we&rsquo;re going to talk about how to implement a couple of static analysis checks. In order to do this, we need to know what we want the check to do and how we want to do it.</p>
+<p>We can get more specific about what you need to know by describing the process as three stages:</p>
+<h4>1. Deciding what you want to check for.</h4>
+<p>You should be able to explain the general problem you&rsquo;d like to solve, in terms that a user of the programming language would recognize. Examples include:</p>
+<ul>
+<li>Finding misspelled variable names</li>
+<li>Finding race conditions in parallel code</li>
+<li>Finding calls to unimplemented functions</li>
+</ul>
+<h4>2. Deciding how exactly to check for it.</h4>
+<p>While we could ask a friend to do one of the tasks listed above, they aren&rsquo;t specific enough to explain to a computer. To tackle &ldquo;misspelled variable names&rdquo;, for example, we&rsquo;d need to decide what misspelled means here. One option would be to claim variable names should be composed of English words from the dictionary; another option is to look for variables that are only used once (the one time you mistyped it).</p>
+<p>If we know we&rsquo;re looking for variables that are only used once, we can talk about kinds of variable usages (having their value assigned versus read) and what code would or would not trigger a warning.</p>
+<h4>3. Implementation details.</h4>
+<p>This covers the actual act of writing the code, the time spent reading the documentation for libraries you use, and figuring out how to get at the information you need to write the analysis. This could involve reading in a file of code, parsing it to understand the structure, and then making your specific check on that structure. </p>
+<p>We&rsquo;re going to work through these steps for each of the individual checks implemented in this chapter. Step 1 requires enough understanding of the language we&rsquo;re analyzing to empathize with the problems its users face. All the code in this chapter is Julia code, written to analyze Julia code.</p>
+<h2>A Very Brief Introduction to Julia</h2>
+<p>Julia is a young language aimed at technical computing. It was released at version 0.1 in the spring of 2012; as of the start of 2015, it has reached version 0.3. In general, Julia looks a lot like Python, but with some optional type annotations and without any object-oriented stuff. The feature that most programmers will find novel in Julia is multiple dispatch, which has a pervasive impact on both API design and on other design choices in the language.</p>
+<p>Here is a snippet of Julia code:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># A comment about increment</span>
+<span class="k">function</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="n">increment</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>This code defines a method of the function <code>increment</code> that takes one argument, named <code>x</code>, of type <code>Int64</code>. The method returns the value of <code>x + 1</code>. Then, this freshly defined method is called with the value <code>5</code>; the function call, as you may have guessed, will evaluate to <code>6</code>. </p>
+<p><code>Int64</code> is a type whose values are signed integers represented in memory by 64 bits; they are the integers that your hardware understands if your computer has a 64-bit processor. Types in Julia define the representation of data in memory, in addition to influencing method dispatch.</p>
+<p>The name <code>increment</code> refers to a generic function, which may have many methods. We have just defined one method of it. In many languages, the terms &ldquo;function&rdquo; and &ldquo;method&rdquo; are used interchangeably; in Julia, they have distinct meanings. This chapter will make more sense if you are careful to understand &ldquo;function&rdquo; as a named collection of methods, where a &ldquo;method&rdquo; is a specific implementation for a specific type signature.</p>
+<p>Let&rsquo;s define another method of the <code>increment</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Increment x by y</span>
+<span class="k">function</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">Number</span><span class="p">)</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">increment</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c"># =&gt; 6</span>
+<span class="n">increment</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c"># =&gt; 9</span>
+</code></pre></div>
+<p>Now the function <code>increment</code> has two methods. Julia decides which method to run for a given call based on the number and types of the arguments; this is called <em>dynamic multiple dispatch</em>:</p>
+<ul>
+<li><strong>Dynamic</strong> because it&rsquo;s based on the types of the values used at runtime.</li>
+<li><strong>Multiple</strong> because it looks at the types and order of all the arguments.</li>
+<li><strong>Dispatch</strong> because this is a way of matching function calls to method definitions.</li>
+</ul>
+<p>To put this in the context of languages you may already know, object-oriented languages use single dispatch because they only consider the first argument. (In <code>x.foo(y)</code>, the first argument is <code>x</code>.)</p>
+<p>Both single and multiple dispatch are based on the types of the arguments. The <code>x::Int64</code> above is a type annotation purely for dispatch. In Julia&rsquo;s dynamic type system, you could assign a value of any type to <code>x</code> during the function without an error.</p>
+<p>We haven&rsquo;t really seen the &ldquo;multiple&rdquo; part yet, but if you&rsquo;re curious about Julia, you&rsquo;ll have to look that up on your own. We need to move on to our first check.</p>
+<h2>Checking the Types of Variables in Loops</h2>
+<p>As in most programming languages, writing very fast code in Julia involves an understanding of how the computer works and how Julia works. An important part of helping the compiler create fast code for you is writing type-stable code; this is important in Julia and JavaScript, and is also helpful in other JIT’d languages. When the compiler can see that a variable in a section of code will always contain the same specific type, the compiler can do more optimizations than if it believes (correctly or not) that there are multiple possible types for that variable. You can read more about why type stability (also called “monomorphism”) is important for JavaScript <a href="http://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html">online</a>.</p>
+<h3>Why This Is Important</h3>
+<p>Let&rsquo;s write a function that takes an <code>Int64</code> and increases it by some amount. If the number is small (less than 10), let&rsquo;s increase it by a big number (50), but if it&rsquo;s big, let&rsquo;s only increase it by 0.5.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">50</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>This function looks pretty straightforward, but the type of <code>x</code> is unstable. I selected two numbers: 50, an <code>Int64</code>, and 0.5, a <code>Float64</code>. Depending on the value of <code>x</code>, it might be added to either one of them. If you add an <code>Int64</code> like 22, to a <code>Float64</code> like 0.5, you&rsquo;ll get a <code>Float64</code> (22.5). Because the type of variable in the function (<code>x</code>) could change depending on the value of the arguments to the function (<code>x</code>), this method of <code>increment</code> and specifically the variable <code>x</code> are type-unstable.</p>
+<p><code>Float64</code> is a type that represents floating-point values stored in 64 bits; in C, it is called a <code>double</code>. This is one of the floating-point types that 64-bit processors understand.</p>
+<p>As with most efficiency problems, this issue is more pronounced when it happens during loops. Code inside for loops and while loops is run many, many times, so making it fast is more important than speeding up code that is only run once or twice. Therefore, our first check is to look for variables that have unstable types inside loops.</p>
+<p>First, let&rsquo;s look at an example of what we want to catch. We&rsquo;ll be looking at two functions. Each of them sums the numbers 1 to 100, but instead of summing the whole numbers, they divide each one by 2 before summing it. Both functions will get the same answer (2525.0); both will return the same type (<code>Float64</code>). However, the first function, <code>unstable</code>, suffers from type-instability, while the second one, <code>stable</code>, does not.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">unstable</span><span class="p">()</span>
+<span class="w">  </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">100</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="o">/</span><span class="mi">2</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span>
+<span class="k">end</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">stable</span><span class="p">()</span>
+<span class="w">  </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">100</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="o">/</span><span class="mi">2</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>The only textual difference between the two functions is in the initialization of <code>sum</code>: <code>sum = 0</code> versus <code>sum = 0.0</code>. In Julia, <code>0</code> is an <code>Int64</code> literal and <code>0.0</code> is a <code>Float64</code> literal. How big of a difference could this tiny change make?</p>
+<p>Because Julia is Just-In-Time (JIT) compiled, the first run of a function will take longer than subsequent runs. (The first run includes the time it takes to compile the function for these argument types.) When we benchmark functions, we have to be sure to run them once (or precompile them) before timing them.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unstable</span><span class="p">()</span>
+<span class="mf">2525.0</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stable</span><span class="p">()</span>
+<span class="mf">2525.0</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="nd">@time</span><span class="w"> </span><span class="n">unstable</span><span class="p">()</span>
+<span class="n">elapsed</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w"> </span><span class="mf">9.517e-6</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="p">(</span><span class="mi">3248</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">allocated</span><span class="p">)</span>
+<span class="mf">2525.0</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="nd">@time</span><span class="w"> </span><span class="n">stable</span><span class="p">()</span>
+<span class="n">elapsed</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w"> </span><span class="mf">2.285e-6</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="p">(</span><span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">allocated</span><span class="p">)</span>
+<span class="mf">2525.0</span>
+</code></pre></div>
+<p>The <code>@time</code> macro prints out how long the function took to run and how many bytes were allocated while it was running. The number of bytes allocated increases every time new memory is needed; it does not decrease when the garbage collector vacuums up memory that&rsquo;s no longer being used. This means that the bytes allocated is related to the amount of time we spend allocating and managing memory, but does not imply that we had all of that memory in use at the same time.</p>
+<p>If we wanted to get solid numbers for <code>stable</code> versus <code>unstable</code> we would need to make the loop much longer or run the functions many times. However, it looks like <code>unstable</code> is probably slower. More interestingly, we can see a large gap in the number of bytes allocated; <code>unstable</code> has allocated around 3 KB of memory, where <code>stable</code> is using 64 bytes.</p>
+<p>Since we can see how simple <code>unstable</code> is, we might guess that this allocation is happening in the loop. To test this, we can make the loop longer and see if the allocations increase accordingly. Let&rsquo;s make the loop go from 1 to 10000, which is 100 times more iterations; we&rsquo;ll look for the number of bytes allocated to also increase about 100 times, to around 300 KB.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">unstable</span><span class="p">()</span>
+<span class="w">  </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">10000</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="o">/</span><span class="mi">2</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Since we redefined the function, we&rsquo;ll need to run it so it gets compiled before we measure it. We expect to get a different, larger answer from the new function definition, since it&rsquo;s summing more numbers now.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unstable</span><span class="p">()</span>
+<span class="mf">2.50025e7</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="nd">@time</span><span class="w"> </span><span class="n">unstable</span><span class="p">()</span>
+<span class="n">elapsed</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w"> </span><span class="mf">0.000667613</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="p">(</span><span class="mi">320048</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">allocated</span><span class="p">)</span>
+<span class="mf">2.50025e7</span>
+</code></pre></div>
+<p>The new <code>unstable</code> allocated about 320 KB, which is what we would expect if the allocations are happening in the loop. To explain what&rsquo;s going on here, we&rsquo;re going to look at how Julia works under the hood. </p>
+<p>This difference between <code>unstable</code> and <code>stable</code> occurs because <code>sum</code> in <code>unstable</code> must be boxed while <code>sum</code> in <code>stable</code> can be unboxed. Boxed values consist of a type tag and the actual bits that represent the value; unboxed values only have their actual bits. But the type tag is small, so that&rsquo;s not why boxing values allocates a lot more memory.</p>
+<p>The difference comes from what optimizations the compiler can make. When a variable has a concrete, immutable type, the compiler can unbox it inside the function. If that&rsquo;s not the case, then the variable must be allocated on the heap, and participate in the garbage collector. Immutable types are a concept specific to Julia. A value of an immutable type can&rsquo;t be changed.</p>
+<p>Immutable types are usually types that represent values, rather than collections of values. For example, most numeric types, including <code>Int64</code> and <code>Float64</code>, are immutable. (Numeric types in Julia are normal types, not special primitive types; you could define a new <code>MyInt64</code> that&rsquo;s the same as the provided one.) Because immutable types cannot be modified, you must make a new copy every time you want change one. For example <code>4 + 6</code> must make a new <code>Int64</code> to hold the result. In contrast, the members of a mutable type can be updated in-place; this means you don&rsquo;t have to make a copy of the whole thing to make a change.</p>
+<p>The idea of <code>x = x + 2</code> allocating memory probably sounds pretty weird; why would you make such a basic operation slow by making <code>Int64</code> values immutable? This is where those compiler optimizations come in: using immutable types doesn&rsquo;t (usually) slow this down. If <code>x</code> has a stable, concrete type (such as <code>Int64</code>), then the compiler is free to allocate <code>x</code> on the stack and mutate <code>x</code> in place. The problem is only when <code>x</code> has an unstable type (so the compiler doesn&rsquo;t know how big or what type it will be); once <code>x</code> is boxed and on the heap, the compiler isn&rsquo;t completely sure that some other piece of code isn&rsquo;t using the value, and thus can&rsquo;t edit it.</p>
+<p>Because <code>sum</code> in <code>stable</code> has a concrete type (<code>Float64</code>), the compiler knows that it can store it unboxed locally in the function and mutate its value; <code>sum</code> will not be allocated on the heap and new copies don&rsquo;t have to be made every time we add <code>i/2</code>.</p>
+<p>Because <code>sum</code> in <code>unstable</code> does not have a concrete type, the compiler allocates it on the heap. Every time we modify sum, we allocated a new value on the heap. All this time spent allocating values on the heap (and retrieving them every time we want to read the value of <code>sum</code>) is expensive.</p>
+<p>Using <code>0</code> versus <code>0.0</code> is an easy mistake to make, especially when you&rsquo;re new to Julia. Automatically checking that variables used in loops are type-stable helps programmers get more insight into what the types of their variables are in performance-critical sections of their code.</p>
+<h3>Implementation Details</h3>
+<p>We&rsquo;ll need to find out which variables are used inside loops and we&rsquo;ll need to find the types of those variables. We&rsquo;ll then need to decide how to print them in a human-readable format.</p>
+<ul>
+<li>How do we find loops?</li>
+<li>How do we find variables in loops?</li>
+<li>How do we find the types of a variable?</li>
+<li>How do we print the results?</li>
+<li>How do we tell if the type is unstable?</li>
+</ul>
+<p>I&rsquo;m going to tackle the last question first, since this whole endeavour hinges on it. We&rsquo;ve looked at an unstable function and seen, as programmers, how to identify an unstable variable, but we need our program to find them. This sounds like it would require simulating the function to look for variables whose values might change&mdash;which sounds like it would take some work. Luckily for us, Julia&rsquo;s type inference already traces through the function&rsquo;s execution to determine the types.</p>
+<p>The type of <code>sum</code> in <code>unstable</code> is <code>Union(Float64,Int64)</code>. This is a <code>UnionType</code>, a special kind of type that indicates that the variable may hold any of a set of types of values. A variable of type <code>Union(Float64,Int64)</code> can hold values of type <code>Int64</code> or <code>Float64</code>; a value can only have one of those types. A <code>UnionType</code> joins any number of types (e.g., <code>UnionType(Float64, Int64, Int32)</code> joins three types). We&rsquo;re going to look for is <code>UnionType</code>d variables inside loops.</p>
+<p>Parsing code into a representative structure is a complicated business, and gets more complicated as the language grows. In this chapter, we&rsquo;ll be depending on internal data structures used by the compiler. This means that we don&rsquo;t have to worry about reading files or parsing them, but it does mean we have to work with data structures that are not in our control and that sometimes feel clumsy or ugly.</p>
+<p>Besides all the work we&rsquo;ll save by not having to parse the code by ourselves, working with the same data structures that the compiler uses means that our checks will be based on an accurate assessment of the compilers understanding&mdash;which means our check will be consistent with how the code actually runs.</p>
+<p>This process of examining Julia code from Julia code is called introspection. When you or I introspect, we&rsquo;re thinking about how and why we think and feel. When code introspects, it examines the representation or execution properties of code in the same language (possibly its own code). When code&rsquo;s introspection extends to modifying the examined code, it&rsquo;s called metaprogramming (programs that write or modify programs).</p>
+<h4>Introspection in Julia</h4>
+<p>Julia makes it easy to introspect. There are four functions built in to let us see what the compiler is thinking: <code>code_lowered</code>, <code>code_typed</code>, <code>code_llvm</code>, and <code>code_native</code>. Those are listed in order of what step in the compilation process their output is from; the first one is closest to the code we&rsquo;d type in and the last one is the closest to what the CPU runs. For this chapter, we&rsquo;ll focus on <code>code_typed</code>, which gives us the optimized, type-inferred abstract syntax tree (AST). <!-- FIXME @michaeldibernardo?: point to other 500 lines chapters that use ASTs--></p>
+<p><code>code_typed</code> takes two arguments: the function of interest, and a tuple of argument types. For example, if we wanted to see the AST for a function <code>foo</code> when called with two <code>Int64</code>s, then we would call <code>code_typed(foo, (Int64,Int64))</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="w">  </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span>
+<span class="k">end</span>
+
+<span class="n">code_typed</span><span class="p">(</span><span class="n">foo</span><span class="p">,(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Int64</span><span class="p">))</span>
+</code></pre></div>
+<p>This is the structure that <code>code_typed</code> would return:
+<div class="highlight"><pre><span></span><code>1-element Array{Any,1}:
+:($(Expr(:lambda, {:x,:y}, {{:z},{{:x,Int64,0},{:y,Int64,0},{:z,Int64,18}},{}},
+ :(begin  # none, line 2:
+        z = (top(box))(Int64,(top(add_int))(x::Int64,y::Int64))::Int64 # line 3:
+        return (top(box))(Int64,(top(mul_int))(2,z::Int64))::Int64
+    end::Int64))))
+</code></pre></div></p>
+<p>This is an <code>Array</code>; this allows <code>code_typed</code> to return multiple matching methods. Some combinations of functions and argument types may not completely determine which method should be called. For example, you could pass in a type like <code>Any</code> (instead of <code>Int64</code>). <code>Any</code> is the type at the top of the type hierarchy; all types are subtypes of <code>Any</code> (including <code>Any</code>). If we included <code>Any</code> in our tuple of argument types, and had multiple matching methods, then the <code>Array</code> from <code>code_typed</code> would have more than one element in it; it would have one element per matching method.</p>
+<p>Let&rsquo;s pull our example <code>Expr</code> out to make it easier to talk about.
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">code_typed</span><span class="p">(</span><span class="n">foo</span><span class="p">,(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Int64</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">:</span><span class="p">(</span><span class="o">$</span><span class="p">(</span><span class="kt">Expr</span><span class="p">(</span><span class="ss">:lambda</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="ss">:x</span><span class="p">,</span><span class="ss">:y</span><span class="p">},</span><span class="w"> </span><span class="p">{{</span><span class="ss">:z</span><span class="p">},{{</span><span class="ss">:x</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="ss">:y</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="ss">:z</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">18</span><span class="p">}},{}},</span>
+<span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="k">begin</span><span class="w">  </span><span class="c"># none, line 2:</span>
+<span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">add_int</span><span class="p">))(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="w"> </span><span class="c"># line 3:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">mul_int</span><span class="p">))(</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">    </span><span class="k">end</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))))</span>
+</code></pre></div></p>
+<p>The structure we&rsquo;re interested in is inside the <code>Array</code>: it is an <code>Expr</code>. Julia uses <code>Expr</code> (short for expression) to represent its AST. (An abstract syntax tree is how the compiler thinks about the meaning of your code; it&rsquo;s kind of like when you had to diagram sentences in grade school.) The <code>Expr</code> we get back represents one method. It has some metadata (about the variables that appear in the method) and the expressions that make up the body of the method.</p>
+<p>Now we can ask some questions about <code>e</code>.</p>
+<p>We can ask what properties an <code>Expr</code> has by using the <code>names</code> function, which works on any Julia value or type. It returns an <code>Array</code> of names defined by that type (or the type of the value).</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="mi">3</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+<span class="w"> </span><span class="ss">:head</span>
+<span class="w"> </span><span class="ss">:args</span>
+<span class="w"> </span><span class="ss">:typ</span><span class="w"> </span>
+</code></pre></div>
+<p>We just asked <code>e</code> what names it has, and now we can ask what value each name corresponds to. An <code>Expr</code> has three properties: <code>head</code>, <code>typ</code> and <code>args</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span>
+<span class="o">:</span><span class="n">lambda</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">typ</span>
+<span class="kt">Any</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span>
+<span class="mi">3</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+<span class="w"> </span><span class="p">{</span><span class="ss">:x</span><span class="p">,</span><span class="ss">:y</span><span class="p">}</span><span class="w">                                                                                                                                                                                     </span>
+<span class="w"> </span><span class="p">{{</span><span class="ss">:z</span><span class="p">},{{</span><span class="ss">:x</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="ss">:y</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="ss">:z</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">18</span><span class="p">}},{}}</span><span class="w">                                                                                                                                         </span>
+<span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="k">begin</span><span class="w">  </span><span class="c"># none, line 2:</span>
+<span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">add_int</span><span class="p">))(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="w"> </span><span class="c"># line 3:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">mul_int</span><span class="p">))(</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">    </span><span class="k">end</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+</code></pre></div>
+<p>We just saw some values printed out, but that doesn&rsquo;t tell us much about what they mean or how they&rsquo;re used.</p>
+<ul>
+<li><code>head</code> tells us what kind of expression this is; normally, you&rsquo;d use separate types for this in Julia, but <code>Expr</code> is a type that models the structure used in the parser. The parser is written in a dialect of Scheme, which structures everything as nested lists. <code>head</code> tells us how the rest of the <code>Expr</code> is organized and what kind of expression it represents.</li>
+<li><code>typ</code> is the inferred return type of the expression; when you evaluate any expression, it results in some value. <code>typ</code> is the type of the value that the expression will evaluate to. For nearly all <code>Expr</code>s, this value will be <code>Any</code> (which is always correct, since every possible type is a subtype of <code>Any</code>). Only the <code>body</code> of type-inferred methods and most expressions inside them will have their <code>typ</code> set to something more specific. (Because <code>type</code> is a keyword, this field can&rsquo;t use that word as its name.)</li>
+<li><code>args</code> is the most complicated part of <code>Expr</code>; its structure varies based on the value of <code>head</code>. It&rsquo;s always an <code>Array{Any}</code> (an untyped array), but beyond that the structure changes.</li>
+</ul>
+<p>In an <code>Expr</code> representing a method, there will be three elements in <code>e.args</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c"># names of arguments as symbols</span>
+<span class="mi">2</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+<span class="w"> </span><span class="ss">:x</span>
+<span class="w"> </span><span class="ss">:y</span>
+</code></pre></div>
+<p>Symbols are a special type for representing the names of variables, constants, functions, and modules. They are a different type from strings because they specifically represent the name of a program construct.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c"># three lists of variable metadata</span>
+<span class="mi">3</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+<span class="w"> </span><span class="p">{</span><span class="ss">:z</span><span class="p">}</span><span class="w">                                     </span>
+<span class="w"> </span><span class="p">{{</span><span class="ss">:x</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="ss">:y</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="ss">:z</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">18</span><span class="p">}}</span>
+<span class="w"> </span><span class="p">{}</span><span class="w">                                       </span>
+</code></pre></div>
+<p>The first list above contains the names of all local variables; we only have one (<code>z</code>) here. The second list contains a tuple for each variable in and argument to the method; each tuple has the variable name, the variable&rsquo;s inferred type, and a number. The number conveys information about how the variable is used, in a machine- (rather than human-) friendly way. The last list is of captured variable names; it&rsquo;s empty in this example.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="c"># the body of the method</span>
+<span class="o">:</span><span class="p">(</span><span class="k">begin</span><span class="w">  </span><span class="c"># none, line 2:</span>
+<span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">add_int</span><span class="p">))(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="w"> </span><span class="c"># line 3:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">mul_int</span><span class="p">))(</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">    </span><span class="k">end</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+</code></pre></div>
+<p>The first two <code>args</code> elements are metadata about the third. While the metadata is very interesting, it isn&rsquo;t necessary right now. The important part is the body of the method, which is the third element. This is another <code>Expr</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">:</span><span class="p">(</span><span class="k">begin</span><span class="w">  </span><span class="c"># none, line 2:</span>
+<span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">add_int</span><span class="p">))(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="w"> </span><span class="c"># line 3:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">mul_int</span><span class="p">))(</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">    </span><span class="k">end</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">body</span><span class="o">.</span><span class="n">head</span>
+<span class="o">:</span><span class="n">body</span>
+</code></pre></div>
+<p>This <code>Expr</code> has head <code>:body</code> because it&rsquo;s the body of the method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">body</span><span class="o">.</span><span class="n">typ</span>
+<span class="kt">Int64</span>
+</code></pre></div>
+<p>The <code>typ</code> is the inferred return type of the method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">body</span><span class="o">.</span><span class="n">args</span>
+<span class="mi">4</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+<span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="w"> </span><span class="c"># none, line 2:)                                              </span>
+<span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">add_int</span><span class="p">))(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+<span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="w"> </span><span class="c"># line 3:)                                                    </span>
+<span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">mul_int</span><span class="p">))(</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="o">::</span><span class="kt">Int64</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span><span class="w">    </span>
+</code></pre></div>
+<p><code>args</code> holds a list of expressions: the list of expressions in the method&rsquo;s body. There are a couple of annotations of line numbers (i.e., <code>:( # line 3:)</code>), but most of the body is setting the value of <code>z</code> (<code>z = x + y</code>) and returning <code>2 * z</code>. Notice that these operations have been replaced by <code>Int64</code>-specific intrinsic functions. The <code>top(function-name)</code> indicates an intrinsic function; something that is implemented in Julia&rsquo;s code generation, rather than in Julia.</p>
+<p>We haven&rsquo;t seen what a loop looks like yet, so let&rsquo;s try that.</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">lloop</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">100</span>
+<span class="w">           </span><span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">         </span><span class="k">end</span>
+<span class="w">       </span><span class="k">end</span>
+<span class="n">lloop</span><span class="w"> </span><span class="p">(</span><span class="n">generic</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">code_typed</span><span class="p">(</span><span class="n">lloop</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="p">,))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">:</span><span class="p">(</span><span class="k">begin</span><span class="w">  </span><span class="c"># none, line 2:</span>
+<span class="w">        </span><span class="c">#s120 = $(Expr(:new, UnitRange{Int64}, 1, :(((top(getfield))(Intrinsics,</span>
+<span class="w">         </span><span class="ss">:select_value</span><span class="p">))((</span><span class="n">top</span><span class="p">(</span><span class="n">sle_int</span><span class="p">))(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">::</span><span class="kt">Bool</span><span class="p">,</span><span class="mi">100</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span>
+<span class="w">         </span><span class="n">sub_int</span><span class="p">))(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)))</span><span class="o">::</span><span class="kt">UnitRange</span><span class="p">{</span><span class="kt">Int64</span><span class="p">}</span>
+<span class="w">        </span><span class="c">#s119 = (top(getfield))(#s120::UnitRange{Int64},:start)::Int64        unless </span>
+<span class="w">         </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Bool</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">not_int</span><span class="p">))(</span><span class="c">#s119::Int64 === (top(box))(Int64,(top(</span>
+<span class="w">         </span><span class="n">add_int</span><span class="p">))((</span><span class="n">top</span><span class="p">(</span><span class="n">getfield</span><span class="p">))</span>
+<span class="w">         </span><span class="p">(</span><span class="c">#s120::UnitRange{Int64},:stop)::Int64,1))::Int64::Bool))::Bool goto 1</span>
+<span class="w">        </span><span class="mi">2</span><span class="o">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">_var0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c">#s119::Int64</span>
+<span class="w">        </span><span class="n">_var1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">add_int</span><span class="p">))(</span><span class="c">#s119::Int64,1))::Int64</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_var0</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">        </span><span class="c">#s119 = _var1::Int64 # line 3:</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Int64</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">mul_int</span><span class="p">))(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">        </span><span class="mi">3</span><span class="o">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">unless</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Bool</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">not_int</span><span class="p">))((</span><span class="n">top</span><span class="p">(</span><span class="n">box</span><span class="p">))(</span><span class="kt">Bool</span><span class="p">,(</span><span class="n">top</span><span class="p">(</span><span class="n">not_int</span><span class="p">))</span>
+<span class="w">         </span><span class="p">(</span><span class="c">#s119::Int64 === (top(box))(Int64,(top(add_int))((top(getfield))(</span>
+<span class="w">         </span><span class="c">#s120::UnitRange{Int64},:stop)::Int64,1))::Int64::Bool))::Bool))::Bool</span>
+<span class="w">         </span><span class="n">goto</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="mi">1</span><span class="o">:</span><span class="w">         </span><span class="mi">0</span><span class="o">:</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="k">end</span><span class="o">::</span><span class="kt">Nothing</span><span class="p">)</span>
+</code></pre></div>
+<p>You&rsquo;ll notice there&rsquo;s no for or while loop in the body. As the compiler transforms the code from what we wrote to the binary instructions the CPU understands, features that are useful to humans but that are not understood by the CPU (like loops) are removed. The loop has been rewritten as <code>label</code> and <code>goto</code> expressions. The <code>goto</code> has a number in it; each <code>label</code> also has a number. The <code>goto</code> jumps to the the <code>label</code> with the same number.</p>
+<h4>Detecting and Extracting Loops</h4>
+<p>We&rsquo;re going to find loops by looking for <code>goto</code> expressions that jump backwards.</p>
+<p>We&rsquo;ll need to find the labels and gotos, and figure out which ones match. I&rsquo;m going to give you the full implementation first. After the wall of code, we&rsquo;ll take it apart and examine the pieces.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># This is a function for trying to detect loops in the body of a Method</span>
+<span class="c"># Returns lines that are inside one or more loops</span>
+<span class="k">function</span><span class="w"> </span><span class="n">loopcontents</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">)</span>
+<span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">  </span><span class="n">loops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Int</span><span class="p">[]</span>
+<span class="w">  </span><span class="n">nesting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LabelNode</span>
+<span class="w">      </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">label</span>
+<span class="w">      </span><span class="n">jumpback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findnext</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GotoNode</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span>
+<span class="w">                              </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">Base</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="ss">:gotoifnot</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="k">end</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l</span><span class="p">),</span>
+<span class="w">                          </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">jumpback</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">push!</span><span class="p">(</span><span class="n">loops</span><span class="p">,</span><span class="n">jumpback</span><span class="p">)</span>
+<span class="w">        </span><span class="n">nesting</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nesting</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">lines</span><span class="p">,(</span><span class="n">i</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="w">    </span><span class="k">end</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GotoNode</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">in</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">loops</span><span class="p">)</span>
+<span class="w">      </span><span class="n">splice!</span><span class="p">(</span><span class="n">loops</span><span class="p">,</span><span class="n">findfirst</span><span class="p">(</span><span class="n">loops</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+<span class="w">      </span><span class="n">nesting</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="n">lines</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>And now to explain in pieces:</p>
+<div class="highlight"><pre><span></span><code><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>We start by getting all the expressions in the body of method, as an <code>Array</code>. <code>body</code> is a function that I&rsquo;ve already implemented:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c"># Return the body of a Method.</span>
+<span class="w">  </span><span class="c"># Takes an Expr representing a Method,</span>
+<span class="w">  </span><span class="c"># returns Vector{Expr}.</span>
+<span class="w">  </span><span class="k">function</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">args</span>
+<span class="w">  </span><span class="k">end</span>
+</code></pre></div>
+<p>And then:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">loops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Int</span><span class="p">[]</span>
+<span class="w">  </span><span class="n">nesting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p><code>loops</code> is an <code>Array</code> of label line numbers where gotos that are loops occur. <code>nesting</code> indicates the number of loops we are currently inside. <code>lines</code> is an <code>Array</code> of (index, <code>Expr</code>) tuples. </p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LabelNode</span>
+<span class="w">      </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">label</span>
+<span class="w">      </span><span class="n">jumpback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findnext</span><span class="p">(</span>
+<span class="w">        </span><span class="n">x</span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GotoNode</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span>
+<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">Base</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="ss">:gotoifnot</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="k">end</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l</span><span class="p">),</span>
+<span class="w">        </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">jumpback</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">push!</span><span class="p">(</span><span class="n">loops</span><span class="p">,</span><span class="n">jumpback</span><span class="p">)</span>
+<span class="w">        </span><span class="n">nesting</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+</code></pre></div>
+<p>We look at each expression in the body of <code>e</code>. If it is a label, we check to see if there is a goto that jumps to this label (and occurs after the current index). If the result of <code>findnext</code> is greater than zero, then such a goto node exists, so we&rsquo;ll add that to <code>loops</code> (the <code>Array</code> of loops we are currently in) and increment our <code>nesting</code> level.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nesting</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">lines</span><span class="p">,(</span><span class="n">i</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="w">    </span><span class="k">end</span>
+</code></pre></div>
+<p>If we&rsquo;re currently inside a loop, we push the current line to our array of lines to return.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GotoNode</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">in</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">loops</span><span class="p">)</span>
+<span class="w">      </span><span class="n">splice!</span><span class="p">(</span><span class="n">loops</span><span class="p">,</span><span class="n">findfirst</span><span class="p">(</span><span class="n">loops</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+<span class="w">      </span><span class="n">nesting</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="n">lines</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>If we&rsquo;re at a <code>GotoNode</code>, then we check to see if it&rsquo;s the end of a loop. If so, we remove the entry from <code>loops</code> and reduce our nesting level.</p>
+<p>The result of this function is the <code>lines</code> array, an array of (index, value) tuples. This means that each value in the array has an index into the method-body-<code>Expr</code>&rsquo;s body and the value at that index. Each element of <code>lines</code> is an expression that occurred inside a loop.</p>
+<h4>Finding and Typing Variables</h4>
+<p>We just finished the function <code>loopcontents</code> which returns the <code>Expr</code>s that are inside loops. Our next function will be <code>loosetypes</code>, which takes a list of <code>Expr</code>s and returns a list of variables that are loosely typed. Later, we&rsquo;ll pass the output of <code>loopcontents</code> into <code>loosetypes</code>.</p>
+<p>In each expression that occurred inside a loop, <code>loosetypes</code> searches for occurrences of symbols and their associated types. Variable usages show up as <code>SymbolNode</code>s in the AST; <code>SymbolNode</code>s hold the name and inferred type of the variable.</p>
+<p>We can&rsquo;t just check each expression that <code>loopcontents</code> collected to see if it&rsquo;s a <code>SymbolNode</code>. The problem is that each <code>Expr</code> may contain one or more <code>Expr</code>; each <code>Expr</code> may contain one or more <code>SymbolNode</code>s. This means we need to pull out any nested <code>Expr</code>s, so that we can look in each of them for <code>SymbolNode</code>s.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># given `lr`, a Vector of expressions (Expr + literals, etc)</span>
+<span class="c"># try to find all occurrences of a variables in `lr`</span>
+<span class="c"># and determine their types</span>
+<span class="k">function</span><span class="w"> </span><span class="n">loosetypes</span><span class="p">(</span><span class="n">lr</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span>
+<span class="w">  </span><span class="n">symbols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SymbolNode</span><span class="p">[]</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lr</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Expr</span>
+<span class="w">      </span><span class="n">es</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">isempty</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+<span class="w">        </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pop!</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Expr</span>
+<span class="w">          </span><span class="n">append!</span><span class="p">(</span><span class="n">es</span><span class="p">,</span><span class="n">e1</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="k">elseif</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SymbolNode</span>
+<span class="w">          </span><span class="n">push!</span><span class="p">(</span><span class="n">symbols</span><span class="p">,</span><span class="n">e1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">      </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="n">loose_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SymbolNode</span><span class="p">[]</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">symnode</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">symbols</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">isleaftype</span><span class="p">(</span><span class="n">symnode</span><span class="o">.</span><span class="n">typ</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">symnode</span><span class="o">.</span><span class="n">typ</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UnionType</span>
+<span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">loose_types</span><span class="p">,</span><span class="w"> </span><span class="n">symnode</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">loose_types</span>
+<span class="k">end</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">symbols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SymbolNode</span><span class="p">[]</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lr</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Expr</span>
+<span class="w">      </span><span class="n">es</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">isempty</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+<span class="w">        </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pop!</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Expr</span>
+<span class="w">          </span><span class="n">append!</span><span class="p">(</span><span class="n">es</span><span class="p">,</span><span class="n">e1</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="k">elseif</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SymbolNode</span>
+<span class="w">          </span><span class="n">push!</span><span class="p">(</span><span class="n">symbols</span><span class="p">,</span><span class="n">e1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">      </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+</code></pre></div>
+<p>The while loop goes through the guts of all the <code>Expr</code>s, recursively. Every time the loop finds a <code>SymbolNode</code>, it adds it to the vector <code>symbols</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">loose_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SymbolNode</span><span class="p">[]</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">symnode</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">symbols</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">isleaftype</span><span class="p">(</span><span class="n">symnode</span><span class="o">.</span><span class="n">typ</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">typeof</span><span class="p">(</span><span class="n">symnode</span><span class="o">.</span><span class="n">typ</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UnionType</span>
+<span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">loose_types</span><span class="p">,</span><span class="w"> </span><span class="n">symnode</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">loose_types</span>
+<span class="k">end</span>
+</code></pre></div>
+Now we have a list of variables and their types, so it&rsquo;s easy to check if a type is loose. <code>loosetypes</code> does that by looking for a specific kind of non-concrete type, a <code>UnionType</code>. We get a lot more &ldquo;failing&rdquo; results when we consider all non-concrete types to be &ldquo;failing&rdquo;. This is because we&rsquo;re evaluating each method with its annotated argument types, which are likely to be abstract.</p>
+<h3>Making This Usable</h3>
+<p>Now that we can do the check on an expression, we should make it easier to call on a user&rsquo;s code. We&rsquo;ll create two ways to call <code>checklooptypes</code>:</p>
+<ol>
+<li>
+<p>On a whole function; this will check each method of the given function.</p>
+</li>
+<li>
+<p>On an expression; this will work if the user extracts the results of <code>code_typed</code> themselves.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c">## for a given Function, run checklooptypes on each Method</span>
+<span class="k">function</span><span class="w"> </span><span class="n">checklooptypes</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="kt">Callable</span><span class="p">;</span><span class="n">kwargs</span><span class="o">...</span><span class="p">)</span>
+<span class="w">  </span><span class="n">lrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoopResult</span><span class="p">[]</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">code_typed</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="w">    </span><span class="n">lr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">checklooptypes</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">push!</span><span class="p">(</span><span class="n">lrs</span><span class="p">,</span><span class="n">lr</span><span class="p">)</span><span class="w"> </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="n">LoopResults</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">lrs</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c"># for an Expr representing a Method,</span>
+<span class="c"># check that the type of each variable used in a loop</span>
+<span class="c"># has a concrete type</span>
+<span class="n">checklooptypes</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">;</span><span class="n">kwargs</span><span class="o">...</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w"> </span><span class="n">LoopResult</span><span class="p">(</span><span class="n">MethodSignature</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">loosetypes</span><span class="p">(</span><span class="n">loopcontents</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+</code></pre></div>
+<p>We can see both options work about the same for a function with one method:</p>
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">TypeCheck</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+<span class="w">         </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">x</span>
+<span class="w">           </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="o">/</span><span class="mi">2</span>
+<span class="w">         </span><span class="k">end</span>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="w">       </span><span class="k">end</span>
+<span class="n">foo</span><span class="w"> </span><span class="p">(</span><span class="n">generic</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">checklooptypes</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="n">foo</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span><span class="o">::</span><span class="kt">Union</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="o">::</span><span class="kt">Union</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="o">::</span><span class="kt">Union</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">)</span>
+
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">checklooptypes</span><span class="p">(</span><span class="n">code_typed</span><span class="p">(</span><span class="n">foo</span><span class="p">,(</span><span class="kt">Int</span><span class="p">,))[</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">(</span><span class="kt">Int64</span><span class="p">)</span><span class="o">::</span><span class="kt">Union</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="o">::</span><span class="kt">Union</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="o">::</span><span class="kt">Union</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">)</span>
+</code></pre></div>
+<h4>Pretty Printing</h4>
+<p>I&rsquo;ve skipped an implementation detail here: how did we get the results to print out to the REPL?</p>
+<p>First, I made some new types. <code>LoopResults</code> is the result of checking a whole function; it has the function name and the results for each method. <code>LoopResult</code> is the result of checking one method; it has the argument types and the loosely typed variables.</p>
+<p>The <code>checklooptypes</code> function returns a <code>LoopResults</code>. This type has a function called <code>show</code> defined for it. The REPL calls <code>display</code> on values it wants to display; <code>display</code> will then call our <code>show</code> implementation.</p>
+<p>This code is important for making this static analysis usable, but it is not doing static analysis. You should use the preferred method for pretty-printing types and output in your implementation language; this is just how it&rsquo;s done in Julia.</p>
+<div class="highlight"><pre><span></span><code><span class="n">type</span><span class="w"> </span><span class="n">LoopResult</span>
+<span class="w">  </span><span class="n">msig</span><span class="o">::</span><span class="kt">MethodSignature</span>
+<span class="w">  </span><span class="n">lines</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">SymbolNode</span><span class="p">}</span>
+<span class="w">  </span><span class="n">LoopResult</span><span class="p">(</span><span class="n">ms</span><span class="o">::</span><span class="kt">MethodSignature</span><span class="p">,</span><span class="n">ls</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">SymbolNode</span><span class="p">})</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span><span class="n">unique</span><span class="p">(</span><span class="n">ls</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">Base</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="o">::</span><span class="kt">IO</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">::</span><span class="kt">LoopResult</span><span class="p">)</span>
+<span class="w">  </span><span class="n">display</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">msig</span><span class="p">)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">snode</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">lines</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span><span class="n">string</span><span class="p">(</span><span class="n">snode</span><span class="o">.</span><span class="n">name</span><span class="p">),</span><span class="s">&quot;::&quot;</span><span class="p">,</span><span class="n">string</span><span class="p">(</span><span class="n">snode</span><span class="o">.</span><span class="n">typ</span><span class="p">))</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">type</span><span class="w"> </span><span class="n">LoopResults</span>
+<span class="w">  </span><span class="n">name</span><span class="o">::</span><span class="kt">Symbol</span>
+<span class="w">  </span><span class="n">methods</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">LoopResult</span><span class="p">}</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">Base</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="o">::</span><span class="kt">IO</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">::</span><span class="kt">LoopResults</span><span class="p">)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">lr</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">methods</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">string</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="w">    </span><span class="n">display</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h2>Looking For Unused Variables</h2>
+<p>Sometimes, as you&rsquo;re typing in your program, you mistype a variable name. The program can&rsquo;t tell that you meant for this to be the same variable that you spelled correctly before; it sees a variable used only one time, where you might see a variable name misspelled. Languages that require variable declarations naturally catch these misspellings, but many dynamic languages don’t require declarations and thus need an extra layer of analysis to catch them.</p>
+<p>We can find misspelled variable names (and other unused variables) by looking for variables that are only used once&mdash;or only used one way.</p>
+<p>Here is an example of a little bit of code with one misspelled name.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">variable_name</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">variable_name</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">variable_name</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="n">variable_nme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">variable_name</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>This kind of mistake can cause problems in your code that are only discovered when it&rsquo;s run. Let&rsquo;s assume you misspell each variable name only once. We can separate variable usages into writes and reads. If the misspelling is a write (i.e., <code>worng = 5</code>), then no error will be thrown; you&rsquo;ll just be silently putting the value in the wrong variable&mdash;and it could be frustrating to find the bug. If the misspelling is a read (i.e., <code>right = worng + 2</code>), then you&rsquo;ll get a runtime error when the code is run; we&rsquo;d like to have a static warning for this, so that you can find this error sooner, but you will still have to wait until you run the code to see the problem.</p>
+<p>As code becomes longer and more complicated, it becomes harder to spot the mistake&mdash;unless you have the help of static analysis.</p>
+<h3>Left-Hand Side and Right-Hand Side</h3>
+<p>Another way to talk about &ldquo;read&rdquo; and &ldquo;write&rdquo; usages is to call them &ldquo;right-hand side&rdquo; (RHS) and &ldquo;left-hand side&rdquo; (LHS) usages. This refers to where the variable is relative to the <code>=</code> sign.</p>
+<p>Here are some usages of <code>x</code>:</p>
+<ul>
+<li>Left-hand side:<ul>
+<li><code>x = 2</code></li>
+<li><code>x = y + 22</code></li>
+<li><code>x = x + y + 2</code></li>
+<li><code>x += 2</code> (which de-sugars to <code>x = x + 2</code>)</li>
+</ul>
+</li>
+<li>Right-hand side:<ul>
+<li><code>y = x + 22</code></li>
+<li><code>x = x + y + 2</code></li>
+<li><code>x += 2</code> (which de-sugars to <code>x = x + 2</code>)</li>
+<li><code>2 * x</code></li>
+<li><code>x</code></li>
+</ul>
+</li>
+</ul>
+<p>Notice that expressions like <code>x = x + y + 2</code> and <code>x += 2</code> appear in both sections, since <code>x</code> appears on both sides of the <code>=</code> sign.</p>
+<h3>Looking for Single-Use Variables</h3>
+<p>There are two cases we need to look for:</p>
+<ol>
+<li>Variables used once.</li>
+<li>Variables used only on the LHS or only on the RHS.</li>
+</ol>
+<p>We&rsquo;ll look for all variable usages, but we&rsquo;ll look for LHS and RHS usages separately, to cover both cases.</p>
+<h4>Finding LHS Usages</h4>
+<p>To be on the LHS, a variable needs to have an <code>=</code> sign to be to the left of. This means we can look for <code>=</code> signs in the AST, and then look to the left of them to find the relevant variable.</p>
+<p>In the AST, an <code>=</code> is an <code>Expr</code> with the head <code>:(=)</code>. (The parentheses are there to make it clear that this is the symbol for <code>=</code> and not another operator, <code>:=</code>.) The first value in <code>args</code> will be the variable name on its LHS. Because we&rsquo;re looking at an AST that the compiler has already cleaned up, there will (nearly) always be just a single symbol to the left of our <code>=</code> sign.</p>
+<p>Let&rsquo;s see what that means in code:
+<div class="highlight"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="o">:</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">head</span>
+<span class="o">:</span><span class="p">(</span><span class="o">=</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">args</span>
+<span class="mi">2</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+<span class="w">  </span><span class="ss">:x</span>
+<span class="w"> </span><span class="mi">5</span><span class="w">  </span>
+
+<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="ss">:x</span>
+</code></pre></div></p>
+<p>Below is the full implementation, followed by an explanation.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Return a list of all variables used on the left-hand-side of assignment (=)</span>
+<span class="c">#</span>
+<span class="c"># Arguments:</span>
+<span class="c">#   e: an Expr representing a Method, as from code_typed</span>
+<span class="c">#</span>
+<span class="c"># Returns:</span>
+<span class="c">#   a Set{Symbol}, where each element appears on the LHS of an assignment in e.</span>
+<span class="c">#</span>
+<span class="k">function</span><span class="w"> </span><span class="n">find_lhs_variables</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}()</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">Base</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span><span class="o">:</span><span class="p">(</span><span class="o">=</span><span class="p">))</span>
+<span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">output</span>
+<span class="k">end</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}()</span>
+</code></pre></div>
+<p>We have a set of Symbols; those are variables names we&rsquo;ve found on the LHS.</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">Base</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span><span class="o">:</span><span class="p">(</span><span class="o">=</span><span class="p">))</span>
+<span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+</code></pre></div>
+We aren&rsquo;t digging deeper into the expressions, because the <code>code_typed</code> AST is pretty flat; loops and ifs have been converted to flat statements with gotos for control flow. There won&rsquo;t be any assignments hiding inside function calls&rsquo; arguments. This code will fail if anything more than a symbol is on the left of the equal sign. This misses two specific edge cases: array accesses (like <code>a[5]</code>, which will be represented as a <code>:ref</code> expression) and properties (like <code>a.head</code>, which will be represented as a <code>:.</code> expression). These will still always have the relevant symbol as the first value in their <code>args</code>, it might just be buried a bit (as in <code>a.property.name.head.other_property</code>). This code doesn’t handle those cases, but a couple lines of code inside the <code>if</code> statement could fix that.</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">      </span><span class="n">push!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+When we find a LHS variable usage, we <code>push!</code> the variable name into the <code>Set</code>. The <code>Set</code> will make sure that we only have one copy of each name.</p>
+<h4>Finding RHS usages</h4>
+<p>To find all the other variable usages, we also need to look at each <code>Expr</code>. This is a bit more involved, because we care about basically all the <code>Expr</code>s, not just the <code>:(=)</code> ones and because we have to dig into nested <code>Expr</code>s (to handle nested function calls).</p>
+<p>Here is the full implementation, with explanation following.
+<div class="highlight"><pre><span></span><code><span class="c"># Given an Expression, finds variables used in it (on right-hand-side)</span>
+<span class="c">#</span>
+<span class="c"># Arguments: e: an Expr</span>
+<span class="c">#</span>
+<span class="c"># Returns: a Set{Symbol}, where each e is used in a rhs expression in e</span>
+<span class="c">#</span>
+<span class="k">function</span><span class="w"> </span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}()</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:lambda</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">      </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="o">=</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span><span class="w">  </span><span class="c"># skip lhs</span>
+<span class="w">      </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:return</span>
+<span class="w">    </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:call</span>
+<span class="w">    </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="c"># skip function name</span>
+<span class="w">    </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TopNode</span><span class="p">(</span><span class="ss">:box</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="c"># skip type name</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="n">start</span><span class="o">:</span><span class="n">end</span><span class="p">]</span>
+<span class="w">      </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:if</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="w"> </span><span class="c"># want to check condition, too</span>
+<span class="w">     </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">   </span><span class="k">end</span>
+<span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="o">::</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">output</span>
+<span class="k">end</span>
+</code></pre></div></p>
+<p>The main structure of this function is a large if-else statement, where each case handles a different head-symbol.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}()</span>
+</code></pre></div>
+<p><code>output</code> is the set of variable names, which we will return at the end of the function. Since we only care about the fact that each of these variables has be read at least once, using a <code>Set</code> frees us from worrying about the uniqueness of each name.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:lambda</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">body</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">      </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+</code></pre></div>
+<p>This is the first condition in the if-else statement. A <code>:lambda</code> represents the body of a function. We recurse on the body of the definition, which should get all the RHS variable usages in the definition.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="o">=</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span><span class="w">  </span><span class="c"># skip lhs</span>
+<span class="w">      </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+</code></pre></div>
+<p>If the head is <code>:(=)</code>, then the expression is an assignment. We skip the first element of <code>args</code> because that&rsquo;s the variable being assigned to. For each of the remaining expressions, we recursively find the RHS variables and add them to our set.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:return</span>
+<span class="w">    </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<p>If this is a return statement, then the first element of <code>args</code> is the expression whose value is returned; we&rsquo;ll add any variables in there into our set.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:call</span>
+<span class="w">    </span><span class="c"># skip function name</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span>
+<span class="w">      </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+</code></pre></div>
+<p>For function calls, we want to get all variables used in all the arguments to the call. We skip the function name, which is the first element of <code>args</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">:if</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="w"> </span><span class="c"># want to check condition, too</span>
+<span class="w">     </span><span class="n">union!</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<span class="w">   </span><span class="k">end</span>
+</code></pre></div>
+An <code>Expr</code> representing an if statement has the <code>head</code> value <code>:if</code>. We want to get variable usages from all the expressions in the body of the if statement, so we recurse on each element of <code>args</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">elseif</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">:</span><span class="p">(</span><span class="o">::</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">  </span><span class="k">end</span>
+</code></pre></div>
+<p>The <code>:(::)</code> operator is used to add type annotations. The first argument is the expression or variable being annotated; we check for variable usages in the annotated expression.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">output</span>
+</code></pre></div>
+<p>At the end of the function, we return the set of RHS variable usages.</p>
+<p>There&rsquo;s a little more code that simplifies the method above. Because the version above only handles <code>Expr</code>s, but some of the values that get passed recursively may not be <code>Expr</code>s, we need a few more methods to handle the other possible types appropriately.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Recursive Base Cases, to simplify control flow in the Expr version</span>
+<span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}()</span><span class="w">  </span><span class="c"># unhandled, should be immediate val e.g. Int</span>
+<span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">s</span><span class="o">::</span><span class="kt">Symbol</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}([</span><span class="n">s</span><span class="p">])</span>
+<span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">s</span><span class="o">::</span><span class="kt">SymbolNode</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Set</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">}([</span><span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+</code></pre></div>
+<h4>Putting It Together</h4>
+<p>Now that we have the two functions defined above, we can use them together to find variables that are either only read from or only written to. The function that finds them will be called <code>unused_locals</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="n">unused_locals</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">)</span>
+<span class="w">  </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_lhs_variables</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">  </span><span class="n">rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_rhs_variables</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="w">  </span><span class="n">setdiff</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span><span class="n">rhs</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>unused_locals</code> will return a set of variable names. It&rsquo;s easy to write a function that determines whether the output of <code>unused_locals</code> counts as a &ldquo;pass&rdquo; or not. If the set is empty, the method passes. If all the methods of a function pass, then the function passes. The function <code>check_locals</code> below implements this logic.</p>
+<div class="highlight"><pre><span></span><code><span class="n">check_locals</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="kt">Callable</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all</span><span class="p">([</span><span class="n">check_locals</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">code_typed</span><span class="p">(</span><span class="n">f</span><span class="p">)])</span>
+<span class="n">check_locals</span><span class="p">(</span><span class="n">e</span><span class="o">::</span><span class="kt">Expr</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isempty</span><span class="p">(</span><span class="n">unused_locals</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</code></pre></div>
+<h2>Conclusion</h2>
+<p>We’ve done two static analyses of Julia code&mdash;one based on types and one based on variable usages.</p>
+<p>Statically-typed languages already do the kind of work our type-based analysis did; additional type-based static analysis is mostly useful in dynamically typed languages. There have been (mostly research) projects to build static type inference systems for languages including Python, Ruby, and Lisp. These systems are usually built around optional type annotations; you can have static types when you want them, and fall back to dynamic typing when you don’t. This is especially helpful for integrating some static typing into existing code bases.</p>
+<p>Non-typed-based checks, like our variable-usage one, are applicable to both dynamically and statically typed languages. However, many statically typed languages, like C++ and Java, require you to declare variables, and already give basic warnings like the ones we created. There are still custom checks that can be written; for example, checks that are specific to your project’s style guide or extra safety precautions based on security policies.</p>
+<p>While Julia does have great tools for enabling static analysis, it’s not alone. Lisp, of course, is famous for having the code be a data structure of nested lists, so it tends to be easy to get at the AST. Java also exposes its AST, although the AST is much more complicated than Lisp’s. Some languages or language tool-chains are not designed to allow mere users to poke around at internal representations. For open-source tool chains (especially well-commented ones), one option is to add hooks to the enviroment that let you access the AST.</p>
+<p>In cases where that won’t work, the final fallback is writing a parser yourself; this is to be avoided when possible. It’s a lot of work to cover the full grammar of most programming languages, and you’ll have to update it yourself as new features are added to the language (rather than getting the updates automatically from upstream). Depending on the checks you want to do, you may be able to get away with parsing only some lines or a subset of language features, which would greatly decrease the cost of writing your own parser.</p>
+<p>Hopefully, your new understanding of how static analysis tools are written will help you understand the tools you use on your code, and maybe inspire you to write one of your own.</p>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

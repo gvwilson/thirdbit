@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: A Continuous Integration System</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>A Continuous Integration System</h1>
+
+
+
+<p><em>by Malini Das</em></p>
+<p><em>Malini Das is a software engineer who is passionate about developing quickly (but safely!), and solving cross-functional problems. She has worked at Mozilla as a tools engineer and is currently honing her skills at Twitch. Follow Malini on <a href="https://twitter.com/malinidas">Twitter</a> or on her <a href="http://malinidas.com/">blog</a>.</em></p>
+<h2>What is a Continuous Integration System?</h2>
+<p>When developing software, we want to be able to verify that our new
+features or bug fixes are safe and work as expected. We do this by
+running tests against our code. Sometimes, developers will run tests
+locally to verify that their changes are safe, but developers may not
+have the time to test their code on every system their software runs in.
+Further, as more and more tests are added the amount of time required to
+run them, even only locally, becomes less viable. Because of this,
+continuous integration systems have been created.</p>
+<p>Continuous Integration (CI) systems are dedicated systems used to test
+new code. Upon a commit to the code repository, it is the responsibility
+of the continuous integration system to verify that this commit will not
+break any tests. To do this, the system must be able to fetch the new
+changes, run the tests and report its results. Like any other system, it
+should also be failure resistant. This means if any part of the system
+fails, it should be able to recover and continue from that point.</p>
+<p>This test system should also handle load well, so that we can get test
+results in a reasonable amount of time in the event that commits are being made
+faster than the tests can be run. We can achieve this by distributing and
+parallelizing the testing effort. This project will demonstrate a small,
+bare-bones distributed continuous integration system that is designed for
+extensibility.</p>
+<h2>Project Limitations and Notes</h2>
+<p>This project uses Git as the repository for the code that needs to be tested.
+Only standard source code management calls will be used, so if you are
+unfamiliar with Git but are familiar with other version control systems (VCS)
+like svn or Mercurial, you can still follow along. </p>
+<p>Due to the limitations of code length and unittest, I simplified test
+discovery. We will <em>only</em> run tests that are in a directory named
+<code>tests</code> within the repository.</p>
+<p>Continuous integration systems monitor a master repository which is
+usually hosted on a web server, and not local to the CI&rsquo;s file systems.
+For the cases of our example, we will use a local repository instead of
+a remote repository.</p>
+<p>Continuous integration systems need not run on a fixed, regular
+schedule. You can also have them run every few commits, or per-commit.
+For our example case, the CI system will run periodically. This means if
+it is set up to check for changes in five-second periods, it will run
+tests against the most recent commit made after the five-second period.
+It won&rsquo;t test every commit made within that period of time, only the
+most recent one.</p>
+<p>This CI system is designed to check periodically for changes in a
+repository. In real-world CI systems, you can also have the repository
+observer get notified by a hosted repository. Github, for example,
+provides &ldquo;post-commit hooks&rdquo; which send out notifications to a URL.
+Following this model, the repository observer would be called by the web
+server hosted at that URL to respond to that notification. Since this is
+complex to model locally, we&rsquo;re using an observer model, where the
+repository observer will check for changes instead of being notified.</p>
+<p>CI systems also have a reporter aspect, where the test runner reports
+its results to a component that makes them available for people to see,
+perhaps on a webpage. For simplicity, this project gathers the test
+results and stores them as files in the file system local to the
+dispatcher process.</p>
+<p>Note that the architecture this CI system uses is just one possibility
+among many. This approach has been chosen to simplify our case study
+into three main components.</p>
+<h2>Introduction</h2>
+<p>The basic structure of a continuous integration system consists of three
+components: an observer, a test job dispatcher, and a test runner. The
+observer watches the repository. When it notices that a commit has been
+made, it notifies the job dispatcher. The job dispatcher then finds a
+test runner and gives it the commit number to test.</p>
+<p>There are many ways to architect a CI system. We could have the
+observer, dispatcher and runner be the same process on a single machine.
+This approach is very limited since there is no load handling, so if
+more changes are added to the repository than the CI system can handle,
+a large backlog will accrue. This approach is also not fault-tolerant at
+all; if the computer it is running on fails or there is a power outage,
+there are no fallback systems, so no tests will run. The ideal system
+would be one that can handle as many test jobs as requested, and will do
+its best to compensate when machines go down.</p>
+<p>To build a CI system that is fault-tolerant and load-bearing, in this
+project, each of these components is its own process. This will let each
+process be independent of the others, and let us run multiple instances
+of each process. This is useful when you have more than one test job
+that needs to be run at the same time. We can then spawn multiple test
+runners in parallel, allowing us to run as many jobs as needed, and
+prevent us from accumulating a backlog of queued tests.</p>
+<p>In this project, not only do these components run as separate processes,
+but they also communicate via sockets, which will let us run each
+process on a separate, networked machine. A unique host/port address is
+assigned to each component, and each process can communicate with the
+others by posting messages at the assigned addresses.</p>
+<p>This design will let us handle hardware failures on the fly by enabling
+a distributed architecture. We can have the observer run on one machine,
+the test job dispatcher on another, and the test runners on another, and
+they can all communicate with each other over a network. If any of these
+machines go down, we can schedule a new machine to go up on the network,
+so the system becomes fail-safe.</p>
+<p>This project does not include auto-recovery code, as that is dependent
+on your distributed system&rsquo;s architecture, but in the real world, CI
+systems are run in a distributed environment like this so they can have
+failover redundancy (i.e., we can fall back to a standby machine if one
+of the machines a process was running on becomes defunct).</p>
+<p>For the purposes of this project, each of these processes will be locally and
+manually started distinct local ports.</p>
+<h3>Files in this Project</h3>
+<p>This project contains Python files for each of these components: the repository
+observer  (<code>repo_observer.py</code>), the test job dispatcher
+(<code>dispatcher.py</code>), and the test runner  (<code>test_runner.py</code>). Each of
+these three processes communicate with each other using sockets, and since the
+code used to transmit information is shared by all of them, there is a
+helpers.py file that contains it, so each process imports the communicate
+function from here instead of having it duplicated in the file.</p>
+<p>There are also bash script files used by these processes. These script
+files are used to execute bash and git commands in an easier way than
+constantly using Python&rsquo;s operating system-level modules like os and
+subprocess.</p>
+<p>Lastly, there is a tests directory, which contains two example tests the
+CI system will run. One test will pass, and the other will fail.</p>
+<h3>Initial Setup</h3>
+<p>While this CI system is ready to work in a distributed system, let us
+start by running everything locally on one computer so we can get a
+grasp on how the CI system works without adding the risk of running into
+network-related issues. If you wish to run this in a distributed
+environment, you can run each component on its own machine.</p>
+<p>Continuous integration systems run tests by detecting changes in a code
+repository, so to start, we will need to set up the repository our CI
+system will monitor.</p>
+<p>Let&rsquo;s call this <code>test_repo</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>test_repo<span class="w"> </span>
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>test_repo<span class="w"> </span>
+$<span class="w"> </span>git<span class="w"> </span>init
+</code></pre></div>
+<p>This will be our master repository. This is where developers check in
+their code, so our CI should pull this repository and check for commits,
+then run tests. The thing that checks for new commits is the repository
+observer.</p>
+<p>The repository observer works by checking commits, so we need at least
+one commit in the master repository. Let’s commit our example tests so
+we have some tests to run.</p>
+<p>Copy the tests folder from this code base to <code>test_repo</code> and commit it:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/this/directory/tests<span class="w"> </span>/path/to/test_repo/<span class="w"> </span>
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/test<span class="se">\_</span>repo<span class="w"> </span>
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>tests/<span class="w"> </span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span>”add<span class="w"> </span>tests”
+</code></pre></div>
+<p>Now you have a commit in the master repository.</p>
+<p>The repo observer component will need its own clone of the code, so it
+can detect when a new commit is made. Let&rsquo;s create a clone of our master
+repository, and call it <code>test_repo_clone_obs</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>/path/to/test_repo<span class="w"> </span>test_repo_clone_obs
+</code></pre></div>
+<p>The test runner will also need its own clone of the code, so it can
+checkout the repository at a given commit and run the tests. Let&rsquo;s
+create another clone of our master repository, and call it
+<code>test_repo_clone_runner</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>/path/to/test_repo<span class="w"> </span>test_repo_clone_runner
+</code></pre></div>
+<h2>The Components</h2>
+<h3>The Repository Observer (<code>repo_observer.py</code>)</h3>
+<p>The repository observer monitors a repository and notifies the
+dispatcher when a new commit is seen. In order to work with all version
+control systems (since not all VCSs have built-in notification systems),
+this repository observer is written to periodically check the repository
+for new commits instead of relying on the VCS to notify it that changes
+have been made.</p>
+<p>The observer will poll the repository periodically, and when a change is
+seen, it will tell the dispatcher the newest commit ID to run tests
+against. The observer checks for new commits by finding the current
+commit ID in its repository, then updates the repository, and lastly, it
+finds the latest commit ID and compares them. For the purposes of this
+example, the observer will only dispatch tests against the latest
+commit. This means that if two commits are made between a periodic
+check, the observer will only run tests against the latest commit.
+Usually, a CI system will detect all commits since the last tested
+commit, and will dispatch test runners for each new commit, but I have
+modified this assumption for simplicity.</p>
+<p>The observer must know which repository to observe. We previously
+created a clone of our repository at <code>/path/to/test_repo_clone_obs</code>.
+The observer will use this clone to detect changes. To allow the
+repository observer to use this clone, we pass it the path when we
+invoke the <code>repo_observer.py</code> file. The repository observer will use this
+clone to pull from the main repository.</p>
+<p>We must also give the observer the dispatcher&rsquo;s address, so the observer
+may send it messages. When you start the repository observer, you can
+pass in the dispatcher&rsquo;s server address using the <code>--dispatcher-server</code>
+command line argument. If you do not pass it in, it will assume the
+default address of <code>localhost:8888</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--dispatcher-server&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dispatcher host:port, &quot;</span> \
+                        <span class="s2">&quot;by default it uses localhost:8888&quot;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;localhost:8888&quot;</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;repo&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;REPO&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;path to the repository this will observe&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">dispatcher_host</span><span class="p">,</span> <span class="n">dispatcher_port</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Once the repository observer file is invoked, it starts the <code>poll()</code>
+function. This function parses the command line arguments, and then
+kicks off an infinite while loop. The while loop is used to periodically
+check the repository for changes. The first thing it does is call the
+<code>update_repo.sh</code> Bash script <sup id="fnref:bash"><a class="footnote-ref" href="#fn:bash">1</a></sup>.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># call the bash script that will update the repo and check</span>
+            <span class="c1"># for changes. If there&#39;s a change, it will drop a .commit_id file</span>
+            <span class="c1"># with the latest commit in the current working directory</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;./update_repo.sh&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">repo</span><span class="p">])</span>
+        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not update and check repository. &quot;</span> <span class="o">+</span>
+                            <span class="s2">&quot;Reason: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>update_repo.sh</code> file is used to identify any new commits and let the
+repository observer know. It does this by noting what commit ID we are
+currently aware of, then pulls the repository, and checks the latest
+commit ID. If they match, no changes are made, so the repository
+observer doesn&rsquo;t need to do anything, but if there is a difference in
+the commit ID, then we know a new commit has been made. In this case,
+<code>update_repo.sh</code> will create a file called <code>.commit_id</code> with the latest
+commit ID stored in it.</p>
+<p>A step-by-step breakdown of <code>update_repo.sh</code> is as follows. First, the
+script sources the <code>run_or_fail.sh</code> file, which provides the
+<code>run_or_fail</code> helper method used by all our shell scripts. This method
+is used to run the given command, or fail with the given error message.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">source</span><span class="w"> </span>run_or_fail.sh<span class="w"> </span>
+</code></pre></div>
+<p>Next, the script tries to remove a file named <code>.commit_id</code>. Since
+<code>updaterepo.sh</code> is called infinitely by the <code>repo_observer.py</code> file, if we
+previously had a new commit, then <code>.commit_id</code> was created, but holds a
+commit we already tested. Therefore, we want to remove that file, and
+create a new one only if a new commit is found.</p>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>.commit_id<span class="w"> </span>
+</code></pre></div>
+<p>After it removes the file (if it existed), it verifies that the
+repository we are observing exists, and then resets it to the most
+recent commit, in case anything caused it to get out of sync.</p>
+<div class="highlight"><pre><span></span><code>run_or_fail<span class="w"> </span><span class="s2">&quot;Repository folder not found!&quot;</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
+run_or_fail<span class="w"> </span><span class="s2">&quot;Could not reset git&quot;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
+</code></pre></div>
+<p>It then calls git log and parses the output, looking for the most recent
+commit ID.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>run_or_fail<span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-n1<span class="k">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+<span class="nv">COMMIT_ID</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="sb">`</span>
+</code></pre></div>
+<p>Then it pulls the repository, getting any recent changes, then gets the
+most recent commit ID.</p>
+<div class="highlight"><pre><span></span><code>run_or_fail<span class="w"> </span><span class="s2">&quot;Could not pull from repository&quot;</span><span class="w"> </span>git<span class="w"> </span>pull
+<span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>run_or_fail<span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-n1<span class="k">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+<span class="nv">NEW_COMMIT_ID</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="sb">`</span>
+</code></pre></div>
+<p>Lastly, if the commit ID doesn&rsquo;t match the previous ID, then we know we
+have new commits to check, so the script stores the latest commit ID in
+a .commit_id file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># if the id changed, then write it to a file</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$NEW_COMMIT_ID</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="nv">$COMMIT_ID</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">popd</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$NEW_COMMIT_ID</span><span class="w"> </span>&gt;<span class="w"> </span>.commit_id
+<span class="k">fi</span>
+</code></pre></div>
+<p>When <code>update_repo.sh</code> finishes running in <code>repo_observer.py</code>, the
+repository observer checks for the existence of the <code>.commit_id</code> file. If
+the file does exist, then we know we have a new commit, and we need to
+notify the dispatcher so it can kick off the tests. The repository
+observer will check the dispatcher server&rsquo;s status by connecting to it
+and sending a &lsquo;status&rsquo; request, to make sure there are no problems with
+it, and to make sure it is ready for instruction.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;.commit_id&quot;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">dispatcher_host</span><span class="p">,</span>
+                                               <span class="nb">int</span><span class="p">(</span><span class="n">dispatcher_port</span><span class="p">),</span>
+                                               <span class="s2">&quot;status&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not communicate with dispatcher server: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>If it responds with &ldquo;OK&rdquo;, then the repository observer opens the
+<code>.commit_id</code> file, reads the latest commit ID and sends that ID to the
+dispatcher, using a <code>dispatch:&lt;commit ID&gt;</code> request. It will then sleep
+for five seconds and repeat the process. We&rsquo;ll also try again in five
+seconds if anything went wrong along the way.</p>
+<div class="highlight"><pre><span></span><code>            <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
+                <span class="n">commit</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;.commit_id&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">commit</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">dispatcher_host</span><span class="p">,</span>
+                                               <span class="nb">int</span><span class="p">(</span><span class="n">dispatcher_port</span><span class="p">),</span>
+                                               <span class="s2">&quot;dispatch:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not dispatch the test: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                    <span class="n">response</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="s2">&quot;dispatched!&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not dispatch the test: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                <span class="n">response</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>The repository observer will repeat this process forever, until you kill
+the process via a  <code>KeyboardInterrupt</code> (Ctrl+c), or by sending it a kill
+signal.</p>
+<h3>The Dispatcher (<code>dispatcher.py</code>)</h3>
+<p>The dispatcher is a separate service used to delegate testing tasks. It
+listens on a port for requests from test runners and from the repository
+observer. It allows test runners to register themselves, and when given
+a commit ID from the repository observer, it will dispatch a test runner
+against the new commit. It also gracefully handles any problems with the
+test runners and will redistribute the commit ID to a new test runner if
+anything goes wrong.</p>
+<p>When <code>dispatch.py</code> is executed, the <code>serve</code> function is called. First it
+parses the arguments that allow you to specify the dispatcher&rsquo;s host and
+port:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">serve</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--host&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dispatcher&#39;s host, by default it uses localhost&quot;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--port&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dispatcher&#39;s port, by default it uses 8888&quot;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mi">8888</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</code></pre></div>
+<p>This starts the dispatcher server, and two other threads. One thread
+runs the <code>runner_checker</code> function, and other runs the <code>redistribute</code>
+function.</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">server</span> <span class="o">=</span> <span class="n">ThreadingTCPServer</span><span class="p">((</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">)),</span> <span class="n">DispatcherHandler</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="err">`</span><span class="n">serving</span> <span class="n">on</span> <span class="o">%</span><span class="n">s</span><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="err">`</span> <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+
+    <span class="o">...</span>
+
+    <span class="n">runner_heartbeat</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">runner_checker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">server</span><span class="p">,))</span>
+    <span class="n">redistributor</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">redistribute</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">server</span><span class="p">,))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">runner_heartbeat</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">redistributor</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="c1"># Activate the server; this will keep running until you</span>
+        <span class="c1"># interrupt the program with Ctrl+C or Cmd+C</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+        <span class="c1"># if any exception occurs, kill the thread</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">dead</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">runner_heartbeat</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="n">redistributor</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+<p>The <code>runner_checker</code> function periodically pings each registered test
+runner to make sure they are still responsive. If they become
+unresponsive, then that runner will be removed from the pool and its
+commit ID will be dispatched to the next available runner. The function
+will log the commit ID in the <code>pending_commits</code> variable.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">runner_checker</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">manage_commit_lists</span><span class="p">(</span><span class="n">runner</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">commit</span><span class="p">,</span> <span class="n">assigned_runner</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">dispatched_commits</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">assigned_runner</span> <span class="o">==</span> <span class="n">runner</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="n">server</span><span class="o">.</span><span class="n">dispatched_commits</span><span class="p">[</span><span class="n">commit</span><span class="p">]</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">commit</span><span class="p">)</span>
+                    <span class="k">break</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">server</span><span class="o">.</span><span class="n">dead</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">runner</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
+                                                   <span class="nb">int</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
+                                                   <span class="s2">&quot;ping&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">&quot;pong&quot;</span><span class="p">:</span>
+                        <span class="nb">print</span> <span class="s2">&quot;removing runner </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">runner</span>
+                        <span class="n">manage_commit_lists</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">manage_commit_lists</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>redistribute</code> function is used to dispatch the commit IDs logged in
+<code>pending_commits</code>. When <code>redistribute</code> runs, it checks if there are any
+commit IDs in <code>pending_commits</code>. If so, it calls the <code>dispatch_tests</code>
+function with the commit ID.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">redistribute</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">server</span><span class="o">.</span><span class="n">dead</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">commit</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="s2">&quot;running redistribute&quot;</span>
+                <span class="nb">print</span> <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span>
+                <span class="n">dispatch_tests</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">commit</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>dispatch_tests</code> function is used to find an available test runner
+from the pool of registered runners. If one is available, it will send a
+runtest message to it with the commit ID. If none are currently
+available, it will wait two seconds and repeat this process. Once
+dispatched, it logs which commit ID is being tested by which test runner
+in the <code>dispatched_commits</code> variable. If the commit ID is in the
+<code>pending_commits</code> variable, <code>dispatch_tests</code> will remove it since it has
+already been successfully re-dispatched.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dispatch_tests</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">):</span>
+    <span class="c1"># NOTE: usually we don&#39;t run this forever</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s2">&quot;trying to dispatch to runners&quot;</span>
+        <span class="k">for</span> <span class="n">runner</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
+                                           <span class="nb">int</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
+                                           <span class="s2">&quot;runtest:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="s2">&quot;adding id </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit_id</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">dispatched_commits</span><span class="p">[</span><span class="n">commit_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">runner</span>
+                <span class="k">if</span> <span class="n">commit_id</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="p">:</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">commit_id</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>The dispatcher server uses the <code>SocketServer</code> module, which is a very simple
+server that is part of the standard library. There are four basic server types
+in the <code>SocketServer</code> module: <code>TCP</code>, <code>UDP</code>, <code>UnixStreamServer</code> and
+<code>UnixDatagramServer</code>. We will be using a TCP-based socket server so we can
+ensure continuous, ordered streams of data between servers, as UDP does not
+ensure this.</p>
+<p>The default <code>TCPServer</code> provided by <code>SocketServer</code> can only handle one
+request at a time, so it cannot handle the case where the dispatcher is
+talking to one connection, say from a test runner, and then a new
+connection comes in, say from the repository observer. If this happens,
+the repository observer would have to wait for the first connection to
+complete and disconnect before it would be serviced. This is not ideal
+for our case, since the dispatcher server must be able to directly and
+swiftly communicate with all test runners and the repository observer.</p>
+<p>In order for the dispatcher server to handle simultaneous connections,
+it uses the  <code>ThreadingTCPServer</code> custom class, which adds threading
+ability to the default <code>SocketServer</code>. This means that any time the
+dispatcher receives a connection request, it spins off a new process
+just for that connection. This allows the dispatcher to handle multiple
+requests at the same time.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ThreadingTCPServer</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">ThreadingMixIn</span><span class="p">,</span> <span class="n">SocketServer</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">):</span>
+    <span class="n">runners</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Keeps track of test runner pool</span>
+    <span class="n">dead</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Indicate to other threads that we are no longer running</span>
+    <span class="n">dispatched_commits</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># Keeps track of commits we dispatched</span>
+    <span class="n">pending_commits</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Keeps track of commits we have yet to dispatch</span>
+</code></pre></div>
+<p>The dispatcher server works by defining handlers for each request. This
+is defined by the <code>DispatcherHandler</code> class, which inherits from
+<code>SocketServer</code>&rsquo;s <code>BaseRequestHandler</code>. This base class just needs us to
+define the handle function, which will be invoked whenever a connection
+is requested. The handle function defined in <code>DispatcherHandler</code> is our
+custom handler, and it will be called on each connection. It looks at
+the incoming connection request (<code>self.request</code> holds the request
+information), and parses out what command is being requested of it.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DispatcherHandler</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The RequestHandler class for our dispatcher.</span>
+<span class="sd">    This will dispatch test runners against the incoming commit</span>
+<span class="sd">    and handle their requests and test results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">command_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+)(:.+)*&quot;</span><span class="p">)</span>
+    <span class="n">BUF_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BUF_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">command_groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">command_groups</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;Invalid command&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>It handles four commands: <code>status</code>, <code>register</code>, <code>dispatch</code>, and <code>results</code>.
+<code>status</code> is used to check if the dispatcher server is up and running.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;in status&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>In order for the dispatcher to do anything useful, it needs to have at
+least one test runner registered. When register is called on a host:port
+pair, it stores the runner&rsquo;s information in a list (the runners object
+attached to the <code>ThreadingTCPServer</code> object) so it can communicate with
+the runner later, when it needs to give it a commit ID to run tests
+against.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;register&quot;</span><span class="p">:</span>
+            <span class="c1"># Add this test runner to our pool</span>
+            <span class="nb">print</span> <span class="s2">&quot;register&quot;</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;:(\w*)&quot;</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+            <span class="n">runner</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">:</span><span class="n">port</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><code>dispatch</code> is used by the repository observer to dispatch a test runner
+against a commit. The format of this command is <code>dispatch:&lt;commit ID&gt;</code>.
+The dispatcher parses out the commit ID from this message and sends it
+to the test runner.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;dispatch&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;going to dispatch&quot;</span>
+            <span class="n">commit_id</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;No runners are registered&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># The coordinator can trust us to dispatch the test</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+                <span class="n">dispatch_tests</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">)</span>
+</code></pre></div>
+<p><code>results</code> is used by a test runner to report the results of a finished
+test run. The format of this command is
+<code>results:&lt;commit ID&gt;:&lt;length of results data in bytes&gt;:&lt;results&gt;</code>.
+The <code>&lt;commit ID&gt;</code> is used to identify which commit ID the tests were run
+against. The <code>&lt;length of results data in bytes&gt;</code> is used to figure out
+how big a buffer is needed for the results data. Lastly, <code>&lt;results&gt;</code>
+holds the actual result output.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;results&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;got test results&quot;</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">commit_id</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">length_msg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="c1"># 3 is the number of &quot;:&quot; in the sent command</span>
+            <span class="n">remaining_buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BUF_SIZE</span> <span class="o">-</span> \
+                <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">command</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">commit_id</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">length_msg</span> <span class="o">&gt;</span> <span class="n">remaining_buffer</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">length_msg</span> <span class="o">-</span> <span class="n">remaining_buffer</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatched_commits</span><span class="p">[</span><span class="n">commit_id</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;test_results&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;test_results&quot;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test_results/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit_id</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">:]</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3>The Test Runner (<code>test_runner.py</code>)</h3>
+<p>The test runner is responsible for running tests against a given commit
+ID and reporting the results. It communicates only with the dispatcher
+server, which is responsible for giving it the commit IDs to run
+against, and which will receive the test results.</p>
+<p>When the <code>test_runner.py</code> file is invoked, it calls the <code>serve</code> function
+which starts the test runner server, and also starts a thread to run the
+<code>dispatcher_checker</code> function. Since this startup process is very similar
+to the ones described in <code>repo_observer.py</code> and <code>dispatcher.py</code>, we omit
+the description here.</p>
+<p>The <code>dispatcher_checker</code> function pings the dispatcher server every five
+seconds to make sure it is still up and running. This is important for
+resource management. If the dispatcher goes down, then the test runner
+will shut down since it won&rsquo;t be able to do any meaningful work if there
+is no dispatcher to give it work or to report to.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">dispatcher_checker</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">server</span><span class="o">.</span><span class="n">dead</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">server</span><span class="o">.</span><span class="n">last_communication</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span>
+                                       <span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
+                                       <span class="nb">int</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
+                                       <span class="s2">&quot;status&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
+                        <span class="nb">print</span> <span class="s2">&quot;Dispatcher is no longer functional&quot;</span>
+                        <span class="n">server</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+                        <span class="k">return</span>
+                <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span> <span class="s2">&quot;Can&#39;t communicate with dispatcher: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+                    <span class="k">return</span>
+</code></pre></div>
+<p>The test runner is a <code>ThreadingTCPServer</code>, like the dispatcher server. It
+requires threading because not only will the dispatcher be giving it a
+commit ID to run, but the dispatcher will be pinging the runner
+periodically to verify that it is still up while it is running tests.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ThreadingTCPServer</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">ThreadingMixIn</span><span class="p">,</span> <span class="n">SocketServer</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">):</span>
+    <span class="n">dispatcher_server</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Holds the dispatcher server host/port information</span>
+    <span class="n">last_communication</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Keeps track of last communication from dispatcher</span>
+    <span class="n">busy</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Status flag</span>
+    <span class="n">dead</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Status flag</span>
+</code></pre></div>
+<p>The communication flow starts with the dispatcher requesting that the
+runner accept a commit ID to run. If the test runner is ready to run the
+job, it responds with an acknowledgement to the dispatcher server, which
+then closes the connection. In order for the test runner server to both
+run tests and accept more requests from the dispatcher, it starts the
+requested test job on a new thread.</p>
+<p>This means that when the dispatcher server makes a request (a ping, in
+this case) and expects a response, it will be done on a separate thread,
+while the test runner is busy running tests on its own thread. This
+allows the test runner server to handle multiple tasks simultaneously.
+Instead of this threaded design, it is possible to have the dispatcher
+server hold onto a connection with each test runner, but this would
+increase the dispatcher server&rsquo;s memory needs, and is vulnerable to
+network problems, like accidentally dropped connections.</p>
+<p>The test runner server responds to two messages from the dispatcher.  The first
+is <code>ping</code>, which is used by the dispatcher server to verify that the runner is
+still active.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TestHandler</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">....</span>
+        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;ping&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;pinged&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">last_communication</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;pong&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The second is <code>runtest</code>, which accepts messages of the form <code>runtest:&lt;commit
+ID&gt;</code>, and is used to kick off tests on the given commit. When runtest is
+called, the test runner will check to see if it is already running a test, and
+if so, it will return a <code>BUSY</code> response to the dispatcher. If it is available,
+it will respond to the server with an <code>OK</code> message, set its status as busy and
+run its <code>run_tests</code> function.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;runtest&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;got runtest command: am I busy? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;BUSY&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="s2">&quot;running&quot;</span>
+                <span class="n">commit_id</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">run_tests</span><span class="p">(</span><span class="n">commit_id</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">repo_folder</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<p>This function calls the shell script <code>test_runner_script.sh</code>, which
+updates the repository to the given commit ID. Once the script returns,
+if it was successful at updating the repository we run the tests using
+unittest and gather the results in a file. When the tests have finished
+running, the test runner reads in the results file and sends it in a
+results message to the dispatcher.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">run_tests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">,</span> <span class="n">repo_folder</span><span class="p">):</span>
+        <span class="c1"># update repo</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;./test_runner_script.sh&quot;</span><span class="p">,</span>
+                                        <span class="n">repo_folder</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="n">output</span>
+        <span class="c1"># run the tests</span>
+        <span class="n">test_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">repo_folder</span><span class="p">,</span> <span class="s2">&quot;tests&quot;</span><span class="p">)</span>
+        <span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">discover</span><span class="p">(</span><span class="n">test_folder</span><span class="p">)</span>
+        <span class="n">result_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">(</span><span class="n">result_file</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">suite</span><span class="p">)</span>
+        <span class="n">result_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">result_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="c1"># give the dispatcher the results</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">result_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
+                            <span class="s2">&quot;results:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">commit_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">),</span> <span class="n">output</span><span class="p">))</span>
+</code></pre></div>
+<p>Here&rsquo;s <code>test_runner_script.sh</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nv">REPO</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">COMMIT</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nb">source</span><span class="w"> </span>run_or_fail.sh
+run_or_fail<span class="w"> </span><span class="s2">&quot;Repository folder not found&quot;</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPO</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
+run_or_fail<span class="w"> </span><span class="s2">&quot;Could not clean repository&quot;</span><span class="w"> </span>git<span class="w"> </span>clean<span class="w"> </span>-d<span class="w"> </span>-f<span class="w"> </span>-x
+run_or_fail<span class="w"> </span><span class="s2">&quot;Could not call git pull&quot;</span><span class="w"> </span>git<span class="w"> </span>pull
+run_or_fail<span class="w"> </span><span class="s2">&quot;Could not update to given commit hash&quot;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$COMMIT</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>In order to run <code>test_runner.py</code>, you must point it to a clone of the
+repository to run tests against. In this case, you can use the previously
+created <code>/path/to/test_repo test_repo_clone_runner</code> clone as the argument. By
+default, <code>test_runner.py</code> will start its own server on localhost using a port
+in the range 8900-9000, and will try to connect to the dispatcher server at
+<code>localhost:8888</code>. You may pass it optional arguments to change these values.
+The <code>--host</code> and <code>--port</code> arguments are used to designate a specific address to
+run the test runner server on, and the <code>--dispatcher-server</code> argument specifies
+the address of the dispatcher.</p>
+<h3>Control Flow Diagram</h3>
+<p>Figure: Control Flow is an overview diagram of this system. This
+diagram assumes that all three files  (<code>repo_observer.py</code>,
+<code>dispatcher.py</code> and <code>test_runner.py</code>) are already running, and describes the
+actions each process takes when a new commit is made.</p>
+<p><img alt="Control Flow" src="ci-images/diagram.png" />### Running the Code</p>
+<p>We can run this simple CI system locally, using three different terminal shells
+for each process. We start the dispatcher first, running on port 8888:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>dispatcher.py
+</code></pre></div>
+<p>In a new shell, we start the test runner (so it can register itself with
+the dispatcher):</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>test_runner.py<span class="w"> </span>&lt;path/to/test_repo_clone_runner&gt;
+</code></pre></div>
+<p>The test runner will assign itself its own port, in the range 8900-9000.
+You may run as many test runners as you like.</p>
+<p>Lastly, in another new shell, let&rsquo;s start the repo observer:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>repo_observer.py<span class="w"> </span>--dispatcher-server<span class="o">=</span>localhost:8888<span class="w"> </span>&lt;path/to/repo_clone_obs&gt;
+</code></pre></div>
+<p>Now that everything is set up, let&rsquo;s trigger some tests! To do that,
+we&rsquo;ll need to make a new commit. Go to your master repository and make
+an arbitrary change:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/test_repo
+$<span class="w"> </span>touch<span class="w"> </span>new_file
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>new_file
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="s2">&quot;new file&quot;</span><span class="w"> </span>new_file
+</code></pre></div>
+<p>Then <code>repo_observer.py</code> will realize that there&rsquo;s a new commit and notify
+the dispatcher. You can see the output in their respective shells, so
+you can monitor them. Once the dispatcher receives the test results, it
+stores them in a <code>test_results/</code> folder in this code base, using the
+commit ID as the filename.</p>
+<h2>Error Handling</h2>
+<p>This CI system includes some simple error handling.</p>
+<p>If you kill the <code>test_runner.py</code> process, <code>dispatcher.py</code> will figure out
+that the runner is no longer available and will remove it from the pool.</p>
+<p>You can also kill the test runner, to simulate a machine crash or
+network failure. If you do so, the dispatcher will realize the runner
+went down and will give another test runner the job if one is available
+in the pool, or will wait for a new test runner to register itself in
+the pool.</p>
+<p>If you kill the dispatcher, the repository observer will figure out it
+went down and will throw an exception. The test runners will also
+notice, and shut down.</p>
+<h2>Conclusion</h2>
+<p>By separating concerns into their own processes, we were able to build
+the fundamentals of a distributed continuous integration system. With
+processes communicating with each other via socket requests, we are able
+to distribute the system across multiple machines, helping to make our
+system more reliable and scalable.</p>
+<p>Since the CI system is quite simple now, you can extend it yourself to
+be far more functional. Here are a few suggestions for improvements:</p>
+<h3>Per-Commit Test Runs</h3>
+<p>The current system will periodically check to see if new commits are run
+and will run the most recent commit. This should be improved to test
+each commit. To do this, you can modify the periodic checker to dispatch
+test runs for each commit in the log between the last-tested and the latest commit.</p>
+<h3>Smarter Test Runners</h3>
+<p>If the test runner detects that the dispatcher is unresponsive, it stops
+running. This happens even when the test runner is in the middle of
+running tests! It would be better if the test runner waited for a period
+of time (or indefinitely, if you do not care about resource management)
+for the dispatcher to come back online. In this case, if the dispatcher
+goes down while the test runner is actively running a test, instead of
+shutting down it will complete the test and wait for the dispatcher to
+come back online, and will report the results to it. This will ensure
+that we don&rsquo;t waste any effort the test runner makes, and that we will
+only run tests once per commit.</p>
+<h3>Real Reporting</h3>
+<p>In a real CI system, you would have the test results report to a
+reporter service which would gather the results, post them somewhere for
+people to review, and notify a list of interested parties when a failure
+or other notable event occurs. You can extend our simple CI system by
+creating a new process to get the reported results, instead of the
+dispatcher gathering the results. This new process could be a web server
+(or can connect to a web server) which could post the results online,
+and may use a mail server to alert subscribers to any test failures.</p>
+<h3>Test Runner Manager</h3>
+<p>Right now, you have to manually launch the <code>test_runner.py</code> file to start
+a test runner. Instead, you could create a test runner manager process
+which would assess the current load of test requests from the dispatcher
+and scale the number of active test runners accordingly. This process
+will receive the runtest messages and will start a test runner process
+for each request, and will kill unused processes when the load
+decreases.</p>
+<p>Using these suggestions, you can make this simple CI system more robust
+and fault-tolerant, and you can integrate it with other systems, like a
+web-based test reporter.</p>
+<p>If you wish to see the level of flexibility continuous integration
+systems can achieve, I recommend looking into
+<a href="http://jenkins-ci.org/">Jenkins</a>, a very robust, open-source CI
+system written in Java. It provides you with a basic CI system which you
+can extend using plugins. You may also access its source code <a href="https://github.com/jenkinsci/jenkins/">through
+GitHub</a>. Another recommended
+project is <a href="https://travis-ci.org/">Travis CI</a>, which is written in
+Ruby and whose source code is also available <a href="https://github.com/travis-ci/travis-ci">through
+GitHub</a>.</p>
+<p>This has been an exercise in understanding how CI systems work, and how
+to build one yourself. You should now have a more solid understanding of
+what is needed to make a reliable distributed system, and you can now
+use this knowledge to develop more complex solutions.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:bash">
+<p>Bash is used because we need to check file
+existence, create files, and use Git, and a shell script is the most
+direct and easy way to achieve this. Alternatively, there are
+cross-platform Python packages you can use; for example, Python&rsquo;s <code>os</code>
+built-in module can be used for accessing the file system, and GitPython
+can be used for Git access, but they perform actions in a more
+roundabout way.&#160;<a class="footnote-backref" href="#fnref:bash" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

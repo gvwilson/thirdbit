@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: A 3D Modeller</title>
+
+    
+
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>A 3D Modeller</h1>
+
+
+
+<p><em>by Erick Dransch</em></p>
+<p><em>Erick is a software developer and 2D and 3D computer graphics enthusiast. He has worked on video games, 3D special effects software, and computer aided design tools. If it involves simulating reality, chances are he&rsquo;d like to learn more about it. You can find him online at <a href="http://erickdransch.com">erickdransch.com</a>.</em></p>
+<h2>Introduction</h2>
+<p>Humans are innately creative. We continuously design and build novel, useful, and interesting things. In modern times, we write software to assist in the design and creation process. 
+Computer-aided design (CAD) software allows creators to design buildings, bridges, video game art, 
+film monsters, 3D printable objects, and many other things before building a physical version of the design. </p>
+<p>At their core, CAD tools are a method of abstracting the 3-dimensional design into something that can be viewed and edited on a 2-dimensional screen. 
+To fulfill that definition, CAD tools must offer three basic pieces of functionality.
+Firstly, they must have a data structure to represent the object that&rsquo;s being designed: this is the computer&rsquo;s understanding of the 3-dimensional world that the user is building.
+Secondly, the CAD tool must offer some way to display the design on the user&rsquo;s screen. The user is designing a physical object with 3 dimensions, but the computer screen has only 2 dimensions. 
+The CAD tool must model how we perceive objects, and draw them to the screen in a way that the user can understand all 3 dimensions of the object.
+Thirdly, the CAD tool must offer a way to interact with the object being designed. The user must be able to add to and modify the design in order to produce the desired result.
+Additionally, all tools would need a way to save and load designs from disk so that users can collaborate, share, and save their work.</p>
+<p>A domain-specific CAD tool offers many additional features for the specific requirements of the domain. For example, an architecture CAD tool would offer physics simulations to test climate stresses on the building, 
+a 3D printing tool would have features that check whether the object is actually valid to print, an electrical CAD tool would simulate the physics of electricity running through copper, and a film special effects suite would
+include features to accurately simulate pyrokinetics. </p>
+<p>However, all CAD tools must include at least the three features discussed above: a data structure to represent the design, the ability to display it to the screen, and a method to interact with the design.</p>
+<p>With that in mind, let&rsquo;s explore how we can represent a 3D design, display it to the screen, and interact with it, in 500 lines of Python.</p>
+<h2>Rendering as a Guide</h2>
+<p>The driving force behind many of the design decisions in a 3D modeller is the rendering process.
+We want to be able to store and render complex objects in our design, but we want to keep the complexity of the rendering code low.
+Let us examine the rendering process, and explore the data structure for the design that allows us to store and draw arbitarily complex objects with simple rendering logic.</p>
+<h3>Managing Interfaces and the Main Loop</h3>
+<p>Before we begin rendering, there are a few things we need to set up. First, we need to create a window to display our design in. 
+Secondly, we want to communicate with graphics drivers to render to the screen.
+We would rather not communicate directly with graphics drivers, so we use a cross-platform abstraction layer called OpenGL, and a 
+library called GLUT (the OpenGL Utility Toolkit) to manage our window.</p>
+<h4>A Note About OpenGL</h4>
+<!-- @mikedebo: Are we going to have actual sidebars in the book? If so we can make this into a sidebar (together with the paragraph on GLUT). Keep in mind sidebars can be hard (but not impossible) to do in ebooks. I wouldn't do sidebars unless there are at least three chapters which use them. -->
+<p>OpenGL is a graphical application programming interface for cross-platform development. It&rsquo;s the standard API for developing graphics applications across platforms.
+OpenGL has two major variants: Legacy OpenGL and Modern OpenGL.</p>
+<p>Rendering in OpenGL is based on polygons defined by vertices and normals. For example, to render one side of a cube, we specify the 4 vertices and the normal of the side.</p>
+<p>Legacy OpenGL provides a &ldquo;fixed function pipeline&rdquo;. By setting global variables, the programmer can enable and disable automated implementations of features such
+as lighting, coloring, face culling, etc. OpenGL then automatically renders the scene with the enabled functionality. This functionality is deprecated.</p>
+<p>Modern OpenGL, on the other hand, features a programmable rendering pipeline where the programmer writes small programs called &ldquo;shaders&rdquo; that
+run on dedicated graphics hardware (GPUs). The programmable pipeline of Modern OpenGL has replaced Legacy OpenGL.</p>
+<p>In this project, despite the fact that it is deprecated, we use Legacy OpenGL. The fixed functionality provided by Legacy OpenGL is very useful
+for keeping code size small. It reduces the amount of linear algebra knowledge required, and it simplifies the code we will write.</p>
+<h4>About GLUT</h4>
+<p>GLUT, which is bundled with OpenGL, allows us to create operating system windows and to register user interface callbacks. This basic functionality
+is sufficient for our purposes. If we wanted a more full-featured library for window management and user interaction, we would consider using a full windowing toolkit like GTK or Qt.</p>
+<h4>The Viewer</h4>
+<p>To manage the setting up of GLUT and OpenGL, and to drive the rest of the modeller, we create a class called <code>Viewer</code>. 
+We use a single <code>Viewer</code> instance, which manages window creation and rendering, and contains the main loop for our program.
+In the initialization process for <code>Viewer</code>, we create the GUI window and initialize OpenGL.</p>
+<p>The function <code>init_interface</code> creates the window that the modeller will be rendered into and specifies the function to be called when the design needs to rendered. 
+The <code>init_opengl</code> function sets up the OpenGL state needed for the project. It sets the matrices, enables backface culling,
+registers a light to illuminate the scene, and tells OpenGL that we would like objects to be colored.
+The <code>init_scene</code> function creates the <code>Scene</code> objects and places some initial nodes to get the user started. We will see more about the <code>Scene</code> data structure shortly.
+Finally, <code>init_interaction</code> registers callbacks for user interaction, as we&rsquo;ll discuss later.</p>
+<p>After initializing <code>Viewer</code>, we call <code>glutMainLoop</code> to transfer program execution to GLUT. This function never returns. The callbacks we have registered
+on GLUT events will be called when those events occur.</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Viewer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize the viewer. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_interface</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_opengl</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_scene</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_interaction</span><span class="p">()</span>
+        <span class="n">init_primitives</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; initialize the window and register the render function &quot;&quot;&quot;</span>
+        <span class="n">glutInit</span><span class="p">()</span>
+        <span class="n">glutInitWindowSize</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+        <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;3D Modeller&quot;</span><span class="p">)</span>
+        <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_SINGLE</span> <span class="o">|</span> <span class="n">GLUT_RGB</span><span class="p">)</span>
+        <span class="n">glutDisplayFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_opengl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; initialize the opengl settings to render the scene &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inverseModelView</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelView</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+        <span class="n">glCullFace</span><span class="p">(</span><span class="n">GL_BACK</span><span class="p">)</span>
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+        <span class="n">glDepthFunc</span><span class="p">(</span><span class="n">GL_LESS</span><span class="p">)</span>
+
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">)</span>
+        <span class="n">glLightfv</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span> <span class="n">GL_POSITION</span><span class="p">,</span> <span class="n">GLfloat_4</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">glLightfv</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span> <span class="n">GL_SPOT_DIRECTION</span><span class="p">,</span> <span class="n">GLfloat_3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">glColorMaterial</span><span class="p">(</span><span class="n">GL_FRONT_AND_BACK</span><span class="p">,</span> <span class="n">GL_AMBIENT_AND_DIFFUSE</span><span class="p">)</span>
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_COLOR_MATERIAL</span><span class="p">)</span>
+        <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_scene</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; initialize the scene object and initial scene &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span> <span class="o">=</span> <span class="n">Scene</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_sample_scene</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_sample_scene</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cube_node</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">()</span>
+        <span class="n">cube_node</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">cube_node</span><span class="o">.</span><span class="n">color_index</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">cube_node</span><span class="p">)</span>
+
+        <span class="n">sphere_node</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span>
+        <span class="n">sphere_node</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">sphere_node</span><span class="o">.</span><span class="n">color_index</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">sphere_node</span><span class="p">)</span>
+
+        <span class="n">hierarchical_node</span> <span class="o">=</span> <span class="n">SnowFigure</span><span class="p">()</span>
+        <span class="n">hierarchical_node</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hierarchical_node</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_interaction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; init user interaction and callbacks &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span> <span class="o">=</span> <span class="n">Interaction</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">register_callback</span><span class="p">(</span><span class="s1">&#39;pick&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">register_callback</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">register_callback</span><span class="p">(</span><span class="s1">&#39;place&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">place</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">register_callback</span><span class="p">(</span><span class="s1">&#39;rotate_color&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotate_color</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">register_callback</span><span class="p">(</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">main_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">glutMainLoop</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">viewer</span> <span class="o">=</span> <span class="n">Viewer</span><span class="p">()</span>
+    <span class="n">viewer</span><span class="o">.</span><span class="n">main_loop</span><span class="p">()</span>
+</code></pre></div>
+Before we dive into the <code>render</code> function, we should discuss a little bit of linear algebra.</p>
+<h3>Coordinate Space</h3>
+<p>For our purposes, a Coordinate Space is an origin point and a set of 3 basis vectors, usually the $x$, $y$, and $z$ axes.</p>
+<h3>Point</h3>
+<p>Any point in 3 dimensions can be represented as an offset in the $x$, $y$, and $z$ directions from the origin point. The representation of a point is relative to the coordinate space that the point is in. The same point 
+has different representations in different coordinate spaces. Any point in 3 dimensions can be represented in any 3-dimensional coordinate space.</p>
+<h3>Vector</h3>
+<p>A vector is an $x$, $y$, and $z$ value representing the difference between two points in the $x$, $y$, and $z$ axes, respectively.</p>
+<h3>Transformation Matrix</h3>
+<p>In computer graphics, it is convenient to use multiple different coordinate spaces for different types of points. Transformation matrices convert points from one coordinate space to another coordinate space.
+To convert a vector $v$ from one coordinate space to another, we multiply by a transformation matrix $M$: $v&rsquo; = M v$.
+Some common transformation matrices are translations, scaling, and rotations.</p>
+<h3>Model, World, View, and Projection Coordinate Spaces</h3>
+<p><img alt="Transformation Pipeline" src="modeller-images/newtranspipe.png" />To draw an item to the screen, we need to convert between a few different coordinate spaces.</p>
+<p>The right hand side of Figure: Transformation Pipeline<sup id="fnref:transimage"><a class="footnote-ref" href="#fn:transimage">1</a></sup>, including all of the transformations from Eye Space to Viewport Space will all be handled for us by OpenGL.</p>
+<p>Conversion from eye space to homogeneous clip space is handled by <code>gluPerspective</code>, and conversion to normalized device space and viewport space is handled by <code>glViewport</code>.
+These two matrices are multiplied together and stored as the GL_PROJECTION matrix.
+We don&rsquo;t need to know the terminology or the details of how these matrices work for this project.</p>
+<p>We do, however, need to manage the left hand side of the diagram ourselves. We define a matrix which converts points in the model (also called a mesh) from the model spaces into the world space, called the model matrix. We alse define the view matrix, which converts from the world space into the eye space.
+In this project, we combine these two matrices to obtain the ModelView matrix.</p>
+<p>To learn more about the full graphics rendering pipeline, and the coordinate spaces involved, refer to chapter 2 of <a href="http://www.realtimerendering.com/"><em>Real Time Rendering</em></a>, or another introductory computer graphics book.</p>
+<h3>Rendering with the Viewer</h3>
+<p>The <code>render</code> function begins by setting up any of the OpenGL state that needs to be done at render time. It initializes the projection matrix via <code>init_view</code> and uses data from the interaction member to initialize the ModelView matrix with the transformation matrix that converts from the scene space to world space. We will see more about the Interaction class below. It clears the screen with <code>glClear</code> and it tells the scene to render itself, and then renders the unit grid. </p>
+<p>We disable OpenGL&rsquo;s lighting before rendering the grid. With lighting disabled, OpenGL renders items with solid colors, rather than simulating a light source. This way, the grid has visual differentiation from the scene.
+Finally, <code>glFlush</code> signals to the graphics driver that we are ready for the buffer to be flushed and displayed to the screen.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Viewer</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The render pass for the scene &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_view</span><span class="p">()</span>
+
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">)</span>
+        <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+
+        <span class="c1"># Load the modelview matrix from the current state of the trackball</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">translation</span>
+        <span class="n">glTranslated</span><span class="p">(</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">glMultMatrixf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">trackball</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+
+        <span class="c1"># store the inverse of the current modelview.</span>
+        <span class="n">currentModelView</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">glGetFloatv</span><span class="p">(</span><span class="n">GL_MODELVIEW_MATRIX</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelView</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">currentModelView</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inverseModelView</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">currentModelView</span><span class="p">))</span>
+
+        <span class="c1"># render the scene. This will call the render function for each object</span>
+        <span class="c1"># in the scene</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+
+        <span class="c1"># draw the grid</span>
+        <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">)</span>
+        <span class="n">glCallList</span><span class="p">(</span><span class="n">G_OBJ_PLANE</span><span class="p">)</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
+
+        <span class="c1"># flush the buffers so that the scene can be drawn</span>
+        <span class="n">glFlush</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; initialize the projection matrix &quot;&quot;&quot;</span>
+        <span class="n">xSize</span><span class="p">,</span> <span class="n">ySize</span> <span class="o">=</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_WIDTH</span><span class="p">),</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_HEIGHT</span><span class="p">)</span>
+        <span class="n">aspect_ratio</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">xSize</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ySize</span><span class="p">)</span>
+
+        <span class="c1"># load the projection matrix. Always the same</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+
+        <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xSize</span><span class="p">,</span> <span class="n">ySize</span><span class="p">)</span>
+        <span class="n">gluPerspective</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="n">aspect_ratio</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+        <span class="n">glTranslated</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">)</span>
+</code></pre></div>
+<h3>What to Render: The Scene</h3>
+<p>Now that we&rsquo;ve initialized the rendering pipeline to handle drawing in the world coordinate space, what are we going to render? Recall that our goal is 
+to have a design consisting of 3D models. We need a data structure to contain the design, and we need use this data structure to render the design.
+Notice above that we call <code>self.scene.render()</code> from the viewer&rsquo;s render loop. What is the scene?</p>
+<p>The <code>Scene</code> class is the interface to the data structure we use to represent the design. It abstracts away details of the data structure and provides the 
+necessary interface functions required to interact with the design, including functions to render, add items, and manipulate items. There is one <code>Scene</code> object, owned by the viewer.
+The <code>Scene</code> instance keeps a list of all of the items in the scene, called <code>node_list</code>. It also keeps track of the selected item.
+The <code>render</code> function on the scene simply calls <code>render</code> on each of the members of <code>node_list</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Scene</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="c1"># the default depth from the camera to place an object at</span>
+    <span class="n">PLACE_DEPTH</span> <span class="o">=</span> <span class="mf">15.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># The scene keeps a list of nodes that are displayed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="c1"># Keep track of the currently selected node.</span>
+        <span class="c1"># Actions may depend on whether or not something is selected</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Add a new node to the scene &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Render the scene. &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</code></pre></div>
+<h3>Nodes</h3>
+<p>In the Scene&rsquo;s <code>render</code> function, we call <code>render</code> on each of the items in the Scene&rsquo;s <code>node_list</code>. But what are the elements
+of that list? We call them <em>nodes</em>. 
+Conceptually, a node is anything that can be placed in the scene.
+In object-oriented software, we write <code>Node</code> as an abstract base class. Any classes that represent objects to be placed in the <code>Scene</code> will inherit from <code>Node</code>. 
+This base class allows us to reason about the scene abstractly. 
+The rest of the code base doesn&rsquo;t need to know about the details of the objects it displays; it only needs to know that they are of the class <code>Node</code>. </p>
+<p>Each type of <code>Node</code> defines its own behavior for rendering itself and for any other interactions.
+The <code>Node</code> keeps track of important data about itself: translation matrix, scale matrix, color, etc. Multiplying the node&rsquo;s translation matrix by
+its scaling matrix gives the transformation matrix from the node&rsquo;s model coordinate space to the world coordinate space.
+The node also stores an axis-aligned bounding box (AABB). We&rsquo;ll see more about AABBs when we discuss selection below.</p>
+<p>The simplest concrete implementation of <code>Node</code> is a <em>primitive</em>. A primitive is a single solid shape that can be added the scene. In this project, the primitives are <code>Cube</code> and <code>Sphere</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Base class for scene elements &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">MIN_COLOR</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">MAX_COLOR</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aabb</span> <span class="o">=</span> <span class="n">AABB</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; renders the item to the screen &quot;&quot;&quot;</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glMultMatrixf</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">translation_matrix</span><span class="p">))</span>
+        <span class="n">glMultMatrixf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scaling_matrix</span><span class="p">)</span>
+        <span class="n">cur_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">COLORS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">color_index</span><span class="p">]</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="n">cur_color</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cur_color</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cur_color</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected</span><span class="p">:</span>  <span class="c1"># emit light if the node is selected</span>
+            <span class="n">glMaterialfv</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_EMISSION</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">render_self</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected</span><span class="p">:</span>
+            <span class="n">glMaterialfv</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_EMISSION</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">render_self</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;The Abstract Node Class doesn&#39;t define &#39;render_self&#39;&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Primitive</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Primitive</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_list</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">render_self</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">glCallList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call_list</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Sphere</span><span class="p">(</span><span class="n">Primitive</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sphere primitive &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sphere</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_list</span> <span class="o">=</span> <span class="n">G_OBJ_SPHERE</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Cube</span><span class="p">(</span><span class="n">Primitive</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Cube primitive &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Cube</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_list</span> <span class="o">=</span> <span class="n">G_OBJ_CUBE</span>
+</code></pre></div>
+<p>Rendering nodes is based on the transformation matrices that each node stores. The transformation matrix for a node is the combination of its scaling matrix and its translation matrix. Regardless of the type of node, the first step to rendering is to set the 
+OpenGL ModelView matrix to the transformation matrix to convert from the model coordinate space to the view coordinate space.
+Once the OpenGL matrices are up to date, we call <code>render_self</code> to tell the node to make the necessary OpenGL calls to draw itself. Finally, 
+we undo any changes we made to the OpenGL state for this specific node.  We use the <code>glPushMatrix</code> and <code>glPopMatrix</code> functions in OpenGL to save and restore 
+the state of the ModelView matrix before and after we render the node. 
+Notice that the node stores its color, location, and scale, and applies these to the OpenGL state before rendering.</p>
+<p>If the node is currently selected, we make it emit light. This way, the user has a visual indication of which node they have selected.</p>
+<p>To render primitives, we use the call lists feature from OpenGL. 
+An OpenGL call list is a series of OpenGL calls that are defined once and bundled together under a single name.
+The calls can be dispatched with <code>glCallList(LIST_NAME)</code>. Each primitive (<code>Sphere</code> and <code>Cube</code>) defines the call list required to render it (not shown).</p>
+<p>For example, the call list for a cube draws the 6 faces of the cube, with the center at the origin and the edges exactly 1 unit long. </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Pseudocode Cube definition</span>
+<span class="c1"># Left face</span>
+<span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)),</span>
+<span class="c1"># Back face</span>
+<span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)),</span>
+<span class="c1"># Right face</span>
+<span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span>
+<span class="c1"># Front face</span>
+<span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span>
+<span class="c1"># Bottom face</span>
+<span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span>
+<span class="c1"># Top face</span>
+<span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
+</code></pre></div>
+<p>Using only primitives would be quite limiting for modelling applications. 3D models are generally made up of multiple primitives
+(or triangular meshes, which are outside the scope of this project). 
+Fortunately, our design of the <code>Node</code> class facilitates <code>Scene</code> nodes that are made up of multiple primitives. In fact, we can support arbitrary groupings
+of nodes with no added complexity.</p>
+<p>As motivation, let us consider a very basic figure: a typical snowman, or snow figure, made up of three spheres. Even though the figure is comprised of three separate primitives, we would like to be able to treat it as a single object.</p>
+<p>We create a class called <code>HierarchicalNode</code>, a <code>Node</code> that contains other nodes. It manages a list of &ldquo;children&rdquo;.
+The <code>render_self</code> function for hierarchical nodes simply calls <code>render_self</code> on each of the child nodes.
+With the <code>HierarchicalNode</code> class, it is very easy to add figures to the scene.
+Now, defining the snow figure is as simple as specifying the shapes that comprise it, and their relative positions and sizes.</p>
+<p><img alt="Hierarchy of Node subclasses" src="modeller-images/nodes.jpg" />```python
+class HierarchicalNode(Node):
+    def <strong>init</strong>(self):
+        super(HierarchicalNode, self).<strong>init</strong>()
+        self.child_nodes = []</p>
+<pre><code>def render_self(self):
+    for child in self.child_nodes:
+        child.render()
+</code></pre>
+<p><code></code>python
+class SnowFigure(HierarchicalNode):
+    def <strong>init</strong>(self):
+        super(SnowFigure, self).<strong>init</strong>()
+        self.child_nodes = [Sphere(), Sphere(), Sphere()]
+        self.child_nodes[0].translate(0, -0.6, 0) # scale 1.0
+        self.child_nodes[1].translate(0, 0.1, 0)
+        self.child_nodes[1].scaling_matrix = numpy.dot(
+            self.scaling_matrix, scaling([0.8, 0.8, 0.8]))
+        self.child_nodes[2].translate(0, 0.75, 0)
+        self.child_nodes[2].scaling_matrix = numpy.dot(
+            self.scaling_matrix, scaling([0.7, 0.7, 0.7]))
+        for child_node in self.child_nodes:
+            child_node.color_index = color.MIN_COLOR
+        self.aabb = AABB([0.0, 0.0, 0.0], [0.5, 1.1, 0.5])
+<code>``
+You might observe that the</code>Node<code>objects form a tree data structure. The</code>render<code>function, through hierarchical nodes, does a depth-first traversal through the 
+tree. As it traverses, it keeps a stack of</code>ModelView<code>matrices, used for conversion into the world space.
+At each step, it pushes the current</code>ModelView<code>matrix onto the stack, and when it completes rendering of all child nodes,
+it pops the matrix off the stack, leaving the parent node's</code>ModelView` matrix at the top of the stack.</p>
+<p>By making the <code>Node</code> class extensible in this way, we can add new types of shapes to the scene without changing any of the other code for scene
+manipulation and rendering. Using the node concept to abstract away the fact that one <code>Scene</code> object may have many children is known as the Composite design pattern.</p>
+<h3>User Interaction</h3>
+<p>Now that our modeller is capable of storing and displaying the scene, we need a way to interact with it. 
+There are two types of interactions that we need to facilitate.
+First, we need the capability of changing the viewing perspective of the scene. We want to be able to move the eye, or camera, around the scene.
+Second, we need to be able to add new nodes and to modify nodes in the scene.</p>
+<p>To enable user interaction, we need to know when the user presses keys or moves the mouse. Luckily, the operating system already knows when these events happen. GLUT allows us to register a function to be called whenever a certain event occurs.
+We write functions to interpret key presses and mouse movement, and tell GLUT to call those functions when the corresponding keys are pressed.
+Once we know which keys the user is pressing, we need to interpret the input and apply the intended actions to the scene.</p>
+<p>The logic for listening to operating system events and interpreting their meaning is found in the <code>Interaction</code> class.
+The <code>Viewer</code> class we wrote earlier owns the single instance of <code>Interaction</code>.
+We will use the GLUT callback mechanism to register functions to be called when a mouse button is pressed (<code>glutMouseFunc</code>), when the mouse is moved (<code>glutMotionFunc</code>), when a keyboard button is pressed (<code>glutKeyboardFunc</code>), and when the arrow keys are pressed (<code>glutSpecialFunc</code>).
+We&rsquo;ll see the functions that handle input events shortly.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Interaction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Handles user interaction &quot;&quot;&quot;</span>
+        <span class="c1"># currently pressed mouse button</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># the current location of the camera</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># the trackball to calculate rotation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trackball</span> <span class="o">=</span> <span class="n">trackball</span><span class="o">.</span><span class="n">Trackball</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="c1"># the current mouse location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># Unsophisticated callback mechanism</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; register callbacks with glut &quot;&quot;&quot;</span>
+        <span class="n">glutMouseFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_mouse_button</span><span class="p">)</span>
+        <span class="n">glutMotionFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_mouse_move</span><span class="p">)</span>
+        <span class="n">glutKeyboardFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_keystroke</span><span class="p">)</span>
+        <span class="n">glutSpecialFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_keystroke</span><span class="p">)</span>
+</code></pre></div>
+<h4>Operating System Callbacks</h4>
+<p>In order to meaningfully interpret user input,
+we need to combine knowledge of the mouse position, mouse buttons, and keyboard. Because interpreting user input into meaningful actions requires many lines of code, we encapsulate it in a separate class, away from the main code path.
+The <code>Interaction</code> class hides unrelated complexity from the rest of the codebase and translates operating system events into application-level events.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Interaction </span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; translate the camera &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">z</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_mouse_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Called when the mouse button is pressed or released &quot;&quot;&quot;</span>
+        <span class="n">xSize</span><span class="p">,</span> <span class="n">ySize</span> <span class="o">=</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_WIDTH</span><span class="p">),</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_HEIGHT</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">ySize</span> <span class="o">-</span> <span class="n">y</span>  <span class="c1"># invert the y coordinate because OpenGL is inverted</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="n">button</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_RIGHT_BUTTON</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">elif</span> <span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_LEFT_BUTTON</span><span class="p">:</span>  <span class="c1"># pick</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;pick&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">button</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># scroll up</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">button</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># scroll up</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># mouse button release</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">glutPostRedisplay</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_mouse_move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">screen_y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Called when the mouse is moved &quot;&quot;&quot;</span>
+        <span class="n">xSize</span><span class="p">,</span> <span class="n">ySize</span> <span class="o">=</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_WIDTH</span><span class="p">),</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_HEIGHT</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">ySize</span> <span class="o">-</span> <span class="n">screen_y</span>  <span class="c1"># invert the y coordinate because OpenGL is inverted</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="o">==</span> <span class="n">GLUT_RIGHT_BUTTON</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackball</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># ignore the updated camera loc because we want to always</span>
+                <span class="c1"># rotate around the origin</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">trackball</span><span class="o">.</span><span class="n">drag_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="o">==</span> <span class="n">GLUT_LEFT_BUTTON</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressed</span> <span class="o">==</span> <span class="n">GLUT_MIDDLE_BUTTON</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">dx</span><span class="o">/</span><span class="mf">60.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">/</span><span class="mf">60.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">glutPostRedisplay</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_keystroke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">screen_y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Called on keyboard input from the user &quot;&quot;&quot;</span>
+        <span class="n">xSize</span><span class="p">,</span> <span class="n">ySize</span> <span class="o">=</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_WIDTH</span><span class="p">),</span> <span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_WINDOW_HEIGHT</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">ySize</span> <span class="o">-</span> <span class="n">screen_y</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;place&#39;</span><span class="p">,</span> <span class="s1">&#39;sphere&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;place&#39;</span><span class="p">,</span> <span class="s1">&#39;cube&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">GLUT_KEY_UP</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="n">up</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">GLUT_KEY_DOWN</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="n">up</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">GLUT_KEY_LEFT</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;rotate_color&#39;</span><span class="p">,</span> <span class="n">forward</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">GLUT_KEY_RIGHT</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s1">&#39;rotate_color&#39;</span><span class="p">,</span> <span class="n">forward</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">glutPostRedisplay</span><span class="p">()</span>
+</code></pre></div>
+<h4>Internal Callbacks</h4>
+<p>In the code snippet above, you will notice that when the <code>Interaction</code> instance interprets a user action, it calls <code>self.trigger</code> with a string describing
+the action type. The <code>trigger</code> function on the <code>Interaction</code> class is part of a simple callback system that we will use for handling application-level
+events.
+Recall that the <code>init_interaction</code> function on the <code>Viewer</code> class registers callbacks on the <code>Interaction</code> instance by calling <code>register_callback</code>.</p>
+<p><div class="highlight"><pre><span></span><code>    <span class="c1"># class Interaction</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</code></pre></div>
+When user interface code needs to trigger an event on the scene, the <code>Interaction</code> class calls all of the saved callbacks it has for that specific event:</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Interaction</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+            <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<p>This application-level callback system abstracts away the need for the rest of the system to know about operating system input. Each application-level callback represents a meaningful request within the application.
+The <code>Interaction</code> class acts as a translator between operating system events and application-level events.
+This means that if we decided to port the modeller to another toolkit in addition to GLUT, we would only need to replace the <code>Interaction</code> class
+with a class that converts the input from the new toolkit into the same set of meaningful application-level callbacks. We use callbacks and arguments in Table: Interaction callbacks and arguments.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Callback</th>
+<th style="text-align: left;">Arguments</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>pick</code></td>
+<td style="text-align: left;">x:number, y:number</td>
+<td style="text-align: left;">Selects the node at the mouse pointer location.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>move</code></td>
+<td style="text-align: left;">x:number, y:number</td>
+<td style="text-align: left;">Moves the currently selected node to the mouse pointer location.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>place</code></td>
+<td style="text-align: left;">shape:string, x:number, y:number</td>
+<td style="text-align: left;">Places a shape of the specified type at the mouse pointer location.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rotate_color</code></td>
+<td style="text-align: left;">forward:boolean</td>
+<td style="text-align: left;">Rotates the color of the currently selected node through the list of colors, forwards or backwards.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>scale</code></td>
+<td style="text-align: left;">up:boolean</td>
+<td style="text-align: left;">Scales the currently selected node up or down, according to parameter.</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dd>Interaction callbacks and arguments</dd>
+</dl>
+<p>This simple callback system provides all of the functionality we need for this project. In a production 3D modeller, however, user interface objects are often created and destroyed dynamically.
+In that case, we would need a more sophisticated event listening system, where objects can both register and un-register callbacks for events.</p>
+<h3>Interfacing with the Scene</h3>
+<p>With our callback mechanism, we can receive meaningful information about user input events from the <code>Interaction</code> class. We are ready to apply these actions to the <code>Scene</code>.</p>
+<h4>Moving the Scene</h4>
+<p>In this project, we accomplish camera motion by transforming the scene. In other words, the
+camera is at a fixed location and user input moves the scene instead of moving the camera. The camera is placed at <code>[0, 0, -15]</code> and
+faces the world space origin. (Alternatively, we could change the perspective matrix to move the camera instead of the scene.
+This design decision has very little impact on the rest of the project.)
+Revisiting the <code>render</code> function in the <code>Viewer</code>, we see that the <code>Interaction</code> state is used to transform the OpenGL matrix state before rendering the <code>Scene</code>.
+There are two types of interaction with the scene: rotation and translation.</p>
+<h4>Rotating the Scene with a Trackball</h4>
+<p>We accomplish rotation of the scene by using a <em>trackball</em> algorithm. The trackball is an intuitive interface for manipulating the scene in three dimensions.
+Conceptually, a trackball interface functions as if the scene was inside a transparent globe. Placing a hand on the surface of the globe and pushing it rotates the globe. Similarly, clicking the right mouse button and moving it on the screen rotates the scene.
+You can find out more about the theory of the trackball at the <a href="http://www.opengl.org/wiki/Object_Mouse_Trackball">OpenGL Wiki</a>.
+In this project, we use a trackball implementation provided as part of <a href="https://code.google.com/p/glumpy/source/browse/glumpy/trackball.py">Glumpy</a>.</p>
+<p>We interact with the trackball using the <code>drag_to</code> function, with the current location of the mouse as the starting location and the change in mouse location as parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">trackball</span><span class="o">.</span><span class="n">drag_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+</code></pre></div>
+<p>The resulting rotation matrix is <code>trackball.matrix</code> in the viewer when the scene is rendered.</p>
+<h4>Aside: Quaternions</h4>
+<p>Rotations are traditionally represented in one of two ways. The first is a rotation value around each axis; you could store this as a 3-tuple of floating point numbers.
+The other common representation for rotations is a quaternion, an element composed of a vector with $x$, $y$, and $z$ coordinates, and a $w$ rotation. Using quaternions has numerous benefits over per-axis rotation; in particular, they are more numerically stable. Using quaternions avoids problems like gimbal lock.
+The downside of quaternions is that they are less intuitive to work with and harder to understand. If you are brave and would like to learn more about quaternions, you can refer to <a href="http://3dgep.com/?p=1815">this explanation</a>.</p>
+<p>The trackball implementation avoids gimbal lock by using quaternions internally to store the rotation of the scene. Luckily, we do not need to work with quaternions directly, because the matrix member on the trackball
+converts the rotation to a matrix.</p>
+<h4>Translating the Scene</h4>
+<p>Translating the scene (i.e., sliding it) is much simpler than rotating it. Scene translations are provided with the mouse wheel and the left mouse button. The left mouse
+button translates the scene in the $x$ and $y$ coordinates. Scrolling the mouse wheel translates the scene in the z coordinate
+(towards or away from the camera). The <code>Interaction</code> class stores the current scene translation and modifies it with the <code>translate</code> function.
+The viewer retrieves the <code>Interaction</code> camera location during rendering to use in a <code>glTranslated</code> call.</p>
+<h4>Selecting Scene Objects</h4>
+<p>Now that the user can move and rotate the entire scene to get the perspective they want, the next step is to allow the user to modify and manipulate the objects that make up the scene.</p>
+<p>In order for the user to manipulate objects in the scene, they need to be able to select items.</p>
+<p>To select an item, we use the current projection matrix to generate a ray that represents the mouse click, as if the mouse pointer shoots a ray
+into the scene. The selected node is the closest node to the camera with which the ray intersects.
+Thus the problem of picking reduced to the problem of finding intersections between a ray and nodes in the scene. So the question is: How do we tell if the ray hits a node?</p>
+<p>Calculating exactly whether a ray intersects with a node is a challenging problem in terms of both complexity of code and of performance. We would need to write a ray-object intersection check for each type of primitive.
+For scene nodes with complex mesh geometries with many faces, calculating exact ray-object intersection would require testing the ray against each face
+and would be computationally expensive.</p>
+<p>For the purposes of keeping the code compact and performance reasonable, we use a simple, fast approximation for the ray-object intersection test. 
+In our implementation, each node stores an axis-aligned bounding box (AABB), which is an approximation of the space it occupies.
+To test whether a ray intersects with a node, we test whether the ray intersects with the node&rsquo;s AABB. This implementation means that all nodes share
+the same code for intersection tests, and it means that the performance cost is constant and small for all node types.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Viewer</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Generate a ray beginning at the near plane, in the direction that</span>
+<span class="sd">        the x, y coordinates are facing </span>
+
+<span class="sd">        Consumes: x, y coordinates of mouse on screen </span>
+<span class="sd">        Return: start, direction of the ray </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_view</span><span class="p">()</span>
+
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+
+        <span class="c1"># get two points on the line.</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gluUnProject</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">))</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gluUnProject</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">))</span>
+
+        <span class="c1"># convert those points into a ray</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">direction</span> <span class="o">/</span> <span class="n">norm</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Execute pick of an object. Selects an object in the scene. &quot;&quot;&quot;</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelView</span><span class="p">)</span>
+</code></pre></div>
+<p>To determine which node was clicked on, we traverse the scene to test whether the ray hits any nodes. We deselect the currently selected node and then choose the node with the intersection closest to the ray origin.</p>
+<p><div class="highlight"><pre><span></span><code>    <span class="c1"># class Scene</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">mat</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Execute selection.</span>
+
+<span class="sd">        start, direction describe a Ray. </span>
+<span class="sd">        mat is the inverse of the current modelview matrix for the scene.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Keep track of the closest hit.</span>
+        <span class="n">mindist</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">maxint</span>
+        <span class="n">closest_node</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">:</span>
+            <span class="n">hit</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">hit</span> <span class="ow">and</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="n">mindist</span><span class="p">:</span>
+                <span class="n">mindist</span><span class="p">,</span> <span class="n">closest_node</span> <span class="o">=</span> <span class="n">distance</span><span class="p">,</span> <span class="n">node</span>
+
+        <span class="c1"># If we hit something, keep track of it.</span>
+        <span class="k">if</span> <span class="n">closest_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">closest_node</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+            <span class="n">closest_node</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">mindist</span>
+            <span class="n">closest_node</span><span class="o">.</span><span class="n">selected_loc</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">mindist</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="o">=</span> <span class="n">closest_node</span>
+</code></pre></div>
+Within the <code>Node</code> class, the <code>pick</code> function tests whether the ray intersects with the axis-aligned bounding box of the <code>Node</code>.
+If a node is selected, the <code>select</code> function toggles the selected state of the node.
+Notice that the AABB&rsquo;s <code>ray_hit</code> function accepts the transformation matrix between the box&rsquo;s coordinate space and the
+ray&rsquo;s coordinate space as the third parameter. Each node applies its own transformation to the matrix before making the <code>ray_hit</code> function call.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Node</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">mat</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Return whether or not the ray hits the object</span>
+
+<span class="sd">        Consume:  </span>
+<span class="sd">        start, direction form the ray to check</span>
+<span class="sd">        mat is the modelview matrix to transform the ray by </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># transform the modelview matrix by the current translation</span>
+        <span class="n">newmat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+            <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">translation_matrix</span><span class="p">),</span> 
+            <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scaling_matrix</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aabb</span><span class="o">.</span><span class="n">ray_hit</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">newmat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">results</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">       </span><span class="sd">&quot;&quot;&quot; Toggles or sets selected state &quot;&quot;&quot;</span>
+       <span class="k">if</span> <span class="n">select</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">selected</span> <span class="o">=</span> <span class="n">select</span>
+       <span class="k">else</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">selected</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected</span>
+</code></pre></div>
+<p>The ray-AABB selection approach is very simple to understand and implement. However, the results are wrong in certain situations.</p>
+<p><img alt="AABB Error" src="modeller-images/AABBError.png" />For example, in the case of the <code>Sphere</code> primitive, the sphere itself only touches the AABB in the centre of each of the AABB&rsquo;s faces.
+However if the user clicks on the corner of the Sphere&rsquo;s AABB, the collision will be detected with the Sphere, even if the user intended to click
+past the Sphere onto something behind it (Figure: AABB Error).</p>
+<p>This trade-off between complexity, performance, and accuracy is common in computer graphics and in many areas of software engineering.</p>
+<h4>Modifying Scene Objects</h4>
+<p>Next, we would like to allow the user to manipulate the selected nodes. They might want to move, resize, or change the color of the selected node.
+When the user inputs a command to manipulate a node, the <code>Interaction</code> class converts the input into the action that the user intended, and calls the corresponding callback.</p>
+<p>When the <code>Viewer</code> receives a callback for one of these events, it calls the appropriate function on the <code>Scene</code>, which in turn applies the transformation to the currently selected <code>Node</code>.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Viewer</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Execute a move command on the scene. &quot;&quot;&quot;</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">move_selected</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverseModelView</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rotate_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Rotate the color of the selected Node. </span>
+<span class="sd">        Boolean &#39;forward&#39; indicates direction of rotation. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">rotate_selected_color</span><span class="p">(</span><span class="n">forward</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Scale the selected Node. Boolean up indicates scaling larger.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">scale_selected</span><span class="p">(</span><span class="n">up</span><span class="p">)</span>
+</code></pre></div>
+<h4>Changing Color</h4>
+<p>Manipulating color is accomplished with a list of possible colors. The user can cycle through the list with the arrow keys. The scene dispatches the color change command to
+the currently selected node.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Scene</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rotate_selected_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forwards</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Rotate the color of the currently selected node &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span><span class="o">.</span><span class="n">rotate_color</span><span class="p">(</span><span class="n">forwards</span><span class="p">)</span>
+</code></pre></div>
+<p>Each node stores its current color. The <code>rotate_color</code> function simply modifies the current color of the node. The color is passed to OpenGL with <code>glColor</code> when the node is rendered. </p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Node</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rotate_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forwards</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_index</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">forwards</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_index</span> <span class="o">&gt;</span> <span class="n">color</span><span class="o">.</span><span class="n">MAX_COLOR</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color_index</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">MIN_COLOR</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_index</span> <span class="o">&lt;</span> <span class="n">color</span><span class="o">.</span><span class="n">MIN_COLOR</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color_index</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">MAX_COLOR</span>
+</code></pre></div>
+<h4>Scaling Nodes</h4>
+<p>As with color, the scene dispatches any scaling modifications to the selected node, if there is one.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Scene</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Scale the current selection &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">up</span><span class="p">)</span>
+</code></pre></div>
+<p>Each node stores a current matrix that stores its scale. A matrix that scales by parameters $x$, $y$ and $z$ in those respective directions is:</p>
+<p>$$
+    \begin{bmatrix}
+    x &amp; 0 &amp; 0 &amp; 0 \
+    0 &amp; y &amp; 0 &amp; 0 \
+    0 &amp; 0 &amp; z &amp; 0 \
+    0 &amp; 0 &amp; 0 &amp; 1 \ 
+    \end{bmatrix}
+$$</p>
+<p>When the user modifies the scale of a node, the resulting scaling matrix is multiplied into the current scaling matrix for the node.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Node</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span>  <span class="mf">1.1</span> <span class="k">if</span> <span class="n">up</span> <span class="k">else</span> <span class="mf">0.9</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scaling_matrix</span><span class="p">,</span> <span class="n">scaling</span><span class="p">([</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aabb</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<p>The function <code>scaling</code> returns such a matrix, given a list of the $x$, $y$, and $z$ scaling factors.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">scaling</span><span class="p">(</span><span class="n">scale</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">s</span>
+</code></pre></div>
+<h4>Moving Nodes</h4>
+<p>In order to translate a node, we use the same ray calculation we used for picking. We pass the ray that represents the current mouse location in to the scene&rsquo;s
+<code>move</code> function. The new location of the node should be on the ray.
+In order to determine where on the ray to place the node, we need to know the node&rsquo;s distance from the camera. Since we stored the node&rsquo;s location and distance
+from the camera when it was selected (in the <code>pick</code> function), we can use that data here.
+We find the point that is the same distance from the camera along the target ray and we calculate the vector difference between the new and old locations.
+We then translate the node by the resulting vector. </p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Scene</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">inv_modelview</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Move the selected node, if there is one.</span>
+
+<span class="sd">        Consume: </span>
+<span class="sd">        start, direction describes the Ray to move to</span>
+<span class="sd">        mat is the modelview matrix for the scene </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span>
+
+        <span class="c1"># Find the current depth and location of the selected node</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected_node</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">depth</span>
+        <span class="n">oldloc</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">selected_loc</span>
+
+        <span class="c1"># The new location of the node is the same depth along the new ray</span>
+        <span class="n">newloc</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">depth</span><span class="p">)</span>
+
+        <span class="c1"># transform the translation with the modelview matrix</span>
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">newloc</span> <span class="o">-</span> <span class="n">oldloc</span>
+        <span class="n">pre_tran</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">inv_modelview</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pre_tran</span><span class="p">)</span>
+
+        <span class="c1"># translate the node and track its location</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">selected_loc</span> <span class="o">=</span> <span class="n">newloc</span>
+</code></pre></div>
+<p>Notice that the new and old locations are defined in the camera coordinate space. We need our translation to be defined in the world coordinate space.
+Thus, we convert the camera space translation into a world space translation by multiplying by the inverse of the modelview matrix.</p>
+<p>As with scale, each node stores a matrix which represents its translation. A translation matrix looks like:</p>
+<p>$$
+   \begin{bmatrix}
+   1 &amp; 0 &amp; 0 &amp; x \
+   0 &amp; 1 &amp; 0 &amp; y \
+   0 &amp; 0 &amp; 1 &amp; z \
+   0 &amp; 0 &amp; 0 &amp; 1 \
+   \end{bmatrix}
+$$</p>
+<p>When the node is translated, we construct a new translation matrix for the current translation, and multiply it into the node&rsquo;s
+translation matrix for use during rendering.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Node</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">translation_matrix</span><span class="p">,</span> 
+            <span class="n">translation</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">]))</span>
+</code></pre></div>
+<p>The <code>translation</code> function returns a translation matrix given a list representing the $x$, $y$, and $z$ translation distances.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">translation</span><span class="p">(</span><span class="n">displacement</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">displacement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">displacement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">displacement</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">t</span>
+</code></pre></div>
+<h4>Placing Nodes</h4>
+<p>Node placement uses techniques from both picking and translation. We use the same ray calculation for the current mouse location to determine where to place the node.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Viewer</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">place</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Execute a placement of a new primitive into the scene. &quot;&quot;&quot;</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverseModelView</span><span class="p">)</span>
+</code></pre></div>
+<p>To place a new node, we first create the new instance of the corresponding type of node and add it to the scene.
+We want to place the node underneath the user&rsquo;s cursor, so we find a point on the ray, at a fixed distance from the camera.
+Again, the ray is represented in camera space, so we convert the resulting translation vector into the world coordinate space by multiplying it by the inverse modelview matrix.
+Finally, we translate the new node by the calculated vector. </p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># class Scene</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">place</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">inv_modelview</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Place a new node.</span>
+
+<span class="sd">        Consume:  </span>
+<span class="sd">        shape the shape to add</span>
+<span class="sd">        start, direction describes the Ray to move to</span>
+<span class="sd">        inv_modelview is the inverse modelview matrix for the scene </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_node</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;sphere&#39;</span><span class="p">:</span> <span class="n">new_node</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;cube&#39;</span><span class="p">:</span> <span class="n">new_node</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;figure&#39;</span><span class="p">:</span> <span class="n">new_node</span> <span class="o">=</span> <span class="n">SnowFigure</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+
+        <span class="c1"># place the node at the cursor in camera-space</span>
+        <span class="n">translation</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">direction</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">PLACE_DEPTH</span><span class="p">)</span>
+
+        <span class="c1"># convert the translation to world-space</span>
+        <span class="n">pre_tran</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">inv_modelview</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pre_tran</span><span class="p">)</span>
+
+        <span class="n">new_node</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">translation</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<h2>Summary</h2>
+<p>Congratulations! We&rsquo;ve successfully implemented a tiny 3D modeller!</p>
+<p><img alt="Sample Scene" src="modeller-images/StartScene.png" />We saw how to develop an extensible data structure to represent the objects in
+the scene. We noticed that using the Composite design pattern and a tree-based
+data structure makes it easy to traverse the scene for rendering  and allows us
+to add new types of nodes with no added complexity.  We leveraged this data
+structure to render the design to the screen, and manipulated OpenGL matrices
+in the traversal of the scene graph.  We built a very simple callback system
+for application-level events, and used it to encapsulate handling of operating
+system events.  We discussed possible implementations for ray-object collision
+detection, and the trade-offs between correctness, complexity, and performance.
+Finally, we implemented methods for manipulating the contents of the scene.</p>
+<p>You can expect to find these same basic building blocks in production 3D software. The scene graph structure and relative coordinate spaces are found in 
+many types of 3D graphics applications, from CAD tools to game engines.
+One major simplification in this project is in the user interface. A production 3D modeller would be expected to have a
+complete user interface, which would necessitate a much more sophisticated events system instead of our simple callback system.</p>
+<p>We could do further experimentation to add new features to this project. Try one of these:</p>
+<ul>
+<li>Add a <code>Node</code> type to support triangle meshes for arbitrary shapes.</li>
+<li>Add an undo stack, to allow undo/redo of modeller actions.</li>
+<li>Save/load the design using a 3D file format like DXF.</li>
+<li>Integrate a rendering engine: export the design for use in a photorealistic renderer.</li>
+<li>Improve collision detection with accurate ray-object intersection.</li>
+</ul>
+<h2>Further Exploration</h2>
+<p>For further insight into real-world 3D modelling software, a few open source projects are interesting.</p>
+<p><a href="http://www.blender.org/">Blender</a> is an open source full-featured 3D animation suite. It provides a full 3D pipeline for building special effects in video, or for game creation. The modeller is a small part of this
+project, and it is a good example of integrating a modeller into a large software suite.</p>
+<p><a href="http://www.openscad.org/">OpenSCAD</a> is an open source 3D modelling tool. It is not interactive; rather, it reads a script file that specifies how to generate the scene. This gives the designer &ldquo;full control over the modelling process&rdquo;.</p>
+<p>For more information about algorithms and techniques in computer graphics, <a href="http://tog.acm.org/resources/GraphicsGems/">Graphics Gems</a> is a great resource.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:transimage">
+<p>Thanks to Dr. Anton Gerdelan for the image. His OpenGL tutorial book is available at <a href="http://antongerdelan.net/opengl/">http://antongerdelan.net/opengl/</a>.&#160;<a class="footnote-backref" href="#fnref:transimage" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>
