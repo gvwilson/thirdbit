@@ -84,7 +84,7 @@ please <a href="mailto:gvwilson@third-bit.com">let me know</a>.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;task-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ident</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"task-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ident</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
 <h2>The Overall Simulation</h2>
 <p>Since I don&rsquo;t want to have to pass a whole bunch of parameters around,
@@ -118,7 +118,7 @@ and puts them in the ready-to-develop queue:</p>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> create </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> create </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_dev</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_GEN</span><span class="p">)</span>
 </code></pre></div>
@@ -152,7 +152,7 @@ and for printing itself:</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
 <h2>Testers</h2>
 <p>The tester gets a task from the testing queue,
@@ -163,9 +163,9 @@ and then puts it in the rework queue:</p>
     <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Get a task from the testing queue.</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)"</span><span class="p">)</span>
             <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_test</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
             <span class="c1"># Do testing.</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_TEST</span><span class="p">)</span>
@@ -173,7 +173,7 @@ and then puts it in the rework queue:</p>
 
             <span class="c1"># Always put the task in the rework queue.</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_rework</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in rework queue&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in rework queue"</span><span class="p">)</span>
 </code></pre></div>
 <h2>Developers (the wrong version)</h2>
 <p><strong>This code is wrong, but will be fixed below.</strong></p>
@@ -188,25 +188,25 @@ and put the task in the testing queue:</p>
             <span class="c1"># Get either a task for development or a task for rework.</span>
             <span class="n">req_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_dev</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
             <span class="n">req_rework</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_rework</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)"</span><span class="p">)</span>
             <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">simpy</span><span class="o">.</span><span class="n">AnyOf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="p">[</span><span class="n">req_dev</span><span class="p">,</span> <span class="n">req_rework</span><span class="p">])</span>
 
             <span class="c1"># Give priority to rework.</span>
             <span class="k">if</span> <span class="n">req_rework</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
                 <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_rework</span><span class="p">]</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> from rework with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> from rework with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span><span class="si">}</span><span class="s2"> events"</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">req_dev</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
                 <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_dev</span><span class="p">]</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> from dev with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> from dev with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span><span class="si">}</span><span class="s2"> events"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;how did we get here?&quot;</span>
+                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"how did we get here?"</span>
 
             <span class="c1"># Do development.</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_DEV</span><span class="p">)</span>
 
             <span class="c1"># Put the task in the testing queue.</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_test</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in testing queue&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in testing queue"</span><span class="p">)</span>
 </code></pre></div>
 <p>According to the documentation,
 <code>simpy.AnyOf</code> creates an object that means &ldquo;give me any of the following&rdquo;.
@@ -264,13 +264,13 @@ Tester/3.00: got task-2/0
 <p>Here&rsquo;s the skeleton of the corrected developer&rsquo;s <code>work</code> method:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DeveloperRight</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
+        <span class="n">which</span> <span class="o">=</span> <span class="s2">"dev"</span>
         <span class="n">take</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Get either a task for development or a task for rework.</span>
             <span class="n">req_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_dev</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
             <span class="n">req_rework</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_rework</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)"</span><span class="p">)</span>
             <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">simpy</span><span class="o">.</span><span class="n">AnyOf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="p">[</span><span class="n">req_dev</span><span class="p">,</span> <span class="n">req_rework</span><span class="p">])</span>
 
             <span class="err">…</span><span class="n">magic</span> <span class="n">happens</span> <span class="n">here</span><span class="err">…</span>
@@ -280,7 +280,7 @@ Tester/3.00: got task-2/0
 
             <span class="c1"># Put the task in the testing queue.</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_test</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in testing queue&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in testing queue"</span><span class="p">)</span>
 </code></pre></div>
 <p>The bit of magic in the middle is that as far as I can tell,
 all of the requests that <em>weren&rsquo;t</em> selected have to be canceled,
@@ -298,41 +298,41 @@ if there is only one event in the result from <code>AnyOf</code>,
 the code uses that,
 but <em>still cancels the other request</em>:</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
+        <span class="n">which</span> <span class="o">=</span> <span class="s2">"dev"</span>
         <span class="n">take</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="err">…</span><span class="n">get</span> <span class="n">either</span> <span class="n">a</span> <span class="n">task</span> <span class="k">for</span> <span class="n">development</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">task</span> <span class="k">for</span> <span class="n">rework</span><span class="err">…</span>
 
             <span class="c1"># Pick one.</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got two events&quot;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">&quot;dev&quot;</span><span class="p">:</span>
-                    <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
-                    <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;rework&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got two events"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">"dev"</span><span class="p">:</span>
+                    <span class="n">take</span> <span class="o">=</span> <span class="s2">"dev"</span>
+                    <span class="n">which</span> <span class="o">=</span> <span class="s2">"rework"</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;rework&quot;</span>
-                    <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
+                    <span class="n">take</span> <span class="o">=</span> <span class="s2">"rework"</span>
+                    <span class="n">which</span> <span class="o">=</span> <span class="s2">"dev"</span>
             <span class="k">elif</span> <span class="n">req_dev</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got dev&quot;</span><span class="p">)</span>
-                <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got dev"</span><span class="p">)</span>
+                <span class="n">take</span> <span class="o">=</span> <span class="s2">"dev"</span>
             <span class="k">elif</span> <span class="n">req_rework</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got rework&quot;</span><span class="p">)</span>
-                <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;rework&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got rework"</span><span class="p">)</span>
+                <span class="n">take</span> <span class="o">=</span> <span class="s2">"rework"</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;how did we get here?&quot;</span>
+                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"how did we get here?"</span>
 
             <span class="c1"># Now take it.</span>
-            <span class="k">if</span> <span class="n">take</span> <span class="o">==</span> <span class="s2">&quot;dev&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...taking dev&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">take</span> <span class="o">==</span> <span class="s2">"dev"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...taking dev"</span><span class="p">)</span>
                 <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_dev</span><span class="p">]</span>
                 <span class="n">req_rework</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">take</span> <span class="o">==</span> <span class="s2">&quot;rework&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...taking rework&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">take</span> <span class="o">==</span> <span class="s2">"rework"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...taking rework"</span><span class="p">)</span>
                 <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_rework</span><span class="p">]</span>
                 <span class="n">req_dev</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;how did we get here?&quot;</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"how did we get here?"</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
             <span class="err">…</span><span class="n">do</span> <span class="n">development</span> <span class="ow">and</span> <span class="n">put</span> <span class="n">the</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">testing</span> <span class="n">queue</span><span class="err">…</span>
 </code></pre></div>

@@ -84,15 +84,15 @@ which tells Python that this function creates a generator.
 if a keyword like <code>gen</code> had to be used instead of <code>def</code>,
 but that ship sailed a long time ago.)
 We can use our generator like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">gen</span> <span class="o">=</span> <span class="n">gen_char_from_string</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">gen</span> <span class="o">=</span> <span class="n">gen_char_from_string</span><span class="p">(</span><span class="s2">"one"</span><span class="p">)</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ended by exception&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ended by exception"</span><span class="p">)</span>
 </code></pre></div>
 <p>As this code shows,
 calling <code>gen_char_from_string</code> creates an object rather than immediately returning a value.
@@ -110,8 +110,8 @@ so we can rewrite the snippets above as:</p>
     <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">ch</span>
 
-<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">gen_char_from_string</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result as list: </span><span class="si">{</span><span class="n">characters</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">gen_char_from_string</span><span class="p">(</span><span class="s2">"two"</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"result as list: </span><span class="si">{</span><span class="n">characters</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>Second,
 we can do things like create &ldquo;infinite&rdquo; generators:</p>
@@ -122,7 +122,7 @@ we can do things like create &ldquo;infinite&rdquo; generators:</p>
         <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
 
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">gen_infinite</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)):</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">gen_infinite</span><span class="p">(</span><span class="s2">"three"</span><span class="p">)):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
         <span class="k">break</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
@@ -145,18 +145,18 @@ we can do things like create &ldquo;infinite&rdquo; generators:</p>
             <span class="k">yield</span> <span class="p">(</span><span class="n">left_item</span><span class="p">,</span> <span class="n">right_item</span><span class="p">)</span>
 
 
-<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">gen_combinations</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">gen_combinations</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>(&#39;a&#39;, 1)
-(&#39;a&#39;, 2)
-(&#39;a&#39;, 3)
-(&#39;b&#39;, 1)
-(&#39;b&#39;, 2)
-(&#39;b&#39;, 3)
-(&#39;c&#39;, 1)
-(&#39;c&#39;, 2)
-(&#39;c&#39;, 3)
+<div class="highlight"><pre><span></span><code>('a', 1)
+('a', 2)
+('a', 3)
+('b', 1)
+('b', 2)
+('b', 3)
+('c', 1)
+('c', 2)
+('c', 3)
 </code></pre></div></p>
 <p>We can even store our generators in a list (after all, they&rsquo;re just objects)
 and then use them however we want:</p>
@@ -172,7 +172,7 @@ and then use them however we want:</p>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">v</span>
 
-<span class="n">sequences</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">),</span> <span class="n">seq</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)]</span>
+<span class="n">sequences</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">),</span> <span class="n">seq</span><span class="p">(</span><span class="s2">"123"</span><span class="p">)]</span>
 <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">alternate</span><span class="p">(</span><span class="n">sequences</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
 </code></pre></div>
@@ -209,7 +209,7 @@ All we have to do is:</p>
     <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulation completed at T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Simulation completed at T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>The key thing here is that <code>worker</code> <em>isn&rsquo;t</em> a normal function call.
 Instead of handing a value to <code>env.process</code>,
@@ -220,15 +220,15 @@ e.g.,
 to simulate being busy.
 (Processes can yield other things as well—we&rsquo;ll see some in future posts.)</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">,</span> <span class="n">num_jobs</span><span class="p">,</span> <span class="n">job_time</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Actor with fixed-time jobs.&quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Actor with fixed-time jobs."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts"</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">job_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_jobs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts job </span><span class="si">{</span><span class="n">job_num</span><span class="si">}</span><span class="s2"> duration </span><span class="si">{</span><span class="n">job_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts job </span><span class="si">{</span><span class="n">job_num</span><span class="si">}</span><span class="s2"> duration </span><span class="si">{</span><span class="n">job_time</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">job_time</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> finishes job </span><span class="si">{</span><span class="n">job_num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> finishes job </span><span class="si">{</span><span class="n">job_num</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> finishes&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> finishes"</span><span class="p">)</span>
 </code></pre></div>
 <p>Here&rsquo;s the output:</p>
 <div class="highlight"><pre><span></span><code>T=0 worker 1 starts

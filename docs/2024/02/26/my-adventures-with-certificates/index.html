@@ -110,8 +110,8 @@ To get it to serve over HTTPS, I do this:</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">server_address</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1443</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">server_address</span> <span class="o">=</span> <span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="mi">1443</span><span class="p">)</span>
     <span class="n">sandbox</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">certfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">keyfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -129,7 +129,7 @@ To get it to serve over HTTPS, I do this:</p>
     <span class="c1"># Now serve files.</span>
     <span class="n">server</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">(</span><span class="n">server_address</span><span class="p">,</span> <span class="n">RequestHandler</span><span class="p">)</span>
     <span class="n">server</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">ssl_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">socket</span><span class="p">,</span> <span class="n">server_side</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;serving at </span><span class="si">{</span><span class="n">server_address</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"serving at </span><span class="si">{</span><span class="n">server_address</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </code></pre></div>
 <p>If I put <code>cert.pem</code> and <code>key.pem</code> in a directory called <code>site</code> along with a file <code>test.txt</code>
@@ -142,10 +142,10 @@ it displays the content of <code>test.txt</code> as desired.</p>
 I want to connect to this server using the <code>requests</code> module.
 My first attempt is <code>requests.get("https://localhost:1443/test.txt")</code>,
 which produces:</p>
-<div class="highlight"><pre><span></span><code>ERROR: HTTPSConnectionPool(host=&#39;localhost&#39;, port=1443):
+<div class="highlight"><pre><span></span><code>ERROR: HTTPSConnectionPool(host='localhost', port=1443):
 Max retries exceeded with url: /test.txt
 (Caused by SSLError(SSLCertVerificationError(1,
-&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)&#39;)))
+'[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
 </code></pre></div>
 <p>OK, that&rsquo;s fair:
 <code>requests</code> shouldn&rsquo;t trust my self-signed certificate unless I tell it to.
@@ -153,14 +153,14 @@ I can turn off checking entirely by passing <code>verify=False</code> to <code>r
 but I&rsquo;m not going to teach people to do that.
 Instead,
 I try this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://localhost:1443/test.txt&quot;</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="s2">&quot;cert.pem&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://localhost:1443/test.txt"</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="s2">"cert.pem"</span><span class="p">)</span>
 </code></pre></div>
 <p>which gives me a different error:</p>
-<div class="highlight"><pre><span></span><code>ERROR: HTTPSConnectionPool(host=&#39;localhost&#39;, port=1443):
+<div class="highlight"><pre><span></span><code>ERROR: HTTPSConnectionPool(host='localhost', port=1443):
 Max retries exceeded with url: /test.txt
 (Caused by SSLError(SSLCertVerificationError(1,
-&quot;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed:
-Hostname mismatch, certificate is not valid for &#39;localhost&#39;. (_ssl.c:1000)&quot;)))
+"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed:
+Hostname mismatch, certificate is not valid for 'localhost'. (_ssl.c:1000)")))
 </code></pre></div>
 <p>A bit of poking around leads me to the <a href="https://pypi.org/project/certifi/"><code>certifi</code></a> module;
 calling <code>certifi.where()</code> gives me:</p>

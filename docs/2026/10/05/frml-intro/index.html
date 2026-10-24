@@ -128,16 +128,16 @@ used Z3 to find compatible versions of packages.
 Here&rsquo;s a simple example of its use:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">z3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Solver</span>
 
-<span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
 </code></pre></div>
 <p><code>A</code>, <code>B</code>, and <code>C</code> do not have specific values. Each instead represents the set
 of possible Boolean values, so we can specify constraints like <code>A == B</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">report</span><span class="p">(</span><span class="s2">&quot;A == B &amp; B == C&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+<span class="n">report</span><span class="p">(</span><span class="s2">"A == B &amp; B == C"</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
 </code></pre></div>
 <p>We can then ask Z3 to find a <em>model</em> that satisfies those constraints:</p>
 <div class="highlight"><pre><span></span><code>A == B &amp; B == C: sat
@@ -147,14 +147,14 @@ C False
 </code></pre></div>
 <p>To see unsatisfiability, require <code>A</code> to equal <code>B</code> and <code>B</code> to equal <code>C</code> but <code>A</code>
 and <code>C</code> to be unequal:</p>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
 <span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">!=</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">report</span><span class="p">(</span><span class="s2">&quot;A == B &amp; B == C &amp; B != C&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+<span class="n">report</span><span class="p">(</span><span class="s2">"A == B &amp; B == C &amp; B != C"</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>A == B &amp; B == C &amp; B != C: unsat
 </code></pre></div>

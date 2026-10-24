@@ -461,7 +461,7 @@ We use two helper functions to perform the update. <code>update-attr-modificatio
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defn- </span><span class="nv">update-attr-value</span><span class="w"> </span><span class="p">[</span><span class="nv">attr</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="nv">operation</span><span class="p">]</span>
 <span class="w">   </span><span class="p">(</span><span class="nf">cond</span>
 <span class="w">      </span><span class="p">(</span><span class="nf">single?</span><span class="w"> </span><span class="nv">attr</span><span class="p">)</span><span class="w">    </span><span class="p">(</span><span class="nb">assoc </span><span class="nv">attr</span><span class="w"> </span><span class="ss">:value</span><span class="w"> </span><span class="o">#</span><span class="p">{</span><span class="nv">value</span><span class="p">})</span>
-<span class="w">      </span><span class="c1">; now we&#39;re talking about an attribute of multiple values</span>
+<span class="w">      </span><span class="c1">; now we're talking about an attribute of multiple values</span>
 <span class="w">      </span><span class="p">(</span><span class="nb">= </span><span class="ss">:db/reset-to</span><span class="w"> </span><span class="nv">operation</span><span class="p">)</span><span class="w"> </span>
 <span class="w">        </span><span class="p">(</span><span class="nb">assoc </span><span class="nv">attr</span><span class="w"> </span><span class="ss">:value</span><span class="w"> </span><span class="nv">value</span><span class="p">)</span>
 <span class="w">      </span><span class="p">(</span><span class="nb">= </span><span class="ss">:db/add</span><span class="w"> </span><span class="nv">operation</span><span class="p">)</span><span class="w"> </span>
@@ -573,9 +573,9 @@ A database is not very useful to its users without a powerful query mechanism. T
 <p>Let&rsquo;s look at an example query in our proposed language. This query asks: &ldquo;What are the names and birthdays of entities who like pizza, speak English, and who have a birthday this month?&rdquo;
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w">  </span><span class="ss">:find</span><span class="w"> </span><span class="p">[</span><span class="nv">?nm</span><span class="w"> </span><span class="nv">?bd</span><span class="w"> </span><span class="p">]</span>
 <span class="w">   </span><span class="ss">:where</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">[</span><span class="nv">?e</span><span class="w">  </span><span class="ss">:likes</span><span class="w"> </span><span class="s">&quot;pizza&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">[</span><span class="nv">?e</span><span class="w">  </span><span class="ss">:likes</span><span class="w"> </span><span class="s">"pizza"</span><span class="p">]</span>
 <span class="w">      </span><span class="p">[</span><span class="nv">?e</span><span class="w">  </span><span class="ss">:name</span><span class="w">  </span><span class="nv">?nm</span><span class="p">]</span>
-<span class="w">      </span><span class="p">[</span><span class="nv">?e</span><span class="w">  </span><span class="ss">:speak</span><span class="w"> </span><span class="s">&quot;English&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">[</span><span class="nv">?e</span><span class="w">  </span><span class="ss">:speak</span><span class="w"> </span><span class="s">"English"</span><span class="p">]</span>
 <span class="w">      </span><span class="p">[</span><span class="nv">?e</span><span class="w">  </span><span class="ss">:bday</span><span class="w"> </span><span class="p">(</span><span class="nf">bday-mo?</span><span class="w"> </span><span class="nv">?bd</span><span class="p">)]]}</span>
 </code></pre></div></p>
 <h4>Syntax</h4>
@@ -691,7 +691,7 @@ A database is not very useful to its users without a powerful query mechanism. T
 </code></pre></div>
 We are once again relying on the fact that macros do not eagerly evaluate their arguments. This allows us to define a simpler API where users provide variable names as symbols (e.g., <code>?name</code>) instead of asking the user to understand the internals of the engine by providing variable names as strings ( e.g., <code>"?name"</code>), or even worse, quoting the variable name (e.g., <code>'?name</code>).</p>
 <p>At the end of this phase, our example yields the following set for the <code>:find</code> part: </p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="p">{</span><span class="s">&quot;?nm&quot;</span><span class="w"> </span><span class="s">&quot;?bd&quot;</span><span class="p">}</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="p">{</span><span class="s">"?nm"</span><span class="w"> </span><span class="s">"?bd"</span><span class="p">}</span><span class="w"> </span>
 </code></pre></div>
 <p>and the following structure in Table: Clauses for the <code>:where</code> part. (Each cell in the <em>Predicate Clause</em> column holds the metadata found in its neighbor at the <em>Meta Clause</em> column.)</p>
 <dl>
@@ -946,11 +946,11 @@ Assuming the query was executed on July 4th, the results of executing it on the 
 <span class="w">       </span><span class="p">(</span><span class="nb">apply </span><span class="p">(</span><span class="nb">partial map </span><span class="nv">vector</span><span class="p">)</span><span class="w"> </span><span class="nv">combined-data-and-meta-path</span><span class="p">)))</span>
 </code></pre></div>
 <p>At the end of phase 3 of our example execution, we have the following structure at hand:
-<div class="highlight"><pre><span></span><code><span class="p">{[</span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;?e&quot;</span><span class="p">]{</span><span class="w"> </span>
-<span class="w">    </span><span class="p">{[</span><span class="ss">:likes</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w">    </span><span class="p">[</span><span class="s">&quot;Pizza&quot;</span><span class="w"> </span><span class="nv">nil</span><span class="p">]}</span>
-<span class="w">    </span><span class="p">{[</span><span class="ss">:name</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w">     </span><span class="p">[</span><span class="s">&quot;USA&quot;</span><span class="w"> </span><span class="s">&quot;?nm&quot;</span><span class="p">]}</span>
-<span class="w">    </span><span class="p">{[</span><span class="ss">:speaks</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w">   </span><span class="p">[</span><span class="s">&quot;English&quot;</span><span class="w"> </span><span class="nv">nil</span><span class="p">]}</span><span class="w"> </span>
-<span class="w">    </span><span class="p">{[</span><span class="ss">:bday</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;July 4, 1776&quot;</span><span class="w"> </span><span class="s">&quot;?bd&quot;</span><span class="p">]}</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="p">{[</span><span class="mi">1</span><span class="w"> </span><span class="s">"?e"</span><span class="p">]{</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{[</span><span class="ss">:likes</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w">    </span><span class="p">[</span><span class="s">"Pizza"</span><span class="w"> </span><span class="nv">nil</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">{[</span><span class="ss">:name</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w">     </span><span class="p">[</span><span class="s">"USA"</span><span class="w"> </span><span class="s">"?nm"</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">{[</span><span class="ss">:speaks</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w">   </span><span class="p">[</span><span class="s">"English"</span><span class="w"> </span><span class="nv">nil</span><span class="p">]}</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{[</span><span class="ss">:bday</span><span class="w"> </span><span class="nv">nil</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="s">"July 4, 1776"</span><span class="w"> </span><span class="s">"?bd"</span><span class="p">]}</span><span class="w"> </span>
 <span class="p">}}</span>
 </code></pre></div></p>
 <h4>Phase 4: Unify and Report</h4>
@@ -972,7 +972,7 @@ Assuming the query was executed on July 4th, the results of executing it on the 
 <span class="w">   </span><span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nb">partial </span><span class="nv">resultify-bind-pair</span><span class="w"> </span><span class="nv">vars-set</span><span class="p">)</span><span class="w"> </span><span class="nv">accum-res</span><span class="w"> </span><span class="nv">av-pair</span><span class="p">))</span>
 </code></pre></div>
 At the end of this phase, the results for our example are:
-<div class="highlight"><pre><span></span><code>[(&quot;?nm&quot; &quot;USA&quot;) (&quot;?bd&quot; &quot;July 4, 1776&quot;)]
+<div class="highlight"><pre><span></span><code>[("?nm" "USA") ("?bd" "July 4, 1776")]
 </code></pre></div></p>
 <h4>Running the Show</h4>
 <p>We&rsquo;ve finally built all of the components we need for our user-facing query mechanism, the <code>q</code> macro, which receives as arguments a database and a query.</p>

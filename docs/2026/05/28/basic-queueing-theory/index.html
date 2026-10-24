@@ -63,7 +63,7 @@
 <p>The final concept is <em>server utilization</em>. A server completing work at rate $\mu$ has utilization $\rho = \lambda/\mu$, which is the long-run fraction of time it is busy. The system is stable only when $\rho &lt; 1$. When $\rho \geq 1$, arrivals outpace service and the queue grows without bound. Even at exact balance ($\rho = 1$), randomness creates bursts that accumulate faster than the server recovers, so the expected queue length is infinite.</p>
 <p>The code below uses <a href="https://asimpy.readthedocs.io/">asimpy</a> to model a simple job queue. The technical term for this kind of system is an <a href="https://en.wikipedia.org/wiki/M/M/1_queue">M/M/1 queue</a>: memoryless (Poisson) arrivals, memoryless service times, and one server.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ArrivalSource</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates arrivals at a Poisson rate.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Generates arrivals at a Poisson rate."""</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">gaps</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span> <span class="o">=</span> <span class="n">gaps</span>

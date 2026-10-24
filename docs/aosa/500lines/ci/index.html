@@ -225,15 +225,15 @@ command line argument. If you do not pass it in, it will assume the
 default address of <code>localhost:8888</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--dispatcher-server&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dispatcher host:port, &quot;</span> \
-                        <span class="s2">&quot;by default it uses localhost:8888&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;localhost:8888&quot;</span><span class="p">,</span>
-                        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;repo&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;REPO&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;path to the repository this will observe&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--dispatcher-server"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"dispatcher host:port, "</span> \
+                        <span class="s2">"by default it uses localhost:8888"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s2">"localhost:8888"</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s2">"store"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"repo"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"REPO"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"path to the repository this will observe"</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">dispatcher_host</span><span class="p">,</span> <span class="n">dispatcher_port</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">dispatcher_host</span><span class="p">,</span> <span class="n">dispatcher_port</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
 </code></pre></div>
 <p>Once the repository observer file is invoked, it starts the <code>poll()</code>
 function. This function parses the command line arguments, and then
@@ -243,12 +243,12 @@ check the repository for changes. The first thing it does is call the
 <div class="highlight"><pre><span></span><code>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># call the bash script that will update the repo and check</span>
-            <span class="c1"># for changes. If there&#39;s a change, it will drop a .commit_id file</span>
+            <span class="c1"># for changes. If there's a change, it will drop a .commit_id file</span>
             <span class="c1"># with the latest commit in the current working directory</span>
-            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;./update_repo.sh&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">repo</span><span class="p">])</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">"./update_repo.sh"</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">repo</span><span class="p">])</span>
         <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not update and check repository. &quot;</span> <span class="o">+</span>
-                            <span class="s2">&quot;Reason: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Could not update and check repository. "</span> <span class="o">+</span>
+                            <span class="s2">"Reason: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">e</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </code></pre></div>
 <p>The <code>update_repo.sh</code> file is used to identify any new commits and let the
 repository observer know. It does this by noting what commit ID we are
@@ -276,27 +276,27 @@ create a new one only if a new commit is found.</p>
 <p>After it removes the file (if it existed), it verifies that the
 repository we are observing exists, and then resets it to the most
 recent commit, in case anything caused it to get out of sync.</p>
-<div class="highlight"><pre><span></span><code>run_or_fail<span class="w"> </span><span class="s2">&quot;Repository folder not found!&quot;</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
-run_or_fail<span class="w"> </span><span class="s2">&quot;Could not reset git&quot;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
+<div class="highlight"><pre><span></span><code>run_or_fail<span class="w"> </span><span class="s2">"Repository folder not found!"</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
+run_or_fail<span class="w"> </span><span class="s2">"Could not reset git"</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
 </code></pre></div>
 <p>It then calls git log and parses the output, looking for the most recent
 commit ID.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>run_or_fail<span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-n1<span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>run_or_fail<span class="w"> </span><span class="s2">"Could not call 'git log' on repository"</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-n1<span class="k">)</span>
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Could not call 'git log' on repository"</span>
 <span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
-<span class="nv">COMMIT_ID</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="sb">`</span>
+<span class="nv">COMMIT_ID</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{ print $2 }'</span><span class="sb">`</span>
 </code></pre></div>
 <p>Then it pulls the repository, getting any recent changes, then gets the
 most recent commit ID.</p>
-<div class="highlight"><pre><span></span><code>run_or_fail<span class="w"> </span><span class="s2">&quot;Could not pull from repository&quot;</span><span class="w"> </span>git<span class="w"> </span>pull
-<span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>run_or_fail<span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-n1<span class="k">)</span>
+<div class="highlight"><pre><span></span><code>run_or_fail<span class="w"> </span><span class="s2">"Could not pull from repository"</span><span class="w"> </span>git<span class="w"> </span>pull
+<span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>run_or_fail<span class="w"> </span><span class="s2">"Could not call 'git log' on repository"</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-n1<span class="k">)</span>
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not call &#39;git log&#39; on repository&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Could not call 'git log' on repository"</span>
 <span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
-<span class="nv">NEW_COMMIT_ID</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="sb">`</span>
+<span class="nv">NEW_COMMIT_ID</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{ print $2 }'</span><span class="sb">`</span>
 </code></pre></div>
 <p>Lastly, if the commit ID doesn&rsquo;t match the previous ID, then we know we
 have new commits to check, so the script stores the latest commit ID in
@@ -314,32 +314,32 @@ notify the dispatcher so it can kick off the tests. The repository
 observer will check the dispatcher server&rsquo;s status by connecting to it
 and sending a &lsquo;status&rsquo; request, to make sure there are no problems with
 it, and to make sure it is ready for instruction.</p>
-<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;.commit_id&quot;</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">".commit_id"</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">dispatcher_host</span><span class="p">,</span>
                                                <span class="nb">int</span><span class="p">(</span><span class="n">dispatcher_port</span><span class="p">),</span>
-                                               <span class="s2">&quot;status&quot;</span><span class="p">)</span>
+                                               <span class="s2">"status"</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not communicate with dispatcher server: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Could not communicate with dispatcher server: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 <p>If it responds with &ldquo;OK&rdquo;, then the repository observer opens the
 <code>.commit_id</code> file, reads the latest commit ID and sends that ID to the
 dispatcher, using a <code>dispatch:&lt;commit ID&gt;</code> request. It will then sleep
 for five seconds and repeat the process. We&rsquo;ll also try again in five
 seconds if anything went wrong along the way.</p>
-<div class="highlight"><pre><span></span><code>            <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
-                <span class="n">commit</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;.commit_id&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>            <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">:</span>
+                <span class="n">commit</span> <span class="o">=</span> <span class="s2">""</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">".commit_id"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                     <span class="n">commit</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">dispatcher_host</span><span class="p">,</span>
                                                <span class="nb">int</span><span class="p">(</span><span class="n">dispatcher_port</span><span class="p">),</span>
-                                               <span class="s2">&quot;dispatch:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not dispatch the test: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                                               <span class="s2">"dispatch:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">commit</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">"OK"</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Could not dispatch the test: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span>
                     <span class="n">response</span><span class="p">)</span>
-                <span class="nb">print</span> <span class="s2">&quot;dispatched!&quot;</span>
+                <span class="nb">print</span> <span class="s2">"dispatched!"</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not dispatch the test: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Could not dispatch the test: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span>
                 <span class="n">response</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
@@ -359,14 +359,14 @@ parses the arguments that allow you to specify the dispatcher&rsquo;s host and
 port:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">serve</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--host&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dispatcher&#39;s host, by default it uses localhost&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--port&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dispatcher&#39;s port, by default it uses 8888&quot;</span><span class="p">,</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--host"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"dispatcher's host, by default it uses localhost"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s2">"store"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--port"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"dispatcher's port, by default it uses 8888"</span><span class="p">,</span>
                         <span class="n">default</span><span class="o">=</span><span class="mi">8888</span><span class="p">,</span>
-                        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s2">"store"</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 </code></pre></div>
 <p>This starts the dispatcher server, and two other threads. One thread
@@ -409,11 +409,11 @@ will log the commit ID in the <code>pending_commits</code> variable.</p>
             <span class="k">for</span> <span class="n">runner</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="p">:</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
-                                                   <span class="nb">int</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
-                                                   <span class="s2">&quot;ping&quot;</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">&quot;pong&quot;</span><span class="p">:</span>
-                        <span class="nb">print</span> <span class="s2">&quot;removing runner </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">runner</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span>
+                                                   <span class="nb">int</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">"port"</span><span class="p">]),</span>
+                                                   <span class="s2">"ping"</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">"pong"</span><span class="p">:</span>
+                        <span class="nb">print</span> <span class="s2">"removing runner </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">runner</span>
                         <span class="n">manage_commit_lists</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
                 <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                     <span class="n">manage_commit_lists</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
@@ -425,7 +425,7 @@ function with the commit ID.</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">redistribute</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="n">server</span><span class="o">.</span><span class="n">dead</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">commit</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="p">:</span>
-                <span class="nb">print</span> <span class="s2">&quot;running redistribute&quot;</span>
+                <span class="nb">print</span> <span class="s2">"running redistribute"</span>
                 <span class="nb">print</span> <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span>
                 <span class="n">dispatch_tests</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">commit</span><span class="p">)</span>
                 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -439,15 +439,15 @@ in the <code>dispatched_commits</code> variable. If the commit ID is in the
 <code>pending_commits</code> variable, <code>dispatch_tests</code> will remove it since it has
 already been successfully re-dispatched.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dispatch_tests</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">):</span>
-    <span class="c1"># NOTE: usually we don&#39;t run this forever</span>
+    <span class="c1"># NOTE: usually we don't run this forever</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;trying to dispatch to runners&quot;</span>
+        <span class="nb">print</span> <span class="s2">"trying to dispatch to runners"</span>
         <span class="k">for</span> <span class="n">runner</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
-                                           <span class="nb">int</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
-                                           <span class="s2">&quot;runtest:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit_id</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
-                <span class="nb">print</span> <span class="s2">&quot;adding id </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit_id</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span>
+                                           <span class="nb">int</span><span class="p">(</span><span class="n">runner</span><span class="p">[</span><span class="s2">"port"</span><span class="p">]),</span>
+                                           <span class="s2">"runtest:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">commit_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="s2">"adding id </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">commit_id</span>
                 <span class="n">server</span><span class="o">.</span><span class="n">dispatched_commits</span><span class="p">[</span><span class="n">commit_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">runner</span>
                 <span class="k">if</span> <span class="n">commit_id</span> <span class="ow">in</span> <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="p">:</span>
                     <span class="n">server</span><span class="o">.</span><span class="n">pending_commits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">commit_id</span><span class="p">)</span>
@@ -489,26 +489,26 @@ custom handler, and it will be called on each connection. It looks at
 the incoming connection request (<code>self.request</code> holds the request
 information), and parses out what command is being requested of it.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DispatcherHandler</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    The RequestHandler class for our dispatcher.</span>
 <span class="sd">    This will dispatch test runners against the incoming commit</span>
 <span class="sd">    and handle their requests and test results</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">command_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+)(:.+)*&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">command_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\w+)(:.+)*"</span><span class="p">)</span>
     <span class="n">BUF_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BUF_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">command_groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">command_groups</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;Invalid command&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"Invalid command"</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="n">command</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p>It handles four commands: <code>status</code>, <code>register</code>, <code>dispatch</code>, and <code>results</code>.
 <code>status</code> is used to check if the dispatcher server is up and running.</p>
-<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s2">&quot;in status&quot;</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"status"</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">"in status"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
 </code></pre></div>
 <p>In order for the dispatcher to do anything useful, it needs to have at
 least one test runner registered. When register is called on a host:port
@@ -516,27 +516,27 @@ pair, it stores the runner&rsquo;s information in a list (the runners object
 attached to the <code>ThreadingTCPServer</code> object) so it can communicate with
 the runner later, when it needs to give it a commit ID to run tests
 against.</p>
-<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;register&quot;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"register"</span><span class="p">:</span>
             <span class="c1"># Add this test runner to our pool</span>
-            <span class="nb">print</span> <span class="s2">&quot;register&quot;</span>
+            <span class="nb">print</span> <span class="s2">"register"</span>
             <span class="n">address</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;:(\w*)&quot;</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
-            <span class="n">runner</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">:</span><span class="n">port</span><span class="p">}</span>
+            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">":(\w*)"</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+            <span class="n">runner</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"host"</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span> <span class="s2">"port"</span><span class="p">:</span><span class="n">port</span><span class="p">}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">runner</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
 </code></pre></div>
 <p><code>dispatch</code> is used by the repository observer to dispatch a test runner
 against a commit. The format of this command is <code>dispatch:&lt;commit ID&gt;</code>.
 The dispatcher parses out the commit ID from this message and sends it
 to the test runner.</p>
-<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;dispatch&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s2">&quot;going to dispatch&quot;</span>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"dispatch"</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">"going to dispatch"</span>
             <span class="n">commit_id</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">runners</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;No runners are registered&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"No runners are registered"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># The coordinator can trust us to dispatch the test</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
                 <span class="n">dispatch_tests</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">)</span>
 </code></pre></div>
 <p><code>results</code> is used by a test runner to report the results of a finished
@@ -546,25 +546,25 @@ The <code>&lt;commit ID&gt;</code> is used to identify which commit ID the tests
 against. The <code>&lt;length of results data in bytes&gt;</code> is used to figure out
 how big a buffer is needed for the results data. Lastly, <code>&lt;results&gt;</code>
 holds the actual result output.</p>
-<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;results&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s2">&quot;got test results&quot;</span>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"results"</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">"got test results"</span>
             <span class="n">results</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
-            <span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
             <span class="n">commit_id</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">length_msg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-            <span class="c1"># 3 is the number of &quot;:&quot; in the sent command</span>
+            <span class="c1"># 3 is the number of ":" in the sent command</span>
             <span class="n">remaining_buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BUF_SIZE</span> <span class="o">-</span> \
                 <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">command</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">commit_id</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">length_msg</span> <span class="o">&gt;</span> <span class="n">remaining_buffer</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">length_msg</span> <span class="o">-</span> <span class="n">remaining_buffer</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatched_commits</span><span class="p">[</span><span class="n">commit_id</span><span class="p">]</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;test_results&quot;</span><span class="p">):</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;test_results&quot;</span><span class="p">)</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test_results/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">commit_id</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">:]</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"test_results"</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"test_results"</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test_results/</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">commit_id</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">3</span><span class="p">:]</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
 </code></pre></div>
 <h3>The Test Runner (<code>test_runner.py</code>)</h3>
 <p>The test runner is responsible for running tests against a given commit
@@ -587,15 +587,15 @@ is no dispatcher to give it work or to report to.</p>
             <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">server</span><span class="o">.</span><span class="n">last_communication</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">response</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span>
-                                       <span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
-                                       <span class="nb">int</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
-                                       <span class="s2">&quot;status&quot;</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
-                        <span class="nb">print</span> <span class="s2">&quot;Dispatcher is no longer functional&quot;</span>
+                                       <span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span>
+                                       <span class="nb">int</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">"port"</span><span class="p">]),</span>
+                                       <span class="s2">"status"</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">response</span> <span class="o">!=</span> <span class="s2">"OK"</span><span class="p">:</span>
+                        <span class="nb">print</span> <span class="s2">"Dispatcher is no longer functional"</span>
                         <span class="n">server</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
                         <span class="k">return</span>
                 <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                    <span class="nb">print</span> <span class="s2">&quot;Can&#39;t communicate with dispatcher: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+                    <span class="nb">print</span> <span class="s2">"Can't communicate with dispatcher: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">e</span>
                     <span class="n">server</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
                     <span class="k">return</span>
 </code></pre></div>
@@ -631,10 +631,10 @@ still active.</p>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">....</span>
-        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;ping&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s2">&quot;pinged&quot;</span>
+        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"ping"</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">"pinged"</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">last_communication</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;pong&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"pong"</span><span class="p">)</span>
 </code></pre></div>
 <p>The second is <code>runtest</code>, which accepts messages of the form <code>runtest:&lt;commit
 ID&gt;</code>, and is used to kick off tests on the given commit. When runtest is
@@ -642,13 +642,13 @@ called, the test runner will check to see if it is already running a test, and
 if so, it will return a <code>BUSY</code> response to the dispatcher. If it is available,
 it will respond to the server with an <code>OK</code> message, set its status as busy and
 run its <code>run_tests</code> function.</p>
-<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;runtest&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s2">&quot;got runtest command: am I busy? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span>
+<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"runtest"</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">"got runtest command: am I busy? </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;BUSY&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"BUSY"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
-                <span class="nb">print</span> <span class="s2">&quot;running&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="s2">"running"</span>
                 <span class="n">commit_id</span> <span class="o">=</span> <span class="n">command_groups</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">busy</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">run_tests</span><span class="p">(</span><span class="n">commit_id</span><span class="p">,</span>
@@ -663,31 +663,31 @@ running, the test runner reads in the results file and sends it in a
 results message to the dispatcher.</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">run_tests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">,</span> <span class="n">repo_folder</span><span class="p">):</span>
         <span class="c1"># update repo</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;./test_runner_script.sh&quot;</span><span class="p">,</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">"./test_runner_script.sh"</span><span class="p">,</span>
                                         <span class="n">repo_folder</span><span class="p">,</span> <span class="n">commit_id</span><span class="p">])</span>
         <span class="nb">print</span> <span class="n">output</span>
         <span class="c1"># run the tests</span>
-        <span class="n">test_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">repo_folder</span><span class="p">,</span> <span class="s2">&quot;tests&quot;</span><span class="p">)</span>
+        <span class="n">test_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">repo_folder</span><span class="p">,</span> <span class="s2">"tests"</span><span class="p">)</span>
         <span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">discover</span><span class="p">(</span><span class="n">test_folder</span><span class="p">)</span>
-        <span class="n">result_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">result_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"results"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
         <span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">(</span><span class="n">result_file</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">suite</span><span class="p">)</span>
         <span class="n">result_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="n">result_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">result_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"results"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
         <span class="c1"># give the dispatcher the results</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">result_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span>
-                            <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
-                            <span class="s2">&quot;results:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">commit_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">),</span> <span class="n">output</span><span class="p">))</span>
+        <span class="n">helpers</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">dispatcher_server</span><span class="p">[</span><span class="s2">"port"</span><span class="p">]),</span>
+                            <span class="s2">"results:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">commit_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">),</span> <span class="n">output</span><span class="p">))</span>
 </code></pre></div>
 <p>Here&rsquo;s <code>test_runner_script.sh</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">REPO</span><span class="o">=</span><span class="nv">$1</span>
 <span class="nv">COMMIT</span><span class="o">=</span><span class="nv">$2</span>
 <span class="nb">source</span><span class="w"> </span>run_or_fail.sh
-run_or_fail<span class="w"> </span><span class="s2">&quot;Repository folder not found&quot;</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPO</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
-run_or_fail<span class="w"> </span><span class="s2">&quot;Could not clean repository&quot;</span><span class="w"> </span>git<span class="w"> </span>clean<span class="w"> </span>-d<span class="w"> </span>-f<span class="w"> </span>-x
-run_or_fail<span class="w"> </span><span class="s2">&quot;Could not call git pull&quot;</span><span class="w"> </span>git<span class="w"> </span>pull
-run_or_fail<span class="w"> </span><span class="s2">&quot;Could not update to given commit hash&quot;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$COMMIT</span><span class="s2">&quot;</span>
+run_or_fail<span class="w"> </span><span class="s2">"Repository folder not found"</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$REPO</span><span class="s2">"</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>/dev/null
+run_or_fail<span class="w"> </span><span class="s2">"Could not clean repository"</span><span class="w"> </span>git<span class="w"> </span>clean<span class="w"> </span>-d<span class="w"> </span>-f<span class="w"> </span>-x
+run_or_fail<span class="w"> </span><span class="s2">"Could not call git pull"</span><span class="w"> </span>git<span class="w"> </span>pull
+run_or_fail<span class="w"> </span><span class="s2">"Could not update to given commit hash"</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">"</span><span class="nv">$COMMIT</span><span class="s2">"</span>
 </code></pre></div>
 <p>In order to run <code>test_runner.py</code>, you must point it to a clone of the
 repository to run tests against. In this case, you can use the previously
@@ -723,7 +723,7 @@ an arbitrary change:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/test_repo
 $<span class="w"> </span>touch<span class="w"> </span>new_file
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>new_file
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="s2">&quot;new file&quot;</span><span class="w"> </span>new_file
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="s2">"new file"</span><span class="w"> </span>new_file
 </code></pre></div>
 <p>Then <code>repo_observer.py</code> will realize that there&rsquo;s a new commit and notify
 the dispatcher. You can see the output in their respective shells, so

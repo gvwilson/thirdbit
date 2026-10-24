@@ -220,7 +220,7 @@ distribution in SciPy.</p>
 <span class="k">class</span><span class="w"> </span><span class="nc">MultinomialDistribution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rso</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the multinomial random variable.</span>
+<span class="w">        </span><span class="sd">"""Initialize the multinomial random variable.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -229,14 +229,14 @@ distribution in SciPy.</p>
 <span class="sd">        rso: numpy RandomState object (default: None)</span>
 <span class="sd">            The random number generator</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
-        <span class="c1"># Check that the probabilities sum to 1. If they don&#39;t, then</span>
+        <span class="c1"># Check that the probabilities sum to 1. If they don't, then</span>
         <span class="c1"># something is wrong! We use `np.isclose` rather than checking</span>
-        <span class="c1"># for exact equality because in many cases, we won&#39;t have</span>
+        <span class="c1"># for exact equality because in many cases, we won't have</span>
         <span class="c1"># exact equality due to floating-point error.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;event probabilities do not sum to 1&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"event probabilities do not sum to 1"</span><span class="p">)</span>
 
         <span class="c1"># Store the parameters that were passed in</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
@@ -378,7 +378,7 @@ having to create an entirely new object. For our purposes, though,
 this solution is probably overkill, so we&rsquo;ll stick to just having it
 be an argument to <code>sample</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Samples draws of `n` events from a multinomial distribution with</span>
+<span class="w">    </span><span class="sd">"""Samples draws of `n` events from a multinomial distribution with</span>
 <span class="sd">    outcome probabilities `self.p`.</span>
 
 <span class="sd">    Parameters</span>
@@ -391,7 +391,7 @@ be an argument to <code>sample</code>:</p>
 <span class="sd">    numpy array of length `k`</span>
 <span class="sd">        The sampled number of occurrences for each outcome</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rso</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 </code></pre></div>
@@ -499,7 +499,7 @@ otherwise be lost.</p>
 <p>Now that we have seen the importance of working with logs, we can
 actually write our function to compute the log-PMF:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluates the log-probability mass function (log-PMF) of a</span>
+<span class="w">    </span><span class="sd">"""Evaluates the log-probability mass function (log-PMF) of a</span>
 <span class="sd">    multinomial with outcome probabilities `self.p` for a draw `x`.</span>
 
 <span class="sd">    Parameters</span>
@@ -511,7 +511,7 @@ actually write our function to compute the log-PMF:</p>
 <span class="sd">    -------</span>
 <span class="sd">    The evaluated log-PMF for draw `x`</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># Get the total number of events</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
@@ -550,7 +550,7 @@ in to SciPy.</p>
 our probabilities is zero. When $p_i=0$, then $\log{p_i}=-\infty$.
 This would be fine, except for the following behavior when infinity is
 multiplied by zero:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="c1"># it&#39;s fine to multiply infinity by integers...</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="c1"># it's fine to multiply infinity by integers...</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="o">*</span> <span class="mf">2.0</span>
 <span class="o">-</span><span class="n">inf</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="c1"># ...but things break when we try to multiply by zero</span>
@@ -569,7 +569,7 @@ really only need the PMF, and not the log-PMF, it is generally better
 to <em>first</em> compute it with logs, and then exponentiate it if we
 need to:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluates the probability mass function (PMF) of a multinomial</span>
+<span class="w">    </span><span class="sd">"""Evaluates the probability mass function (PMF) of a multinomial</span>
 <span class="sd">    with outcome probabilities `self.p` for a draw `x`.</span>
 
 <span class="sd">    Parameters</span>
@@ -581,7 +581,7 @@ need to:</p>
 <span class="sd">    -------</span>
 <span class="sd">    The evaluated PMF for draw `x`</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">pmf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_pmf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">pmf</span>
 </code></pre></div>
@@ -618,11 +618,11 @@ create a class called <code>MagicItemDistribution</code>, located in the file
 
     <span class="c1"># these are the names (and order) of the stats that all magical</span>
     <span class="c1"># items will have</span>
-    <span class="n">stats_names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;dexterity&quot;</span><span class="p">,</span> <span class="s2">&quot;constitution&quot;</span><span class="p">,</span> <span class="s2">&quot;strength&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;intelligence&quot;</span><span class="p">,</span> <span class="s2">&quot;wisdom&quot;</span><span class="p">,</span> <span class="s2">&quot;charisma&quot;</span><span class="p">)</span>
+    <span class="n">stats_names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"dexterity"</span><span class="p">,</span> <span class="s2">"constitution"</span><span class="p">,</span> <span class="s2">"strength"</span><span class="p">,</span>
+                   <span class="s2">"intelligence"</span><span class="p">,</span> <span class="s2">"wisdom"</span><span class="p">,</span> <span class="s2">"charisma"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bonus_probs</span><span class="p">,</span> <span class="n">stats_probs</span><span class="p">,</span> <span class="n">rso</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a magic item distribution parameterized by `bonus_probs`</span>
+<span class="w">        </span><span class="sd">"""Initialize a magic item distribution parameterized by `bonus_probs`</span>
 <span class="sd">        and `stats_probs`.</span>
 
 <span class="sd">        Parameters</span>
@@ -641,8 +641,8 @@ create a class called <code>MagicItemDistribution</code>, located in the file
 <span class="sd">        rso: numpy RandomState object (default: np.random)</span>
 <span class="sd">            The random number generator</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Create the multinomial distributions we&#39;ll be using</span>
+<span class="sd">        """</span>
+        <span class="c1"># Create the multinomial distributions we'll be using</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bonus_dist</span> <span class="o">=</span> <span class="n">MultinomialDistribution</span><span class="p">(</span><span class="n">bonus_probs</span><span class="p">,</span> <span class="n">rso</span><span class="o">=</span><span class="n">rso</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stats_dist</span> <span class="o">=</span> <span class="n">MultinomialDistribution</span><span class="p">(</span><span class="n">stats_probs</span><span class="p">,</span> <span class="n">rso</span><span class="o">=</span><span class="n">rso</span><span class="p">)</span>
 </code></pre></div>
@@ -661,14 +661,14 @@ item: first sampling the overall bonus, and then sampling the
 distribution of the bonus across the stats. As such, we code these
 steps as two methods: <code>_sample_bonus</code> and <code>_sample_stats</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_sample_bonus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sample a value of the overall bonus.</span>
+<span class="w">    </span><span class="sd">"""Sample a value of the overall bonus.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    integer</span>
 <span class="sd">        The overall bonus</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># The bonus is essentially just a sample from a multinomial</span>
     <span class="c1"># distribution with n=1; i.e., only one event occurs.</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bonus_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -680,7 +680,7 @@ steps as two methods: <code>_sample_bonus</code> and <code>_sample_stats</code>:
     <span class="k">return</span> <span class="n">bonus</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_sample_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sample the overall bonus and how it is distributed across the</span>
+<span class="w">    </span><span class="sd">"""Sample the overall bonus and how it is distributed across the</span>
 <span class="sd">    different stats.</span>
 
 <span class="sd">    Returns</span>
@@ -688,7 +688,7 @@ steps as two methods: <code>_sample_bonus</code> and <code>_sample_stats</code>:
 <span class="sd">    numpy array of length 6</span>
 <span class="sd">        The number of bonus points for each stat</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># First we need to sample the overall bonus</span>
     <span class="n">bonus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_bonus</span><span class="p">()</span>
 
@@ -708,7 +708,7 @@ test.</p>
 indicating that they&rsquo;re not really meant to be used outside the
 class. Instead, we provide the function <code>sample</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sample a random magical item.</span>
+<span class="w">    </span><span class="sd">"""Sample a random magical item.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -716,7 +716,7 @@ class. Instead, we provide the function <code>sample</code>:</p>
 <span class="sd">        The keys are the names of the stats, and the values are</span>
 <span class="sd">        the bonus conferred to the corresponding stat.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_stats</span><span class="p">()</span>
     <span class="n">item_stats</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats_names</span><span class="p">,</span> <span class="n">stats</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">item_stats</span>
@@ -732,7 +732,7 @@ required.</p>
 items. Again, we expose high-level methods <code>pmf</code> and <code>log_pmf</code> which
 take dictionaries of the form produced by <code>sample</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the log probability of the given magical item.</span>
+<span class="w">    </span><span class="sd">"""Compute the log probability of the given magical item.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -745,7 +745,7 @@ take dictionaries of the form produced by <code>sample</code>:</p>
 <span class="sd">    float</span>
 <span class="sd">        The value corresponding to log(p(item))</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># First pull out the bonus points for each stat, in the</span>
     <span class="c1"># correct order, then pass that to _stats_log_pmf.</span>
     <span class="n">stats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span> <span class="k">for</span> <span class="n">stat</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats_names</span><span class="p">])</span>
@@ -753,7 +753,7 @@ take dictionaries of the form produced by <code>sample</code>:</p>
     <span class="k">return</span> <span class="n">log_pmf</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the probability the given magical item.</span>
+<span class="w">    </span><span class="sd">"""Compute the probability the given magical item.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -766,14 +766,14 @@ take dictionaries of the form produced by <code>sample</code>:</p>
 <span class="sd">    float</span>
 <span class="sd">        The value corresponding to p(item)</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_pmf</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
 </code></pre></div>
 <p>These methods rely on <code>_stats_log_pmf</code>, which computes the
 probability of the stats (but which takes an array rather than a
 dictionary):</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_stats_log_pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate the log-PMF for the given distribution of bonus points</span>
+<span class="w">    </span><span class="sd">"""Evaluate the log-PMF for the given distribution of bonus points</span>
 <span class="sd">    across the different stats.</span>
 
 <span class="sd">    Parameters</span>
@@ -786,7 +786,7 @@ dictionary):</p>
 <span class="sd">    float</span>
 <span class="sd">        The value corresponding to log(p(stats))</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># There are never any leftover bonus points, so the sum of the</span>
     <span class="c1"># stats gives us the total bonus.</span>
     <span class="n">total_bonus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
@@ -805,7 +805,7 @@ dictionary):</p>
 <p>The method <code>_stats_log_pmf</code>, in turn, relies on <code>_bonus_log_pmf</code>,
 which computes the probability of the overall bonus:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_bonus_log_pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bonus</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate the log-PMF for the given bonus.</span>
+<span class="w">    </span><span class="sd">"""Evaluate the log-PMF for the given bonus.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -817,7 +817,7 @@ which computes the probability of the overall bonus:</p>
 <span class="sd">    float</span>
 <span class="sd">        The value corresponding to log(p(bonus))</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># Make sure the value that is passed in is within the</span>
     <span class="c1"># appropriate bounds</span>
     <span class="k">if</span> <span class="n">bonus</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">bonus</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bonus_dist</span><span class="o">.</span><span class="n">p</span><span class="p">):</span>
@@ -840,20 +840,20 @@ which computes the probability of the overall bonus:</p>
 </code></pre></div>
 <p>Once created, we can use it to generate a few different items:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; item_dist.sample()
-{&#39;dexterity&#39;: 0, &#39;strength&#39;: 0, &#39;constitution&#39;: 0, 
- &#39;intelligence&#39;: 0, &#39;wisdom&#39;: 0, &#39;charisma&#39;: 1}
+{'dexterity': 0, 'strength': 0, 'constitution': 0, 
+ 'intelligence': 0, 'wisdom': 0, 'charisma': 1}
 &gt;&gt;&gt; item_dist.sample()
-{&#39;dexterity&#39;: 0, &#39;strength&#39;: 0, &#39;constitution&#39;: 1, 
- &#39;intelligence&#39;: 0, &#39;wisdom&#39;: 2, &#39;charisma&#39;: 0}
+{'dexterity': 0, 'strength': 0, 'constitution': 1, 
+ 'intelligence': 0, 'wisdom': 2, 'charisma': 0}
 &gt;&gt;&gt; item_dist.sample()
-{&#39;dexterity&#39;: 1, &#39;strength&#39;: 0, &#39;constitution&#39;: 1, 
- &#39;intelligence&#39;: 0, &#39;wisdom&#39;: 0, &#39;charisma&#39;: 0}
+{'dexterity': 1, 'strength': 0, 'constitution': 1, 
+ 'intelligence': 0, 'wisdom': 0, 'charisma': 0}
 </code></pre></div>
 <p>And, if we want, we can evaluate the probability of a sampled item:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; item = item_dist.sample()
 &gt;&gt;&gt; item
-{&#39;dexterity&#39;: 0, &#39;strength&#39;: 0, &#39;constitution&#39;: 0, 
- &#39;intelligence&#39;: 0, &#39;wisdom&#39;: 2, &#39;charisma&#39;: 0}
+{'dexterity': 0, 'strength': 0, 'constitution': 0, 
+ 'intelligence': 0, 'wisdom': 2, 'charisma': 0}
 &gt;&gt;&gt; item_dist.log_pmf(item)
 -4.9698132995760007
 &gt;&gt;&gt; item_dist.pmf(item)
@@ -893,7 +893,7 @@ implementation of this scheme:</p>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_items</span><span class="p">,</span> <span class="n">item_dist</span><span class="p">,</span>
                  <span class="n">num_dice_sides</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">num_hits</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rso</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a distribution over attack damage. This object can</span>
+<span class="w">        </span><span class="sd">"""Initialize a distribution over attack damage. This object can</span>
 <span class="sd">        sample possible values for the attack damage dealt over</span>
 <span class="sd">        `num_hits` hits when the player has `num_items` items, and</span>
 <span class="sd">        where attack damage is computed by rolling dice with</span>
@@ -912,7 +912,7 @@ implementation of this scheme:</p>
 <span class="sd">        rso: numpy RandomState object (default: np.random)</span>
 <span class="sd">            The random number generator</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># This is an array of integers corresponding to the sides of a</span>
         <span class="c1"># single die.</span>
@@ -928,21 +928,21 @@ implementation of this scheme:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">item_dist</span> <span class="o">=</span> <span class="n">item_dist</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sample the attack damage.</span>
+<span class="w">        </span><span class="sd">"""Sample the attack damage.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        int</span>
 <span class="sd">            The sampled damage</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># First, we need to randomly generate items (the number of</span>
         <span class="c1"># which was passed into the constructor).</span>
         <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">item_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_items</span><span class="p">)]</span>
 
         <span class="c1"># Based on the item stats (in particular, strength), compute</span>
         <span class="c1"># the number of dice we get to roll.</span>
-        <span class="n">num_dice</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;strength&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">])</span>
+        <span class="n">num_dice</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s1">'strength'</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">])</span>
 
         <span class="c1"># Roll the dice and compute the resulting damage.</span>
         <span class="n">dice_rolls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dice_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_hits</span> <span class="o">*</span> <span class="n">num_dice</span><span class="p">)</span>

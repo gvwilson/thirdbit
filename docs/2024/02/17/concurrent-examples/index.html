@@ -75,25 +75,25 @@ I need to be able to:</p>
 <span class="nv">pgid</span><span class="o">=</span><span class="sb">`</span>ps<span class="w"> </span>-o<span class="w"> </span><span class="nv">pgid</span><span class="o">=</span><span class="w"> </span><span class="nv">$$</span><span class="sb">`</span>
 
 <span class="c1"># Trap a Ctrl-C SIGINT and kill everything running inside this script.</span>
-<span class="nb">trap</span><span class="w"> </span><span class="s2">&quot;pkill -KILL -g </span><span class="nv">$pgid</span><span class="s2">&quot;</span><span class="w"> </span>INT
+<span class="nb">trap</span><span class="w"> </span><span class="s2">"pkill -KILL -g </span><span class="nv">$pgid</span><span class="s2">"</span><span class="w"> </span>INT
 
 <span class="c1"># 1. Redirect server stderr to stdout.</span>
-<span class="c1"># 2. Prefix each line with &#39;server&#39;.</span>
+<span class="c1"># 2. Prefix each line with 'server'.</span>
 <span class="c1"># 3. Background the process.</span>
-<span class="o">(</span><span class="nv">$1</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>server<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;S: &#39;</span><span class="w"> </span><span class="si">${</span><span class="nv">server</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="o">(</span><span class="nv">$1</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>server<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'S: '</span><span class="w"> </span><span class="si">${</span><span class="nv">server</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
 
 <span class="c1"># Wait.</span>
 sleep<span class="w"> </span><span class="m">1</span>
 
 <span class="c1"># 1. Redirect client stderr to stdout.</span>
-<span class="c1"># 2. Prefix each line with &#39;client&#39;.</span>
-<span class="nv">$2</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>client<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;c: &#39;</span><span class="w"> </span><span class="si">${</span><span class="nv">client</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<span class="c1"># 2. Prefix each line with 'client'.</span>
+<span class="nv">$2</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>client<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'c: '</span><span class="w"> </span><span class="si">${</span><span class="nv">client</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 
 <span class="c1"># Kill this script and its children (client and server) when client finishes.</span>
 pkill<span class="w"> </span>-KILL<span class="w"> </span>-g<span class="w"> </span><span class="nv">$pgid</span>
 </code></pre></div>
 <p>When run like this:</p>
-<div class="highlight"><pre><span></span><code>run2.sh<span class="w"> </span><span class="s2">&quot;python -m http.server -d site&quot;</span><span class="w"> </span><span class="s2">&quot;python simple_request.py&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
+<div class="highlight"><pre><span></span><code>run2.sh<span class="w"> </span><span class="s2">"python -m http.server -d site"</span><span class="w"> </span><span class="s2">"python simple_request.py"</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
 </code></pre></div>
 <p>it launches a simple HTTP server,
 sleeps for one second,
@@ -118,9 +118,9 @@ before launching clients:</p>
 <span class="c1"># First argument is a set of TCP ports.</span>
 <span class="c1"># This is followed by one command per server listening to those ports</span>
 <span class="c1"># and then by client commands, e.g.</span>
-<span class="c1"># e.g: ./runner.sh &quot;8081 8082&quot; &quot;servercmd 8081&quot; &quot;servercmd 8082&quot; &quot;client1&quot; &quot;client2&quot; ...</span>
+<span class="c1"># e.g: ./runner.sh "8081 8082" "servercmd 8081" "servercmd 8082" "client1" "client2" ...</span>
 
-<span class="nv">PORTS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nv">PORTS</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
 <span class="nb">shift</span>
 
 <span class="nv">CHILDREN</span><span class="o">=</span>
@@ -130,9 +130,9 @@ await_port_free<span class="o">()</span><span class="w"> </span><span class="o">
 <span class="w">    </span><span class="nv">PORTNUM</span><span class="o">=</span><span class="nv">$1</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span>lsof<span class="w"> </span>-n<span class="w"> </span>-iTCP:<span class="si">${</span><span class="nv">PORTNUM</span><span class="si">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
-<span class="w">        </span><span class="c1"># printf &quot;*&quot;</span>
+<span class="w">        </span><span class="c1"># printf "*"</span>
 <span class="w">    </span><span class="k">done</span>
-<span class="w">    </span><span class="c1"># printf &quot;\nport $PORTNUM free\n&quot;</span>
+<span class="w">    </span><span class="c1"># printf "\nport $PORTNUM free\n"</span>
 <span class="o">}</span>
 
 <span class="c1"># Wait for a port to be in the listening state.</span>
@@ -140,9 +140,9 @@ await_port_listen<span class="o">()</span><span class="w"> </span><span class="o
 <span class="w">    </span><span class="nv">PORTNUM</span><span class="o">=</span><span class="nv">$1</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span>!<span class="w"> </span>lsof<span class="w"> </span>-n<span class="w"> </span>-iTCP:<span class="si">${</span><span class="nv">PORTNUM</span><span class="si">}</span><span class="p">|</span>grep<span class="w"> </span>-qw<span class="w"> </span>LISTEN<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
-<span class="w">        </span><span class="c1"># printf &quot;*&quot;</span>
+<span class="w">        </span><span class="c1"># printf "*"</span>
 <span class="w">    </span><span class="k">done</span>
-<span class="w">    </span><span class="c1"># printf &quot;\nport $PORTNUM in LISTEN state\n&quot;</span>
+<span class="w">    </span><span class="c1"># printf "\nport $PORTNUM in LISTEN state\n"</span>
 <span class="o">}</span>
 
 <span class="c1"># Kill all child processes (suppressing messages so as not to clutter output).</span>
@@ -164,18 +164,18 @@ on_exit<span class="o">(){</span>
 <span class="k">for</span><span class="w"> </span>PORT<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$PORTS</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span>await_port_free<span class="w"> </span><span class="nv">$PORT</span>
 
-<span class="w">    </span><span class="nv">CMD</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">CMD</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
 <span class="w">    </span><span class="nb">shift</span>
 <span class="w">    </span><span class="nv">$CMD</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">    </span><span class="nv">CHILDREN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CHILDREN</span><span class="s2"> </span><span class="nv">$!</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">CHILDREN</span><span class="o">=</span><span class="s2">"</span><span class="nv">$CHILDREN</span><span class="s2"> </span><span class="nv">$!</span><span class="s2">"</span>
 
 <span class="w">    </span>await_port_listen<span class="w"> </span><span class="nv">$PORT</span>
 <span class="k">done</span>
 
 <span class="c1"># Launch all of the clients.</span>
-<span class="k">for</span><span class="w"> </span>CMD<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="k">for</span><span class="w"> </span>CMD<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">$CMD</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">    </span><span class="nv">CHILDREN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CHILDREN</span><span class="s2"> </span><span class="nv">$!</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">CHILDREN</span><span class="o">=</span><span class="s2">"</span><span class="nv">$CHILDREN</span><span class="s2"> </span><span class="nv">$!</span><span class="s2">"</span>
 <span class="k">done</span>
 
 <span class="c1"># Wait until any child process exits</span>

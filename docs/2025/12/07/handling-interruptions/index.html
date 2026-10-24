@@ -76,12 +76,12 @@ and then mark them as done.
 While we&rsquo;re building it,
 we&rsquo;ll use these parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;n_dev&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>          <span class="c1"># number of developers</span>
-    <span class="s2">&quot;rng_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>   <span class="c1"># random number generation seed</span>
-    <span class="s2">&quot;t_arrival&quot;</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>    <span class="c1"># mean task arrival time</span>
-    <span class="s2">&quot;t_dev&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>        <span class="c1"># median development time</span>
-    <span class="s2">&quot;t_interrupt&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>  <span class="c1"># time between interrupts</span>
-    <span class="s2">&quot;t_sim&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>         <span class="c1"># length of simulation</span>
+    <span class="s2">"n_dev"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>          <span class="c1"># number of developers</span>
+    <span class="s2">"rng_seed"</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>   <span class="c1"># random number generation seed</span>
+    <span class="s2">"t_arrival"</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>    <span class="c1"># mean task arrival time</span>
+    <span class="s2">"t_dev"</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>        <span class="c1"># median development time</span>
+    <span class="s2">"t_interrupt"</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>  <span class="c1"># time between interrupts</span>
+    <span class="s2">"t_sim"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>         <span class="c1"># length of simulation</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>As before,
@@ -92,15 +92,15 @@ the development queue,
 and the developers.
 It also creates a simple list called <code>.log</code> to store log messages:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Overall simulation.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Overall simulation."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Construct."""</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">developers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Developer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_dev&quot;</span><span class="p">])]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">developers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Developer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"n_dev"</span><span class="p">])]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div>
 <p>For lack of anywhere better to put it,
@@ -111,14 +111,14 @@ the first task is generated at t=0:</p>
     <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate tasks at random intervals starting at t=0.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Generate tasks at random intervals starting at t=0."""</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_arrival</span><span class="p">())</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut for running a process.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Shortcut for running a process."""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
 </code></pre></div>
 <p>As before,
@@ -133,26 +133,26 @@ and then calling <code>dev.proc.interrupt()</code>:</p>
     <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">annoy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate annoying interruptions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Generate annoying interruptions."""</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;t_interrupt&quot;</span><span class="p">])</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"t_interrupt"</span><span class="p">])</span>
             <span class="n">dev</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">developers</span><span class="p">)</span>
             <span class="n">dev</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">interrupt</span><span class="p">()</span>
 </code></pre></div>
 <p><code>dev.proc.interrupt()</code> only makes sense once we have looked at
 the constructor for the <code>Developer</code> class:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A generic worker.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""A generic worker."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Construct."""</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="err">…</span><span class="n">the</span> <span class="n">generator</span> <span class="n">simulating</span> <span class="n">a</span> <span class="n">developer</span><span class="s1">&#39;s behavior…</span>
+        <span class="err">…</span><span class="n">the</span> <span class="n">generator</span> <span class="n">simulating</span> <span class="n">a</span> <span class="n">developer</span><span class="s1">'s behavior…</span>
 </code></pre></div>
 <p>Here&rsquo;s what&rsquo;s going on:</p>
 <ol>
@@ -263,39 +263,39 @@ she would never get any more work.</p>
 or collects the states of all the tasks when the simulation is done,
 but here&rsquo;s the JSON output from a typical short run:</p>
 <div class="highlight"><pre><span></span><code>{
-  &quot;params&quot;: {
+  "params": {
     …as shown earlier…
   },
-  &quot;messages&quot;: [
-    &quot;developer-0 0.00 start task-0&quot;,
-    &quot;developer-0 3.00 interrupted in task-0&quot;,
-    &quot;developer-0 6.00 interrupted in None&quot;,
-    &quot;developer-0 9.00 interrupted in None&quot;,
-    &quot;developer-0 12.00 interrupted in None&quot;,
-    &quot;developer-0 13.95 start task-1&quot;,
-    &quot;developer-0 15.00 interrupted in task-1&quot;,
-    &quot;developer-0 15.01 start task-2&quot;,
-    &quot;developer-0 16.68 complete task-2&quot;,
-    &quot;developer-0 18.00 interrupted in None&quot;
+  "messages": [
+    "developer-0 0.00 start task-0",
+    "developer-0 3.00 interrupted in task-0",
+    "developer-0 6.00 interrupted in None",
+    "developer-0 9.00 interrupted in None",
+    "developer-0 12.00 interrupted in None",
+    "developer-0 13.95 start task-1",
+    "developer-0 15.00 interrupted in task-1",
+    "developer-0 15.01 start task-2",
+    "developer-0 16.68 complete task-2",
+    "developer-0 18.00 interrupted in None"
   ],
-  &quot;tasks&quot;: [
+  "tasks": [
     {
-      &quot;id&quot;: 0,
-      &quot;created&quot;: 0,
-      &quot;dev_required&quot;: 4.33,
-      &quot;state&quot;: [&quot;dev_queue&quot;, &quot;dev&quot;, &quot;interrupted&quot;]
+      "id": 0,
+      "created": 0,
+      "dev_required": 4.33,
+      "state": ["dev_queue", "dev", "interrupted"]
     },
     {
-      &quot;id&quot;: 1,
-      &quot;created&quot;: 13.95,
-      &quot;dev_required&quot;: 5.72,
-      &quot;state&quot;: [&quot;dev_queue&quot;, &quot;dev&quot;, &quot;interrupted&quot;]
+      "id": 1,
+      "created": 13.95,
+      "dev_required": 5.72,
+      "state": ["dev_queue", "dev", "interrupted"]
     },
     {
-      &quot;id&quot;: 2,
-      &quot;created&quot;: 15.01,
-      &quot;dev_required&quot;: 1.67,
-      &quot;state&quot;: [&quot;dev_queue&quot;, &quot;dev&quot;, &quot;complete&quot;]
+      "id": 2,
+      "created": 15.01,
+      "dev_required": 1.67,
+      "state": ["dev_queue", "dev", "complete"]
     }
   ]
 }

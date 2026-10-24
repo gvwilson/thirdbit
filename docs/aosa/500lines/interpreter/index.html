@@ -71,11 +71,11 @@
 </code></pre></div>
 <p>produces this instruction set:</p>
 <div class="highlight"><pre><span></span><code><span class="n">what_to_execute</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>  <span class="c1"># the first number</span>
-                     <span class="p">(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>  <span class="c1"># the second number</span>
-                     <span class="p">(</span><span class="s2">&quot;ADD_TWO_VALUES&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-                     <span class="p">(</span><span class="s2">&quot;PRINT_ANSWER&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
-    <span class="s2">&quot;numbers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="p">}</span>
+    <span class="s2">"instructions"</span><span class="p">:</span> <span class="p">[(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>  <span class="c1"># the first number</span>
+                     <span class="p">(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>  <span class="c1"># the second number</span>
+                     <span class="p">(</span><span class="s2">"ADD_TWO_VALUES"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s2">"PRINT_ANSWER"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
+    <span class="s2">"numbers"</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="p">}</span>
 </code></pre></div>
 <p>The Python interpreter is a <em>stack machine</em>, so it must manipulate stacks to add two numbers (Figure: A stack machine.) The interpreter will begin by executing the first instruction, <code>LOAD_VALUE</code>, and pushing the first number onto the stack. Next it will push the second number onto the stack. For the third instruction, <code>ADD_TWO_VALUES</code>, it will pop both numbers off, add them together, and push the result onto the stack. Finally, it will pop the answer back off the stack and print it.</p>
 <p><img alt="A stack machine" src="interpreter-images/interpreter-stack.png" />The <code>LOAD_VALUE</code> instruction tells the interpreter to push a number on to the stack, but the instruction alone doesn&rsquo;t specify which number. Each instruction needs an extra piece of information, telling the interpreter where to find the number to load. So our instruction set has two pieces: the instructions themselves, plus a list of constants the instructions will need. (In Python, what we&rsquo;re calling &ldquo;instructions&rdquo; is the bytecode, and the &ldquo;what to execute&rdquo; object below is the <em>code object</em>.)</p>
@@ -101,16 +101,16 @@
 </code></pre></div>
 <p>These three functions implement the three instructions our interpreter understands. The interpreter needs one more piece: a way to tie everything together and actually execute it. This method, <code>run_code</code>, takes the <code>what_to_execute</code> dictionary defined above as an argument. It loops over each instruction, processes the arguments to that instruction if there are any, and then calls the corresponding method on the interpreter object.</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">run_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what_to_execute</span><span class="p">):</span>
-        <span class="n">instructions</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">&quot;instructions&quot;</span><span class="p">]</span>
-        <span class="n">numbers</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">&quot;numbers&quot;</span><span class="p">]</span>
+        <span class="n">instructions</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">"instructions"</span><span class="p">]</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">"numbers"</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">each_step</span> <span class="ow">in</span> <span class="n">instructions</span><span class="p">:</span>
             <span class="n">instruction</span><span class="p">,</span> <span class="n">argument</span> <span class="o">=</span> <span class="n">each_step</span>
-            <span class="k">if</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"LOAD_VALUE"</span><span class="p">:</span>
                 <span class="n">number</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">argument</span><span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">LOAD_VALUE</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;ADD_TWO_VALUES&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"ADD_TWO_VALUES"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">ADD_TWO_VALUES</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;PRINT_ANSWER&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"PRINT_ANSWER"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">PRINT_ANSWER</span><span class="p">()</span>
 </code></pre></div>
 <p>To test it out, we can create an instance of the object and then call the <code>run_code</code> method with the instruction set for adding 7 + 5 defined above.</p>
@@ -123,13 +123,13 @@
 <p>Second, notice that the instruction for <code>ADD_TWO_VALUES</code> did not require any arguments. Instead, the values to be added together were popped off the interpreter&rsquo;s stack. This is the defining feature of a stack-based interpreter.</p>
 <p>Remember that given valid instruction sets, without any changes to our interpreter, we can add more than two numbers at a time. Consider the instruction set below. What do you expect to happen? If you had a friendly compiler, what code could you write to generate this instruction set? </p>
 <div class="highlight"><pre><span></span><code>    <span class="n">what_to_execute</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;ADD_TWO_VALUES&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;ADD_TWO_VALUES&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;PRINT_ANSWER&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
-        <span class="s2">&quot;numbers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> <span class="p">}</span>
+        <span class="s2">"instructions"</span><span class="p">:</span> <span class="p">[(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"ADD_TWO_VALUES"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"ADD_TWO_VALUES"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"PRINT_ANSWER"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
+        <span class="s2">"numbers"</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> <span class="p">}</span>
 </code></pre></div>
 <p>At this point, we can begin to see how this structure is extensible: we can add methods on the interpreter object that describe many more operations (as long as we have a compiler to hand us well-formed instruction sets).</p>
 <h4>Variables</h4>
@@ -140,16 +140,16 @@
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 <span class="c1"># a friendly compiler transforms `s` into:</span>
     <span class="n">what_to_execute</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;STORE_NAME&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;STORE_NAME&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;LOAD_NAME&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;LOAD_NAME&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;ADD_TWO_VALUES&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-                         <span class="p">(</span><span class="s2">&quot;PRINT_ANSWER&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
-        <span class="s2">&quot;numbers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-        <span class="s2">&quot;names&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="p">}</span>
+        <span class="s2">"instructions"</span><span class="p">:</span> <span class="p">[(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"STORE_NAME"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"LOAD_VALUE"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"STORE_NAME"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"LOAD_NAME"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"LOAD_NAME"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"ADD_TWO_VALUES"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s2">"PRINT_ANSWER"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
+        <span class="s2">"numbers"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="s2">"names"</span><span class="p">:</span>   <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span> <span class="p">}</span>
 </code></pre></div>
 <p>Our new implementation is below. To keep track of what names are bound to what values, we&rsquo;ll add an <code>environment</code> dictionary to the <code>__init__</code> method. We&rsquo;ll also add <code>STORE_NAME</code> and <code>LOAD_NAME</code>. These methods first look up the variable name in question and then use the dictionary to store or retrieve its value.</p>
 <p>The arguments to an instruction can now mean two different things: They can either be an index into the &ldquo;numbers&rdquo; list, or they can be an index into the &ldquo;names&rdquo; list. The interpreter knows which it should be by checking what instruction it&rsquo;s executing. We&rsquo;ll break out this logic&mdash;and the mapping of instructions to what their arguments mean&mdash;into a separate method. </p>
@@ -167,37 +167,37 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">parse_argument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instruction</span><span class="p">,</span> <span class="n">argument</span><span class="p">,</span> <span class="n">what_to_execute</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Understand what the argument to each instruction means.&quot;&quot;&quot;</span>
-        <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">]</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LOAD_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;STORE_NAME&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">""" Understand what the argument to each instruction means."""</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"LOAD_VALUE"</span><span class="p">]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"LOAD_NAME"</span><span class="p">,</span> <span class="s2">"STORE_NAME"</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">instruction</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-            <span class="n">argument</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">&quot;numbers&quot;</span><span class="p">][</span><span class="n">argument</span><span class="p">]</span>
+            <span class="n">argument</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">"numbers"</span><span class="p">][</span><span class="n">argument</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">instruction</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-            <span class="n">argument</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">&quot;names&quot;</span><span class="p">][</span><span class="n">argument</span><span class="p">]</span>
+            <span class="n">argument</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">"names"</span><span class="p">][</span><span class="n">argument</span><span class="p">]</span>
 
         <span class="k">return</span> <span class="n">argument</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what_to_execute</span><span class="p">):</span>
-        <span class="n">instructions</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">&quot;instructions&quot;</span><span class="p">]</span>
+        <span class="n">instructions</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">"instructions"</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">each_step</span> <span class="ow">in</span> <span class="n">instructions</span><span class="p">:</span>
             <span class="n">instruction</span><span class="p">,</span> <span class="n">argument</span> <span class="o">=</span> <span class="n">each_step</span>
             <span class="n">argument</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_argument</span><span class="p">(</span><span class="n">instruction</span><span class="p">,</span> <span class="n">argument</span><span class="p">,</span> <span class="n">what_to_execute</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;LOAD_VALUE&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"LOAD_VALUE"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">LOAD_VALUE</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;ADD_TWO_VALUES&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"ADD_TWO_VALUES"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">ADD_TWO_VALUES</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;PRINT_ANSWER&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"PRINT_ANSWER"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">PRINT_ANSWER</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;STORE_NAME&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"STORE_NAME"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">STORE_NAME</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">&quot;LOAD_NAME&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">instruction</span> <span class="o">==</span> <span class="s2">"LOAD_NAME"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">LOAD_NAME</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
 </code></pre></div>
 <p>Even with just five instructions, the <code>run_code</code> method is starting to get tedious. If we kept this structure, we&rsquo;d need one branch of the <code>if</code> statement for each instruction. Here, we can make use of Python&rsquo;s dynamic method lookup. We&rsquo;ll always define a method called <code>FOO</code> to execute the instruction called <code>FOO</code>, so we can use Python&rsquo;s <code>getattr</code> function to look up the method on the fly instead of using the big <code>if</code> statement. The <code>run_code</code> method then looks like this: </p>
 <div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what_to_execute</span><span class="p">):</span>
-        <span class="n">instructions</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">&quot;instructions&quot;</span><span class="p">]</span>
+        <span class="n">instructions</span> <span class="o">=</span> <span class="n">what_to_execute</span><span class="p">[</span><span class="s2">"instructions"</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">each_step</span> <span class="ow">in</span> <span class="n">instructions</span><span class="p">:</span>
             <span class="n">instruction</span><span class="p">,</span> <span class="n">argument</span> <span class="o">=</span> <span class="n">each_step</span>
             <span class="n">argument</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_argument</span><span class="p">(</span><span class="n">instruction</span><span class="p">,</span> <span class="n">argument</span><span class="p">,</span> <span class="n">what_to_execute</span><span class="p">)</span>
@@ -212,15 +212,15 @@
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">cond</span><span class="p">():</span>
 <span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-<span class="o">...</span>         <span class="k">return</span> <span class="s1">&#39;yes&#39;</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="s1">'yes'</span>
 <span class="o">...</span>     <span class="k">else</span><span class="p">:</span>
-<span class="o">...</span>         <span class="k">return</span> <span class="s1">&#39;no&#39;</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="s1">'no'</span>
 <span class="o">...</span>
 </code></pre></div>
 <p>Python exposes a boatload of its internals at run time, and we can access them right from the REPL. For the function object <code>cond</code>, <code>cond.__code__</code> is the code object associated it, and <code>cond.__code__.co_code</code> is the bytecode. There&rsquo;s almost never a good reason to use these attributes directly when you&rsquo;re writing Python code, but they do allow us to get up to all sorts of mischief&mdash;and to look at the internals in order to understand them.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">cond</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_code</span>  <span class="c1"># the bytecode as raw bytes</span>
-<span class="sa">b</span><span class="s1">&#39;d</span><span class="se">\x01\x00</span><span class="s1">}</span><span class="se">\x00\x00</span><span class="s1">|</span><span class="se">\x00\x00</span><span class="s1">d</span><span class="se">\x02\x00</span><span class="s1">k</span><span class="se">\x00\x00</span><span class="s1">r</span><span class="se">\x16\x00</span><span class="s1">d</span><span class="se">\x03\x00</span><span class="s1">Sd</span><span class="se">\x04\x00</span><span class="s1">Sd</span><span class="se">\x00</span>
-   \<span class="n">x00S</span><span class="s1">&#39;</span>
+<span class="sa">b</span><span class="s1">'d</span><span class="se">\x01\x00</span><span class="s1">}</span><span class="se">\x00\x00</span><span class="s1">|</span><span class="se">\x00\x00</span><span class="s1">d</span><span class="se">\x02\x00</span><span class="s1">k</span><span class="se">\x00\x00</span><span class="s1">r</span><span class="se">\x16\x00</span><span class="s1">d</span><span class="se">\x03\x00</span><span class="s1">Sd</span><span class="se">\x04\x00</span><span class="s1">Sd</span><span class="se">\x00</span>
+   \<span class="n">x00S</span><span class="s1">'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">cond</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_code</span><span class="p">)</span>  <span class="c1"># the bytecode as numbers</span>
 <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> 
  <span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">83</span><span class="p">]</span>
@@ -236,10 +236,10 @@
              <span class="mi">12</span> <span class="n">COMPARE_OP</span>               <span class="mi">0</span> <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span>
              <span class="mi">15</span> <span class="n">POP_JUMP_IF_FALSE</span>       <span class="mi">22</span>
 
-  <span class="mi">4</span>          <span class="mi">18</span> <span class="n">LOAD_CONST</span>               <span class="mi">3</span> <span class="p">(</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+  <span class="mi">4</span>          <span class="mi">18</span> <span class="n">LOAD_CONST</span>               <span class="mi">3</span> <span class="p">(</span><span class="s1">'yes'</span><span class="p">)</span>
              <span class="mi">21</span> <span class="n">RETURN_VALUE</span>
 
-  <span class="mi">6</span>     <span class="o">&gt;&gt;</span>   <span class="mi">22</span> <span class="n">LOAD_CONST</span>               <span class="mi">4</span> <span class="p">(</span><span class="s1">&#39;no&#39;</span><span class="p">)</span>
+  <span class="mi">6</span>     <span class="o">&gt;&gt;</span>   <span class="mi">22</span> <span class="n">LOAD_CONST</span>               <span class="mi">4</span> <span class="p">(</span><span class="s1">'no'</span><span class="p">)</span>
              <span class="mi">25</span> <span class="n">RETURN_VALUE</span>
              <span class="mi">26</span> <span class="n">LOAD_CONST</span>               <span class="mi">0</span> <span class="p">(</span><span class="kc">None</span><span class="p">)</span>
              <span class="mi">29</span> <span class="n">RETURN_VALUE</span>
@@ -247,9 +247,9 @@
 <p>What does all this mean? Let&rsquo;s look at the first instruction <code>LOAD_CONST</code> as an example. The number in the first column (<code>2</code>) shows the line number in our Python source code. The second column is an index into the bytecode, telling us that the <code>LOAD_CONST</code> instruction appears at position zero.  The third column is the instruction itself, mapped to its human-readable name. The fourth column, when present, is the argument to that instruction.  The fifth column, when present, is a hint about what the argument means.</p>
 <p>Consider the first few bytes of this bytecode: [100, 1, 0, 125, 0, 0]. These six bytes represent two instructions with their arguments. We can use <code>dis.opname</code>, a mapping from bytes to intelligible strings, to find out what instructions 100 and 125 map to:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">opname</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
-<span class="s1">&#39;LOAD_CONST&#39;</span>
+<span class="s1">'LOAD_CONST'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">opname</span><span class="p">[</span><span class="mi">125</span><span class="p">]</span>
-<span class="s1">&#39;STORE_FAST&#39;</span>
+<span class="s1">'STORE_FAST'</span>
 </code></pre></div>
 <p>The second and third bytes&mdash;1, 0&mdash;are arguments to <code>LOAD_CONST</code>, while the fifth and sixth bytes&mdash;0, 0&mdash;are arguments to <code>STORE_FAST</code>. Just like in our toy example, <code>LOAD_CONST</code> needs to know where to find its constant to load, and <code>STORE_FAST</code> needs to find the name to store. (Python&rsquo;s <code>LOAD_CONST</code> is the same as our toy interpreter&rsquo;s <code>LOAD_VALUE</code>, and <code>LOAD_FAST</code> is the same as <code>LOAD_NAME</code>.) So these six bytes represent the first line of code, <code>x = 3</code>. (Why use two bytes for each argument? If Python used just one byte to locate constants and names instead of two, you could only have 256 names/constants associated with a single code object. Using two bytes, you can have up to 256 squared, or 65,536.)</p>
 <h3>Conditionals and Loops</h3>
@@ -263,10 +263,10 @@
              <span class="mi">12</span> <span class="n">COMPARE_OP</span>               <span class="mi">0</span> <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span>
              <span class="mi">15</span> <span class="n">POP_JUMP_IF_FALSE</span>       <span class="mi">22</span>
 
-  <span class="mi">4</span>          <span class="mi">18</span> <span class="n">LOAD_CONST</span>               <span class="mi">3</span> <span class="p">(</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+  <span class="mi">4</span>          <span class="mi">18</span> <span class="n">LOAD_CONST</span>               <span class="mi">3</span> <span class="p">(</span><span class="s1">'yes'</span><span class="p">)</span>
              <span class="mi">21</span> <span class="n">RETURN_VALUE</span>
 
-  <span class="mi">6</span>     <span class="o">&gt;&gt;</span>   <span class="mi">22</span> <span class="n">LOAD_CONST</span>               <span class="mi">4</span> <span class="p">(</span><span class="s1">&#39;no&#39;</span><span class="p">)</span>
+  <span class="mi">6</span>     <span class="o">&gt;&gt;</span>   <span class="mi">22</span> <span class="n">LOAD_CONST</span>               <span class="mi">4</span> <span class="p">(</span><span class="s1">'no'</span><span class="p">)</span>
              <span class="mi">25</span> <span class="n">RETURN_VALUE</span>
              <span class="mi">26</span> <span class="n">LOAD_CONST</span>               <span class="mi">0</span> <span class="p">(</span><span class="kc">None</span><span class="p">)</span>
              <span class="mi">29</span> <span class="n">RETURN_VALUE</span>
@@ -321,7 +321,7 @@
 <span class="o">...</span>     <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="o">...</span>     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">bar</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># &lt;--- (2) ... which is returning a call to bar ...</span>
 <span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>             <span class="c1"># &lt;--- (1) We&#39;re in the middle of a call to foo ...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>             <span class="c1"># &lt;--- (1) We're in the middle of a call to foo ...</span>
 <span class="mi">3</span>
 </code></pre></div>
 <p><img alt="The call stack" src="interpreter-images/interpreter-callstack.png" />At this point, the interpreter is in the middle of the function call to <code>bar</code>. There are three frames on the call stack: one for the module level, one for the function <code>foo</code>, and one for <code>bar</code> (Figure: The call stack.) Once <code>bar</code> returns, the frame associated with it is popped off the call stack and discarded.</p>
@@ -350,7 +350,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">last_exception</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">global_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; An entry point to execute code using the virtual machine.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" An entry point to execute code using the virtual machine."""</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_frame</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">global_names</span><span class="o">=</span><span class="n">global_names</span><span class="p">,</span> 
                                 <span class="n">local_names</span><span class="o">=</span><span class="n">local_names</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">run_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
@@ -367,8 +367,8 @@
         <span class="k">if</span> <span class="n">prev_frame</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span> <span class="o">=</span> <span class="n">prev_frame</span><span class="o">.</span><span class="n">builtin_names</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span> <span class="o">=</span> <span class="n">local_names</span><span class="p">[</span><span class="s1">&#39;__builtins__&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span> <span class="o">=</span> <span class="n">local_names</span><span class="p">[</span><span class="s1">'__builtins__'</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span><span class="p">,</span> <span class="s1">'__dict__'</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_names</span><span class="o">.</span><span class="vm">__dict__</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">last_instruction</span> <span class="o">=</span> <span class="mi">0</span>
@@ -387,10 +387,10 @@
             <span class="n">local_names</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">global_names</span> <span class="o">=</span> <span class="n">local_names</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;__builtins__&#39;</span><span class="p">:</span> <span class="n">__builtins__</span><span class="p">,</span>
-                <span class="s1">&#39;__name__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="s1">&#39;__package__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">'__builtins__'</span><span class="p">:</span> <span class="n">__builtins__</span><span class="p">,</span>
+                <span class="s1">'__name__'</span><span class="p">:</span> <span class="s1">'__main__'</span><span class="p">,</span>
+                <span class="s1">'__doc__'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">'__package__'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="n">local_names</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">callargs</span><span class="p">)</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">global_names</span><span class="p">,</span> <span class="n">local_names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
@@ -409,23 +409,23 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
-        <span class="c1"># we&#39;ll come back to this shortly</span>
+        <span class="c1"># we'll come back to this shortly</span>
 </code></pre></div>
 <h3>The <code>Function</code> Class</h3>
 <p>The implementation of the <code>Function</code> object is somewhat twisty, and most of the details aren&rsquo;t critical to understanding the interpreter. The important thing to notice is that calling a function&mdash;invoking the <code>__call__</code> method&mdash;creates a new <code>Frame</code> object and starts running it.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Function</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Create a realistic function object, defining the things the interpreter expects.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;func_code&#39;</span><span class="p">,</span> <span class="s1">&#39;func_name&#39;</span><span class="p">,</span> <span class="s1">&#39;func_defaults&#39;</span><span class="p">,</span> <span class="s1">&#39;func_globals&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;func_locals&#39;</span><span class="p">,</span> <span class="s1">&#39;func_dict&#39;</span><span class="p">,</span> <span class="s1">&#39;func_closure&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;_vm&#39;</span><span class="p">,</span> <span class="s1">&#39;_func&#39;</span><span class="p">,</span>
+        <span class="s1">'func_code'</span><span class="p">,</span> <span class="s1">'func_name'</span><span class="p">,</span> <span class="s1">'func_defaults'</span><span class="p">,</span> <span class="s1">'func_globals'</span><span class="p">,</span>
+        <span class="s1">'func_locals'</span><span class="p">,</span> <span class="s1">'func_dict'</span><span class="p">,</span> <span class="s1">'func_closure'</span><span class="p">,</span>
+        <span class="s1">'__name__'</span><span class="p">,</span> <span class="s1">'__dict__'</span><span class="p">,</span> <span class="s1">'__doc__'</span><span class="p">,</span>
+        <span class="s1">'_vm'</span><span class="p">,</span> <span class="s1">'_func'</span><span class="p">,</span>
     <span class="p">]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">globs</span><span class="p">,</span> <span class="n">defaults</span><span class="p">,</span> <span class="n">closure</span><span class="p">,</span> <span class="n">vm</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;You don&#39;t need to follow this closely to understand the interpreter.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""You don't need to follow this closely to understand the interpreter."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_vm</span> <span class="o">=</span> <span class="n">vm</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">func_code</span> <span class="o">=</span> <span class="n">code</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">func_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">code</span><span class="o">.</span><span class="n">co_name</span>
@@ -438,14 +438,14 @@
 
         <span class="c1"># Sometimes, we need a real Python function.  This is for that.</span>
         <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;argdefs&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_defaults</span><span class="p">,</span>
+            <span class="s1">'argdefs'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_defaults</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="n">closure</span><span class="p">:</span>
-            <span class="n">kw</span><span class="p">[</span><span class="s1">&#39;closure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">make_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">closure</span><span class="p">)</span>
+            <span class="n">kw</span><span class="p">[</span><span class="s1">'closure'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">make_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">closure</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_func</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">globs</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;When calling a Function, make a new frame and run it.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""When calling a Function, make a new frame and run it."""</span>
         <span class="n">callargs</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getcallargs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="c1"># Use callargs to provide a mapping of arguments: values to pass into the new </span>
         <span class="c1"># frame.</span>
@@ -455,7 +455,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vm</span><span class="o">.</span><span class="n">run_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">make_cell</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a real Python closure and grab a cell.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Create a real Python closure and grab a cell."""</span>
     <span class="c1"># Thanks to Alex Gaynor for help with this bit of twistiness.</span>
     <span class="n">fn</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">x</span><span class="p">)(</span><span class="n">value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fn</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -475,9 +475,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">popn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pop a number of values from the value stack.</span>
+<span class="w">        </span><span class="sd">"""Pop a number of values from the value stack.</span>
 <span class="sd">        A list of `n` values is returned, the deepest value first.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">n</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[]</span>
@@ -523,36 +523,36 @@
     <span class="p">[</span><span class="o">...</span> <span class="n">snip</span> <span class="o">...</span><span class="p">]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">byte_name</span><span class="p">,</span> <span class="n">argument</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Dispatch by bytename to the corresponding methods.</span>
-<span class="sd">        Exceptions are caught and set on the virtual machine.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Dispatch by bytename to the corresponding methods.</span>
+<span class="sd">        Exceptions are caught and set on the virtual machine."""</span>
 
         <span class="c1"># When later unwinding the block stack,</span>
         <span class="c1"># we need to keep track of why we are doing it.</span>
         <span class="n">why</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">bytecode_fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;byte_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">byte_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">bytecode_fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'byte_</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">byte_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">bytecode_fn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">byte_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;UNARY_&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">byte_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'UNARY_'</span><span class="p">):</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">unaryOperator</span><span class="p">(</span><span class="n">byte_name</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span>
-                <span class="k">elif</span> <span class="n">byte_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;BINARY_&#39;</span><span class="p">):</span>
+                <span class="k">elif</span> <span class="n">byte_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'BINARY_'</span><span class="p">):</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">binaryOperator</span><span class="p">(</span><span class="n">byte_name</span><span class="p">[</span><span class="mi">7</span><span class="p">:])</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="n">VirtualMachineError</span><span class="p">(</span>
-                        <span class="s2">&quot;unsupported bytecode type: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">byte_name</span>
+                        <span class="s2">"unsupported bytecode type: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">byte_name</span>
                     <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">why</span> <span class="o">=</span> <span class="n">bytecode_fn</span><span class="p">(</span><span class="o">*</span><span class="n">argument</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="c1"># deal with exceptions encountered while executing the op.</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">last_exception</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span>
-            <span class="n">why</span> <span class="o">=</span> <span class="s1">&#39;exception&#39;</span>
+            <span class="n">why</span> <span class="o">=</span> <span class="s1">'exception'</span>
 
         <span class="k">return</span> <span class="n">why</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run a frame until it returns (somehow).</span>
+<span class="w">        </span><span class="sd">"""Run a frame until it returns (somehow).</span>
 <span class="sd">        Exceptions are raised, the return value is returned.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">push_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">byte_name</span><span class="p">,</span> <span class="n">arguments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_byte_and_args</span><span class="p">()</span>
@@ -568,7 +568,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">pop_frame</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">&#39;exception&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">'exception'</span><span class="p">:</span>
             <span class="n">exc</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">tb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_exception</span>
             <span class="n">e</span> <span class="o">=</span> <span class="n">exc</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
             <span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span> <span class="o">=</span> <span class="n">tb</span>
@@ -580,7 +580,7 @@
 <p>Before we implement the methods for each bytecode instruction, we&rsquo;ll briefly discuss blocks. A block is used for certain kinds of flow control, specifically exception handling and looping. The block is reponsible for making sure that the data stack is in the appropriate state when the operation is finished.  For example, in a loop, a special iterator object remains on the stack while the loop is running, but is popped off when it is finished. The interpreter must keep track of whether the loop is continuing or is finished.</p>
 <p>To keep track of this extra piece of information, the interpreter sets a flag to indicate its state.  We implement this flag as a variable called <code>why</code>, which can be <code>None</code> or one of the strings <code>"continue"</code>, <code>"break"</code>, <code>"exception"</code>, or <code>"return"</code>. This indicates what kind of manipulation of the block stack and data stack should happen.  To return to the iterator example, if the top of the block stack is a <code>loop</code> block and the <code>why</code> code is <code>continue</code>, the iterator object should remain on the data stack, but if the <code>why</code> code is <code>break</code>, it should be popped off.</p>
 <p>The precise details of block manipulation are rather fiddly, and we won&rsquo;t spend more time on this, but interested readers are encouraged to take a careful look.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Block</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Block&quot;</span><span class="p">,</span> <span class="s2">&quot;type, handler, stack_height&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">Block</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Block"</span><span class="p">,</span> <span class="s2">"type, handler, stack_height"</span><span class="p">)</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">VirtualMachine</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="p">[</span><span class="o">...</span> <span class="n">snip</span> <span class="o">...</span><span class="p">]</span>
@@ -594,8 +594,8 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">block_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">unwind_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Unwind the values on the data stack corresponding to a given block.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;except-handler&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Unwind the values on the data stack corresponding to a given block."""</span>
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">'except-handler'</span><span class="p">:</span>
             <span class="c1"># The exception itself is on the stack as type, value, and traceback.</span>
             <span class="n">offset</span> <span class="o">=</span> <span class="mi">3</span>  
         <span class="k">else</span><span class="p">:</span>
@@ -604,15 +604,15 @@
         <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">block</span><span class="o">.</span><span class="n">level</span> <span class="o">+</span> <span class="n">offset</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;except-handler&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">'except-handler'</span><span class="p">:</span>
             <span class="n">traceback</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">exctype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">popn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">last_exception</span> <span class="o">=</span> <span class="n">exctype</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">manage_block_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">why</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" """</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span>
         <span class="n">block</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">block_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;loop&#39;</span> <span class="ow">and</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">&#39;continue&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">'loop'</span> <span class="ow">and</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">'continue'</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">return_value</span><span class="p">)</span>
             <span class="n">why</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">return</span> <span class="n">why</span>
@@ -620,13 +620,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pop_block</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">unwind_block</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;loop&#39;</span> <span class="ow">and</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">&#39;break&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">'loop'</span> <span class="ow">and</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">'break'</span><span class="p">:</span>
             <span class="n">why</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">handler</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">why</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;setup-except&#39;</span><span class="p">,</span> <span class="s1">&#39;finally&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">&#39;exception&#39;</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">push_block</span><span class="p">(</span><span class="s1">&#39;except-handler&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'setup-except'</span><span class="p">,</span> <span class="s1">'finally'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">why</span> <span class="o">==</span> <span class="s1">'exception'</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">push_block</span><span class="p">(</span><span class="s1">'except-handler'</span><span class="p">)</span>
             <span class="n">exctype</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">tb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_exception</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tb</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">exctype</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tb</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">exctype</span><span class="p">)</span> <span class="c1"># yes, twice</span>
@@ -634,8 +634,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">handler</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">why</span>
 
-        <span class="k">elif</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;finally&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">why</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;return&#39;</span><span class="p">,</span> <span class="s1">&#39;continue&#39;</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">'finally'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">why</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'return'</span><span class="p">,</span> <span class="s1">'continue'</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">return_value</span><span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">why</span><span class="p">)</span>
@@ -668,7 +668,7 @@
         <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_builtins</span><span class="p">:</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_builtins</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;name &#39;</span><span class="si">%s</span><span class="s2">&#39; is not defined&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">"name '</span><span class="si">%s</span><span class="s2">' is not defined"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">byte_STORE_NAME</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -679,7 +679,7 @@
             <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">UnboundLocalError</span><span class="p">(</span>
-                <span class="s2">&quot;local variable &#39;</span><span class="si">%s</span><span class="s2">&#39; referenced before assignment&quot;</span> <span class="o">%</span> <span class="n">name</span>
+                <span class="s2">"local variable '</span><span class="si">%s</span><span class="s2">' referenced before assignment"</span> <span class="o">%</span> <span class="n">name</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 
@@ -693,25 +693,25 @@
         <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">f_builtins</span><span class="p">:</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">f_builtins</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;global name &#39;</span><span class="si">%s</span><span class="s2">&#39; is not defined&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">"global name '</span><span class="si">%s</span><span class="s2">' is not defined"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 
     <span class="c1">## Operators</span>
 
     <span class="n">BINARY_OPERATORS</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;POWER&#39;</span><span class="p">:</span>    <span class="nb">pow</span><span class="p">,</span>
-        <span class="s1">&#39;MULTIPLY&#39;</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span>
-        <span class="s1">&#39;FLOOR_DIVIDE&#39;</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">floordiv</span><span class="p">,</span>
-        <span class="s1">&#39;TRUE_DIVIDE&#39;</span><span class="p">:</span>  <span class="n">operator</span><span class="o">.</span><span class="n">truediv</span><span class="p">,</span>
-        <span class="s1">&#39;MODULO&#39;</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">mod</span><span class="p">,</span>
-        <span class="s1">&#39;ADD&#39;</span><span class="p">:</span>      <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
-        <span class="s1">&#39;SUBTRACT&#39;</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span>
-        <span class="s1">&#39;SUBSCR&#39;</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">getitem</span><span class="p">,</span>
-        <span class="s1">&#39;LSHIFT&#39;</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">lshift</span><span class="p">,</span>
-        <span class="s1">&#39;RSHIFT&#39;</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">rshift</span><span class="p">,</span>
-        <span class="s1">&#39;AND&#39;</span><span class="p">:</span>      <span class="n">operator</span><span class="o">.</span><span class="n">and_</span><span class="p">,</span>
-        <span class="s1">&#39;XOR&#39;</span><span class="p">:</span>      <span class="n">operator</span><span class="o">.</span><span class="n">xor</span><span class="p">,</span>
-        <span class="s1">&#39;OR&#39;</span><span class="p">:</span>       <span class="n">operator</span><span class="o">.</span><span class="n">or_</span><span class="p">,</span>
+        <span class="s1">'POWER'</span><span class="p">:</span>    <span class="nb">pow</span><span class="p">,</span>
+        <span class="s1">'MULTIPLY'</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span>
+        <span class="s1">'FLOOR_DIVIDE'</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">floordiv</span><span class="p">,</span>
+        <span class="s1">'TRUE_DIVIDE'</span><span class="p">:</span>  <span class="n">operator</span><span class="o">.</span><span class="n">truediv</span><span class="p">,</span>
+        <span class="s1">'MODULO'</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">mod</span><span class="p">,</span>
+        <span class="s1">'ADD'</span><span class="p">:</span>      <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+        <span class="s1">'SUBTRACT'</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span>
+        <span class="s1">'SUBSCR'</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">getitem</span><span class="p">,</span>
+        <span class="s1">'LSHIFT'</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">lshift</span><span class="p">,</span>
+        <span class="s1">'RSHIFT'</span><span class="p">:</span>   <span class="n">operator</span><span class="o">.</span><span class="n">rshift</span><span class="p">,</span>
+        <span class="s1">'AND'</span><span class="p">:</span>      <span class="n">operator</span><span class="o">.</span><span class="n">and_</span><span class="p">,</span>
+        <span class="s1">'XOR'</span><span class="p">:</span>      <span class="n">operator</span><span class="o">.</span><span class="n">xor</span><span class="p">,</span>
+        <span class="s1">'OR'</span><span class="p">:</span>       <span class="n">operator</span><span class="o">.</span><span class="n">or_</span><span class="p">,</span>
     <span class="p">}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">binaryOperator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">):</span>
@@ -787,7 +787,7 @@
     <span class="c1">## Blocks</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">byte_SETUP_LOOP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">push_block</span><span class="p">(</span><span class="s1">&#39;loop&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">push_block</span><span class="p">(</span><span class="s1">'loop'</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">byte_GET_ITER</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">()))</span>
@@ -802,7 +802,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="n">jump</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">byte_BREAK_LOOP</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;break&#39;</span>
+        <span class="k">return</span> <span class="s1">'break'</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">byte_POP_BLOCK</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pop_block</span><span class="p">()</span>
@@ -828,7 +828,7 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">byte_RETURN_VALUE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">return</span> <span class="s2">&quot;return&quot;</span>
+        <span class="k">return</span> <span class="s2">"return"</span>
 </code></pre></div>
 <h2>Dynamic Typing: What the Compiler Doesn&rsquo;t Know</h2>
 <p>One thing you&rsquo;ve probably heard is that Python is a &ldquo;dynamic&rdquo; language&mdash;particularly that it&rsquo;s &ldquo;dynamically typed&rdquo;. The work we&rsquo;ve done to this point sheds some light on this description.</p>
@@ -844,11 +844,11 @@
 <span class="mi">4</span>
 </code></pre></div>
 <p>Calculating 19 <code>%</code> 5 yields 4&mdash;no surprise there. What happens if we call it with different arguments?</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mod</span><span class="p">(</span><span class="s2">&quot;by</span><span class="si">%s</span><span class="s2">de&quot;</span><span class="p">,</span> <span class="s2">&quot;teco&quot;</span><span class="p">)</span>
-<span class="s1">&#39;bytecode&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mod</span><span class="p">(</span><span class="s2">"by</span><span class="si">%s</span><span class="s2">de"</span><span class="p">,</span> <span class="s2">"teco"</span><span class="p">)</span>
+<span class="s1">'bytecode'</span>
 </code></pre></div>
 <p>What just happened? You&rsquo;ve probably seen this syntax before, but in a different context: </p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;by%sde&quot; % &quot;teco&quot;)
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("by%sde" % "teco")
 bytecode
 </code></pre></div>
 <p>Using the symbol <code>%</code> to format a string for printing means invoking the instruction <code>BINARY_MODULO</code>. This instruction mods together the top two values on the stack when the instruction executes&mdash;regardless of whether they&rsquo;re strings, integers, or instances of a class you defined yourself. The bytecode was generated when the function was compiled (effectively, when it was defined) and the same bytecode is used with different types of arguments.</p>

@@ -74,8 +74,8 @@ we&rsquo;ll introduce another parameter to specify
 how many times we want to run the simulation:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="err">…</span><span class="n">previous</span> <span class="n">parameters</span><span class="err">…</span>
-    <span class="s2">&quot;rework_probability&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
-    <span class="s2">&quot;num_simulations&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"rework_probability"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+    <span class="s2">"num_simulations"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Next, we introduce a loop in <code>simulate_task</code>.
@@ -88,7 +88,7 @@ we mark the task as completed and break out of the loop;
 if not,
 we go around the loop again.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Simulate a task flowing through the system."""</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
@@ -96,7 +96,7 @@ we go around the loop again.</p>
             <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
             <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
             <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;rework_probability&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">"rework_probability"</span><span class="p">]:</span>
                 <span class="n">task</span><span class="o">.</span><span class="n">completed</span><span class="p">()</span>
                 <span class="k">break</span>
 </code></pre></div>
@@ -116,13 +116,13 @@ the same developer would keep working on the task.</p>
 First,
 we create a <code>FilterStore</code> instead of a <code>Resource</code> to represent
 our pool of developers:</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">FilterStore</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">FilterStore</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">"num_developers"</span><span class="p">])</span>
 </code></pre></div>
 <p>The difference between the two is that <code>FilterStore</code> allows us to specify
 a test or check that a resource has to satisfy when we claim it.
 Here&rsquo;s the modified <code>simulate_task</code> that makes use of that:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task being re-worked by the same developer.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Simulate a task being re-worked by the same developer."""</span>
 
     <span class="n">dev</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -134,7 +134,7 @@ Here&rsquo;s the modified <code>simulate_task</code> that makes use of that:</p>
         <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
         <span class="n">developers</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
         <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;rework_probability&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">"rework_probability"</span><span class="p">]:</span>
             <span class="n">task</span><span class="o">.</span><span class="n">completed</span><span class="p">()</span>
             <span class="k">break</span>
 </code></pre></div>

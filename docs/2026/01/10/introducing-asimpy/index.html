@@ -84,10 +84,10 @@ When Python encounters <code>await obj</code> it does something like this:</p>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># Define a class whose instances can be awaited.</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Thing</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before yield&quot;</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="s2">&quot;pause&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after yield&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"before yield"</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="s2">"pause"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"after yield"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">"result"</span>
 
 <span class="c1"># Get the __await__ iterator directly</span>
 <span class="n">awaitable</span> <span class="o">=</span> <span class="n">Thing</span><span class="p">()</span>
@@ -95,14 +95,14 @@ When Python encounters <code>await obj</code> it does something like this:</p>
 
 <span class="c1"># run to first yield</span>
 <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iterator yielded:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"iterator yielded:"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 <span class="c1"># Step 2: resume until completion</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;final result:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"final result:"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>before yield
 iterator yielded: pause

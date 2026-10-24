@@ -365,7 +365,7 @@ of the browser; the rest will come from scripts.</p>
 <span class="w">  </span><span class="n">content</span><span class="o">.</span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="o">.</span><span class="n">start</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">response</span>
 <span class="w">  </span><span class="c1">-- the new document has the host of the url as its domain</span>
 <span class="w">  </span><span class="n">domain</span><span class="o">.</span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">domain</span><span class="o">.</span><span class="n">start</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">url</span><span class="o">.</span><span class="n">host</span>
-<span class="w">  </span><span class="c1">-- the document&#39;s source field is the url of the request</span>
+<span class="w">  </span><span class="c1">-- the document's source field is the url of the request</span>
 <span class="w">  </span><span class="n">doc</span><span class="o">.</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">url</span>
 
 <span class="w">  </span><span class="c1">-- new cookies are stored by the browser</span>
@@ -592,15 +592,15 @@ set of data elements that the module can access at each time step:</p>
 <span class="w">  </span><span class="n">accesses</span><span class="p">:</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Time</span>
 <span class="o">}{</span>
 <span class="w">  </span><span class="k">all</span><span class="w"> </span><span class="n">d</span><span class="p">:</span><span class="w"> </span><span class="n">Data</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">:</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">|</span>
-<span class="w">     </span><span class="c1">-- This endpoint can only access a piece of data &quot;d&quot; at time &quot;t&quot; only when</span>
+<span class="w">     </span><span class="c1">-- This endpoint can only access a piece of data "d" at time "t" only when</span>
 <span class="w">    </span><span class="n">d</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">accesses</span><span class="w"> </span><span class="ow">implies</span>
 <span class="w">      </span><span class="c1">-- (1) It already had access in the previous time step, or</span>
 <span class="w">      </span><span class="n">d</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">t</span><span class="o">.</span><span class="n">prev</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">accesses</span><span class="w"> </span><span class="ow">or</span>
-<span class="w">      </span><span class="c1">-- there is some call &quot;c&quot; that ended at &quot;t&quot; such that</span>
+<span class="w">      </span><span class="c1">-- there is some call "c" that ended at "t" such that</span>
 <span class="w">      </span><span class="k">some</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Call</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">end</span><span class="o">.</span><span class="n">t</span><span class="w"> </span><span class="o">|</span>
-<span class="w">        </span><span class="c1">-- (2) the endpoint receives &quot;c&quot; that carries &quot;d&quot; as one of its arguments or</span>
+<span class="w">        </span><span class="c1">-- (2) the endpoint receives "c" that carries "d" as one of its arguments or</span>
 <span class="w">        </span><span class="n">c</span><span class="o">.</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="o">.</span><span class="n">args</span><span class="w"> </span><span class="ow">or</span>
-<span class="w">        </span><span class="c1">-- (3) the endpoint sends &quot;c&quot; that returns &quot;d&quot; </span>
+<span class="w">        </span><span class="c1">-- (3) the endpoint sends "c" that returns "d" </span>
 <span class="w">        </span><span class="n">c</span><span class="o">.</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="o">.</span><span class="n">returns</span><span class="w"> </span>
 <span class="o">}</span>
 </code></pre></div>
@@ -869,7 +869,7 @@ HTML (i.e., <code>&lt;script&gt;</code>) are exempt from the SOP*; that is, you 
 include a script from <em>any</em> URL, and the browser readily executes it
 in the current document:</p>
 <p>(* Without this exemption, it would not be possible to load JavaScript libraries, such as JQuery, from other domains.)</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://www.example.com/myscript.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"http://www.example.com/myscript.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>A script tag can be used to obtain code, but how do we use it to
 receive arbitrary <em>data</em> (e.g., a JSON object) from a different
@@ -877,7 +877,7 @@ domain? The problem is that the browser expects the content of <code>src</code>
 to be a piece of JavaScript code, and so simply having it point at a
 data source (e.g., a JSON or HTML file) results in a syntax error.</p>
 <p>One workaround is to wrap the desired data inside a string that the browser recognizes as valid JavaScript code; this string is sometimes called <em>padding</em> (hence the name &ldquo;JSON with padding&rdquo;). This padding could be any arbitrary JavaScript code, but conventionally, it is the name of a callback function (already defined in the current document) that is to be executed on the response data:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://www.example.com/mydata?jsonp=processData&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"http://www.example.com/mydata?jsonp=processData"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>The server on <code>www.example.com</code> recognizes it as a JSONP request, and wraps the requested data inside the <code>jsonp</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">processData</span><span class="p">(</span><span class="nx">mydata</span><span class="p">)</span>
@@ -961,11 +961,11 @@ resource (<code>MySchedule</code>) wrapped inside the padding <code>Leak</code> 
 <span class="w">  </span><span class="n">srcOrigin</span><span class="p">:</span><span class="w"> </span><span class="n">Origin</span>
 <span class="o">}{</span>
 <span class="w">  </span><span class="n">causedBy</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">PostMessage</span>
-<span class="w">  </span><span class="c1">-- &quot;ReceiveMessage&quot; event is sent to the script with the correct context</span>
+<span class="w">  </span><span class="c1">-- "ReceiveMessage" event is sent to the script with the correct context</span>
 <span class="w">  </span><span class="n">origin</span><span class="o">[</span><span class="n">to</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">src</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">causedBy</span><span class="o">.</span><span class="n">targetOrigin</span>
 <span class="w">  </span><span class="c1">-- messages match</span>
 <span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">causedBy</span><span class="o">.</span><span class="err">@</span><span class="n">message</span>
-<span class="w">  </span><span class="c1">-- the origin of the sender script is provided as &quot;srcOrigin&quot; param </span>
+<span class="w">  </span><span class="c1">-- the origin of the sender script is provided as "srcOrigin" param </span>
 <span class="w">  </span><span class="n">srcOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">origin</span><span class="o">[</span><span class="n">causedBy</span><span class="o">.</span><span class="err">@</span><span class="n">from</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">src</span><span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -1021,9 +1021,9 @@ support complex types of cross-origin requests besides GETs and POSTs.)</p>
 <p>In Alloy, we model a CORS request as a special kind of
 <code>XmlHttpRequest</code>, with two extra fields <code>origin</code> and <code>allowedOrigins</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">sig</span><span class="w"> </span><span class="n">CorsRequest</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">XmlHttpRequest</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="c1">-- &quot;origin&quot; header in request from client</span>
+<span class="w">  </span><span class="c1">-- "origin" header in request from client</span>
 <span class="w">  </span><span class="n">origin</span><span class="p">:</span><span class="w"> </span><span class="n">Origin</span><span class="p">,</span>
-<span class="w">  </span><span class="c1">-- &quot;access-control-allow-origin&quot; header in response from server</span>
+<span class="w">  </span><span class="c1">-- "access-control-allow-origin" header in response from server</span>
 <span class="w">  </span><span class="n">allowedOrigins</span><span class="p">:</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">Origin</span>
 <span class="o">}{</span>
 <span class="w">  </span><span class="n">from</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">Script</span>

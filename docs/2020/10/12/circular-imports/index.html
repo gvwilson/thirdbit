@@ -143,15 +143,15 @@ R
 <div class="highlight"><pre><span></span><code>$ python a.py
 P
 Traceback (most recent call last):
-  File &quot;a.py&quot;, line 1, in &lt;module&gt;
+  File "a.py", line 1, in &lt;module&gt;
     import b
-  File &quot;/home/gvwilson/example/b.py&quot;, line 1, in &lt;module&gt;
+  File "/home/gvwilson/example/b.py", line 1, in &lt;module&gt;
     import a
-  File &quot;/home/gvwilson/example/a.py&quot;, line 10, in &lt;module&gt;
+  File "/home/gvwilson/example/a.py", line 10, in &lt;module&gt;
     P()
-  File &quot;/home/gvwilson/example/a.py&quot;, line 5, in P
+  File "/home/gvwilson/example/a.py", line 5, in P
     b.Q()
-AttributeError: module &#39;b&#39; has no attribute &#39;Q&#39;
+AttributeError: module 'b' has no attribute 'Q'
 </code></pre></div>
 <p><em>Update: in a thread on Twitter from EM Bray.</em></p>
 <p>Node is more consistent.
@@ -196,9 +196,9 @@ module.exports = {Q}
 </table>
 
 <p>Running inside the interpreter fails during loading:</p>
-<div class="highlight"><pre><span></span><code>&gt; const {P} = require(&#39;./a&#39;)
+<div class="highlight"><pre><span></span><code>&gt; const {P} = require('./a')
 undefined
-&gt; (node:1756) Warning: Accessing non-existent property &#39;R&#39; of module exports inside circular dependency
+&gt; (node:1756) Warning: Accessing non-existent property 'R' of module exports inside circular dependency
 (Use `node --trace-warnings …` to show where the warning was created)
 &gt; P()
 P
@@ -212,7 +212,7 @@ It also fails if we use a bundler like Parcel.
 Our HTML file is:</p>
 <div class="highlight"><pre><span></span><code>&lt;html&gt;
   &lt;head&gt;
-    &lt;script src=&quot;./a.js&quot;&gt;&lt;/script&gt;
+    &lt;script src="./a.js"&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;p&gt;Hello&lt;/p&gt;

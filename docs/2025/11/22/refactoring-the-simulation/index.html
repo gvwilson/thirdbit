@@ -67,11 +67,11 @@ As before,
 we&rsquo;ll define some default parameters,
 including a random number seed to ensure reproducibility:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;max_task_duration&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
-    <span class="s2">&quot;num_developers&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">&quot;random_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
-    <span class="s2">&quot;simulation_duration&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="s2">"max_task_duration"</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">"num_developers"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"random_seed"</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">"simulation_duration"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"task_arrival_rate"</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>To allow ad hoc experiments,
@@ -89,7 +89,7 @@ and eventually some testers and maybe even a manager or two.
 Rather than passing a dozen objects around,
 let&rsquo;s define a <code>Simulation</code> class to store them all:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Store simulation artifacts.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Store simulation artifacts."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
@@ -100,7 +100,7 @@ let&rsquo;s define a <code>Simulation</code> class to store them all:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;simulation_duration&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"simulation_duration"</span><span class="p">])</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
@@ -110,10 +110,10 @@ let&rsquo;s define a <code>Simulation</code> class to store them all:</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">task_arrival</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"task_arrival_rate"</span><span class="p">])</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">task_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;max_task_duration&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"max_task_duration"</span><span class="p">])</span>
 </code></pre></div>
 <p>To save ourselves from repeatedly needing to type <code>sim.env</code>,
 this class provides pass-through methods for the simulation environment&rsquo;s key methods and properties.
@@ -130,12 +130,12 @@ how long it takes to complete,
 when work on it started,
 and when work was completed:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single (passive) task.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""A single (passive) task."""</span>
 
     <span class="err">…</span><span class="n">more</span> <span class="n">stuff</span> <span class="n">will</span> <span class="n">go</span> <span class="n">here</span><span class="err">…</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Construct."""</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arrived</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">now</span>
@@ -209,16 +209,16 @@ but we still need to use <code>yield</code>.</p>
 <p>With all that in place,
 modeling each developer as an active process is fairly straightforward:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single (active) developer.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""A single (active) developer."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Construct."""</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate work.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Simulate work."""</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -239,11 +239,11 @@ and then records the task&rsquo;s completion time.</p>
 we&rsquo;re going to want to look at how many tasks were completed
 and how long tasks spent waiting for a developer:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">write_log</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write task details as CSV.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Write task details as CSV."""</span>
 
-    <span class="n">log</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;arrived&quot;</span><span class="p">,</span> <span class="s2">&quot;started&quot;</span><span class="p">,</span> <span class="s2">&quot;completed&quot;</span><span class="p">)]</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">log</span><span class="p">()</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">Labeled</span><span class="o">.</span><span class="n">_all</span><span class="p">[</span><span class="s2">&quot;Task&quot;</span><span class="p">])</span>
-    <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"kind"</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">,</span> <span class="s2">"arrived"</span><span class="p">,</span> <span class="s2">"started"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">)]</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">log</span><span class="p">()</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">Labeled</span><span class="o">.</span><span class="n">_all</span><span class="p">[</span><span class="s2">"Task"</span><span class="p">])</span>
+    <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
 </code></pre></div>
 <p><code>Labeled._all["Task"]</code> is a list of all the task objects created so far
 (again, see <a href="https://github.com/gvwilson/thirdbit/blob/main/src/2025/11/22/sim.py">the source code</a> if you want details),
@@ -251,10 +251,10 @@ while <code>task.log()</code> is just:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to loggable entry.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Convert to loggable entry."""</span>
 
         <span class="k">return</span> <span class="p">(</span>
-            <span class="s2">&quot;task&quot;</span><span class="p">,</span>
+            <span class="s2">"task"</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
             <span class="n">log_fmt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="p">),</span>
             <span class="n">log_fmt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arrived</span><span class="p">),</span>

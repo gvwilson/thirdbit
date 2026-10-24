@@ -62,13 +62,13 @@ we&rsquo;re ready to make the simulation a bit more realistic
 by adding a second stage: testing.
 Our updated default parameters will be:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;max_dev_time&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
-    <span class="s2">&quot;max_test_time&quot;</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>        <span class="c1"># new</span>
-    <span class="s2">&quot;num_developers&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">&quot;num_testers&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>            <span class="c1"># new</span>
-    <span class="s2">&quot;random_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
-    <span class="s2">&quot;simulation_time&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="s2">"max_dev_time"</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">"max_test_time"</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>        <span class="c1"># new</span>
+    <span class="s2">"num_developers"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"num_testers"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>            <span class="c1"># new</span>
+    <span class="s2">"random_seed"</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">"simulation_time"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"task_arrival_rate"</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>which will control simulation of this system:</p>
@@ -107,26 +107,26 @@ In order to test our hypothesis about where tasks are going to pile up,
 we will record the length of the waiting-for-development queue in each task
 when it is created:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single (passive) task.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""A single (passive) task."""</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">sim</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate tasks and add to the development queue.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Generate tasks and add to the development queue."""</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">task_arrival</span><span class="p">())</span>
             <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
-            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_queue_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">"dev_queue_length"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
             <span class="k">yield</span> <span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Construct."""</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;arrived&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">now</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;dev_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">dev_time</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">test_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">"arrived"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">"dev_time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">dev_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">"test_time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">test_time</span><span class="p">()</span>
 </code></pre></div>
 <h2>The <code>Developer</code> Class</h2>
 <p>The only changes to the <code>Developer</code> are
@@ -134,24 +134,24 @@ when it is created:</p>
 and (b) recording more information,
 such as the total time this developer has spent working:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single developer.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""A single developer."""</span>
 
     <span class="err">…</span><span class="n">constructor</span><span class="err">…</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate work.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Simulate work."""</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
             <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;waiting&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">"waiting"</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
 
-            <span class="n">now</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_time&quot;</span><span class="p">])</span>
-            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
-            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;working&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">"dev_start"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">"dev_time"</span><span class="p">])</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">"dev_end"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">"working"</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
 
-            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_queue_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">"test_queue_length"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 </code></pre></div>
 <p>Deciding what information to record was
@@ -176,45 +176,45 @@ but after reorganizing it a couple of times
 we decided that two separate classes would be easier to understand
 than one class with a couple of <code>if</code> statements to control behavior:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single (active) tester.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""A single (active) tester."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Construct."""</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate work.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Simulate work."""</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
             <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;waiting&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">"waiting"</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
 
-            <span class="n">now</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">])</span>
-            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;working&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
-            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">"test_start"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">"test_time"</span><span class="p">])</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">"working"</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">"test_end"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
 </code></pre></div>
 <h2>The Main Driver</h2>
 <p>We haven&rsquo;t shown <code>main</code> in a while,
 so here is what it has become:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main driver.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Main driver."""</span>
 
     <span class="c1"># Handle command-line arguments and parameters.</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
     <span class="n">update_params</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;random_seed&quot;</span><span class="p">])</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"random_seed"</span><span class="p">])</span>
 
     <span class="c1"># Create and run the simulation and its processes.</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">Simulation</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">Task</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">sim</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"num_developers"</span><span class="p">]):</span>
         <span class="n">dev</span> <span class="o">=</span> <span class="n">Developer</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
         <span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">dev</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_testers&quot;</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"num_testers"</span><span class="p">]):</span>
         <span class="n">tester</span> <span class="o">=</span> <span class="n">Tester</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
         <span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">tester</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -228,7 +228,7 @@ so here is what it has become:</p>
         <span class="n">table</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">TABLE_ALIGNMENT</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+        <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
 </code></pre></div>
 <h2>The Output, and Why</h2>
 <p>Running the simulation with the default parameters shown earlier

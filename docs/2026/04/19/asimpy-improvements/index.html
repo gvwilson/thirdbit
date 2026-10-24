@@ -124,7 +124,7 @@ The fix replaces the list with a single <code>_waiter</code> slot that upgrades 
 <li><code>callable</code>: exactly one waiter (the common case)</li>
 <li><code>list</code>: two or more waiters (<code>AllOf</code> and <code>FirstOf</code>)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_env&quot;</span><span class="p">,</span> <span class="s2">&quot;_value&quot;</span><span class="p">,</span> <span class="s2">&quot;_waiter&quot;</span><span class="p">,</span> <span class="s2">&quot;_on_cancel&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"_env"</span><span class="p">,</span> <span class="s2">"_value"</span><span class="p">,</span> <span class="s2">"_waiter"</span><span class="p">,</span> <span class="s2">"_on_cancel"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
     <span class="o">...</span>

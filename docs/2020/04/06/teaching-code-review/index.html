@@ -89,7 +89,7 @@ e.g.,
 &ldquo;function should be split&rdquo; or &ldquo;functions should be combined&rdquo;.
 For example,
 this short Python program is supposed to count stop words in a list of strings:</p>
-<div class="highlight"><pre><span></span><code>stops = [&#39;a&#39;, &#39;A&#39;, &#39;the&#39;, &#39;The&#39;, &#39;and&#39;]
+<div class="highlight"><pre><span></span><code>stops = ['a', 'A', 'the', 'The', 'and']
 
 def count(ln):
     n = 0
@@ -106,9 +106,9 @@ def count(ln):
 import sys
 
 lines = sys.stdin.readlines()
-# print(&#39;number of lines&#39;, len(lines))
+# print('number of lines', len(lines))
 n = count(lines)
-print(&#39;number&#39;, n)
+print('number', n)
 </code></pre></div>
 <p>I expect learners to say that:</p>
 <ul>
@@ -142,7 +142,7 @@ print(&#39;number&#39;, n)
 <div class="highlight"><pre><span></span><code>import sys
 
 
-STOPS = {&#39;a&#39;, &#39;A&#39;, &#39;the&#39;, &#39;The&#39;, &#39;and&#39;}
+STOPS = {'a', 'A', 'the', 'The', 'and'}
 
 
 def count(reader):
@@ -154,9 +154,9 @@ def count(reader):
     return n
 
 
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
     n = count(sys.stdin)
-    print(&#39;number&#39;, n)
+    print('number', n)
 </code></pre></div>
 <p>I haven&rsquo;t (yet) had learners do code reviews with checklists on GitHub,
 but it seems like a natural next step.</p><!-- /content -->

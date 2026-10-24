@@ -74,11 +74,11 @@ title: License
 permalink: /license/
 ---
 
-{% include boilerplate.md filename=&#39;LICENSE.md&#39; %}
+{% include boilerplate.md filename='LICENSE.md' %}
 </code></pre></div>
 <p>and then put this in <code>_includes/boilerplate.md</code>:</p>
 <div class="highlight"><pre><span></span><code>{% capture other %}{% include_relative {{include.filename}} %}{% endcapture %}
-{{ other | markdownify | split: &quot;&lt;/h1&gt;&quot; | last }}
+{{ other | markdownify | split: "&lt;/h1&gt;" | last }}
 </code></pre></div>
 <p>It only works correctly if the file being included has exactly one <code>h1</code> header,
 but well-formed pages shouldn&rsquo;t have more (or none).

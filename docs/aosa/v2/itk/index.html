@@ -399,26 +399,26 @@ FilterType::Pointer median = FilterType::New();
 <p>In order to enforce and promote code style uniformity, the following tools have proved to be very effective:</p>
 <ul>
 <li>
-<p>KWStyle<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">9</a></sup> for automatic source code style checking. This is a simplified C++ parser that checks coding style and flags any violations.</p>
+<p>KWStyle<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> for automatic source code style checking. This is a simplified C++ parser that checks coding style and flags any violations.</p>
 </li>
 <li>
-<p>Gerrit<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">10</a></sup> for regular code reviews. This tools serves two purposes: On one hand, it prevents immature code from entering the code base by distilling its errors, deficiencies and imperfections during iterative review cycles where other developers contribute to improve the code. On the other hand, it provides a virtual training camp in which new developers get to learn from more experienced developers (read &ldquo;experienced&rdquo; as <em>have made all the mistakes and know where the bodies are buried&hellip;</em>) how to improve the code and avoid known problems that have been observed during maintenance cycles.</p>
+<p>Gerrit<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> for regular code reviews. This tools serves two purposes: On one hand, it prevents immature code from entering the code base by distilling its errors, deficiencies and imperfections during iterative review cycles where other developers contribute to improve the code. On the other hand, it provides a virtual training camp in which new developers get to learn from more experienced developers (read &ldquo;experienced&rdquo; as <em>have made all the mistakes and know where the bodies are buried&hellip;</em>) how to improve the code and avoid known problems that have been observed during maintenance cycles.</p>
 </li>
 <li>
 <p>Git hooks that enforce the use of the KWStyle and Gerrit and that also perform some of their own checks. For example, ITK uses Git hooks that prevent commits of code with tabs or with trailing blank spaces.</p>
 </li>
 <li>
-<p>The team has also explored the use of Uncrustify<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">11</a></sup> as a tool for enforcing a consistent style.</p>
+<p>The team has also explored the use of Uncrustify<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> as a tool for enforcing a consistent style.</p>
 </li>
 </ul>
-<p>It is worth emphasizing that uniformity of style is not a simple matter of aesthetic appeal, it is really a matter of economics. Studies on the <em>Total Cost of Ownership</em> (TCO) of software projects have estimated that in the life-cycle of a project, the cost of maintenance will be about 75% of the TCO, and given that maintenance cost is applied on an annual basis, it typically surpasses the cost of initial development costs by the first five years of the life-cycle of a software project<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">5</a></sup>. Maintenance is estimated to be about 80% of what software developers actually do, and when engaged in that activity the large majority of the developer&rsquo;s time is dedicated to reading someone else&rsquo;s code, trying to figure out what it was supposed to do<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">6</a></sup>. Uniform style does wonders for reducing the time it takes for developers to immerse themselves in a newly open source file and understand the code before they make any modifications to it. By the same token, it reduces the chances that developers will misinterpret the code and make modifications that end up introducing new bugs when they were honestly trying to fix old bugs<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">7</a></sup>.</p>
+<p>It is worth emphasizing that uniformity of style is not a simple matter of aesthetic appeal, it is really a matter of economics. Studies on the <em>Total Cost of Ownership</em> (TCO) of software projects have estimated that in the life-cycle of a project, the cost of maintenance will be about 75% of the TCO, and given that maintenance cost is applied on an annual basis, it typically surpasses the cost of initial development costs by the first five years of the life-cycle of a software project<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Maintenance is estimated to be about 80% of what software developers actually do, and when engaged in that activity the large majority of the developer&rsquo;s time is dedicated to reading someone else&rsquo;s code, trying to figure out what it was supposed to do<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>. Uniform style does wonders for reducing the time it takes for developers to immerse themselves in a newly open source file and understand the code before they make any modifications to it. By the same token, it reduces the chances that developers will misinterpret the code and make modifications that end up introducing new bugs when they were honestly trying to fix old bugs<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</p>
 <p>The key for making these tools effective is to make sure that they are:</p>
 <ul>
 <li>
 <p>Available to all developers, hence our preference for Open Source tools.</p>
 </li>
 <li>
-<p>Run on a regular basis. In the case of ITK, these tools have been integrated in the Nightly and Continuous Dashboard builds managed by CDash<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">12</a></sup>.</p>
+<p>Run on a regular basis. In the case of ITK, these tools have been integrated in the Nightly and Continuous Dashboard builds managed by CDash<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</p>
 </li>
 <li>
 <p>Run as close as possible to the point where the code is being written, so that deviations can be fixed immediately, and so developers quickly learn what kind of practices break style rules.</p>
@@ -490,7 +490,7 @@ FilterType::Pointer median = FilterType::New();
 <p>That dismissive attitude is quite damaging to the field, since it diminishes the importance of the first-hand experience with the code and its proper use. The outcome is that most published papers are simply not reproducible, and when researchers and students attempt to use such techniques they end up spending a lot of time in the process and deliver <em>variations</em> of the original work. It is actually quite difficult, in practice, to verify if an implementation matches what was described in a paper.</p>
 <p>ITK disrupted, for the good, that environment and restored a culture of DIY to a field that had grown accustomed to theoretical reasoning, and that had learned to dismiss experimental work. The new culture brought by ITK is a practical and pragmatic one in which the virtues of the software are judged by its practical results and not by the appearance of complexity that is celebrated in some scientific publications. It turns out that in practice the most effective processing methods are those that would appear to be too simple to be accepted for a scientific paper.</p>
 <p>The culture of reproducibility is a continuation of the philosophy of test driven development, and systematically results in better software; higher clarity, readability, robustness and focus.</p>
-<p>In order to fill the gap of lack of reproducible publications, the ITK community created the Insight Journal<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">8</a></sup>. It is an open-access, fully online publication in which contributions are required to include code, data, parameters, and tests in order to enable verification by reproducibility. Articles are published online less than 24 hours after submission. Then they are made available for peer-review by any member of the community. Readers get full access to all the materials accompanying the article, namely source code, data, parameters, and testing scripts. The Journal has provided a productive space for sharing new code contributions which from there make their way into the code base. The Journal recently received its 500th article, and continues to be used as the official gateway for new code to be added to ITK.</p>
+<p>In order to fill the gap of lack of reproducible publications, the ITK community created the Insight Journal<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup>. It is an open-access, fully online publication in which contributions are required to include code, data, parameters, and tests in order to enable verification by reproducibility. Articles are published online less than 24 hours after submission. Then they are made available for peer-review by any member of the community. Readers get full access to all the materials accompanying the article, namely source code, data, parameters, and testing scripts. The Journal has provided a productive space for sharing new code contributions which from there make their way into the code base. The Journal recently received its 500th article, and continues to be used as the official gateway for new code to be added to ITK.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -506,29 +506,29 @@ FilterType::Pointer median = FilterType::New();
 <li id="fn:4">
 <p><a href="http://www.nlm.nih.gov/research/visible/visible_human.html">http://www.nlm.nih.gov/research/visible/visible_human.html</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
-<li id="fn:8">
-<p><em>&ldquo;Software Development Cost Estimating Handbook&rdquo;</em>, Volume I, Naval Center for Cost Analysis, Air Force Cost Analysis Agency, 2008.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:9">
-<p><em>&ldquo;Clean Code, A Handbook of Agile Software Craftsmanship&rdquo;</em>, Robert C. Martin, Prentice Hall, 2009&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:10">
-<p><em>&ldquo;The Art of Readable Code&rdquo;</em>, Dustin Boswell, Trevor Foucher, O&rsquo;Reilly, 2012&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
-<li id="fn:12">
-<p><a href="http://www.insight-journal.org">http://www.insight-journal.org</a>&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 8 in the text">&#8617;</a></p>
-</li>
 <li id="fn:5">
-<p><a href="http://public.kitware.com/KWStyle">http://public.kitware.com/KWStyle</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p><a href="http://public.kitware.com/KWStyle">http://public.kitware.com/KWStyle</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><a href="http://code.google.com/p/gerrit">http://code.google.com/p/gerrit</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p><a href="http://code.google.com/p/gerrit">http://code.google.com/p/gerrit</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p><a href="http://uncrustify.sourceforge.net">http://uncrustify.sourceforge.net</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p><a href="http://uncrustify.sourceforge.net">http://uncrustify.sourceforge.net</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p><em>&ldquo;Software Development Cost Estimating Handbook&rdquo;</em>, Volume I, Naval Center for Cost Analysis, Air Force Cost Analysis Agency, 2008.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p><em>&ldquo;Clean Code, A Handbook of Agile Software Craftsmanship&rdquo;</em>, Robert C. Martin, Prentice Hall, 2009&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p><em>&ldquo;The Art of Readable Code&rdquo;</em>, Dustin Boswell, Trevor Foucher, O&rsquo;Reilly, 2012&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 <li id="fn:11">
-<p><a href="http://www.cdash.org/CDash/index.php?project=Insight">http://www.cdash.org/CDash/index.php?project=Insight</a>&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<p><a href="http://www.cdash.org/CDash/index.php?project=Insight">http://www.cdash.org/CDash/index.php?project=Insight</a>&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p><a href="http://www.insight-journal.org">http://www.insight-journal.org</a>&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

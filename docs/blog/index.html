@@ -364,13 +364,13 @@ It then returns the array&rsquo;s element type.</p>
     <span class="n">arr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)</span>
     <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
         <span class="ow">not</span> <span class="n">arr</span><span class="o">.</span><span class="n">is_array</span><span class="p">(),</span>
-        <span class="sa">f</span><span class="s2">&quot;array access expects an array but found </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"array access expects an array but found </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">expr</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)</span>
     <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
         <span class="n">idx</span> <span class="o">!=</span> <span class="n">INT</span><span class="p">,</span>
-        <span class="s2">&quot;array index must have type Int&quot;</span><span class="p">,</span>
+        <span class="s2">"array index must have type Int"</span><span class="p">,</span>
         <span class="n">expr</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">elem</span>
@@ -410,7 +410,7 @@ Returning a literal, a function-local array, or a call that returns an array is 
             <span class="ow">and</span> <span class="n">ret</span><span class="o">.</span><span class="n">is_array</span><span class="p">()</span>
             <span class="ow">and</span> <span class="n">stmt</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">variable_name</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_params</span>
         <span class="p">),</span>
-        <span class="s2">&quot;cannot return an array parameter (arrays are references)&quot;</span><span class="p">,</span>
+        <span class="s2">"cannot return an array parameter (arrays are references)"</span><span class="p">,</span>
         <span class="n">stmt</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">visit_StmtReturn</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
@@ -848,8 +848,8 @@ the <code>contracts</code> prover overrides them:</p>
             <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_expr</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">entry_decreases</span> <span class="o">=</span> <span class="n">d</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_emit</span><span class="p">(</span>
-                <span class="s2">&quot;decreases&quot;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s2">&quot;decreases </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="o">.</span><span class="n">render</span><span class="p">()</span><span class="si">}</span><span class="s2"> &gt;= 0&quot;</span><span class="p">,</span>
+                <span class="s2">"decreases"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">"decreases </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="o">.</span><span class="n">render</span><span class="p">()</span><span class="si">}</span><span class="s2"> &gt;= 0"</span><span class="p">,</span>
                 <span class="n">state</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
                 <span class="n">d</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="n">fn</span><span class="o">.</span><span class="n">decreases</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
@@ -894,7 +894,7 @@ Each is proved with the appropriate branch condition in the path.</p>
 <p><code>check_postcondition</code> turns an <code>ensures</code> clause into one obligation:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">check_postcondition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ens</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
     <span class="n">goal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_expr</span><span class="p">(</span><span class="n">ens</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result_term</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_emit</span><span class="p">(</span><span class="s2">&quot;postcondition&quot;</span><span class="p">,</span> <span class="n">ens</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span> <span class="n">state</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">ens</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_emit</span><span class="p">(</span><span class="s2">"postcondition"</span><span class="p">,</span> <span class="n">ens</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span> <span class="n">state</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">ens</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
 </code></pre></div>
 <p><code>result_term</code> supplies the term that <code>result</code> denotes inside the clause.</p>
 <h2>A Complete Trace</h2>
@@ -1224,7 +1224,7 @@ then checks them by handing each obligation to Z3 and turning the answers into o
     <span class="k">if</span> <span class="n">fn</span><span class="o">.</span><span class="n">return_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">end_states</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">FrmlVerificationError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;function </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> has a path that does not return&quot;</span><span class="p">,</span> <span class="n">fn</span><span class="o">.</span><span class="n">pos</span>
+                <span class="sa">f</span><span class="s2">"function </span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> has a path that does not return"</span><span class="p">,</span> <span class="n">fn</span><span class="o">.</span><span class="n">pos</span>
             <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">end_states</span><span class="p">:</span>
@@ -1519,16 +1519,16 @@ used Z3 to find compatible versions of packages.
 Here&rsquo;s a simple example of its use:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">z3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Solver</span>
 
-<span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
 </code></pre></div>
 <p><code>A</code>, <code>B</code>, and <code>C</code> do not have specific values. Each instead represents the set
 of possible Boolean values, so we can specify constraints like <code>A == B</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">report</span><span class="p">(</span><span class="s2">&quot;A == B &amp; B == C&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+<span class="n">report</span><span class="p">(</span><span class="s2">"A == B &amp; B == C"</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
 </code></pre></div>
 <p>We can then ask Z3 to find a <em>model</em> that satisfies those constraints:</p>
 <div class="highlight"><pre><span></span><code>A == B &amp; B == C: sat
@@ -1538,14 +1538,14 @@ C False
 </code></pre></div>
 <p>To see unsatisfiability, require <code>A</code> to equal <code>B</code> and <code>B</code> to equal <code>C</code> but <code>A</code>
 and <code>C</code> to be unequal:</p>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
 <span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">A</span> <span class="o">!=</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">report</span><span class="p">(</span><span class="s2">&quot;A == B &amp; B == C &amp; B != C&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+<span class="n">report</span><span class="p">(</span><span class="s2">"A == B &amp; B == C &amp; B != C"</span><span class="p">,</span> <span class="n">solver</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>A == B &amp; B == C &amp; B != C: unsat
 </code></pre></div>

@@ -70,7 +70,7 @@ Initialized empty Git repository in /Users/gvwilson/example/.git/
 # Create a pre-commit script that always fails (i.e., exits with non-zero status).
 $ cat &gt; .git/hooks/pre-commit.sh
 #!/bin/sh
-echo &quot;hook running&quot;
+echo "hook running"
 exit 1
 
 # Make that script executable.
@@ -88,16 +88,16 @@ $ cat &gt; a.txt
 content
 
 # Try committing it.
-# The hook should print &quot;hook running&quot; and the commit should be prevented.
+# The hook should print "hook running" and the commit should be prevented.
 $ git add a.txt
 
-$ git commit -m &quot;should not work&quot;
+$ git commit -m "should not work"
 [main (root-commit) 7e5fcba] should not work
  1 file changed, 1 insertion(+)
  create mode 100644 a.txt
 
 # Whoops: the commit seems to have happened.
-# Let&#39;s check.
+# Let's check.
 $ git log
 commit 7e5fcba19343b513a88c3608126535416b67185d (HEAD -&gt; main)
 Author: Greg Wilson &lt;gvwilson@third-bit.com&gt;
@@ -107,7 +107,7 @@ Date:   Mon Apr 22 18:14:18 2024 -0400
 </code></pre></div>
 <p>OK, clearly I&rsquo;m doing something wrong.
 After reading <a href="https://stackoverflow.com/questions/49912695/git-pre-and-post-commit-hooks-not-running">this Stack Overflow question</a> I try this:</p>
-<div class="highlight"><pre><span></span><code># See what core.hooksPath is set to: turns out it isn&#39;t.
+<div class="highlight"><pre><span></span><code># See what core.hooksPath is set to: turns out it isn't.
 $ git config --local core.hooksPath
 
 # Double-check.
@@ -138,7 +138,7 @@ $ cat .git/config
 $ cat &gt; b.txt
 more content
 $ git add b.txt
-$ git commit -m &quot;should not work&quot;
+$ git commit -m "should not work"
 [main 3c42b28] should not work
  1 file changed, 1 insertion(+)
  create mode 100644 b.txt

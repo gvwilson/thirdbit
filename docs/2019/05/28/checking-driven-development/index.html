@@ -142,15 +142,15 @@ Imagine we have this simple dplyr pipeline
 to find the mean age of people who aren&rsquo;t &ldquo;alpha&rdquo;:</p>
 <div class="highlight"><pre><span></span><code>data &lt;- tribble(
   ~record_id, ~person_id, ~age,
-  100,         &quot;alpha&quot;,    17,
-  200,         &quot;alpha&quot;,    34,
-  300,         &quot;beta&quot;,     21,
-  400,         &quot;gamma&quot;,    NA,
-  500,         &quot;gamma&quot;,    26
+  100,         "alpha",    17,
+  200,         "alpha",    34,
+  300,         "beta",     21,
+  400,         "gamma",    NA,
+  500,         "gamma",    26
 )
 
 data %&gt;%
-  filter(person_id != &quot;alpha&quot;) %&gt;%
+  filter(person_id != "alpha") %&gt;%
   group_by(person_id) %&gt;%
   summarize(midpoint = mean(age))
 </code></pre></div>
@@ -164,13 +164,13 @@ data %&gt;%
   grumble_col(age &gt;= 18) %&gt;%
   grumble_col(age &lt;= config$MAX_AGE, active = !config$IN_PRODUCTION) %&gt;%
 
-  filter(person_id != &quot;alpha&quot;) %&gt;%
+  filter(person_id != "alpha") %&gt;%
 
   grumble_row(is.na(age), logger = config$LOGGER) %&gt;%
 
   group_by(person_id) %&gt;%
 
-  grumble_group(n() == 2, msg = &quot;Expected two records per person.&quot;) %&gt;%
+  grumble_group(n() == 2, msg = "Expected two records per person.") %&gt;%
 
   summarize(midpoint = mean(age))
 </code></pre></div>
@@ -186,11 +186,11 @@ and the extra parameters that these functions understand:</p>
   grumble_col(age &gt;= 18) %&gt;%
 
   # Only check that age lies below maximum when not in production.
-  # (Would not raise an error in this example because &#39;active&#39; would be FALSE.)
+  # (Would not raise an error in this example because 'active' would be FALSE.)
   grumble_col(age &lt;= config$MAX_AGE, active = !config$IN_PRODUCTION) %&gt;%
 
   # Real calculation.
-  filter(person_id != &quot;alpha&quot;) %&gt;%
+  filter(person_id != "alpha") %&gt;%
 
   # Generate a warning if there are any surviving NAs in age.
   # (Would generate a warning in this example because of record 400.)
@@ -200,8 +200,8 @@ and the extra parameters that these functions understand:</p>
   group_by(person_id) %&gt;%
 
   # Check that there are exactly two records for each person.
-  # (Would raise an error in this example because there is only one record for &quot;beta&quot;.)
-  grumble_group(n() == 2, msg = &quot;Expected two records per person.&quot;) %&gt;%
+  # (Would raise an error in this example because there is only one record for "beta".)
+  grumble_group(n() == 2, msg = "Expected two records per person.") %&gt;%
 
   # Real calculation.
   summarize(midpoint = mean(age))

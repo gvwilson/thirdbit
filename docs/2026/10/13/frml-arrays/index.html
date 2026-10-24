@@ -84,13 +84,13 @@ It then returns the array&rsquo;s element type.</p>
     <span class="n">arr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)</span>
     <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
         <span class="ow">not</span> <span class="n">arr</span><span class="o">.</span><span class="n">is_array</span><span class="p">(),</span>
-        <span class="sa">f</span><span class="s2">&quot;array access expects an array but found </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"array access expects an array but found </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">expr</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allow_old</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)</span>
     <span class="n">FrmlTypeError</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span>
         <span class="n">idx</span> <span class="o">!=</span> <span class="n">INT</span><span class="p">,</span>
-        <span class="s2">&quot;array index must have type Int&quot;</span><span class="p">,</span>
+        <span class="s2">"array index must have type Int"</span><span class="p">,</span>
         <span class="n">expr</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">elem</span>
@@ -130,7 +130,7 @@ Returning a literal, a function-local array, or a call that returns an array is 
             <span class="ow">and</span> <span class="n">ret</span><span class="o">.</span><span class="n">is_array</span><span class="p">()</span>
             <span class="ow">and</span> <span class="n">stmt</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">variable_name</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_params</span>
         <span class="p">),</span>
-        <span class="s2">&quot;cannot return an array parameter (arrays are references)&quot;</span><span class="p">,</span>
+        <span class="s2">"cannot return an array parameter (arrays are references)"</span><span class="p">,</span>
         <span class="n">stmt</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">visit_StmtReturn</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>

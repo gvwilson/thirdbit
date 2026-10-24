@@ -77,18 +77,18 @@ but damn…</p>
 <h2>Prompt</h2>
 <p>I&rsquo;m going to show you some code followed by a description.
 Does the description accurately reflect the code?</p>
-<div class="highlight"><pre><span></span><code>import assert from &#39;assert&#39;
+<div class="highlight"><pre><span></span><code>import assert from 'assert'
 
 const select = (root, selector) =&gt; {
-  const selectors = selector.split(&#39; &#39;).filter(s =&gt; s.length &gt; 0)
+  const selectors = selector.split(' ').filter(s =&gt; s.length &gt; 0)
   return firstMatch(root, selectors)
 }
 
 const firstMatch = (node, selectors) =&gt; {
-  assert(selectors.length &gt; 0, &#39;Require selector(s)&#39;)
+  assert(selectors.length &gt; 0, 'Require selector(s)')
 
   // Not a tag.
-  if (node.type !== &#39;tag&#39;) {
+  if (node.type !== 'tag') {
     return null
   }
 
@@ -103,7 +103,7 @@ const firstMatch = (node, selectors) =&gt; {
     return firstChildMatch(node, selectors.slice(1))
   }
 
-  // This node doesn&#39;t match, so try further down.
+  // This node doesn't match, so try further down.
   return firstChildMatch(node, selectors)
 }
 

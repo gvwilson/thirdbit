@@ -86,14 +86,14 @@ which is unpleasant to read
 if you&rsquo;re trying to single-step through it in a debugger,
 and which is usually made even more complicated by extra directives
 to suppress warning messages from linting tools:</p>
-<div class="highlight"><pre><span></span><code># [range key=&quot;class&quot; elide=true]
+<div class="highlight"><pre><span></span><code># [range key="class" elide=true]
 class Example:
-    MARKERS = {&quot;[&quot;, &quot;]&quot;}
+    MARKERS = {"[", "]"}
 
     def __init__(self, filler):
         self._filler = filler
 
-    # [range key=&quot;revise&quot;]
+    # [range key="revise"]
     def revise(self, contents):
         end = None
         for (i, val) in enumerate(contents):

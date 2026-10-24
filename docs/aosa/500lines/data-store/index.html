@@ -237,21 +237,21 @@ when we try to get the value associated with key <code>foo</code> in <code>examp
         <span class="n">usage</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">BAD_ARGS</span>
     <span class="n">dbname</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">None</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">verb</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;set&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">}:</span>
+    <span class="k">if</span> <span class="n">verb</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">'get'</span><span class="p">,</span> <span class="s1">'set'</span><span class="p">,</span> <span class="s1">'delete'</span><span class="p">}:</span>
         <span class="n">usage</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">BAD_VERB</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">dbdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">dbname</span><span class="p">)</span>          <span class="c1"># CONNECT</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">verb</span> <span class="o">==</span> <span class="s1">&#39;get&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verb</span> <span class="o">==</span> <span class="s1">'get'</span><span class="p">:</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>  <span class="c1"># GET VALUE</span>
-        <span class="k">elif</span> <span class="n">verb</span> <span class="o">==</span> <span class="s1">&#39;set&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">verb</span> <span class="o">==</span> <span class="s1">'set'</span><span class="p">:</span>
             <span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
             <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
             <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key not found&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Key not found"</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">BAD_KEY</span>
     <span class="k">return</span> <span class="n">OK</span>
 </code></pre></div></p>
@@ -263,10 +263,10 @@ and returns an instance of <code>DBDB</code>:
 <div class="highlight"><pre><span></span><code><span class="c1"># dbdb/__init__.py</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="n">dbname</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="s1">&#39;r+b&#39;</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="s1">'r+b'</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
         <span class="n">fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDWR</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">O_CREAT</span><span class="p">)</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fdopen</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s1">&#39;r+b&#39;</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fdopen</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s1">'r+b'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">DBDB</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># dbdb/interface.py</span>
@@ -294,7 +294,7 @@ dictionary lookup (<code>db[key]</code>), which causes the Python interpreter to
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_assert_not_closed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Database closed.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Database closed.'</span><span class="p">)</span>
 </code></pre></div></p>
 <p><code>__getitem__()</code> ensures that the database is still open by calling
 <code>_assert_not_closed</code>. Aha! Here we see at least one reason why <code>DBDB</code> needs
@@ -371,7 +371,7 @@ seen this code before, we&rsquo;ll just highlight the important parts:
     <span class="n">db</span> <span class="o">=</span> <span class="n">dbdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">dbname</span><span class="p">)</span>          <span class="c1"># CONNECT</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="o">...</span>
-        <span class="k">elif</span> <span class="n">verb</span> <span class="o">==</span> <span class="s1">&#39;set&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">verb</span> <span class="o">==</span> <span class="s1">'set'</span><span class="p">:</span>
             <span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>            <span class="c1"># SET VALUE</span>
             <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>                <span class="c1"># COMMIT</span>
         <span class="o">...</span>
@@ -532,11 +532,11 @@ so we serialise it by creating a bytestring representing this node:
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">referent_to_string</span><span class="p">(</span><span class="n">referent</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
-            <span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">left_ref</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
-            <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
-            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">value_ref</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
-            <span class="s1">&#39;right&#39;</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">right_ref</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
-            <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
+            <span class="s1">'left'</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">left_ref</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="s1">'key'</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+            <span class="s1">'value'</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">value_ref</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="s1">'right'</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">right_ref</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="s1">'length'</span><span class="p">:</span> <span class="n">referent</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
         <span class="p">})</span>
 </code></pre></div></p>
 <p>Updating the address in the <code>store()</code> method

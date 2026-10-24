@@ -72,7 +72,7 @@ We then add three methods:
 <code>.end</code> to signal the end of work,
 and <code>.is_complete</code> so that we can ask if the task has been completed:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TaskRecorder</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task with uniformly-distributed durations that records activity.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Task with uniformly-distributed durations that records activity."""</span>
 
     <span class="n">_id</span> <span class="o">=</span> <span class="n">count</span><span class="p">()</span>
 
@@ -107,7 +107,7 @@ The task is therefore complete if <code>._current</code> is <code>None</code>
 we can modify the generator that simulates task execution
 to signal the start and stop of work:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Simulate a task flowing through the system."""</span>
 
     <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
@@ -123,7 +123,7 @@ we need to gather statistics for all of them.
 Let&rsquo;s go back to the <code>TaskRecord</code> class
 and have each new task add itself to a list owned by the class:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TaskRecorder</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task with uniformly-distributed durations that records activity.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Task with uniformly-distributed durations that records activity."""</span>
 
     <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
     <span class="n">_all</span> <span class="o">=</span> <span class="p">[]</span>
@@ -140,16 +140,16 @@ and whether that task was completed or not:</p>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">write_log</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create and write entire log.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Create and write entire log."""</span>
 
-    <span class="n">log</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;elapsed&quot;</span><span class="p">,</span> <span class="s2">&quot;completed&quot;</span><span class="p">)]</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"kind"</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">,</span> <span class="s2">"elapsed"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">)]</span>
     <span class="n">log</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
-        <span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">_id</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">_elapsed</span><span class="p">,</span> <span class="n">PRECISION</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">is_complete</span><span class="p">())</span>
+        <span class="p">(</span><span class="s2">"task"</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">_id</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">_elapsed</span><span class="p">,</span> <span class="n">PRECISION</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">is_complete</span><span class="p">())</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">TaskRecorder</span><span class="o">.</span><span class="n">_all</span>
     <span class="p">])</span>
     <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">_elapsed</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">TaskRecorder</span><span class="o">.</span><span class="n">_all</span><span class="p">)</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;total&quot;</span><span class="p">,</span> <span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">PRECISION</span><span class="p">),</span> <span class="kc">None</span><span class="p">))</span>
-    <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">"total"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">PRECISION</span><span class="p">),</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>

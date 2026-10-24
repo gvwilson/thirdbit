@@ -78,12 +78,12 @@ A bundler has to do two things:</p>
 <p>Why is the problem of finding dependencies unsolvable in theory?
 Suppose creates an alias for <code>require</code> and uses that to load other files:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">weWillMissThis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">(</span><span class="s1">&#39;./other-file&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">weWillMissThis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">(</span><span class="s1">'./other-file'</span><span class="p">)</span>
 </code></pre></div>
 <p>We could try to trace variable assignments to catch cases like these,
 but someone could still fool us by writing this:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">clever</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="sb">`require`</span><span class="p">)</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">weWillMissThisToo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">clever</span><span class="p">(</span><span class="s1">&#39;./other-file&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">weWillMissThisToo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">clever</span><span class="p">(</span><span class="s1">'./other-file'</span><span class="p">)</span>
 </code></pre></div>
 <p>If you still don&rsquo;t believe me, consider this:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">module_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">NUM_EXTENSIONS</span><span class="p">)</span>

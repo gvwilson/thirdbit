@@ -84,7 +84,7 @@ but none quite meet my criteria:</p>
 <p>Here&rsquo;s the kind of example I&rsquo;d like to translate from Make to whatever;
 if you know of something that&rsquo;ll do the job,
 please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="c"># Pattern-match on all CSV files in the &#39;raw&#39; directory.</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Pattern-match on all CSV files in the 'raw' directory.</span>
 <span class="nv">RAW_FILES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>raw/*.csv<span class="k">)</span>
 
 <span class="c"># Translate the names of the raw files into names of cooked files.</span>
@@ -93,11 +93,11 @@ please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p>
 <span class="c"># Define a single value for a variable explicitly.</span>
 <span class="nv">SUMMARY_FILE</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>data/summary.csv
 
-<span class="c"># Tell Make that &#39;all&#39; and &#39;clean&#39; don&#39;t alter any files.</span>
+<span class="c"># Tell Make that 'all' and 'clean' don't alter any files.</span>
 <span class="nf">.PHONY</span><span class="o">:</span><span class="w"> </span><span class="n">all</span> <span class="n">clean</span>
 
 <span class="c"># Define a default target that depends on the summary file, so that</span>
-<span class="c"># &#39;make&#39; or &#39;make all&#39; will try to regenerate it.</span>
+<span class="c"># 'make' or 'make all' will try to regenerate it.</span>
 <span class="nf">all</span><span class="o">:</span><span class="w"> </span>${<span class="n">SUMMARY_FILE</span>}
 
 <span class="c"># Regenerate the summary file from the cooked data files.  This</span>
@@ -107,7 +107,7 @@ please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p>
 <span class="w">    </span>python<span class="w"> </span>bin/summarize.py<span class="w"> </span><span class="si">${</span><span class="nv">DATA_FILES</span><span class="si">}</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">SUMMARY_FILE</span><span class="si">}</span>
 
 <span class="c"># Pattern rule to regenerate a cooked data file from a raw data</span>
-<span class="c"># file. The syntax of Make&#39;s automatic variables is horrible, but it&#39;s</span>
+<span class="c"># file. The syntax of Make's automatic variables is horrible, but it's</span>
 <span class="c"># hard to argue with the simplicity of the rule itsef.</span>
 <span class="nf">data/%.csv</span><span class="o">:</span><span class="w"> </span><span class="n">raw</span>/%.<span class="n">csv</span> <span class="n">bin</span>/<span class="n">cook</span>.<span class="n">py</span>
 <span class="w">    </span>python<span class="w"> </span>bin/cook.py<span class="w"> </span>&lt;<span class="w"> </span>$&lt;<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$@</span>

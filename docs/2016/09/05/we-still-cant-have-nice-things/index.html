@@ -366,7 +366,7 @@ it will quickly become as complicated as the alternatives we&rsquo;ve discardedâ
 <p>The new template that we deployed in June 2016 uses <code>site.github.url</code>.
 We recognized the problem with HTTP vs. HTTPS early on,
 so the standard layouts shared by all the lessons do this:</p>
-<div class="highlight"><pre><span></span><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{ site.github.url | replace_first: &#39;http:&#39;, &#39;https:&#39; }}/css/pretty.css&quot; /&gt;
+<div class="highlight"><pre><span></span><code>&lt;link rel="stylesheet" type="text/css" href="{{ site.github.url | replace_first: 'http:', 'https:' }}/css/pretty.css" /&gt;
 </code></pre></div>
 <p>i.e., they convert the <code>http</code> prefix given in <code>site.github.url</code> into <code>https</code>.
 That solved the problem for pages served from <code>github.io</code> domains,

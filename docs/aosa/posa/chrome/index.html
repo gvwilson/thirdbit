@@ -113,7 +113,7 @@ Make the <strong>fastest</strong> browser</p>
 <p>That&rsquo;s 470 milliseconds for a single request, which translates to over 80% of network latency overhead as compared to the actual server processing time to fulfill the request&mdash;we have some work to do here. In fact, even 470 milliseconds may be an optimistic estimate:</p>
 <ul>
 <li>
-<p>If the server response does not fit into the initial TCP congestion window (4-15 KB), then one or more additional round-trips of latency is introduced <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">5</a></sup>.</p>
+<p>If the server response does not fit into the initial TCP congestion window (4-15 KB), then one or more additional round-trips of latency is introduced <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 </li>
 <li>
 <p>SSL delays could get even worse if we need to fetch a missing certificate or perform an online certificate status check (OCSP), both of which will require an entirely new TCP connection, which can add hundreds and even thousands of milliseconds of additional latency.</p>
@@ -144,7 +144,7 @@ Make the <strong>fastest</strong> browser</p>
 <p>Chrome&rsquo;s multi-process architecture carries important implications for how each network request is handled within the browser. Under the hood, Chrome actually supports <a href="http://www.chromium.org/developers/design-documents/process-models">four different execution models</a> that determine how the process allocation is performed.</p>
 <p>By default, desktop Chrome browsers use the process-per-site model, that isolates different sites from each other, but groups all instances of the same site into the same process. However, to keep things simple, let&rsquo;s assume one of the simplest cases: one distinct process for each open tab. From the network performance perspective, the differences here are not substantial, but the process-per-tab model is much easier to understand.</p>
 <p><img alt="Figure 3: Multi-process architecture" src="multiproc.png" /></p>
-<p>The architecture dedicates one <em>render process</em> to each tab. Each render process contains instances of the Blink layout engine and the V8 JavaScript engine, along with glue code that bridges these (and a few other) components<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">1</a></sup>.</p>
+<p>The architecture dedicates one <em>render process</em> to each tab. Each render process contains instances of the Blink layout engine and the V8 JavaScript engine, along with glue code that bridges these (and a few other) components<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p>Each of these render processes is executed within a sandboxed environment that has limited access to the user&rsquo;s computer&mdash;including the network. To gain access to these resources, each render process communicates with the main browser (or <em>kernel</em>) process, which is able to impose security and access policies on each renderer.</p>
 <h3>Inter-Process Communication and Multi-Process Resource Loading</h3>
 <p>All communication between the renderer and the kernel process in Chrome is done via inter-process communication (IPC). On Linux and OS X, a <code>socketpair()</code> is used, which provides a named pipe transport for asynchronous communication. Each message from the renderer is serialized and passed to a dedicated I/O thread, which dispatches it to the main browser process. On the receiving end, the kernel process provides a filter interface, which allows Chrome to intercept resource IPC requests (see</p>
@@ -249,7 +249,7 @@ Make the <strong>fastest</strong> browser</p>
 <p><code>ConnectInterceptor</code> object is added to each request, such that it can observe the traffic patterns and record success metrics for each request</p>
 </li>
 </ul>
-<p>As a hands-on example, the render process can trigger a message to the browser process with any of the following hints, which are conveniently defined in <code>ResolutionMotivation</code> (<code>url_info.h</code> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">2</a></sup>):</p>
+<p>As a hands-on example, the render process can trigger a message to the browser process with any of the following hints, which are conveniently defined in <code>ResolutionMotivation</code> (<code>url_info.h</code> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>):</p>
 <pre><code>enum ResolutionMotivation {
   MOUSE_OVER_MOTIVATED,     // Mouse-over initiated by the user.
   OMNIBOX_MOTIVATED,        // Omnibox suggested resolving this.
@@ -316,7 +316,7 @@ Make the <strong>fastest</strong> browser</p>
 <h3>Optimizing Cache Performance</h3>
 <p>The best, and the fastest request, is a request not made. Whenever we talk about performance, we would be amiss if we did not talk about the cache&mdash;you are providing <code>Expires</code>, <code>ETag</code>, <code>Last-Modified</code>, and <code>Cache-Control</code> <a href="https://developers.google.com/speed/docs/best-practices/caching">response headers</a> for all the resources on your web pages, right? If not, go fix it. We&rsquo;ll wait.</p>
 <p>Chrome has two different implementations of the internal cache: one backed by local disk, and second which stores everything in memory. The in-memory implementation is used for the Incognito browsing mode and is wiped clean whenever you close the window. Both implement the same internal interface (<code>disk_cache::Backend</code>, and <code>disk_cache::Entry</code>), which greatly simplifies the architecture and&mdash;if you are so inclined&mdash;allows you to easily experiment with your own experimental cache implementations.</p>
-<p>Internally the disk cache implements its own set of data structures, all of which are stored within a single cache folder for your profile. Inside this folder there are index files, which are memory-mapped when the browser starts, and data files, which store the actual data alongside the HTTP headers and other bookkeeping information.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">3</a></sup> Finally, for eviction, the disk cache maintains a Least Recently Used (LRU) cache that takes into account ranking metrics such as frequency of access and resource age.</p>
+<p>Internally the disk cache implements its own set of data structures, all of which are stored within a single cache folder for your profile. Inside this folder there are index files, which are memory-mapped when the browser starts, and data files, which store the actual data alongside the HTTP headers and other bookkeeping information.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> Finally, for eviction, the disk cache maintains a Least Recently Used (LRU) cache that takes into account ranking metrics such as frequency of access and resource age.</p>
 <p><img alt="Figure 6: Exploring the state of the Chrome cache" src="internals-cache.jpg" /></p>
 <p>If you are ever curious about the state of the Chrome cache you can open a new tab and navigate to <code>chrome://net-internals/#httpCache</code>. Alternatively, if you want to see the actual HTTP metadata and the cached response, you can also visit <code>chrome://cache</code>, which will enumerate all of the resources currently available in the cache. From that page, search for a resource you are looking for and click on the URL to see the exact, cached headers and response bytes.</p>
 <h3>Optimizing DNS with Prefetching</h3>
@@ -384,7 +384,7 @@ Make the <strong>fastest</strong> browser</p>
 </code></pre>
 <p>Subresource and prefetch look very similar, but have very different semantics. When a link resource specifies its relationship as &ldquo;prefetch&rdquo;, it is an indication to the browser that this resource might be needed in a future navigation. In other words, it is effectively a cross-page hint. By contrast, when a resource specifies the relationship as a &ldquo;subresource&rdquo;, it is an early indication to the browser that the resource will be used on a current page, and that it may want to dispatch the request before it encounters it later in the document.</p>
 <p>As you would expect, the different semantics of the hints lead to very different behavior by the resource loader. Resources marked with prefetch are considered low priority and might be downloaded by the browser only once the current page has finished loading. Subresource resources are fetched with high priority as soon as they are encountered and will compete with the rest of the resources on the current page.</p>
-<p>Both hints, when used well and in the right context, can help significantly with optimizing the user experience on your site. Finally, it is also important to note that prefetch is part of the HTML5 spec <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">4</a></sup>, and as of today supported by Firefox and Chrome, whereas subresource is currently <a href="http://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource">only available in Chrome</a>.</p>
+<p>Both hints, when used well and in the right context, can help significantly with optimizing the user experience on your site. Finally, it is also important to note that prefetch is part of the HTML5 spec <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>, and as of today supported by Firefox and Chrome, whereas subresource is currently <a href="http://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource">only available in Chrome</a>.</p>
 <h3>Optimizing Resource Loading with Browser Prefreshing</h3>
 <p>Unfortunately, not all site owners are able or willing to provide the browser with subresource hints in their markup. Further, even if they do, we must wait for the HTML document to arrive from the server before we are able to parse the hints and begin fetching the necessary subresources&mdash;depending on the server response time, as well as the latency between the client and the server, this could take hundreds and even thousands of milliseconds.</p>
 <p>However, as we saw earlier, Chrome is already learning the hostnames of the popular resources to perform DNS prefetching. So, why couldn&rsquo;t it do the same, but go one step further and perform the DNS lookup, use TCP pre-connect, and then also speculatively prefetch the resource? Well, that is exactly what <em>prefreshing</em> could do:</p>
@@ -444,20 +444,20 @@ Make the <strong>fastest</strong> browser</p>
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:1">
+<p>Chapter: Secrets of Mobile Network Performance covers this issue in greater detail.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:2">
-<p>If you are curious, the Chromium wiki contains a great introduction to the plumbing here: <a href="http://www.chromium.org/developers/design-documents/multi-process-architecture">http://www.chromium.org/developers/design-documents/multi-process-architecture</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>If you are curious, the Chromium wiki contains a great introduction to the plumbing here: <a href="http://www.chromium.org/developers/design-documents/multi-process-architecture">http://www.chromium.org/developers/design-documents/multi-process-architecture</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>http://code.google.com/searchframe#OAMlx_jo-ck/src/chrome/browser/net/url_info.h&amp;l=35&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>http://code.google.com/searchframe#OAMlx_jo-ck/src/chrome/browser/net/url_info.h&amp;l=35&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Resources up to 16 KB in size are stored in shared data block-files, and larger files get their own dedicated files on disk.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Resources up to 16 KB in size are stored in shared data block-files, and larger files get their own dedicated files on disk.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch">http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:1">
-<p>Chapter: Secrets of Mobile Network Performance covers this issue in greater detail.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch">http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -79,7 +79,7 @@ then do the last hundred).</p>
 <p>The key here is &ldquo;<em>comprehensibly</em> expressed&rdquo;.
 For me,
 the <code>map</code>-based fragment of code I presented:</p>
-<div class="highlight"><pre><span></span><code>hosts &lt;- links.map(a =&gt; a.href.split(&#39;:&#39;)[1].split(&#39;/&#39;)[0]).unique()
+<div class="highlight"><pre><span></span><code>hosts &lt;- links.map(a =&gt; a.href.split(':')[1].split('/')[0]).unique()
 </code></pre></div>
 <p>contains seven operations:
 <code>map</code>, get <code>href</code>, split on colon, take the second element,
@@ -88,7 +88,7 @@ On the other hand,
 the loop-based solution:</p>
 <div class="highlight"><pre><span></span><code>hosts &lt;- []
 for (each a in links) do
-  temp &lt;- attr(a, &#39;href&#39;).split(&#39;:&#39;)[1].split(&#39;/&#39;)[0]
+  temp &lt;- attr(a, 'href').split(':')[1].split('/')[0]
   if (not (temp in hosts)) do
     hosts.append(temp)
   end

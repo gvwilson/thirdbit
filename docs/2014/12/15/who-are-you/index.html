@@ -133,7 +133,7 @@ order by c desc;
 select count(distinct person_id)
 from person join task join role
 on person.id=task.person_id and task.role_id=role.id
-where role.name=&#39;instructor&#39;;
+where role.name='instructor';
 </code></pre></div>
 <table class="centered">
 <tr><th>number</th>
@@ -155,7 +155,7 @@ where role.name=&#39;instructor&#39;;
 from (select count(*) as c
       from person join task join role
       on person.id=task.person_id and task.role_id=role.id
-      where role.name=&#39;instructor&#39;
+      where role.name='instructor'
       group by person_id)
 group by c
 order by c desc;

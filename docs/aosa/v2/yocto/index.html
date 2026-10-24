@@ -111,23 +111,23 @@ in the Yocto metadata layer.</p>
 <p><img alt="Figure 1: High-level overview of Poky task execution" src="aosa1.jpg" /></p>
 <blockquote>
 <p><strong>BitBake recipe for <code>grep</code></strong></p>
-<div class="highlight"><pre><span></span><code>DESCRIPTION = &quot;GNU grep utility&quot;
-HOMEPAGE = &quot;http://savannah.gnu.org/projects/grep/&quot;
-BUGTRACKER = &quot;http://savannah.gnu.org/bugs/?group=grep&quot;
-SECTION = &quot;console/utils&quot;
-LICENSE = &quot;GPLv3&quot;
-LIC_FILES_CHKSUM = &quot;file://COPYING;md5=8006d9c814277c1bfc4ca22af94b59ee&quot;
+<div class="highlight"><pre><span></span><code>DESCRIPTION = "GNU grep utility"
+HOMEPAGE = "http://savannah.gnu.org/projects/grep/"
+BUGTRACKER = "http://savannah.gnu.org/bugs/?group=grep"
+SECTION = "console/utils"
+LICENSE = "GPLv3"
+LIC_FILES_CHKSUM = "file://COPYING;md5=8006d9c814277c1bfc4ca22af94b59ee"
 
-PR = &quot;r0&quot;
+PR = "r0"
 
-SRC_URI = &quot;${GNU_MIRROR}/grep/grep-${PV}.tar.gz&quot;
+SRC_URI = "${GNU_MIRROR}/grep/grep-${PV}.tar.gz"
 
-SRC_URI[md5sum] = &quot;03e3451a38b0d615cb113cbeaf252dc0&quot;
-SRC_URI[sha256sum]=&quot;e9118eac72ecc71191725a7566361ab7643edfd3364869a47b78dc934a357970&quot;
+SRC_URI[md5sum] = "03e3451a38b0d615cb113cbeaf252dc0"
+SRC_URI[sha256sum]="e9118eac72ecc71191725a7566361ab7643edfd3364869a47b78dc934a357970"
 
 inherit autotools gettext
 
-EXTRA_OECONF = &quot;--disable-perl-regexp&quot;
+EXTRA_OECONF = "--disable-perl-regexp"
 
 do_configure_prepend () {
   rm -f ${S}/m4/init.m4
@@ -232,16 +232,16 @@ in order to build our example project. </p>
 <p>Here&rsquo;s an example of a <code>bblayers.conf</code> file:</p>
 <div class="highlight"><pre><span></span><code># LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
 # changes incompatibly
-LCONF_VERSION = &quot;4&quot;
-BBFILES ?= &quot;&quot;
-BBLAYERS = &quot; \
+LCONF_VERSION = "4"
+BBFILES ?= ""
+BBLAYERS = " \
 /home/eflanagan/poky/meta \
 /home/eflanagan/poky/meta-yocto \
 /home/eflanagan/poky/meta-intel/crownbay \
 /home/eflanagan/poky/meta-x32 \
 /home/eflanagan/poky/meta-baryon\
 /home/eflanagan/poky/meta-myproject \
-&quot;
+"
 </code></pre></div>
 <p>The BitBake layers file, <code>bblayers</code>, defines a variable <code>BBLAYERS</code> that
 BitBake uses to look for BitBake layers. In order to fully understand
@@ -257,14 +257,14 @@ recipes, classes and configuration to the build.</p>
 <div class="highlight"><pre><span></span><code># Layer configuration for meta-baryon layer
 # Copyright 2011 Intel Corporation
 # We have a conf directory, prepend to BBPATH to prefer our versions
-BBPATH := &quot;${LAYERDIR}:${BBPATH}&quot;
+BBPATH := "${LAYERDIR}:${BBPATH}"
 
 # We have recipes-* directories, add to BBFILES
-BBFILES := &quot;${BBFILES} ${LAYERDIR}/recipes-*/*/*.bb ${LAYERDIR}/recipes-*/*/*.bbappend&quot;
+BBFILES := "${BBFILES} ${LAYERDIR}/recipes-*/*/*.bb ${LAYERDIR}/recipes-*/*/*.bbappend"
 
-BBFILE_COLLECTIONS += &quot;meta-baryon&quot;
-BBFILE_PATTERN_meta-baryon := &quot;^${LAYERDIR}/&quot;
-BBFILE_PRIORITY_meta-baryon = &quot;7&quot;
+BBFILE_COLLECTIONS += "meta-baryon"
+BBFILE_PATTERN_meta-baryon := "^${LAYERDIR}/"
+BBFILE_PRIORITY_meta-baryon = "7"
 </code></pre></div>
 <p>All of the BitBake configuration files help generate BitBake&rsquo;s
 datastore which is used during the creation of the task execution
@@ -415,7 +415,7 @@ through BitBake&rsquo;s <code>bb.codeparser</code> to ensure that it&rsquo;s val
 Python and that it contains no circular references.  An example of a
 variable containing Python code is this example taken from
 <code>./meta/conf/distro/include/tclibc-eglibc.inc</code>:</p>
-<div class="highlight"><pre><span></span><code>LIBCEXTENSION = &quot;${@[&quot;, &#39;-gnu&#39;][(d.getVar(&#39;ABIEXTENSION&#39;, True) or &quot;) != &quot;]}&quot;
+<div class="highlight"><pre><span></span><code>LIBCEXTENSION = "${@[", '-gnu'][(d.getVar('ABIEXTENSION', True) or ") != "]}"
 </code></pre></div>
 <p>This variable is included from one of the OE-Core configuration files,
 <code>./meta/conf/distro/include/defaultsetup.conf</code>, and is used to
@@ -464,10 +464,10 @@ package listed as an <code>RDEPENDS</code>. Take, for example, the package
 variables set: <code>RDEPENDS</code> and <code>DEPENDS</code>. BitBake uses these two fields
 during the creation of its dependency chain. </p>
 <p>Here is a portion of <code>task-core-boot.bb</code> showing <code>DEPENDS</code> and <code>RDEPENDS</code>:</p>
-<div class="highlight"><pre><span></span><code>DEPENDS = &quot;virtual/kernel&quot;
+<div class="highlight"><pre><span></span><code>DEPENDS = "virtual/kernel"
  ...
 
-RDEPENDS_task-core-boot = &quot;\
+RDEPENDS_task-core-boot = "\
 base-files \
 base-passwd \
 busybox \

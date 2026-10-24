@@ -69,13 +69,13 @@ creates a SimPy environment,
 does a little bit of magic,
 and then simulates the system for a specified length of time:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run simulation.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Run simulation."""</span>
 
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;random_seed&quot;</span><span class="p">])</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"random_seed"</span><span class="p">])</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">])</span>
+    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">"num_developers"</span><span class="p">])</span>
     <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">generate_tasks</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">))</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;simulation_duration&quot;</span><span class="p">])</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">"simulation_duration"</span><span class="p">])</span>
 </code></pre></div>
 <p>The &ldquo;magic&rdquo; referred to earlier has two parts:</p>
 <ol>
@@ -90,10 +90,10 @@ and then simulates the system for a specified length of time:</p>
 <h2>Generating Tasks</h2>
 <p>OK, what does <code>generate_tasks</code> do?</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_tasks</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates tasks at random intervals.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Generates tasks at random intervals."""</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">]))</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s2">"task_arrival_rate"</span><span class="p">]))</span>
     <span class="n">task</span> <span class="o">=</span> <span class="n">TaskUniform</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
         <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
 </code></pre></div>
@@ -135,16 +135,16 @@ and the <code>simulate_task</code> function that models its behavior.
 The former just stores a unique ID and a duration,
 and knows how to represent itself as a string for printing:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TaskUniform</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task with uniformly-distributed durations.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Task with uniformly-distributed durations."""</span>
 
     <span class="n">_id</span> <span class="o">=</span> <span class="n">count</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">TaskUniform</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_duration</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;max_task_duration&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_duration</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s2">"max_task_duration"</span><span class="p">])</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;task-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_duration</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"task-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_duration</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
 <p>Note that we&rsquo;ve decided to model task durations as uniformly distributed
 between 1.0 and some maximum value.
@@ -158,17 +158,17 @@ the fact that this function uses <code>yield</code> means that it creates a gene
 I think that would have been clearer if a keyword like <code>gen</code> had been introduced in place of <code>def</code>,
 but it is what it is:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Simulate a task flowing through the system."""</span>
 
     <span class="n">available</span> <span class="o">=</span> <span class="n">developers</span><span class="o">.</span><span class="n">capacity</span> <span class="o">-</span> <span class="n">developers</span><span class="o">.</span><span class="n">count</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> arrives, </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2"> available&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> arrives, </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2"> available"</span><span class="p">)</span>
     <span class="n">request_start</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
     <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">req</span>
         <span class="n">delay</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">request_start</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> starts after delay </span><span class="si">{</span><span class="n">delay</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> starts after delay </span><span class="si">{</span><span class="n">delay</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> finishes&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> finishes"</span><span class="p">)</span>
 </code></pre></div>
 <p>Going through this phrase by phrase:</p>
 <ol>
@@ -204,11 +204,11 @@ but it is what it is:</p>
 <h2>A Sample Run</h2>
 <p>Let&rsquo;s run the simulation with the following parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;max_task_duration&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
-    <span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
-    <span class="s2">&quot;num_developers&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">&quot;simulation_duration&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">&quot;random_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">"max_task_duration"</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">"task_arrival_rate"</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="s2">"num_developers"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"simulation_duration"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"random_seed"</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The output is:</p>

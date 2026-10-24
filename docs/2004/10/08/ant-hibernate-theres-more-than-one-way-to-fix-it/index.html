@@ -61,25 +61,25 @@
 <p>Or maybe not, because three hours later, Eric Burke added a comment to the original posting.  His solution was to rearrange some of the Hibernate-specific stuff in the build file.  So who&rsquo;s fault is it really, Ant&rsquo;s or Hibernate&rsquo;s?  Let&rsquo;s take a look.</p>
 <p>I was trying to get Ant to clean my workspace, generate a Java source file from a Hibernate mapping file, compile that file and another one I&rsquo;d written by hand, and then generate a database schema, all in one invocation. The problem was that when I got to the schema generation step, the Hibernate schema generation task told me that the compiled class file for the generated class didn&rsquo;t exist.  If I ran Ant twice, though, everything worked; it also all worked if I ran Ant as far as &ldquo;compile the Java&rdquo;, then ran it again to do the schema generation.  But how could there be a timing bug in a strictly sequential chain of operations?</p>
 <p>William Lopez&rsquo;s solution was to create all of the temporary directories the build process needed once, at the start of the build process, rather than creating each directory just before it was needed.  Basically, I had:</p>
-<p><div class="highlight"><pre><span></span><code>&lt;target name=&quot;clean&quot;&gt;
-    &lt;delete dir=&quot;${gen}&quot;/&gt;
-    &lt;delete dir=&quot;${class}&quot;/&gt;
-    &lt;delete dir=&quot;${data}&quot;/&gt;
+<p><div class="highlight"><pre><span></span><code>&lt;target name="clean"&gt;
+    &lt;delete dir="${gen}"/&gt;
+    &lt;delete dir="${class}"/&gt;
+    &lt;delete dir="${data}"/&gt;
 &lt;/target&gt;
 
-&lt;target name=&quot;codegen&quot;&gt;
-    &lt;b&gt;&lt;mkdir dir=&quot;${gen}&quot;/&gt;&lt;/b&gt;
-    &lt;hbm2java output=&quot;${gen}&quot;&gt; /&gt;
+&lt;target name="codegen"&gt;
+    &lt;b&gt;&lt;mkdir dir="${gen}"/&gt;&lt;/b&gt;
+    &lt;hbm2java output="${gen}"&gt; /&gt;
 &lt;/target&gt;
 
-&lt;target name=&quot;compile&quot; depends=&quot;codegen&quot;&gt;
-    &lt;b&gt;&lt;mkdir dir=&quot;${class}&quot;/&gt;&lt;/b&gt;
-    &lt;javac srcdir=&quot;${gen}&quot; destdir=&quot;${class}&quot; …&gt; /&gt;
-    &lt;javac srcdir=&quot;${src}&quot; destdir=&quot;${class}&quot; …&gt; /&gt;
+&lt;target name="compile" depends="codegen"&gt;
+    &lt;b&gt;&lt;mkdir dir="${class}"/&gt;&lt;/b&gt;
+    &lt;javac srcdir="${gen}" destdir="${class}" …&gt; /&gt;
+    &lt;javac srcdir="${src}" destdir="${class}" …&gt; /&gt;
 &lt;/target&gt;
 
-&lt;target name=&quot;schema&quot; depends=&quot;compile&quot;&gt;
-    &lt;b&gt;&lt;mkdir dir=&quot;${data}&quot;/&gt;&lt;/b&gt;
+&lt;target name="schema" depends="compile"&gt;
+    &lt;b&gt;&lt;mkdir dir="${data}"/&gt;&lt;/b&gt;
     &lt;schemaexport … /&gt;
 &lt;/target&gt;
 
@@ -103,7 +103,7 @@ and William changed it by moving the &lt;code&gt;mkdir&lt;/code&gt; actions insi
 <p><target name="schema" depends="compile">
     <schemaexport … />
 </target>
-<div class="highlight"><pre><span></span><code>So it has to be an Ant problem—except that Eric Burke &lt;a href=&quot;http://www.ericburke.com/blog/2004/10/solution-to-gregs-hibernate-problem.html&quot;&gt;fixed the problem&lt;/a&gt; by moving the schema export &lt;code&gt;taskdef&lt;/code&gt; &lt;em&gt;inside&lt;/em&gt; the schema export target, like this:
+<div class="highlight"><pre><span></span><code>So it has to be an Ant problem—except that Eric Burke &lt;a href="http://www.ericburke.com/blog/2004/10/solution-to-gregs-hibernate-problem.html"&gt;fixed the problem&lt;/a&gt; by moving the schema export &lt;code&gt;taskdef&lt;/code&gt; &lt;em&gt;inside&lt;/em&gt; the schema export target, like this:
 </code></pre></div>
 <target name="schema" depends="compile"></p>
 <pre><code>&lt;taskdef name="schemaexport"

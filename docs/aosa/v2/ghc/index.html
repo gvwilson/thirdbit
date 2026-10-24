@@ -251,7 +251,7 @@
 <p>Despite nearly 20 years of non-stop development the compiler has only increased in size by a factor of 5, from around 28,000 to around 140,000 lines of Haskell code. We obsessively refactor while adding new code, keeping the code base as fresh as possible.</p>
 </li>
 <li>
-<p>There are several new components, although these only account for about 28,000 new lines. Much of the new components are concerned with code generation: native code generators for various processors, and an LLVM<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">8</a></sup> code generator. The infrastructure for the interactive interpreter GHCi also added over 7,000 lines.</p>
+<p>There are several new components, although these only account for about 28,000 new lines. Much of the new components are concerned with code generation: native code generators for various processors, and an LLVM<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> code generator. The infrastructure for the interactive interpreter GHCi also added over 7,000 lines.</p>
 </li>
 <li>
 <p>The biggest increase in a single component is the type checker, where over 20,000 lines were added. This is unsurprising given that much of the recent research using GHC has been into new type system extensions (for example GADTs (Associated type synonyms) and Type Families (Associated type synonyms)).</p>
@@ -295,7 +295,7 @@
 <p>Renaming takes Haskell abstract syntax (<code>HsSyn RdrName</code>) as input, and also produces abstract syntax as output (<code>HsSyn Name</code>). Here a <code>Name</code> is a reference to a particular entity.</p>
 <p>Resolving names is the main job of the renamer, but it performs a plethora of other tasks too: collecting the equations of a function together and flagging an error if they have differing numbers of arguments; rearranging infix expressions according to the fixity of the operators; spotting duplicate declarations; generating warnings for unused identifiers, and so on.</p>
 <h4 class="unnumbered" id="type-checking">Type Checking</h4>
-<p>Type checking, as one might imagine, is the process of checking that the Haskell program is type-correct. If the program passes the type checker, then it is guaranteed to not crash at runtime.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">2</a></sup></p>
+<p>Type checking, as one might imagine, is the process of checking that the Haskell program is type-correct. If the program passes the type checker, then it is guaranteed to not crash at runtime.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 <p>The input to the type checker is <code>HsSyn Name</code> (Haskell source with qualified names), and the output is <code>HsSyn Id</code>. An <code>Id</code> is a <code>Name</code> with extra information: notably a <em>type</em>. In fact, the Haskell syntax produced by the type checker is fully decorated with type information: every identifier has its type attached, and there is enough information to reconstruct the type of any subexpression (which might be useful for an IDE, for example).</p>
 <p>In practice, type checking and renaming may be interleaved, because the Template Haskell feature generates code at runtime that itself needs to be renamed and type checked.</p>
 <h4 class="unnumbered" id="desugaring-and-the-core-language">Desugaring, and the Core language</h4>
@@ -478,16 +478,16 @@ foo x = &lt;some big expression&gt;
 <p>With this in mind, we made a simple change to GHC: rather than building GHC as a monolithic program, we build GHC as a <em>library</em>, that is then linked with a small <em>Main</em> module to make the GHC executable itself, but also shipped in library form so that users can call it from their own programs. At the same time we built an API to expose GHC&rsquo;s functionality to clients. The API provides enough functionality to implement the GHC batch compiler and the GHCi interactive environment, but it also provides access to individual passes such as the parser and type checker, and allows the data structures produced by these passes to be inspected. This change has given rise to a wide range of tools built using the GHC API, including:</p>
 <ul>
 <li>
-<p>A documentation tool, <em>Haddock</em><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">9</a></sup>, which reads Haskell source code and produces HTML documentation.</p>
+<p>A documentation tool, <em>Haddock</em><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, which reads Haskell source code and produces HTML documentation.</p>
 </li>
 <li>
-<p>New versions of the GHCi front end with additional features; e.g., <em>ghci-haskeline</em><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">10</a></sup> which was subsequently merged back into GHC.</p>
+<p>New versions of the GHCi front end with additional features; e.g., <em>ghci-haskeline</em><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> which was subsequently merged back into GHC.</p>
 </li>
 <li>
-<p>IDEs that offer advanced navigation of Haskell source code; e.g., <em>Leksah</em><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">11</a></sup>.</p>
+<p>IDEs that offer advanced navigation of Haskell source code; e.g., <em>Leksah</em><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
 </li>
 <li>
-<p><em>hint</em><sup id="fnref:7"><a class="footnote-ref" href="#fn:7">12</a></sup>, a simpler API for on-the-fly evaluation of Haskell source code.</p>
+<p><em>hint</em><sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>, a simpler API for on-the-fly evaluation of Haskell source code.</p>
 </li>
 </ul>
 <h3>The Package System</h3>
@@ -577,7 +577,7 @@ bdescr * Bdescr     (void *p);  // a macro
 <p>GHC&rsquo;s scheduler multiplexes many lightweight Haskell threads onto a few heavyweight OS threads; it implements a transparent M:N threading model. Typically N is chosen to be the same as the number of processor cores in the machine, allowing real parallelism to take place but without the overhead of having a full OS thread for each lightweight Haskell thread.</p>
 </li>
 </ul>
-<p>In order to run Haskell code, an OS thread must hold a <em>Capability</em><sup id="fnref:8"><a class="footnote-ref" href="#fn:8">3</a></sup>: a data structure that holds the resources required to execute Haskell code, such as the nursery (memory where new objects are created). Only one OS thread may hold a given Capability at a time.</p>
+<p>In order to run Haskell code, an OS thread must hold a <em>Capability</em><sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>: a data structure that holds the resources required to execute Haskell code, such as the nursery (memory where new objects are created). Only one OS thread may hold a given Capability at a time.</p>
 <ul>
 <li>We provide an API for creating a <em>bound thread</em>: a Haskell thread that is tied to one specific OS thread, such that any foreign calls made by this Haskell thread are guaranteed to be made by that OS thread.</li>
 </ul>
@@ -646,7 +646,7 @@ is encoded like this:
 <p>Every Haskell program spends a lot of time executing code in the RTS: 20+.08em&ndash;30% is typical, but characteristics of Haskell programs vary a lot and so figures greater or less than this range are also common. Every cycle saved by optimising the RTS is multiplied many times over, so it is worth spending a lot of time and effort to save those cycles.</p>
 </li>
 <li>
-<p>The runtime system is statically linked into every Haskell program<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">13</a></sup>, so there is an incentive to keep it small.</p>
+<p>The runtime system is statically linked into every Haskell program<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>, so there is an incentive to keep it small.</p>
 </li>
 <li>
 <p>Bugs in the runtime system are often inscrutable to the user (e.g., &ldquo;segmentation fault&rdquo;) and are hard to work around. For example, bugs in the garbage collector tend not to be tied to the use of a particular language feature, but arise when some complex combination of factors emerges at runtime. Furthermore, bugs of this kind tend to be non-deterministic (only occurring in some runs), and highly sensitive (tiny changes to the program make the bug disappear). Bugs in the multithreaded version of the runtime system present even greater challenges. It is therefore worth going to extra lengths to prevent these bugs, and also to build infrastructure to make identifying them easier.</p>
@@ -664,12 +664,12 @@ is encoded like this:
 <h3>Invariants, and Checking Them</h3>
 <p>The RTS is full of invariants. Many of them are trivial and easy to check: for example, if the pointer to the head of a queue is <code>NULL</code>, then the pointer to the tail should also be <code>NULL</code>. The code of the RTS is littered with assertions to check these kinds of things. Assertions are our go-to tool for finding bugs before they manifest; in fact, when a new invariant is added, we often add the assertion before writing the code that implements the invariant.</p>
 <p>Some of the invariants in the runtime are far more difficult to satisfy, and to check. One invariant of this kind that pervades more of the RTS than any other is the following: <em>the heap has no dangling pointers</em>.</p>
-<p>Dangling pointers are easy to introduce, and there are many places both in the compiler and the RTS itself that can violate this invariant. The code generator could generate code that creates invalid heap objects; the garbage collector might forget to update the pointers of some object when it scans the heap. Tracking down these kinds of bugs can be extremely time-consuming<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">4</a></sup> because by the time the program eventually crashes, execution might have progressed a long way from where the dangling pointer was originally introduced. There are good debugging tools available, but they tend not to be good at executing the program in reverse.<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">5</a></sup></p>
-<p>The general principle is: <em>if a program is going to crash, it should crash as soon, as noisily, and as often as possible.</em><sup id="fnref:12"><a class="footnote-ref" href="#fn:12">6</a></sup></p>
+<p>Dangling pointers are easy to introduce, and there are many places both in the compiler and the RTS itself that can violate this invariant. The code generator could generate code that creates invalid heap objects; the garbage collector might forget to update the pointers of some object when it scans the heap. Tracking down these kinds of bugs can be extremely time-consuming<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup> because by the time the program eventually crashes, execution might have progressed a long way from where the dangling pointer was originally introduced. There are good debugging tools available, but they tend not to be good at executing the program in reverse.<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></p>
+<p>The general principle is: <em>if a program is going to crash, it should crash as soon, as noisily, and as often as possible.</em><sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup></p>
 <p>The problem is, the no-dangling-pointer invariant is not something that can be checked with a constant-time assertion. The assertion that checks it must do a full traversal of the heap! Clearly we cannot run this assertion after every heap allocation, or every time the GC scans an object (indeed, this would not even be enough, as dangling pointers don&rsquo;t appear until the end of GC, when memory is freed).</p>
 <p>So, the debug RTS has an optional mode that we call <em>sanity checking</em>. Sanity checking enables all kinds of expensive assertions, and can make the program run many times more slowly. In particular, sanity checking runs a full scan of the heap to check for dangling pointers (amongst other things), before <em>and</em> after every GC. The first job when investigating a runtime crash is to run the program with sanity checking turned on; sometimes this will catch the invariant violation well before the program actually crashes.</p>
 <h2>Conclusion</h2>
-<p>GHC has consumed a significant portion of the authors&rsquo; lives over the last 20 years, and we are rather proud of how far it has come. It is not the only Haskell implementation, but it is the only one in regular use by hundreds of thousands of people to get real work done. We are constantly surprised when Haskell turns up being used in unusual places; one recent example is Haskell being used to control the systems in a garbage truck<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">7</a></sup>.</p>
+<p>GHC has consumed a significant portion of the authors&rsquo; lives over the last 20 years, and we are rather proud of how far it has come. It is not the only Haskell implementation, but it is the only one in regular use by hundreds of thousands of people to get real work done. We are constantly surprised when Haskell turns up being used in unusual places; one recent example is Haskell being used to control the systems in a garbage truck<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup>.</p>
 <p>For many, Haskell and GHC are synonymous: it was never intended to be so, and indeed in many ways it is counterproductive to have just one implementation of a standard, but the fact is that maintaining a good implementation of a programming language is a lot of work. We hope that our efforts in GHC, to support the standard and to clearly delimit each separate language extension, will make it feasible for more implementations to emerge and to integrate with the the package system and other infrastructure. Competition is good for everyone!</p>
 <p>We are deeply indebted to Microsoft in particular for giving us the opportunity to develop GHC as part of our research and to distribute it as open source.</p>
 <div class="footnote">
@@ -678,41 +678,41 @@ is encoded like this:
 <li id="fn:1">
 <p>&ldquo;The Glasgow Haskell compiler: a technical overview&rdquo;, JFIT technical conference digest, 1992&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="fn:3">
-<p>The term &ldquo;crash&rdquo; here has a formal definition that includes hard crashes like &ldquo;segmentation fault&rdquo;, but not things like pattern-matching failure. The non-crash guarantee can be subverted by using certain unsafe language features, such as the Foreign Function Interface.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:8">
-<p>We have also called it a &ldquo;Haskell Execution Context&rdquo;, but the code currently uses the Capability terminology.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:10">
-<p>It is, however, one of the author&rsquo;s favourite activities!&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:11">
-<p>Recent versions of GDB and the Microsoft Visual Studio debugger do have some support for reverse execution, however.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:12">
-<p>This quote comes from the GHC coding style guidelines, and was originally written by Alastair Reid, who worked on an early version of the RTS.&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:13">
-<p><a href="http://www.haskell.org/pipermail/haskell-cafe/2010-April/075647.html">http://www.haskell.org/pipermail/haskell-cafe/2010-April/075647.html</a>&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
 <li id="fn:2">
-<p>Formerly the &ldquo;Low Level Virtual Machine&rdquo;, the LLVM project includes a generic code-generator with targets for many different processors. For more information see <a href="http://llvm.org/">http://llvm.org/</a>, and the chapter on LLVM in Volume 1 of <em>The Architecture of Open Source Applications</em>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Formerly the &ldquo;Low Level Virtual Machine&rdquo;, the LLVM project includes a generic code-generator with targets for many different processors. For more information see <a href="http://llvm.org/">http://llvm.org/</a>, and the chapter on LLVM in Volume 1 of <em>The Architecture of Open Source Applications</em>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>The term &ldquo;crash&rdquo; here has a formal definition that includes hard crashes like &ldquo;segmentation fault&rdquo;, but not things like pattern-matching failure. The non-crash guarantee can be subverted by using certain unsafe language features, such as the Foreign Function Interface.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><a href="http://www.haskell.org/haddock/">http://www.haskell.org/haddock/</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p><a href="http://www.haskell.org/haddock/">http://www.haskell.org/haddock/</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><a href="http://hackage.haskell.org/package/ghci-haskeline">http://hackage.haskell.org/package/ghci-haskeline</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p><a href="http://hackage.haskell.org/package/ghci-haskeline">http://hackage.haskell.org/package/ghci-haskeline</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><a href="http://hackage.haskell.org/package/leksah">http://hackage.haskell.org/package/leksah</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p><a href="http://hackage.haskell.org/package/leksah">http://hackage.haskell.org/package/leksah</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p><a href="http://hackage.haskell.org/package/hint">http://hackage.haskell.org/package/hint</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<p><a href="http://hackage.haskell.org/package/hint">http://hackage.haskell.org/package/hint</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>We have also called it a &ldquo;Haskell Execution Context&rdquo;, but the code currently uses the Capability terminology.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p>That is, unless dynamic linking is being used.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+<p>That is, unless dynamic linking is being used.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p>It is, however, one of the author&rsquo;s favourite activities!&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>Recent versions of GDB and the Microsoft Visual Studio debugger do have some support for reverse execution, however.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p>This quote comes from the GHC coding style guidelines, and was originally written by Alastair Reid, who worked on an early version of the RTS.&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:13">
+<p><a href="http://www.haskell.org/pipermail/haskell-cafe/2010-April/075647.html">http://www.haskell.org/pipermail/haskell-cafe/2010-April/075647.html</a>&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
