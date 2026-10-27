@@ -122,11 +122,6 @@ workshops = [
         "description": "A one-day introduction to modern teaching practices for programmers and data scientists.",
     },
     {
-        "title": "How to Not Be Wrong About AI",
-        "url": "@root/notwrong",
-        "description": "What software engineers need to understand to tell good studies from bad ones.",
-    },
-    {
         "title": "Managing Research Software Projects",
         "url": "@root/mrsp",
         "description": "Ideas and tools you need to manage a team of research software developers.",
@@ -140,10 +135,9 @@ beta = [
         "description": "A one-day introduction to the basics of SQL.",
     },
     {
-        "title": "Distributed Systems Design by Example",
-        "url": "@root/dsdx",
-        "description": "Thirteen worked examples of distributed systems in Python.",
-        "beta": True,
+        "title": "How to Not Be Wrong About AI",
+        "url": "@root/notwrong",
+        "description": "What software engineers need to understand to tell good studies from bad ones.",
     },
     {
         "title": "Unbreaking Software",
@@ -157,48 +151,15 @@ beta = [
         "description": "A few things I think programmers should know about how the world actually works.",
         "beta": True,
     },
-    {
-        "title": "Gleam for Python Programmers",
-        "url": "@root/gl4py",
-        "description": "An example-based introduction to Gleam for Python programmers.",
-        "beta": True,
-    },
-]
-
-unused_entries = [
-    {
-        "title": "Research Software Testing by Example",
-        "url": "@root/rstx",
-        "description": "Thirty-one short examples that explore how to test research software.",
-        "beta": True,
-    },
-    {
-        "title": "Lean for Python Programmers",
-        "url": "@root/l4py",
-        "description": "An introduction to Lean for Python programmers.",
-        "beta": True,
-    },
-    {
-        "title": "Learning Web Programming with LLMs",
-        "url": "@root/webllm",
-        "description": "A short introduction to web programming using LLMs as a teaching aid.",
-        "beta": True,
-    },
-    {
-        "title": "Learning Data Science with LLMs",
-        "url": "@root/dsllm",
-        "description": "A short introduction to data science using LLMs as a teaching aid.",
-        "beta": True,
-    },
 ]
 
 talks_entries = [
     {
-        "title": "Twelve Ways to Be Wrong About AI-Assisted Coding",
-        "description": "Outlines twelve common methodological errors in studies claiming to measure the productivity impact of AI coding tools.",
-        "updated": "May 2026",
+        "title": "Assessing AI",
+        "description": "Outlines common errors in studies claiming to measure the productivity impact of AI coding tools.",
+        "updated": "November 2026",
         "links": [
-            {"text": "HTML", "url": "@root/talks/12ways/"},
+            {"text": "HTML", "url": "@root/talks/ai-assess/"},
         ],
     },
     {
