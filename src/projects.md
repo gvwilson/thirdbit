@@ -12,13 +12,17 @@ please [get in touch][email].
 Bram
 :   [Bram][bram] ("Bram runs agents mindfully") is a desktop app that embeds
     Claude Code and Codex in a GUI that provides structured, audited workflows.
-    This project will add several new features, including support for other
-    families of models such as DeepSeek.
+    This project will add several new features, such as better support for
+    design recovery and data analysis.
 
 A Little Program Verifier
-:   Where the previous project would build a simple editor, this project would
-    build a verifier for a very simple programming language in order to teach
-    people how those tools work. (See [here][frml] for preliminary work.)
+:   This project will extend [a verifier for a very simple programming language][frml]
+    with basic concurrency features in order to teach people how those tools work.
+
+A Little Program Analyzer
+:   [Jorma][jorma] uses a combination of static and dynamic analysis to identify
+    the roles of variables using Sajaniemi et al's taxonomy. This project will
+    extend the dynamic analysis capabilities and test it on a larger set of programs
 
 XKCD Charts
 :   [Chart.xkcd][chart.xkcd] creates charts in the hand-drawn style of
@@ -33,13 +37,11 @@ An I/O Library for Dafny
     offer what the examples need. This project will build those libraries,
     starting with what's listed in [this blog post][dafny-io].
 
-A Software Development Simulator
+*A Software Development Simulator (filled for Winter 2027)*
 :   I created [asimpy][asimpy] so that I could build simulations of software
     development teams similar to [these ones][curious-duck]. The goal of this
     project is to build those simulations and use them to explore the impact
     of AI tooling on the software lifecycle.
-    <br>
-    *This project now has a team for Winter 2027.*
 
 ## Games
 
@@ -65,12 +67,10 @@ Tower Support Game
     builds bridges, first aid stations, and so on to help travelers reach their
     destination.
 
-Stardew Valley Murders
+*Stardew Valley Murders (filled for Winter 2027)*
 :   A mod that turns [Stardew Valley][stardew] into a murder mystery game.
     Grow vegetables, then trade them for gossip and clues until you figure out
     who murdered Clint and why.
-    <br>
-    *This project now has a team for Winter 2027.*
 
 [asimpy]: https://asimpy.readthedocs.io/
 [bram]: https://github.com/judell/bram
@@ -81,6 +81,7 @@ Stardew Valley Murders
 [email]: mailto:gvwilson@third-bit.com
 [frml]: https://github.com/gvwilson/frml/
 [gleam]: https://gleam.run/
+[jorma]: https://github.com/gvwilson/jorma
 [sdxpy]: @root/sdxpy/
 [stardew]: https://www.stardewvalley.net/
 [tower-defense]: https://en.wikipedia.org/wiki/Tower_defense
