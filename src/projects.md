@@ -16,8 +16,9 @@ Bram
     design recovery and data analysis.
 
 A Little Program Verifier
-:   This project will extend [a verifier for a very simple programming language][frml]
-    with basic concurrency features in order to teach people how those tools work.
+:   This project will extend [Frml][frml], a verifier for a very simple
+    programming language, with basic concurrency features in order to teach
+    people how those tools work.
 
 A Little Program Analyzer
 :   [Jorma][jorma] uses a combination of static and dynamic analysis to identify
