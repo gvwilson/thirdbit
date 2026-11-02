@@ -3,12 +3,115 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-10-30T00:00:00Z</updated>
+ <updated>2026-11-02T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Testing the Schelling Segregation Model</title>
+   <link href="https://third-bit.com/2026/11/02/schelling/"/>
+   <updated>2026-11-02T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/11/02/schelling/</id>
+   <content type="html">&lt;p&gt;In 1971,
+economist Thomas Schelling asked whether mild individual preferences for similar neighbours
+could produce large-scale residential segregation.
+The answer is yes:
+even when each agent requires only 30% of occupied neighbours to share its type,
+the population self-organises into sharply segregated clusters.
+The Schelling model is an example of an agent-based model:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Place two types of agents on a grid, leaving some cells empty.&lt;/li&gt;
+&lt;li&gt;At each step, identify dissatisfied agents and move each to a random empty cell.&lt;/li&gt;
+&lt;li&gt;Repeat until no agent moves, or for a fixed number of steps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It&amp;rsquo;s a landmark result in computational social science
+because it shows that macro-level patterns can emerge from micro-level rules
+without central coordination.
+It&amp;rsquo;s fairly easy to implement in Python,
+but testing it is a challenge.&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;The grid is an $N \times N$ array.
+Each cell holds one of three values:
+0 (empty), 1 (red agent), or 2 (blue agent).
+The Moore neighborhood of a cell is the set of adjacent cells horizontally, vertically, or diagonally,
+and the same-neighbor fraction for an agent at position $(r, c)$ is:&lt;/p&gt;
+&lt;p&gt;$$f(r,c) = \frac{\text{occupied neighbors of the same type}}{\text{total occupied neighbors}}$$&lt;/p&gt;
+
+&lt;p&gt;An agent is &lt;em&gt;satisfied&lt;/em&gt; when $f(r,c) \geq \theta$, where $\theta$ is the threshold.
+An agent with no occupied neighbors is treated as satisfied ($f = 1$)
+so that isolated agents do not drift endlessly across empty space.&lt;/p&gt;
+&lt;p&gt;We initialize the grid by placing equal numbers of red and blue agents at random
+in a fraction $(1 - p_e)$ of cells, where $p_e$ is the empty fraction.
+(Those empty cells provide the vacancies that dissatisfied agents move into.)
+In each simulation step, we do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All dissatisfied agents are identified first, then all empty cells.&lt;/li&gt;
+&lt;li&gt;Both lists are shuffled independently and paired in order.&lt;/li&gt;
+&lt;li&gt;Each dissatisfied agent moves to the corresponding empty cell if one exists.&lt;/li&gt;
+&lt;li&gt;Shuffling before pairing ensures no agent is systematically favored.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The satisfaction rate (i.e., the fraction of agents that meet the threshold)
+rises as the grid segregates,
+and reaches 1.0 when every agent is happy with its neighborhood.
+This happens pretty quickly:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://third-bit.com/files/2026/schelling-grid.svg&#34;&gt;&lt;/p&gt;
+&lt;h2&gt;Testing&lt;/h2&gt;
+&lt;p&gt;So how do we test this?
+More specifically,
+what do we get when we ask an LLM to generate tests for this?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Grid shape and contents&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make_grid&lt;/code&gt; must produce a $(50 \times 50)$ array whose cells are all in ${0, 1, 2}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Balanced agent counts&lt;ul&gt;
+&lt;li&gt;Red and blue agents are built as equal halves of the occupied pool,
+    so their counts differ by at most 1
+    (an off-by-one when the total number of agents is odd)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Neighbor fractions&lt;ul&gt;
+&lt;li&gt;An isolated agent (no occupied neighbors) must return 1.0,
+    matching the convention that isolated agents are considered satisfied&lt;/li&gt;
+&lt;li&gt;An agent surrounded entirely by the same type returns 1.0&lt;/li&gt;
+&lt;li&gt;One surrounded entirely by the opposite type returns 0.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Stable segregated grid&lt;ul&gt;
+&lt;li&gt;A $4 \times 4$ grid with red in the left two columns and blue in the right two columns
+    is fully satisfied&lt;/li&gt;
+&lt;li&gt;Border agents have $5/8 = 0.625$ same-type neighbors which exceeds the threshold of 0.3&lt;/li&gt;
+&lt;li&gt;One step must leave the grid unchanged&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Satisfaction increases&lt;ul&gt;
+&lt;li&gt;Starting from the random initial grid,
+    the satisfaction rate after 20 steps must exceed the initial rate
+    because agents self-organise into clusters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The first three items don&amp;rsquo;t exercise the science at all.
+That doesn&amp;rsquo;t mean they&amp;rsquo;re not important, but they feel a bit trivial.
+The fourth and fifth items are more interesting,
+but take a close look at the fifth one.
+It is possible (though extremely unlikely) for a stochastic process to fail this test.
+How should we handle that?
+&amp;ldquo;Don&amp;rsquo;t worry about it&amp;rdquo; might actually be the right answer:
+as discussed &lt;a href=&#34;https://third-bit.com/2025/05/19/some-testing-answers/&#34;&gt;last year&lt;/a&gt;,
+if the odds of a statistically-correct test failing are on par with
+the odds of two Git hashes colliding,
+we should turn our attention elsewhere.&lt;/p&gt;
+&lt;p&gt;The problem is that I don&amp;rsquo;t know how to calculate those odds.
+&amp;ldquo;It seems pretty unlikely to me&amp;rdquo; isn&amp;rsquo;t satisfying,
+particularly given how prone human beings are to confirmation bias.
+As more and more scientists generate code with LLMs,
+and use those same LLMs to generate tests,
+I&amp;rsquo;d be very grateful for answers to these questions.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Training Data</title>
@@ -2491,19 +2594,6 @@ I&amp;rsquo;m going to spend the evening thinking about roads not taken…&lt;/p
     but nothing else has materialized.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</content>
- </entry>
- 
- <entry>
-   <title>Outline for an SDGC Workshop</title>
-   <link href="https://third-bit.com/2026/08/27/sdgc-workshop/"/>
-   <updated>2026-08-27T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/08/27/sdgc-workshop/</id>
-   <content type="html">&lt;p&gt;This &lt;a href=&#34;https://third-bit.com/sdgc/workshop/&#34;&gt;one-day workshop&lt;/a&gt; introduces a few ideas that someone
-with a background in computer science (or tech more generally) needs
-to know in order to think clearly about the harms of social media and
-AI, and about how they should be regulated. I would be very grateful
-for &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;feedback&lt;/a&gt;; in particular, I know I&amp;rsquo;m trying to cram in far
-too much, and many of my references are probably out of date.&lt;/p&gt;</content>
  </entry>
  
 </feed>

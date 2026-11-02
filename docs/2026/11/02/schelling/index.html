@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Testing the Schelling Segregation Model</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Testing the Schelling Segregation Model</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/10/30/training-data/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-11-02" class="post-date">2026-11-02</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>In 1971,
+economist Thomas Schelling asked whether mild individual preferences for similar neighbours
+could produce large-scale residential segregation.
+The answer is yes:
+even when each agent requires only 30% of occupied neighbours to share its type,
+the population self-organises into sharply segregated clusters.
+The Schelling model is an example of an agent-based model:</p>
+<ul>
+<li>Place two types of agents on a grid, leaving some cells empty.</li>
+<li>At each step, identify dissatisfied agents and move each to a random empty cell.</li>
+<li>Repeat until no agent moves, or for a fixed number of steps.</li>
+</ul>
+<p>It&rsquo;s a landmark result in computational social science
+because it shows that macro-level patterns can emerge from micro-level rules
+without central coordination.
+It&rsquo;s fairly easy to implement in Python,
+but testing it is a challenge.</p>
+<h2>Implementation</h2>
+<p>The grid is an $N \times N$ array.
+Each cell holds one of three values:
+0 (empty), 1 (red agent), or 2 (blue agent).
+The Moore neighborhood of a cell is the set of adjacent cells horizontally, vertically, or diagonally,
+and the same-neighbor fraction for an agent at position $(r, c)$ is:</p>
+<p>$$f(r,c) = \frac{\text{occupied neighbors of the same type}}{\text{total occupied neighbors}}$$</p>
+
+<p>An agent is <em>satisfied</em> when $f(r,c) \geq \theta$, where $\theta$ is the threshold.
+An agent with no occupied neighbors is treated as satisfied ($f = 1$)
+so that isolated agents do not drift endlessly across empty space.</p>
+<p>We initialize the grid by placing equal numbers of red and blue agents at random
+in a fraction $(1 - p_e)$ of cells, where $p_e$ is the empty fraction.
+(Those empty cells provide the vacancies that dissatisfied agents move into.)
+In each simulation step, we do the following:</p>
+<ul>
+<li>All dissatisfied agents are identified first, then all empty cells.</li>
+<li>Both lists are shuffled independently and paired in order.</li>
+<li>Each dissatisfied agent moves to the corresponding empty cell if one exists.</li>
+<li>Shuffling before pairing ensures no agent is systematically favored.</li>
+</ul>
+<p>The satisfaction rate (i.e., the fraction of agents that meet the threshold)
+rises as the grid segregates,
+and reaches 1.0 when every agent is happy with its neighborhood.
+This happens pretty quickly:</p>
+<p><img src="../../../../files/2026/schelling-grid.svg"></p>
+<h2>Testing</h2>
+<p>So how do we test this?
+More specifically,
+what do we get when we ask an LLM to generate tests for this?</p>
+<ol>
+<li>Grid shape and contents<ul>
+<li><code>make_grid</code> must produce a $(50 \times 50)$ array whose cells are all in ${0, 1, 2}$</li>
+</ul>
+</li>
+<li>Balanced agent counts<ul>
+<li>Red and blue agents are built as equal halves of the occupied pool,
+    so their counts differ by at most 1
+    (an off-by-one when the total number of agents is odd)</li>
+</ul>
+</li>
+<li>Neighbor fractions<ul>
+<li>An isolated agent (no occupied neighbors) must return 1.0,
+    matching the convention that isolated agents are considered satisfied</li>
+<li>An agent surrounded entirely by the same type returns 1.0</li>
+<li>One surrounded entirely by the opposite type returns 0.0</li>
+</ul>
+</li>
+<li>Stable segregated grid<ul>
+<li>A $4 \times 4$ grid with red in the left two columns and blue in the right two columns
+    is fully satisfied</li>
+<li>Border agents have $5/8 = 0.625$ same-type neighbors which exceeds the threshold of 0.3</li>
+<li>One step must leave the grid unchanged</li>
+</ul>
+</li>
+<li>Satisfaction increases<ul>
+<li>Starting from the random initial grid,
+    the satisfaction rate after 20 steps must exceed the initial rate
+    because agents self-organise into clusters</li>
+</ul>
+</li>
+</ol>
+<p>The first three items don&rsquo;t exercise the science at all.
+That doesn&rsquo;t mean they&rsquo;re not important, but they feel a bit trivial.
+The fourth and fifth items are more interesting,
+but take a close look at the fifth one.
+It is possible (though extremely unlikely) for a stochastic process to fail this test.
+How should we handle that?
+&ldquo;Don&rsquo;t worry about it&rdquo; might actually be the right answer:
+as discussed <a href="../../../../2025/05/19/some-testing-answers/">last year</a>,
+if the odds of a statistically-correct test failing are on par with
+the odds of two Git hashes colliding,
+we should turn our attention elsewhere.</p>
+<p>The problem is that I don&rsquo;t know how to calculate those odds.
+&ldquo;It seems pretty unlikely to me&rdquo; isn&rsquo;t satisfying,
+particularly given how prone human beings are to confirmation bias.
+As more and more scientists generate code with LLMs,
+and use those same LLMs to generate tests,
+I&rsquo;d be very grateful for answers to these questions.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/software-carpentry/">software-carpentry</a>, <a href="../../../../blog/software-engineering/">software-engineering</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>
