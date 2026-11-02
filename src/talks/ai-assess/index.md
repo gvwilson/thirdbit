@@ -2,7 +2,7 @@
 title: "Assessing AI"
 subtitle: "how to tell if AI coding tools are working without fooling yourself"
 template: slides
-date: "2026-11-01"
+date: "2026-11-06"
 ---
 
 ## What This Talk Is About
@@ -13,7 +13,7 @@ date: "2026-11-01"
 
 -   How would you know whether to believe it?
 
--   This talk
+-   This talk is about:
 
     -   How we get the answer wrong
 
@@ -25,11 +25,12 @@ date: "2026-11-01"
 
 -   Forty years writing software and teaching programming
 
--   The last few years reading research on how we know things about software
+-   Used to run a project trying to connect software engineering researchers and practitioners
 
 -   I am not going to tell you AI-assisted coding doesn't work
 
 -   I am going to tell you how to find out whether it works *for you*
+
     -   Singular and plural
 
 ---
@@ -54,6 +55,8 @@ date: "2026-11-01"
 
 ## This Is Hard
 
+-   [Sadowski2019] is an entire book devoted to "this is difficult"
+
 -   Software output is not homogeneous
 
     -   A ten-line bugfix may be worth more than a thousand-line feature
@@ -61,8 +64,6 @@ date: "2026-11-01"
 -   Much of software work is invisible
 
     -   Developers spend only about a quarter of their day writing code [Meyer2017]
-
--   [Sadowski2019] is an entire book devoted to "this is difficult"
 
 ---
 
@@ -92,7 +93,7 @@ date: "2026-11-01"
 
     -   Asking people how they feel
 
--   Each is a way of mistaking activity for value
+-   Each is a way of mistaking *outputs* and *outcomes*
 
 ---
 
@@ -118,7 +119,7 @@ date: "2026-11-01"
 
 ## Wrong #2: Measure Too Small
 
--   Timing a 90-minute greenfield task tells you about a 90-minute greenfield task [Peng2023]
+-   Timing a 90-minute greenfield task tells you about a 90-minute greenfield task
 
 -   Real work: unfamiliar codebases, ambiguous tickets, coordinating with colleagues
 
@@ -128,9 +129,9 @@ date: "2026-11-01"
 
 --
 
--   The easy half gets measured: code generation speed
+-   Code generation speed gets measured because it's the easy part
 
--   The hard half doesn't: review time, debugging confidently-wrong suggestions, security debt [Pearce2022]
+-   The hard part doesn't: review time, debugging confidently-wrong suggestions, security debt [Pearce2022]
 
 -   Five major LLMs evaluated in 2025: none produced web code meeting industry security standards [Dora2025]
 
@@ -153,11 +154,11 @@ date: "2026-11-01"
 
 -   "87% of developers report feeling more productive with AI tools" [Liang2024]
 
-    -   Novelty effect: new tools feel faster because they are new — and that fades
+    -   *Novelty effect*: new tools feel faster because they are new — and that fades
 
-    -   Hawthorne effect: people work differently when they know they are being watched
+    -   *Hawthorne effect*: people work differently when they know they are being watched
 
-    -   Social desirability bias: respondents say what they think management wants to hear
+    -   *Social desirability bias*: respondents say what they think management wants to hear
 
 --
 
@@ -189,9 +190,9 @@ date: "2026-11-01"
 
 ---
 
-## Turn to the UX Researchers
+## Already In House
 
--   Your organization does not need to invent an AI assessment program from scratch
+-   You don't have to invent an AI assessment program from scratch
 
 -   UX researchers already have the right intellectual tools
 
@@ -229,21 +230,15 @@ date: "2026-11-01"
 
 ---
 
-## Measure Outcomes, Not Activity
+## A Checklist for Any Study
 
--   The *DORA metrics* have better construct validity than activity counts [Forsgren2018]
+-   *Conclusion validity*: was the sample large enough? are effect sizes reported?
 
-    -   Deployment frequency
+-   *Internal validity*: was there a control group? random assignment? novelty and learning ruled out?
 
-    -   Lead time for changes
+-   *Construct validity*: does the measurement actually capture the claim?
 
-    -   Change failure rate
-
-    -   Time to restore service
-
--   They are tied to customer outcomes rather than developer busyness
-
--   Blind spots remain: a team can score well while building the wrong product
+-   *External validity*: are the subjects representative of the population you care about?
 
 ---
 
@@ -256,18 +251,6 @@ date: "2026-11-01"
 -   E.g., a study of 410 developers revealed where AI helps and where it gets in the way [Liang2024]
 
     -   Invisible to any study that only measures task completion times
-
----
-
-## A Checklist for Any Study
-
--   *Conclusion validity*: was the sample large enough? are effect sizes reported?
-
--   *Internal validity*: was there a control group? random assignment? novelty and learning ruled out?
-
--   *Construct validity*: does the measurement actually capture the claim?
-
--   *External validity*: are the subjects representative of the population you care about?
 
 ---
 

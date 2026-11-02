@@ -193,5 +193,7 @@ template: page
 | The Book of Debugging | Johannes Kuhlmann | 978-1718504066 | 2026 |
 | Guilty Pleasure | Patricia Nilsson | 978-0374616007 | 2026 |
 | Jeff Zelkowitz | The Mask of the Storyteller | 979-8995521501 | 2026 |
+| Queens of Code | Eileen Buckholtz | 978-0262049474 | 2026 |
+| Everything You Need to Know | Matthew Stuart | 978-1324105893 | None |
 | Judge of Worlds | Daniel Abraham | 978-0316421935 | 2027 |
 | Ruins | Lily Brooks-Dalton | 978-1538770535 | 2027 |
