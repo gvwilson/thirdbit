@@ -20,11 +20,6 @@ A Little Program Verifier
     programming language, with basic concurrency features in order to teach
     people how those tools work.
 
-A Little Program Analyzer
-:   [Jorma][jorma] uses a combination of static and dynamic analysis to identify
-    the roles of variables using Sajaniemi et al's taxonomy. This project will
-    extend the dynamic analysis capabilities and test it on a larger set of programs
-
 XKCD Charts
 :   [Chart.xkcd][chart.xkcd] creates charts in the hand-drawn style of
     [XKCD][xkcd].  This project will fix outstanding issues, add new features
@@ -43,6 +38,11 @@ An I/O Library for Dafny
     development teams similar to [these ones][curious-duck]. The goal of this
     project is to build those simulations and use them to explore the impact
     of AI tooling on the software lifecycle.
+
+*A Little Program Analyzer (filled for Winter 2027)*
+:   [Jorma][jorma] uses a combination of static and dynamic analysis to identify
+    the roles of variables using Sajaniemi et al's taxonomy. This project will
+    extend the dynamic analysis capabilities and test it on a larger set of programs
 
 ## Games
 
