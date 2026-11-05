@@ -3,12 +3,68 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-11-02T00:00:00Z</updated>
+ <updated>2026-11-05T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>What Else for the Sudonomicon?</title>
+   <link href="https://third-bit.com/2026/11/05/what-else-for-sudonomicon/"/>
+   <updated>2026-11-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/11/05/what-else-for-sudonomicon/</id>
+   <content type="html">&lt;p&gt;I started work last year on &lt;a href=&#34;https://github.com/gvwilson/sudonomicon&#34;&gt;an introduction to systems programming for data scientists&lt;/a&gt;.
+I assumed learners were comfortable with the material covered in the Carpentries workshops
+on the Unix shell and Python:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unix shell:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pwd&lt;/code&gt;; &lt;code&gt;ls&lt;/code&gt;; &lt;code&gt;cd&lt;/code&gt;; &lt;code&gt;.&lt;/code&gt; and &lt;code&gt;..&lt;/code&gt;; &lt;code&gt;rm&lt;/code&gt; and &lt;code&gt;rmdir&lt;/code&gt;; &lt;code&gt;mkdir&lt;/code&gt;; &lt;code&gt;touch&lt;/code&gt;;
+    &lt;code&gt;mv&lt;/code&gt;; &lt;code&gt;cp&lt;/code&gt;; &lt;code&gt;tree&lt;/code&gt;; &lt;code&gt;cat&lt;/code&gt;; &lt;code&gt;wc&lt;/code&gt;; &lt;code&gt;head&lt;/code&gt;; &lt;code&gt;tail&lt;/code&gt;; &lt;code&gt;less&lt;/code&gt;; &lt;code&gt;cut&lt;/code&gt;; &lt;code&gt;echo&lt;/code&gt;;
+    &lt;code&gt;history&lt;/code&gt;; &lt;code&gt;find&lt;/code&gt;; &lt;code&gt;grep&lt;/code&gt;; &lt;code&gt;zip&lt;/code&gt;; &lt;code&gt;man&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Current working directory; absolute and relative paths; naming files&lt;/li&gt;
+&lt;li&gt;Standard input; standard output; standard error; redirection; pipes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt; and &lt;code&gt;?&lt;/code&gt; wildcards; shell variable with &lt;code&gt;$&lt;/code&gt; expansion; &lt;code&gt;for&lt;/code&gt; loop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Python for command-line scripting&lt;ul&gt;
+&lt;li&gt;Variables; numbers and strings; lists; dictionaries; &lt;code&gt;for&lt;/code&gt; and &lt;code&gt;while&lt;/code&gt; loops;
+    &lt;code&gt;if&lt;/code&gt;/&lt;code&gt;else&lt;/code&gt;; &lt;code&gt;with&lt;/code&gt;; defining and calling functions; &lt;code&gt;sys.argv&lt;/code&gt;, &lt;code&gt;sys.stdin&lt;/code&gt;,
+    and &lt;code&gt;sys.stdout&lt;/code&gt;; simple regular expressions.&lt;/li&gt;
+&lt;li&gt;Create a virtual environment; activate it and install packages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The topics I outlined then were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;filesystems (e.g., what&amp;rsquo;s a symbolic link?)&lt;/li&gt;
+&lt;li&gt;processes and job control&lt;/li&gt;
+&lt;li&gt;the basics of the HTTP protocol&lt;/li&gt;
+&lt;li&gt;accounts, permissions, and SSH&lt;/li&gt;
+&lt;li&gt;shell variables&lt;/li&gt;
+&lt;li&gt;virtual environments (in the Python &lt;code&gt;.venv&lt;/code&gt; sense)&lt;/li&gt;
+&lt;li&gt;the basics of networking (IP addresses, DNS lookup)&lt;/li&gt;
+&lt;li&gt;virtualization with Docker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before I start fleshing out the existing material, I&amp;rsquo;d like to figure out what else ought to be included.
+Possibilities include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;creating and managing certificates (which is still a lot harder than it should be)&lt;/li&gt;
+&lt;li&gt;concurrency and parallelism (threads versus processes, how to do this in Python)&lt;/li&gt;
+&lt;li&gt;observability and logging&lt;/li&gt;
+&lt;li&gt;resource management with tools like &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;ulimit&lt;/code&gt;, and &lt;code&gt;nice&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;serialization and binary file formats&lt;/li&gt;
+&lt;li&gt;web APIs and REST&lt;/li&gt;
+&lt;li&gt;compression, archives, and hashes&lt;/li&gt;
+&lt;li&gt;more SSH and remote access (e.g., port forwarding and tunnels)&lt;/li&gt;
+&lt;li&gt;firewalls and NAT&lt;/li&gt;
+&lt;li&gt;profiling (and why benchmarking is hard)&lt;/li&gt;
+&lt;li&gt;web security vulnerabilities (e.g., SQL injection, cross-site scripting, and cross-site request forgery)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I would be very grateful for guidance:
+what do &lt;em&gt;you&lt;/em&gt; think a (data) scientist who&amp;rsquo;s starting to manage their own system needs to know?&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Testing the Schelling Segregation Model</title>
@@ -2588,25 +2644,6 @@ but I hope you&amp;rsquo;ll find it informative, entertaining, and inspiring.
 If you do,
 or if you have suggestions for improving it,
 I&amp;rsquo;d enjoy hearing from you.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>ACM Certificate</title>
-   <link href="https://third-bit.com/2026/08/31/acm-certificate/"/>
-   <updated>2026-08-31T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/08/31/acm-certificate/</id>
-   <content type="html">&lt;p&gt;This arrived out of the blue in today&amp;rsquo;s mail:&lt;/p&gt;
-&lt;div class=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://third-bit.com/files/2026/acm-certificate.jpg&#34; alt=&#34;photograph of ACM SIGSOFT certificate&#34; width=&#34;80%&#34;&gt;
-&lt;/div&gt;
-
-&lt;p&gt;As I wrote &lt;a href=&#34;https://third-bit.com/2020/07/09/acm-sigsoft-award/&#34;&gt;when I received the original award&lt;/a&gt;,
-I am very honored,
-but wish I&amp;rsquo;d had more impact on how software engineering is taught
-and how software engineering researchers interact with practitioners.
-Having just finished packing my daughter&amp;rsquo;s belongings into a truck
-so that she can move back to university,
-I&amp;rsquo;m going to spend the evening thinking about roads not taken…&lt;/p&gt;</content>
  </entry>
  
 </feed>
