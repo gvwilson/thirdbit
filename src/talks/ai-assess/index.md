@@ -389,6 +389,32 @@ date: "2026-11-06"
 
 ---
 
+## Signs of Maturity
+
+1.  "How am I going to be measured in my annual performance review?"
+
+2.  "What do we keep when token costs go up 20X?"
+
+3.  "How much should I spend on insurance, and for what?"
+
+---
+
+## Next Steps
+
+1.  Go and look at Bram: <https://judell.github.io/bram/>
+
+2.  Hire a bunch of undergrads and study *them*
+
+    -   And share your findings
+
+3.  Hire a law student to put together a half-day workshop on the history of liability
+
+--
+
+<div class="center"><em>I'd be very happy to help…</em></div>
+
+---
+
 ## Conclusion
 
 -   These mistakes are not unique to AI research
@@ -397,11 +423,9 @@ date: "2026-11-06"
 
 -   The fix is to apply what the human sciences already know
 
--   Better yet: hand the job to your UX researchers
+-   So give the job to your UX researchers
 
     -   They already practice the rigorous qualitative and quantitative methods described here
-
--   We do not have to settle for hype: the methods are ready
 
 ---
 
