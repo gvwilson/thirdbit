@@ -132,6 +132,28 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/11/09/llm-as-interface/">
+      LLM as Interface
+    </a>
+  </h3>
+  <p><time datetime="2026-11-09" class="post-date">2026-11-09</time></p>
+  <p>I&rsquo;m old enough to remember when graphical user interfaces appeared on desktop machines in the 1980s.
+Many of them were wrappers around pre-existing programs;
+while some programmers (including my younger self) sneered at them for being pointless eye candy,
+all of a sudden ordinary people didn&rsquo;t have to remember a long list of obscure command-line spells
+in order to make computers do useful things.</p>
+<p>I&rsquo;m now old enough to remember when LLMs appeared in the 2020s.
+All of a sudden people didn&rsquo;t have to learn how to write syntactically correct YAML
+or figure out which of Git&rsquo;s eleventy jillion flags would safely and correctly do
+whatever they wanted to do.
+I&rsquo;m now wondering whether &ldquo;LLMs make it feasible for non-specialists who aren&rsquo;t heavily invested to use X&rdquo;
+is the same as &ldquo;X&rsquo;s interface never actually needed to be so user-hostile&rdquo;,
+and whether &ldquo;talk through it with an LLM&rdquo;
+is going to make complex software more accessible in the same way that GUIs did.</p>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/11/06/generating-a-lesson/">
       Generating a Lesson
     </a>
@@ -1022,105 +1044,6 @@ and they unlock the &ldquo;mathematical library&rdquo; style of verification
 that makes large programs tractable.
 This composes naturally with the first feature idea,
 since inductive lemmas over data types are the standard way to prove list properties.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/10/14/frml-builtin/">
-      Built-in Functions in Frml
-    </a>
-  </h3>
-  <p><time datetime="2026-10-14" class="post-date">2026-10-14</time></p>
-  <p>Previous posts in this series <a href="../2026/10/05/frml-intro/">introduced Frml</a>,
-then explained <a href="../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>,
-handles <a href="../2026/10/10/frml-contracts/">contracts between functions</a>,
-<a href="../2026/10/12/frml-loops/">deals with loops</a>,
-and <a href="../2026/10/13/frml-arrays/">checks arrays</a>.
-This post shows how Frml handles built-in functions like <code>push</code> and <code>pop</code>.
-Here&rsquo;s an example program to motivate the discussion:</p>
-<div class="highlight"><pre><span></span><code>fn main() -&gt; Int
-{
-  let a: Array&lt;Int&gt; = [1];
-  push(a, 2);
-  assert length(a) == 2;
-  return 0;
-}
-</code></pre></div>
-<h2>Built-in Functions</h2>
-<p>Frml&rsquo;s built-in functions live in <code>frml/builtins.py</code>:</p>
-<ul>
-<li><code>read(path: String) -&gt; String</code> returns the contents of a file</li>
-<li><code>write(path: String, text: String)</code> writes text to a file</li>
-<li><code>print(text: String)</code> writes text to standard output</li>
-<li><code>split(text: String, sep: String) -&gt; Array&lt;String&gt;</code> splits text on a separator</li>
-<li><code>args() -&gt; Array&lt;String&gt;</code> returns the command-line arguments</li>
-<li><code>push(array, value)</code> appends a value to an array</li>
-<li><code>pop(array) -&gt; value</code> removes and returns the last element</li>
-</ul>
-<p><code>TypeChecker.check_call</code> first looks the name up in <code>BUILTINS</code>.
-For a non-polymorphic built-in,
-it checks the argument count and each argument type against the recorded signature,
-then checks that a value-returning built-in is not used as a statement.
-The same path is reached whether the built-in appears as a statement or as an expression.</p>
-<p><code>push</code> and <code>pop</code> are marked <code>poly=True</code>
-because their signatures depend on the element type of the array argument:
-<code>_check_poly_builtin</code> resolves them.
-<code>push(a, v)</code> requires <code>a</code> to be an array variable and <code>v</code> to have <code>a</code>&rsquo;s element type;
-since it is a procedure, it returns no value.
-<code>pop(a)</code> requires <code>a</code> to be an array variable,
-returns <code>a</code>&rsquo;s element type,
-and cannot be used as a statement.
-Both are also rejected inside specifications,
-because a specification must describe a function without mutating arrays.</p>
-<h2>Verifying Built-Ins</h2>
-<p>The prover models most built-ins as uninterpreted values:
-<code>read</code> becomes a fresh string,
-<code>split</code> and <code>args</code> become fresh arrays of strings,
-and <code>print</code> and <code>write</code> evaluate their arguments and then have no further effect.
-The verifier can therefore prove nothing about a built-in&rsquo;s contents,
-which is sound because file contents and command-line arguments are external to the program.</p>
-<p><code>push</code> and <code>pop</code> are the only built-ins that mutate a program array,
-so the prover treats them specially.
-The prover models <code>push(a, v)</code> as appending <code>v</code> at the current length:</p>
-<div class="highlight"><pre><span></span><code>a = Store(a, length(a), v)
-length(a) = length(a) + 1
-</code></pre></div>
-<p>There is no bounds obligation: appending is always legal.
-The array variable is rebound to the new <code>ArrayVal</code>.</p>
-<p>The prover models <code>pop(a)</code> as removing the last element:</p>
-<div class="highlight"><pre><span></span><code>result = a[length(a) - 1]
-length(a) = length(a) - 1
-</code></pre></div>
-<p>Unlike <code>push</code>, <code>pop</code> emits an obligation that the array is non-empty:</p>
-<div class="highlight"><pre><span></span><code>hypotheses:  current path
-goal:        0 &lt; length(a)
-</code></pre></div>
-<p>Popping an empty array is therefore a failed verification condition
-rather than a runtime error.</p>
-<h3>Resizing in Loops</h3>
-<p>A loop that calls <code>push</code> or <code>pop</code> changes an array&rsquo;s length,
-so loop havoc must forget both the contents and the length.
-A scalar assignment havocs the scalar&rsquo;s value,
-a fixed-size array assignment havocs the array&rsquo;s contents but keeps its length,
-and an array changed by <code>push</code> or <code>pop</code> havocs the contents and the length.
-This is the same induction soundness argument as in the loop and array tutorials:
-the invariant is the only information that survives the havoc.</p>
-<h3>Resizing Across Function Calls</h3>
-<p>The builtin prover also tracks which array parameters a callee resizes.
-<code>written_params</code> contains the array parameters the callee writes,
-and <code>resized_params</code> is the subset of <code>written_params</code> that the callee resizes with <code>push</code> or <code>pop</code>.
-At a call site,
-a written-but-not-resized array parameter gets a fresh post-array with the same length,
-while a resized array parameter gets a fresh post-array with a fresh,
-unknown length,
-and the prover assumes that length is non-negative.</p>
-<h2>So How Do I Feel About This?</h2>
-<p>The short answer is &ldquo;unsatisfied&rdquo;.
-I didn&rsquo;t want to handle <code>push</code> and <code>pop</code> as special cases,
-and I hoped to build some sort of effects system for I/O,
-but this project is already larger than I originally intended it to be.
-If some students want to take this on,
-please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
 </article>
 
 
