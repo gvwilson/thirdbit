@@ -73,7 +73,24 @@ Tower Support Game
     Grow vegetables, then trade them for gossip and clues until you figure out
     who murdered Clint and why.
 
+## Research
+
+Unbreaking Software
+:   [These simple exercises][unbreak] are designed to teach debugging
+    (with or without AI assistance).
+    This project will extend them with [more complex scenarios][unbreak-complex],
+    and if time permits,
+    compare human performance to AI performance on solving them.
+
+Research Software Engineering Retrospective
+:   ["Best Practices for Scientific Computing"][best-practices] (2014)
+    and ["Good Enough Practices in Scientific Computing"][good-enough] (2017)
+    have been cited hundreds of times.
+    This project will investigate how the working practices of the authors of those citations
+    have changed over the past decade.
+
 [asimpy]: https://asimpy.readthedocs.io/
+[best-practices]: https://doi.org/10.1371/journal.pbio.1001745
 [bram]: https://github.com/judell/bram
 [chart.xkcd]: https://github.com/gvwilson/chart.xkcd/
 [curious-duck]: https://sim.curiousduck.io/
@@ -82,9 +99,12 @@ Tower Support Game
 [email]: mailto:gvwilson@third-bit.com
 [frml]: https://github.com/gvwilson/frml/
 [gleam]: https://gleam.run/
+[good-enough]: https://doi.org/10.1371/journal.pcbi.1005510
 [jorma]: https://github.com/gvwilson/jorma
 [sdxpy]: @root/sdxpy/
 [stardew]: https://www.stardewvalley.net/
 [tower-defense]: https://en.wikipedia.org/wiki/Tower_defense
+[unbreak]: @root/unbreak/
+[unbreak-complex]: @root/2026/11/10/intermediate-debugging-examples/
 [wbe]: https://browser.engineering/
 [xkcd]: https://xkcd.com/
