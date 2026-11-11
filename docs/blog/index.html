@@ -132,6 +132,329 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/11/10/intermediate-debugging-examples/">
+      Intermediate Debugging Examples
+    </a>
+  </h3>
+  <p><time datetime="2026-11-10" class="post-date">2026-11-10</time></p>
+  <p>I&rsquo;m thinking about extending <a href="../unbreak/">this set of debugging examples</a>
+with the more complex examples described below.
+I&rsquo;d be very grateful for feedback:
+would they be useful?
+Would they be useful <em>to you</em>?
+What other examples could be included,
+or should be included instead of some of the ones I&rsquo;ve outlined?</p>
+<h2>Log Ingestion Pipeline</h2>
+<p>A command-line Python tool that reads application log files, normalizes each
+line, extracts structured fields, and loads them into SQLite for later querying.</p>
+<ul>
+<li>
+<p>What it does: walks a directory of log files, parses each line with a regex,
+  converts the timestamp, extracts level/component/message, and inserts a row
+  per line into a <code>logs</code> table.</p>
+</li>
+<li>
+<p>Components: a scanner, a parser/normalizer, a loader, and a query/report
+  module that runs after loading.</p>
+</li>
+<li>
+<p>The bug: the normalizer converts timestamps to UTC and stores them as naive
+  datetimes, while the query layer assumes local time and compares against naive
+  <code>datetime.now()</code>. Reports are shifted by the local UTC offset. Secondarily,
+  the regex silently drops lines it doesn&rsquo;t match, but the loader reports &ldquo;N
+  lines loaded&rdquo; from the file&rsquo;s own count, so missing events are invisible.</p>
+</li>
+<li>
+<p>What it teaches: the wrong rows are <em>present and plausible</em>; nothing raises.
+  The two timezone assumptions live in different files, and the dropped-line bug
+  only shows up as a <em>shortfall</em> the learner has to notice rather than an error.</p>
+</li>
+</ul>
+<h2>Concurrent Web Crawler</h2>
+<p>A Python crawler using <code>httpx</code> with a thread or <code>asyncio</code> worker pool that
+fetches pages, normalizes URLs, deduplicates by content hash, and records pages
+and links in SQLite.</p>
+<ul>
+<li>
+<p>What it does: starts from seed URLs, fetches pages concurrently, extracts
+  links, and stores each page body plus a <code>pages</code>/<code>links</code> relationship in
+  SQLite.</p>
+</li>
+<li>
+<p>Components: a frontier/queue, a fetcher pool, a link extractor, a URL
+  normalizer, and a storage layer.</p>
+</li>
+<li>
+<p>The bug: the &ldquo;have I seen this URL?&rdquo; check and the subsequent insert are not
+  atomic, so two workers can both pass the check and fetch/store the same page
+  (duplicate rows, double work). Separately, URL normalization (stripping
+  trailing slashes, fragments, and normalizing case) is applied in the fetch
+  path but not in the link-extraction path, so the <em>same</em> page is keyed under
+  two URLs.</p>
+</li>
+<li>
+<p>What it teaches: it is a race, so it reproduces intermittently and only under
+  concurrency. The normalization mismatch produces near-duplicate rows that look
+  like different records at a glance.</p>
+</li>
+</ul>
+<h2>Library Lending API</h2>
+<p>A FastAPI application with SQLite persistence and an htmx front end for a small
+library: books, members, loans, and holds.</p>
+<ul>
+<li>
+<p>What it does: serves pages listing books and loans, and endpoints to check a
+  book out to a member, return it, and place holds. htmx renders table rows and
+  status fragments server-side.</p>
+</li>
+<li>
+<p>Components: route handlers, a data-access layer, SQLite models, htmx
+  templates, and a small availability helper used by both listing and checkout.</p>
+</li>
+<li>
+<p>The bug: checkout/return is not wrapped in a transaction, so the copy count is
+  decremented, then a later <code>INSERT</code> (the loan row) fails, leaving the count
+  wrong. The loan list also issues one query per row (N+1), which is fine until
+  the table grows. Availability is derived from loans in the listing path but
+  from a cached copy count in the checkout path, and the two drift.</p>
+</li>
+<li>
+<p>What it teaches: the transaction bug corrupts state that looks consistent
+  until a specific failure; the N+1 only bites under load; the availability
+  discrepancy is a disagreement between two places that each look individually
+  correct.</p>
+</li>
+</ul>
+<h2>Job Queue with Retries</h2>
+<p>A Python worker pool backed by a SQLite <code>jobs</code> table that claims, runs, and
+marks jobs done, with retry and exponential backoff.</p>
+<ul>
+<li>
+<p>What it does: producers insert jobs; N workers poll for pending jobs, claim
+  one, run it, and update its status; failures are retried with backoff up to a
+  maximum attempt count.</p>
+</li>
+<li>
+<p>Components: an enqueue function, a claim loop, a runner, and a retry/settle
+  routine.</p>
+</li>
+<li>
+<p>The bug: claiming is a <code>SELECT</code> followed by a separate <code>UPDATE ... WHERE
+  status='pending'</code>, not an atomic claim, so two workers can claim the same job.
+  The retry logic also treats permanent failures (a job that always raises the
+  same way) as retryable until the cap, then marks them &ldquo;failed&rdquo;, while a
+  transient timeout path re-enqueues a job that was in fact already completed.</p>
+</li>
+<li>
+<p>What it teaches: duplicate execution and dropped jobs both manifest as <em>count</em>
+  mismatches across a run, and the two bugs interact: retries resurface jobs the
+  duplicate-claim bug already ran.</p>
+</li>
+</ul>
+<h2>Checkout Wizard</h2>
+<p>A multi-step checkout workflow where an Alpine.js front end holds state across
+steps and a FastAPI backend validates and submits the order.</p>
+<ul>
+<li>
+<p>What it does: the client advances through steps, applying a discount code and
+  stock availability checks as it goes; the final submit posts the whole order
+  to the server, which re-validates.</p>
+</li>
+<li>
+<p>Components: Alpine components per step, a client-side cart/discount store, and
+  FastAPI endpoints for validation and order submission.</p>
+</li>
+<li>
+<p>The bug: client-side validation and server-side validation disagree: the
+  discount is applied client-side for display but not re-applied server-side,
+  and an out-of-stock item passes the client check (the client&rsquo;s stock number is
+  stale) and only fails at submit. Alpine state is not reset when the user
+  navigates back and starts a new order, so a stale discount or address leaks
+  in.</p>
+</li>
+<li>
+<p>What it teaches: the UI <em>shows</em> a valid-looking order that the server rejects,
+  and the leak is state the learner can&rsquo;t see in the markup. The two validation
+  layers are in different languages and files.</p>
+</li>
+</ul>
+<h2>Report Generator</h2>
+<p>A Python command-line tool that reads SQLite, groups records into day/week/month
+buckets, and emits CSV or HTML.</p>
+<ul>
+<li>
+<p>What it does: runs aggregation queries with a chosen granularity, formats
+  bucket labels, and writes the result to a report file.</p>
+</li>
+<li>
+<p>Components: a query builder, a bucket/label formatter, and an output writer.</p>
+</li>
+<li>
+<p>The bug: the aggregation query uses inclusive/exclusive boundaries or naive
+  vs. UTC datetimes differently from the label formatter, so records landing
+  exactly on a boundary are double-counted in one bucket and omitted from the
+  next, and the label&rsquo;s date is off by one. The two bucket definitions live in
+  separate functions.</p>
+</li>
+<li>
+<p>What it teaches: totals look plausible but don&rsquo;t sum to the source row count,
+  and the error only appears for records on exact boundaries (a small,
+  intermittent-looking slice of the data).</p>
+</li>
+</ul>
+<h2>Incremental Backup Tool</h2>
+<p>A Python command-line tool that walks a source tree, content-hashes files,
+deduplicates, and copies changed files into a backup directory while recording a
+manifest in SQLite.</p>
+<ul>
+<li>
+<p>What it does: scans the tree, hashes each file, compares against the manifest,
+  and copies new/changed files, updating the manifest.</p>
+</li>
+<li>
+<p>Components: a walker/scanner, a hasher, a differ, and a copier/manifest
+  updater.</p>
+</li>
+<li>
+<p>The bug: the tool scans, then copies, with no snapshot in between, so a file
+  changed between the scan and the copy is copied in a torn state or missed
+  entirely. The dedup key is the content hash alone, while the manifest records
+  path + mtime, so an empty file (or a file that became empty) is treated as
+  unchanged because &ldquo;missing&rdquo; and &ldquo;empty&rdquo; collide.</p>
+</li>
+<li>
+<p>What it teaches: the race is timing-dependent and only affects files touched
+  during the backup; the empty-vs-missing collision silently skips a file the
+  learner expected to be copied.</p>
+</li>
+</ul>
+<h2>Legacy Data Migration ETL</h2>
+<p>A Python script that reads a legacy SQLite schema and writes a normalized schema
+for the same data.</p>
+<ul>
+<li>
+<p>What it does: reads rows from several legacy tables and inserts them into new
+  tables with foreign keys, <code>NOT NULL</code> constraints, and unique indexes.</p>
+</li>
+<li>
+<p>Components: a reader per legacy table, a transformer, and a writer with
+  constraint handling.</p>
+</li>
+<li>
+<p>The bug: insert ordering isn&rsquo;t respected (child rows are inserted before their
+  parents, violating foreign keys) and legacy rows contain empty strings and
+  duplicates that violate the new schema&rsquo;s <code>NOT NULL</code> and unique constraints, so
+  the load fails partway and leaves a half-migrated database.</p>
+</li>
+<li>
+<p>What it teaches: the failure is a constraint violation deep in a bulk load,
+  far from the code that read the offending row, and the partial state makes
+  rerunning the migration unsafe without cleanup.</p>
+</li>
+</ul>
+<h2>Notification Dispatcher</h2>
+<p>A Python daemon that polls a SQLite <code>outbox</code> table, sends each pending message
+(email or HTTP), and marks it sent.</p>
+<ul>
+<li>
+<p>What it does: a loop selects unsent rows, sends them, and updates their
+  status; on send failure it leaves the row pending for retry.</p>
+</li>
+<li>
+<p>Components: a poller, a sender (SMTP/HTTP), and a status updater.</p>
+</li>
+<li>
+<p>The bug: send-then-mark is not atomic, so a crash or timeout after the send
+  but before the <code>UPDATE</code> leaves the row pending, and the message is sent again
+  on the next poll. There is no idempotency key on the receiving side, so a slow
+  or duplicated request produces duplicate deliveries.</p>
+</li>
+<li>
+<p>What it teaches: the duplicated side effect (an extra email) happens outside
+  the process, on the recipient&rsquo;s side, and the learner sees a &ldquo;pending&rdquo; row
+  that looks like it was never sent.</p>
+</li>
+</ul>
+<h2>Plugin-Based CLI</h2>
+<p>A Python command-line tool (argparse or typer) that loads plugins from a
+directory; plugins register subcommands and share a config object.</p>
+<ul>
+<li>
+<p>What it does: discovers plugin modules, imports them, collects the subcommands
+  each registers, and dispatches a chosen subcommand.</p>
+</li>
+<li>
+<p>Components: a plugin loader, a registry, a shared config object, and the
+  dispatch/argument parser.</p>
+</li>
+<li>
+<p>The bug: the shared config is a mutable dict aliased into every plugin; one
+  plugin mutates it and another reads the mutated value, so behavior depends on
+  plugin registration order. A plugin that registers a subcommand whose name
+  collides with an existing one silently overwrites the earlier registration.</p>
+</li>
+<li>
+<p>What it teaches: the bug moves with load order and only appears when a
+  specific combination of plugins is installed; the overwrite leaves no error,
+  just a missing command.</p>
+</li>
+</ul>
+<h2>Metrics Dashboard</h2>
+<p>A dashboard where htmx polls a FastAPI endpoint for JSON and Alpine.js renders
+charts, backed by SQLite sample storage.</p>
+<ul>
+<li>
+<p>What it does: a collector writes samples to SQLite; a FastAPI endpoint returns
+  the latest samples as JSON; an htmx-triggered poll fetches them and Alpine
+  components render the charts.</p>
+</li>
+<li>
+<p>Components: a sample collector, a query endpoint, htmx polling markup, and
+  Alpine chart components.</p>
+</li>
+<li>
+<p>The bug: timestamp comparison uses the browser&rsquo;s wall clock against server/DB
+  timestamps, so clock skew makes samples appear duplicated or missing at the
+  boundary. An htmx poll response can arrive out of order and update the DOM
+  <em>after</em> a newer response, overwriting fresh data with stale data.</p>
+</li>
+<li>
+<p>What it teaches: both bugs are timing/ordering problems that don&rsquo;t reproduce
+  deterministically, and the symptom (a chart briefly showing old values) looks
+  like a rendering glitch.</p>
+</li>
+</ul>
+<h2>Session &amp; Auth Service</h2>
+<p>A FastAPI application with SQLite and an htmx front end that logs users in,
+issues a session token, validates it in middleware, and invalidates it on
+logout.</p>
+<ul>
+<li>
+<p>What it does: login verifies credentials and issues a token (stored in a
+  sessions table); middleware validates the token on each request; logout marks
+  the session invalid.</p>
+</li>
+<li>
+<p>Components: login/logout routes, session/token storage, validation middleware,
+  and a refresh path.</p>
+</li>
+<li>
+<p>The bug: token expiry is checked in the middleware, but the refresh path
+  extends a <em>different</em> record (or logout invalidates the session row without
+  invalidating already-issued tokens), so a session that should be expired or
+  logged out still authenticates. A race between the expiry check and request
+  handling lets a request past just as the token lapses.</p>
+</li>
+<li>
+<p>What it teaches: the security-sensitive behavior only fails at the exact
+  expiry/logout boundary, and the invalid state lives in a different table or
+  code path from the check, so both sides look correct in isolation.</p>
+</li>
+</ul>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/11/09/llm-as-interface/">
       LLM as Interface
     </a>
@@ -943,107 +1266,6 @@ including but not limited to:</p>
 <li>authentication tokens for various systems</li>
 <li>the <code>.ssh</code> directory holding my SSH keys</li>
 </ul>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/10/15/frml-complete/">
-      Frml: Next Steps
-    </a>
-  </h3>
-  <p><time datetime="2026-10-15" class="post-date">2026-10-15</time></p>
-  <p>Previous posts in this series <a href="../2026/10/05/frml-intro/">introduced Frml</a>,
-explained <a href="../2026/10/08/frml-scalar/">how it checks simplar scalar code</a>
-and handles <a href="../2026/10/10/frml-contracts/">contracts between functions</a>,
-and then discussed how it <a href="../2026/10/12/frml-loops/">deals with loops</a>,
-<a href="../2026/10/13/frml-arrays/">checks arrays</a>,
-and <a href="../2026/10/14/frml-builtin/">checks built-in functions</a>.
-The final language level, <code>complete</code>,
-doesn&rsquo;t add any new features.
-Instead,
-it serves as a placeholder in case we want to extend the language further.
-I&rsquo;m not going to do this myself,
-but if you are a student (or a professor looking for projects for students)
-please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
-<h2>Algebraic Data Types and Pattern Matching</h2>
-<p>Add <code>enum</code> sum types and a <code>match</code> expression
-to teach structural induction over data and Z3&rsquo;s datatype theory.
-A sample program would be:</p>
-<div class="highlight"><pre><span></span><code>enum Option&lt;T&gt; { None, Some(T) }
-
-fn get_or(a: Option&lt;Int&gt;, d: Int) -&gt; Int
-  ensures result == d or result != d
-{
-  match a {
-    None =&gt; d,
-    Some(v) =&gt; v,
-  }
-}
-</code></pre></div>
-<p>Frml currently proves things about numbers and arrays
-but never about the shape of a value.
-Lists, options, and trees are where induction over data structures becomes real,
-and the classic proofs
-(list length, <code>append</code> associativity, <code>map</code> distributes over <code>append</code>)
-are exactly what separates &ldquo;checked the arithmetic&rdquo; from &ldquo;verified a data structure&rdquo;.
-Z3 has a native datatype sort,
-so this is more a type-checker and visitor addition than new solver machinery.
-It would sit as a <code>datatype</code> level above <code>contracts</code>,
-and recursive types would reuse the existing <code>decreases</code> machinery.</p>
-<h2>Explicit Frame Clauses (<code>modifies</code> / <code>reads</code>)</h2>
-<p>Frml already infers <code>written_params</code>,
-but the language gives the programmer no way to state what a call may touch.
-An explicit, checked clause makes that contract visible:</p>
-<div class="highlight"><pre><span></span><code>fn increment_first(a: Array&lt;Int&gt;)
-  modifies a
-  ensures a[0] == old(a[0]) + 1
-</code></pre></div>
-<p>This would teach the frame problem, modular verification, and information hiding.
-The pedagogical payoff is the frame problem:
-proving that a call does not change everything else.
-A student who writes <code>modifies a</code> and then has the verifier flag an unlisted write
-learns why modularity fails without framing,
-and why &ldquo;what may this function change?&rdquo; is a first-class specification question
-rather than an implementation detail.
-It also becomes the bridge to the hardest topics:
-aliasing and separation logic,
-which the current &ldquo;arrays are references but aliasing is forbidden&rdquo; design
-deliberately sidesteps.</p>
-<h2>Machine Integers (Bit Vectors) vs. Mathematical Integers</h2>
-<p>Frml&rsquo;s <code>Int</code> is an unbounded mathematical integer,
-so <code>x + 1 &gt; x</code> is always true.
-If we add a bounded type or a <code>--int-model bitvector</code> switch,
-that theorem quietly breaks:</p>
-<div class="highlight"><pre><span></span><code>fn add_one(x: Int32) -&gt; Bool
-  ensures x + 1 &gt; x   // false when x == Int32.max
-</code></pre></div>
-<p>This is arguably the most important caveat in applied verification:
-the model is not the machine.
-It teaches why SMT solvers are split into theories,
-why overflow is a real bug class,
-and why a verified program can still be wrong if the verification model diverges from the runtime.
-It also gives a natural way to discuss the tradeoff,
-since bit-vector reasoning is harder for the solver than integer arithmetic.</p>
-<h2>Ghost Code and Lemmas</h2>
-<p>The final idea is to extend the language
-so that programmers can introduce names and functions that exist only in specifications:</p>
-<div class="highlight"><pre><span></span><code>ghost var count: Int = 0;
-
-lemma append_len(a: List&lt;Int&gt;, b: List&lt;Int&gt;)
-  ensures length(a ++ b) == length(a) + length(b);
-</code></pre></div>
-<p>These <em>ghost variables</em> are the classic trick for proving properties
-that the running program has no reason to record,
-and lemmas are how a verified fact gets packaged and reused across functions
-instead of being re-derived inline.
-Together they teach that a proof is a structure of its own
-that can be layered on top of,
-but kept separate from,
-the executable program,
-and they unlock the &ldquo;mathematical library&rdquo; style of verification
-that makes large programs tractable.
-This composes naturally with the first feature idea,
-since inductive lemmas over data types are the standard way to prove list properties.</p>
 </article>
 
 

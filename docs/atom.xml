@@ -3,12 +3,333 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-11-09T00:00:00Z</updated>
+ <updated>2026-11-10T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Intermediate Debugging Examples</title>
+   <link href="https://third-bit.com/2026/11/10/intermediate-debugging-examples/"/>
+   <updated>2026-11-10T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/11/10/intermediate-debugging-examples/</id>
+   <content type="html">&lt;p&gt;I&amp;rsquo;m thinking about extending &lt;a href=&#34;https://third-bit.com/unbreak/&#34;&gt;this set of debugging examples&lt;/a&gt;
+with the more complex examples described below.
+I&amp;rsquo;d be very grateful for feedback:
+would they be useful?
+Would they be useful &lt;em&gt;to you&lt;/em&gt;?
+What other examples could be included,
+or should be included instead of some of the ones I&amp;rsquo;ve outlined?&lt;/p&gt;
+&lt;h2&gt;Log Ingestion Pipeline&lt;/h2&gt;
+&lt;p&gt;A command-line Python tool that reads application log files, normalizes each
+line, extracts structured fields, and loads them into SQLite for later querying.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: walks a directory of log files, parses each line with a regex,
+  converts the timestamp, extracts level/component/message, and inserts a row
+  per line into a &lt;code&gt;logs&lt;/code&gt; table.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a scanner, a parser/normalizer, a loader, and a query/report
+  module that runs after loading.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: the normalizer converts timestamps to UTC and stores them as naive
+  datetimes, while the query layer assumes local time and compares against naive
+  &lt;code&gt;datetime.now()&lt;/code&gt;. Reports are shifted by the local UTC offset. Secondarily,
+  the regex silently drops lines it doesn&amp;rsquo;t match, but the loader reports &amp;ldquo;N
+  lines loaded&amp;rdquo; from the file&amp;rsquo;s own count, so missing events are invisible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the wrong rows are &lt;em&gt;present and plausible&lt;/em&gt;; nothing raises.
+  The two timezone assumptions live in different files, and the dropped-line bug
+  only shows up as a &lt;em&gt;shortfall&lt;/em&gt; the learner has to notice rather than an error.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Concurrent Web Crawler&lt;/h2&gt;
+&lt;p&gt;A Python crawler using &lt;code&gt;httpx&lt;/code&gt; with a thread or &lt;code&gt;asyncio&lt;/code&gt; worker pool that
+fetches pages, normalizes URLs, deduplicates by content hash, and records pages
+and links in SQLite.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: starts from seed URLs, fetches pages concurrently, extracts
+  links, and stores each page body plus a &lt;code&gt;pages&lt;/code&gt;/&lt;code&gt;links&lt;/code&gt; relationship in
+  SQLite.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a frontier/queue, a fetcher pool, a link extractor, a URL
+  normalizer, and a storage layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: the &amp;ldquo;have I seen this URL?&amp;rdquo; check and the subsequent insert are not
+  atomic, so two workers can both pass the check and fetch/store the same page
+  (duplicate rows, double work). Separately, URL normalization (stripping
+  trailing slashes, fragments, and normalizing case) is applied in the fetch
+  path but not in the link-extraction path, so the &lt;em&gt;same&lt;/em&gt; page is keyed under
+  two URLs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: it is a race, so it reproduces intermittently and only under
+  concurrency. The normalization mismatch produces near-duplicate rows that look
+  like different records at a glance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Library Lending API&lt;/h2&gt;
+&lt;p&gt;A FastAPI application with SQLite persistence and an htmx front end for a small
+library: books, members, loans, and holds.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: serves pages listing books and loans, and endpoints to check a
+  book out to a member, return it, and place holds. htmx renders table rows and
+  status fragments server-side.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: route handlers, a data-access layer, SQLite models, htmx
+  templates, and a small availability helper used by both listing and checkout.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: checkout/return is not wrapped in a transaction, so the copy count is
+  decremented, then a later &lt;code&gt;INSERT&lt;/code&gt; (the loan row) fails, leaving the count
+  wrong. The loan list also issues one query per row (N+1), which is fine until
+  the table grows. Availability is derived from loans in the listing path but
+  from a cached copy count in the checkout path, and the two drift.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the transaction bug corrupts state that looks consistent
+  until a specific failure; the N+1 only bites under load; the availability
+  discrepancy is a disagreement between two places that each look individually
+  correct.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Job Queue with Retries&lt;/h2&gt;
+&lt;p&gt;A Python worker pool backed by a SQLite &lt;code&gt;jobs&lt;/code&gt; table that claims, runs, and
+marks jobs done, with retry and exponential backoff.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: producers insert jobs; N workers poll for pending jobs, claim
+  one, run it, and update its status; failures are retried with backoff up to a
+  maximum attempt count.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: an enqueue function, a claim loop, a runner, and a retry/settle
+  routine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: claiming is a &lt;code&gt;SELECT&lt;/code&gt; followed by a separate &lt;code&gt;UPDATE ... WHERE
+  status=&#39;pending&#39;&lt;/code&gt;, not an atomic claim, so two workers can claim the same job.
+  The retry logic also treats permanent failures (a job that always raises the
+  same way) as retryable until the cap, then marks them &amp;ldquo;failed&amp;rdquo;, while a
+  transient timeout path re-enqueues a job that was in fact already completed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: duplicate execution and dropped jobs both manifest as &lt;em&gt;count&lt;/em&gt;
+  mismatches across a run, and the two bugs interact: retries resurface jobs the
+  duplicate-claim bug already ran.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Checkout Wizard&lt;/h2&gt;
+&lt;p&gt;A multi-step checkout workflow where an Alpine.js front end holds state across
+steps and a FastAPI backend validates and submits the order.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: the client advances through steps, applying a discount code and
+  stock availability checks as it goes; the final submit posts the whole order
+  to the server, which re-validates.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: Alpine components per step, a client-side cart/discount store, and
+  FastAPI endpoints for validation and order submission.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: client-side validation and server-side validation disagree: the
+  discount is applied client-side for display but not re-applied server-side,
+  and an out-of-stock item passes the client check (the client&amp;rsquo;s stock number is
+  stale) and only fails at submit. Alpine state is not reset when the user
+  navigates back and starts a new order, so a stale discount or address leaks
+  in.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the UI &lt;em&gt;shows&lt;/em&gt; a valid-looking order that the server rejects,
+  and the leak is state the learner can&amp;rsquo;t see in the markup. The two validation
+  layers are in different languages and files.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Report Generator&lt;/h2&gt;
+&lt;p&gt;A Python command-line tool that reads SQLite, groups records into day/week/month
+buckets, and emits CSV or HTML.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: runs aggregation queries with a chosen granularity, formats
+  bucket labels, and writes the result to a report file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a query builder, a bucket/label formatter, and an output writer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: the aggregation query uses inclusive/exclusive boundaries or naive
+  vs. UTC datetimes differently from the label formatter, so records landing
+  exactly on a boundary are double-counted in one bucket and omitted from the
+  next, and the label&amp;rsquo;s date is off by one. The two bucket definitions live in
+  separate functions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: totals look plausible but don&amp;rsquo;t sum to the source row count,
+  and the error only appears for records on exact boundaries (a small,
+  intermittent-looking slice of the data).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Incremental Backup Tool&lt;/h2&gt;
+&lt;p&gt;A Python command-line tool that walks a source tree, content-hashes files,
+deduplicates, and copies changed files into a backup directory while recording a
+manifest in SQLite.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: scans the tree, hashes each file, compares against the manifest,
+  and copies new/changed files, updating the manifest.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a walker/scanner, a hasher, a differ, and a copier/manifest
+  updater.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: the tool scans, then copies, with no snapshot in between, so a file
+  changed between the scan and the copy is copied in a torn state or missed
+  entirely. The dedup key is the content hash alone, while the manifest records
+  path + mtime, so an empty file (or a file that became empty) is treated as
+  unchanged because &amp;ldquo;missing&amp;rdquo; and &amp;ldquo;empty&amp;rdquo; collide.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the race is timing-dependent and only affects files touched
+  during the backup; the empty-vs-missing collision silently skips a file the
+  learner expected to be copied.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Legacy Data Migration ETL&lt;/h2&gt;
+&lt;p&gt;A Python script that reads a legacy SQLite schema and writes a normalized schema
+for the same data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: reads rows from several legacy tables and inserts them into new
+  tables with foreign keys, &lt;code&gt;NOT NULL&lt;/code&gt; constraints, and unique indexes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a reader per legacy table, a transformer, and a writer with
+  constraint handling.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: insert ordering isn&amp;rsquo;t respected (child rows are inserted before their
+  parents, violating foreign keys) and legacy rows contain empty strings and
+  duplicates that violate the new schema&amp;rsquo;s &lt;code&gt;NOT NULL&lt;/code&gt; and unique constraints, so
+  the load fails partway and leaves a half-migrated database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the failure is a constraint violation deep in a bulk load,
+  far from the code that read the offending row, and the partial state makes
+  rerunning the migration unsafe without cleanup.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Notification Dispatcher&lt;/h2&gt;
+&lt;p&gt;A Python daemon that polls a SQLite &lt;code&gt;outbox&lt;/code&gt; table, sends each pending message
+(email or HTTP), and marks it sent.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: a loop selects unsent rows, sends them, and updates their
+  status; on send failure it leaves the row pending for retry.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a poller, a sender (SMTP/HTTP), and a status updater.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: send-then-mark is not atomic, so a crash or timeout after the send
+  but before the &lt;code&gt;UPDATE&lt;/code&gt; leaves the row pending, and the message is sent again
+  on the next poll. There is no idempotency key on the receiving side, so a slow
+  or duplicated request produces duplicate deliveries.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the duplicated side effect (an extra email) happens outside
+  the process, on the recipient&amp;rsquo;s side, and the learner sees a &amp;ldquo;pending&amp;rdquo; row
+  that looks like it was never sent.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Plugin-Based CLI&lt;/h2&gt;
+&lt;p&gt;A Python command-line tool (argparse or typer) that loads plugins from a
+directory; plugins register subcommands and share a config object.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: discovers plugin modules, imports them, collects the subcommands
+  each registers, and dispatches a chosen subcommand.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a plugin loader, a registry, a shared config object, and the
+  dispatch/argument parser.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: the shared config is a mutable dict aliased into every plugin; one
+  plugin mutates it and another reads the mutated value, so behavior depends on
+  plugin registration order. A plugin that registers a subcommand whose name
+  collides with an existing one silently overwrites the earlier registration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the bug moves with load order and only appears when a
+  specific combination of plugins is installed; the overwrite leaves no error,
+  just a missing command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Metrics Dashboard&lt;/h2&gt;
+&lt;p&gt;A dashboard where htmx polls a FastAPI endpoint for JSON and Alpine.js renders
+charts, backed by SQLite sample storage.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: a collector writes samples to SQLite; a FastAPI endpoint returns
+  the latest samples as JSON; an htmx-triggered poll fetches them and Alpine
+  components render the charts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: a sample collector, a query endpoint, htmx polling markup, and
+  Alpine chart components.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: timestamp comparison uses the browser&amp;rsquo;s wall clock against server/DB
+  timestamps, so clock skew makes samples appear duplicated or missing at the
+  boundary. An htmx poll response can arrive out of order and update the DOM
+  &lt;em&gt;after&lt;/em&gt; a newer response, overwriting fresh data with stale data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: both bugs are timing/ordering problems that don&amp;rsquo;t reproduce
+  deterministically, and the symptom (a chart briefly showing old values) looks
+  like a rendering glitch.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Session &amp;amp; Auth Service&lt;/h2&gt;
+&lt;p&gt;A FastAPI application with SQLite and an htmx front end that logs users in,
+issues a session token, validates it in middleware, and invalidates it on
+logout.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it does: login verifies credentials and issues a token (stored in a
+  sessions table); middleware validates the token on each request; logout marks
+  the session invalid.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Components: login/logout routes, session/token storage, validation middleware,
+  and a refresh path.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The bug: token expiry is checked in the middleware, but the refresh path
+  extends a &lt;em&gt;different&lt;/em&gt; record (or logout invalidates the session row without
+  invalidating already-issued tokens), so a session that should be expired or
+  logged out still authenticates. A race between the expiry check and request
+  handling lets a request past just as the token lapses.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it teaches: the security-sensitive behavior only fails at the exact
+  expiry/logout boundary, and the invalid state lives in a different table or
+  code path from the check, so both sides look correct in isolation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>LLM as Interface</title>
@@ -2517,19 +2838,6 @@ It also has no networking, hashing, SQLite, CSV/YAML, temporary-file, or path-ma
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>Iffy</title>
-   <link href="https://third-bit.com/2026/09/11/iffy/"/>
-   <updated>2026-09-11T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/09/11/iffy/</id>
-   <content type="html">&lt;p&gt;I have started posting chapters from my YA novel &lt;a href=&#34;https://www.wattpad.com/story/415942282-iffy&#34;&gt;&lt;em&gt;Iffy&lt;/em&gt;&lt;/a&gt; to Wattpad.
-The first three are now available,
-and the rest will come out between now and September 26.
-If you enjoy it,
-I&amp;rsquo;d be grateful if you would share it with friends (particularly young ones).
-I&amp;rsquo;m also always grateful for &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;feedback&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
 </feed>
