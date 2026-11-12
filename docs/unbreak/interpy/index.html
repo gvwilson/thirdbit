@@ -10,7 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -50,6 +50,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../complex/">Complex Examples</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/unbreak">Repository</a>
@@ -169,7 +170,7 @@ returns <code>False</code> even when the values should be equal.</p>
 see that one ends in <code>...000001</code> rather than matching the other exactly, revealing
 the rounding difference that makes <code>==</code> return <code>False</code>.</p>
 </details>
-<h2 id="interpy-broad">Load settings from a configuration file</h2>
+<h2 id="interpy-broad">Scrape titles from a list of URLs</h2>
 <p>Run the scraper with the provided URL list, which includes one malformed URL. Does
 it process all the valid URLs? Check whether anything is silently discarded.</p>
 <div data-inc="broad.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/broad.py" class="inc-path" role="img" tabindex="0" title="interpy/broad.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
@@ -226,7 +227,7 @@ Run the script again and read the log output. You will see a <code>ValueError</c
 URL parser printed for the malformed URL, proving the <code>except</code> block was swallowing
 the wrong exception type.</p>
 </details>
-<h2 id="interpy-commas">Read addresses from a spreadsheet export</h2>
+<h2 id="interpy-commas">Find the top scorer in a CSV file</h2>
 <p>Run the script with the provided CSV file and read the traceback. Which line in the
 file triggers the error? Examine that line carefully.</p>
 <div data-inc="commas.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/commas.py" class="inc-path" role="img" tabindex="0" title="interpy/commas.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>

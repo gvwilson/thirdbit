@@ -10,7 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -50,6 +50,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../complex/">Complex Examples</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/unbreak">Repository</a>
@@ -57,7 +58,7 @@
 </nav>
 <main id="main-content">
 <h1>Basic Python</h1>
-<h2 id="basicpy-sliding">Calculate a running average over a time series</h2>
+<h2 id="basicpy-sliding">Build sliding windows over a sequence</h2>
 <p>Run this code with a small list (for example, five elements and a window size of
 three) and count the windows by hand. Does the number of windows the code returns
 match the number you counted?</p>
@@ -71,7 +72,6 @@ match the number you counted?</p>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">windows</span> <span class="o">=</span> <span class="n">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Windows: </span><span class="si">{</span><span class="n">windows</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">windows</span><span class="p">)</span><span class="si">}</span><span class="s2">, expected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <details class="explanation">
@@ -85,9 +85,9 @@ every expected window by hand — <code>[1,2,3]</code>, <code>[2,3,4]</code>, <c
 Print <code>len(range(len(data) - k))</code> to see it returns 2. The mismatch between 3 and 2
 reveals the off-by-one.</p>
 </details>
-<h2 id="basicpy-catadd">Add up totals from a text file</h2>
-<p>Run this script with the provided input file and examine the total it prints. Does
-the value look like a reasonable sum of exam scores?</p>
+<h2 id="basicpy-catadd">Average scores from a text file</h2>
+<p>Run this script with the provided input file and examine the average it prints. Does
+the value look like a reasonable average of exam scores?</p>
 <div data-inc="catadd.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/catadd.py" class="inc-path" role="img" tabindex="0" title="basicpy/catadd.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
@@ -105,8 +105,8 @@ the value look like a reasonable sum of exam scores?</p>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"catadd.txt"</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">average_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">average_scores</span><span class="p">(</span><span class="s2">"catadd.txt"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div data-inc="catadd.txt"><span aria-label="Source: basicpy/catadd.txt" class="inc-path" role="img" tabindex="0" title="basicpy/catadd.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>85
@@ -120,7 +120,7 @@ the value look like a reasonable sum of exam scores?</p>
 <summary>Show explanation</summary>
 <p>The bug is accumulating scores with <code>total = total + line.strip()</code> (string
 concatenation) instead of converting each line to a number first, so the script
-always reports a nonsensical total.</p>
+always reports a nonsensical average.</p>
 <p>Shows: the difference between string <code>+</code> and numeric <code>+</code>, and how to
 check the type of a value at runtime using <code>type()</code> or <code>isinstance()</code>.</p>
 <p>To find it: print <code>type(total)</code> after the first iteration. You will see
@@ -160,11 +160,11 @@ rejected.</p>
 <p>Shows: how Boolean logic errors cause silent misbehavior, and how a
 small truth table reveals which operator is correct.</p>
 <p>To find it: write a two-row truth table for a password that satisfies one condition
-but not the other — say, correct length but no special character. With <code>and</code>, both
+but not the other (e.g., correct length but no special character). With <code>and</code>, both
 conditions must be false for the overall check to return <code>True</code>; valid passwords
 almost never satisfy that, so the gate always rejects.</p>
 </details>
-<h2 id="basicpy-formula">Convert temperatures between units</h2>
+<h2 id="basicpy-formula">Convert degrees/minutes/seconds to decimal degrees</h2>
 <p>Call the conversion function with a coordinate you can verify by hand—for example,
 1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function
 return the correct value?</p>
@@ -196,7 +196,7 @@ expressed entirely in seconds. The correct result is <code>1.0</code>; if the fu
 seconds by 60, it returns <code>60.0</code>, making the wrong constant visible without needing
 a reference table.</p>
 </details>
-<h2 id="basicpy-sortnone">Sort a list of student scores</h2>
+<h2 id="basicpy-sortnone">Square and sort a list of numbers</h2>
 <p>Run this script and examine what it prints. Is the list what you expected?</p>
 <div data-inc="sortnone.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/sortnone.py" class="inc-path" role="img" tabindex="0" title="basicpy/sortnone.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">squared_sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a sorted list of squares of the input numbers."""</span>
@@ -213,12 +213,12 @@ a reference table.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result, so
-the list is always empty.</p>
+the result is <code>None</code> instead of the sorted list.</p>
 <p>Shows: that many list methods mutate in place and return <code>None</code>.</p>
-<p>To find it: print <code>sorted_scores</code> immediately after the assignment. The output
+<p>To find it: print <code>squared_sorted([3, 1, 4, 1, 5, 9, 2, 6])</code> immediately after the assignment. The output
 <code>None</code> shows the return value of <code>list.sort()</code> rather than a sorted list.</p>
 </details>
-<h2 id="basicpy-indent">Count words across multiple files</h2>
+<h2 id="basicpy-indent">Count runs of identical lines in a file</h2>
 <p>Run this script with the provided input file and examine the run-length counts.
 Then trace through the loop by hand with a short example—track what the "previous
 line" variable holds at each step.</p>
@@ -250,8 +250,7 @@ line" variable holds at each step.</p>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"indent.txt"</span>
-    <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">count_runs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">count_runs</span><span class="p">(</span><span class="s2">"indent.txt"</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -275,7 +274,7 @@ time.</p>
 Run with the sample file and watch the printed value — it never changes, which means
 the update is happening outside the loop rather than at the start of each iteration.</p>
 </details>
-<h2 id="basicpy-noreturn">Check whether a number is prime</h2>
+<h2 id="basicpy-noreturn">Filter negative numbers from a list</h2>
 <p>Call the function and print its return value. Is it what you expected?</p>
 <div data-inc="noreturn.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/noreturn.py" class="inc-path" role="img" tabindex="0" title="basicpy/noreturn.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a new list containing only the non-negative values."""</span>
@@ -298,7 +297,7 @@ the update is happening outside the loop rather than at the start of each iterat
 return it, so it returns <code>None</code>.</p>
 <p>Shows: that Python functions return <code>None</code> by default and how to spot
 missing <code>return</code> in control flow.</p>
-<p>To find it: print the function's return value directly — <code>print(is_prime(7))</code>. Seeing
+<p>To find it: print the function's return value directly — <code>print(filter_negatives([-3, 1, -1, 4, -1, 5, -9, 2, -6]))</code>. Seeing
 <code>None</code> identifies a missing <code>return</code>; follow the control flow to find the branch that
 computes the result without returning it.</p>
 </details>
@@ -320,8 +319,7 @@ is missing?</p>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"nokey.txt"</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="s2">"nokey.txt"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])[:</span><span class="mi">5</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
@@ -359,7 +357,7 @@ access? Use <code>type()</code> to examine the types of the two values being com
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">user_id</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"42"</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="s2">"42"</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">is_allowed</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s2">"streq.json"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Access granted."</span> <span class="k">if</span> <span class="n">result</span> <span class="k">else</span> <span class="s2">"Access denied."</span><span class="p">)</span>
 </code></pre></div>
@@ -371,9 +369,9 @@ access? Use <code>type()</code> to examine the types of the two values being com
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is that the JSON file stores IDs as integers but the login ID arrives as a
-string from user input, and <code>"42" != 42</code> in Python, so the script always reports
-"access denied" even for valid users.</p>
+<p>The bug is that the JSON file stores IDs as integers but the login ID arrives as
+a string, and <code>"42" != 42</code> in Python, so the script always reports "access
+denied" even for valid users.</p>
 <p>Shows: how JSON types map to Python types and why type conversion must
 happen explicitly at system boundaries.</p>
 <p>To find it: print <code>type(user_id)</code> and <code>type(allowed_ids[0])</code> side by side. You will
@@ -396,11 +394,11 @@ why <code>==</code> always returns <code>False</code>.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a base-case condition that uses <code>&gt;</code> instead of <code>&gt;=</code>, so calling the
-function with zero triggers infinite recursion and raises a <code>RecursionError</code>.</p>
+function with zero implicitly returns <code>None</code>.</p>
 <p>Shows: how to identify missing or incorrect base cases in recursion.</p>
-<p>To find it: call <code>factorial(0)</code> directly and read the <code>RecursionError</code>. Then read the
-base-case condition: <code>if n &gt; 0</code> means <code>0 &gt; 0</code> is <code>False</code>, so the function recurses
-instead of returning 1. Replacing <code>&gt;</code> with <code>&gt;=</code> fixes it.</p>
+<p>To find it: call <code>factorial(0)</code> directly and read the error. Then read the
+base-case condition: <code>if n &gt; 0</code> means <code>0 &gt; 0</code> is <code>False</code>, so the function
+falls through and returns <code>None</code>.</p>
 </details>
 <h2 id="basicpy-mutable">Collect results with a helper function</h2>
 <p>Call the function twice in a row with no arguments and compare the two return
@@ -428,10 +426,10 @@ values. Are they the same?</p>
 with leftover items from previous calls.</p>
 <p>Shows: Python's mutable default argument trap and why <code>None</code> is the
 correct default.</p>
-<p>To find it: call <code>collect()</code> twice with no arguments and print both return values on
-the same line — <code>print(collect(), collect())</code>. The second list will contain all items
-from the first call plus new ones, proving the two calls share the same underlying
-list.</p>
+<p>To find it: call <code>collect()</code> twice with no arguments and print both return
+values on the same line (i.e., <code>print(collect(), collect())</code>). The second list
+will contain all items from the first call plus new ones, proving the two calls
+share the same underlying list.</p>
 </details>
 <h2 id="basicpy-trailing">Compare lines read from a file</h2>
 <p>Run this script with the provided input file. Use <code>repr()</code> on a field value that
@@ -454,7 +452,7 @@ was not visible before?</p>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"trailing.txt"</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">"trailing.txt"</span>
     <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">]:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">find_value</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -474,11 +472,11 @@ West|77
 <p>The bug is that certain applications pad fields with trailing spaces, so string
 comparisons always fail for those rows even though the values look correct to the
 naked eye.</p>
-<p>Shows: that real-world data often contains invisible characters, and
-how <code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
-<p>To find it: print <code>repr(row[field])</code> for a row that fails the comparison. You will
-see trailing spaces — e.g., <code>'Smith   '</code> — that are invisible in a normal <code>print</code>
-but visible in the <code>repr()</code> output.</p>
+<p>Shows: that real-world data often contains invisible characters, and how
+<code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
+<p>To find it: print <code>repr(row[field])</code> for a row that fails the comparison. You
+will see trailing spaces (e.g., <code>'Smith '</code>) that are invisible in a normal
+<code>print</code> but visible in the <code>repr()</code> output.</p>
 </details>
 <h2 id="basicpy-strmeth">Clean up user-submitted text</h2>
 <p>Call the function and print the message before and after the call. Has the message
@@ -500,15 +498,15 @@ changed?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is that <code>str.replace</code> returns a new string and the return value is never
-assigned back, so the original message is unchanged at the end.</p>
-<p>Shows: that string methods never mutate their argument, and that every
-string transformation must be captured in a variable.</p>
-<p>To find it: print <code>message</code> both before and after calling <code>clean_message</code>. If the
-message is unchanged, the transformation's return value was discarded. Check that
-the result of <code>str.replace</code> is assigned back to a variable.</p>
+<p>The bug is that <code>str.replace</code> returns a new string, but the return value is
+never assigned back, so the original message is unchanged at the end.</p>
+<p>Shows: that string methods never mutate their argument, and that every string
+transformation must be captured in a variable.</p>
+<p>To find it: print <code>message</code> both before and after calling <code>clean_message</code>. If
+the message is unchanged, the transformation's return value was discarded. Check
+that the result of <code>str.replace</code> is assigned back to a variable.</p>
 </details>
-<h2 id="basicpy-mutiter">Remove expired entries from a list</h2>
+<h2 id="basicpy-mutiter">Remove negative numbers from a list</h2>
 <p>Run this script and count how many items were removed. Is it the number you
 expected? Try with a list where every element should be removed.</p>
 <div data-inc="mutiter.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/mutiter.py" class="inc-path" role="img" tabindex="0" title="basicpy/mutiter.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remove_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
@@ -528,14 +526,13 @@ expected? Try with a list where every element should be removed.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is modifying a list while iterating over it, which causes the loop to skip
-every other matching item.</p>
-<p>Shows: why mutating a collection during iteration causes unpredictable
-behavior.</p>
-<p>To find it: run with <code>items = [2, 4, 6, 8]</code>, which should remove all four elements.
-Print <code>len(items)</code> after the loop; you will get <code>2</code> instead of <code>0</code>. Trace the first
-iteration: removing <code>items[0]</code> shifts <code>items[1]</code> into position 0, which the loop
-then skips on its next step.</p>
+<p>The bug is modifying a list while iterating over it, which causes the loop to
+skip every other matching item.</p>
+<p>Shows: why mutating a collection during iteration causes unpredictable behavior.</p>
+<p>To find it: run with <code>numbers = [-1, -2, -3, -4]</code>, which should remove all four
+elements.  Print <code>len(numbers)</code> after the loop; you will get <code>2</code> instead of
+<code>0</code>. Trace the first iteration: removing <code>numbers[0]</code> shifts <code>numbers[1]</code> into
+position 0, which the loop then skips on its next step.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">

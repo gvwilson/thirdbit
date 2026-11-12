@@ -10,7 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -50,6 +50,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../complex/">Complex Examples</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/unbreak">Repository</a>
@@ -57,7 +58,7 @@
 </nav>
 <main id="main-content">
 <h1>Data, I/O, and Testing</h1>
-<h2 id="diot-quotecsv">Read a contact list from a CSV export</h2>
+<h2 id="diot-quotecsv">Parse records with quoted fields</h2>
 <p>Run the parser with the provided CSV file. Do all rows produce the correct number
 of fields? Pay particular attention to rows that contain commas.</p>
 <div data-inc="quotecsv.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/quotecsv.py" class="inc-path" role="img" tabindex="0" title="diot/quotecsv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -257,7 +258,7 @@ Seeing <code>0</code> tells you the selector matched nothing. Then print the fir
 characters of <code>str(soup)</code> to confirm whether the expected element is actually present
 in the HTML.</p>
 </details>
-<h2 id="diot-overexp">Extract phone numbers from a text file</h2>
+<h2 id="diot-overexp">Extract email addresses from a text file</h2>
 <p>Test the regular expression against a few valid email addresses and a few strings
 that look like email addresses but are not. Does it reject the invalid ones?</p>
 <div data-inc="overexp.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/overexp.py" class="inc-path" role="img" tabindex="0" title="diot/overexp.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>

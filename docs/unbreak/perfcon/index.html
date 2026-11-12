@@ -10,7 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -50,6 +50,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../complex/">Complex Examples</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/unbreak">Repository</a>
@@ -57,7 +58,7 @@
 </nav>
 <main id="main-content">
 <h1>Performance, Concurrency, and System Interaction</h1>
-<h2 id="perfcon-repscans">Search a large log file for matching entries</h2>
+<h2 id="perfcon-repscans">Find the most common word in a text</h2>
 <p>Run the word-frequency function on the provided text file and time how long it
 takes. Then run <code>cProfile</code> on it to see which lines consume the most time.</p>
 <div data-inc="repscans.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/repscans.py" class="inc-path" role="img" tabindex="0" title="perfcon/repscans.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -250,7 +251,7 @@ models.</p>
 process. If the two addresses differ, each process has its own copy of the list and
 modifications inside workers are invisible to the parent.</p>
 </details>
-<h2 id="perfcon-mockpatch">Test a function that sends email notifications</h2>
+<h2 id="perfcon-mockpatch">Mock a function where it is imported</h2>
 <p>Run the test. Does it pass? Add a print statement inside the mock to check whether
 the mock is actually being called. Then look at the return value of the function
 under test.</p>
@@ -301,8 +302,8 @@ so <code>unittest.mock.patch</code> has no effect on the code under test.</p>
 applied.</p>
 <p>To find it: add <code>print("mock was called")</code> as the first line of the mock function.
 Run the test. If the print never appears, the mock is not intercepting the real call.
-Then check where <code>send_email</code> was imported in the module under test — the patch must
-name that module, not the one where <code>send_email</code> is defined.</p>
+Then check where <code>fetch_data</code> was imported in the module under test — the patch must
+name that module, not the one where <code>fetch_data</code> is defined.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
