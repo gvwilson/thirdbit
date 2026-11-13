@@ -1,0 +1,95 @@
+
+## The catalogue
+
+The full mapping covers roughly a hundred legacy commands.
+
+### Files and directories
+
+`ls`, `stat` → `list`;
+`cd` → `go`;
+`pwd` → `where`;
+`cp`, `install` → `copy`;
+`mv` → `move`;
+`rm`, `rmdir` → `remove`;
+`mkdir`, `touch`, `mktemp` → `create`;
+`ln` → `link`;
+`readlink`, `realpath` → `resolve`;
+`find`, `locate` → `find`;
+`file` → `identify`;
+`chmod`, `chown`, `chgrp`, `umask` → `permit`.
+
+### Content
+
+`cat`, `tac`, `head`, `tail`, `less`, `more` → `read`;
+`wc` → `count`;
+`sort` → `sort`;
+`uniq` → `unique`;
+`cut` → `select`;
+`paste`, `join` → `join`;
+`comm` → `join` with set modes;
+`tr`, `sed` → `replace`;
+`awk` → `filter`, `map`, and the aggregates;
+`grep`, `egrep`, `fgrep` → `search`;
+`tee` → `branch`;
+`fold`, `fmt`, `column` → `to table`;
+`nl` → `read --numbered`;
+`split`, `csplit` → `split`;
+`od`, `hexdump` → `hex`;
+`strings` → `strings`;
+`rev` → `replace` with `--reverse`;
+`xargs` → `each`.
+
+### Checksums and encoding
+
+`cksum`, `md5sum`, `sha1sum`, `sha256sum`, `shasum` → `checksum --algorithm`;
+`base64` → `encode`/`decode`.
+
+### Processes
+
+`ps` → `processes`;
+`top`, `htop` → `monitor`;
+`kill`, `killall`, `pkill` → `signal`;
+`pgrep` → `processes` then `filter`;
+`nice`, `renice`, `nohup`, `timeout` → `run`;
+`jobs`, `fg`, `bg` → `jobs`, `foreground`, `background`;
+`time` → `time`.
+
+### System
+
+`uname`, `hostname`, `uptime` → `system`;
+`whoami`, `id`, `groups` → `user`;
+`who`, `w`, `last` → `logged-in`;
+`date` → `time`;
+`cal` → `calendar`;
+`env`, `printenv`, `set`, `export`, `unset` → `environment`;
+`echo`, `printf` → `echo` and `format`;
+`man`, `apropos`, `whatis`, `info` → `help`;
+`which`, `whereis`, `type`, `command` → `which`;
+`bc`, `expr` → `calc`;
+`test`, `[` → `test`;
+`clear`, `tty` → unchanged.
+
+### Disk and filesystems
+
+`du` → `usage`;
+`df` → `space`;
+`mount`, `umount` → `mount`, `unmount`;
+`fsck` → `check`;
+`mkfs` → `format`.
+
+### Network
+
+`curl`, `wget`, `ftp` → `fetch`;
+`ssh` → `connect`;
+`scp`, `sftp`, `rsync` → `send`;
+`ping` → `reach`;
+`traceroute` → `trace`;
+`dig`, `nslookup`, `host` → `lookup`;
+`ifconfig`, `ip` → `interfaces`;
+`netstat`, `ss` → `connections`;
+`nc`, `telnet` → `talk`.
+
+## Archive and compression
+
+`tar`, `cpio`, `zip`, `unzip` → `archive`;
+`gzip`, `gunzip`, `bzip2`, `bunzip2`, `xz`, `unxz`, `zip`, `unzip` → `compress`, `expand`.
