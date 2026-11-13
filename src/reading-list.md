@@ -196,5 +196,7 @@ template: page
 | Queens of Code | Eileen Buckholtz | 978-0262049474 | 2026 |
 | Everything You Need to Know | Matthew Stuart | 978-1324105893 | 2026 |
 | Fedor Pikus | The Art of Writing Efficient Programs | 978-1835465189 | 2026 |
+| The Book of Debugging | Johannes Kuhlmann | 978-1718504066 | 2026 |
 | Judge of Worlds | Daniel Abraham | 978-0316421935 | 2027 |
 | Ruins | Lily Brooks-Dalton | 978-1538770535 | 2027 |
+| The Unnatural History of Malware | Lena Yu | 978-1718505162 | 2027 |
