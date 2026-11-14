@@ -1,54 +1,50 @@
 ---
 title: Rationalizing the Command Line
-date: 2026-11-12
+date: 2026-11-13
 category: programming
 ---
 
 The Unix command line is the most successful user interface ever built, and also
 the worst one we are stuck with. It was assembled over half a century, one tool
-at a time, by people optimizing for their own fingers at a teletype. The result
+at a time, by people optimizing for their own fingers on a keyboard. The result
 is overlapping responsibilities, inconsistent flags, and names that mean nothing
-to anyone who was not there when they were invented. That mattered little when
-the only consumer was a person who had memorized the quirks. It matters a great
-deal now that the principal consumers are people trying to understand what an
-LLM is doing on their behalf.
+to anyone who was not there when they were invented.  That didn't matter when
+the only consumers were people willing to memorize its quirks; it matters a
+great deal now that the principal consumers are people trying to understand what
+an LLM is doing on their behalf.
 
-This post therefore proposes a set of replacement tools that have more readable
-names and more consistent (and therefore more learnable) flags. Note that this
-won't make any real difference to the LLMs; the aim is to make their actions
-more legible to users who aren't already command-line nerds.
+This post is a thought exercise: what a set of replacement tools that have more
+readable names and more consistent (and therefore more learnable) flags look
+like? This wouldn't make any difference to the LLMs; the aim would be to make
+their actions more legible to users who aren't command-line nerds.
 
 One core design decision is to stop treating everything as a stream of bytes,
-which forces every tool to re-derive structure from it. `ls` lists files, but
-flattens them into whitespace-aligned columns. `ps` lists processes, but pads
-and truncates its output to fit the current terminal width. The next tool in the
-pipe receives that text and has to guess where one field ends and the next
-begins.
+which forces every tool to re-derive structure.  Two modern shells have already
+done this.  [PowerShell][powershell] built a pipeline that carries .NET objects,
+not text. A command like `Get-Process` produces a stream of process objects; the
+next command reads their typed properties instead of parsing columns. PowerShell
+draws a hard line between data and display: `ConvertTo-Json` and `ConvertTo-Csv`
+turn objects into data, while `Format-Table` and `Format-List` format objects
+for the screen and are display-only: they must be the last command in a
+pipeline, and piping their output into a data command produces garbage.
+PowerShell also standardizes a set of common parameters (`-Verbose`,
+`-ErrorAction`, `-WhatIf`, `-Confirm`) shared by every command. Its flaws are
+the verbose `Verb-Noun` names, the case-insensitive abbreviable parameters, and
+awkward gotchas like `ConvertTo-Json` defaulting to `-Depth 2` and silently
+flattening anything deeper.
 
-Two modern shells have solved this problem.  PowerShell built a pipeline that
-carries .NET objects, not text. A command like `Get-Process` produces a stream
-of process objects; the next command reads their typed properties instead of
-parsing columns. PowerShell draws a hard line between data and display:
-`ConvertTo-Json` and `ConvertTo-Csv` turn objects into data, while
-`Format-Table` and `Format-List` format objects for the screen and are
-display-only: they must be the last command in a pipeline, and piping their
-output into a data command produces garbage.  PowerShell also standardizes a set
-of common parameters (`-Verbose`, `-ErrorAction`, `-WhatIf`, `-Confirm`) shared
-by every command. Its flaws are the verbose `Verb-Noun` names, the
-case-insensitive abbreviable parameters, and awkward gotchas like
-`ConvertTo-Json` defaulting to `-Depth 2` and silently flattening anything
-deeper.
+[Nushell][nushell] goes further by making typed tables the standard.  `ls`
+returns a table of records; `where`, `select`, and `sort-by` reshape it by field
+name; `to json` and `to csv` serialize it; `from json` and `from csv` parse it
+back; `into int` and `into string` convert types, and so on. A pipeline like
+`ls | where size > 10mb | sort-by modified | to json` therefore never has to
+parse a text column.  Nushell's weakness is that it keeps the legacy command
+names and their inherited flags, so the surface is still cluttered even though
+the data is clean.
 
-Nushell goes further by making typed tables the standard.  `ls` returns a table
-of records; `where`, `select`, and `sort-by` reshape it by field name; `to json`
-and `to csv` serialize it; `from json` and `from csv` parse it back; `into int`
-and `into string` convert types. A pipeline like `ls | where size > 10mb |
-sort-by modified | to json` therefore never has to parse a text column.
-Nushell's weakness is that it keeps the legacy command names and their inherited
-flags, so the surface is still cluttered even though the data is clean.
-
-The design below is the synthesis: Nushell's typed tables, PowerShell's hard
-separation of data from display, and neither system's legacy names.
+The design below is the synthesis: Nushell's typed tables, PowerShell's
+separation of data from display, neither system's legacy names, and a standard
+way to interrogate tools to get their output schema.
 
 ## Principles
 
@@ -191,9 +187,7 @@ combinators—because a full programming language bolted onto a filter is how
 `test`,
 and `true`.
 
-## Old to New
-
-A representative slice:
+## Examples
 
 | today | becomes |
 |-------|---------|
@@ -213,7 +207,7 @@ A representative slice:
 
 ## Declaring a Schema
 
-Every producer answers one shared option, `--schema`, by emitting a table that
+Every producer has a shared option `--schema`, which makes it emit a table that
 describes the fields it produces. `list --schema`, for example, returns:
 
 | field | type | description |
@@ -232,12 +226,14 @@ machine-readable form, while `list --schema` alone renders it for a person.  As
 a result, a reader can learn what a command will emit before running it, using
 the same vocabulary as any other data.
 
-## Sources
+## Further Reading
 
 -   The [Nushell book][nushell-book] and [command reference][nushell-command]
 -   The PowerShell documentation for [ConvertTo-Json][powershell-json] and [CommonParameters][powershell-params]
 
+[nushell]: https://www.nushell.sh/
 [nushell-book]: https://www.nushell.sh/book/
 [nushell-command]: https://www.nushell.sh/commands/
+[powershell]: https://www.microsoft.com/powershell
 [powershell-json]: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-json
 [powershell-params]: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters

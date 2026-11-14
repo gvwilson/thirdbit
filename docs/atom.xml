@@ -3,12 +3,552 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-11-10T00:00:00Z</updated>
+ <updated>2026-11-13T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Rationalizing the Command Line</title>
+   <link href="https://third-bit.com/2026/11/13/rationalizing-the-command-line/"/>
+   <updated>2026-11-13T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/11/13/rationalizing-the-command-line/</id>
+   <content type="html">&lt;p&gt;The Unix command line is the most successful user interface ever built, and also
+the worst one we are stuck with. It was assembled over half a century, one tool
+at a time, by people optimizing for their own fingers on a keyboard. The result
+is overlapping responsibilities, inconsistent flags, and names that mean nothing
+to anyone who was not there when they were invented.  That didn&amp;rsquo;t matter when
+the only consumers were people willing to memorize its quirks; it matters a
+great deal now that the principal consumers are people trying to understand what
+an LLM is doing on their behalf.&lt;/p&gt;
+&lt;p&gt;This post is a thought exercise: what a set of replacement tools that have more
+readable names and more consistent (and therefore more learnable) flags look
+like? This wouldn&amp;rsquo;t make any difference to the LLMs; the aim would be to make
+their actions more legible to users who aren&amp;rsquo;t command-line nerds.&lt;/p&gt;
+&lt;p&gt;One core design decision is to stop treating everything as a stream of bytes,
+which forces every tool to re-derive structure.  Two modern shells have already
+done this.  &lt;a href=&#34;https://www.microsoft.com/powershell&#34;&gt;PowerShell&lt;/a&gt; built a pipeline that carries .NET objects,
+not text. A command like &lt;code&gt;Get-Process&lt;/code&gt; produces a stream of process objects; the
+next command reads their typed properties instead of parsing columns. PowerShell
+draws a hard line between data and display: &lt;code&gt;ConvertTo-Json&lt;/code&gt; and &lt;code&gt;ConvertTo-Csv&lt;/code&gt;
+turn objects into data, while &lt;code&gt;Format-Table&lt;/code&gt; and &lt;code&gt;Format-List&lt;/code&gt; format objects
+for the screen and are display-only: they must be the last command in a
+pipeline, and piping their output into a data command produces garbage.
+PowerShell also standardizes a set of common parameters (&lt;code&gt;-Verbose&lt;/code&gt;,
+&lt;code&gt;-ErrorAction&lt;/code&gt;, &lt;code&gt;-WhatIf&lt;/code&gt;, &lt;code&gt;-Confirm&lt;/code&gt;) shared by every command. Its flaws are
+the verbose &lt;code&gt;Verb-Noun&lt;/code&gt; names, the case-insensitive abbreviable parameters, and
+awkward gotchas like &lt;code&gt;ConvertTo-Json&lt;/code&gt; defaulting to &lt;code&gt;-Depth 2&lt;/code&gt; and silently
+flattening anything deeper.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.nushell.sh/&#34;&gt;Nushell&lt;/a&gt; goes further by making typed tables the standard.  &lt;code&gt;ls&lt;/code&gt;
+returns a table of records; &lt;code&gt;where&lt;/code&gt;, &lt;code&gt;select&lt;/code&gt;, and &lt;code&gt;sort-by&lt;/code&gt; reshape it by field
+name; &lt;code&gt;to json&lt;/code&gt; and &lt;code&gt;to csv&lt;/code&gt; serialize it; &lt;code&gt;from json&lt;/code&gt; and &lt;code&gt;from csv&lt;/code&gt; parse it
+back; &lt;code&gt;into int&lt;/code&gt; and &lt;code&gt;into string&lt;/code&gt; convert types, and so on. A pipeline like
+&lt;code&gt;ls | where size &amp;gt; 10mb | sort-by modified | to json&lt;/code&gt; therefore never has to
+parse a text column.  Nushell&amp;rsquo;s weakness is that it keeps the legacy command
+names and their inherited flags, so the surface is still cluttered even though
+the data is clean.&lt;/p&gt;
+&lt;p&gt;The design below is the synthesis: Nushell&amp;rsquo;s typed tables, PowerShell&amp;rsquo;s
+separation of data from display, neither system&amp;rsquo;s legacy names, and a standard
+way to interrogate tools to get their output schema.&lt;/p&gt;
+&lt;h2&gt;Principles&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Typed data, not text.&lt;/dt&gt;
+&lt;dd&gt;Commands pass tables (lists of records with named fields) and scalars, never
+ad-hoc text. Text is a rendering.&lt;/dd&gt;
+&lt;dt&gt;One verb per tool.&lt;/dt&gt;
+&lt;dd&gt;Each tool does one thing; each thing is done by one tool.&lt;/dd&gt;
+&lt;dt&gt;One flag, one meaning.&lt;/dt&gt;
+&lt;dd&gt;A flag means the same thing everywhere. Shared flags include &lt;code&gt;--recursive&lt;/code&gt;,
+&lt;code&gt;--ignore-case&lt;/code&gt;, &lt;code&gt;--reverse&lt;/code&gt;, &lt;code&gt;--human&lt;/code&gt;, &lt;code&gt;--quiet&lt;/code&gt;, &lt;code&gt;--force&lt;/code&gt;,
+&lt;code&gt;--interactive&lt;/code&gt;, &lt;code&gt;--help&lt;/code&gt;, &lt;code&gt;--version&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Data and display are separate.&lt;/dt&gt;
+&lt;dd&gt;Serialization is an explicit, final step (&lt;code&gt;to json&lt;/code&gt;), never a mode hidden
+inside a data command.&lt;/dd&gt;
+&lt;dt&gt;Schemas are declared.&lt;/dt&gt;
+&lt;dd&gt;Every producer documents the fields it emits, so other tools (not just LLMs)
+can discover what a table contains.&lt;/dd&gt;
+&lt;dt&gt;Three types of commands.&lt;/dt&gt;
+&lt;dd&gt;Every command is one of three things: a producer (emits typed data), a
+transformer (reshapes typed data), or a serializer (turns typed data into
+text). Pipelines run producers into transformers into a serializer.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Producers&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;tool&lt;/th&gt;
+&lt;th&gt;emits&lt;/th&gt;
+&lt;th&gt;replaces&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;list path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{name, type, size, modified, mode, owner, group}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ls&lt;/code&gt;, &lt;code&gt;stat&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{path, type, size, modified}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;find&lt;/code&gt;, &lt;code&gt;locate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;resolve path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{path, canonical, target}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;realpath&lt;/code&gt;, &lt;code&gt;readlink&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;read path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;the file as a list of line records, or a string&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;, &lt;code&gt;tac&lt;/code&gt;, &lt;code&gt;less&lt;/code&gt;, &lt;code&gt;zcat&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;search pattern&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{file, line, column, text}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;egrep&lt;/code&gt;, &lt;code&gt;fgrep&lt;/code&gt;, &lt;code&gt;zgrep&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;processes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{pid, ppid, user, cpu, mem, command}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ps&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;usage path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{path, size, files}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;du&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;space&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{filesystem, size, used, available, mount}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;df&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;system&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{os, kernel, hostname, arch, uptime}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;uname&lt;/code&gt;, &lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;user&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{name, uid, gid, groups}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;whoami&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;groups&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;time&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{now, utc, epoch}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;environment&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{name, value}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;env&lt;/code&gt;, &lt;code&gt;printenv&lt;/code&gt;, &lt;code&gt;set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;interfaces&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{name, address, mac, state}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ifconfig&lt;/code&gt;, &lt;code&gt;ip addr&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;connections&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{protocol, local, remote, state}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;netstat&lt;/code&gt;, &lt;code&gt;ss&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mounts&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{device, mountpoint, fstype, options}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mount&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;logged-in&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{user, tty, host, since}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;who&lt;/code&gt;, &lt;code&gt;w&lt;/code&gt;, &lt;code&gt;last&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;checksum path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{path, algorithm, digest}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;md5sum&lt;/code&gt;, &lt;code&gt;sha256sum&lt;/code&gt;, &lt;code&gt;cksum&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Transformers&lt;/h2&gt;
+&lt;p&gt;These are the heart of the design. They work on any table and are the
+replacement for a large fraction of the text tooling.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;tool&lt;/th&gt;
+&lt;th&gt;what it does&lt;/th&gt;
+&lt;th&gt;replaces&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;select field…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;keep named columns&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cut&lt;/code&gt;, PowerShell &lt;code&gt;Select-Object&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;filter predicate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;keep rows matching a predicate&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;awk&lt;/code&gt; on columns, Nushell &lt;code&gt;where&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sort field…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;sort by named fields&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sort -k&lt;/code&gt;, &lt;code&gt;sort -t&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unique field…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;drop duplicate rows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;uniq&lt;/code&gt;, &lt;code&gt;sort -u&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;group field&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;group rows by a field&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;awk&lt;/code&gt; grouping&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;join right --on field&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;relational join of two tables&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;join&lt;/code&gt;, &lt;code&gt;comm&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;count&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;count rows (or a field&amp;rsquo;s values)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;wc -l&lt;/code&gt;, &lt;code&gt;uniq -c&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sum&lt;/code&gt;, &lt;code&gt;mean&lt;/code&gt;, &lt;code&gt;min&lt;/code&gt;, &lt;code&gt;max field&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;aggregate a numeric field&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;awk &#39;{s+=$1}END{print s}&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;map expression&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;compute a new field&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;awk &#39;{print ...}&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;head N&lt;/code&gt;, &lt;code&gt;tail N&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;take first or last N rows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;replace pattern replacement&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;substitute text in a field&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sed &#39;s///&#39;&lt;/code&gt;, &lt;code&gt;tr&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;flatten&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;unnest a nested field&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;jq flatten&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;filter&lt;/code&gt; and &lt;code&gt;map&lt;/code&gt; need a small expression language. The design keeps it
+deliberately tiny—field access, comparison, arithmetic, and boolean
+combinators—because a full programming language bolted onto a filter is how
+&lt;code&gt;awk&lt;/code&gt; happened.&lt;/p&gt;
+&lt;h2&gt;Serializers&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;tool&lt;/th&gt;
+&lt;th&gt;output&lt;/th&gt;
+&lt;th&gt;replaces&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;to table&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;aligned text table for humans&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;column&lt;/code&gt;, &lt;code&gt;fmt&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;to json&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;JSON&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;jq&lt;/code&gt;, &lt;code&gt;ConvertTo-Json&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;to csv&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;CSV&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ConvertTo-Csv&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;to plain&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;one field per line, for text pipelines&lt;/td&gt;
+&lt;td&gt;implicit text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Others&lt;/h2&gt;
+&lt;h3&gt;File and directory operations&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;new&lt;/th&gt;
+&lt;th&gt;old&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;go&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cd&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;copy&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cp&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;move&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mv&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;remove&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;rmdir&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;create&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;touch&lt;/code&gt;, &lt;code&gt;mkdir&lt;/code&gt; with &lt;code&gt;--directory&lt;/code&gt;, &lt;code&gt;mktemp&lt;/code&gt; with &lt;code&gt;--temporary&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;link&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ln&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;permit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;chmod&lt;/code&gt;, &lt;code&gt;chown&lt;/code&gt;, &lt;code&gt;chgrp&lt;/code&gt; via &lt;code&gt;--mode&lt;/code&gt;, &lt;code&gt;--owner&lt;/code&gt;, &lt;code&gt;--group&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Processes&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;new&lt;/th&gt;
+&lt;th&gt;old&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kill&lt;/code&gt;, &lt;code&gt;killall&lt;/code&gt;, &lt;code&gt;pkill&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;monitor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;top&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;run&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nice&lt;/code&gt;, &lt;code&gt;timeout&lt;/code&gt;, &lt;code&gt;nohup&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;System&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;new&lt;/th&gt;
+&lt;th&gt;old&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;help&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;man&lt;/code&gt;, &lt;code&gt;apropos&lt;/code&gt;, &lt;code&gt;whatis&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;which&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;which&lt;/code&gt;, &lt;code&gt;whereis&lt;/code&gt;, &lt;code&gt;type&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Network&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;new&lt;/th&gt;
+&lt;th&gt;old&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fetch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;curl&lt;/code&gt;, &lt;code&gt;wget&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;connect&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ssh&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;send&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;scp&lt;/code&gt;, &lt;code&gt;sftp&lt;/code&gt;, &lt;code&gt;rsync&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reach&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;trace&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;traceroute&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;lookup&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dig&lt;/code&gt;, &lt;code&gt;nslookup&lt;/code&gt;, &lt;code&gt;host&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Archive and compression&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;new&lt;/th&gt;
+&lt;th&gt;old&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;archive&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tar&lt;/code&gt;, &lt;code&gt;cpio&lt;/code&gt;, &lt;code&gt;zip&lt;/code&gt; via &lt;code&gt;--create&lt;/code&gt;, &lt;code&gt;--extract&lt;/code&gt;, &lt;code&gt;--list&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;compress&lt;/code&gt; and &lt;code&gt;expand&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip&lt;/code&gt;, &lt;code&gt;bzip2&lt;/code&gt;, &lt;code&gt;xz&lt;/code&gt;, &lt;code&gt;zip&lt;/code&gt;, &lt;code&gt;unzip&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Miscellaneous&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;calc&lt;/code&gt; (and &lt;code&gt;bc&lt;/code&gt;),
+&lt;code&gt;echo&lt;/code&gt;,
+&lt;code&gt;expr&lt;/code&gt;,
+&lt;code&gt;false&lt;/code&gt;,
+&lt;code&gt;seq&lt;/code&gt;,
+&lt;code&gt;sleep&lt;/code&gt;,
+&lt;code&gt;test&lt;/code&gt;,
+and &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Examples&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;today&lt;/th&gt;
+&lt;th&gt;becomes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ls -la&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;list --long&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;du -sh *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;usage --human&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ps aux&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;processes&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cat f | grep x | wc -l&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;search x f | count&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cut -d, -f1,3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;select name, amount&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sort -t, -k3 -n&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sort score --numeric&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;awk &#39;$3 &amp;gt; 100 {print $1}&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;filter score &amp;gt; 100 | select name&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep -ri foo .&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;search foo --recursive --ignore-case&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find . -name &#39;*.py&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;find . --name &#39;*.py&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;curl -s url&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;fetch url&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tar czf x.tgz dir&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;archive dir --create --compress&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sha256sum f&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;checksum f --algorithm sha256&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jq &#39;.items[]&#39; f&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;read f | from json | flatten&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Declaring a Schema&lt;/h2&gt;
+&lt;p&gt;Every producer has a shared option &lt;code&gt;--schema&lt;/code&gt;, which makes it emit a table that
+describes the fields it produces. &lt;code&gt;list --schema&lt;/code&gt;, for example, returns:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;field&lt;/th&gt;
+&lt;th&gt;type&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;path&lt;/td&gt;
+&lt;td&gt;file or directory name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;type&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;file&lt;/code&gt;, &lt;code&gt;directory&lt;/code&gt;, or &lt;code&gt;symlink&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;size&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;bytes&lt;/td&gt;
+&lt;td&gt;size in bytes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;modified&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;timestamp&lt;/td&gt;
+&lt;td&gt;time of last modification&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;permission bits&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;owner&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;owning user&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;group&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;owning group&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Because a schema is itself a table, the ordinary transformers and serializers
+apply to it: &lt;code&gt;list --schema | select field, type | to json&lt;/code&gt; yields the compact
+machine-readable form, while &lt;code&gt;list --schema&lt;/code&gt; alone renders it for a person.  As
+a result, a reader can learn what a command will emit before running it, using
+the same vocabulary as any other data.&lt;/p&gt;
+&lt;h2&gt;Further Reading&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;https://www.nushell.sh/book/&#34;&gt;Nushell book&lt;/a&gt; and &lt;a href=&#34;https://www.nushell.sh/commands/&#34;&gt;command reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The PowerShell documentation for &lt;a href=&#34;https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-json&#34;&gt;ConvertTo-Json&lt;/a&gt; and &lt;a href=&#34;https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters&#34;&gt;CommonParameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>Intermediate Debugging Examples</title>
@@ -2717,127 +3257,6 @@ either to learn or to teach.
 In turn,
 that makes me think about student projects I would like to run.
 Please see &lt;a href=&#34;https://third-bit.com/projects/&#34;&gt;this page&lt;/a&gt; for my current list.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>IO for Software Design</title>
-   <link href="https://third-bit.com/2026/09/20/io-for-sd/"/>
-   <updated>2026-09-20T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/09/20/io-for-sd/</id>
-   <content type="html">&lt;p&gt;Last winter I wrote &lt;a href=&#34;https://gvwilson.github.io/asimpy/&#34;&gt;a discrete event simulation framework&lt;/a&gt; in Python
-to keep myself busy,
-have something to put on my CV,
-experiment with LLM-assisted coding,
-and learn how &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; actually work.
-Over the summer,
-for similar reasons,
-I played around a bit with &lt;a href=&#34;https://lean-lang.org/&#34;&gt;Lean&lt;/a&gt; and &lt;a href=&#34;https://gleam.run/&#34;&gt;Gleam&lt;/a&gt;,
-thinking that I might translate the &lt;em&gt;Software Design by Example&lt;/em&gt; books
-from &lt;a href=&#34;https://third-bit.com/sdxjs/&#34;&gt;JavaScript&lt;/a&gt; and &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;Python&lt;/a&gt; into one or the other.
-Lean defeated me,
-and I quickly grew frustrated with the gaps in Gleam&amp;rsquo;s standard library,
-but my noodling around left me wanting to learn more about formal verification of programs.&lt;/p&gt;
-&lt;p&gt;After poking around a bit I decided to give &lt;a href=&#34;https://dafny.org/&#34;&gt;Dafny&lt;/a&gt; a try,
-only to find that its standard library has gaps too.
-Depending on whether or not I&amp;rsquo;m able to &lt;a href=&#34;https://third-bit.com/2026/09/08/looking-for-work/&#34;&gt;find work&lt;/a&gt;,
-I might try to recruit some undergrads to fill those in.
-What follows is a spec for what I would need them to build
-in order to be able to replicate the examples in the existing books.&lt;/p&gt;
-&lt;p&gt;In brief:
-Dafny&amp;rsquo;s standard library provides only whole-file I/O (&lt;code&gt;Std.FileIO&lt;/code&gt;) and JSON (&lt;code&gt;Std.JSON&lt;/code&gt;).
-&lt;code&gt;Std.FileIO&lt;/code&gt; reads or writes an entire file in a single call;
-there are no functions to open and close file handles and no streaming reads.
-It also has no networking, hashing, SQLite, CSV/YAML, temporary-file, or path-manipulation support.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Standard streams&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sys.stdin&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sys.stdout&lt;/code&gt; exists (kind of: &lt;code&gt;print&lt;/code&gt; writes to standard output)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sys.stderr&lt;/code&gt;: missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;File operations&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;open(path, mode)&lt;/code&gt; with text and binary modes (&lt;code&gt;&#34;r&#34;&lt;/code&gt;, &lt;code&gt;&#34;w&#34;&lt;/code&gt;, &lt;code&gt;&#34;rb&#34;&lt;/code&gt;): missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;file.close()&lt;/code&gt;: (obviously) also missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;file.read()&lt;/code&gt; to read a whole file exists:
-    &lt;code&gt;Std.FileIO.ReadUTF8FromFile&lt;/code&gt; (text) or &lt;code&gt;Std.FileIO.ReadBytesFromFile&lt;/code&gt; (bytes)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;file.read(n)&lt;/code&gt; to read fixed-size blocks: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;file.readlines()&lt;/code&gt; to read content as lines: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;file.write(text)&lt;/code&gt; to save data to file exists:
-    &lt;code&gt;Std.FileIO.WriteUTF8ToFile&lt;/code&gt; (text) or &lt;code&gt;Std.FileIO.WriteBytesToFile&lt;/code&gt; (bytes)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Path manipulation&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Path(...)&lt;/code&gt; (string to path): missing (paths are plain &lt;code&gt;string&lt;/code&gt;s passed to &lt;code&gt;Std.FileIO&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Path.read_text()&lt;/code&gt;: use &lt;code&gt;Std.FileIO.ReadUTF8FromFile&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Path.write_text()&lt;/code&gt;: use &lt;code&gt;Std.FileIO.WriteUTF8ToFile&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Path.mkdir()&lt;/code&gt; (including &lt;code&gt;parents=True, exist_ok=True&lt;/code&gt;):
-    partial: &lt;code&gt;Std.FileIO.WriteUTF8ToFile&lt;/code&gt;/&lt;code&gt;WriteBytesToFile&lt;/code&gt; create nonexistent parent directories,
-    but there is no standalone &lt;code&gt;mkdir&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;missing: &lt;code&gt;Path.cwd()&lt;/code&gt;,  &lt;code&gt;Path.joinpath()&lt;/code&gt;,  &lt;code&gt;Path.parent&lt;/code&gt;,  &lt;code&gt;Path.stem&lt;/code&gt;,  &lt;code&gt;Path.suffix&lt;/code&gt;,  &lt;code&gt;Path.name&lt;/code&gt;,  &lt;code&gt;Path.exists()&lt;/code&gt;,  &lt;code&gt;Path.is_file()&lt;/code&gt;,  &lt;code&gt;Path.touch()&lt;/code&gt;,  &lt;code&gt;Path.unlink()&lt;/code&gt;,  &lt;code&gt;Path.rmdir()&lt;/code&gt;,  &lt;code&gt;Path.rename()&lt;/code&gt;,  &lt;code&gt;Path.iterdir()&lt;/code&gt;,  &lt;code&gt;Path.glob()&lt;/code&gt; / &lt;code&gt;Path.rglob()&lt;/code&gt;, &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Temporary files and directories&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;tempfile.TemporaryDirectory()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tempfile.NamedTemporaryFile(...)&lt;/code&gt;: missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;JSON&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;json.load()&lt;/code&gt; exists: &lt;code&gt;Std.JSON.API.Deserialize&lt;/code&gt; (from &lt;code&gt;seq&amp;lt;byte&amp;gt;&lt;/code&gt;, not from a file or string)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;json.dump()&lt;/code&gt; exists: &lt;code&gt;Std.JSON.API.Serialize&lt;/code&gt; (to &lt;code&gt;seq&amp;lt;byte&amp;gt;&lt;/code&gt;; &lt;code&gt;SerializeAlloc&lt;/code&gt; returns an &lt;code&gt;array&amp;lt;byte&amp;gt;&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;CSV&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;csv.reader()&lt;/code&gt; missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;csv.writerow()&lt;/code&gt; missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;csv.writerows()&lt;/code&gt; missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;csv.DictReader()&lt;/code&gt; missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;YAML&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;yaml.load()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Binary records&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;struct.pack()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;struct.unpack()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;struct.calcsize()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Hashing&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;hashlib.sha256().hexdigest()&lt;/code&gt;: missing (the standard library has &lt;code&gt;Std.Base64&lt;/code&gt;, but no SHA/MD5)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;hashlib.md5()&lt;/code&gt; with &lt;code&gt;.update()&lt;/code&gt; for streaming hash: missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;SQLite&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sqlite3.connect()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;connection.execute()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;connection.fetchall()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;connection.commit()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;TCP sockets&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;socket.socket()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;socket.gethostbyname()&lt;/code&gt;: missing&lt;/li&gt;
-&lt;li&gt;Missing from client side: &lt;code&gt;.connect()&lt;/code&gt;, &lt;code&gt;.send()&lt;/code&gt;, &lt;code&gt;.sendall()&lt;/code&gt;, &lt;code&gt;.recv()&lt;/code&gt;, &lt;code&gt;.close()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Missing from server side: &lt;code&gt;.bind()&lt;/code&gt;, &lt;code&gt;.listen()&lt;/code&gt;, &lt;code&gt;.accept()&lt;/code&gt;, &lt;code&gt;.recv()&lt;/code&gt;, &lt;code&gt;.send()&lt;/code&gt;, &lt;code&gt;.close()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;TCP server framework&lt;ul&gt;
-&lt;li&gt;A way to create a TCP server (e.g., a base class)&lt;/li&gt;
-&lt;li&gt;And then &lt;code&gt;self.request.recv()&lt;/code&gt;, &lt;code&gt;self.request.sendall()&lt;/code&gt;, &lt;code&gt;self.client_address&lt;/code&gt;, &lt;code&gt;server.serve_forever()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;HTTP server&lt;ul&gt;
-&lt;li&gt;A way to create an HTTP server&lt;/li&gt;
-&lt;li&gt;And then &lt;code&gt;do_GET()&lt;/code&gt; (with &lt;code&gt;self.path&lt;/code&gt; and &lt;code&gt;self.command&lt;/code&gt;), &lt;code&gt;self.send_response()&lt;/code&gt;, &lt;code&gt;self.send_header()&lt;/code&gt;, &lt;code&gt;self.end_headers()&lt;/code&gt;, &lt;code&gt;self.wfile.write(body)&lt;/code&gt;, &lt;code&gt;HTTPStatus&lt;/code&gt; enum&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;HTTP client&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;requests.get()&lt;/code&gt; (or a similar workhorse) with &lt;code&gt;req.add_header()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;And then a response with &lt;code&gt;.status_code&lt;/code&gt;, &lt;code&gt;.headers[]&lt;/code&gt;, &lt;code&gt;.text&lt;/code&gt;, &lt;code&gt;.read()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</content>
  </entry>
  
 </feed>

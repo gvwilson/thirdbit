@@ -132,6 +132,548 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/11/13/rationalizing-the-command-line/">
+      Rationalizing the Command Line
+    </a>
+  </h3>
+  <p><time datetime="2026-11-13" class="post-date">2026-11-13</time></p>
+  <p>The Unix command line is the most successful user interface ever built, and also
+the worst one we are stuck with. It was assembled over half a century, one tool
+at a time, by people optimizing for their own fingers on a keyboard. The result
+is overlapping responsibilities, inconsistent flags, and names that mean nothing
+to anyone who was not there when they were invented.  That didn&rsquo;t matter when
+the only consumers were people willing to memorize its quirks; it matters a
+great deal now that the principal consumers are people trying to understand what
+an LLM is doing on their behalf.</p>
+<p>This post is a thought exercise: what a set of replacement tools that have more
+readable names and more consistent (and therefore more learnable) flags look
+like? This wouldn&rsquo;t make any difference to the LLMs; the aim would be to make
+their actions more legible to users who aren&rsquo;t command-line nerds.</p>
+<p>One core design decision is to stop treating everything as a stream of bytes,
+which forces every tool to re-derive structure.  Two modern shells have already
+done this.  <a href="https://www.microsoft.com/powershell">PowerShell</a> built a pipeline that carries .NET objects,
+not text. A command like <code>Get-Process</code> produces a stream of process objects; the
+next command reads their typed properties instead of parsing columns. PowerShell
+draws a hard line between data and display: <code>ConvertTo-Json</code> and <code>ConvertTo-Csv</code>
+turn objects into data, while <code>Format-Table</code> and <code>Format-List</code> format objects
+for the screen and are display-only: they must be the last command in a
+pipeline, and piping their output into a data command produces garbage.
+PowerShell also standardizes a set of common parameters (<code>-Verbose</code>,
+<code>-ErrorAction</code>, <code>-WhatIf</code>, <code>-Confirm</code>) shared by every command. Its flaws are
+the verbose <code>Verb-Noun</code> names, the case-insensitive abbreviable parameters, and
+awkward gotchas like <code>ConvertTo-Json</code> defaulting to <code>-Depth 2</code> and silently
+flattening anything deeper.</p>
+<p><a href="https://www.nushell.sh/">Nushell</a> goes further by making typed tables the standard.  <code>ls</code>
+returns a table of records; <code>where</code>, <code>select</code>, and <code>sort-by</code> reshape it by field
+name; <code>to json</code> and <code>to csv</code> serialize it; <code>from json</code> and <code>from csv</code> parse it
+back; <code>into int</code> and <code>into string</code> convert types, and so on. A pipeline like
+<code>ls | where size &gt; 10mb | sort-by modified | to json</code> therefore never has to
+parse a text column.  Nushell&rsquo;s weakness is that it keeps the legacy command
+names and their inherited flags, so the surface is still cluttered even though
+the data is clean.</p>
+<p>The design below is the synthesis: Nushell&rsquo;s typed tables, PowerShell&rsquo;s
+separation of data from display, neither system&rsquo;s legacy names, and a standard
+way to interrogate tools to get their output schema.</p>
+<h2>Principles</h2>
+<dl>
+<dt>Typed data, not text.</dt>
+<dd>Commands pass tables (lists of records with named fields) and scalars, never
+ad-hoc text. Text is a rendering.</dd>
+<dt>One verb per tool.</dt>
+<dd>Each tool does one thing; each thing is done by one tool.</dd>
+<dt>One flag, one meaning.</dt>
+<dd>A flag means the same thing everywhere. Shared flags include <code>--recursive</code>,
+<code>--ignore-case</code>, <code>--reverse</code>, <code>--human</code>, <code>--quiet</code>, <code>--force</code>,
+<code>--interactive</code>, <code>--help</code>, <code>--version</code>.</dd>
+<dt>Data and display are separate.</dt>
+<dd>Serialization is an explicit, final step (<code>to json</code>), never a mode hidden
+inside a data command.</dd>
+<dt>Schemas are declared.</dt>
+<dd>Every producer documents the fields it emits, so other tools (not just LLMs)
+can discover what a table contains.</dd>
+<dt>Three types of commands.</dt>
+<dd>Every command is one of three things: a producer (emits typed data), a
+transformer (reshapes typed data), or a serializer (turns typed data into
+text). Pipelines run producers into transformers into a serializer.</dd>
+</dl>
+<h2>Producers</h2>
+<table>
+<thead>
+<tr>
+<th>tool</th>
+<th>emits</th>
+<th>replaces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list path</code></td>
+<td><code>{name, type, size, modified, mode, owner, group}</code></td>
+<td><code>ls</code>, <code>stat</code></td>
+</tr>
+<tr>
+<td><code>find path</code></td>
+<td><code>{path, type, size, modified}</code></td>
+<td><code>find</code>, <code>locate</code></td>
+</tr>
+<tr>
+<td><code>resolve path</code></td>
+<td><code>{path, canonical, target}</code></td>
+<td><code>realpath</code>, <code>readlink</code></td>
+</tr>
+<tr>
+<td><code>read path</code></td>
+<td>the file as a list of line records, or a string</td>
+<td><code>cat</code>, <code>head</code>, <code>tail</code>, <code>tac</code>, <code>less</code>, <code>zcat</code></td>
+</tr>
+<tr>
+<td><code>search pattern</code></td>
+<td><code>{file, line, column, text}</code></td>
+<td><code>grep</code>, <code>egrep</code>, <code>fgrep</code>, <code>zgrep</code></td>
+</tr>
+<tr>
+<td><code>processes</code></td>
+<td><code>{pid, ppid, user, cpu, mem, command}</code></td>
+<td><code>ps</code></td>
+</tr>
+<tr>
+<td><code>usage path</code></td>
+<td><code>{path, size, files}</code></td>
+<td><code>du</code></td>
+</tr>
+<tr>
+<td><code>space</code></td>
+<td><code>{filesystem, size, used, available, mount}</code></td>
+<td><code>df</code></td>
+</tr>
+<tr>
+<td><code>system</code></td>
+<td><code>{os, kernel, hostname, arch, uptime}</code></td>
+<td><code>uname</code>, <code>hostname</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>{name, uid, gid, groups}</code></td>
+<td><code>whoami</code>, <code>id</code>, <code>groups</code></td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><code>{now, utc, epoch}</code></td>
+<td><code>date</code></td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td><code>{name, value}</code></td>
+<td><code>env</code>, <code>printenv</code>, <code>set</code></td>
+</tr>
+<tr>
+<td><code>interfaces</code></td>
+<td><code>{name, address, mac, state}</code></td>
+<td><code>ifconfig</code>, <code>ip addr</code></td>
+</tr>
+<tr>
+<td><code>connections</code></td>
+<td><code>{protocol, local, remote, state}</code></td>
+<td><code>netstat</code>, <code>ss</code></td>
+</tr>
+<tr>
+<td><code>mounts</code></td>
+<td><code>{device, mountpoint, fstype, options}</code></td>
+<td><code>mount</code>, <code>df</code></td>
+</tr>
+<tr>
+<td><code>logged-in</code></td>
+<td><code>{user, tty, host, since}</code></td>
+<td><code>who</code>, <code>w</code>, <code>last</code></td>
+</tr>
+<tr>
+<td><code>checksum path</code></td>
+<td><code>{path, algorithm, digest}</code></td>
+<td><code>md5sum</code>, <code>sha256sum</code>, <code>cksum</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Transformers</h2>
+<p>These are the heart of the design. They work on any table and are the
+replacement for a large fraction of the text tooling.</p>
+<table>
+<thead>
+<tr>
+<th>tool</th>
+<th>what it does</th>
+<th>replaces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>select field…</code></td>
+<td>keep named columns</td>
+<td><code>cut</code>, PowerShell <code>Select-Object</code></td>
+</tr>
+<tr>
+<td><code>filter predicate</code></td>
+<td>keep rows matching a predicate</td>
+<td><code>awk</code> on columns, Nushell <code>where</code></td>
+</tr>
+<tr>
+<td><code>sort field…</code></td>
+<td>sort by named fields</td>
+<td><code>sort -k</code>, <code>sort -t</code></td>
+</tr>
+<tr>
+<td><code>unique field…</code></td>
+<td>drop duplicate rows</td>
+<td><code>uniq</code>, <code>sort -u</code></td>
+</tr>
+<tr>
+<td><code>group field</code></td>
+<td>group rows by a field</td>
+<td><code>awk</code> grouping</td>
+</tr>
+<tr>
+<td><code>join right --on field</code></td>
+<td>relational join of two tables</td>
+<td><code>join</code>, <code>comm</code></td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>count rows (or a field&rsquo;s values)</td>
+<td><code>wc -l</code>, <code>uniq -c</code></td>
+</tr>
+<tr>
+<td><code>sum</code>, <code>mean</code>, <code>min</code>, <code>max field</code></td>
+<td>aggregate a numeric field</td>
+<td><code>awk '{s+=$1}END{print s}'</code></td>
+</tr>
+<tr>
+<td><code>map expression</code></td>
+<td>compute a new field</td>
+<td><code>awk '{print ...}'</code></td>
+</tr>
+<tr>
+<td><code>head N</code>, <code>tail N</code></td>
+<td>take first or last N rows</td>
+<td><code>head</code>, <code>tail</code></td>
+</tr>
+<tr>
+<td><code>replace pattern replacement</code></td>
+<td>substitute text in a field</td>
+<td><code>sed 's///'</code>, <code>tr</code></td>
+</tr>
+<tr>
+<td><code>flatten</code></td>
+<td>unnest a nested field</td>
+<td><code>jq flatten</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>filter</code> and <code>map</code> need a small expression language. The design keeps it
+deliberately tiny—field access, comparison, arithmetic, and boolean
+combinators—because a full programming language bolted onto a filter is how
+<code>awk</code> happened.</p>
+<h2>Serializers</h2>
+<table>
+<thead>
+<tr>
+<th>tool</th>
+<th>output</th>
+<th>replaces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>to table</code></td>
+<td>aligned text table for humans</td>
+<td><code>column</code>, <code>fmt</code></td>
+</tr>
+<tr>
+<td><code>to json</code></td>
+<td>JSON</td>
+<td><code>jq</code>, <code>ConvertTo-Json</code></td>
+</tr>
+<tr>
+<td><code>to csv</code></td>
+<td>CSV</td>
+<td><code>ConvertTo-Csv</code></td>
+</tr>
+<tr>
+<td><code>to plain</code></td>
+<td>one field per line, for text pipelines</td>
+<td>implicit text</td>
+</tr>
+</tbody>
+</table>
+<h2>Others</h2>
+<h3>File and directory operations</h3>
+<table>
+<thead>
+<tr>
+<th>new</th>
+<th>old</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>go</code></td>
+<td><code>cd</code></td>
+</tr>
+<tr>
+<td><code>copy</code></td>
+<td><code>cp</code></td>
+</tr>
+<tr>
+<td><code>move</code></td>
+<td><code>mv</code></td>
+</tr>
+<tr>
+<td><code>remove</code></td>
+<td><code>rm</code>,<code>rmdir</code></td>
+</tr>
+<tr>
+<td><code>create</code></td>
+<td><code>touch</code>, <code>mkdir</code> with <code>--directory</code>, <code>mktemp</code> with <code>--temporary</code></td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td><code>ln</code></td>
+</tr>
+<tr>
+<td><code>permit</code></td>
+<td><code>chmod</code>, <code>chown</code>, <code>chgrp</code> via <code>--mode</code>, <code>--owner</code>, <code>--group</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Processes</h3>
+<table>
+<thead>
+<tr>
+<th>new</th>
+<th>old</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>signal</code></td>
+<td><code>kill</code>, <code>killall</code>, <code>pkill</code></td>
+</tr>
+<tr>
+<td><code>monitor</code></td>
+<td><code>top</code></td>
+</tr>
+<tr>
+<td><code>run</code></td>
+<td><code>nice</code>, <code>timeout</code>, <code>nohup</code></td>
+</tr>
+</tbody>
+</table>
+<h3>System</h3>
+<table>
+<thead>
+<tr>
+<th>new</th>
+<th>old</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>help</code></td>
+<td><code>man</code>, <code>apropos</code>, <code>whatis</code></td>
+</tr>
+<tr>
+<td><code>which</code></td>
+<td><code>which</code>, <code>whereis</code>, <code>type</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Network</h3>
+<table>
+<thead>
+<tr>
+<th>new</th>
+<th>old</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fetch</code></td>
+<td><code>curl</code>, <code>wget</code></td>
+</tr>
+<tr>
+<td><code>connect</code></td>
+<td><code>ssh</code></td>
+</tr>
+<tr>
+<td><code>send</code></td>
+<td><code>scp</code>, <code>sftp</code>, <code>rsync</code></td>
+</tr>
+<tr>
+<td><code>reach</code></td>
+<td><code>ping</code></td>
+</tr>
+<tr>
+<td><code>trace</code></td>
+<td><code>traceroute</code></td>
+</tr>
+<tr>
+<td><code>lookup</code></td>
+<td><code>dig</code>, <code>nslookup</code>, <code>host</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Archive and compression</h3>
+<table>
+<thead>
+<tr>
+<th>new</th>
+<th>old</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archive</code></td>
+<td><code>tar</code>, <code>cpio</code>, <code>zip</code> via <code>--create</code>, <code>--extract</code>, <code>--list</code></td>
+</tr>
+<tr>
+<td><code>compress</code> and <code>expand</code></td>
+<td><code>gzip</code>, <code>bzip2</code>, <code>xz</code>, <code>zip</code>, <code>unzip</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Miscellaneous</h3>
+<p><code>calc</code> (and <code>bc</code>),
+<code>echo</code>,
+<code>expr</code>,
+<code>false</code>,
+<code>seq</code>,
+<code>sleep</code>,
+<code>test</code>,
+and <code>true</code>.</p>
+<h2>Examples</h2>
+<table>
+<thead>
+<tr>
+<th>today</th>
+<th>becomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ls -la</code></td>
+<td><code>list --long</code></td>
+</tr>
+<tr>
+<td><code>du -sh *</code></td>
+<td><code>usage --human</code></td>
+</tr>
+<tr>
+<td><code>ps aux</code></td>
+<td><code>processes</code></td>
+</tr>
+<tr>
+<td><code>cat f | grep x | wc -l</code></td>
+<td><code>search x f | count</code></td>
+</tr>
+<tr>
+<td><code>cut -d, -f1,3</code></td>
+<td><code>select name, amount</code></td>
+</tr>
+<tr>
+<td><code>sort -t, -k3 -n</code></td>
+<td><code>sort score --numeric</code></td>
+</tr>
+<tr>
+<td><code>awk '$3 &gt; 100 {print $1}'</code></td>
+<td><code>filter score &gt; 100 | select name</code></td>
+</tr>
+<tr>
+<td><code>grep -ri foo .</code></td>
+<td><code>search foo --recursive --ignore-case</code></td>
+</tr>
+<tr>
+<td><code>find . -name '*.py'</code></td>
+<td><code>find . --name '*.py'</code></td>
+</tr>
+<tr>
+<td><code>curl -s url</code></td>
+<td><code>fetch url</code></td>
+</tr>
+<tr>
+<td><code>tar czf x.tgz dir</code></td>
+<td><code>archive dir --create --compress</code></td>
+</tr>
+<tr>
+<td><code>sha256sum f</code></td>
+<td><code>checksum f --algorithm sha256</code></td>
+</tr>
+<tr>
+<td><code>jq '.items[]' f</code></td>
+<td><code>read f | from json | flatten</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Declaring a Schema</h2>
+<p>Every producer has a shared option <code>--schema</code>, which makes it emit a table that
+describes the fields it produces. <code>list --schema</code>, for example, returns:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>path</td>
+<td>file or directory name</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td><code>file</code>, <code>directory</code>, or <code>symlink</code></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>bytes</td>
+<td>size in bytes</td>
+</tr>
+<tr>
+<td><code>modified</code></td>
+<td>timestamp</td>
+<td>time of last modification</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>string</td>
+<td>permission bits</td>
+</tr>
+<tr>
+<td><code>owner</code></td>
+<td>string</td>
+<td>owning user</td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td>string</td>
+<td>owning group</td>
+</tr>
+</tbody>
+</table>
+<p>Because a schema is itself a table, the ordinary transformers and serializers
+apply to it: <code>list --schema | select field, type | to json</code> yields the compact
+machine-readable form, while <code>list --schema</code> alone renders it for a person.  As
+a result, a reader can learn what a command will emit before running it, using
+the same vocabulary as any other data.</p>
+<h2>Further Reading</h2>
+<ul>
+<li>The <a href="https://www.nushell.sh/book/">Nushell book</a> and <a href="https://www.nushell.sh/commands/">command reference</a></li>
+<li>The PowerShell documentation for <a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-json">ConvertTo-Json</a> and <a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters">CommonParameters</a></li>
+</ul>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/11/10/intermediate-debugging-examples/">
       Intermediate Debugging Examples
     </a>
@@ -1202,70 +1744,6 @@ they all seem to be looking at the screens in their hands,
 and at the darkness beneath the glass.
 She watches for a moment,
 then lets the curtain fall.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/10/24/whats-in-my-home-directory/">
-      What's in My Home Directory
-    </a>
-  </h3>
-  <p><time datetime="2026-10-24" class="post-date">2026-10-24</time></p>
-  <ul>
-<li><code>aosa</code>: source for the website of <a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>.</li>
-<li><code>archive</code>: a GitHub repository with the remains of old projects.</li>
-<li><code>asimpy</code>: source for <a href="https://asimpy.readthedocs.io/">a discrete event simulation package</a> I wrote.</li>
-<li><code>bib</code>: PDFs of 1800 papers, of which I&rsquo;ve actually read about half.</li>
-<li><code>bin</code>: little software tools I&rsquo;ve cobbled together.</li>
-<li><code>books</code>: PDFs of books I&rsquo;ve bought.</li>
-<li><code>bram</code>: source for <a href="https://github.com/judell/bram">Jon Udell&rsquo;s agent management tool</a>.</li>
-<li><code>catmaid</code>: source for the <a href="https://catmaid.readthedocs.io/">Collaborative Annotation Toolkit for Massive Amounts of Image Data</a>.</li>
-<li><code>change</code>: source for <a href="../change/">my workshop on organizational change</a>.</li>
-<li><code>chart.xkcd</code>: source for <a href="https://chartxkcd.readthedocs.io/">an XKCD-style charting package</a> I&rsquo;m building.</li>
-<li><code>closure</code>: source for <a href="../closure/">my workshop on project closure</a>.</li>
-<li><code>devsim</code>: a student project simulating software development teams (to start in January 2027).</li>
-<li><code>epub</code>: epub versions of books I&rsquo;ve bought.</li>
-<li><code>fiction</code>: stories I&rsquo;ve written or am writing.</li>
-<li><code>frml</code>: source for <a href="https://gvwilson.github.io/frml/">a little program verifier</a> I&rsquo;ve built.</li>
-<li><code>glosario</code>: my clone of <a href="https://glosario.carpentries.org/">the Carpentries&rsquo; glossary project</a>.</li>
-<li><code>gvw</code>: personal files (e.g., genealogical material my father and sister collected).</li>
-<li><code>humans</code>: source for a &ldquo;Save the Humans!&rdquo; game I started but never finished.</li>
-<li><code>jazz</code>: sheets for songs I&rsquo;m learning to play.</li>
-<li><code>mccole</code>: source for a little static site generator I built.</li>
-<li><code>mcq</code>: source for a Quarto-based template for Carpentries-style lessons.</li>
-<li><code>mrsp</code>: source for <a href="../mrsp/">my workshop on managing research software projects</a>.</li>
-<li><code>notwrong</code>: source for <a href="../notwrong/">my workshop on how to not be wrong when assessing the impact of AI</a>.</li>
-<li><code>nwit</code>: source of the website for <a href="https://neverworkintheory.org/">It Will Never Work in Theory</a>.</li>
-<li><code>overflow</code>: source for <a href="https://github.com/gvwilson/slides-overflow">a tool that checks remark.js and reveal.js slides for overflow</a>.</li>
-<li><code>rsdx</code>: source for a book on research software design that I&rsquo;ll probably never finish writing.</li>
-<li><code>sdgc</code>: source for the <a href="../sdgc/"><em>Sex and Drugs and Guns and Code</em> series of blog posts</a>.</li>
-<li><code>sdm</code>: a student project building a game (to start in January 2027).</li>
-<li><code>sdxjs</code>: source for <a href="../sdxjs/"><em>Software Design by Example in JavaScript</em></a>.</li>
-<li><code>sdxpy</code>: source for <a href="../sdxpy/"><em>Software Design by Example in Python</em></a>.</li>
-<li><code>search</code>: materials related to my ongoing job search.</li>
-<li><code>selfdb</code>: source for <a href="https://github.com/mhoye/spex-main">Mike Hoye&rsquo;s tool that turns SQLite <code>.db</code> files into executables</a>.</li>
-<li><code>shunnify</code>: source for a tool that turns Markdown files into Shunn-formatted manuscripts.</li>
-<li><code>snailz</code>: source for a synthetic data generator I built for a workshop I never taught.</li>
-<li><code>sql</code>: source for <a href="../sql/">my short workshop on SQL for data scientists</a>.</li>
-<li><code>synths</code>: source for a couple of synthetic data generators actually <em>did</em> wind up using.</li>
-<li><code>third</code>: source of <a href="../">this website</a>.</li>
-<li><code>travelers</code>: source for a tower support game I started but never finished.</li>
-<li><code>unbreak</code>: source for <a href="../unbreak/">my lessons on debugging and fixing software</a>.</li>
-<li><code>wallpaper</code>: various screen wallpapers I&rsquo;ve collected over the years.</li>
-</ul>
-<p>And then of course there are various dot-files created by various tools,
-including but not limited to:</p>
-<ul>
-<li>my <code>aspell</code> wordlist</li>
-<li>my Bash profile and history</li>
-<li>the <code>.cache</code> directory where tools like <code>uv</code> save things</li>
-<li>the <code>.bram</code>, <code>.claude</code>, and <code>.codewhale</code> directories created by various AI tools</li>
-<li>my Emacs configuration directory</li>
-<li>my global Git configuration</li>
-<li>NPM&rsquo;s <code>.npm</code> directory</li>
-<li>authentication tokens for various systems</li>
-<li>the <code>.ssh</code> directory holding my SSH keys</li>
-</ul>
 </article>
 
 
