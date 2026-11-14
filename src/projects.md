@@ -33,6 +33,12 @@ An I/O Library for Dafny
     offer what the examples need. This project will build those libraries,
     starting with what's listed in [this blog post][dafny-io].
 
+A Legible Set of Command-Line Tools
+:   [This post][legible] describes a rationalized set of command-line tools
+    designed to make the actions taken by LLMs on a user's behalf
+    more comprehensible to users.
+    This project will build those tools.
+
 *A Software Development Simulator (filled for Winter 2027)*
 :   I created [asimpy][asimpy] so that I could build simulations of software
     development teams similar to [these ones][curious-duck]. The goal of this
@@ -79,8 +85,7 @@ Unbreaking Software
 :   [These simple exercises][unbreak] are designed to teach debugging
     (with or without AI assistance).
     This project will extend them with [more complex scenarios][unbreak-complex],
-    and if time permits,
-    compare human performance to AI performance on solving them.
+    and compare human performance to AI performance on solving them.
 
 Research Software Engineering Retrospective
 :   ["Best Practices for Scientific Computing"][best-practices] (2014)
@@ -101,6 +106,7 @@ Research Software Engineering Retrospective
 [gleam]: https://gleam.run/
 [good-enough]: https://doi.org/10.1371/journal.pcbi.1005510
 [jorma]: https://github.com/gvwilson/jorma
+[legible]: @root/2026/11/13/rationalizing-the-command-line/
 [sdxpy]: @root/sdxpy/
 [stardew]: https://www.stardewvalley.net/
 [tower-defense]: https://en.wikipedia.org/wiki/Tower_defense
