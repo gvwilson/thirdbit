@@ -4,7 +4,8 @@ template: page
 ---
 
 <div class="center" markdown="1">
-  Please see [the 2024 edition of this page](./2024/) for my current list of unwritten books.
+  Please see [the 2024 edition of this page](./2024/) for my current list of unwritten books,
+  or click on the year headings to see how that list has evolved.
 </div>
 
 *From the introduction to the [first version](./1997/):*

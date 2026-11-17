@@ -4,7 +4,7 @@ date: 2026-11-17
 category: software-engineering
 ---
 
-I've often blogged about books I want to read that I don't know enough to write;
+I've [often blogged][shelves] about books I want to read that I don't know enough to write;
 here's another entry in that list:
 
 > I want ten chapters,
@@ -50,3 +50,5 @@ please [give me a shout][email].
 [email]: mailto:gvwilson@third-bit.com
 [hicks]: https://www.drcathicks.com/
 [nwit]: https://neverworkintheory.org/
+[shelves]: @root/ideas/not-on-the-shelves/
+
