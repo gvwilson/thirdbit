@@ -115,5 +115,5 @@ So what about 2024?
 [rr]: https://donate.rainbowrailroad.org/team/515984
 [sdxjs]: @root/sdxjs/
 [sdxpy]: @root/sdxpy/
-[t3]: @root/t3/
+[t3]: https://teachtogether.tech/
 [ultracrepidarian]: @root/2023/12/12/it-ultracrepidarian/

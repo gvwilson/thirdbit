@@ -12,6 +12,4 @@ category: fiction
   it deals with some difficult themes,
   but it's the piece of writing I'm proudest of,
   and I hope you enjoy it.
-  For more about the book and my other fiction,
-  please see <a href="@root/fiction/still/">here</a>.
 </p>

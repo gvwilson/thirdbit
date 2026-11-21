@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Welcoming Newcomers</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../mccole/slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Welcoming Newcomers</h1>
+  <p class="subtitle">Managing Research Software Projects</p>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026</p>
+</section>
+
+<section id="learning-objectives" class="slide level2 objectives">
+<h2 class="objectives">Learning Objectives</h2>
+<ul>
+<li>Explain why a <code>CONTRIBUTING.md</code> file matters even for a
+two-person project.</li>
+<li>Evaluate a <code>CONTRIBUTING.md</code> for a real newcomer’s
+experience.</li>
+<li>Produce a draft <code>CONTRIBUTING.md</code> that a stranger could
+follow.</li>
+</ul>
+</section>
+<section id="feeling-welcome" class="slide level2">
+<h2>Feeling Welcome</h2>
+<ul>
+<li>Newcomers mostly drop off for social reasons, not technical ones.
+<ul>
+<li>No response, confusing responses, and no clear next step.</li>
+</ul></li>
+<li>A useful <code>CONTRIBUTING.md</code> removes these barriers.</li>
+</ul>
+</section>
+<section id="what-a-contributing.md-needs" class="slide level2">
+<h2>What a <code>CONTRIBUTING.md</code> Needs</h2>
+<ul>
+<li>How to set up the development environment (with exact
+commands).</li>
+<li>Where to get the data and under what terms it can be used.</li>
+<li>How to run the tests (and what expected output looks like).</li>
+<li>What kinds of contributions are and are not welcome.</li>
+<li>How to submit a pull request and what happens next.</li>
+<li>Who to contact when stuck, with a realistic response time.</li>
+</ul>
+</section>
+<section id="make-newcomers-feel-welcome" class="slide level2">
+<h2>Make Newcomers Feel Welcome</h2>
+<ul>
+<li>The “good first issue” label is a promise you must keep.
+<ul>
+<li>Estimate issue difficulty before labeling it for newcomers.</li>
+</ul></li>
+<li>Set realistic expectations, e.g., a two-week response time.</li>
+<li>Acknowledge every PR with a brief comment immediately.</li>
+<li>Tell the author what is happening if the review slips.</li>
+</ul>
+</section>
+<section id="legitimate-peripheral-participation" class="slide level2">
+<h2>Legitimate Peripheral Participation</h2>
+<ul>
+<li>Newcomers ease in through small, low-risk tasks that contribute
+something real.</li>
+<li>Writing one test teaches structure and produces a merged PR.</li>
+</ul>
+</section>
+<section id="code-of-conduct" class="slide level2">
+<h2>Code of Conduct</h2>
+<ul>
+<li>A Code of Conduct is not optional.
+<ul>
+<li>Just its existence signals what kind of project this is.</li>
+</ul></li>
+<li>It must say who handles complaints and how.</li>
+</ul>
+</section>
+<section id="types-of-contributors" class="slide level2">
+<h2>Types of Contributors</h2>
+<ul>
+<li><em>One-off bug reporters</em> need a fast, friendly response.</li>
+<li><em>Occasional contributors</em> are worth investing in.</li>
+<li><em>Regulars</em> need a path to becoming project members.</li>
+</ul>
+</section>
+<section id="not-like-that" class="slide level2">
+<h2>Not Like That</h2>
+<ul>
+<li>Common for occasional contributors to fix a problem, but not the way
+the maintainer would.</li>
+<li>Accepting it as-is builds goodwill but adds debt.</li>
+<li>Rejecting it can cost the project a contributor.</li>
+<li>The best response is actionable review comments with an offer to
+pair on the revision.
+<ul>
+<li>More work in the short term.</li>
+<li>Potentially more rewarding over the project’s lifetime.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-about-ai" class="slide level2">
+<h2>What about AI?</h2>
+<ul>
+<li class="yes">
+LLMs can draft a first response to a new contributor’s PR
+</li>
+<li class="no">
+Bots and LLM users increasingly claim good first issues, leaving less
+for human newcomers
+</li>
+</ul>
+</section>
+<section id="draft-your-contributing.md-5-min"
+class="slide level2 exercise">
+<h2 class="exercise">Draft Your CONTRIBUTING.md (5 min)</h2>
+<p>Which sections of this template can you fill in right away?</p>
+<ul>
+<li>Setup</li>
+<li>Running the tests</li>
+<li>Submitting changes</li>
+<li>What we’re looking for</li>
+<li>Getting help</li>
+</ul>
+</section>
+<section id="fresh-eyes-test-8-min" class="slide level2 exercise">
+<h2 class="exercise">Fresh Eyes Test (8 min)</h2>
+<p>Swap your draft with a partner.</p>
+<ol type="1">
+<li><p>(5 min) What command should you run first? What does a successful
+test run look like? Who do you contact if you get stuck?</p></li>
+<li><p>(3 min) Ask your partner one “what do I do if…” question that
+their document doesn’t answer.</p></li>
+</ol>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

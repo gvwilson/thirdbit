@@ -67,7 +67,7 @@ validate:
 
 ## links: check links in local site
 links:
-	linkchecker -F text http://localhost:8080
+	linkchecker --threads=50 -F csv http://localhost:8080
 
 ## clean: clean up stray files
 clean:

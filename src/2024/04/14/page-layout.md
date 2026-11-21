@@ -31,7 +31,7 @@ and that CSS is every bit as much a programming language as Lisp or C++.
 
 > Terms defined: accidental complexity, block (on page), confirmation bias, easy mode, intrinsic complexity, layout engine, Liskov Substitution Principle, mixin class, z-buffering.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [browser]: http://browser.engineering/

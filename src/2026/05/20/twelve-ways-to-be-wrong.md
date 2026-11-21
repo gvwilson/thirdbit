@@ -24,7 +24,7 @@ the sections below explain why.
 >
 > If you'd like an introduction to the research methods you should use
 > to avoid making these errors,
-> I have built both a one-day [workshop][workshop] and a [one-hour talk][talk];
+> I have built both a one-day workshop and a one-hour talk;
 > please [reach out](mailto:gvwilson@third-bit.com) if you're interested in either.
 
 ## Counting Lines of Code Generated
@@ -329,6 +329,3 @@ Xu2025
     by Increasing the Technical Debt and Maintenance Burden."
     arXiv:2510.10165,
     2025.
-
-[talk]: @root/notwrong/lecture/slides.html
-[workshop]: @root/notwrong/

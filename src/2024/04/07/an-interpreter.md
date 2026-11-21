@@ -27,7 +27,7 @@ and that we can look up something else if we want to.
 
 > Terms defined: compiler, control flow, defensive programming, dictionary comprehension, dynamic dispatch, environment, expression, infix notation, interpreter, introspection, prefix notation, runtime, statement, type hint.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [sdxpy_interp]: @root/sdxpy/interp/

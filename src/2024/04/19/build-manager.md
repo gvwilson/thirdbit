@@ -33,7 +33,7 @@ this was one of the few times when I needed to tell them that the problem was re
 
 > Terms defined: affordance, build manager, build recipe, build rule, circular dependency, compiled language, cycle, dependency (in build), directed acyclic graph, dry run, link (a program), phony target, stable sort, stale (in build), target (in build), Template Method pattern, topological order.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [marimo]: https://marimo.io/

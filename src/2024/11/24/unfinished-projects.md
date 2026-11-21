@@ -8,29 +8,29 @@ Things I haven't finished:
 
 -   A [tutorial on SQL][sql-tutorial] for data scientists
 -   A [tutorial on systems programming][sys-tutorial] for data scientists
--   A [tutorial on web programming][web-tutorial] for data scientists
--   A [tutorial on building a dashboard engine][dashboard-tutorial]
+-   A tutorial on web programming for data scientists
+-   A tutorial on building a dashboard engine
 -   A [very simple static site generator][mccole] for the projects listed above
 -   Another volume of [*The Architecure of Open Source Applications*][aosa]
 -   Another 15 examples focused on concurrency for [*Software Design by Example in Python*][sdxpy]
 -   [*Research Software Design by Example*][rsdx] (a follow-on to [Software Carpentry][swc])
 -   A [synthetic data generator][snailz] for the project above
 -   [*Managing Research Software Projects*][mrsp] (another follow-on to [Software Carpentry][swc])
--   [*Building Tech Together*][btt] (advice for students doing their first team project)
+-   *Building Tech Together* (advice for students doing their first team project)
 -   *Data Science for Software Engineers* (which doesn't currently have an online home)
--   [*Software Design by Example in Roc*][roc-book] (to explore functional programming)
--   [*Beneath Coriandel*][coriandel] (an adult fantasy novel told from multiple viewpoints)
--   [*The Bookster's Apprentice*][bookster] (a YA novel set in the same world)
--   [*Still*][still] (a YA novelette based on [this short story][still-short])
--   [*Madica*][madica] (a middle-grade story about fairies, ninja cats, and robot dinosaurs)
--   [*Maddy Roo*][maddy-roo] (a middle-grade story about furries and robots)
+-   *Software Design by Example in Roc* (to explore functional programming)
+-   *Beneath Coriandel* (an adult fantasy novel told from multiple viewpoints)
+-   *The Bookster's Apprentice* (a YA novel set in the same world)
+-   *Still* (a YA novelette based on [this short story][still-short])
+-   *Madica* (a middle-grade story about fairies, ninja cats, and robot dinosaurs)
+-   *Maddy Roo* (a middle-grade story about furries and robots)
 -   *Iffy* (a YA novel about a girl growing up in a post-Melt Antarctica)
 -   *All the Other Santas* (featuring RoboSanta, Clausbeard the Pirate, Zombie Claus, and others)
 
 What I should be working on:
 
 1.  Re-doing the slides for [*SDXPY*][sdxpy] and recording a 30-minute video for each chapter
-1.  Trying to get [*Beneath Coriandel*][coriandel], [*The Bookster's Apprentice*][bookster], and [*Still*][still] published
+1.  Trying to get *Beneath Coriandel*, *The Bookster's Apprentice*, and *Still* published
 1.  Finishing *Iffy*, *All the Other Santas*, or the sequel to *Maddy Roo*
 
 What I've learned about myself:
@@ -43,23 +43,13 @@ What I've learned about myself:
 1.  I run out of steam when I'm working on my own or don't have a specific audience and deadline.
 
 [aosa]: https://aosabook.org/
-[bookster]: @root/fiction/booksters-apprentice/
-[btt]: @root/btt/
-[coriandel]: @root/fiction/beneath-coriandel/
 [dashboard-tutorial]: https://gvwilson.github.io/doris/
-[iffy]: @root/fiction/iffy/
-[maddy-roo]: @root/fiction/maddy-roo/
-[madica]: @root/fiction/madica/
 [mccole]: https://gvwilson.github.io/mccole/
 [mrsp]: @root/mrsp/
-[roc-book]: https://github.com/roc-lang/book-of-examples
 [rsdx]: https://gvwilson.github.io/rsdx/
-[santas]: @root/fiction/santas/
 [sdxpy]: @root/sdxpy/
 [snailz]: https://gvwilson.github.io/snailz/
 [sql-tutorial]: https://third-bit.com/sql/
-[still]: @root/fiction/still/
 [still-short]: @root/fiction/still-short/
 [swc]: https://software-carpentry.org/
 [sys-tutorial]: https://gvwilson.github.io/sudonomicon/
-[web-tutorial]: https://third-bit.com/web/

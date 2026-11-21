@@ -282,7 +282,7 @@ but life is full of surprises.
 [sdxpy]: @root/sdxpy/
 [snailz]: @root/2024/12/14/snailz/
 [sql-tutorial]: https://third-bit.com/sql/
-[t3]: @root/t3/
+[t3]: https://teachtogether.tech/
 [unscripted]: https://pod.link/1602572955/episode/7de37354dfa00eb3308e523467f410aa
 [unwritten]: @root/ideas/not-on-the-shelves/2024/
 [webonomicon]: https://third-bit.com/web/

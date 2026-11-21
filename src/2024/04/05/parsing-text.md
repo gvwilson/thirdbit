@@ -29,7 +29,7 @@ and then I will start work at [Plotly][plotly] on April 29.
 
 > Terms defined: abstract syntax tree, concrete class, CSV, grammar, JSON, operator overloading, parser, token, tokenizer, YAML.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [plotly]: https://plotly.com/

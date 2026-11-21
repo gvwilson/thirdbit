@@ -30,7 +30,7 @@ I'd [welcome feedback](mailto:gvwilson@third-bit.com).
 
 > Terms defined: append mode, context manager, decorator, infinite recursion, iterator, Iterator pattern, mock object, protocol.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [func_post]: @root/2024/04/08/functions-closures/

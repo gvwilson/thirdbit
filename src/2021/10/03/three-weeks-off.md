@@ -20,7 +20,7 @@ here's what I've done in the three weeks since I left Metabase:
 - Starting playing the clarinet
   (because tenosynovitis in my right hand meant I had to give up guitar).
 
-- Revised a middle-grade novel titled [*Maddy Roo*](@root/fiction/maddy-roo/)
+- Revised a middle-grade novel titled *Maddy Roo*
   (furries versus robots with a bit of family drama)—if you'd like to give it a read,
   I'd be grateful for feedback.
 

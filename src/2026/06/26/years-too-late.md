@@ -36,7 +36,7 @@ Which brings me to the projects I've been noodling with since November:
 workshops on [organizational change][org-change],
 [project closure][closure],
 and [managing research software projects][mrsp],
-and tutorials on [debugging][unbreak], [Gleam][gleam],
+and tutorials on [debugging][unbreak], Gleam,
 and a few things programmers ought to know about [how society actually works][sdgc].
 According to page views on [Plausible][plausible],
 none of these have had more than a couple of dozen viewers a month,
@@ -78,7 +78,6 @@ If you came in peace, be welcome.
 [carpentries]: https://carpentries.org/
 [closure]: @root/closure/
 [fall-behind]: @root/fiction/fall-behind/
-[gleam]: @root/gl4py/
 [lets-talk]: @root/2011/02/09/lets-talk/
 [laugh]: @root/2015/11/09/daddy-why-dont-you-ever-laugh/
 [mrsp]: @root/mrsp/

@@ -46,10 +46,8 @@ Topics include:
 -   teaching as a performance art
 
 If you are interested,
-please see [the full description and FAQ][t3-ad]
-or email me at [gvwilson@third-bit.com][email].
+please email me at [gvwilson@third-bit.com][email].
 
 [carpentries]: https://carpentries.org/
 [email]: mailto:gvwilson@third-bit.com
 [rstudio-ed]: https://education.rstudio.com/trainers
-[t3-ad]: @root/t3/

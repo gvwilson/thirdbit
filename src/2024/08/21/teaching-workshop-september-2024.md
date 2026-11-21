@@ -4,7 +4,7 @@ date: 2024-08-21
 category: community education
 ---
 
-I am planning to run a [Teaching Tech Together workshop][t3-ad] online in September 2024.
+I am planning to run a [Teaching Tech Together][t3] workshop online in September 2024.
 If you would like to take part,
 please [email me](mailto:gvwilson@third-bit.com).
 
@@ -27,7 +27,6 @@ please [email me](mailto:gvwilson@third-bit.com).
 
 [rr]: https://www.rainbowrailroad.org/
 [t3]: https://teachtogether.tech/
-[t3-ad]: https://third-bit.com/t3/
 [t3-slides]: https://drive.google.com/drive/folders/1LVcmp48Ym0c6pA9GOT6TrCa47RU1ugaV
 [thu]: https://www.timeanddate.com/worldclock/meetingtime.html?month=9&day=19&year=2024&p1=152&p2=771&p3=107&p4=204&p5=136&p6=51&p7=250&p8=202&iv=0
 [wed]: https://www.timeanddate.com/worldclock/meetingtime.html?iso=20240918&p1=152&p2=771&p3=107&p4=204&p5=136&p6=51&p7=250&p8=202

@@ -28,7 +28,7 @@ but it's one of the few times I haven't felt uncomfortable using multiple inheri
 
 > Terms defined: client, deadlock, Domain Name System, Internet Protocol, IP address, port, server, socket, test fidelity, Transmission Control Protocol.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [layout_post]: @root/2024/04/14/page-layout/

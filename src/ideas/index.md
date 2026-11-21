@@ -7,7 +7,7 @@ template: page
 :   My thoughts on everything from how to be fired
     to how to hand over a project and move on.
 
-[Student Project Ideas](./projects/)
+[Student Project Ideas](@root/projects/)
 :   A collection of proposals for student projects.
 
 [Leadership Skills for Open Science](./leadership/)
@@ -41,4 +41,4 @@ template: page
 
 [carpentries]: https://carpentries.org/
 [nwit]: https://neverworkintheory.org/
-[t3]: @root/t3/
+[t3]: https://teachtogether.tech/

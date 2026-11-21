@@ -10,7 +10,7 @@ category: personal workshops
 1.  I'd like to run my workshop on [shutting projects down](@root/closure/) for the first time.
     If you'd like to host or take part, please [give me a shout][email].
 
-1.  I'd also like to run [How to Not Be Wrong About AI](@root/notwrong/) for the first time.
+1.  I'd also like to run "How to Not Be Wrong About AI"the first time.
     Again, if you'd like to host or participate, please [let me know][email].
 
 1.  Revise and deliver [Managing Research Software Projects](@root/mrsp/),

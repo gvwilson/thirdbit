@@ -118,7 +118,7 @@ workshops = [
     },
     {
         "title": "Teaching Tech Together",
-        "url": "@root/t3",
+        "url": "https://teachtogether.tech/",
         "description": "A one-day introduction to modern teaching practices for programmers and data scientists.",
     },
     {

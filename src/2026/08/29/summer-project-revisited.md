@@ -10,7 +10,7 @@ So [how did I do][original]?
 
 1.  Teach [shutting projects down](@root/closure/) for the first time: check.
 
-1.  Teach [How to Not Be Wrong About AI](@root/notwrong/):
+1.  Teach "How to Not Be Wrong About AI"):
     no one was interested enough to host it, which surprised me.
 
 1.  Revise and deliver [Managing Research Software Projects](@root/mrsp/):

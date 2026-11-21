@@ -62,9 +62,8 @@ Help who you can.
 > co-written three,
 > and edited or co-edited six,
 > one of them was moderately popular.
-> I'd like to finish [one more book][btt] before they go out of fashion entirely;
+> I'd like to finish one more book before they go out of fashion entirely;
 > if you'd like to help,
 > please [get in touch](mailto:gvwilson@third-bit.com).
 
-[btt]: @root/btt/
 [sdxpy_finale]: @root/sdxpy/finale/

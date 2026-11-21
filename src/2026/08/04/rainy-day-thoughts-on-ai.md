@@ -97,7 +97,7 @@ Try to find ethical variants of the technology and encourage others to use them.
     about how to build software or how to get started in their career.
     Books like Miles' [*The Sovereign Engineer*][sovereign] offer answers,
     but aren't evidence-based and ignore the ethical questions entirely.
-    [How to Not Be Wrong About AI][notwrong] is an attempt to address the former issue,
+    "How to Not Be Wrong About AI" is an attempt to address the former issue,
     but so far nobody's been interested.
     (As one person said to me,
     everyone currently falls into one of three camps:
@@ -133,7 +133,6 @@ be welcome.
 [closure]: @root/closure/
 [dali]: @root/2026/07/28/orwell-dali-ai/
 [ethics]: https://isbnsearch.org/isbn/9780593471999
-[notwrong]: @root/notwrong/
 [pollution]: @root/2026/03/08/cognitive-pollution/
 [sdgc]: @root/sdgc/
 [sovereign]: https://leanpub.com/thesovereignengineer

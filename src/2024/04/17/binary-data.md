@@ -23,7 +23,7 @@ but I'm comfortable with that now.
 
 > Terms defined: ANSI character encoding, ASCII character encoding, bit mask, bit shifting, bitwise operation, boxed value, buffer (in memory), character encoding, code point, continuation byte, control code, escape sequence, exclusive or, format string, sign and magnitude, two's complement, Unicode, UTF-32, UTF-8, variable-length encoding.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [sdxpy]: @root/sdxpy/

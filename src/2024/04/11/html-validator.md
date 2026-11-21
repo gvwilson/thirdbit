@@ -30,7 +30,7 @@ without being too obvious.
 
 > Terms defined: attribute, child (in a tree), closing tag, DOM, DOM tree, element (in HTML), HTML, node, opening tag, self-closing tag, tag (in HTML), tree, Visitor pattern.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [sdxpy]: @root/sdxpy/

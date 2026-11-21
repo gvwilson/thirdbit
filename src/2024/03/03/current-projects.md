@@ -24,17 +24,17 @@ here's what I'm working on instead:
 -   I probably won't do more work on [*Research Software Design by Example*][rsdx]
     unless I find a co-author.
 
--   A YA novel about [a girl living in Antarctica][iffy].
+-   A YA novel about a girl living in Antarctica.
     At one point it was nearly 70,000 words long (against a target of 90,000),
     but I've torn off the back half and am slowly rebuilding it.
     It helps to have a [regular reader][yanina]…
 
--   A middle-school story about [all the other Santas][santas].
+-   A middle-school story about all the other Santas.
     It's currently 28,000 words long (against a target of 32,000),
     but I had no idea how to end it,
     so I've set it aside for now.
 
--   Another middle-school story about [kangaroos and robots][maddy-roo].
+-   Another middle-school story about kangaroos and robots.
     I'm posting a couple or three chapters a week to [Scribophile][scribophile],
     and hope to rewrite it over the summer based on that feedback.
 
@@ -49,18 +49,15 @@ here's what I'm working on instead:
     I expect to get most function back,
     but it's the end of my music-playing days.
 
-[iffy]: https://gvwilson.github.io/fiction/iffy/
-[maddy-roo]: https://gvwilson.github.io/fiction/maddy-roo/
 [roc]: https://www.roc-lang.org/
 [rr]: https://www.rainbowrailroad.org/
 [rr-sponsor]: https://donate.rainbowrailroad.org/team/515984
 [rsdx]: https://gvwilson.github.io/rsdx/
-[santas]: https://gvwilson.github.io/fiction/santas/
 [scribophile]: https://www.scribophile.com/
 [sdxjs]: @root/sdxjs/
 [sdxpy]: @root/sdxpy/
 [sql-tutorial]: https://gvwilson.github.io/sql-tutorial/
 [sys-tutorial]: https://gvwilson.github.io/sys-tutorial/
-[t3]: @root/t3/
+[t3]: https://teachtogether.tech/
 [to-dont]: @root/2024/02/25/my-last-to-dont-list/
 [yanina]: https://master--yabellini.netlify.app/

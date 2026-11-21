@@ -66,7 +66,7 @@ you can file issues in [in the book's GitHub repository][book_repo].
 I hope you find the material useful,
 and I'm happy to answer questions [by email](mailto:gvwilson@third-bit.com).
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 I am grateful to the creators of [diagrams.net][diagrams_net],

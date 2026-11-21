@@ -47,7 +47,7 @@ but also because the practical exercises were unsatisfying.
 When I teach [a SQL tutorial][sql-tutorial],
 learners can do 2–5 minute exercises several times an hour to check their understanding
 and to motivate clarifying questions.
-When I run [my workshop on how to teach][t3-workshop],
+When I run [my workshop on how to teach][t3],
 participants do a 5–10 minute exercise every 45 minutes,
 which I think works just as well.
 
@@ -100,4 +100,4 @@ I haven't found those books particularly useful…*
 [meeting-talk]: https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/
 [new-stack]: @root/2024/04/18/a-new-stack/
 [sql-tutorial]: https://gvwilson.github.io/sql-tutorial/
-[t3-workshop]: @root/t3/
+[t3]: https://teachtogether.tech/

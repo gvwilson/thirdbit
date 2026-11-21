@@ -26,7 +26,7 @@ category: personal
 -   `mccole`: source for a little static site generator I built.
 -   `mcq`: source for a Quarto-based template for Carpentries-style lessons.
 -   `mrsp`: source for [my workshop on managing research software projects](@root/mrsp/).
--   `notwrong`: source for [my workshop on how to not be wrong when assessing the impact of AI](@root/notwrong/).
+-   `notwrong`: source for my workshop on how to not be wrong when assessing the impact of AI.
 -   `nwit`: source of the website for [It Will Never Work in Theory][nwit].
 -   `overflow`: source for [a tool that checks remark.js and reveal.js slides for overflow][overflow].
 -   `rsdx`: source for a book on research software design that I'll probably never finish writing.
