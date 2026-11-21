@@ -2,7 +2,7 @@
 
 ## Background Information
 
-Discrete-event simulation has been used to model software development dynamics for decades. [DuckSim](curiousduck.io) demonstrates that this kind of simulation can be pedagogically useful if it has a well-designed interactive interface: a user adjusts sliders for developer pressure, codebase quality, and bug-prioritization strategy, presses Run, and watches burndown curves and defect counts evolve in real time.
+Discrete-event simulation has been used to model software development dynamics for decades. [DuckSim](https://curiousduck.io) demonstrates that this kind of simulation can be pedagogically useful if it has a well-designed interactive interface: a user adjusts sliders for developer pressure, codebase quality, and bug-prioritization strategy, presses Run, and watches burndown curves and defect counts evolve in real time.
 
 The scenarios that DuckSim makes available correspond directly to claims that appear repeatedly in software engineering textbooks and management folklore. Most programmers have encountered these claims in the abstract; few have had the opportunity to observe how sensitive outcomes are to starting conditions. An open-source, locally-installable simulator would make that experience available without a subscription.
 

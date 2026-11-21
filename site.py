@@ -135,11 +135,6 @@ beta = [
         "description": "A one-day introduction to the basics of SQL.",
     },
     {
-        "title": "How to Not Be Wrong About AI",
-        "url": "@root/notwrong",
-        "description": "What software engineers need to understand to tell good studies from bad ones.",
-    },
-    {
         "title": "Unbreaking Software",
         "url": "@root/unbreak",
         "description": "An example-driven tutorial on finding and fixing bugs in software.",

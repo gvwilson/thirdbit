@@ -243,7 +243,7 @@ let's create a publisher that sends messages to a specific topic at some rate:</
 <p>Real publishers would react to external events (like HTTP requests or database changes),
 but timed generation works well for simulation.</p>
 <p>Notice that we inherit from <code>Process</code>, which is asimpy's base class for active components.
-As described in <a href="../asimpy/">the appendix</a>,
+As described in the appendix,
 the <code>init()</code> method is called during construction to set up our state,
 while <code>run()</code> creates the coroutine that defines the publisher's behavior.</p>
 <p>Finally, our simulated subscribers receive and process messages:</p>

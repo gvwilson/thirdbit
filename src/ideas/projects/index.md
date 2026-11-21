@@ -216,14 +216,6 @@ then survey programmers to see which (if any) they believe.
 
 ## Tutorials
 
-### Software Design by Example in Gleam {: #sdx-gleam}
-
-[Gleam](https://gleam.run/) is a modern functional language that runs on the
-[Erlang/OTP](https://www.erlang.org/) platform and can also be compiled to
-JavaScript. [This project](@root/gl4py/) will translate examples from [*Software
-Design by Example in Python*](@root/sdxpy/) into Gleam to help people coming
-from Python and other mainstream languages understand how to use FP in practice.
-
 ### Software Security by Example {: #security-example}
 
 The first lesson in this tutorial will present a simple implementation of a wiki

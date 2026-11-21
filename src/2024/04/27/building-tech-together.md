@@ -50,7 +50,7 @@ I know how to get them to parrot back what they need to say in order to get a gr
 but [that's just going to annoy them][dobbins-kalev].
 
 Which brings us to the latest version of that guide I wrote,
-which I have tentatively titled [*Building Tech Together*][btt].
+which I have tentatively titled *Building Tech Together*.
 It is currently an uncomfortable and out-of-touch mix of
 technology ("how to use Git with other people"),
 process ("how to run an effective meeting"),
@@ -100,7 +100,6 @@ if you do,
 [aita]: https://en.wikipedia.org/wiki/R/AmItheAsshole
 [and-now-to-lead]: @root/2024/04/19/and-now-to-lead/
 [balls-and-sticks]: @root/2024/04/07/in-search-of-balls-and-sticks/
-[btt]: @root/btt/
 [carpentries]: https://carpentries.org/
 [datacamp]: @root/2019/04/15/an-exchange-with-datacamp/
 [dobbins-kalev]: https://hbr.org/2016/07/why-diversity-programs-fail
