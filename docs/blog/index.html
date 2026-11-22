@@ -132,6 +132,54 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/11/22/three-hundred-thousand/">
+      Three Hundred Thousand
+    </a>
+  </h3>
+  <p><time datetime="2026-11-22" class="post-date">2026-11-22</time></p>
+  <p>As of 7:00 am this morning,
+Toronto time,
+I have exactly 300,000 messages in my email archive.</p>
+<div class="center">
+<p><img alt="screenshot" src="../files/2026/email-300k.png" /></p>
+</div>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
+    <a href="../2026/11/22/my-latest-theory/">
+      My Latest Theory
+    </a>
+  </h3>
+  <p><time datetime="2026-11-22" class="post-date">2026-11-22</time></p>
+  <p>&ldquo;Model collapse&rdquo; describes the way machine learning models degrade
+when they are trained on their own outputs,
+which causes them to lose information about rare data
+and reduces the diversity of their outputs.
+I imagine that if your civilization has used ML for millions of years,
+your models will have collapsed to useless mushy pancakes.
+You will be desperate for novel data on which to train them,
+but where oh where shall you find it?</p>
+<p>One solution,
+perhaps,
+is to be very, very careful to keep newly-intelligent species isolated
+from the rest of the galactic community
+so that they can create things that are genuinely new.
+Aliens&rsquo; need to escape from model collapse might therefore explain
+the <a href="https://en.wikipedia.org/wiki/Fermi_paradox">Fermi Paradox</a>.</p>
+<p>Once they develop ML themselves,
+though,
+they will quickly fall into the same trap that you did.
+You will want to harvest every bit you can before they drown in slop
+(or destroy their homeworld&rsquo;s climate,
+accidentally release some sort of engineered plague,
+and/or trigger a <a href="https://en.wikipedia.org/wiki/Kessler_syndrome">Kessler event</a> that makes visiting rather difficult).</p>
+<p>Watch the skies, my friends.
+Watch the skies…</p>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/11/17/this-book-would-be-really-useful/">
       This Book Would Be Really Useful
     </a>
@@ -1148,174 +1196,6 @@ Possibilities include:</p>
 </ul>
 <p>I would be very grateful for guidance:
 what do <em>you</em> think a (data) scientist who&rsquo;s starting to manage their own system needs to know?</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/11/02/schelling/">
-      Testing the Schelling Segregation Model
-    </a>
-  </h3>
-  <p><time datetime="2026-11-02" class="post-date">2026-11-02</time></p>
-  <p>In 1971,
-economist Thomas Schelling asked whether mild individual preferences for similar neighbours
-could produce large-scale residential segregation.
-The answer is yes:
-even when each agent requires only 30% of occupied neighbours to share its type,
-the population self-organises into sharply segregated clusters.
-The Schelling model is an example of an agent-based model:</p>
-<ul>
-<li>Place two types of agents on a grid, leaving some cells empty.</li>
-<li>At each step, identify dissatisfied agents and move each to a random empty cell.</li>
-<li>Repeat until no agent moves, or for a fixed number of steps.</li>
-</ul>
-<p>It&rsquo;s a landmark result in computational social science
-because it shows that macro-level patterns can emerge from micro-level rules
-without central coordination.
-It&rsquo;s fairly easy to implement in Python,
-but testing it is a challenge.</p>
-<h2>Implementation</h2>
-<p>The grid is an $N \times N$ array.
-Each cell holds one of three values:
-0 (empty), 1 (red agent), or 2 (blue agent).
-The Moore neighborhood of a cell is the set of adjacent cells horizontally, vertically, or diagonally,
-and the same-neighbor fraction for an agent at position $(r, c)$ is:</p>
-<p>$$f(r,c) = \frac{\text{occupied neighbors of the same type}}{\text{total occupied neighbors}}$$</p>
-
-<p>An agent is <em>satisfied</em> when $f(r,c) \geq \theta$, where $\theta$ is the threshold.
-An agent with no occupied neighbors is treated as satisfied ($f = 1$)
-so that isolated agents do not drift endlessly across empty space.</p>
-<p>We initialize the grid by placing equal numbers of red and blue agents at random
-in a fraction $(1 - p_e)$ of cells, where $p_e$ is the empty fraction.
-(Those empty cells provide the vacancies that dissatisfied agents move into.)
-In each simulation step, we do the following:</p>
-<ul>
-<li>All dissatisfied agents are identified first, then all empty cells.</li>
-<li>Both lists are shuffled independently and paired in order.</li>
-<li>Each dissatisfied agent moves to the corresponding empty cell if one exists.</li>
-<li>Shuffling before pairing ensures no agent is systematically favored.</li>
-</ul>
-<p>The satisfaction rate (i.e., the fraction of agents that meet the threshold)
-rises as the grid segregates,
-and reaches 1.0 when every agent is happy with its neighborhood.
-This happens pretty quickly:</p>
-<p><img src="../files/2026/schelling-grid.svg"></p>
-<h2>Testing</h2>
-<p>So how do we test this?
-More specifically,
-what do we get when we ask an LLM to generate tests for this?</p>
-<ol>
-<li>Grid shape and contents<ul>
-<li><code>make_grid</code> must produce a $(50 \times 50)$ array whose cells are all in ${0, 1, 2}$</li>
-</ul>
-</li>
-<li>Balanced agent counts<ul>
-<li>Red and blue agents are built as equal halves of the occupied pool,
-    so their counts differ by at most 1
-    (an off-by-one when the total number of agents is odd)</li>
-</ul>
-</li>
-<li>Neighbor fractions<ul>
-<li>An isolated agent (no occupied neighbors) must return 1.0,
-    matching the convention that isolated agents are considered satisfied</li>
-<li>An agent surrounded entirely by the same type returns 1.0</li>
-<li>One surrounded entirely by the opposite type returns 0.0</li>
-</ul>
-</li>
-<li>Stable segregated grid<ul>
-<li>A $4 \times 4$ grid with red in the left two columns and blue in the right two columns
-    is fully satisfied</li>
-<li>Border agents have $5/8 = 0.625$ same-type neighbors which exceeds the threshold of 0.3</li>
-<li>One step must leave the grid unchanged</li>
-</ul>
-</li>
-<li>Satisfaction increases<ul>
-<li>Starting from the random initial grid,
-    the satisfaction rate after 20 steps must exceed the initial rate
-    because agents self-organise into clusters</li>
-</ul>
-</li>
-</ol>
-<p>The first three items don&rsquo;t exercise the science at all.
-That doesn&rsquo;t mean they&rsquo;re not important, but they feel a bit trivial.
-The fourth and fifth items are more interesting,
-but take a close look at the fifth one.
-It is possible (though extremely unlikely) for a stochastic process to fail this test.
-How should we handle that?
-&ldquo;Don&rsquo;t worry about it&rdquo; might actually be the right answer:
-as discussed <a href="../2025/05/19/some-testing-answers/">last year</a>,
-if the odds of a statistically-correct test failing are on par with
-the odds of two Git hashes colliding,
-we should turn our attention elsewhere.</p>
-<p>The problem is that I don&rsquo;t know how to calculate those odds.
-&ldquo;It seems pretty unlikely to me&rdquo; isn&rsquo;t satisfying,
-particularly given how prone human beings are to confirmation bias.
-As more and more scientists generate code with LLMs,
-and use those same LLMs to generate tests,
-I&rsquo;d be very grateful for answers to these questions.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/11/02/completed-fiction/">
-      Completed Fiction
-    </a>
-  </h3>
-  <p><time datetime="2026-11-02" class="post-date">2026-11-02</time></p>
-  <p>I&rsquo;ve written an average of about 450 words of fiction a day since I was laid off,
-but that number is misleading:
-some of those words have been rewritten several times.
-The more meaningful number is 28 rejections from agents and 25 from publishers
-in that same period.</p>
-<p>And before anyone asks,
-no,
-I haven&rsquo;t used AI to write any of this.
-Most of these projects are years old—I&rsquo;m just taking advantage of my unexpected idleness
-to revise or rewrite them.</p>
-<ul>
-<li><em>Beneath Coriandel</em> (adult fantasy novel):
-     A young man descends into the crypts beneath the city to slay a monster,
-     a woman plots to steal her niece&rsquo;s youth,
-     a talking horse foils a robbery,
-     and a magician wonders why she can&rsquo;t get a particular nursery rhyme out of her head.</li>
-<li><em>Iffy</em> (YA science fiction novel):
-    Two hundred years from now, in a melting Antarctica,
-    an orphaned clone named Iffy is haunted by
-    the blueprints for strange machines that appear unbidden in her mind.</li>
-<li><em>The Bookster&rsquo;s Apprentice</em> (YA fantasy novel):
-    A bookish girl who lives on a flying mountain finds her home and her life thrown off course,
-    and must come to terms with her people&rsquo;s history,
-    and possibly with the end of the world as she knows it.</li>
-<li><em>The Cloudherd and the Tiger&rsquo;s Boy</em> (YA fantasy novel):
-    After rescuing some rebel soldiers from an angry forest,
-    a young cloudherd must decide whose side she&rsquo;s on.</li>
-<li><em>Madica</em> (YA novella):
-    A fairy and a ninja cat try to save the world from a giant robot dinosaur.
-    Trust me, it makes sense when you read it…</li>
-<li><em>All the Other Santas</em> (YA novella):
-    A young santa who secretly wants to be an elf travels the multiverse in search of answers.</li>
-<li><em>Still</em> (YA novella):
-    A young puppet tries to make a life for herself on the street.</li>
-<li>The <em>Makers and Bots</em> trilogy (middle-grade SF novellas):<ul>
-<li><em>Maddy Roo</em>:
-    When a young kangaroo&rsquo;s sister is kidnapped,
-    she teams up with a battered robot to rescue her.</li>
-<li><em>In Heck</em>:
-    Maddy and her friend Gumption risk everything to venture into the bot city of Heck.</li>
-<li><em>The Makers Return</em>:
-    When the Makers return from their centuries-long exile,
-    can they find a way to live peacefully with those they left behind?</li>
-</ul>
-</li>
-<li>The <em>Eimin</em> trilogy (YA fantasy novellas, in progress):<ul>
-<li><em>Eimin in Medef</em>:
-    Having grown up unable to sense the feelings of others the way &ldquo;normal&rdquo; people can,
-    Eimin must decide what kind of person he wants to become.</li>
-<li><em>Eimin in Ossisswe</em>:
-    Eimin travels to the city of Ossisswe in search of a stolen magical amulet.</li>
-</ul>
-</li>
-</ul>
 </article>
 
 
