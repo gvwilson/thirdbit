@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Disaster Recovery</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Disaster Recovery</h1>
+</section>
+
+<section id="what-a-disaster-is" class="slide level2">
+<h2>What a Disaster Is</h2>
+<ul>
+<li>A disaster is not the end of the project
+<ul>
+<li>An unplanned disruption the team works through and survives</li>
+</ul></li>
+<li>In 2025, the US government attacked its own scientific research
+groups
+<ul>
+<li>GitHub briefly dropped below 90% availability</li>
+</ul></li>
+<li>These events reminded us how fragile research computing can be</li>
+</ul>
+</section>
+<section id="the-survival-arc" class="slide level2">
+<h2>The Survival Arc</h2>
+<ul>
+<li>Three stages in how people behave when disaster strikes
+<ul>
+<li>Denial: refusing to believe the situation is serious</li>
+<li>Deliberation: paralyzed uncertainty about what to do</li>
+<li>Decision: action, which may or may not be correct</li>
+</ul></li>
+<li>Denial usually consumes far more time than expected
+<ul>
+<li>Thinking through the scenario before it happens shortens it</li>
+</ul></li>
+<li>The gap between a credible sign and the first action will be long
+<ul>
+<li>Rehearsal converts a novel emergency into a recognized pattern</li>
+<li>The most common mistake is skipping early stages as premature</li>
+</ul></li>
+</ul>
+</section>
+<section id="know-your-risks" class="slide level2">
+<h2>Know Your Risks</h2>
+<ul>
+<li>Make a point-form list of every service and asset the team depends
+on</li>
+<li>For each item, answer two questions
+<ul>
+<li>How long can you be without it? (recovery time objective, RTO)</li>
+<li>How much data can you afford to lose? (recovery point objective,
+RPO)</li>
+</ul></li>
+<li>Identify single points of failure within your control
+<ul>
+<li>The credit card that pays for cloud services</li>
+<li>The person with the only key to the freezer</li>
+</ul></li>
+</ul>
+</section>
+<section id="make-and-test-a-plan" class="slide level2">
+<h2>Make and Test a Plan</h2>
+<ul>
+<li>Write one shared document everyone can find in thirty seconds
+<ul>
+<li>Store it in at least two places that cannot fail at once</li>
+</ul></li>
+<li>State disaster declaration criteria in plain language
+<ul>
+<li>“The dashboard has been offline for more than a day”</li>
+</ul></li>
+<li>Include a short numbered checklist for each scenario</li>
+<li>Test the plan by handing it to the newest member
+<ul>
+<li>Ask them to execute it without help</li>
+<li>Every stuck point is a documentation or automation gap</li>
+</ul></li>
+<li>This is the antidote to the fantasy document</li>
+</ul>
+</section>
+<section id="back-up-and-protect" class="slide level2">
+<h2>Back Up and Protect</h2>
+<ul>
+<li>Follow the 3-2-1 rule
+<ul>
+<li>Three copies of every critical asset</li>
+<li>On two different types of media</li>
+<li>With one copy off-site</li>
+</ul></li>
+<li>Back up source code to two different forges with automatic
+mirroring</li>
+<li>Back up configuration too
+<ul>
+<li>DNS records, environment variables, pipeline definitions</li>
+</ul></li>
+<li>Test a full restore at least once a year
+<ul>
+<li>About a third of backups fail to restore completely</li>
+</ul></li>
+<li>Backups are not preservation
+<ul>
+<li>Backups protect a continuing project from operational loss</li>
+<li>Preservation leaves a closing project usable by strangers</li>
+</ul></li>
+</ul>
+</section>
+<section id="communicate" class="slide level2">
+<h2>Communicate</h2>
+<ul>
+<li>Choose one channel that does not depend on normal infrastructure
+<ul>
+<li>Agree on a fallback and write it in the plan</li>
+</ul></li>
+<li>Pre-write messages and store them with the plan
+<ul>
+<li>One for the team, users, collaborators, and afterward</li>
+</ul></li>
+<li>Designate one person as the communicator
+<ul>
+<li>Everyone else focuses on fixing the problem</li>
+<li>Silence erodes trust faster than bad news</li>
+<li>Update stakeholders at regular intervals, even with “still working
+on it”</li>
+</ul></li>
+</ul>
+</section>
+<section id="stabilize-then-investigate" class="slide level2">
+<h2>Stabilize, Then Investigate</h2>
+<ul>
+<li>First goal is to contain damage, not find root cause
+<ul>
+<li>Contain the leak before mopping up</li>
+</ul></li>
+<li>Assign clear roles for the incident
+<ul>
+<li>One person leads the technical response</li>
+<li>One handles communication</li>
+<li>Everyone else does what the leads say</li>
+</ul></li>
+<li>Keep an incident log with timestamps
+<ul>
+<li>14:32 freezer alarm triggered</li>
+<li>14:35 temperature rising</li>
+<li>14:40 began sample transfer</li>
+</ul></li>
+<li>Escalate early
+<ul>
+<li>Open a support ticket as soon as you suspect it is someone else’s
+side</li>
+</ul></li>
+<li>Review within 48 hours
+<ul>
+<li>Ask what in the system allowed the incident, not who made a
+mistake</li>
+</ul></li>
+<li>Count the cost
+<ul>
+<li>A day of downtime has a concrete price</li>
+<li>That number tells you whether managed services are worth it</li>
+</ul></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

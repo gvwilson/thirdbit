@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Least-Cost Path Analysis for Trade Routes</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">7.1</span> The Problem</a></li>
+<li><a href="#the-cost-surface" id="toc-the-cost-surface"><span class="header-section-number">7.2</span> The Cost Surface</a></li>
+<li><a href="#generating-synthetic-terrain" id="toc-generating-synthetic-terrain"><span class="header-section-number">7.3</span> Generating Synthetic Terrain</a></li>
+<li><a href="#dijkstras-algorithm-on-a-grid" id="toc-dijkstras-algorithm-on-a-grid"><span class="header-section-number">7.4</span> Dijkstra’s Algorithm on a Grid</a></li>
+<li><a href="#visualizing-the-path" id="toc-visualizing-the-path"><span class="header-section-number">7.5</span> Visualizing the Path</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">7.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">7.7</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Least-Cost Path Analysis for Trade Routes</h1>
+<h2 data-number="7.1" id="the-problem"><span class="header-section-number">7.1</span> The Problem</h2>
+<ul>
+<li>Modern roads follow valleys and passes because crossing ridges is slow and exhausting, and ancient routes did the same</li>
+<li><a href="../glossary/index.html#landscape_archaeology">Landscape archaeology</a> asks where historical travelers and traders were most likely to move through a terrain</li>
+<li><a href="../glossary/index.html#least_cost_path">Least-cost path analysis</a> formalises this idea
+<ul>
+<li>Represent the terrain as a 2-D grid in which each cell has an elevation value</li>
+<li>Define a <a href="../glossary/index.html#cost_surface">cost surface</a> that translates elevation into travel difficulty</li>
+<li>Apply <a href="../glossary/index.html#dijkstras_algorithm">Dijkstra's algorithm</a> to find the path from a source cell to a destination cell that minimises the total accumulated cost</li>
+<li>Visualize the terrain and overlay the optimal route</li>
+</ul></li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why does least-cost path analysis assign lower cost to valley cells than to ridge cells?</p>
+<dl>
+<dt>Because valleys are always closer to water sources.</dt>
+<dd>
+Wrong: proximity to water is a separate consideration that is not part of the elevation-based cost model used here.
+</dd>
+</dl>
+<p>Because the model uses elevation as a proxy for travel effort: crossing high terrain requires more energy than traversing low terrain. : Correct: the cost of an edge is proportional to the average elevation of its two endpoints, so paths that stay in valleys accumulate less cost than paths that cross ridges.</p>
+<dl>
+<dt>Because valley cells are always larger on the grid.</dt>
+<dd>
+Wrong: all cells have the same size on a uniform grid; the cost difference comes from their elevation values, not their physical extent.
+</dd>
+<dt>Because Dijkstra’s algorithm always prefers shorter paths.</dt>
+<dd>
+Wrong: Dijkstra’s minimises accumulated cost, not geometric length; a longer valley path can beat a shorter ridge path if the valley cost is low enough.
+</dd>
+</dl>
+</div>
+<h2 data-number="7.2" id="the-cost-surface"><span class="header-section-number">7.2</span> The Cost Surface</h2>
+<ul>
+<li>The elevation grid is a 2-D array with values normalised to <span class="math inline">\([0, 1]\)</span>
+<ul>
+<li>0 is the lowest point in the landscape, 1 is the highest</li>
+</ul></li>
+<li>Moving from cell <span class="math inline">\(A\)</span> to an adjacent cell <span class="math inline">\(B\)</span> incurs an edge cost:</li>
+</ul>
+<p><span class="math display">\[\text{edge\_cost}(A, B) = \frac{\text{elev}(A) + \text{elev}(B)}{2} \times d(A, B)\]</span></p>
+<ul>
+<li>Averaging the endpoint elevations penalises entering a ridge from a valley proportionally (and vice versa).</li>
+<li><span class="math inline">\(d(A, B) = 1\)</span> for orthogonal moves and <span class="math inline">\(\sqrt{2}\)</span> for diagonal moves, so longer edges cost proportionally more.</li>
+</ul>
+<h2 data-number="7.3" id="generating-synthetic-terrain"><span class="header-section-number">7.3</span> Generating Synthetic Terrain</h2>
+<ul>
+<li>The terrain is a superposition of sinusoidal waves at four octaves</li>
+<li>Each successive octave has half the amplitude and twice the spatial frequency of the previous, producing a fractal-like surface of ridges and valleys</li>
+<li>The result is normalised to <span class="math inline">\([0, 1]\)</span> so that cost surface values are comparable regardless of the raw wave amplitudes</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="7.4" id="dijkstras-algorithm-on-a-grid"><span class="header-section-number">7.4</span> Dijkstra’s Algorithm on a Grid</h2>
+<ul>
+<li>Dijkstra’s algorithm maintains a priority queue of cells ordered by their current best-known distance from the source</li>
+<li>At each step it pops the cheapest cell, examines its eight neighbors, and updates any neighbor whose new cost would be lower than its current best</li>
+<li>When the destination is popped from the queue, its accumulated cost is optimal and the shortest-path tree stored in <code>prev</code> can be traced back to recover the route</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-ordering" data-lang="en" data-markdown="1">
+<p>Order the steps of Dijkstra’s algorithm as applied to this terrain grid.</p>
+<p>Initialize all distances to infinity; set distance of start cell to 0 and push it onto the priority queue. Pop the cell with the lowest accumulated cost from the priority queue. For each unvisited neighbor, compute the edge cost and update distance if the new route is cheaper. Stop when the destination cell is popped; trace back through the predecessor map to recover the path.</p>
+</div>
+<h2 data-number="7.5" id="visualizing-the-path"><span class="header-section-number">7.5</span> Visualizing the Path</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-leastcost-path" class="quarto-float quarto-figure quarto-figure-center" alt="A terrain colour map ranging from dark blue (low elevation) to white (high elevation). A red line traces a route from the top-left corner to the bottom-right corner, winding through the darker low-elevation regions and avoiding the bright high-elevation ridges.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-leastcost-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="leastcost-path.svg" alt="A terrain colour map ranging from dark blue (low elevation) to white (high elevation). A red line traces a route from the top-left corner to the bottom-right corner, winding through the darker low-elevation regions and avoiding the bright high-elevation ridges.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leastcost-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Least-cost trade route through a synthetic 40x60 terrain grid. The path avoids the high-elevation ridges (bright) and follows valley corridors (dark) to minimise accumulated travel cost.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="7.6" id="testing"><span class="header-section-number">7.6</span> Testing</h2>
+<dl>
+<dt>Terrain shape</dt>
+<dd>
+<code>make_terrain(rows, cols)</code> must return an array of exactly that shape.
+</dd>
+<dt>Terrain bounds</dt>
+<dd>
+After normalisation the minimum must be 0.0 and the maximum must be 1.0.
+</dd>
+<dt>Terrain reproducibility</dt>
+<dd>
+Calling <code>make_terrain</code> twice with the same seed must return identical arrays.
+</dd>
+<dt>Path endpoints</dt>
+<dd>
+The first cell of the returned path must equal <code>START</code>; the last must equal <code>END</code>.
+</dd>
+<dt>Path connectivity</dt>
+<dd>
+Every consecutive pair of cells in the path must be 8-connected neighbors, i.e., their offsets must appear in <code>STEP_LEN</code>.
+</dd>
+<dt>Flat terrain takes the diagonal</dt>
+<dd>
+On a uniform-elevation 5x5 grid, the cheapest route from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((4,4)\)</span> is the main diagonal (cost <span class="math inline">\(4\sqrt{2} \approx 5.66\)</span>) rather than the 8-step orthogonal route (cost 8.0), so the path must visit exactly 5 cells.
+</dd>
+<dt>Valley preferred over ridge</dt>
+<dd>
+A 3x3 grid with a zero-elevation valley row in the middle must route the path through that row rather than across the high-elevation rows.
+</dd>
+<dt>Low-cost path beats ridge traverse</dt>
+<dd>
+On a 3x5 grid with an all-zero middle row, the Dijkstra path must cost strictly less than an all-ridge orthogonal traverse.
+</dd>
+</dl>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_leastcost <span class="im">import</span> make_terrain, GRID_ROWS, GRID_COLS, START, END</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> leastcost <span class="im">import</span> least_cost_path, STEP_LEN</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_terrain_shape():</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Terrain must match the requested dimensions.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> make_terrain(<span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> elev.shape <span class="op">==</span> (<span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_terrain_bounds():</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># After normalisation, minimum is 0 and maximum is 1.</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> make_terrain(GRID_ROWS, GRID_COLS)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> elev.<span class="bu">min</span>() <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> elev.<span class="bu">max</span>() <span class="op">==</span> pytest.approx(<span class="fl">1.0</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_terrain_reproducible():</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Same seed must always produce identical terrain.</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    elev1 <span class="op">=</span> make_terrain(GRID_ROWS, GRID_COLS)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    elev2 <span class="op">=</span> make_terrain(GRID_ROWS, GRID_COLS)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.array_equal(elev1, elev2)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_path_endpoints():</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Path must start at START and finish at </span><span class="re">END</span><span class="co">.</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> make_terrain(GRID_ROWS, GRID_COLS)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> least_cost_path(elev, START, END)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> path[<span class="dv">0</span>] <span class="op">==</span> START</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> path[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> END</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_path_connected():</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Every consecutive pair of cells must be 8-connected neighbors.</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> make_terrain(GRID_ROWS, GRID_COLS)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> least_cost_path(elev, START, END)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (r1, c1), (r2, c2) <span class="kw">in</span> <span class="bu">zip</span>(path, path[<span class="dv">1</span>:]):</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> (r2 <span class="op">-</span> r1, c2 <span class="op">-</span> c1) <span class="kw">in</span> STEP_LEN</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_flat_terrain_diagonal():</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># On a uniform-elevation 5x5 grid, the cheapest path from (0,0) to (4,4)</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># is the main diagonal (4 diagonal steps, cost 4*sqrt(2) &lt; 8 orthogonal steps).</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> np.ones((<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> least_cost_path(elev, (<span class="dv">0</span>, <span class="dv">0</span>), (<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> path[<span class="dv">0</span>] <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> path[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> (<span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Diagonal path visits exactly 5 cells.</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(path) <span class="op">==</span> <span class="dv">5</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_valley_preferred():</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Three-row grid: rows 0 and 2 are high (elev=1), row 1 is a valley (elev=0).</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The path from (0,0) to (2,2) must pass through the valley to minimise cost.</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> np.array(</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>],</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>],</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>],</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> least_cost_path(elev, (<span class="dv">0</span>, <span class="dv">0</span>), (<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    visited_rows <span class="op">=</span> {r <span class="cf">for</span> r, c <span class="kw">in</span> path}</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="dv">1</span> <span class="kw">in</span> visited_rows</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_low_cost_path_cheaper_than_ridge():</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># On a 3x5 grid with a valley corridor in the middle row (elev=0) and</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># high terrain everywhere else (elev=1), the least-cost path from</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (0,0) to (2,4) must cost strictly less than a direct ridge traverse.</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ridge traverse (stay in rows 0 and 2) costs at least 4 orthogonal steps</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># at (1+1)/2 = 1.0 each, for a total &gt;= 4.0.  Valley path dips into row 1</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># where most edges cost (1+0)/2 or (0+0)/2, giving a much lower total.</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> np.array(</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>],</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>],</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>],</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> least_cost_path(elev, (<span class="dv">0</span>, <span class="dv">0</span>), (<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> total_cost(path):</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>(</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>            (elev[path[i]] <span class="op">+</span> elev[path[i <span class="op">+</span> <span class="dv">1</span>]])</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>            <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span> STEP_LEN[(path[i <span class="op">+</span> <span class="dv">1</span>][<span class="dv">0</span>] <span class="op">-</span> path[i][<span class="dv">0</span>], path[i <span class="op">+</span> <span class="dv">1</span>][<span class="dv">1</span>] <span class="op">-</span> path[i][<span class="dv">1</span>])]</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(path) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All-ridge orthogonal path (0,0)-&gt;(0,1)-&gt;(0,2)-&gt;(0,3)-&gt;(0,4)-&gt;(1,4)-&gt;(2,4)</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="co"># costs (1+1)/2 * 4 orthogonal + (1+0)/2 + (0+1)/2 = 4 + 0.5 + 0.5 = 5.0</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    ridge_cost <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> total_cost(path) <span class="op">&lt;</span> ridge_cost</span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Least-cost path key terms</p>
+<dl>
+<dt>Landscape archaeology</dt>
+<dd>
+A subfield of archaeology that studies how human activities are distributed across and shaped by the physical environment, including terrain, water, and vegetation; least-cost path analysis is one of its standard spatial methods
+</dd>
+<dt>Cost surface</dt>
+<dd>
+A 2-D grid in which each cell stores the difficulty of moving through that location; derived from elevation, slope, land cover, or other terrain attributes; used as input to path-finding algorithms
+</dd>
+<dt>Least-cost path</dt>
+<dd>
+The route through a cost surface that minimises the total accumulated cost from a source location to a destination; need not be the geometrically shortest path if shorter routes cross high-cost terrain
+</dd>
+<dt>Dijkstra’s algorithm</dt>
+<dd>
+A graph search algorithm that finds shortest (or least-cost) paths from a source node to all other nodes by iteratively relaxing edges in order of increasing cost; runs in <span class="math inline">\(O((V + E)\log V)\)</span> time with a binary heap
+</dd>
+<dt>Edge cost (terrain)</dt>
+<dd>
+The cost assigned to moving from one grid cell to an adjacent cell; computed here as the average of the two cells’ elevations times the step distance (<span class="math inline">\(1\)</span> for orthogonal, <span class="math inline">\(\sqrt{2}\)</span> for diagonal moves)
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="7.7" id="exercises"><span class="header-section-number">7.7</span> Exercises</h2>
+<h3 data-number="7.7.1" id="do-the-math"><span class="header-section-number">7.7.1</span> Do the math</h3>
+<p>Cell A has elevation 0.5 and orthogonally adjacent cell B has elevation 1.0. What is the edge cost from A to B?</p>
+<h3 data-number="7.7.2" id="slope-based-cost"><span class="header-section-number">7.7.2</span> Slope-based cost</h3>
+<p>Replace the elevation-averaging cost with a slope-based cost: the absolute elevation difference between the two cells divided by the step distance. Compare the resulting path to the elevation-average path. Does the slope cost prefer steeper or gentler routes?</p>
+<h3 data-number="7.7.3" id="anisotropic-cost"><span class="header-section-number">7.7.3</span> Anisotropic cost</h3>
+<p>Historical travelers going downhill moved faster than travelers going uphill. Modify the edge cost so that moving to a lower cell costs less than moving to a higher cell (for example, multiply by a factor of 0.5 for downhill moves). How does the preferred route change?</p>
+<h3 data-number="7.7.4" id="multiple-waypoints"><span class="header-section-number">7.7.4</span> Multiple waypoints</h3>
+<p>Extend <code>least_cost_path</code> to accept a list of waypoints and return the path that passes through every waypoint in order at minimum total cost. Apply this to the synthetic terrain with two intermediate waypoints and compare the total cost to the direct source-to-destination path.</p>
+<h3 data-number="7.7.5" id="sensitivity-to-epsilon"><span class="header-section-number">7.7.5</span> Sensitivity to epsilon</h3>
+<p>Generate terrain at three different random seeds and run least-cost path analysis on each. For each terrain, compute the total path cost and the fraction of cells on the path that lie below the mean elevation. Does a lower mean elevation on the path reliably predict lower total cost?</p>
+</section>
+
+</main>
+
+
+</body></html>

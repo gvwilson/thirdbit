@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Peak Detection in Mass Spectra</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">13.1</span> The Problem</a></li>
+<li><a href="#representing-a-spectrum" id="toc-representing-a-spectrum"><span class="header-section-number">13.2</span> Representing a Spectrum</a></li>
+<li><a href="#smoothing" id="toc-smoothing"><span class="header-section-number">13.3</span> Smoothing</a></li>
+<li><a href="#peak-detection" id="toc-peak-detection"><span class="header-section-number">13.4</span> Peak Detection</a></li>
+<li><a href="#what-the-detector-finds-in-pure-noise" id="toc-what-the-detector-finds-in-pure-noise"><span class="header-section-number">13.5</span> What the Detector Finds in Pure Noise</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">13.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">13.7</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Peak Detection in Mass Spectra</h1>
+<h2 data-number="13.1" id="the-problem"><span class="header-section-number">13.1</span> The Problem</h2>
+<ul>
+<li>A mass spectrometer measures how many ions in a sample have each mass-to-charge ratio (m/z)</li>
+<li>The output is a spectrum, i.e., a curve of intensity versus m/z, with a peak wherever a compound is present</li>
+<li>In practice the spectrum is noisy, so the peaks must be found algorithmically rather than by eye</li>
+<li>Peak detection is a preprocessing step in proteomics, metabolomics, and analytical chemistry</li>
+</ul>
+<h2 data-number="13.2" id="representing-a-spectrum"><span class="header-section-number">13.2</span> Representing a Spectrum</h2>
+<ul>
+<li>A synthetic spectrum is a sum of Gaussian peaks at known m/z values plus Gaussian noise:</li>
+</ul>
+<p><span class="math display">\[I(m) = \sum_k h_k \exp\!\left(-\frac{(m - \mu_k)^2}{2\sigma_k^2}\right) + \varepsilon, \qquad \varepsilon \sim \mathcal{N}(0,\,\sigma_\text{noise}^2)\]</span></p>
+<ul>
+<li><span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(h_k\)</span>, and <span class="math inline">\(\sigma_k\)</span> are the center, height, and width of peak <span class="math inline">\(k\)</span></li>
+<li>Intensities are clipped to zero because a negative ion count has no physical meaning</li>
+</ul>
+<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<h2 data-number="13.3" id="smoothing"><span class="header-section-number">13.3</span> Smoothing</h2>
+<ul>
+<li>Noise causes random local maxima that look like peaks but carry no chemical information</li>
+<li>A <a href="../glossary/index.html#moving_average">moving-average</a> filter replaces each point with the mean of its <span class="math inline">\(w\)</span> nearest neighbours, reducing point-to-point variance by a factor of <span class="math inline">\(w\)</span>:</li>
+</ul>
+<p><span class="math display">\[\hat{I}_i = \frac{1}{w} \sum_{j=i-\lfloor w/2 \rfloor}^{i+\lfloor w/2 \rfloor} I_j\]</span></p>
+<ul>
+<li>Smoothing attenuates noise without shifting peak positions as long as <span class="math inline">\(w\)</span> is small relative to the peak width</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>The noise standard deviation before smoothing is <span class="math inline">\(\sigma_\text{noise} = 0.05\)</span>. After applying a moving-average filter with window w = 5, what is the approximate standard deviation of the smoothed noise?</p>
+<dl>
+<dt>0.05 (unchanged)</dt>
+<dd>
+Wrong: averaging reduces variance — a filter that left noise unchanged would be useless.
+</dd>
+<dt><span class="math inline">\(0.05 / \sqrt{5} \approx 0.022\)</span></dt>
+<dd>
+Correct: averaging w independent values reduces variance by <span class="math inline">\(1/w\)</span>, so standard deviation by <span class="math inline">\(1/\sqrt{w}\)</span>.
+</dd>
+<dt>0.05 / 5 = 0.010</dt>
+<dd>
+Wrong: the variance (not the standard deviation) is divided by w; the std dev is divided by <span class="math inline">\(\sqrt{w}\)</span>.
+</dd>
+<dt><span class="math inline">\(0.05 \times \sqrt{5} \approx 0.112\)</span></dt>
+<dd>
+Wrong: smoothing reduces noise, not increases it.
+</dd>
+</dl>
+</div>
+<h2 data-number="13.4" id="peak-detection"><span class="header-section-number">13.4</span> Peak Detection</h2>
+<ul>
+<li>After smoothing, a peak candidate is any point that is a strict local maximum and whose smoothed intensity exceeds a threshold</li>
+<li>A single broad peak can produce several adjacent local maxima after smoothing</li>
+<li><a href="../glossary/index.html#non_maximum_suppression">Non-maximum suppression</a> keeps only the tallest candidate within a window of <code>min_distance</code> index positions</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-ordering" data-lang="en" data-markdown="1">
+<p>Put these peak-detection steps in the correct order.</p>
+<ol type="1">
+<li>Generate a spectrum: sum Gaussian peaks and add noise</li>
+<li>Apply a moving-average filter to smooth the spectrum</li>
+<li>Find all points that are strict local maxima above the threshold</li>
+<li>Apply non-maximum suppression within <code>min_distance</code> positions</li>
+<li>Return the m/z values of the surviving candidates</li>
+</ol>
+</div>
+<div class="forma-matching" data-lang="en" data-markdown="1">
+<p>Match each parameter to the problem it is designed to address.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Solves</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>SMOOTH_WINDOW</code></td>
+<td>Prevents one broad peak from being reported as multiple peaks</td>
+</tr>
+<tr class="even">
+<td><code>THRESHOLD</code></td>
+<td>Attenuates point-to-point noise before the peak search</td>
+</tr>
+<tr class="odd">
+<td><code>MIN_DISTANCE</code></td>
+<td>Rejects local maxima that are only noise fluctuations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="fig-massspec-signal" class="quarto-float quarto-figure quarto-figure-center" alt="Mass spectrum showing raw intensity in grey, smoothed in blue, and detected peaks as red vertical lines.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-massspec-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="massspec.svg" alt="Mass spectrum showing raw intensity in grey, smoothed in blue, and detected peaks as red vertical lines.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-massspec-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Synthetic spectrum with four compounds. Grey: raw signal. Blue: smoothed signal (window = 5). Red rules: detected peak positions. All four compounds are recovered within 1 Da of their true m/z values.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="13.5" id="what-the-detector-finds-in-pure-noise"><span class="header-section-number">13.5</span> What the Detector Finds in Pure Noise</h2>
+<ul>
+<li>The same detector, with the same threshold, applied to a spectrum that contains no signal at all produces false peaks</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-massspec-noise" class="quarto-float quarto-figure quarto-figure-center" alt="Pure-noise spectrum with 9 false peaks marked by red vertical lines.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-massspec-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="massspec_noise.svg" alt="Pure-noise spectrum with 9 false peaks marked by red vertical lines.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-massspec-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2: Pure Gaussian noise (no signal) smoothed and searched with a threshold of 0.04. Nine false peaks are reported. The same noise searched at the normal threshold of 0.10 produces zero false peaks.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>With noise standard deviation <span class="math inline">\(\sigma_\text{noise} = 0.05\)</span> and window <span class="math inline">\(w = 5\)</span>, the smoothed noise has standard deviation <span class="math inline">\(0.05 / \sqrt{5} \approx 0.022\)</span></li>
+<li>A threshold of 0.04 is roughly <span class="math inline">\(1.8\sigma\)</span>
+<ul>
+<li>Roughly 7% of smoothed values exceed it, so several local maxima among them are expected</li>
+</ul></li>
+<li>The operating threshold of 0.10 is <span class="math inline">\(4.5\sigma\)</span>
+<ul>
+<li>Fewer than one point in 100,000 exceeds it by chance, making false positives negligible for a 500-point spectrum</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>The noise figure shows 9 false peaks at threshold 0.04 and 0 false peaks at threshold 0.10. What is the most important conclusion?</p>
+<dl>
+<dt>The detector is broken — a correct detector should never find peaks in pure noise</dt>
+<dd>
+Wrong: any threshold-based detector produces false positives when the threshold is below the noise floor — this is expected behaviour, not a bug.
+</dd>
+<dt>A threshold of 0.10 is always the right choice for any spectrum</dt>
+<dd>
+Wrong: the right threshold depends on the noise level and peak heights; 0.10 is calibrated specifically to this synthetic dataset.
+</dd>
+<dt>The threshold must be set well above the smoothed noise floor to suppress false positives</dt>
+<dd>
+Correct: at 0.04 <span class="math inline">\(\approx 1.8\sigma\)</span> roughly 7% of smoothed noise exceeds the threshold; at 0.10 <span class="math inline">\(\approx 4.5\sigma\)</span> fewer than 1 in 100 000 values do.
+</dd>
+<dt>Increasing the smoothing window eliminates false positives at any threshold</dt>
+<dd>
+Wrong: more smoothing reduces noise amplitude but cannot reduce it to zero; false positives persist if the threshold is too low.
+</dd>
+</dl>
+</div>
+<h2 data-number="13.6" id="testing"><span class="header-section-number">13.6</span> Testing</h2>
+<dl>
+<dt>Smoothing a constant</dt>
+<dd>
+A constant signal has no noise to reduce; smoothing must leave it unchanged (except at the boundaries, which are zero-padded by <code>np.convolve</code>).
+</dd>
+<dt>Variance reduction</dt>
+<dd>
+The defining purpose of the filter is to reduce variance. If smoothing increases variance the implementation is wrong.
+</dd>
+<dt>Length preservation</dt>
+<dd>
+<code>np.convolve</code> with <code>mode='same'</code> always returns an array of the same length as the input. This is worth checking explicitly because changing the mode would silently break downstream code.
+</dd>
+<dt>Known peak positions</dt>
+<dd>
+The detector must find all four compounds within a tolerance that reflects the grid spacing (1 Da per index) and is well below the minimum peak separation (&gt; 100 Da). A tolerance of 5 Da is used: it is 5X the grid spacing and 20X smaller than the nearest adjacent peaks, giving a clear pass/fail criterion without being unnecessarily tight.
+</dd>
+<dt>Threshold at infinity</dt>
+<dd>
+Raising the threshold until it exceeds all values must produce an empty result. This guards against off-by-one errors in the threshold comparison.
+</dd>
+<dt>Non-maximum suppression</dt>
+<dd>
+The test constructs two well-separated Gaussians (10 Da apart, sigma = 2 Da) that produce two distinct local maxima in the intensity array. With <code>min_distance = 12</code>, only the taller is kept; with <code>min_distance = 5</code>, both survive.
+</dd>
+<dt>Pure noise</dt>
+<dd>
+Running the detector on pure noise at a low threshold must return at least one false peak, confirming the expected false-positive behaviour. Running at the operating threshold must return none, confirming it is set high enough.
+</dd>
+</dl>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_spectrum <span class="im">import</span> make_spectrum, make_pure_noise, PEAKS, DEFAULT_NOISE</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> massspec <span class="im">import</span> smooth, detect_peaks, SMOOTH_WINDOW, THRESHOLD</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_constant():</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing a constant signal must return the same constant everywhere.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.full(<span class="dv">50</span>, <span class="fl">3.7</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> smooth(intensity, window<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Edges are zero-padded by convolve mode='same'; only test the interior.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    interior <span class="op">=</span> result[SMOOTH_WINDOW <span class="op">//</span> <span class="dv">2</span> : <span class="op">-</span>(SMOOTH_WINDOW <span class="op">//</span> <span class="dv">2</span>)]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(interior, <span class="fl">3.7</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_reduces_variance():</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing must reduce point-to-point variance.</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">200</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(noise, window<span class="op">=</span><span class="dv">7</span>).var() <span class="op">&lt;</span> noise.var()</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_preserves_length():</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.ones(<span class="dv">123</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(smooth(intensity, window<span class="op">=</span><span class="dv">5</span>)) <span class="op">==</span> <span class="dv">123</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_detect_known_peaks():</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The detector must find all four compound peaks within 5 Da of their true centers.</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tolerance of 5 Da is well above the grid spacing (1 Da) and well below</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the separation between any two peaks (&gt; 100 Da).</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_spectrum()</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_peaks(mz, smooth(raw))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    true_centers <span class="op">=</span> np.array([p[<span class="dv">0</span>] <span class="cf">for</span> p <span class="kw">in</span> PEAKS])</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detected) <span class="op">==</span> <span class="bu">len</span>(true_centers), (</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Expected </span><span class="sc">{</span><span class="bu">len</span>(true_centers)<span class="sc">}</span><span class="ss"> peaks, got </span><span class="sc">{</span><span class="bu">len</span>(detected)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> center, found <span class="kw">in</span> <span class="bu">zip</span>(true_centers, detected):</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">abs</span>(found <span class="op">-</span> center) <span class="op">&lt;=</span> <span class="fl">5.0</span>, (</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Peak at </span><span class="sc">{</span>center<span class="sc">}</span><span class="ss"> Da detected at </span><span class="sc">{</span>found<span class="sc">:.1f}</span><span class="ss"> Da (&gt; 5 Da error)"</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_no_peaks_below_threshold():</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A threshold above all intensities must return no peaks.</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_spectrum()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_peaks(mz, smooth(raw), threshold<span class="op">=</span><span class="fl">999.0</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detected) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_min_distance_suppresses_duplicates():</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use a 101-point grid (1 Da per index) so index distance equals Da distance.</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Peaks at 50 and 60 Da are 10 indices apart and have distinct local maxima.</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># min_distance=12 merges them to the taller one; min_distance=5 keeps both.</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    mz <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">101</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.exp(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> <span class="dv">50</span>) <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> <span class="fl">0.9</span> <span class="op">*</span> np.exp(</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> <span class="dv">60</span>) <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    one <span class="op">=</span> detect_peaks(mz, intensity, threshold<span class="op">=</span><span class="fl">0.1</span>, min_distance<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    two <span class="op">=</span> detect_peaks(mz, intensity, threshold<span class="op">=</span><span class="fl">0.1</span>, min_distance<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(one) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(two) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_produces_false_positives():</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Running the detector on pure noise with a threshold close to the noise</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># floor must produce false positives, demonstrating that threshold choice</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># matters.  The smoothed-noise std dev is DEFAULT_NOISE / sqrt(SMOOTH_WINDOW)</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ≈ 0.022.  A threshold of 0.04 (~1.8 sigma) should yield several false peaks.</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_pure_noise(noise_scale<span class="op">=</span>DEFAULT_NOISE)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    smoothed <span class="op">=</span> smooth(raw)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    low_threshold <span class="op">=</span> <span class="fl">0.04</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    false_peaks <span class="op">=</span> detect_peaks(mz, smoothed, threshold<span class="op">=</span>low_threshold)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(false_peaks) <span class="op">&gt;</span> <span class="dv">0</span>, (</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Expected false positives from pure noise at a low threshold"</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And at the normal threshold, noise alone must not trigger any peaks.</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detect_peaks(mz, smoothed, threshold<span class="op">=</span>THRESHOLD)) <span class="op">==</span> <span class="dv">0</span>, (</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Normal threshold should reject all noise peaks"</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<section class="exercises">
+<h2 data-number="13.7" id="exercises"><span class="header-section-number">13.7</span> Exercises</h2>
+<h3 data-number="13.7.1" id="savitzky-golay-filter"><span class="header-section-number">13.7.1</span> Savitzky-Golay filter</h3>
+<p>Replace the moving-average smoother with a Savitzky-Golay filter, which fits a low-degree polynomial to each window rather than taking a plain mean. The advantage is that the filter preserves peak heights more accurately. Use <code>scipy.signal.savgol_filter</code> and compare the peak positions and heights it reports to those from the moving-average filter on the same synthetic spectrum.</p>
+<h3 data-number="13.7.2" id="baseline-correction"><span class="header-section-number">13.7.2</span> Baseline correction</h3>
+<p>Real spectra often have a slowly varying baseline (background signal) that shifts all intensities upward. Simulate this by adding a low-frequency sinusoid <span class="math inline">\(B(m) = 0.3 \sin(2\pi m / 800)\)</span> to the synthetic spectrum before adding noise. Implement <code>subtract_baseline(mz, intensity, window)</code> that uses a moving minimum over a large window to estimate and remove the baseline, then show that peak detection on the corrected spectrum recovers the same four compounds.</p>
+<h3 data-number="13.7.3" id="peak-area"><span class="header-section-number">13.7.3</span> Peak area</h3>
+<p>The area under a Gaussian peak is <span class="math inline">\(h \sigma \sqrt{2\pi}\)</span> and is proportional to compound abundance. After detecting each peak, fit a Gaussian to the smoothed signal in a small window around it using <code>scipy.optimize.curve_fit</code> and report the fitted height, center, and area. Compare the fitted values to the ground truth in <code>PEAKS</code>.</p>
+<h3 data-number="13.7.4" id="receiver-operating-characteristic"><span class="header-section-number">13.7.4</span> Receiver operating characteristic</h3>
+<p>Use <code>make_pure_noise</code> to generate 200 noise-only spectra and <code>make_spectrum</code> to generate 200 signal spectra. For each, record whether the detector finds at least one peak. Sweep the threshold from 0.01 to 0.30 and plot the ROC curve (true positive rate vs. false positive rate). Report the threshold that maximises the F1 score.</p>
+</section>
+
+</main>
+
+
+</body></html>

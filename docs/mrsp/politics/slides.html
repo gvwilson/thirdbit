@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -107,22 +106,8 @@ papers
 LLM text degrades the signals of the author’s actual state
 </li>
 </ul>
-</section>
-<section id="map-the-coalition-10-min" class="slide level2 exercise">
-<h2 class="exercise">Map the Coalition (10 min)</h2>
-<p>Think of a decision that was made in your project or institution that
-went differently than you expected based on the technical merits. What
-are three non-technical factors that might explain the actual outcome,
-and what information would help you test each explanation?</p>
-</section>
-<section id="rewrite-the-argument-10-min" class="slide level2 exercise">
-<h2 class="exercise">Rewrite the Argument (10 min)</h2>
-<p>Take a technical proposal you have made or plan to make. Rewrite the
-core argument for an audience that cares about something other than
-technical correctness. Do not use any technical terms your audience
-would not know. You must frame the proposal in terms of something they
-already care about, such as risk, cost, reputation, or timeline. Trade
-your proposal with a partner and exchange critiques.</p>
+<pre class="include"><code>_map_coalition.qmd
+_rewrite_argument.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -133,6 +118,7 @@ your proposal with a partner and exchange critiques.</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -279,8 +265,26 @@ your proposal with a partner and exchange critiques.</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

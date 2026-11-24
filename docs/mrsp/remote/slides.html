@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -114,37 +113,8 @@ LLM summaries flatten nuance and lose hedging language
 Relying on LLM summaries loses the social texture that reveals struggle
 </li>
 </ul>
-</section>
-<section id="communication-audit-10-min" class="slide level2 exercise">
-<h2 class="exercise">Communication Audit (10 min)</h2>
-<ol type="1">
-<li>What is the longest a pull request or issue comment has gone without
-a response in the last three months? What time zone was the contributor
-in?</li>
-<li>When are your regular meetings scheduled? Which contributors can’t
-attend at that time without rearranging their workday?</li>
-<li>Where are decisions made? Are they accessible to contributors who
-weren’t in the meeting?</li>
-<li>Which contributors haven’t engaged in the last month? What do you
-know about why?</li>
-</ol>
-</section>
-<section id="design-a-communication-structure-10-min"
-class="slide level2 exercise">
-<h2 class="exercise">Design a Communication Structure (10 min)</h2>
-<p>Design a communication structure for a team with contributors in at
-least three time zones. (Use your own project, or use Jess’s team:
-Toronto, Rabat, Warsaw, and Seoul). Specify:</p>
-<ul>
-<li>How often synchronous meetings happen and when (rotate or
-fixed?).</li>
-<li>How decisions are made for things that can’t wait for a
-meeting.</li>
-<li>What the expected response time is for code reviews and issues.</li>
-<li>How contributors who miss a meeting find out what was decided.</li>
-</ul>
-<p>Compare your structure with a partner’s. Identify one thing they
-included that you missed.</p>
+<pre class="include"><code>_communication_audit.qmd
+_communication_structure.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -155,6 +125,7 @@ included that you missed.</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -301,8 +272,26 @@ included that you missed.</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

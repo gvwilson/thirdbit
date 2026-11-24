@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -97,36 +96,8 @@ months.</li>
 <li>Broadcast on all available channels.</li>
 <li>Tell people why, and what will happen to the project’s assets.</li>
 </ul>
-</section>
-<section id="lottery-factor-audit-10-min" class="slide level2 exercise">
-<h2 class="exercise">Lottery Factor Audit (10 min)</h2>
-<p>Answer these questions for your project:</p>
-<ol type="1">
-<li>Who can create a release?</li>
-<li>Which credentials exist only on someone’s personal account rather
-than a shared project account?</li>
-<li>What would your project be unable to do if you were unavailable for
-three months?</li>
-<li>What would be unrecoverable if a key team member left without any
-notice?</li>
-</ol>
-</section>
-<section id="write-your-advance-directive-10-min"
-class="slide level2 exercise">
-<h2 class="exercise">Write Your Advance Directive (10 min)</h2>
-<p>Write a one-page document covering:</p>
-<ul>
-<li>The conditions under which this project should be wound down (not
-just “when funding runs out” but specific observable signals:
-contributor count, response time to issues, number of active
-users).</li>
-<li>Who has the authority to make that call.</li>
-<li>What assets must be preserved before shutdown is complete.</li>
-<li>What obligations must be honored before the project can be
-considered closed.</li>
-</ul>
-<p>Give the document to an LLM and prompt it to identify three realistic
-scenarios it doesn’t cover.</p>
+<pre class="include"><code>_lottery_factor.qmd
+_advance_directive.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -137,6 +108,7 @@ scenarios it doesn’t cover.</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -283,8 +255,26 @@ scenarios it doesn’t cover.</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

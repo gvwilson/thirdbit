@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-11-01">
+  <title>Closing Time</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Closing Time</h1>
+  <p class="subtitle">Succession, shutdown, and survival for small
+projects</p>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026-11-01</p>
+</section>
+
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>Decisions made under stress are worse than decisions made in
+advance</li>
+<li>So make critical decisions <em>now</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Gradual</th>
+<th>Abrupt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project continues</td>
+<td>Succession</td>
+<td>Disaster recovery</td>
+</tr>
+<tr>
+<td>Project stops</td>
+<td>Deliberate closure</td>
+<td>Abrupt closure</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Disaster recovery is out of scope for this talk</li>
+</ul>
+<aside class="notes">
+<p>Set the stage.</p>
+</aside>
+</section>
+<section id="who-decides" class="slide level2">
+<h2>Who Decides</h2>
+<ul>
+<li>Every team has decision rules, but they are rarely explicit
+<ul>
+<li>Write them, or the loudest person wins</li>
+</ul></li>
+<li>Default is a BDFL (or PI</li>
+<li>Martha’s Rules: a proposal passes unless enough people formally
+object</li>
+<li>Rules must state <strong>suffrage</strong>: who can veto, not just
+who is consulted</li>
+<li>Few projects have a <code>GOVERNANCE.md</code>
+<ul>
+<li>Fewer put shutdown criteria in it</li>
+</ul></li>
+<li>A documented model: the Apache attic process
+<ul>
+<li>Three active respondents make a project viable</li>
+<li>If they can’t release, shutdown begins</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Ask, “Who could stop your project tomorrow without asking you?”
+Usually a grant officer or a manager they had not counted.</p>
+</aside>
+</section>
+<section id="the-one-page-advance-directive" class="slide level2">
+<h2>The One-Page Advance Directive</h2>
+<ul>
+<li>Medical <strong>advance directive</strong> says what care you want
+when you cannot speak for yourself</li>
+<li>Write one while the project is healthy
+<ul>
+<li>Conditions for shutdown: specific, observable signals</li>
+<li>Who has authority to make the call</li>
+<li>What assets must be preserved</li>
+<li>What obligations must be honoured</li>
+</ul></li>
+<li>A <code>HANDOVER.md</code> written by AI and read by nobody is a
+<strong>fantasy document</strong>
+<ul>
+<li>Written to reassure a funder</li>
+</ul></li>
+<li>Give it to a colleague, ask for one realistic scenario it doesn’t
+handle
+<ul>
+<li>“The person with authority is unavailable”</li>
+<li>“Two people with a veto disagree”</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Push for observable signals rather than “when funding runs out”. Bad:
+“when the project is no longer viable”. Good: “no release in twelve
+months”, “fewer than three active maintainers”.</p>
+</aside>
+</section>
+<section id="inventory-before-you-need-it" class="slide level2">
+<h2>Inventory Before You Need It</h2>
+<ul>
+<li><strong>Preservation</strong> means “usable by someone who was not
+part of creating it”</li>
+<li>Capture “why”: an explanation of the problem outlives the API
+documentation
+<ul>
+<li>Particularly in an age of AI</li>
+</ul></li>
+<li>Two questions per asset:
+<ul>
+<li>How would someone else find and use this if we vanished
+tomorrow?</li>
+<li>What do we do first under time pressure?</li>
+</ul></li>
+<li>Handover is an <strong>asset transfer</strong>, not an
+<strong>entity transfer</strong>
+<ul>
+<li>Move selected assets and obligations, leave unknown liabilities
+behind</li>
+<li>Saying what is and is not included protects both sides</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Note that the distinction between asset transfer vs. entity transfer
+depends on legal jurisdiction.</p>
+</aside>
+</section>
+<section id="asset-playbook" class="slide level2">
+<h2>Asset Playbook</h2>
+<dl>
+<dt>Credentials and access</dt>
+<dd>
+Hand them to a trusted person <em>outside</em> the project first.
+Institutional accounts die with the institution.
+</dd>
+<dt>Data</dt>
+<dd>
+Record provenance, format, units, and known limitations. Copy it out
+first.
+</dd>
+<dt>Code</dt>
+<dd>
+Archive to Zenodo or Software Heritage with a DOI on the final release,
+so it stays citable. Under time pressure, data before code.
+</dd>
+</dl>
+<p>Under time pressure:</p>
+<ol type="1">
+<li>Credentials (so you don’t lose access)</li>
+<li>Data (because software can be reproduced)</li>
+<li>Make repo public (messy is fine)</li>
+<li>Issues, mailing list archives, etc.</li>
+<li>Everything else</li>
+</ol>
+<aside class="notes">
+<p>“Messy is fine” is the line people need: public and ugly beats
+private and perfect. The detailed mechanics of archiving and mirroring
+are in the disaster section.</p>
+</aside>
+</section>
+<section id="legal-and-administrative" class="slide level2">
+<h2>Legal and Administrative</h2>
+<ul>
+<li>Most often skipped, but causes the most trouble later</li>
+<li>Keep a record by email, not chat or calls
+<ul>
+<li>Memory is imperfect under stress, and people revise what they
+promised</li>
+</ul></li>
+<li>Check who <em>legally</em> owns project assets: don’t assume
+<ul>
+<li>Universities, companies, and grant-funded projects differ</li>
+<li>Find the OSPO or IP office if you can</li>
+</ul></li>
+<li>Transfer or release trademarks and domains explicitly</li>
+<li>Close bank accounts, settle residual funds, write final grant
+report</li>
+<li>Put exit clauses into contracts at the start, not when you need
+them</li>
+</ul>
+<aside class="notes">
+<ol type="1">
+<li>Legal issues are most often skipped because project participants
+don’t understand the law.</li>
+<li>keep the record by email, and find out who legally owns your outputs
+before you need to know.</li>
+</ol>
+</aside>
+</section>
+<section id="succession-planning" class="slide level2">
+<h2>Succession Planning</h2>
+<div class="center">
+<p>The best case: the project continues, and you have time</p>
+</div>
+</section>
+<section id="four-ways-leaders-leave" class="slide level2">
+<h2>Four Ways Leaders Leave</h2>
+<ul>
+<li><strong>Monarchs</strong> refuse to go until forced out, then
+undermine the successor</li>
+<li><strong>Generals</strong> leave reluctantly, keep close ties, and
+try to come back</li>
+<li><strong>Ambassadors</strong> leave willingly, stay available, and
+are the most satisfied afterwards</li>
+<li><strong>Governors</strong> leave cleanly for something new and
+disengage entirely</li>
+<li>Which one you are is determined by how central the project is to
+your identity, not by conscious choice</li>
+</ul>
+<aside class="notes">
+<p>Most founders are Generals but take offence at the description. Point
+this out, then say that succession planning can help turn Generals into
+Ambassadors or Governors.</p>
+</aside>
+</section>
+<section id="before-you-go" class="slide level2">
+<h2>Before You Go</h2>
+<ul>
+<li>Be sure you mean it
+<ul>
+<li>Letting go is hard on you</li>
+<li><em>Not</em> letting go is harder on your successors</li>
+</ul></li>
+<li>Move when other people think it is time
+<ul>
+<li>You will be the last to notice, so ask <em>and listen</em></li>
+</ul></li>
+<li>Say what, when, and why, as soon as you are sure
+<ul>
+<li>Rumours are worse than news</li>
+</ul></li>
+<li>Do not pick your successor by yourself
+<ul>
+<li>You are not objective, and the project’s needs have changed since it
+started</li>
+<li>Involving others builds the community that has to live with the
+answer</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>The successor is not necessarily the smartest or most productive
+person; it is whoever the project needs for whatever the next challenge
+is. In particular, administrative skills are usually more important
+during transition than technical skills.</p>
+</aside>
+</section>
+<section id="hand-over-then-leave" class="slide level2">
+<h2>Hand Over, Then Leave</h2>
+<ul>
+<li>The succession plan has two parts
+<ul>
+<li>Transition: what are you handing over, and when?</li>
+<li>Final state: what is the successor actually responsible for?</li>
+</ul></li>
+<li>Write the first draft alone, and the final draft <em>with</em> your
+successor</li>
+<li>Hand over gradually (days, weeks, or months if you can)</li>
+<li>Take a week’s holiday and leave them in charge: you will find what
+you forgot to say</li>
+<li>Credentials move a step ahead of the responsibility</li>
+<li>Leave when you leave
+<ul>
+<li>Staying half-in confuses people who are used to asking you</li>
+</ul></li>
+<li>Leave <em>for</em> something, even something small</li>
+<li>Write down what you learned, if only for yourself</li>
+</ul>
+<aside class="notes">
+<p>Tell them this is hard - make it OK.</p>
+</aside>
+</section>
+<section id="deliberate-closure" class="slide level2">
+<h2>Deliberate Closure</h2>
+<div class="center">
+<p>“Succession to zero”: the project stops (for now) and you have time
+to be graceful</p>
+</div>
+<aside class="notes">
+<p>This is where the work shifts from triage to communication, and
+people consistently under-invest in the second one.</p>
+</aside>
+</section>
+<section id="five-stages-of-decline" class="slide level2">
+<h2>Five Stages of Decline</h2>
+<ul>
+<li>Blindness</li>
+<li>Inaction</li>
+<li>Faulty action</li>
+<li>Crisis</li>
+<li>Dissolution</li>
+</ul>
+<aside class="notes">
+<p>Go through this quickly.</p>
+</aside>
+</section>
+<section id="announce-it-honestly" class="slide level2">
+<h2>Announce It Honestly</h2>
+<ul>
+<li>The moment shutdown becomes undeniable is rarely the moment it
+became inevitable</li>
+<li>Don’t announce shutdown: announce that <em>you</em> are stopping and
+invite successors
+<ul>
+<li>Don’t accept unknown successors: supply chain risk</li>
+</ul></li>
+<li>Two to six months between announcement and shutdown if you can</li>
+<li>Announce on the project’s channels, not just the README
+<ul>
+<li>Give reasons, timelines, and what happens to assets</li>
+<li>Gaps cause more anxiety than hard truths</li>
+<li>Verbal instructions (e.g., on a call) can’t be referred back to</li>
+</ul></li>
+<li>Don’t invent certainty: say what you know, and when you will know
+more</li>
+</ul>
+<aside class="notes">
+<p>Emphasize the last point (not inventing certainty) and the need to
+write things down so that everyone has the same story. Suggest adding
+timestamps to statements and updates.</p>
+</aside>
+</section>
+<section id="graceful-shutdown" class="slide level2">
+<h2>Graceful Shutdown</h2>
+<ul>
+<li>Write a one-page “last known state”
+<ul>
+<li>What the project <em>is</em></li>
+<li>What works and what doesn’t</li>
+<li>What lives where</li>
+<li>Include “things we’ve learned to live with”</li>
+</ul></li>
+<li>Update the home page with achievements, state, archive location, and
+alternatives
+<ul>
+<li>I.e., give project participants something citable</li>
+</ul></li>
+<li>Don’t bother with user tutorials, exhaustive docs, bug triage, etc.
+<ul>
+<li>You don’t have time</li>
+<li>And AI can construct that later if there’s need</li>
+</ul></li>
+<li>Have someone from outside run structured exit interviews</li>
+<li>Hold a wake: retrospective and memorial together</li>
+</ul>
+<aside class="notes">
+<p>The “do not bother” list gives people permission to be gentle on
+themselves. The learned-to-live-with line is the normalized-deviations
+point in one sentence.</p>
+</aside>
+</section>
+<section id="abrupt-closure" class="slide level2">
+<h2>Abrupt Closure</h2>
+<div class="center">
+<p>The project stops on short notice. You get one chance.</p>
+</div>
+<aside class="notes">
+<p>This is the least pleasant option, and the one they have least
+practice at.</p>
+</aside>
+</section>
+<section id="nobody-compares-options-under-pressure"
+class="slide level2">
+<h2>Nobody Compares Options Under Pressure</h2>
+<ul>
+<li>Experts under time pressure don’t weigh alternatives
+<ul>
+<li>They recognise a familiar situation and take the first workable
+option that comes to mind</li>
+<li>Experience from other domains can mislead</li>
+<li>So ask “Has anyone seen something like this before?”</li>
+</ul></li>
+<li>Attention narrows
+<ul>
+<li>Under acute stress you lose whole <em>categories</em>, not
+individual facts</li>
+<li>Teams fixate on the visible problem</li>
+<li>This is not a character flaw: it’s just how brains respond to
+pressure</li>
+</ul></li>
+<li>So the first move is not action: it’s a list</li>
+</ul>
+<aside class="notes">
+<p>Write categories in parallel with teammates, then compare. Most lists
+miss things like credentials and legal obligations.</p>
+</aside>
+</section>
+<section id="convergence-and-discretion" class="slide level2">
+<h2>Convergence and Discretion</h2>
+<ul>
+<li>People converge on a crisis without being told to
+<ul>
+<li>They show up because the project mattered</li>
+<li>And help if given viable information</li>
+</ul></li>
+<li>Four kinds of groups appear:
+<ul>
+<li>Established organisations sticking to routine</li>
+<li>Others extending routines</li>
+<li>Ad hoc groups running a known playbook</li>
+<li>Emergent groups inventing structure and task</li>
+</ul></li>
+<li>Frontline discretion is where policy actually gets made
+<ul>
+<li>Waiting for approval you cannot obtain is a decision, and usually
+the wrong one</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>If the audience includes civil servants, they will quote this back at
+you. Add the caveat out loud: within your own risk tolerance, and do not
+endanger yourself.</p>
+</aside>
+</section>
+<section id="pause-categories-then-moscow" class="slide level2">
+<h2>Pause: Categories, Then MoSCoW</h2>
+<ul>
+<li>First establish the clock and the non-negotiables
+<ul>
+<li>How much time do you actually have, in days?</li>
+<li>What constraints will not move?</li>
+<li>Don’t keep shutdown secret to protect morale: it backfires</li>
+</ul></li>
+<li>Then write every <em>category</em> before touching any task</li>
+<li>Then triage with MoSCoW
+<ul>
+<li><strong>Must:</strong> obligations carrying legal or financial risk
+if unmet</li>
+<li><strong>Should:</strong> the minimum viable record of the work</li>
+<li><strong>Could:</strong> a way for the community to find each
+other</li>
+<li><strong>Won’t:</strong> everything else, including “do it
+properly”</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>As soon as you add time estimates to your MoSCoW list, you realize
+you have too much to do. You will be tempted to adjust the estimates
+rather than moving items. Don’t.</p>
+</aside>
+</section>
+<section id="speak-before-you-know-the-plan" class="slide level2">
+<h2>Speak Before You Know the Plan</h2>
+<ul>
+<li>Three errors that reliably increase the damage:
+<ul>
+<li>Silence: stakeholders fill the vacuum with rumour</li>
+<li>Denial: asserting the crisis is not serious</li>
+<li>Diminishment: admitting it but minimising the severity</li>
+</ul></li>
+<li>Rapid, honest, minimal communication is best <em>even before you
+know what you will do</em>
+<ul>
+<li>“Here is what we know. Here is what we do not know. Here is when we
+expect more.”</li>
+</ul></li>
+<li>If news leaks first: notify your team within thirty minutes, publish
+within two hours</li>
+</ul>
+<aside class="notes">
+
+</aside>
+</section>
+<section id="then-act-in-this-order" class="slide level2">
+<h2>Then Act, in This Order</h2>
+<ul>
+<li>A README and a runnable script are a viable minimum handover for
+research software
+<ul>
+<li>Not a clean repository: a running one</li>
+</ul></li>
+<li>Notify funders and anyone with a binding claim <em>before</em> the
+project goes dark</li>
+<li>Leave a <em>working</em> forwarding address</li>
+<li>Do not let guilt or optimism make you promise maintenance you cannot
+deliver</li>
+<li>If you are the one being hit, not the one deciding
+<ul>
+<li>Make a copy somewhere public</li>
+<li>Hand credentials to someone outside the organisation if it is safe
+to do so</li>
+<li>Have someone you trust read anything before you post it</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>The individual-contributor part matters: most people in the room are
+not the ones deciding. Say it twice.</p>
+</aside>
+</section>
+<section id="caring-for-your-people" class="slide level2">
+<h2>Caring for Your People</h2>
+<div class="center">
+<p>Projects end; relationships don’t have to.</p>
+</div>
+<aside class="notes">
+<p>If you are behind, protect this section and compress the earlier
+ones: nobody regrets a talk that spent longer on the human side.</p>
+</aside>
+</section>
+<section id="total-pain-and-the-first-conversation"
+class="slide level2">
+<h2>Total Pain, and the First Conversation</h2>
+<ul>
+<li>Suffering is never purely physical
+<ul>
+<li>Psychological, social, and spiritual pain are real, and they amplify
+each other</li>
+</ul></li>
+<li>Identity grief over unfinished work, career anxiety, guilt, and
+anger</li>
+<li>The first conversations after an announcement are not about
+logistics
+<ul>
+<li>Name what happened instead of minimising it</li>
+<li>Confirm no one is in immediate danger</li>
+<li>Remind people they have handled hard things before</li>
+<li>Give each person one concrete task so nobody feels helpless</li>
+<li>Keep the team together</li>
+<li>Do not speculate about worst cases</li>
+</ul></li>
+<li>Protect whoever may have caused it: give them a recovery task, not a
+spanking</li>
+</ul>
+<aside class="notes">
+<p>WHO’s Psychological First Aid lists safety, calming, efficacy,
+connectedness, and hope. Say so, so it doesn’t sound improvised.</p>
+</aside>
+</section>
+<section id="two-responses-and-when-to-talk" class="slide level2">
+<h2>Two Responses, and When to Talk</h2>
+<ul>
+<li>Problem-focused coping addresses the situation</li>
+<li>Emotion-focused coping the response</li>
+<li>People use the first when they feel agency, the second when they
+don’t</li>
+<li>People recover at different speeds: joking by Tuesday, still anxious
+on Friday are both normal</li>
+<li>Three conversations:
+<ul>
+<li>Facts within 48 hours</li>
+<li>“How are we doing?” a week or two later</li>
+<li>The fuller retrospective later still, because grief interferes with
+learning</li>
+</ul></li>
+<li>Rotate people out of the acute phase even if they insist they are
+fine
+<ul>
+<li>Whoever pulled the all-nighter should not write the post-mortem next
+morning</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>If you are short of time, keep the “three conversations” cluster; it
+is the part that changes behaviour. The exhausted-hero point usually
+gets a laugh of recognition.</p>
+</aside>
+</section>
+<section id="practical-care-and-recovery" class="slide level2">
+<h2>Practical Care and Recovery</h2>
+<ul>
+<li>Teams that kept social contact after shutdown were more likely to
+work together again</li>
+<li>Do not leave anyone maintaining a cancelled project longer than
+necessary</li>
+<li>Watch for survivors’ guilt
+<ul>
+<li>If your data survived and the neighbouring group lost everything,
+let people talk about it</li>
+<li>Offer practical help and/or sympathy</li>
+</ul></li>
+<li>Feeling liberated is allowed: give people permission, yourself
+included</li>
+<li>Hold a goodbye ceremony, and celebrate the recovery, not just the
+disaster</li>
+</ul>
+<aside class="notes">
+<p>The thank-you message after a recovery costs nothing and pays off the
+next time something goes wrong.</p>
+</aside>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li>We created this guide because nothing like it existed</li>
+<li>It is incomplete, and we’d like your help
+<ul>
+<li>Share what you’ve learned</li>
+<li>Share what <em>hasn’t</em> worked as well</li>
+</ul></li>
+<li>Take time to grieve
+<ul>
+<li>The end of years of work will hurt, even if it is voluntary</li>
+<li>Your colleagues may be suffering as well</li>
+<li>And those who haven’t been hit (yet) may have survivors’ guilt</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Leave this slide up during questions.</p>
+</aside>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank You</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img src="../images/gvwilson-gage-2019.png" width="80%"></p>
+</div><div class="column" style="width:66%;">
+<p>
+<a href="http://third-bit.com">Greg Wilson</a>
+</p>
+<p>
+<a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a>
+</p>
+<p>
+<a href="http://third-bit.com/closure/">http://third-bit.com/closure/</a>
+</p>
+</div>
+</div>
+<p>
+<em>start where you are · use what you have · help who you can</em>
+</p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

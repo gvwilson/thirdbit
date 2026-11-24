@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -144,28 +143,8 @@ Bots and LLM users increasingly claim good first issues, leaving less
 for human newcomers
 </li>
 </ul>
-</section>
-<section id="draft-your-contributing.md-5-min"
-class="slide level2 exercise">
-<h2 class="exercise">Draft Your CONTRIBUTING.md (5 min)</h2>
-<p>Which sections of this template can you fill in right away?</p>
-<ul>
-<li>Setup</li>
-<li>Running the tests</li>
-<li>Submitting changes</li>
-<li>What we’re looking for</li>
-<li>Getting help</li>
-</ul>
-</section>
-<section id="fresh-eyes-test-8-min" class="slide level2 exercise">
-<h2 class="exercise">Fresh Eyes Test (8 min)</h2>
-<p>Swap your draft with a partner.</p>
-<ol type="1">
-<li><p>(5 min) What command should you run first? What does a successful
-test run look like? Who do you contact if you get stuck?</p></li>
-<li><p>(3 min) Ask your partner one “what do I do if…” question that
-their document doesn’t answer.</p></li>
-</ol>
+<pre class="include"><code>_contributing.qmd
+_fresh_eyes.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -176,6 +155,7 @@ their document doesn’t answer.</p></li>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -322,8 +302,26 @@ their document doesn’t answer.</p></li>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

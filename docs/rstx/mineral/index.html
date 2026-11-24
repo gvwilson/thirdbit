@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Mineral Classification by Geochemistry</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">25.1</span> The Problem</a></li>
+<li><a href="#generating-synthetic-geochemical-data" id="toc-generating-synthetic-geochemical-data"><span class="header-section-number">25.2</span> Generating Synthetic Geochemical Data</a></li>
+<li><a href="#the-logistic-regression-model" id="toc-the-logistic-regression-model"><span class="header-section-number">25.3</span> The Logistic Regression Model</a></li>
+<li><a href="#training-by-gradient-descent" id="toc-training-by-gradient-descent"><span class="header-section-number">25.4</span> Training by Gradient Descent</a></li>
+<li><a href="#decision-boundary-and-classification" id="toc-decision-boundary-and-classification"><span class="header-section-number">25.5</span> Decision Boundary and Classification</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">25.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">25.7</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Mineral Classification by Geochemistry</h1>
+<h2 data-number="25.1" id="the-problem"><span class="header-section-number">25.1</span> The Problem</h2>
+<ul>
+<li>Geochemists measure rock samples as oxide weight percentages (wt%), which is the fraction of each chemical compound in the rock</li>
+<li>A classifier that assigns samples to mineral classes from their chemistry automates a task that otherwise requires expert visual inspection of thin sections under a microscope</li>
+<li>We train a <a href="../glossary/index.html#logistic_regression">logistic regression</a> model on <span class="math inline">\(\text{SiO}_2\)</span> (silica) and <span class="math inline">\(\text{Al}_2\text{O}_3\)</span> (alumina) to separate felsic rocks (granite-like, silica-rich) from mafic rocks (basalt-like, silica-poor)</li>
+</ul>
+<h2 data-number="25.2" id="generating-synthetic-geochemical-data"><span class="header-section-number">25.2</span> Generating Synthetic Geochemical Data</h2>
+<ul>
+<li>We start with synthetic data drawn from two Gaussian distributions that mimic the composition ranges reported in igneous petrology textbooks</li>
+<li>Felsic rocks average 70 wt% <span class="math inline">\(\text{SiO}_2\)</span> and 14 wt% <span class="math inline">\(\text{Al}_2\text{O}_3\)</span>
+<ul>
+<li>Mafic rocks average 50 wt% <span class="math inline">\(\text{SiO}_2\)</span> and 9 wt% <span class="math inline">\(\text{Al}_2\text{O}_3\)</span></li>
+</ul></li>
+<li>The two distributions overlap because real mineral classification is never perfectly clean</li>
+</ul>
+<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<h2 data-number="25.3" id="the-logistic-regression-model"><span class="header-section-number">25.3</span> The Logistic Regression Model</h2>
+<ul>
+<li>The model predicts the probability that a sample is mafic (class 1):</li>
+</ul>
+<p><span class="math display">\[p = \sigma(w_0 \cdot x_0 + w_1 \cdot x_1 + b) = \frac{1}{1 + e^{-(w_0 x_0 + w_1 x_1 + b)}}\]</span></p>
+<ul>
+<li><span class="math inline">\(\sigma\)</span> is the <a href="../glossary/index.html#sigmoid_function">sigmoid function</a>, which maps any real number to <span class="math inline">\((0, 1)\)</span></li>
+<li><span class="math inline">\(x_0\)</span> and <span class="math inline">\(x_1\)</span> are the (normalised) <span class="math inline">\(\text{SiO}_2\)</span> and <span class="math inline">\(\text{Al}_2\text{O}_3\)</span> concentrations</li>
+<li><span class="math inline">\(w_0\)</span>, <span class="math inline">\(w_1\)</span>, and <span class="math inline">\(b\)</span> are learned from data</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why must features be normalized before training logistic regression with gradient descent?</p>
+<dl>
+<dt>Normalisation makes the sigmoid output exactly 0.5 at the start of training.</dt>
+<dd>
+Wrong: initial weights are zero, so <span class="math inline">\(z = 0\)</span> and <span class="math inline">\(\sigma(0) = 0.5\)</span> regardless of feature scale.
+</dd>
+</dl>
+<p>Features on very different scales cause gradient descent to take very small steps along one axis and large steps along another, slowing convergence. : Correct: unnormalized gradients have components proportional to feature magnitude, creating an elongated loss surface that makes convergence slow and erratic.</p>
+<dl>
+<dt>Normalization ensures the model cannot overfit by constraining the weight magnitudes.</dt>
+<dd>
+Wrong: normalization changes the input scale, not the weight values; regularization is the standard tool for constraining weights.
+</dd>
+<dt>The sigmoid function is only defined for inputs in <span class="math inline">\([0, 1]\)</span>.</dt>
+<dd>
+Wrong: the sigmoid is defined for all real numbers; the <span class="math inline">\([0, 1]\)</span> interval is its output range.
+</dd>
+</dl>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="25.4" id="training-by-gradient-descent"><span class="header-section-number">25.4</span> Training by Gradient Descent</h2>
+<ul>
+<li>At each iteration, the model computes the <a href="../glossary/index.html#cross_entropy">binary cross-entropy</a> loss:</li>
+</ul>
+<p><span class="math display">\[\mathcal{L} = -\frac{1}{n}\sum_{i=1}^n \left[ y_i \log p_i + (1 - y_i) \log(1 - p_i) \right]\]</span></p>
+<ul>
+<li>The gradient of <span class="math inline">\(\mathcal{L}\)</span> with respect to the weights is <span class="math inline">\(\mathbf{X}^\top (\mathbf{p} - \mathbf{y}) / n\)</span>, and with respect to the bias is <span class="math inline">\(\text{mean}(\mathbf{p} - \mathbf{y})\)</span></li>
+<li>Each gradient-descent step subtracts the gradient scaled by the learning rate</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-ordering" data-lang="en" data-markdown="1">
+<p>Put the steps of one gradient-descent iteration in the correct order.</p>
+<ol type="1">
+<li>Compute the linear combination <span class="math inline">\(z = X w + b\)</span></li>
+<li>Apply the sigmoid to get predicted probabilities <span class="math inline">\(\hat{p} = \sigma(z)\)</span></li>
+<li>Evaluate the binary cross-entropy loss</li>
+<li>Compute gradients <span class="math inline">\(\partial \mathcal{L}/\partial w\)</span> and <span class="math inline">\(\partial \mathcal{L}/\partial b\)</span></li>
+<li>Update weights: <span class="math inline">\(w \leftarrow w - \alpha \cdot \partial \mathcal{L}/\partial w\)</span></li>
+</ol>
+</div>
+<h2 data-number="25.5" id="decision-boundary-and-classification"><span class="header-section-number">25.5</span> Decision Boundary and Classification</h2>
+<ul>
+<li>The decision boundary is the line where <span class="math inline">\(p = 0.5\)</span>, i.e., where <span class="math inline">\(w_0 x_0 + w_1 x_1 + b = 0\)</span></li>
+<li>Rearranging for <span class="math inline">\(x_1\)</span> (<span class="math inline">\(\text{Al}_2\text{O}_3\)</span>) as a function of <span class="math inline">\(x_0\)</span> (<span class="math inline">\(\text{SiO}_2\)</span>) gives:</li>
+</ul>
+<p><span class="math display">\[x_1 = -\frac{w_0 x_0 + b}{w_1}\]</span></p>
+<ul>
+<li>Because features were normalised during training, the boundary must be mapped back to original units before plotting</li>
+</ul>
+<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<div id="fig-mineral-boundary" class="quarto-float quarto-figure quarto-figure-center" alt="Scatter plot of SiO₂ vs Al₂O₃ with felsic (blue circles) and mafic (red triangles) training samples and a dashed decision boundary.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-mineral-boundary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mineral.svg" alt="Scatter plot of SiO₂ vs Al₂O₃ with felsic (blue circles) and mafic (red triangles) training samples and a dashed decision boundary.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mineral-boundary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.1: Training data for 120 samples (80% of 160 total). The dashed line is the learned decision boundary. The two classes are well separated in SiO₂ but overlap slightly in Al₂O₃.
+</figcaption>
+</figure>
+</div>
+<div class="forma-matching" data-lang="en" data-markdown="1">
+<p>Match each component of the logistic regression model to its role.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 69%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(w_0 x_0 + w_1 x_1 + b\)</span></td>
+<td>Separating hyperplane in feature space</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sigma(\cdot)\)</span></td>
+<td>Maps the linear score to a probability</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathcal{L}\)</span></td>
+<td>Penalises confident wrong predictions more heavily than uncertain ones</td>
+</tr>
+<tr class="even">
+<td>Decision boundary</td>
+<td>The surface where the model is maximally uncertain (<span class="math inline">\(p = 0.5\)</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 data-number="25.6" id="testing"><span class="header-section-number">25.6</span> Testing</h2>
+<dl>
+<dt>Sigmoid known values</dt>
+<dd>
+<span class="math inline">\(\sigma(0) = 0.5\)</span> exactly, <span class="math inline">\(\sigma(z) \to 1\)</span> as <span class="math inline">\(z \to +\infty\)</span>, and <span class="math inline">\(\sigma(z) \to 0\)</span> as <span class="math inline">\(z \to -\infty\)</span>. These are identities that must hold regardless of the training data.
+</dd>
+<dt>Normalization properties</dt>
+<dd>
+After normalization, each feature column must have mean 0 and standard deviation 1. Applying training statistics to test data must reproduce <span class="math inline">\((\mathbf{x} - \mu) / \sigma\)</span> without recomputing <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\sigma\)</span> from the test set.
+</dd>
+<dt>Loss decreases during training</dt>
+<dd>
+A correct gradient-descent implementation must reduce the cross-entropy loss monotonically over the first 100 iterations. An increase would indicate a sign error in the gradient or an excessively large learning rate.
+</dd>
+<dt>Accuracy on well-separated data</dt>
+<dd>
+The two classes are separated by roughly 6.7 standard deviations in <span class="math inline">\(\text{SiO}_2\)</span>. A correctly trained classifier must achieve at least 95% accuracy; a lower score indicates a bug.
+</dd>
+<dt>Accuracy with seed=42</dt>
+<dd>
+With default parameters, held-out test accuracy must reach at least 95%. The tolerance of 5% is wide enough to accommodate small variations between random seeds while still catching a failed classifier.
+</dd>
+<dt>Predict with known weights</dt>
+<dd>
+With <span class="math inline">\(w = [10, 0]\)</span> and <span class="math inline">\(b = 0\)</span>, the boundary is at <span class="math inline">\(x_0 = 0\)</span>. A sample with <span class="math inline">\(x_0 = 1\)</span> must be predicted class 1 and a sample with <span class="math inline">\(x_0 = -1\)</span> must be predicted class 0.
+</dd>
+</dl>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_mineral <span class="im">import</span> make_mineral_data, train_test_split, TRAIN_FRAC</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mineral <span class="im">import</span> sigmoid, normalize, train, predict, accuracy</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sigmoid_at_zero():</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sigmoid(0) = 0.5 by definition.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> sigmoid(<span class="fl">0.0</span>) <span class="op">==</span> pytest.approx(<span class="fl">0.5</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sigmoid_large_positive():</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sigmoid(z) → 1 as z → +∞; at z=100 the deviation from 1 is negligible.</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> sigmoid(<span class="fl">100.0</span>) <span class="op">==</span> pytest.approx(<span class="fl">1.0</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-6</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sigmoid_large_negative():</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sigmoid(z) → 0 as z → -∞.</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> sigmoid(<span class="op">-</span><span class="fl">100.0</span>) <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-6</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_normalize_zero_mean_unit_std():</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalized training data must have mean ≈ 0 and std ≈ 1 for each feature.</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    X, _ <span class="op">=</span> make_mineral_data()</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    X_n, mean, std <span class="op">=</span> normalize(X)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(X_n.mean(axis<span class="op">=</span><span class="dv">0</span>), <span class="fl">0.0</span>, atol<span class="op">=</span><span class="fl">1e-10</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(X_n.std(axis<span class="op">=</span><span class="dv">0</span>), <span class="fl">1.0</span>, atol<span class="op">=</span><span class="fl">1e-10</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_normalize_applies_training_stats():</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalizing test data with training mean/std must not recompute stats.</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    X, _ <span class="op">=</span> make_mineral_data()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    X_train, X_test <span class="op">=</span> X[: n <span class="op">//</span> <span class="dv">2</span>], X[n <span class="op">//</span> <span class="dv">2</span> :]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    X_n, mean, std <span class="op">=</span> normalize(X_train)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    X_test_n, _, _ <span class="op">=</span> normalize(X_test, mean, std)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    expected <span class="op">=</span> (X_test <span class="op">-</span> mean) <span class="op">/</span> std</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(X_test_n, expected)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_training_loss_decreases():</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The binary cross-entropy loss must decrease over the first 100 iterations.</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    X, y <span class="op">=</span> make_mineral_data()</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    X_n, _, _ <span class="op">=</span> normalize(X)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    _, _, losses <span class="op">=</span> train(X_n, y, n_iter<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> losses[<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> losses[<span class="dv">0</span>]</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_perfect_separation():</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Two perfectly separated clusters must achieve 100% training accuracy.</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Felsic centred at (70, 14), mafic at (50, 9) — 6-sigma apart in SiO2.</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    X, y <span class="op">=</span> make_mineral_data()</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    X_n, _, _ <span class="op">=</span> normalize(X)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    w, b, _ <span class="op">=</span> train(X_n, y, n_iter<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> predict(X_n, w, b)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The two classes are well-separated; expect ≥ 95% training accuracy.</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> accuracy(y, y_pred) <span class="op">&gt;=</span> <span class="fl">0.95</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_test_accuracy():</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With default parameters, test accuracy must be ≥ 95%.</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The two classes differ by ~6.7 std devs in SiO2; the boundary should be sharp.</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    X, y <span class="op">=</span> make_mineral_data()</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    X_train, y_train, X_test, y_test <span class="op">=</span> train_test_split(X, y, TRAIN_FRAC)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    X_train_n, mean, std <span class="op">=</span> normalize(X_train)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    X_test_n, _, _ <span class="op">=</span> normalize(X_test, mean, std)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    w, b, _ <span class="op">=</span> train(X_train_n, y_train)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> predict(X_test_n, w, b)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> accuracy(y_test, y_pred) <span class="op">&gt;=</span> <span class="fl">0.95</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_accuracy_all_correct():</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> accuracy(np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>]), np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])) <span class="op">==</span> pytest.approx(</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        <span class="fl">1.0</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_accuracy_all_wrong():</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> accuracy(np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>]), np.array([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>])) <span class="op">==</span> pytest.approx(</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.0</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_predict_known_weights():</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With w=[10, 0], b=0: samples with X[:,0] &gt; 0 should be predicted class 1.</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> np.array([[<span class="fl">1.0</span>, <span class="fl">0.0</span>], [<span class="op">-</span><span class="fl">1.0</span>, <span class="fl">0.0</span>]])</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> np.array([<span class="fl">10.0</span>, <span class="fl">0.0</span>])</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> predict(X, w, b)</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> y_pred[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> y_pred[<span class="dv">1</span>] <span class="op">==</span> <span class="dv">0</span></span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Mineral classification key terms</p>
+<dl>
+<dt>Felsic rock</dt>
+<dd>
+Silica-rich igneous rock (granite, rhyolite); typically <span class="math inline">\(\text{SiO}_2 &gt; 63\)</span> wt%
+</dd>
+<dt>Mafic rock</dt>
+<dd>
+Silica-poor, magnesium- and iron-rich igneous rock (basalt, gabbro); typically <span class="math inline">\(\text{SiO}_2 &lt; 52\)</span> wt%
+</dd>
+<dt>Sigmoid function</dt>
+<dd>
+<span class="math inline">\(\sigma(z) = 1/(1 + e^{-z})\)</span>; maps any real number to the open interval <span class="math inline">\((0, 1)\)</span> for use as a probability
+</dd>
+<dt>Binary cross-entropy</dt>
+<dd>
+<span class="math inline">\(-[y \log p + (1-y)\log(1-p)]\)</span>; loss function that penalises confident wrong predictions
+</dd>
+<dt>Decision boundary</dt>
+<dd>
+The surface in feature space where the model assigns equal probability to both classes; a line for two features
+</dd>
+<dt>Gradient descent</dt>
+<dd>
+Iterative optimisation that moves weights in the direction that most rapidly decreases the loss
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="25.7" id="exercises"><span class="header-section-number">25.7</span> Exercises</h2>
+<h3 data-number="25.7.1" id="do-the-math"><span class="header-section-number">25.7.1</span> Do the math</h3>
+<p>The Mahalanobis distance between two univariate Gaussians with means <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> and equal standard deviation <span class="math inline">\(\sigma\)</span> is <span class="math inline">\(|\mu_1 - \mu_2| / \sigma\)</span>. Using <code>FELSIC_MEAN[0] = 70</code>, <code>MAFIC_MEAN[0] = 50</code>, <code>FELSIC_STD[0] = 3</code>, what fraction of the <span class="math inline">\(\text{SiO}_2\)</span> distributions overlap? (Hint: use the 68-95-99.7 rule: the distance is about <span class="math inline">\(6.7\sigma\)</span>, so overlap <span class="math inline">\(\approx 0\)</span>.)</p>
+<h3 data-number="25.7.2" id="three-class-classification"><span class="header-section-number">25.7.2</span> Three-class classification</h3>
+<p>Add a third class (ultramafic rocks, e.g.&nbsp;peridotite, with <span class="math inline">\(\text{SiO}_2 \approx 42\)</span> wt% and <span class="math inline">\(\text{Al}_2\text{O}_3 \approx 3\)</span> wt%). Extend <code>train</code> to use the softmax function and categorical cross-entropy loss instead of the binary formulation. Report per-class precision and recall on a held-out test set.</p>
+<h3 data-number="25.7.3" id="learning-rate-sensitivity"><span class="header-section-number">25.7.3</span> Learning-rate sensitivity</h3>
+<p>Run <code>train</code> with learning rates <span class="math inline">\(\alpha \in \{0.001, 0.01, 0.1, 1.0, 10.0\}\)</span> for 500 iterations each. Plot the final training loss as a function of <span class="math inline">\(\alpha\)</span> and identify the range where gradient descent converges reliably. Explain why very large learning rates cause divergence.</p>
+<h3 data-number="25.7.4" id="decision-boundary-as-a-function-of-iteration-count"><span class="header-section-number">25.7.4</span> Decision boundary as a function of iteration count</h3>
+<p>Save the weights <span class="math inline">\(w\)</span> and bias <span class="math inline">\(b\)</span> every 50 iterations during training. Plot the decision boundary at each checkpoint on the same scatter plot. Show that the boundary rotates and shifts as training progresses and stabilises near the optimum.</p>
+<h3 data-number="25.7.5" id="effect-of-class-imbalance"><span class="header-section-number">25.7.5</span> Effect of class imbalance</h3>
+<p>Generate a dataset with 160 felsic samples and 20 mafic samples. Train the classifier and report the confusion matrix. Show that the model achieves high overall accuracy by predicting felsic almost everywhere, then implement class-weighted cross-entropy loss (multiply the mafic term by <code>n_felsic / n_mafic</code>) and show that it recovers better detection of the minority class.</p>
+</section>
+
+</main>
+
+
+</body></html>

@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -98,53 +97,9 @@ such.</li>
 <li>It prevents ad hoc check-ins and creates a record.</li>
 <li>Keep track of current commitments and time estimates.</li>
 </ul>
-</section>
-<section id="translate-a-technical-decision-10-min"
-class="slide level2 exercise">
-<h2 class="exercise">Translate a Technical Decision (10 min)</h2>
-<p>Think of a technical decision your project has made or needs to make,
-such as refactoring a module or switching a dependency.</p>
-<ol type="1">
-<li><p>Write a two-paragraph explanation for your supervisor that
-describes the decision in terms of risk, reliability, and impact rather
-than technical detail.</p></li>
-<li><p>Prompt an LLM to write a similar explanation. Where is it the
-same? Where does it differ? Where is it just plain wrong?</p></li>
-</ol>
-</section>
-<section id="the-alternative-offer-10-min"
-class="slide level2 exercise">
-<h2 class="exercise">The Alternative Offer (10 min)</h2>
-<ol type="1">
-<li><p>Work in pairs. One person plays a manager who has just asked for
-something unreasonable (use a real example from your own work, or use
-Jess’s situation). The other person practices saying no by offering an
-alternative. You cannot say “that’s not possible” or “we don’t have
-time”; you must frame your response as, “I can do [X] if we
-[trade-off].”</p></li>
-<li><p>Repeat the exercise using an LLM as your manager. What prompt did
-you give it? Was its output useful for helping you practice for a real
-conversation?</p></li>
-</ol>
-</section>
-<section id="choosing-a-course-correction-15-min"
-class="slide level2 exercise">
-<h2 class="exercise">Choosing a Course Correction (15 min)</h2>
-<p>Your project is four weeks from its deadline and you have just
-realized you are six weeks behind. Three options are on the table:</p>
-<ol type="1">
-<li>Slip the deadline by two weeks and ask your funder for an
-extension.</li>
-<li>Cut two half-finished features and ship the remaining ones
-complete.</li>
-<li>Keep the deadline, ship what you have, and send users a patch in six
-weeks.</li>
-</ol>
-<p>Write two or three sentences for each option describing what it will
-cost the team, what it will cost the users or stakeholders, and what it
-will signal to your manager about how you handle pressure. Compare your
-answers to a partner’s. Did you rank the options the same way? If not,
-what assumptions led you to different conclusions?</p>
+<pre class="include"><code>_translate.qmd
+_alternative_offer.qmd
+_course_correction.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -155,6 +110,7 @@ what assumptions led you to different conclusions?</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -301,8 +257,26 @@ what assumptions led you to different conclusions?</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

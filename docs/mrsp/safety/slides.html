@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -109,30 +108,8 @@ safety.</li>
 <li>How often do retrospectives repeat the same items?</li>
 </ul></li>
 </ul>
-</section>
-<section id="diagnose-your-team-10-min" class="slide level2 exercise">
-<h2 class="exercise">Diagnose Your Team (10 min)</h2>
-<p>In small groups, list:</p>
-<ul>
-<li>One behavior from your team that might indicate low psychological
-safety.</li>
-<li>One thing you have said or done in the last month that could have
-made it less safe to bring problems to you.</li>
-<li>One change you will make in how you respond to bad news.</li>
-</ul>
-</section>
-<section id="practice-responding-10-min" class="slide level2 exercise">
-<h2 class="exercise">Practice Responding (10 min)</h2>
-<ol type="1">
-<li><p>In pairs: one person describes a realistic bad-news scenario,
-such as a test suite has been silently failing for two weeks. The other
-person practices responding in a way that makes it more likely the
-person will bring problems sooner next time.</p></li>
-<li><p>Switch roles. Observers: note one phrase the manager used that
-would make you more likely to bring problems early, and one that would
-make you less likely. Compare your answers with those given by the LLM
-in the previous exercise.</p></li>
-</ol>
+<pre class="include"><code>_diagnose_team.qmd
+_practice_responding.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -143,6 +120,7 @@ in the previous exercise.</p></li>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -289,8 +267,26 @@ in the previous exercise.</p></li>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

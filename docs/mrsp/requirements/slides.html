@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -123,33 +122,8 @@ LLM backlog prioritization sounds authoritative but ignores your team’s
 constraints
 </li>
 </ul>
-</section>
-<section id="llm-requirements-conversation-8-min"
-class="slide level2 exercise">
-<h2 class="exercise">LLM Requirements Conversation (8 min)</h2>
-<p>Prompt the LLM like this:</p>
-<blockquote>
-<p>Play the role of a postdoc in ecology who uses [project name] for
-their data analysis. You want to be able to [feature request from your
-real backlog]. Answer my questions about your needs in character. Don’t
-reveal your real requirements immediately: let me ask the right
-questions.”</p>
-</blockquote>
-<p>Ask at least five questions before proposing anything. Stop when you
-can write a one-sentence requirement in the form: “When [situation],
-[user type] needs to [action] so that [outcome].”</p>
-</section>
-<section id="human-requirements-conversation-10-min"
-class="slide level2 exercise">
-<h2 class="exercise">Human Requirements Conversation (10 min)</h2>
-<p>Switch to a real partner. Pick a different feature request from your
-backlog. One person is the user, the other is the product manager.</p>
-<ol type="1">
-<li><p>Ask five questions before proposing anything. Write the
-requirement sentence.</p></li>
-<li><p>Compare the two conversations. What did the real person tell you
-that the LLM couldn’t? What did the LLM simulate well?</p></li>
-</ol>
+<pre class="include"><code>_llm_conversation.qmd
+_human_conversation.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -160,6 +134,7 @@ that the LLM couldn’t? What did the LLM simulate well?</p></li>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -306,8 +281,26 @@ that the LLM couldn’t? What did the LLM simulate well?</p></li>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -79,43 +78,9 @@ done.</li>
 <li>“Work on the documentation” is not well defined; a specific first
 step is.</li>
 </ul>
-</section>
-<section id="draft-your-90-day-plan-12-min"
-class="slide level2 exercise">
-<h2 class="exercise">Draft Your 90-Day Plan (12 min)</h2>
-<p>Prompt the LLM like this:</p>
-<blockquote>
-<p>Based on this project health audit [paste rubric from Session 1] and
-these open issues [paste items from your project], create a 90-day plan
-with three concrete priorities. For each, explain what will be done, how
-I will know it’s done, and what could prevent it from being
-completed.</p>
-</blockquote>
-<ol type="1">
-<li>Note any priority the LLM suggested that you know won’t happen
-because of a constraint it doesn’t know, such as a funding gap, lack of
-team capacity, or an external deadline.</li>
-<li>Make a list of two people you need to talk to (either by name or by
-role) and what you need.</li>
-</ol>
-</section>
-<section id="monday-morning-test-8-min" class="slide level2 exercise">
-<h2 class="exercise">Monday Morning Test (8 min)</h2>
-<p>In pairs:</p>
-<ol type="1">
-<li>Read one priority from your plan to your partner.</li>
-<li>Tell them what the first thing you’ll do on Monday morning is.</li>
-<li>Ask them for feedback on whether your description is specific
-enough.</li>
-</ol>
-</section>
-<section id="wrap-up-5-min" class="slide level2 exercise">
-<h2 class="exercise">Wrap-up (5 min)</h2>
-<ol type="1">
-<li>What is the single most useful thing you learned or produced
-today?</li>
-<li>What was included that you don’t think you’ll use?</li>
-</ol>
+<pre class="include"><code>_90_day_plan.qmd
+_monday_morning.qmd
+_wrap_up.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -126,6 +91,7 @@ today?</li>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -272,8 +238,26 @@ today?</li>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

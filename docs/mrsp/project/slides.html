@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -135,23 +134,8 @@ problems
 Cutting is harder because saying no is not automated
 </li>
 </ul>
-</section>
-<section id="write-a-status-update-8-min" class="slide level2 exercise">
-<h2 class="exercise">Write a Status Update (8 min)</h2>
-<p>Write one three-column status update for yourself, then swap with a
-partner. Read their Problems column and identify one thing you could do
-to help.</p>
-</section>
-<section id="set-up-a-milestone-7-min" class="slide level2 exercise">
-<h2 class="exercise">Set Up a Milestone (7 min)</h2>
-<p>Prompt the LLM with something like this:</p>
-<blockquote>
-<p>Given these open issues in my project [paste 5-8 real issue titles],
-help me create a four-week milestone. Assign each to either the
-milestone or a backlog. For each milestone issue, estimate the effort in
-hours and identify dependencies.</p>
-</blockquote>
-<p>Which assignments did the LLM get wrong?</p>
+<pre class="include"><code>_status_update.qmd
+_create_milestone.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -162,6 +146,7 @@ hours and identify dependencies.</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -308,8 +293,26 @@ hours and identify dependencies.</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

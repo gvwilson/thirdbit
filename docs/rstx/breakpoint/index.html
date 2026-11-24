@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Structural Break Detection in Economic Time Series</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">32.1</span> The Problem</a></li>
+<li><a href="#the-cusum-statistic" id="toc-the-cusum-statistic"><span class="header-section-number">32.2</span> The CUSUM Statistic</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">32.3</span> Generating Synthetic Data</a></li>
+<li><a href="#mean-only-residuals-and-cusum" id="toc-mean-only-residuals-and-cusum"><span class="header-section-number">32.4</span> Mean-Only Residuals and CUSUM</a></li>
+<li><a href="#linear-trend-residuals-and-cusum" id="toc-linear-trend-residuals-and-cusum"><span class="header-section-number">32.5</span> Linear-Trend Residuals and CUSUM</a></li>
+<li><a href="#plotting" id="toc-plotting"><span class="header-section-number">32.6</span> Plotting</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">32.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">32.8</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Structural Break Detection in Economic Time Series</h1>
+<h2 data-number="32.1" id="the-problem"><span class="header-section-number">32.1</span> The Problem</h2>
+<ul>
+<li>An economic indicator like inflation can shift abruptly when policy changes or a crisis hits</li>
+<li>A <a href="../glossary/index.html#structural_break">structural break</a> is a point in time where the statistical properties of the series change permanently</li>
+<li>Failing to account for a break leads to biased forecasts and spurious inference
+<ul>
+<li>A model fitted over a period that straddles a break conflates two different regimes</li>
+</ul></li>
+<li>Our approach:
+<ul>
+<li>Generate a synthetic time series with a known break at a known step</li>
+<li>Subtract the sample mean from each observation to get residuals, then compute the <a href="../glossary/index.html#cusum">cumulative sum statistic</a> (CUSUM) of those residuals</li>
+<li>Detect the break as the location of the largest absolute CUSUM value</li>
+</ul></li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why does a structural break cause the CUSUM of OLS residuals to deviate from zero?</p>
+<dl>
+<dt>The OLS residuals are always zero after fitting.</dt>
+<dd>
+Wrong: OLS minimises the sum of squared residuals, but residuals are generally non-zero for individual observations.
+</dd>
+</dl>
+<p>Residuals on one side of the break have a consistent sign, so their cumulative sum drifts systematically rather than fluctuating around zero. : Correct: the OLS fit uses a single set of parameters for the whole series; where the true mean differs from the fitted mean, residuals are biased in one direction.</p>
+<dl>
+<dt>The CUSUM is defined as the sum of squared residuals, which grows with the break size.</dt>
+<dd>
+Wrong: CUSUM is the cumulative sum of residuals (not squared), so it can go negative as well as positive.
+</dd>
+<dt>A break always makes the residuals larger in absolute value, raising the CUSUM.</dt>
+<dd>
+Wrong: absolute size alone does not cause drift; it is the consistent sign that produces the characteristic V-shape.
+</dd>
+</dl>
+</div>
+<h2 data-number="32.2" id="the-cusum-statistic"><span class="header-section-number">32.2</span> The CUSUM Statistic</h2>
+<ul>
+<li>Given a time series <span class="math inline">\(y_0, \ldots, y_{T-1}\)</span> and a fitted model with residuals <span class="math inline">\(\hat{e}_t = y_t - \hat{y}_t\)</span>, the cumulative sum (CUSUM) at step <span class="math inline">\(t\)</span> is:</li>
+</ul>
+<p><span class="math display">\[C_t = \sum_{s=0}^{t} \hat{e}_s\]</span></p>
+<ul>
+<li>Before a break, residuals share one systematic sign (i.e., the global fit is wrong in one direction)</li>
+<li>After the break they flip, so <span class="math inline">\(C_t\)</span> first drifts away from zero and then turns back</li>
+<li>The break is detected at the index of maximum absolute deviation:</li>
+</ul>
+<p><span class="math display">\[\hat{\tau} = \mathop{\arg\max}_{t} |C_t|\]</span></p>
+<ul>
+<li>Because detect_break returns the last index before the estimated break, the estimated break location in terms of steps is <span class="math inline">\(\hat{\tau} + 1\)</span></li>
+</ul>
+<h2 data-number="32.3" id="generating-synthetic-data"><span class="header-section-number">32.3</span> Generating Synthetic Data</h2>
+<ul>
+<li>The series has a single abrupt break at step 100: the mean shifts from 0.0 to 3.0, a change of three standard deviations (<span class="math inline">\(\sigma = 1.0\)</span>)</li>
+<li>This signal-to-noise ratio of 3 gives reliable detection with 200 observations while still leaving visible scatter in the plots</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="32.4" id="mean-only-residuals-and-cusum"><span class="header-section-number">32.4</span> Mean-Only Residuals and CUSUM</h2>
+<ul>
+<li>Subtract the sample mean from each observation: <span class="math inline">\(\hat{e}_t = y_t - \bar{y}\)</span></li>
+<li>If there is no break, these residuals fluctuate randomly around zero with no consistent pattern</li>
+<li>If there is a break, residuals before the break have one consistent sign and residuals after have the opposite sign
+<ul>
+<li>The global mean sits between the two local means, so it over-estimates one half and under-estimates the other</li>
+</ul></li>
+<li>This sign reversal produces the characteristic V-shape in <span class="math inline">\(C_t\)</span>
+<ul>
+<li>The CUSUM drifts in one direction before the break and reverses after</li>
+<li>The peak marks the break</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="32.5" id="linear-trend-residuals-and-cusum"><span class="header-section-number">32.5</span> Linear-Trend Residuals and CUSUM</h2>
+<ul>
+<li>If the series also has a linear trend, subtracting only the mean conflates the trend with the break
+<ul>
+<li>The CUSUM responds to both</li>
+</ul></li>
+<li>Instead, subtract the line of best fit found by <code>np.polyfit</code> with <span class="math inline">\(\hat{e}_t = y_t - (a + bt)\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are chosen to minimise the sum of squared differences from the data</li>
+<li>The CUSUM of these trend residuals responds only to departures from the fitted line, such as a sudden mean shift</li>
+<li>A break that also changes the trend is harder to see in mean residuals but visible in trend residuals</li>
+<li>When the series has no trend (as in the synthetic data here) both models should detect the same break (which they do)</li>
+<li>When a trend is present the linear-trend approach is the appropriate choice
+<ul>
+<li>Applying the mean-only approach to a trending series produces a spurious signal at the point where the trend, not a break, drives the largest cumulative deviation</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>A time series has GDP values that grow at roughly 2% per year with no sudden shift. Which CUSUM model is more appropriate?</p>
+<dl>
+<dt>Mean-only, because GDP is always measured as a level.</dt>
+<dd>
+Wrong: a mean-only model applied to a trending series will produce a large CUSUM signal driven by the trend, not any break.
+</dd>
+<dt>Linear-trend, because removing the trend first isolates departures from the trend.</dt>
+<dd>
+Correct: the OLS detrending step removes the 2% annual growth so the CUSUM responds only to unexpected deviations.
+</dd>
+<dt>Neither; CUSUM requires a stationary series before any fitting.</dt>
+<dd>
+Wrong: CUSUM can be applied after any OLS fit; the choice of fit determines what kind of departure the CUSUM detects.
+</dd>
+<dt>Mean-only, but only if the trend is very small.</dt>
+<dd>
+Wrong: even a modest trend, cumulated over many steps, will dominate the CUSUM and make break detection unreliable.
+</dd>
+</dl>
+</div>
+<h2 data-number="32.6" id="plotting"><span class="header-section-number">32.6</span> Plotting</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-breakpoint-series" class="quarto-float quarto-figure quarto-figure-center" alt="Time series of 200 values with a clear upward jump around step 100 and a dashed vertical rule at that step.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-breakpoint-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="breakpoint-series.svg" alt="Time series of 200 values with a clear upward jump around step 100 and a dashed vertical rule at that step.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-breakpoint-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;32.1: Synthetic time series with a mean shift from 0.0 to 3.0 at step 100. The dashed red rule shows the break detected by the mean-only CUSUM at step 100 — exact agreement with the true break.
+</figcaption>
+</figure>
+</div>
+<div id="fig-breakpoint-cusum" class="quarto-float quarto-figure quarto-figure-center" alt="Two overlapping CUSUM curves both reaching their minimum near step 99 and returning toward zero by step 199; a dashed gray vertical line marks step 100.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-breakpoint-cusum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="breakpoint-cusum.svg" alt="Two overlapping CUSUM curves both reaching their minimum near step 99 and returning toward zero by step 199; a dashed gray vertical line marks step 100.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-breakpoint-cusum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;32.2: CUSUM trajectories for mean-only (blue) and linear-trend (orange) OLS residuals. Both methods reach their maximum absolute value near step 99 and detect the break at step 100. With no trend in the data the two CUSUMs are nearly identical; the gray dashed line marks the true break.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="32.7" id="testing"><span class="header-section-number">32.7</span> Testing</h2>
+<dl>
+<dt>CUSUM of zero residuals</dt>
+<dd>
+If all residuals are zero the CUSUM is identically zero. This confirms the function is a pure cumulative sum with no hidden offset.
+</dd>
+<dt>CUSUM matches <code>np.cumsum</code></dt>
+<dd>
+CUSUM is defined as the cumulative sum of residuals, so it must match <code>np.cumsum</code> on the same array exactly. Any discrepancy would indicate an indexing bug.
+</dd>
+<dt>Residuals sum to zero</dt>
+<dd>
+For both the mean-only and linear-trend fits, residuals must sum to zero. Subtracting the sample mean centers the data exactly; <code>np.polyfit</code> with an intercept term also centers the residuals. A failure would indicate an error in the subtraction or fitting step.
+</dd>
+<dt>Clean-signal break detection</dt>
+<dd>
+With no noise, a 0-to-3 step function has residuals of <span class="math inline">\(-1.5\)</span> before the break and <span class="math inline">\(+1.5\)</span> after. The CUSUM decreases at rate 1.5 for 100 steps (reaching <span class="math inline">\(-150\)</span>), then increases at rate 1.5 for 100 steps (returning to 0). The maximum absolute value is at index 99, so <code>detect_break</code> must return 99.
+</dd>
+<dt>Noisy detection within ten steps</dt>
+<dd>
+With seed 7493418 and signal-to-noise ratio 3, the estimated break location (<span class="math inline">\(\hat{\tau} + 1\)</span>) must be within 10 steps of the true break at step 100. The tolerance of 10 is roughly <span class="math inline">\(3\sigma / \sqrt{n} \approx 0.07\)</span> of the series length, which is a generous margin given the high <a href="../glossary/index.html#signal_to_noise">signal-to-noise ratio</a> (SNR).
+</dd>
+</dl>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_breakpoint <span class="im">import</span> make_breakpoint_data, BREAK_STEP, N_STEPS</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> <span class="bu">breakpoint</span> <span class="im">import</span> residuals_mean, residuals_trend, cusum, detect_break</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_cusum_all_zero_residuals():</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The CUSUM of a zero-residual sequence is identically zero.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(cusum(np.zeros(<span class="dv">50</span>)) <span class="op">==</span> <span class="fl">0.0</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_cusum_matches_cumsum():</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># By definition CUSUM must equal numpy's cumsum on the same array.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    residuals <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="op">-</span><span class="fl">2.0</span>, <span class="fl">3.0</span>, <span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>])</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    np.testing.assert_array_equal(cusum(residuals), np.cumsum(residuals))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_mean_residuals_sum_to_zero():</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># OLS residuals from a mean-only fit sum to zero because the least-squares</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># intercept equals the sample mean, centering the residuals exactly.</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_breakpoint_data()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> df[<span class="st">"value"</span>].to_numpy()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">sum</span>(residuals_mean(values)) <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-10</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_trend_residuals_sum_to_zero():</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># OLS with an intercept always centers the residuals, so they also sum to</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># zero for the linear-trend fit.</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_breakpoint_data()</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> df[<span class="st">"value"</span>].to_numpy()</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">sum</span>(residuals_trend(values)) <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-10</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_detect_break_clean_signal():</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise the CUSUM of mean-only residuals reaches its maximum</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># absolute value at index BREAK_STEP - 1 (the last step before the break),</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># because the cumulative deficit reaches its deepest point exactly there.</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> np.concatenate(</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>            np.zeros(BREAK_STEP),</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>            <span class="fl">3.0</span> <span class="op">*</span> np.ones(N_STEPS <span class="op">-</span> BREAK_STEP),</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_break(cusum(residuals_mean(values)))</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> detected <span class="op">==</span> BREAK_STEP <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_detect_break_noisy_within_ten_steps():</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With seed 7493418 and a signal-to-noise ratio of 3 (mean shift 3.0,</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># noise std 1.0), the detected break must be within 10 steps of the</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># true break.  detect_break returns the last index before the break,</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># so the estimated break location is detected + 1.</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_breakpoint_data()</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> df[<span class="st">"value"</span>].to_numpy()</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_break(cusum(residuals_mean(values)))</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>((detected <span class="op">+</span> <span class="dv">1</span>) <span class="op">-</span> BREAK_STEP) <span class="op">&lt;=</span> <span class="dv">10</span></span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Structural break detection key terms</p>
+<dl>
+<dt>Structural break</dt>
+<dd>
+A point in time at which the statistical properties of a time series (mean, variance, trend) change abruptly and permanently; also called a regime change or change point
+</dd>
+<dt>CUSUM statistic <span class="math inline">\(C_t\)</span></dt>
+<dd>
+<span class="math inline">\(\sum_{s=0}^{t} \hat{e}_s\)</span>; cumulative sum of residuals; drifts systematically when the fitted model is wrong on one side of a break
+</dd>
+<dt>Mean-only residuals</dt>
+<dd>
+<span class="math inline">\(\hat{e}_t = y_t - \bar{y}\)</span>; appropriate when the series is stationary around a constant mean; confounds trend and break if a trend is present
+</dd>
+<dt>Linear-trend residuals</dt>
+<dd>
+<span class="math inline">\(\hat{e}_t = y_t - (a + bt)\)</span> where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are found by <code>np.polyfit</code>; removes a fitted linear drift before forming the CUSUM; appropriate when the series has a deterministic trend
+</dd>
+<dt>Break detection rule</dt>
+<dd>
+<span class="math inline">\(\hat{\tau} = \arg\max_t |C_t|\)</span>; the last index before the estimated break; the estimated break location is <span class="math inline">\(\hat{\tau} + 1\)</span>
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="32.8" id="exercises"><span class="header-section-number">32.8</span> Exercises</h2>
+<h3 data-number="32.8.1" id="do-the-math"><span class="header-section-number">32.8.1</span> Do the math</h3>
+<p>A noise-free series has value 0 for steps 0-99 and value 3 for steps 100-199. The global mean is 1.5. At which step index (0-based) does <span class="math inline">\(|C_t|\)</span> reach its maximum?</p>
+<h3 data-number="32.8.2" id="two-break-points"><span class="header-section-number">32.8.2</span> Two break points</h3>
+<p>Modify <code>make_breakpoint_data</code> to introduce a second break: the mean shifts from 0.0 to 3.0 at step 60 and then from 3.0 to 1.0 at step 140. Plot the CUSUM of the mean-only residuals and explain why the statistic now shows two local extrema. Does <code>detect_break</code> find the larger or smaller break?</p>
+<h3 data-number="32.8.3" id="effect-of-signal-to-noise-ratio"><span class="header-section-number">32.8.3</span> Effect of signal-to-noise ratio</h3>
+<p>Run the detection algorithm for five signal-to-noise ratios ($/ = $ 0.5, 1, 2, 3, 5) while keeping all other parameters fixed. For each ratio, report the detected break location and its distance from the true break. At what SNR does reliable detection (within 5 steps) become consistent across different random seeds?</p>
+<h3 data-number="32.8.4" id="trend-with-a-break"><span class="header-section-number">32.8.4</span> Trend with a break</h3>
+<p>Generate a series with a linear trend (<span class="math inline">\(b = 0.05\)</span> per step) and a mean break at step 100. Apply both the mean-only and linear-trend CUSUM and compare the detected break locations. Show that the mean-only CUSUM gives a biased estimate when a trend is present.</p>
+<h3 data-number="32.8.5" id="scaled-cusum-and-critical-values"><span class="header-section-number">32.8.5</span> Scaled CUSUM and critical values</h3>
+<p>The raw CUSUM is not scale-invariant: a larger noise standard deviation produces larger CUSUM values even with no break. Normalise the CUSUM by dividing by <span class="math inline">\(\hat{\sigma}\sqrt{T}\)</span> where <span class="math inline">\(\hat{\sigma}\)</span> is the residual standard error and <span class="math inline">\(T\)</span> is the series length. The scaled statistic exceeds 1.36 with probability 5% under the null hypothesis of no break (Brown-Durbin-Evans critical value). Apply this threshold to the synthetic data and report whether the break is detected at the 5% level.</p>
+</section>
+
+</main>
+
+
+</body></html>

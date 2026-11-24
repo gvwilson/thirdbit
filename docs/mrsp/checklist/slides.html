@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -125,47 +124,9 @@ Contributors may fill PR checklists with LLM-suggested answers they did
 not run
 </li>
 </ul>
-</section>
-<section id="how-to-check-5-min" class="slide level2 exercise">
-<h2 class="exercise">How to Check (5 min)</h2>
-<p>The list below gives specific things to look for when doing an audit
-of practices. Add three more, two of which cover areas that these three
-don’t.</p>
-<ul>
-<li>Version control: a branch protection rule in GitHub.</li>
-<li>Code review: a rule requiring reviewers on PRs before merging.</li>
-<li>Testing: coverage reports checked into version control.</li>
-</ul>
-</section>
-<section id="practice-audit-8-min" class="slide level2 exercise">
-<h2 class="exercise">Practice Audit (8 min)</h2>
-<p>Go through the practices checklist provided earlier. Mark each item:
-yes (with evidence), probably, no, or don’t know.</p>
-<ol type="1">
-<li><p>For each “yes”, write one sentence of evidence: Not “we use CI”
-but “CI is configured in <code>.github/workflows/</code> and the badge
-on the README shows current status”.</p></li>
-<li><p>For each “don’t know”, write the name of one person on your team
-who does know. If you don’t know who knows, write that too.</p></li>
-</ol>
-</section>
-<section id="compliance-check-7-min" class="slide level2 exercise">
-<h2 class="exercise">Compliance Check (7 min)</h2>
-<p>Repeat the audit using an LLM:</p>
-<blockquote>
-<p>Review my project’s practices against this checklist: [paste
-checklist items].</p>
-</blockquote>
-<blockquote>
-<p>Based on what I tell you about my project [two or three sentences
-describing the project, its data, and its contributors], identify which
-compliance issues I should investigate.</p>
-</blockquote>
-<p>Run the prompt. Note what the LLM confidently asserted that it cannot
-actually know, such as your institution’s specific policies, or your
-jurisdiction’s legal requirements. (It <em>may</em> be able to say
-useful things about data sharing agreements if those are in the
-repository.)</p>
+<pre class="include"><code>_how_to_check.qmd
+_practice_audit.qmd
+_compliance_check.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -176,6 +137,7 @@ repository.)</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -322,8 +284,26 @@ repository.)</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

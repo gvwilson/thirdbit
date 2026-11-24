@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Pollutant Spread in a River Network</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">4.1</span> The Problem</a></li>
+<li><a href="#representing-the-river-network" id="toc-representing-the-river-network"><span class="header-section-number">4.2</span> Representing the River Network</a></li>
+<li><a href="#the-transport-model" id="toc-the-transport-model"><span class="header-section-number">4.3</span> The Transport Model</a></li>
+<li><a href="#building-the-upstream-table" id="toc-building-the-upstream-table"><span class="header-section-number">4.4</span> Building the Upstream Table</a></li>
+<li><a href="#running-the-simulation" id="toc-running-the-simulation"><span class="header-section-number">4.5</span> Running the Simulation</a></li>
+<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">4.6</span> Visualizing the Results</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">4.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">4.8</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Pollutant Spread in a River Network</h1>
+<h2 data-number="4.1" id="the-problem"><span class="header-section-number">4.1</span> The Problem</h2>
+<ul>
+<li>River networks branch and merge: pollutant introduced at one node is carried to all nodes reachable from it</li>
+<li>We want to track the concentration at each node over time to predict when downstream communities are affected</li>
+<li>This is a <a href="../glossary/index.html#flow_network">flow network</a> problem: a directed graph where edges carry material from node to node</li>
+</ul>
+<h2 data-number="4.2" id="representing-the-river-network"><span class="header-section-number">4.2</span> Representing the River Network</h2>
+<ul>
+<li>The network is a directed tree: water flows from headwaters to an outlet, with no cycles</li>
+<li>Nodes represent measurement stations or junctions; edges represent river reaches</li>
+<li>Edge weights record relative discharge (i.e., mean flow rate)</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<ul>
+<li><code>upstream_a</code> (node 0) is the spill site</li>
+<li><code>upstream_b</code> (node 1) is an uncontaminated headwater</li>
+<li>Both drain into <code>junction</code> (node 2), which drains to <code>reach</code> (node 3), which drains to <code>outlet</code> (node 4)</li>
+<li>Node 4 is the sink
+<ul>
+<li>Pollutant that arrives there accumulates and is not transported further</li>
+</ul></li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why is a river network represented as a directed graph rather than an undirected graph?</p>
+<dl>
+<dt>Water can flow in either direction between any two connected nodes.</dt>
+<dd>
+Wrong: rivers flow in one direction, from higher to lower elevation; edges must be directed to encode this.
+</dd>
+<dt>The direction of each edge encodes which way water (and pollutant) flows.</dt>
+<dd>
+Correct: directed edges from upstream to downstream nodes capture the unidirectional nature of river flow.
+</dd>
+<dt>Directed graphs are always faster to compute with than undirected graphs.</dt>
+<dd>
+Wrong: the choice of directed vs.&nbsp;undirected is based on the physical system, not computational speed.
+</dd>
+<dt>Edge weights cannot be stored on undirected graphs.</dt>
+<dd>
+Wrong: undirected graphs support weighted edges just as directed graphs do.
+</dd>
+</dl>
+</div>
+<h2 data-number="4.3" id="the-transport-model"><span class="header-section-number">4.3</span> The Transport Model</h2>
+<ul>
+<li>At each time step, a fraction <code>TRANSPORT_RATE</code> of the concentration at each non-sink node moves downstream</li>
+<li>The remaining fraction <span class="math inline">\((1 - \text{TRANSPORT\_RATE})\)</span> stays at the node (representing mixing and retention in the water column)</li>
+<li>For a node <span class="math inline">\(v\)</span> with upstream neighbours <span class="math inline">\(u_1, u_2, \ldots\)</span> each contributing fraction <span class="math inline">\(f_k\)</span>, the update rule is:</li>
+</ul>
+<p><span class="math display">\[c_v^{n+1} = (1 - \alpha)\,c_v^n + \sum_k f_k\,c_{u_k}^n\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha = \text{TRANSPORT\_RATE}\)</span> and <span class="math inline">\(f_k = \alpha / \text{(number of downstream neighbours of } u_k\text{)}\)</span></li>
+<li>When a node drains into a single successor, <span class="math inline">\(f_k = \alpha\)</span></li>
+<li>When a node splits equally among two successors, each receives <span class="math inline">\(\alpha / 2\)</span></li>
+</ul>
+<h2 data-number="4.4" id="building-the-upstream-table"><span class="header-section-number">4.4</span> Building the Upstream Table</h2>
+<ul>
+<li>Rather than building a matrix, we pre-compute the list of <span class="math inline">\((u, f)\)</span> pairs for each node <span class="math inline">\(v\)</span>, where <span class="math inline">\(u\)</span> is an upstream neighbour and <span class="math inline">\(f\)</span> is the fraction of <span class="math inline">\(u\)</span>’s concentration that flows into <span class="math inline">\(v\)</span></li>
+<li>This list is empty for headwater nodes (no upstream neighbours) and for isolated nodes</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-ordering" data-lang="en" data-markdown="1">
+<p>Put these steps in the correct order to fill in the upstream table for one non-sink node u.</p>
+<ol type="1">
+<li>Find the list of downstream successors of u in the graph G</li>
+<li>Compute fraction = TRANSPORT_RATE / number of successors</li>
+<li>For each successor v, append (u, fraction) to upstream[v]</li>
+<li>Check that the fractions appended for u sum to TRANSPORT_RATE (conservation check)</li>
+</ol>
+</div>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>In our 5-node tree every non-sink node has exactly one downstream successor. What fraction of its concentration does each non-sink node send downstream per step?</p>
+<dl>
+<dt>0.0</dt>
+<dd>
+Wrong: that would mean no pollutant is ever transported.
+</dd>
+<dt>TRANSPORT_RATE / 2</dt>
+<dd>
+Wrong: dividing by 2 would only apply if the node had two successors.
+</dd>
+<dt>TRANSPORT_RATE</dt>
+<dd>
+Correct: with one successor, fraction = TRANSPORT_RATE / 1 = TRANSPORT_RATE.
+</dd>
+<dt>1.0</dt>
+<dd>
+Wrong: 1.0 would mean all concentration moves downstream and none is retained.
+</dd>
+</dl>
+</div>
+<h2 data-number="4.5" id="running-the-simulation"><span class="header-section-number">4.5</span> Running the Simulation</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<ul>
+<li>For each time step and each node <span class="math inline">\(v\)</span>, <code>retained</code> is the fraction staying put and <code>inflow</code> is the sum of fractions arriving from upstream neighbours</li>
+<li>The loop saves a snapshot every <code>SNAPSHOT_INTERVAL</code> steps so that only a small table is stored</li>
+</ul>
+<h2 data-number="4.6" id="visualizing-the-results"><span class="header-section-number">4.6</span> Visualizing the Results</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-pollute-concentrations" class="quarto-float quarto-figure quarto-figure-center" alt="Line chart showing concentration at each node over 20 time steps. upstream_a decays from 1.0; junction and reach rise then fall; outlet rises monotonically.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-pollute-concentrations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pollute.svg" alt="Line chart showing concentration at each node over 20 time steps. upstream_a decays from 1.0; junction and reach rise then fall; outlet rises monotonically.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pollute-concentrations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Concentration at each node over 20 time steps. The pollutant pulse travels from the spill site (upstream_a) through the network toward the outlet.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="4.7" id="testing"><span class="header-section-number">4.7</span> Testing</h2>
+<ul>
+<li>Mass conservation
+<ul>
+<li>At every step, each unit of concentration is either retained at its node or forwarded to a downstream neighbour.</li>
+<li>No mass is created or destroyed, so the sum over all nodes must equal 1.0 throughout.</li>
+<li>Floating-point addition of 5 small numbers over 20 steps introduces rounding of at most <span class="math inline">\(10^{-12}\)</span>.</li>
+</ul></li>
+<li>Non-negativity
+<ul>
+<li>Every update is a weighted sum of non-negative concentrations with non-negative fractions.</li>
+<li>Concentration cannot go negative; a negative value would indicate a code error.</li>
+</ul></li>
+<li>Monotone decay at the spill node
+<ul>
+<li><code>upstream_a</code> has no upstream neighbours, so each step it retains only <span class="math inline">\((1 - \alpha)\)</span> of whatever it holds.</li>
+<li>Starting from <span class="math inline">\(c_0 = 1\)</span>, its concentration decays as <span class="math inline">\((1 - \alpha)^n\)</span>, which is strictly decreasing.</li>
+</ul></li>
+<li>Uncontaminated node stays zero
+<ul>
+<li><code>upstream_b</code> also has no upstream neighbours and starts at zero concentration.</li>
+<li>Each step it retains <span class="math inline">\((1 - \alpha) \times 0 = 0\)</span>, so it remains zero throughout.</li>
+</ul></li>
+<li>Monotone accumulation at the outlet
+<ul>
+<li>The outlet (sink) only receives mass and never releases it, so its concentration is non-decreasing.</li>
+</ul></li>
+<li>Upstream fractions sum to transport rate
+<ul>
+<li>For each non-sink node <span class="math inline">\(u\)</span> that has downstream successors, the fractions stored in the upstream table must sum to exactly <code>TRANSPORT_RATE</code>, confirming that all transported mass is accounted for</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pollute <span class="im">import</span> (</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    NODE_NAMES,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    N_STEPS,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    SINK,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    SPILL_NODE,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    TRANSPORT_RATE,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    build_network,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    build_upstream,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _run(n_steps<span class="op">=</span>N_STEPS):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return concentration list after n_steps using the same loop as simulate."""</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> build_network()</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> build_upstream(G)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(NODE_NAMES)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    c[SPILL_NODE] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Outflow rates mirror those in simulate().</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    outflow <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> u <span class="op">!=</span> SINK <span class="kw">and</span> <span class="bu">list</span>(G.successors(u)):</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            outflow[u] <span class="op">=</span> TRANSPORT_RATE</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_steps):</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        new_c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            retained <span class="op">=</span> c[v] <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> outflow[v])</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            inflow <span class="op">=</span> <span class="bu">sum</span>(fraction <span class="op">*</span> c[u] <span class="cf">for</span> (u, fraction) <span class="kw">in</span> upstream[v])</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            new_c[v] <span class="op">=</span> retained <span class="op">+</span> inflow</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> new_c</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_mass_conservation():</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Each step, every unit of concentration either stays at its node or moves</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to a downstream neighbour.  No mass is created or destroyed, so the total</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># must equal 1.0 throughout.  Floating-point rounding in repeated addition</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># can accumulate, but for 5 nodes and 20 steps the error stays below 1e-12.</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> _run()</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(<span class="bu">sum</span>(c) <span class="op">-</span> <span class="fl">1.0</span>) <span class="op">&lt;</span> <span class="fl">1e-12</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_all_nonnegative():</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Every update is a weighted sum of non-negative values with non-negative</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># weights, so concentration cannot go negative at any node or step.</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> build_network()</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> build_upstream(G)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(NODE_NAMES)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    c[SPILL_NODE] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    outflow <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> u <span class="op">!=</span> SINK <span class="kw">and</span> <span class="bu">list</span>(G.successors(u)):</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            outflow[u] <span class="op">=</span> TRANSPORT_RATE</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(N_STEPS):</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        new_c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>            retained <span class="op">=</span> c[v] <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> outflow[v])</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            inflow <span class="op">=</span> <span class="bu">sum</span>(fraction <span class="op">*</span> c[u] <span class="cf">for</span> (u, fraction) <span class="kw">in</span> upstream[v])</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            new_c[v] <span class="op">=</span> retained <span class="op">+</span> inflow</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> new_c</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">all</span>(x <span class="op">&gt;=</span> <span class="fl">0.0</span> <span class="cf">for</span> x <span class="kw">in</span> c), <span class="ss">f"negative concentration at step </span><span class="sc">{</span>step <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_spill_node_decreases():</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># upstream_a (node 0) has no upstream neighbours, so every step it loses</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># TRANSPORT_RATE of whatever concentration it holds and gains nothing back.</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Its concentration must be strictly decreasing from its starting value of 1.</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> build_network()</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> build_upstream(G)</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(NODE_NAMES)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    c[SPILL_NODE] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    outflow <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> u <span class="op">!=</span> SINK <span class="kw">and</span> <span class="bu">list</span>(G.successors(u)):</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>            outflow[u] <span class="op">=</span> TRANSPORT_RATE</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    prev <span class="op">=</span> c[SPILL_NODE]</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(N_STEPS):</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>        new_c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>            retained <span class="op">=</span> c[v] <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> outflow[v])</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>            inflow <span class="op">=</span> <span class="bu">sum</span>(fraction <span class="op">*</span> c[u] <span class="cf">for</span> (u, fraction) <span class="kw">in</span> upstream[v])</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>            new_c[v] <span class="op">=</span> retained <span class="op">+</span> inflow</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> new_c</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> c[SPILL_NODE] <span class="op">&lt;</span> prev</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>        prev <span class="op">=</span> c[SPILL_NODE]</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_uncontaminated_node_stays_zero():</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>    <span class="co"># upstream_b (node 1) starts at zero concentration and has no upstream</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># neighbours feeding into it.  It loses TRANSPORT_RATE each step, so its</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>    <span class="co"># concentration is 0 * (1 - TRANSPORT_RATE)^step = 0 throughout.</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> _run()</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> c[<span class="dv">1</span>] <span class="op">==</span> <span class="fl">0.0</span>  <span class="co"># upstream_b is never contaminated</span></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_outlet_nondecreasing():</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The outlet (sink) only receives mass; it never sends mass downstream.</span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Its concentration therefore cannot decrease between steps.</span></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> build_network()</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> build_upstream(G)</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(NODE_NAMES)</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>    c[SPILL_NODE] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>    outflow <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> u <span class="op">!=</span> SINK <span class="kw">and</span> <span class="bu">list</span>(G.successors(u)):</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>            outflow[u] <span class="op">=</span> TRANSPORT_RATE</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>    prev <span class="op">=</span> c[SINK]</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(N_STEPS):</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>        new_c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>            retained <span class="op">=</span> c[v] <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> outflow[v])</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>            inflow <span class="op">=</span> <span class="bu">sum</span>(fraction <span class="op">*</span> c[u] <span class="cf">for</span> (u, fraction) <span class="kw">in</span> upstream[v])</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>            new_c[v] <span class="op">=</span> retained <span class="op">+</span> inflow</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> new_c</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> c[SINK] <span class="op">&gt;=</span> prev</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>        prev <span class="op">=</span> c[SINK]</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upstream_fractions_sum():</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each non-sink node u that has downstream neighbours, the total</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fraction of concentration it sends out equals TRANSPORT_RATE exactly.</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This can be checked by summing the fractions stored in build_upstream.</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> build_network()</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> build_upstream(G)</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Collect total outflow fraction assigned to each source node.</span></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>    sent <span class="op">=</span> {u: <span class="fl">0.0</span> <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(NODE_NAMES))}</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(NODE_NAMES)):</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (u, fraction) <span class="kw">in</span> upstream[v]:</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>            sent[u] <span class="op">+=</span> fraction</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u, total <span class="kw">in</span> sent.items():</span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> total <span class="op">&gt;</span> <span class="fl">0.0</span>:</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>            <span class="cf">assert</span> <span class="bu">abs</span>(total <span class="op">-</span> TRANSPORT_RATE) <span class="op">&lt;</span> <span class="fl">1e-12</span>, (</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"node </span><span class="sc">{</span>NODE_NAMES[u]<span class="sc">}</span><span class="ss"> sends </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss">, expected </span><span class="sc">{</span>TRANSPORT_RATE<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
+<section class="exercises">
+<h2 data-number="4.8" id="exercises"><span class="header-section-number">4.8</span> Exercises</h2>
+<h3 data-number="4.8.1" id="do-the-math"><span class="header-section-number">4.8.1</span> Do the math</h3>
+<p>Starting from <span class="math inline">\(c = [1, 0, 0, 0, 0]\)</span> and using <code>TRANSPORT_RATE</code> = 0.4, what is the concentration at <code>junction</code> (node 2) after exactly 2 time steps? Give your answer to two decimal places.</p>
+<p>Hint: trace through the update rule step by step. At step 1, junction receives <span class="math inline">\(0.4 \times c_0[\text{upstream\_a}]\)</span> from upstream_a. At step 2, junction retains <span class="math inline">\(0.6\)</span> of its step-1 value and receives another inflow from upstream_a.</p>
+<h3 data-number="4.8.2" id="adding-a-tributary"><span class="header-section-number">4.8.2</span> Adding a tributary</h3>
+<p>Add a sixth node <code>tributary</code> (node 5) that joins at <code>reach</code> (node 3) with edge weight 2.0. Update <code>build_network</code> and rerun the simulation. Does <code>test_mass_conservation</code> still pass? Does the pollutant reach the outlet faster or slower?</p>
+<h3 data-number="4.8.3" id="variable-transport-rate"><span class="header-section-number">4.8.3</span> Variable transport rate</h3>
+<p>Replace the uniform <code>TRANSPORT_RATE</code> with per-edge rates stored in a dictionary keyed by <code>(src, dst)</code>. Assign higher rates to high-flow edges (e.g., rate proportional to edge weight / max edge weight). Modify <code>build_upstream</code> to use per-edge rates and update <code>simulate</code> accordingly. How does the arrival time at the outlet change compared to the uniform-rate model?</p>
+<h3 data-number="4.8.4" id="continuous-spill"><span class="header-section-number">4.8.4</span> Continuous spill</h3>
+<p>Change the initial condition so that <code>upstream_a</code> receives a constant input of 0.1 concentration units per step (a continuous source rather than an instantaneous spill). Modify <code>simulate</code> to add this source term to <code>new_c[SPILL_NODE]</code> after each update step. Is mass still conserved? At what step does the outlet concentration stabilise?</p>
+<h3 data-number="4.8.5" id="two-spill-comparison"><span class="header-section-number">4.8.5</span> Two-spill comparison</h3>
+<p>Run two separate simulations: one with the spill at <code>upstream_a</code> and one with a spill at <code>upstream_b</code>. Add the two concentration lists at each step. Compare the result to a single simulation that starts with concentration 1.0 at both headwater nodes simultaneously. Are the results identical? Explain why in terms of the structure of the update rule.</p>
+</section>
+
+</main>
+
+
+</body></html>

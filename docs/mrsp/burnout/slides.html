@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -120,35 +119,8 @@ LLMs reach 80% quickly, but the remaining 20% produces cognitive
 exhaustion
 </li>
 </ul>
-</section>
-<section id="personal-sustainability-check-8-min"
-class="slide level2 exercise">
-<h2 class="exercise">Personal Sustainability Check (8 min)</h2>
-<p>Answer honestly:</p>
-<ol type="1">
-<li>How many hours did you work last week? Is that typical?</li>
-<li>In the last month, have you done something purely for enjoyment that
-had nothing to do with work?</li>
-<li>Name one thing that used to energize you about this project that
-currently doesn’t.</li>
-<li>If a team member were behaving the way you currently are, what would
-you say to them?</li>
-</ol>
-<p>You don’t need to share your answers. Write them for yourself.</p>
-</section>
-<section id="team-protection-plan-12-min" class="slide level2 exercise">
-<h2 class="exercise">Team Protection Plan (12 min)</h2>
-<p>In pairs:</p>
-<ol type="1">
-<li><p>Describe one person on your team whose workload you are not sure
-is sustainable. What do you know about their current situation? What
-don’t you know?</p></li>
-<li><p>Write three concrete things you could do this week to make their
-situation more sustainable or to find out whether it is. Be specific:
-not “check in with them” but “at tomorrow’s one-to-one, ask whether the
-amount of work they currently have is sustainable, and listen to the
-answer without immediately offering solutions.”</p></li>
-</ol>
+<pre class="include"><code>_sustainability.qmd
+_team_protection.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -159,6 +131,7 @@ answer without immediately offering solutions.”</p></li>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -305,8 +278,26 @@ answer without immediately offering solutions.”</p></li>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

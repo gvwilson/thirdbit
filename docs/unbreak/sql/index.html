@@ -1,525 +1,349 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>SQL</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SQL</title>
-<meta content="Unbreaking Software" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../basicpy/">Basic Python</a></li>
-<li><a href="../interpy/">Intermediate Python</a></li>
-<li><a href="../oopy/">Object-Oriented Python</a></li>
-<li><a href="../regexp/">Regular Expressions</a></li>
-<li><a href="../diot/">Data, I/O, and Testing</a></li>
-<li><a href="../perfcon/">Performance and Concurrency</a></li>
-<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
-<li><a href="../css/">CSS</a></li>
-<li><a href="../web/">HTTP and APIs</a></li>
-<li><a href="../htmx/">HTMX</a></li>
-<li><a href="../alpine/">Alpine.js</a></li>
-<li><a href="../fastapi/">FastAPI</a></li>
-<li><a href="../datasci/">Data Science</a></li>
-<li><a href="../dataviz/">Data Visualization</a></li>
-<li><a href="../polars/">Polars</a></li>
-<li><a href="../shell/">The Unix Shell</a></li>
-<li><a class="active" href="../sql/">SQL</a></li>
-<li><a href="../testing/">Testing</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../complex/">Complex Examples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/unbreak">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>SQL</h1>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#sort-penguins-by-island-then-species" id="toc-sort-penguins-by-island-then-species"><span class="header-section-number">19.1</span> Sort penguins by island then species</a></li>
+<li><a href="#retrieve-the-second-page-of-search-results" id="toc-retrieve-the-second-page-of-search-results"><span class="header-section-number">19.2</span> Retrieve the second page of search results</a></li>
+<li><a href="#show-body-mass-in-kilograms" id="toc-show-body-mass-in-kilograms"><span class="header-section-number">19.3</span> Show body mass in kilograms</a></li>
+<li><a href="#list-distinct-species-in-the-penguins-dataset" id="toc-list-distinct-species-in-the-penguins-dataset"><span class="header-section-number">19.4</span> List distinct species in the penguins dataset</a></li>
+<li><a href="#find-penguins-with-no-recorded-sex" id="toc-find-penguins-with-no-recorded-sex"><span class="header-section-number">19.5</span> Find penguins with no recorded sex</a></li>
+<li><a href="#filter-for-records-in-two-different-categories" id="toc-filter-for-records-in-two-different-categories"><span class="header-section-number">19.6</span> Filter for records in two different categories</a></li>
+<li><a href="#find-all-female-penguins" id="toc-find-all-female-penguins"><span class="header-section-number">19.7</span> Find all female penguins</a></li>
+<li><a href="#filter-on-a-calculated-column" id="toc-filter-on-a-calculated-column"><span class="header-section-number">19.8</span> Filter on a calculated column</a></li>
+<li><a href="#select-records-matching-one-of-two-conditions" id="toc-select-records-matching-one-of-two-conditions"><span class="header-section-number">19.9</span> Select records matching one of two conditions</a></li>
+<li><a href="#show-average-body-mass-per-species" id="toc-show-average-body-mass-per-species"><span class="header-section-number">19.10</span> Show average body mass per species</a></li>
+<li><a href="#keep-only-groups-above-a-minimum-size" id="toc-keep-only-groups-above-a-minimum-size"><span class="header-section-number">19.11</span> Keep only groups above a minimum size</a></li>
+<li><a href="#show-the-five-heaviest-penguins" id="toc-show-the-five-heaviest-penguins"><span class="header-section-number">19.12</span> Show the five heaviest penguins</a></li>
+<li><a href="#count-the-penguin-rows" id="toc-count-the-penguin-rows"><span class="header-section-number">19.13</span> Count the penguin rows</a></li>
+<li><a href="#compute-the-average-body-mass" id="toc-compute-the-average-body-mass"><span class="header-section-number">19.14</span> Compute the average body mass</a></li>
+<li><a href="#order-rows-that-contain-null-values" id="toc-order-rows-that-contain-null-values"><span class="header-section-number">19.15</span> Order rows that contain null values</a></li>
+<li><a href="#list-every-person-and-their-total-credits" id="toc-list-every-person-and-their-total-credits"><span class="header-section-number">19.16</span> List every person and their total credits</a></li>
+<li><a href="#join-two-tables-to-combine-related-records" id="toc-join-two-tables-to-combine-related-records"><span class="header-section-number">19.17</span> Join two tables to combine related records</a></li>
+<li><a href="#show-total-credits-per-person" id="toc-show-total-credits-per-person"><span class="header-section-number">19.18</span> Show total credits per person</a></li>
+<li><a href="#list-each-person-and-their-survey-count" id="toc-list-each-person-and-their-survey-count"><span class="header-section-number">19.19</span> List each person and their survey count</a></li>
+<li><a href="#list-each-person-and-their-supervisor" id="toc-list-each-person-and-their-supervisor"><span class="header-section-number">19.20</span> List each person and their supervisor</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">SQL</h1>
 <p><a href="./databases.zip">download databases</a></p>
-<h2 id="sql-sortcol">Sort penguins by island then species</h2>
-<p>Run this query and look at the first several rows. Is the output
-ordered by island first, or by species first?</p>
-<div data-inc="sortcol.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/sortcol.sql" class="inc-path" role="img" tabindex="0" title="sql/sortcol.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show the species, island, and sex of all penguins,</span>
-<span class="c1">-- sorted alphabetically by island and then by species within each island.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query meant to sort penguins by island and then by species within
-each island produces species-first ordering instead; the bug is
-listing the columns in the wrong order in the <code>order by</code> clause.</p>
-<p>Shows: how <code>order by</code> applies columns from left to right and why
-column order in that clause matters.</p>
-<p>To find it: run the query and examine the first few rows. If all
-<code>'Adelie'</code> rows appear before any <code>'Chinstrap'</code> rows regardless of
-island, the sort is species-first. Compare the <code>order by</code> column
-sequence to the intended priority.</p>
+<h2 data-number="19.1" id="sort-penguins-by-island-then-species"><span class="header-section-number">19.1</span> Sort penguins by island then species</h2>
+<p>Run this query and look at the first several rows. Is the output ordered by island first, or by species first?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the species, island, and sex of all penguins,</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- sorted alphabetically by island and then by species within each island.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, sex</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> species, island;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query meant to sort penguins by island and then by species within each island produces species-first ordering instead; the bug is listing the columns in the wrong order in the <code>order by</code> clause.</p>
+<p>Shows: how <code>order by</code> applies columns from left to right and why column order in that clause matters.</p>
+<p>To find it: run the query and examine the first few rows. If all <code>'Adelie'</code> rows appear before any <code>'Chinstrap'</code> rows regardless of island, the sort is species-first. Compare the <code>order by</code> column sequence to the intended priority.</p>
 </details>
-<h2 id="sql-offsetpage">Retrieve the second page of search results</h2>
-<p>Run this query and note which rows are returned. Count from the
-beginning of the full table to check whether rows 11-15 are actually
-what you got.</p>
-<div data-inc="offsetpage.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/offsetpage.sql" class="inc-path" role="img" tabindex="0" title="sql/offsetpage.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Retrieve rows 11 through 15 from the penguins table (the third page of 5).</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">limit</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query meant to retrieve the third page of five rows returns rows 12-16 instead
-of rows 11-15; the bug is using <code>offset 11</code> (which skips 11 rows) instead of
-<code>offset 10</code>.</p>
-<p>Shows: how <code>limit</code> and <code>offset</code> interact and how to calculate the
-correct offset for a given page number.</p>
-<p>To find it: add <code>rowid</code> to the <code>select</code> clause and run the query. If the first
-returned row has <code>rowid = 12</code> but the page should start at row 11, the offset is
-off by one. The formula is <code>(page_number - 1) * page_size</code>, so page 3 with
-page size 5 gives <code>offset 10</code>.</p>
+<h2 data-number="19.2" id="retrieve-the-second-page-of-search-results"><span class="header-section-number">19.2</span> Retrieve the second page of search results</h2>
+<p>Run this query and note which rows are returned. Count from the beginning of the full table to check whether rows 11-15 are actually what you got.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Retrieve rows 11 through 15 from the penguins table (the third page of 5).</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">5</span> offset <span class="dv">11</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query meant to retrieve the third page of five rows returns rows 12-16 instead of rows 11-15; the bug is using <code>offset 11</code> (which skips 11 rows) instead of <code>offset 10</code>.</p>
+<p>Shows: how <code>limit</code> and <code>offset</code> interact and how to calculate the correct offset for a given page number.</p>
+<p>To find it: add <code>rowid</code> to the <code>select</code> clause and run the query. If the first returned row has <code>rowid = 12</code> but the page should start at row 11, the offset is off by one. The formula is <code>(page_number - 1) * page_size</code>, so page 3 with page size 5 gives <code>offset 10</code>.</p>
 </details>
-<h2 id="sql-intdivision">Show body mass in kilograms</h2>
-<p>Run this query and compare the <code>mass_kg</code> column to the <code>body_mass_g</code> column.
-Do the kilogram values look right for a penguin that weighs, say, 3750 g?</p>
-<div data-inc="intdivision.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/intdivision.sql" class="inc-path" role="img" tabindex="0" title="sql/intdivision.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show body mass in kilograms for the first 10 penguins.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span><span class="p">,</span>
-<span class="w">    </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">mass_kg</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that converts body mass from grams to kilograms silently truncates the
-result because SQLite performs integer division when both operands are integers;
-the bug is dividing by <code>1000</code> instead of <code>1000.0</code>.</p>
-<p>Shows: how to force floating-point arithmetic in SQL and why checking
-computed columns against known values catches this class of error.</p>
-<p>To find it: run <code>select body_mass_g, body_mass_g / 1000 as mass_kg from penguins
-limit 5</code>. A penguin weighing 3750 g should show <code>3.75</code> kg; if it shows <code>3</code>, integer
-division is truncating the decimal. Change <code>1000</code> to <code>1000.0</code> and rerun.</p>
+<h2 data-number="19.3" id="show-body-mass-in-kilograms"><span class="header-section-number">19.3</span> Show body mass in kilograms</h2>
+<p>Run this query and compare the <code>mass_kg</code> column to the <code>body_mass_g</code> column. Do the kilogram values look right for a penguin that weighs, say, 3750 g?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show body mass in kilograms for the first 10 penguins.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, body_mass_g,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    body_mass_g <span class="op">/</span> <span class="dv">1000</span> <span class="kw">as</span> mass_kg</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">10</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that converts body mass from grams to kilograms silently truncates the result because SQLite performs integer division when both operands are integers; the bug is dividing by <code>1000</code> instead of <code>1000.0</code>.</p>
+<p>Shows: how to force floating-point arithmetic in SQL and why checking computed columns against known values catches this class of error.</p>
+<p>To find it: run <code>select body_mass_g, body_mass_g / 1000 as mass_kg from penguins limit 5</code>. A penguin weighing 3750 g should show <code>3.75</code> kg; if it shows <code>3</code>, integer division is truncating the decimal. Change <code>1000</code> to <code>1000.0</code> and rerun.</p>
 </details>
-<h2 id="sql-distinctcols">List distinct species in the penguins dataset</h2>
-<p>Run this query and count the rows returned. How many distinct species are in the
-dataset? Does the row count match that number?</p>
-<div data-inc="distinctcols.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/distinctcols.sql" class="inc-path" role="img" tabindex="0" title="sql/distinctcols.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List the distinct species found in the penguins dataset (one row per species).</span>
-<span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query intended to list the distinct species in the dataset returns seven rows
-instead of three because <code>distinct</code> is applied to both <code>species</code> and <code>sex</code>,
-producing one row per unique (species, sex) combination; the bug is including <code>sex</code>
-in the <code>select</code> clause.</p>
-<p>Shows: that <code>distinct</code> operates on the entire set of selected columns,
-not on individual ones.</p>
-<p>To find it: run <code>select count(*) from (select distinct species from penguins)</code>. If
-that returns 3 but the original query returns 7, the extra column is what is
-producing the extra rows.</p>
+<h2 data-number="19.4" id="list-distinct-species-in-the-penguins-dataset"><span class="header-section-number">19.4</span> List distinct species in the penguins dataset</h2>
+<p>Run this query and count the rows returned. How many distinct species are in the dataset? Does the row count match that number?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List the distinct species found in the penguins dataset (one row per species).</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">distinct</span> species, sex</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query intended to list the distinct species in the dataset returns seven rows instead of three because <code>distinct</code> is applied to both <code>species</code> and <code>sex</code>, producing one row per unique (species, sex) combination; the bug is including <code>sex</code> in the <code>select</code> clause.</p>
+<p>Shows: that <code>distinct</code> operates on the entire set of selected columns, not on individual ones.</p>
+<p>To find it: run <code>select count(*) from (select distinct species from penguins)</code>. If that returns 3 but the original query returns 7, the extra column is what is producing the extra rows.</p>
 </details>
-<h2 id="sql-nullequal">Find penguins with no recorded sex</h2>
-<p>Run this query. How many rows does it return? Are there penguins in the table whose
-sex was not recorded?</p>
-<div data-inc="nullequal.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/nullequal.sql" class="inc-path" role="img" tabindex="0" title="sql/nullequal.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins whose sex was not recorded.</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that tries to find penguins with no recorded sex returns zero rows because
-comparing any value to <code>null</code> with <code>=</code> produces <code>null</code> (not <code>true</code>) in SQL's
-ternary logic, so the <code>where</code> clause never passes; the bug is using <code>= null</code> instead
-of <code>is null</code>.</p>
-<p>Shows: SQL's three-valued logic and the two special tests <code>is null</code>
-and <code>is not null</code>.</p>
-<p>To find it: run <code>select count(*) from penguins where sex is null</code>. If that returns
-a nonzero count but <code>where sex = null</code> returns zero, the <code>=</code> test is failing because
-null comparisons always produce null, never <code>true</code>.</p>
+<h2 data-number="19.5" id="find-penguins-with-no-recorded-sex"><span class="header-section-number">19.5</span> Find penguins with no recorded sex</h2>
+<p>Run this query. How many rows does it return? Are there penguins in the table whose sex was not recorded?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins whose sex was not recorded.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> sex <span class="op">=</span> <span class="kw">null</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that tries to find penguins with no recorded sex returns zero rows because comparing any value to <code>null</code> with <code>=</code> produces <code>null</code> (not <code>true</code>) in SQL’s ternary logic, so the <code>where</code> clause never passes; the bug is using <code>= null</code> instead of <code>is null</code>.</p>
+<p>Shows: SQL’s three-valued logic and the two special tests <code>is null</code> and <code>is not null</code>.</p>
+<p>To find it: run <code>select count(*) from penguins where sex is null</code>. If that returns a nonzero count but <code>where sex = null</code> returns zero, the <code>=</code> test is failing because null comparisons always produce null, never <code>true</code>.</p>
 </details>
-<h2 id="sql-impossibleand">Filter for records in two different categories</h2>
-<p>Run this query. How many rows does it return? Choose a penguin you know is on
-Biscoe island from a previous query and check whether it appears here.</p>
-<div data-inc="impossibleand.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/impossibleand.sql" class="inc-path" role="img" tabindex="0" title="sql/impossibleand.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins from either Biscoe island or Dream island.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Dream'</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that should return penguins from either Biscoe or Dream island returns
-zero rows because <code>and</code> requires both conditions to be true at the same time, but
-a penguin can only be on one island; the bug is using <code>and</code> where <code>or</code> is needed.</p>
-<p>Shows: the difference between <code>and</code> and <code>or</code> and how to spot
-conditions that can never simultaneously be true.</p>
-<p>To find it: ask whether a single penguin can be on Biscoe island and Dream island
-at the same time. It cannot, so <code>AND</code> can never be true. Whenever a zero-row result
-is unexpected, check whether the conditions are mutually exclusive.</p>
+<h2 data-number="19.6" id="filter-for-records-in-two-different-categories"><span class="header-section-number">19.6</span> Filter for records in two different categories</h2>
+<p>Run this query. How many rows does it return? Choose a penguin you know is on Biscoe island from a previous query and check whether it appears here.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins from either Biscoe island or Dream island.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, sex</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> island <span class="op">=</span> <span class="st">'Biscoe'</span> <span class="kw">and</span> island <span class="op">=</span> <span class="st">'Dream'</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that should return penguins from either Biscoe or Dream island returns zero rows because <code>and</code> requires both conditions to be true at the same time, but a penguin can only be on one island; the bug is using <code>and</code> where <code>or</code> is needed.</p>
+<p>Shows: the difference between <code>and</code> and <code>or</code> and how to spot conditions that can never simultaneously be true.</p>
+<p>To find it: ask whether a single penguin can be on Biscoe island and Dream island at the same time. It cannot, so <code>AND</code> can never be true. Whenever a zero-row result is unexpected, check whether the conditions are mutually exclusive.</p>
 </details>
-<h2 id="sql-casevalue">Find all female penguins</h2>
-<p>Run this query and count the rows returned. Then run a query to find the distinct
-values stored in the <code>sex</code> column. Do any of them match the literal used in the
-<code>where</code> clause?</p>
-<div data-inc="casevalue.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/casevalue.sql" class="inc-path" role="img" tabindex="0" title="sql/casevalue.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all female penguins.</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'female'</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that should return all female penguins returns zero rows because the <code>sex</code>
-column stores the value <code>'FEMALE'</code> in uppercase but the query filters on
-<code>'female'</code> in lowercase; SQLite string comparisons are case-sensitive for non-ASCII
-characters.</p>
-<p>Shows: how to inspect the actual stored values before writing a filter
-and how to use functions like <code>upper()</code> or <code>lower()</code> to normalise
-comparisons.</p>
-<p>To find it: run <code>select distinct sex from penguins</code> before writing the filter. If
-the results show <code>'FEMALE'</code> in uppercase, a <code>where sex = 'female'</code> will return zero
-rows because the literal does not match.</p>
+<h2 data-number="19.7" id="find-all-female-penguins"><span class="header-section-number">19.7</span> Find all female penguins</h2>
+<p>Run this query and count the rows returned. Then run a query to find the distinct values stored in the <code>sex</code> column. Do any of them match the literal used in the <code>where</code> clause?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all female penguins.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> sex <span class="op">=</span> <span class="st">'female'</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that should return all female penguins returns zero rows because the <code>sex</code> column stores the value <code>'FEMALE'</code> in uppercase but the query filters on <code>'female'</code> in lowercase; SQLite string comparisons are case-sensitive for non-ASCII characters.</p>
+<p>Shows: how to inspect the actual stored values before writing a filter and how to use functions like <code>upper()</code> or <code>lower()</code> to normalise comparisons.</p>
+<p>To find it: run <code>select distinct sex from penguins</code> before writing the filter. If the results show <code>'FEMALE'</code> in uppercase, a <code>where sex = 'female'</code> will return zero rows because the literal does not match.</p>
 </details>
-<h2 id="sql-wherealiased">Filter on a calculated column</h2>
-<p>Run this query. Does it raise an error or return wrong results? Add a second
-<code>select</code> that uses the full expression <code>body_mass_g / 1000.0</code> in the <code>where</code>
-clause and compare the two queries' output.</p>
-<div data-inc="wherealiased.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/wherealiased.sql" class="inc-path" role="img" tabindex="0" title="sql/wherealiased.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins heavier than 4 kg, displaying mass in kilograms.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">mass_kg</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="n">mass_kg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">4.0</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that tries to filter using a column alias defined in the <code>select</code> clause
-fails with a "no such column" error because SQL evaluates <code>where</code> before <code>select</code>,
-so the alias does not yet exist at that point; the bug is referencing <code>mass_kg</code> in
-<code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>.</p>
+<h2 data-number="19.8" id="filter-on-a-calculated-column"><span class="header-section-number">19.8</span> Filter on a calculated column</h2>
+<p>Run this query. Does it raise an error or return wrong results? Add a second <code>select</code> that uses the full expression <code>body_mass_g / 1000.0</code> in the <code>where</code> clause and compare the two queries’ output.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins heavier than 4 kg, displaying mass in kilograms.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, body_mass_g <span class="op">/</span> <span class="fl">1000.0</span> <span class="kw">as</span> mass_kg</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> mass_kg <span class="op">&gt;</span> <span class="fl">4.0</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that tries to filter using a column alias defined in the <code>select</code> clause fails with a “no such column” error because SQL evaluates <code>where</code> before <code>select</code>, so the alias does not yet exist at that point; the bug is referencing <code>mass_kg</code> in <code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>.</p>
 <p>Shows: the order of SQL clause evaluation.</p>
-<p>To find it: run the query and read the error: <code>no such column: mass_kg</code>. SQL
-evaluates <code>where</code> before <code>select</code>, so the alias defined in <code>select</code> does not yet
-exist when <code>where</code> runs. Replace the alias in <code>where</code> with the full expression
-<code>body_mass_g / 1000.0</code>.</p>
+<p>To find it: run the query and read the error: <code>no such column: mass_kg</code>. SQL evaluates <code>where</code> before <code>select</code>, so the alias defined in <code>select</code> does not yet exist when <code>where</code> runs. Replace the alias in <code>where</code> with the full expression <code>body_mass_g / 1000.0</code>.</p>
 </details>
-<h2 id="sql-andorprecedence">Select records matching one of two conditions</h2>
-<p>Run this query. Which species and islands appear in the result? Is the output what
-you expected based on the comment describing the intent?</p>
-<div data-inc="andorprecedence.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/andorprecedence.sql" class="inc-path" role="img" tabindex="0" title="sql/andorprecedence.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find penguins that are on Biscoe island and are either Adelie or Chinstrap.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Adelie'</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Chinstrap'</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query intended to find Adelie or Chinstrap penguins that are on Biscoe island
-instead returns all Adelie penguins from any island plus Chinstraps on Biscoe,
-because <code>and</code> binds more tightly than <code>or</code>; the bug is missing parentheses around
-the <code>or</code> sub-expression.</p>
-<p>Shows: SQL operator precedence and why parentheses are needed to make
-complex <code>where</code> conditions unambiguous.</p>
-<p>To find it: run the query and check whether any Adelie penguins from non-Biscoe
-islands appear in the result. If they do, <code>and</code> is binding more tightly than <code>or</code>
-and the condition is being read as <code>species = 'Adelie' or (species = 'Chinstrap' and
-island = 'Biscoe')</code>. Add parentheses around the <code>or</code> sub-expression.</p>
+<h2 data-number="19.9" id="select-records-matching-one-of-two-conditions"><span class="header-section-number">19.9</span> Select records matching one of two conditions</h2>
+<p>Run this query. Which species and islands appear in the result? Is the output what you expected based on the comment describing the intent?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find penguins that are on Biscoe island and are either Adelie or Chinstrap.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> species <span class="op">=</span> <span class="st">'Adelie'</span> <span class="kw">or</span> species <span class="op">=</span> <span class="st">'Chinstrap'</span> <span class="kw">and</span> island <span class="op">=</span> <span class="st">'Biscoe'</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query intended to find Adelie or Chinstrap penguins that are on Biscoe island instead returns all Adelie penguins from any island plus Chinstraps on Biscoe, because <code>and</code> binds more tightly than <code>or</code>; the bug is missing parentheses around the <code>or</code> sub-expression.</p>
+<p>Shows: SQL operator precedence and why parentheses are needed to make complex <code>where</code> conditions unambiguous.</p>
+<p>To find it: run the query and check whether any Adelie penguins from non-Biscoe islands appear in the result. If they do, <code>and</code> is binding more tightly than <code>or</code> and the condition is being read as <code>species = 'Adelie' or (species = 'Chinstrap' and island = 'Biscoe')</code>. Add parentheses around the <code>or</code> sub-expression.</p>
 </details>
-<h2 id="sql-nonaggcol">Show average body mass per species</h2>
-<p>Run this query and examine the <code>sex</code> column. Pick one species and check a few rows
-against the original data. Are the sex values consistent with what you expected
-for that species group?</p>
-<div data-inc="nonaggcol.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/nonaggcol.sql" class="inc-path" role="img" tabindex="0" title="sql/nonaggcol.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show the average body mass for each species along with the sex of each penguin.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="nf">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that groups by species but also selects <code>sex</code> without aggregating it
-produces an arbitrary, unpredictable sex value for each species group because <code>sex</code>
-is not in the <code>group by</code> clause; the bug is selecting a column that is neither
-aggregated nor part of the grouping.</p>
-<p>Shows: why every column in <code>select</code> must either appear in <code>group by</code>
-or be wrapped in an aggregation function.</p>
-<p>To find it: pick one species in the result and verify its <code>sex</code> value against the
-original table. If the grouped query shows a single sex for the group but the raw
-data contains both sexes for that species, the database is picking an arbitrary
-value.</p>
+<h2 data-number="19.10" id="show-average-body-mass-per-species"><span class="header-section-number">19.10</span> Show average body mass per species</h2>
+<p>Run this query and examine the <code>sex</code> column. Pick one species and check a few rows against the original data. Are the sex values consistent with what you expected for that species group?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the average body mass for each species along with the sex of each penguin.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, sex, <span class="fu">avg</span>(body_mass_g) <span class="kw">as</span> avg_mass</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> species;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that groups by species but also selects <code>sex</code> without aggregating it produces an arbitrary, unpredictable sex value for each species group because <code>sex</code> is not in the <code>group by</code> clause; the bug is selecting a column that is neither aggregated nor part of the grouping.</p>
+<p>Shows: why every column in <code>select</code> must either appear in <code>group by</code> or be wrapped in an aggregation function.</p>
+<p>To find it: pick one species in the result and verify its <code>sex</code> value against the original table. If the grouped query shows a single sex for the group but the raw data contains both sexes for that species, the database is picking an arbitrary value.</p>
 </details>
-<h2 id="sql-wherenothavin">Keep only groups above a minimum size</h2>
-<p>Run this query. Does it return a result or raise an error? Check whether moving
-the condition to a <code>having</code> clause after <code>group by</code> fixes the problem.</p>
-<div data-inc="wherenothavin.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/wherenothavin.sql" class="inc-path" role="img" tabindex="0" title="sql/wherenothavin.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find species whose average body mass exceeds 4000 g.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="nf">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="nf">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">4000.0</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that tries to filter groups by their average value using <code>where</code> raises an
-error because aggregate functions like <code>avg()</code> cannot appear in <code>where</code>; <code>where</code>
-filters individual rows before grouping, while <code>having</code> filters groups after
-aggregation; the bug is placing the condition in <code>where</code> instead of <code>having</code>.</p>
-<p>Shows: the difference in timing between <code>where</code> and <code>having</code> in SQL's
-execution order.</p>
-<p>To find it: run the query and read the error message — something like <code>misuse of
-aggregate function avg()</code>. Aggregate functions cannot appear in <code>where</code> because rows
-haven't been grouped yet at that point. Move the condition to a <code>having</code> clause after
-the <code>group by</code>.</p>
+<h2 data-number="19.11" id="keep-only-groups-above-a-minimum-size"><span class="header-section-number">19.11</span> Keep only groups above a minimum size</h2>
+<p>Run this query. Does it return a result or raise an error? Check whether moving the condition to a <code>having</code> clause after <code>group by</code> fixes the problem.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find species whose average body mass exceeds 4000 g.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, <span class="fu">avg</span>(body_mass_g) <span class="kw">as</span> avg_mass</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> <span class="fu">avg</span>(body_mass_g) <span class="op">&gt;</span> <span class="fl">4000.0</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> species;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that tries to filter groups by their average value using <code>where</code> raises an error because aggregate functions like <code>avg()</code> cannot appear in <code>where</code>; <code>where</code> filters individual rows before grouping, while <code>having</code> filters groups after aggregation; the bug is placing the condition in <code>where</code> instead of <code>having</code>.</p>
+<p>Shows: the difference in timing between <code>where</code> and <code>having</code> in SQL’s execution order.</p>
+<p>To find it: run the query and read the error message — something like <code>misuse of aggregate function avg()</code>. Aggregate functions cannot appear in <code>where</code> because rows haven’t been grouped yet at that point. Move the condition to a <code>having</code> clause after the <code>group by</code>.</p>
 </details>
-<h2 id="sql-groupbymissing">Count entries per category and subcategory</h2>
-<p>Run this query and examine the <code>island</code> column. Do all the rows for a given species
-show the same island? Check a few values against the original table.</p>
-<div data-inc="groupbymissing.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/groupbymissing.sql" class="inc-path" role="img" tabindex="0" title="sql/groupbymissing.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Count the number of penguins observed on each island, broken down by species.</span>
-<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_penguins</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that counts penguins per species per island produces unreliable island
-values because <code>island</code> appears in <code>select</code> but not in <code>group by</code>, so the database
-picks an arbitrary island for each species group; the bug is omitting <code>island</code> from
-the <code>group by</code> clause.</p>
-<p>Shows: that every non-aggregated column in <code>select</code> must also appear
-in <code>group by</code>.</p>
-<p>To find it: run the query and note the <code>island</code> value for one species. Then run
-<code>select island from penguins where species = 'Adelie'</code> to see all islands that
-species actually inhabits. If the grouped result shows only one island but the raw
-data shows three, the database is picking arbitrarily.</p>
+<h2 data-number="19.12" id="show-the-five-heaviest-penguins"><span class="header-section-number">19.12</span> Show the five heaviest penguins</h2>
+<p>Run this query a few times and note which rows appear. Are they the five heaviest penguins, or does the result change?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the five heaviest penguins.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, body_mass_g</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">5</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that uses <code>limit</code> without <code>order by</code> returns an arbitrary set of rows, not the five heaviest. The database makes no ordering promise, so the result can change between runs; the bug is omitting <code>order by</code>.</p>
+<p>Shows: that <code>limit</code> only restricts the number of rows, and that an explicit <code>order by</code> is required to control <em>which</em> rows are returned.</p>
+<p>To find it: add <code>order by body_mass_g desc</code> before the <code>limit</code> clause and rerun. The heaviest five penguins now appear consistently.</p>
 </details>
-<h2 id="sql-countnull">Count the penguin rows</h2>
-<p>Run this query. Then run a second query using <code>count(*)</code> and compare the two
-results. If the numbers differ, find the rows that account for the difference.</p>
-<div data-inc="countnull.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/countnull.sql" class="inc-path" role="img" tabindex="0" title="sql/countnull.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Report the total number of penguins in the dataset.</span>
-<span class="k">select</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_penguins</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query meant to count all penguins in the dataset underreports the total because
-<code>count(sex)</code> only counts rows where <code>sex</code> is not null, omitting the 11 penguins
-whose sex was not recorded; the bug is using <code>count(sex)</code> instead of <code>count(*)</code>.</p>
-<p>Shows: the difference between <code>count(column)</code> (excludes nulls) and
-<code>count(*)</code> (counts every row).</p>
-<p>To find it: run <code>select count(*), count(sex) from penguins</code>. If the two numbers
-differ, the difference is the number of penguins <code>count(sex)</code> is missing because
-their <code>sex</code> is null.</p>
+<h2 data-number="19.13" id="count-the-penguin-rows"><span class="header-section-number">19.13</span> Count the penguin rows</h2>
+<p>Run this query. Then run a second query using <code>count(*)</code> and compare the two results. If the numbers differ, find the rows that account for the difference.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Report the total number of penguins in the dataset.</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="fu">count</span>(sex) <span class="kw">as</span> total_penguins</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query meant to count all penguins in the dataset underreports the total because <code>count(sex)</code> only counts rows where <code>sex</code> is not null, omitting the 11 penguins whose sex was not recorded; the bug is using <code>count(sex)</code> instead of <code>count(*)</code>.</p>
+<p>Shows: the difference between <code>count(column)</code> (excludes nulls) and <code>count(*)</code> (counts every row).</p>
+<p>To find it: run <code>select count(*), count(sex) from penguins</code>. If the two numbers differ, the difference is the number of penguins <code>count(sex)</code> is missing because their <code>sex</code> is null.</p>
 </details>
-<h2 id="sql-avgmanual">Compute the average body mass</h2>
-<p>Run this query and note the result. Then run <code>select avg(body_mass_g) from penguins</code>
-and compare. Are the two values the same?</p>
-<div data-inc="avgmanual.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/avgmanual.sql" class="inc-path" role="img" tabindex="0" title="sql/avgmanual.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Calculate the average body mass of all penguins.</span>
-<span class="k">select</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A manual average calculation divides the sum of body masses by the total row count,
-but <code>sum()</code> skips the two rows where <code>body_mass_g</code> is null while <code>count(*)</code> still
-counts them, making the denominator too large and the result too small; the bug is
-dividing by <code>count(*)</code> instead of <code>count(body_mass_g)</code> or using <code>avg()</code> directly.</p>
-<p>Shows: how aggregation functions treat null values and why the
-built-in <code>avg()</code> should be preferred over hand-rolled sum/count
-averages.</p>
-<p>To find it: run <code>select avg(body_mass_g) from penguins</code> and compare it to the manual
-calculation. If they differ, check whether <code>count(*)</code> and <code>count(body_mass_g)</code> return
-the same number — if not, some rows have a null mass and the manual denominator is
-too large.</p>
+<h2 data-number="19.14" id="compute-the-average-body-mass"><span class="header-section-number">19.14</span> Compute the average body mass</h2>
+<p>Run this query and note the result. Then run <code>select avg(body_mass_g) from penguins</code> and compare. Are the two values the same?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Calculate the average body mass of all penguins.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="fu">sum</span>(body_mass_g) <span class="op">/</span> <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> avg_mass</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A manual average calculation divides the sum of body masses by the total row count, but <code>sum()</code> skips the two rows where <code>body_mass_g</code> is null while <code>count(*)</code> still counts them, making the denominator too large and the result too small; the bug is dividing by <code>count(*)</code> instead of <code>count(body_mass_g)</code> or using <code>avg()</code> directly.</p>
+<p>Shows: how aggregation functions treat null values and why the built-in <code>avg()</code> should be preferred over hand-rolled sum/count averages.</p>
+<p>To find it: run <code>select avg(body_mass_g) from penguins</code> and compare it to the manual calculation. If they differ, check whether <code>count(*)</code> and <code>count(body_mass_g)</code> return the same number — if not, some rows have a null mass and the manual denominator is too large.</p>
 </details>
-<h2 id="sql-nullneq">Find records that don't match a given value</h2>
-<p>Run this query. How many rows does it return? Then run a query using <code>is not null</code>
-and compare the row counts.</p>
-<div data-inc="nullneq.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/nullneq.sql" class="inc-path" role="img" tabindex="0" title="sql/nullneq.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins whose sex has been recorded.</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
-<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
-<span class="k">where</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that should return only penguins with a recorded sex returns zero rows
-because comparing any value to null with <code>!=</code> produces null (not true) in SQL's
-ternary logic, so the <code>where</code> clause never passes any row; the bug is using
-<code>!= null</code> instead of <code>is not null</code>.</p>
-<p>Shows: that null comparisons with <code>=</code> or <code>!=</code> always yield null, and
-that <code>is null</code> / <code>is not null</code> are the only reliable null tests.</p>
-<p>To find it: run <code>select count(*) from penguins where sex is not null</code>. If that
-returns rows but the original query returns zero, the <code>!= null</code> test is failing
-because null comparisons always produce null, not <code>true</code> or <code>false</code>.</p>
+<h2 data-number="19.15" id="order-rows-that-contain-null-values"><span class="header-section-number">19.15</span> Order rows that contain null values</h2>
+<p>Run this query and look at the first few rows. Do the penguins with no recorded body mass appear where you expected?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List penguins ordered by body mass, lightest first.</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, body_mass_g</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> body_mass_g;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that orders by <code>body_mass_g</code> puts the rows with a null body mass first, because SQLite sorts nulls before non-null values. The nulls appear as if they were lighter than everything else; the bug is not accounting for null ordering.</p>
+<p>Shows: how null values sort in <code>order by</code>, and how to control their placement with <code>order by body_mass_g is null, body_mass_g</code>.</p>
+<p>To find it: compare <code>select body_mass_g from penguins order by body_mass_g</code> to the same query with <code>order by body_mass_g is null, body_mass_g</code>. The nulls move from the top to the bottom.</p>
 </details>
-<h2 id="sql-innerleft">List every person and their total credits</h2>
-<p>Run this query and list the people in the result. Then run <code>select distinct person
-from work</code> and compare. Does every person from the <code>work</code> table appear in the
-query output?</p>
-<div data-inc="innerleft.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/innerleft.sql" class="inc-path" role="img" tabindex="0" title="sql/innerleft.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List every person and the total credits they have earned.</span>
-<span class="c1">-- People who only did jobs not listed in the job table should appear with 0 credits.</span>
-<span class="k">select</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">credits</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total</span>
-<span class="k">from</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">job</span>
-<span class="k">on</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that should list total credits for every person silently omits people whose
-jobs do not appear in the <code>job</code> table (because their work has no matching credit
-value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>.</p>
-<p>Shows: the difference between inner and left joins and when each is
-appropriate.</p>
-<p>To find it: run <code>select distinct person from work</code> and compare the names to those in
-the join result. Any name present in <code>work</code> but absent from the join result was
-dropped because <code>inner join</code> excludes rows with no matching partner in the other
-table.</p>
+<h2 data-number="19.16" id="list-every-person-and-their-total-credits"><span class="header-section-number">19.16</span> List every person and their total credits</h2>
+<p>Run this query and list the people in the result. Then run <code>select distinct person from work</code> and compare. Does every person from the <code>work</code> table appear in the query output?</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List every person and the total credits they have earned.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- People who only did jobs not listed in the job table should appear with 0 credits.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">work</span>.person, <span class="fu">sum</span>(job.credits) <span class="kw">as</span> total</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> <span class="kw">work</span> <span class="kw">inner</span> <span class="kw">join</span> job</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">on</span> <span class="kw">work</span>.job <span class="op">=</span> job.name</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> <span class="kw">work</span>.person;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that should list total credits for every person silently omits people whose jobs do not appear in the <code>job</code> table (because their work has no matching credit value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>.</p>
+<p>Shows: the difference between inner and left joins and when each is appropriate.</p>
+<p>To find it: run <code>select distinct person from work</code> and compare the names to those in the join result. Any name present in <code>work</code> but absent from the join result was dropped because <code>inner join</code> excludes rows with no matching partner in the other table.</p>
 </details>
-<h2 id="sql-noonclause">Join two tables to combine related records</h2>
-<p>Run this query. Count the rows returned. How many rows are in the <code>job</code> table?
-How many are in the <code>work</code> table? How do those numbers relate to the row count
-you observed?</p>
-<div data-inc="noonclause.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/noonclause.sql" class="inc-path" role="img" tabindex="0" title="sql/noonclause.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Match each job entry to the work records for that job.</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
-<span class="k">from</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="k">work</span>
-<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that should pair each job with its matching work records instead returns
-every possible combination of rows from both tables because the <code>on</code> clause is
-missing; a join without an <code>on</code> condition (or equivalent <code>where</code> condition) is
-a Cartesian product, producing rows equal to the product of the two table sizes.</p>
-<p>Shows: that a join without a matching condition is almost never
-correct and how to recognise a Cartesian product by its unexpectedly
-large row count.</p>
-<p>To find it: count the rows in <code>job</code> and the rows in <code>work</code>, then multiply. If the
-query result has exactly that many rows, the join produced a Cartesian product,
-which means the <code>on</code> clause is missing.</p>
+<h2 data-number="19.17" id="join-two-tables-to-combine-related-records"><span class="header-section-number">19.17</span> Join two tables to combine related records</h2>
+<p>Run this query. Count the rows returned. How many rows are in the <code>job</code> table? How many are in the <code>work</code> table? How do those numbers relate to the row count you observed?</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Match each job entry to the work records for that job.</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> job <span class="kw">join</span> <span class="kw">work</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">10</span>;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that should pair each job with its matching work records instead returns every possible combination of rows from both tables because the <code>on</code> clause is missing; a join without an <code>on</code> condition (or equivalent <code>where</code> condition) is a Cartesian product, producing rows equal to the product of the two table sizes.</p>
+<p>Shows: that a join without a matching condition is almost never correct and how to recognise a Cartesian product by its unexpectedly large row count.</p>
+<p>To find it: count the rows in <code>job</code> and the rows in <code>work</code>, then multiply. If the query result has exactly that many rows, the join produced a Cartesian product, which means the <code>on</code> clause is missing.</p>
 </details>
-<h2 id="sql-coalescemiss">Show total credits per person</h2>
-<p>Run this query and check the <code>total</code> column for each person. Which person has a
-null total? What jobs did that person do, according to the <code>work</code> table?</p>
-<div data-inc="coalescemiss.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/coalescemiss.sql" class="inc-path" role="img" tabindex="0" title="sql/coalescemiss.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show total credits earned per person.</span>
-<span class="c1">-- People who only did jobs not in the job table should show 0, not null.</span>
-<span class="k">select</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">credits</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total</span>
-<span class="k">from</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="nf">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">job</span>
-<span class="k">on</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span>
-<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that uses a left join to include all people shows null instead of 0 for
-a person whose jobs produce no credit values, because <code>sum()</code> of an all-null group
-returns null; the bug is not wrapping the sum in <code>coalesce(…, 0)</code>.</p>
-<p>Shows: how <code>coalesce</code> provides a fallback value for null results and
-why left joins often require it.</p>
-<p>To find it: look for null values in the <code>total</code> column of the result. Then run
-<code>select person, job from work where person = '&lt;name with null total&gt;'</code> to confirm
-that person has work records. The null total comes from <code>sum()</code> over an all-null
-group — wrap it in <code>coalesce(..., 0)</code> to return zero instead.</p>
+<h2 data-number="19.18" id="show-total-credits-per-person"><span class="header-section-number">19.18</span> Show total credits per person</h2>
+<p>Run this query and check the <code>total</code> column for each person. Which person has a null total? What jobs did that person do, according to the <code>work</code> table?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show total credits earned per person.</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- People who only did jobs not in the job table should show 0, not null.</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">work</span>.person, <span class="fu">sum</span>(job.credits) <span class="kw">as</span> total</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> <span class="kw">work</span> <span class="kw">left</span> <span class="kw">join</span> job</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">on</span> <span class="kw">work</span>.job <span class="op">=</span> job.name</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> <span class="kw">work</span>.person</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> <span class="kw">work</span>.person;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that uses a left join to include all people shows null instead of 0 for a person whose jobs produce no credit values, because <code>sum()</code> of an all-null group returns null; the bug is not wrapping the sum in <code>coalesce(…, 0)</code>.</p>
+<p>Shows: how <code>coalesce</code> provides a fallback value for null results and why left joins often require it.</p>
+<p>To find it: look for null values in the <code>total</code> column of the result. Then run <code>select person, job from work where person = '&lt;name with null total&gt;'</code> to confirm that person has work records. The null total comes from <code>sum()</code> over an all-null group — wrap it in <code>coalesce(..., 0)</code> to return zero instead.</p>
 </details>
-<h2 id="sql-joinswapped">List each person and their survey count</h2>
-<p>Run this query. Does every person appear? Compare the <code>num_surveys</code> counts to what
-you get from <code>select count(*) from survey group by person_id</code>. Do the numbers match?</p>
-<div data-inc="joinswapped.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/joinswapped.sql" class="inc-path" role="img" tabindex="0" title="sql/joinswapped.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List each person's full name and the number of surveys they have done.</span>
-<span class="k">select</span>
-<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span><span class="p">,</span>
-<span class="w">    </span><span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_surveys</span>
-<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
-<span class="k">on</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span>
-<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A query that should join people to their surveys instead produces a Cartesian
-product because the <code>on</code> clause compares <code>survey.person_id</code> to itself (which is
-always true) rather than to <code>person.person_id</code>; the bug is a copy-paste error
-that left the table name on the left side of <code>on</code> as <code>survey</code> instead of <code>person</code>.</p>
-<p>Shows: how to carefully check <code>on</code> conditions when the same column
-name appears in both tables.</p>
-<p>To find it: compare <code>num_surveys</code> in the join result to <code>select count(*) from
-survey group by person_id</code>. If every person shows the same <code>num_surveys</code> equal to
-the total number of survey rows, the <code>on</code> clause is always true and is joining every
-row to every other row.</p>
+<h2 data-number="19.19" id="list-each-person-and-their-survey-count"><span class="header-section-number">19.19</span> List each person and their survey count</h2>
+<p>Run this query. Does every person appear? Compare the <code>num_surveys</code> counts to what you get from <code>select count(*) from survey group by person_id</code>. Do the numbers match?</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List each person's full name and the number of surveys they have done.</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    person.personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> person.family <span class="kw">as</span> full_name,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> num_surveys</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> person <span class="kw">join</span> survey</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">on</span> survey.person_id <span class="op">=</span> survey.person_id</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> person.person_id</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> person.family, person.personal;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A query that should join people to their surveys instead produces a Cartesian product because the <code>on</code> clause compares <code>survey.person_id</code> to itself (which is always true) rather than to <code>person.person_id</code>; the bug is a copy-paste error that left the table name on the left side of <code>on</code> as <code>survey</code> instead of <code>person</code>.</p>
+<p>Shows: how to carefully check <code>on</code> conditions when the same column name appears in both tables.</p>
+<p>To find it: compare <code>num_surveys</code> in the join result to <code>select count(*) from survey group by person_id</code>. If every person shows the same <code>num_surveys</code> equal to the total number of survey rows, the <code>on</code> clause is always true and is joining every row to every other row.</p>
 </details>
-<h2 id="sql-selfjoin">List each person and their supervisor</h2>
-<p>Run this query and look at a few rows. Use the <code>person</code> table to verify which
-people are supervisors and which are subordinates. Are the labels in the output
-correct?</p>
-<div data-inc="selfjoin.sql" data-scrub="\s*--.*BUG.*"><span aria-label="Source: sql/selfjoin.sql" class="inc-path" role="img" tabindex="0" title="sql/selfjoin.sql">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- For each person, show their full name and their supervisor's full name.</span>
-<span class="k">select</span>
-<span class="w">    </span><span class="n">pa</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">person_name</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pb</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pb</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">supervisor_name</span>
-<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">pa</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">pb</span>
-<span class="k">on</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pb</span><span class="p">.</span><span class="n">supervisor_id</span>
-<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">personal</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>A self-join query that should display each person's name alongside their
-supervisor's name has the labels reversed: the <code>on</code> condition <code>pa.person_id =
-pb.supervisor_id</code> makes <code>pa</code> the supervisor and <code>pb</code> the subordinate, but the
-aliases label <code>pa</code> as <code>person_name</code> and <code>pb</code> as <code>supervisor_name</code>; the bug is
-swapping the alias names.</p>
-<p>Shows: how to reason about the direction of a self-join and how to
-verify the result against the underlying data.</p>
-<p>To find it: pick one row from the result and look up both IDs in the <code>person</code> table.
-If the person labeled <code>supervisor_name</code> is actually listed as a subordinate in the
-raw data, the alias names in the query are reversed.</p>
+<h2 data-number="19.20" id="list-each-person-and-their-supervisor"><span class="header-section-number">19.20</span> List each person and their supervisor</h2>
+<p>Run this query and look at a few rows. Use the <code>person</code> table to verify which people are supervisors and which are subordinates. Are the labels in the output correct?</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- For each person, show their full name and their supervisor's full name.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    pa.personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> pa.family <span class="kw">as</span> person_name,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    pb.personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> pb.family <span class="kw">as</span> supervisor_name</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> person pa <span class="kw">join</span> person pb</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">on</span> pa.person_id <span class="op">=</span> pb.supervisor_id</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> pa.family, pa.personal;</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>A self-join query that should display each person’s name alongside their supervisor’s name has the labels reversed: the <code>on</code> condition <code>pa.person_id = pb.supervisor_id</code> makes <code>pa</code> the supervisor and <code>pb</code> the subordinate, but the aliases label <code>pa</code> as <code>person_name</code> and <code>pb</code> as <code>supervisor_name</code>; the bug is swapping the alias names.</p>
+<p>Shows: how to reason about the direction of a self-join and how to verify the result against the underlying data.</p>
+<p>To find it: pick one row from the result and look up both IDs in the <code>person</code> table. If the person labeled <code>supervisor_name</code> is actually listed as a subordinate in the raw data, the alias names in the query are reversed.</p>
 </details>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../shell/">The Unix Shell</a>
-</div>
-<div class="col-6 center">
-<a href="../">Unbreak</a>
-	  ©
-	  <a href="../contributing/#contributors">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../testing/">Testing</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+
+
+</body></html>

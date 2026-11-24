@@ -1,582 +1,390 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>HTTP and APIs</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HTTP and APIs</title>
-<meta content="Unbreaking Software" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../basicpy/">Basic Python</a></li>
-<li><a href="../interpy/">Intermediate Python</a></li>
-<li><a href="../oopy/">Object-Oriented Python</a></li>
-<li><a href="../regexp/">Regular Expressions</a></li>
-<li><a href="../diot/">Data, I/O, and Testing</a></li>
-<li><a href="../perfcon/">Performance and Concurrency</a></li>
-<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
-<li><a href="../css/">CSS</a></li>
-<li><a class="active" href="../web/">HTTP and APIs</a></li>
-<li><a href="../htmx/">HTMX</a></li>
-<li><a href="../alpine/">Alpine.js</a></li>
-<li><a href="../fastapi/">FastAPI</a></li>
-<li><a href="../datasci/">Data Science</a></li>
-<li><a href="../dataviz/">Data Visualization</a></li>
-<li><a href="../polars/">Polars</a></li>
-<li><a href="../shell/">The Unix Shell</a></li>
-<li><a href="../sql/">SQL</a></li>
-<li><a href="../testing/">Testing</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../complex/">Complex Examples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/unbreak">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>HTTP and APIs</h1>
-<h2 id="web-nostatuscheck">Fetch and parse data from an API endpoint</h2>
-<p>Run the script and read the error message. What type of error is
-raised, and which line causes it? Is the problem in the line that
-fails or somewhere earlier?</p>
-<div data-inc="nostatuscheck.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/nostatuscheck.py" class="inc-path" role="img" tabindex="0" title="web/nostatuscheck.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/html"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span>
-        <span class="s2">"body"</span><span class="p">:</span> <span class="sa">b</span><span class="s2">"&lt;html&gt;&lt;body&gt;&lt;h1&gt;404 Not Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"</span><span class="p">,</span>
-    <span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/data"</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is calling <code>.json()</code> without first checking <code>r.status_code</code>. A
-404 response returns an HTML error page, not JSON, so <code>.json()</code> raises
-a <code>JSONDecodeError</code> at the parsing step rather than flagging the real
-problem, which is the failed request.</p>
-<p>Shows: how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
-the response body.</p>
-<p>To find it: print <code>r.status_code</code> before calling <code>r.json()</code>. A status
-other than 200 means the response body is likely an error page, not
-JSON. The <code>JSONDecodeError</code> is a symptom; the root cause is the failed
-request that was never checked.</p>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#fetch-and-parse-data-from-an-api-endpoint" id="toc-fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">11.1</span> Fetch and parse data from an API endpoint</a></li>
+<li><a href="#submit-a-new-record-to-an-api-as-json" id="toc-submit-a-new-record-to-an-api-as-json"><span class="header-section-number">11.2</span> Submit a new record to an API as JSON</a></li>
+<li><a href="#search-an-api-with-a-multi-word-query-parameter" id="toc-search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">11.3</span> Search an API with a multi-word query parameter</a></li>
+<li><a href="#retrieve-all-records-from-a-paginated-api" id="toc-retrieve-all-records-from-a-paginated-api"><span class="header-section-number">11.4</span> Retrieve all records from a paginated API</a></li>
+<li><a href="#fetch-data-from-a-potentially-slow-api-endpoint" id="toc-fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">11.5</span> Fetch data from a potentially slow API endpoint</a></li>
+<li><a href="#create-a-new-resource-via-a-post-request" id="toc-create-a-new-resource-via-a-post-request"><span class="header-section-number">11.6</span> Create a new resource via a POST request</a></li>
+<li><a href="#retry-a-request-after-hitting-a-rate-limit" id="toc-retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">11.7</span> Retry a request after hitting a rate limit</a></li>
+<li><a href="#update-a-single-field-in-an-existing-api-resource" id="toc-update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">11.8</span> Update a single field in an existing API resource</a></li>
+<li><a href="#authenticate-with-an-api-using-a-secret-key" id="toc-authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">11.9</span> Authenticate with an API using a secret key</a></li>
+<li><a href="#submit-form-data-to-an-endpoint-that-redirects" id="toc-submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">11.10</span> Submit form data to an endpoint that redirects</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">HTTP and APIs</h1>
+<h2 data-number="11.1" id="fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">11.1</span> Fetch and parse data from an API endpoint</h2>
+<p>Run the script and read the error message. What type of error is raised, and which line causes it? Is the problem in the line that fails or somewhere earlier?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">404</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"text/html"</span>)],</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.body"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"body"</span>: <span class="st">b"&lt;html&gt;&lt;body&gt;&lt;h1&gt;404 Not Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="st">"/data"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> r.json()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(data)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is calling <code>.json()</code> without first checking <code>r.status_code</code>. A 404 response returns an HTML error page, not JSON, so <code>.json()</code> raises a <code>JSONDecodeError</code> at the parsing step rather than flagging the real problem, which is the failed request.</p>
+<p>Shows: how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading the response body.</p>
+<p>To find it: print <code>r.status_code</code> before calling <code>r.json()</code>. A status other than 200 means the response body is likely an error page, not JSON. The <code>JSONDecodeError</code> is a symptom; the root cause is the failed request that was never checked.</p>
 </details>
-<h2 id="web-jsonparam">Submit a new record to an API as JSON</h2>
-<p>Run the script and read the output. What content type does the server
-report receiving? What content type did you intend to send?</p>
-<div data-inc="jsonparam.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/jsonparam.py" class="inc-path" role="img" tabindex="0" title="web/jsonparam.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">scope</span><span class="p">[</span><span class="s2">"headers"</span><span class="p">])</span>
-    <span class="n">content_type</span> <span class="o">=</span> <span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"(not set)"</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"content-type: </span><span class="si">{</span><span class="n">content_type</span><span class="si">}</span><span class="se">\n</span><span class="s2">body: </span><span class="si">{</span><span class="n">body</span><span class="si">!r}</span><span class="s2">"</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/plain"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">:</span> <span class="mi">95</span><span class="p">}</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/submit"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using <code>data=</code> instead of <code>json=</code> in the POST call. <code>data=</code>
-sends a form-encoded body with
-<code>content-type: application/x-www-form-urlencoded</code>,
-while most APIs expect <code>json=</code> which sends a JSON body with
-<code>content-type: application/json</code>.</p>
-<p>Shows: the difference between these two keyword arguments and why the
-server may silently reject or misparse a request sent with the wrong
-encoding.</p>
-<p>To find it: print <code>r.request.headers["content-type"]</code>. If it shows
-<code>application/x-www-form-urlencoded</code>, the request was sent as form
-data. Change <code>data=</code> to <code>json=</code> and print the header again to confirm
-it now shows <code>application/json</code>.</p>
+<h2 data-number="11.2" id="submit-a-new-record-to-an-api-as-json"><span class="header-section-number">11.2</span> Submit a new record to an API as JSON</h2>
+<p>Run the script and read the output. What content type does the server report receiving? What content type did you intend to send?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    event <span class="op">=</span> <span class="cf">await</span> receive()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> <span class="bu">dict</span>(scope[<span class="st">"headers"</span>])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    content_type <span class="op">=</span> headers.get(<span class="st">b"content-type"</span>, <span class="st">b"(not set)"</span>).decode()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> event.get(<span class="st">"body"</span>, <span class="st">b""</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    msg <span class="op">=</span> <span class="ss">f"content-type: </span><span class="sc">{</span>content_type<span class="sc">}</span><span class="ch">\n</span><span class="ss">body: </span><span class="sc">{</span>body<span class="sc">!r}</span><span class="ss">"</span>.encode()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"text/plain"</span>)],</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: msg})</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    payload <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"score"</span>: <span class="dv">95</span>}</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.post(<span class="st">"/submit"</span>, data<span class="op">=</span>payload)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(r.text)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using <code>data=</code> instead of <code>json=</code> in the POST call. <code>data=</code> sends a form-encoded body with <code>content-type: application/x-www-form-urlencoded</code>, while most APIs expect <code>json=</code> which sends a JSON body with <code>content-type: application/json</code>.</p>
+<p>Shows: the difference between these two keyword arguments and why the server may silently reject or misparse a request sent with the wrong encoding.</p>
+<p>To find it: print <code>r.request.headers["content-type"]</code>. If it shows <code>application/x-www-form-urlencoded</code>, the request was sent as form data. Change <code>data=</code> to <code>json=</code> and print the header again to confirm it now shows <code>application/json</code>.</p>
 </details>
-<h2 id="web-urlparam">Search an API with a multi-word query parameter</h2>
-<p>Run the script and read the output. How many query parameters did the
-server receive?  How many did the code intend to send?</p>
-<div data-inc="urlparam.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/urlparam.py" class="inc-path" role="img" tabindex="0" title="web/urlparam.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">qs</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query_string"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">qs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"&amp;"</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s2">"="</span> <span class="ow">in</span> <span class="n">pair</span><span class="p">:</span>
-            <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">params</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
-        <span class="k">elif</span> <span class="n">pair</span><span class="p">:</span>
-            <span class="n">params</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"(no value)"</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"parsed params: </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/plain"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">category</span> <span class="o">=</span> <span class="s2">"books&amp;games"</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/items?category=</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&amp;limit=10"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is embedding a value that contains <code>&amp;</code> directly in an f-string
-URL. The ampersand is interpreted as a query-string separator, so the
-server receives <code>category=books</code> and a bare key <code>games</code> instead of
-<code>category=books&amp;games</code>.</p>
-<p>Shows: how to pass query parameters as a <code>params=</code> dict so the HTTP
-client encodes special characters correctly.</p>
-<p>To find it: print the constructed URL string before sending the
-request. If a literal <code>&amp;</code> appears inside a parameter value, the
-ampersand was interpreted as a separator rather than being
-percent-encoded. Pass parameters as a <code>params=</code> dictionary to let the
-HTTP library encode them correctly.</p>
+<h2 data-number="11.3" id="search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">11.3</span> Search an API with a multi-word query parameter</h2>
+<p>Run the script and read the output. How many query parameters did the server receive? How many did the code intend to send?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    qs <span class="op">=</span> scope.get(<span class="st">"query_string"</span>, <span class="st">b""</span>).decode()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> {}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pair <span class="kw">in</span> qs.split(<span class="st">"&amp;"</span>):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"="</span> <span class="kw">in</span> pair:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            k, v <span class="op">=</span> pair.split(<span class="st">"="</span>, <span class="dv">1</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            params[k] <span class="op">=</span> v</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> pair:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            params[pair] <span class="op">=</span> <span class="st">"(no value)"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    msg <span class="op">=</span> <span class="ss">f"parsed params: </span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">"</span>.encode()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"text/plain"</span>)],</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: msg})</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    category <span class="op">=</span> <span class="st">"books&amp;games"</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="ss">f"/items?category=</span><span class="sc">{</span>category<span class="sc">}</span><span class="ss">&amp;limit=10"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(r.text)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is embedding a value that contains <code>&amp;</code> directly in an f-string URL. The ampersand is interpreted as a query-string separator, so the server receives <code>category=books</code> and a bare key <code>games</code> instead of <code>category=books&amp;games</code>.</p>
+<p>Shows: how to pass query parameters as a <code>params=</code> dict so the HTTP client encodes special characters correctly.</p>
+<p>To find it: print the constructed URL string before sending the request. If a literal <code>&amp;</code> appears inside a parameter value, the ampersand was interpreted as a separator rather than being percent-encoded. Pass parameters as a <code>params=</code> dictionary to let the HTTP library encode them correctly.</p>
 </details>
-<h2 id="web-nopaginate">Retrieve all records from a paginated API</h2>
-<p>Run the script and compare the number of records retrieved to the
-total available.  What field in the response tells you that more data
-exists?</p>
-<div data-inc="nopaginate.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/nopaginate.py" class="inc-path" role="img" tabindex="0" title="web/nopaginate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-<span class="n">ALL_RECORDS</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
-<span class="n">PAGE_SIZE</span> <span class="o">=</span> <span class="mi">5</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">qs</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query_string"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">qs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"&amp;"</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"="</span> <span class="ow">in</span> <span class="n">p</span><span class="p">)</span>
-    <span class="n">page</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"page"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">))</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">PAGE_SIZE</span>
-    <span class="n">items</span> <span class="o">=</span> <span class="n">ALL_RECORDS</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="n">PAGE_SIZE</span><span class="p">]</span>
-    <span class="n">next_page</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">start</span> <span class="o">+</span> <span class="n">PAGE_SIZE</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">ALL_RECORDS</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"items"</span><span class="p">:</span> <span class="n">items</span><span class="p">,</span> <span class="s2">"next_page"</span><span class="p">:</span> <span class="n">next_page</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/records?page=1"</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'items'</span><span class="p">])</span><span class="si">}</span><span class="s2"> records"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"next_page field in response: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'next_page'</span><span class="p">]</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"total records on server: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ALL_RECORDS</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is fetching only the first page and ignoring the <code>next_page</code>
-field in the response. No error is raised; the script silently
-processes a fraction of the available data.</p>
-<p>Shows: how to recognize and follow pagination cursors and why APIs
-return data in pages rather than all at once.</p>
-<p>To find it: print <code>len(records)</code> after fetching and compare it to the
-<code>total</code> field in the response JSON. If <code>len(records) &lt; total</code>, the API
-is returning data in pages.  Check the response for a <code>next_page</code>,
-<code>next_cursor</code>, or <code>Link</code> header that points to the next page.</p>
+<h2 data-number="11.4" id="retrieve-all-records-from-a-paginated-api"><span class="header-section-number">11.4</span> Retrieve all records from a paginated API</h2>
+<p>Run the script and compare the number of records retrieved to the total available. What field in the response tells you that more data exists?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ALL_RECORDS <span class="op">=</span> [{<span class="st">"id"</span>: i, <span class="st">"value"</span>: i <span class="op">*</span> <span class="dv">10</span>} <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>)]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>PAGE_SIZE <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    qs <span class="op">=</span> scope.get(<span class="st">"query_string"</span>, <span class="st">b""</span>).decode()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> <span class="bu">dict</span>(p.split(<span class="st">"="</span>, <span class="dv">1</span>) <span class="cf">for</span> p <span class="kw">in</span> qs.split(<span class="st">"&amp;"</span>) <span class="cf">if</span> <span class="st">"="</span> <span class="kw">in</span> p)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> <span class="bu">int</span>(params.get(<span class="st">"page"</span>, <span class="st">"1"</span>))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> (page <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> PAGE_SIZE</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    items <span class="op">=</span> ALL_RECORDS[start : start <span class="op">+</span> PAGE_SIZE]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    next_page <span class="op">=</span> page <span class="op">+</span> <span class="dv">1</span> <span class="cf">if</span> start <span class="op">+</span> PAGE_SIZE <span class="op">&lt;</span> <span class="bu">len</span>(ALL_RECORDS) <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> json.dumps({<span class="st">"items"</span>: items, <span class="st">"next_page"</span>: next_page}).encode()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"application/json"</span>)],</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: body})</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="st">"/records?page=1"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> r.json()</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"retrieved </span><span class="sc">{</span><span class="bu">len</span>(data[<span class="st">'items'</span>])<span class="sc">}</span><span class="ss"> records"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"next_page field in response: </span><span class="sc">{</span>data[<span class="st">'next_page'</span>]<span class="sc">!r}</span><span class="ss">"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"total records on server: </span><span class="sc">{</span><span class="bu">len</span>(ALL_RECORDS)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is fetching only the first page and ignoring the <code>next_page</code> field in the response. No error is raised; the script silently processes a fraction of the available data.</p>
+<p>Shows: how to recognize and follow pagination cursors and why APIs return data in pages rather than all at once.</p>
+<p>To find it: print <code>len(records)</code> after fetching and compare it to the <code>total</code> field in the response JSON. If <code>len(records) &lt; total</code>, the API is returning data in pages. Check the response for a <code>next_page</code>, <code>next_cursor</code>, or <code>Link</code> header that points to the next page.</p>
 </details>
-<h2 id="web-notimeout">Fetch data from a potentially slow API endpoint</h2>
-<p>Run the script. Does it return promptly? How long does it wait before
-producing output?</p>
-<div data-inc="notimeout.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/notimeout.py" class="inc-path" role="img" tabindex="0" title="web/notimeout.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-<span class="c1"># Simulated server delay in seconds</span>
-<span class="n">SERVER_DELAY</span> <span class="o">=</span> <span class="mi">10</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SERVER_DELAY</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="sa">b</span><span class="s1">'{"status": "done"}'</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/report"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is passing <code>timeout=None</code>, which disables all timeouts and
-causes the call to wait indefinitely for a slow or unresponsive
-server.</p>
-<p>Shows: the difference between httpx's default timeout and
-<code>timeout=None</code>, and how to set an explicit <code>httpx.Timeout</code> to bound
-how long a request may take.</p>
-<p>To find it: time the script with <code>time python script.py</code>. If it hangs
-indefinitely, grep the source for <code>timeout=</code> and check whether the
-value is <code>None</code>. Replace it with an explicit duration such as
-<code>timeout=10</code> and confirm the script now returns promptly with a
-timeout error.</p>
+<h2 data-number="11.5" id="fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">11.5</span> Fetch data from a potentially slow API endpoint</h2>
+<p>Run the script. Does it return promptly? How long does it wait before producing output?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated server delay in seconds</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>SERVER_DELAY <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(SERVER_DELAY)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"application/json"</span>)],</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: <span class="st">b'{"status": "done"}'</span>})</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="st">"/report"</span>, timeout<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(r.json())</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is passing <code>timeout=None</code>, which disables all timeouts and causes the call to wait indefinitely for a slow or unresponsive server.</p>
+<p>Shows: the difference between httpx’s default timeout and <code>timeout=None</code>, and how to set an explicit <code>httpx.Timeout</code> to bound how long a request may take.</p>
+<p>To find it: time the script with <code>time python script.py</code>. If it hangs indefinitely, grep the source for <code>timeout=</code> and check whether the value is <code>None</code>. Replace it with an explicit duration such as <code>timeout=10</code> and confirm the script now returns promptly with a timeout error.</p>
 </details>
-<h2 id="web-created">Create a new resource via a POST request</h2>
-<p>Run the script. What status code does the server return? What does the
-script print?  Is the request actually successful?</p>
-<div data-inc="created.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/created.py" class="inc-path" role="img" tabindex="0" title="web/created.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="p">))</span>
-    <span class="n">resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">}</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span>
-        <span class="s2">"body"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
-    <span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/users"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">})</span>
-        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"created:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"request failed with status </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is comparing <code>r.status_code == 200</code> when a successful POST
-returns <code>201 Created</code>. The response is treated as a failure even
-though the resource was created.</p>
-<p>Shows: the range of 2xx status codes, when each is used, and how to
-use <code>r.is_success</code> to accept any successful response.</p>
-<p>To find it: print <code>r.status_code</code> after the POST. If it prints <code>201</code>,
-the resource was created successfully but the check <code>r.status_code == 200</code>
-treats it as a failure. Replace the check with <code>r.is_success</code> to
-accept any 2xx status code.</p>
+<h2 data-number="11.6" id="create-a-new-resource-via-a-post-request"><span class="header-section-number">11.6</span> Create a new resource via a POST request</h2>
+<p>Run the script. What status code does the server return? What does the script print? Is the request actually successful?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    event <span class="op">=</span> <span class="cf">await</span> receive()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> json.loads(event.get(<span class="st">"body"</span>, <span class="st">b"{}"</span>))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    resource <span class="op">=</span> {<span class="st">"id"</span>: <span class="dv">42</span>, <span class="op">**</span>body}</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">201</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"application/json"</span>)],</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.body"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"body"</span>: json.dumps(resource).encode(),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.post(<span class="st">"/users"</span>, json<span class="op">=</span>{<span class="st">"name"</span>: <span class="st">"Alice"</span>})</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"created:"</span>, r.json())</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"request failed with status </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is comparing <code>r.status_code == 200</code> when a successful POST returns <code>201 Created</code>. The response is treated as a failure even though the resource was created.</p>
+<p>Shows: the range of 2xx status codes, when each is used, and how to use <code>r.is_success</code> to accept any successful response.</p>
+<p>To find it: print <code>r.status_code</code> after the POST. If it prints <code>201</code>, the resource was created successfully but the check <code>r.status_code == 200</code> treats it as a failure. Replace the check with <code>r.is_success</code> to accept any 2xx status code.</p>
 </details>
-<h2 id="web-ratelimit">Retry a request after hitting a rate limit</h2>
-<p>Run the script and look at the status code and headers on each
-attempt. What does the <code>Retry-After</code> header contain? Does the script
-wait before retrying?</p>
-<div data-inc="ratelimit.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/ratelimit.py" class="inc-path" role="img" tabindex="0" title="web/ratelimit.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-<span class="n">_request_count</span> <span class="o">=</span> <span class="mi">0</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">_request_count</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">_request_count</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">429</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">b</span><span class="s2">"retry-after"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"60"</span><span class="p">),</span>
-        <span class="p">],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span>
-        <span class="s2">"body"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"rate limit exceeded"</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
-    <span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/api/data"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"success:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-                <span class="k">break</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"attempt </span><span class="si">{</span><span class="n">attempt</span><span class="si">}</span><span class="s2">: status </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">, retry-after=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'retry-after'</span><span class="p">)</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"total requests sent: </span><span class="si">{</span><span class="n">_request_count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is retrying immediately after a 429 Too Many Requests response
-without reading the <code>Retry-After</code> header. Each retry is rejected for
-the same reason and the script loops without ever succeeding.</p>
-<p>Shows: what 429 means, how to detect it, and how to wait the
-server-specified duration before the next attempt.</p>
-<p>To find it: print <code>r.status_code</code> and <code>r.headers.get("Retry-After")</code>
-on each attempt. If the status is <code>429</code> on every attempt and the
-<code>Retry-After</code> value is nonzero, the script is not waiting before
-retrying. Add <code>time.sleep(int(r.headers["Retry-After"]))</code> before the
-next attempt.</p>
+<h2 data-number="11.7" id="retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">11.7</span> Retry a request after hitting a rate limit</h2>
+<p>Run the script and look at the status code and headers on each attempt. What does the <code>Retry-After</code> header contain? Does the script wait before retrying?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>_request_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> _request_count</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    _request_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">429</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            (<span class="st">b"content-type"</span>, <span class="st">b"application/json"</span>),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            (<span class="st">b"retry-after"</span>, <span class="st">b"60"</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.body"</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"body"</span>: json.dumps({<span class="st">"error"</span>: <span class="st">"rate limit exceeded"</span>}).encode(),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> attempt <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>            r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="st">"/api/data"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"success:"</span>, r.json())</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"attempt </span><span class="sc">{</span>attempt<span class="sc">}</span><span class="ss">: status </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">, retry-after=</span><span class="sc">{</span>r<span class="sc">.</span>headers<span class="sc">.</span>get(<span class="st">'retry-after'</span>)<span class="sc">!r}</span><span class="ss">"</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"total requests sent: </span><span class="sc">{</span>_request_count<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is retrying immediately after a 429 Too Many Requests response without reading the <code>Retry-After</code> header. Each retry is rejected for the same reason and the script loops without ever succeeding.</p>
+<p>Shows: what 429 means, how to detect it, and how to wait the server-specified duration before the next attempt.</p>
+<p>To find it: print <code>r.status_code</code> and <code>r.headers.get("Retry-After")</code> on each attempt. If the status is <code>429</code> on every attempt and the <code>Retry-After</code> value is nonzero, the script is not waiting before retrying. Add <code>time.sleep(int(r.headers["Retry-After"]))</code> before the next attempt.</p>
 </details>
-<h2 id="web-putpatch">Update a single field in an existing API resource</h2>
-<p>Run the script and compare the resource state before and after the PUT
-request.  Which fields changed, and which fields were you expecting to
-keep?</p>
-<div data-inc="putpatch.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/putpatch.py" class="inc-path" role="img" tabindex="0" title="web/putpatch.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-<span class="c1"># Server-side resource state</span>
-<span class="n">_resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"alice@example.com"</span><span class="p">,</span> <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"admin"</span><span class="p">}</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"method"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"PUT"</span><span class="p">:</span>
-        <span class="n">update</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="p">))</span>
-        <span class="c1"># PUT replaces the entire resource with the request body</span>
-        <span class="n">_resource</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="n">_resource</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">_resource</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/user/1"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"before:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">"/user/1"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alicia"</span><span class="p">})</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"after:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using PUT with a partial body. PUT replaces the entire
-resource with the request body, so any field not included in the
-request is wiped.</p>
-<p>Shows: the semantic difference between PUT (full replacement) and
-PATCH (partial update), and why sending only the fields you want to
-change requires PATCH.</p>
-<p>To find it: fetch and print the resource before the request, then
-fetch and print it again after. If fields you did not include in the
-request body now show default or null values, PUT replaced the entire
-resource. Switch to PATCH and send only the fields you want to change.</p>
+<h2 data-number="11.8" id="update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">11.8</span> Update a single field in an existing API resource</h2>
+<p>Run the script and compare the resource state before and after the PUT request. Which fields changed, and which fields were you expecting to keep?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Server-side resource state</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>_resource <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"email"</span>: <span class="st">"alice@example.com"</span>, <span class="st">"role"</span>: <span class="st">"admin"</span>}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    event <span class="op">=</span> <span class="cf">await</span> receive()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> scope[<span class="st">"method"</span>] <span class="op">==</span> <span class="st">"PUT"</span>:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        update <span class="op">=</span> json.loads(event.get(<span class="st">"body"</span>, <span class="st">b"{}"</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># PUT replaces the entire resource with the request body</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        _resource.clear()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        _resource.update(update)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> json.dumps(_resource, indent<span class="op">=</span><span class="dv">2</span>).encode()</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"application/json"</span>)],</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: body})</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="st">"/user/1"</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"before:"</span>, r.text)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.put(<span class="st">"/user/1"</span>, json<span class="op">=</span>{<span class="st">"name"</span>: <span class="st">"Alicia"</span>})</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"after:"</span>, r.text)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using PUT with a partial body. PUT replaces the entire resource with the request body, so any field not included in the request is wiped.</p>
+<p>Shows: the semantic difference between PUT (full replacement) and PATCH (partial update), and why sending only the fields you want to change requires PATCH.</p>
+<p>To find it: fetch and print the resource before the request, then fetch and print it again after. If fields you did not include in the request body now show default or null values, PUT replaced the entire resource. Switch to PATCH and send only the fields you want to change.</p>
 </details>
-<h2 id="web-tokenurl">Authenticate with an API using a secret key</h2>
-<p>Run the script and read the output. In which part of the request does
-the API key appear? What would a server log entry look like?</p>
-<div data-inc="tokenurl.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/tokenurl.py" class="inc-path" role="img" tabindex="0" title="web/tokenurl.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="n">qs</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query_string"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">scope</span><span class="p">[</span><span class="s2">"headers"</span><span class="p">])</span>
-    <span class="n">auth</span> <span class="o">=</span> <span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">b</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"(not set)"</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"query string : </span><span class="si">{</span><span class="n">qs</span><span class="si">!r}</span><span class="se">\n</span><span class="s2">authorization: </span><span class="si">{</span><span class="n">auth</span><span class="si">!r}</span><span class="s2">"</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/plain"</span><span class="p">)],</span>
-    <span class="p">})</span>
-    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"secret-key-12345"</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/data?api_key=</span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is placing the API key in the URL query string. Query strings
-are recorded in server access logs, browser history, and any
-intermediate proxies, so the secret is exposed in plaintext.</p>
-<p>Shows: how to pass credentials in an <code>Authorization</code> header instead,
-where they are kept out of logs and not cached by browsers.</p>
-<p>To find it: print <code>str(r.request.url)</code> to see the full URL including
-query parameters. If the API key appears there (e.g., if
-<code>?api_key=secret</code> is in the query) it will be recorded in any server
-access log. Move it to an <code>Authorization</code> header instead.</p>
+<h2 data-number="11.9" id="authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">11.9</span> Authenticate with an API using a secret key</h2>
+<p>Run the script and read the output. In which part of the request does the API key appear? What would a server log entry look like?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    qs <span class="op">=</span> scope.get(<span class="st">"query_string"</span>, <span class="st">b""</span>).decode()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> <span class="bu">dict</span>(scope[<span class="st">"headers"</span>])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    auth <span class="op">=</span> headers.get(<span class="st">b"authorization"</span>, <span class="st">b"(not set)"</span>).decode()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    msg <span class="op">=</span> <span class="ss">f"query string : </span><span class="sc">{</span>qs<span class="sc">!r}</span><span class="ch">\n</span><span class="ss">authorization: </span><span class="sc">{</span>auth<span class="sc">!r}</span><span class="ss">"</span>.encode()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"text/plain"</span>)],</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: msg})</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    API_KEY <span class="op">=</span> <span class="st">"secret-key-12345"</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.get(<span class="ss">f"/data?api_key=</span><span class="sc">{</span>API_KEY<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(r.text)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is placing the API key in the URL query string. Query strings are recorded in server access logs, browser history, and any intermediate proxies, so the secret is exposed in plaintext.</p>
+<p>Shows: how to pass credentials in an <code>Authorization</code> header instead, where they are kept out of logs and not cached by browsers.</p>
+<p>To find it: print <code>str(r.request.url)</code> to see the full URL including query parameters. If the API key appears there (e.g., if <code>?api_key=secret</code> is in the query) it will be recorded in any server access log. Move it to an <code>Authorization</code> header instead.</p>
 </details>
-<h2 id="web-postredirect">Submit form data to an endpoint that redirects</h2>
-<p>Run the script and read the output. What HTTP method reached the final
-endpoint?  What happened to the request body that was sent to
-<code>/submit</code>?</p>
-<div data-inc="postredirect.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/postredirect.py" class="inc-path" role="img" tabindex="0" title="web/postredirect.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
-    <span class="k">if</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"/submit"</span><span class="p">:</span>
-        <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-            <span class="s2">"status"</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span>
-            <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"location"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"http://test/result"</span><span class="p">)],</span>
-        <span class="p">})</span>
-        <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="sa">b</span><span class="s2">""</span><span class="p">})</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
-        <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
-            <span class="s2">"method"</span><span class="p">:</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"method"</span><span class="p">],</span>
-            <span class="s2">"body"</span><span class="p">:</span> <span class="n">body</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">if</span> <span class="n">body</span> <span class="k">else</span> <span class="s2">"(empty)"</span><span class="p">,</span>
-        <span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-        <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
-            <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-            <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
-        <span class="p">})</span>
-        <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
-
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"username"</span><span class="p">:</span> <span class="s2">"alice"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"s3cr3t"</span><span class="p">}</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/submit"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is following a 302 redirect from a POST request. HTTP
-convention changes the method from POST to GET when following a 302,
-so the request body is silently dropped and the final endpoint
-receives an empty GET request.</p>
-<p>Shows: how redirects interact with request methods, and how to detect
-this by inspecting the method and body at the redirected URL.</p>
-<p>To find it: print <code>r.request.method</code> and <code>r.request.url</code> after the
-call. If the final method is <code>GET</code> but you sent a <code>POST</code>, the redirect
-changed the method. Print <code>r.request.body</code> to confirm the body was
-dropped.</p>
+<h2 data-number="11.10" id="submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">11.10</span> Submit form data to an endpoint that redirects</h2>
+<p>Run the script and read the output. What HTTP method reached the final endpoint? What happened to the request body that was sent to <code>/submit</code>?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> scope[<span class="st">"path"</span>] <span class="op">==</span> <span class="st">"/submit"</span>:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> send({</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"status"</span>: <span class="dv">302</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"headers"</span>: [(<span class="st">b"location"</span>, <span class="st">b"http://test/result"</span>)],</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: <span class="st">b""</span>})</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        event <span class="op">=</span> <span class="cf">await</span> receive()</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        body <span class="op">=</span> event.get(<span class="st">"body"</span>, <span class="st">b""</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        msg <span class="op">=</span> json.dumps({</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"method"</span>: scope[<span class="st">"method"</span>],</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"body"</span>: body.decode() <span class="cf">if</span> body <span class="cf">else</span> <span class="st">"(empty)"</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        }, indent<span class="op">=</span><span class="dv">2</span>).encode()</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> send({</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"type"</span>: <span class="st">"http.response.start"</span>,</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"status"</span>: <span class="dv">200</span>,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"headers"</span>: [(<span class="st">b"content-type"</span>, <span class="st">b"application/json"</span>)],</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> send({<span class="st">"type"</span>: <span class="st">"http.response.body"</span>, <span class="st">"body"</span>: msg})</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    payload <span class="op">=</span> {<span class="st">"username"</span>: <span class="st">"alice"</span>, <span class="st">"password"</span>: <span class="st">"s3cr3t"</span>}</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient(transport<span class="op">=</span>httpx.ASGITransport(app<span class="op">=</span>app), base_url<span class="op">=</span><span class="st">"http://test"</span>) <span class="im">as</span> client:</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="cf">await</span> client.post(<span class="st">"/submit"</span>, json<span class="op">=</span>payload, follow_redirects<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(r.text)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is following a 302 redirect from a POST request. HTTP convention changes the method from POST to GET when following a 302, so the request body is silently dropped and the final endpoint receives an empty GET request.</p>
+<p>Shows: how redirects interact with request methods, and how to detect this by inspecting the method and body at the redirected URL.</p>
+<p>To find it: print <code>r.request.method</code> and <code>r.request.url</code> after the call. If the final method is <code>GET</code> but you sent a <code>POST</code>, the redirect changed the method. Print <code>r.request.body</code> to confirm the body was dropped.</p>
 </details>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../css/">CSS</a>
-</div>
-<div class="col-6 center">
-<a href="../">Unbreak</a>
-	  ©
-	  <a href="../contributing/#contributors">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../htmx/">HTMX</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+
+
+</body></html>

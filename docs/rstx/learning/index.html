@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Fitting a Learning Curve to Experimental Data</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">27.1</span> The Problem</a></li>
+<li><a href="#the-power-law-learning-model" id="toc-the-power-law-learning-model"><span class="header-section-number">27.2</span> The Power-Law Learning Model</a></li>
+<li><a href="#generating-synthetic-trial-data" id="toc-generating-synthetic-trial-data"><span class="header-section-number">27.3</span> Generating Synthetic Trial Data</a></li>
+<li><a href="#fitting-with-curve_fit" id="toc-fitting-with-curve_fit"><span class="header-section-number">27.4</span> Fitting with curve_fit</a></li>
+<li><a href="#confidence-interval-from-the-covariance-matrix" id="toc-confidence-interval-from-the-covariance-matrix"><span class="header-section-number">27.5</span> Confidence Interval from the Covariance Matrix</a></li>
+<li><a href="#visualizing-the-fit" id="toc-visualizing-the-fit"><span class="header-section-number">27.6</span> Visualizing the Fit</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">27.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">27.8</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Fitting a Learning Curve to Experimental Data</h1>
+<h2 data-number="27.1" id="the-problem"><span class="header-section-number">27.1</span> The Problem</h2>
+<ul>
+<li>Practice improves performance: reaction times fall and error rates decrease</li>
+<li><a href="../glossary/index.html#learning_curve">Learning curves</a> quantify how quickly this improvement happens and how much improvement can be expected with more practice</li>
+<li>Our approach:
+<ul>
+<li>Generate 80 per-trial reaction times from a <a href="../glossary/index.html#power_law">power-law</a> model with added Gaussian noise.</li>
+<li>Fit the model <span class="math inline">\(\text{RT}(n) = A \cdot n^{-b}\)</span> using <code>scipy.optimize.curve_fit</code></li>
+<li>Extract the learning rate exponent <span class="math inline">\(b\)</span> and compute a 95% <a href="../glossary/index.html#confidence_interval_parameter">confidence interval</a> from the covariance matrix returned by the fitter</li>
+<li>Plot the raw data with the fitted curve overlaid.</li>
+</ul></li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why is a power-law model used for learning curves rather than a linear model?</p>
+<dl>
+<dt>Because a power-law always has a lower sum of squared residuals than a line.</dt>
+<dd>
+Wrong: which model fits better depends on the data; linear models can outperform power laws when the true relationship is linear.
+</dd>
+</dl>
+<p>Because a power-law captures the empirical observation that early practice produces large gains and later practice produces smaller but continuing gains. : Correct: the power law RT = A * n^(-b) is a convex decreasing function whose slope flattens with increasing n, matching the diminishing-returns pattern observed in motor and cognitive skill learning.</p>
+<dl>
+<dt>Because a power-law guarantees that reaction times reach zero at large n.</dt>
+<dd>
+Wrong: A * n^(-b) approaches zero asymptotically but never reaches it; real reaction times never fall to zero because every response requires some irreducible motor and cognitive processing time.
+</dd>
+<dt>Because power-laws are easier to fit than lines with scipy.</dt>
+<dd>
+Wrong: nonlinear fitting is more complex than linear fitting; the power-law is used because it describes the data well, not for computational convenience.
+</dd>
+</dl>
+</div>
+<h2 data-number="27.2" id="the-power-law-learning-model"><span class="header-section-number">27.2</span> The Power-Law Learning Model</h2>
+<ul>
+<li>The model is <span class="math inline">\(\text{RT}(n) = A \cdot n^{-b}\)</span> where:
+<ul>
+<li><span class="math inline">\(n\)</span> is the trial number (1, 2, …, N)</li>
+<li><span class="math inline">\(A\)</span> is the predicted reaction time on trial 1 in milliseconds</li>
+<li><span class="math inline">\(b &gt; 0\)</span> is the learning rate exponent: larger <span class="math inline">\(b\)</span> means faster improvement</li>
+</ul></li>
+<li>Taking logarithms gives <span class="math inline">\(\ln \text{RT} = \ln A - b \ln n\)</span>, showing that the power law is linear in log-log space</li>
+<li>The parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(b\)</span> are estimated simultaneously by nonlinear least squares rather than log-linearizing, which avoids distorting the noise structure when reaction times have additive Gaussian noise.</li>
+</ul>
+<h2 data-number="27.3" id="generating-synthetic-trial-data"><span class="header-section-number">27.3</span> Generating Synthetic Trial Data</h2>
+<ul>
+<li>The true parameters are <span class="math inline">\(A = 500\)</span> ms and <span class="math inline">\(b = 0.3\)</span>, which are within the empirical range for simple motor tasks</li>
+<li>Gaussian noise with standard deviation 20 ms is added to each trial
+<ul>
+<li>Values below 1 ms are clamped to ensure all reaction times are positive</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="27.4" id="fitting-with-curve_fit"><span class="header-section-number">27.4</span> Fitting with curve_fit</h2>
+<ul>
+<li><code>scipy.optimize.curve_fit(f, x, y, p0)</code> finds the parameter values that minimise <span class="math inline">\(\sum_i (y_i - f(x_i, \theta))^2\)</span> starting from initial guess <code>p0</code></li>
+<li>It returns two objects:
+<ul>
+<li><code>popt</code>: the best-fit parameter vector <span class="math inline">\((A, b)\)</span></li>
+<li><code>pcov</code>: the estimated covariance matrix of the parameters</li>
+</ul></li>
+<li>The diagonal entry <code>pcov[1, 1]</code> is the estimated variance of <span class="math inline">\(b\)</span></li>
+<li>Its square root is the standard error <span class="math inline">\(\text{SE}(b)\)</span></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="27.5" id="confidence-interval-from-the-covariance-matrix"><span class="header-section-number">27.5</span> Confidence Interval from the Covariance Matrix</h2>
+<ul>
+<li>The approximate 95% confidence interval for <span class="math inline">\(b\)</span> is:</li>
+</ul>
+<p><span class="math display">\[b \pm 1.96 \cdot \text{SE}(b), \qquad \text{SE}(b) = \sqrt{\text{pcov}[1,1]}\]</span></p>
+<ul>
+<li>The multiplier 1.96 comes from the standard normal distribution: <span class="math inline">\(P(-1.96 &lt; Z &lt; 1.96) = 0.95\)</span>.</li>
+<li>This is an asymptotic approximation valid when the sample size is large relative to the number of parameters
+<ul>
+<li>With 80 trials and 2 parameters it is accurate</li>
+</ul></li>
+</ul>
+<div class="forma-ordering" data-lang="en" data-markdown="1">
+<p>Order the steps to fit a power-law learning curve and report a confidence interval for b.</p>
+<p>Choose initial parameter guesses p0 = [first RT, 0.2]. Call curve_fit(power_law, trials, rt, p0=p0) to obtain popt and pcov. Extract the fitted exponent: b = popt[1]. Compute the standard error: SE = sqrt(pcov[1, 1]). Form the 95% CI: (b - 1.96 * SE, b + 1.96 * SE).</p>
+</div>
+<h2 data-number="27.6" id="visualizing-the-fit"><span class="header-section-number">27.6</span> Visualizing the Fit</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-learning-curve" class="quarto-float quarto-figure quarto-figure-center" alt="A scatter plot with trial number on the x-axis and reaction time in milliseconds on the y-axis. Blue points show the noisy per-trial observations, decreasing from around 500 ms at trial 1 to around 280 ms by trial 80. A red power-law curve fits through the data, closely following the decreasing trend.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-learning-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="learning-curve.svg" alt="A scatter plot with trial number on the x-axis and reaction time in milliseconds on the y-axis. Blue points show the noisy per-trial observations, decreasing from around 500 ms at trial 1 to around 280 ms by trial 80. A red power-law curve fits through the data, closely following the decreasing trend.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-learning-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1: Per-trial reaction times (blue points) and the fitted power-law learning curve (red line) for 80 synthetic trials. The fitted exponent b = 0.298 is close to the true value of 0.30; the 95% confidence interval [0.278, 0.318] brackets the true value.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="27.7" id="testing"><span class="header-section-number">27.7</span> Testing</h2>
+<dl>
+<dt>Trial count</dt>
+<dd>
+<code>make_trials()</code> must return exactly <code>N_TRIALS</code> rows.
+</dd>
+<dt>All reaction times positive</dt>
+<dd>
+Every RT must be positive; values below 1 ms are clamped at 1 ms.
+</dd>
+<dt>Trial numbers</dt>
+<dd>
+The <code>trial</code> column must contain the integers 1 through <code>N_TRIALS</code> in order.
+</dd>
+<dt>Fitted exponent close to true value</dt>
+<dd>
+With 80 trials and noise SD 20 ms the fitted <span class="math inline">\(b\)</span> must be within 0.10 of <code>TRUE_B</code>. The signal range of about 210 ms gives moderate SNR, and 80 data points are sufficient for the estimator to converge well within this tolerance.
+</dd>
+<dt>CI brackets true exponent</dt>
+<dd>
+The 95% confidence interval for <span class="math inline">\(b\)</span> must contain <code>TRUE_B</code>.
+</dd>
+<dt>Predicted RT decreasing</dt>
+<dd>
+The fitted curve evaluated at trials 1 through 20 must be strictly decreasing, confirming that <span class="math inline">\(b &gt; 0\)</span> and <span class="math inline">\(A &gt; 0\)</span>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_learning <span class="im">import</span> make_trials, N_TRIALS, TRUE_B</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> learning <span class="im">import</span> fit_power_law, power_law</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_trial_count():</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generator must produce exactly N_TRIALS rows.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_trials()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> df.height <span class="op">==</span> N_TRIALS</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_all_rt_positive():</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All reaction times must be positive; values below 1 ms are clamped.</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_trials()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> (df[<span class="st">"rt"</span>] <span class="op">&gt;</span> <span class="dv">0</span>).<span class="bu">all</span>()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_trial_numbers():</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Trial numbers must run from 1 to N_TRIALS without gaps.</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_trials()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> df[<span class="st">"trial"</span>].to_list() <span class="op">==</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, N_TRIALS <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fitted_exponent_close_to_true():</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With 80 trials and noise SD = 20 ms the fitted exponent should recover</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># TRUE_B to within 0.10.  The signal range is about 210 ms (500 to 290 ms</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># over 80 trials) while the noise SD is 20 ms, giving moderate SNR; with</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 80 data points curve_fit converges well within 0.10 of the true value.</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_trials()</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    _, b, _ <span class="op">=</span> fit_power_law(df[<span class="st">"trial"</span>].to_numpy(), df[<span class="st">"rt"</span>].to_numpy())</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(b <span class="op">-</span> TRUE_B) <span class="op">&lt;</span> <span class="fl">0.10</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_ci_brackets_true_exponent():</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The 95% confidence interval returned by fit_power_law must contain TRUE_B.</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_trials()</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    _, _, b_ci <span class="op">=</span> fit_power_law(df[<span class="st">"trial"</span>].to_numpy(), df[<span class="st">"rt"</span>].to_numpy())</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> b_ci[<span class="dv">0</span>] <span class="op">&lt;=</span> TRUE_B <span class="op">&lt;=</span> b_ci[<span class="dv">1</span>]</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_predicted_rt_decreasing():</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The fitted curve must be strictly decreasing: performance always improves</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># with more practice when b &gt; 0 and a &gt; 0.</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_trials()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    a, b, _ <span class="op">=</span> fit_power_law(df[<span class="st">"trial"</span>].to_numpy(), df[<span class="st">"rt"</span>].to_numpy())</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    predicted <span class="op">=</span> power_law(np.arange(<span class="dv">1</span>, <span class="dv">21</span>, dtype<span class="op">=</span><span class="bu">float</span>), a, b)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">all</span>(predicted[i] <span class="op">&gt;</span> predicted[i <span class="op">+</span> <span class="dv">1</span>] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(predicted) <span class="op">-</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Learning curve key terms</p>
+<dl>
+<dt>Learning curve</dt>
+<dd>
+A plot of performance (such as reaction time or error rate) against practice amount (trial number or cumulative experience); the power-law learning curve RT = A * n^(-b) shows diminishing returns, with large gains early and smaller gains as practice continues
+</dd>
+<dt>Power law</dt>
+<dd>
+A mathematical relationship of the form y = A * x^b; on a log-log plot the relationship is linear with slope b; in learning-curve analysis b &gt; 0 quantifies the rate at which performance improves with practice
+</dd>
+<dt>Confidence interval (parameter)</dt>
+<dd>
+An interval constructed from data such that, over many repetitions of the experiment, the true parameter value falls within the interval at the stated rate (e.g.&nbsp;95%); for curve_fit the interval is formed as b +/- z * SE where SE = sqrt(pcov[b, b]) and z = 1.96 for a 95% CI under asymptotic normality
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="27.8" id="exercises"><span class="header-section-number">27.8</span> Exercises</h2>
+<h3 data-number="27.8.1" id="do-the-math"><span class="header-section-number">27.8.1</span> Do the math</h3>
+<p>If A = 400 ms and b = 0.5, what is the predicted reaction time (in ms) on trial 4?</p>
+<h3 data-number="27.8.2" id="log-log-linearity"><span class="header-section-number">27.8.2</span> Log-log linearity</h3>
+<p>Take the logarithm of both <code>trial</code> and <code>rt</code> from the synthetic data and fit a straight line using <code>numpy.polyfit</code>. Compare the slope of the line to the exponent <span class="math inline">\(b\)</span> returned by <code>curve_fit</code>. Are they equal? If not, explain why the two estimates differ.</p>
+<h3 data-number="27.8.3" id="effect-of-noise-level"><span class="header-section-number">27.8.3</span> Effect of noise level</h3>
+<p>Re-run the generator and fitter with noise standard deviations of 5, 20, 50, and 100 ms. For each noise level record the fitted <span class="math inline">\(b\)</span>, the width of the 95% CI for <span class="math inline">\(b\)</span>, and whether the CI brackets <code>TRUE_B</code>. At what noise level does the CI first fail to contain the true value?</p>
+<h3 data-number="27.8.4" id="confidence-interval-coverage"><span class="header-section-number">27.8.4</span> Confidence interval coverage</h3>
+<p>Generate 200 independent datasets using different random seeds and fit the power-law model to each. Record what fraction of the 95% confidence intervals contain <code>TRUE_B</code>. Is the empirical coverage close to 95%? What does it mean if the coverage is systematically lower?</p>
+<h3 data-number="27.8.5" id="alternative-model"><span class="header-section-number">27.8.5</span> Alternative model</h3>
+<p>Fit an exponential learning model <span class="math inline">\(\text{RT}(n) = c + (A - c)\,e^{-\lambda n}\)</span>, where <span class="math inline">\(c\)</span> is the asymptotic RT, <span class="math inline">\(A\)</span> is the initial RT, and <span class="math inline">\(\lambda\)</span> is the decay rate. Compare the sum of squared residuals of the exponential and power-law fits on the synthetic data. Which model fits better?</p>
+</section>
+
+</main>
+
+
+</body></html>

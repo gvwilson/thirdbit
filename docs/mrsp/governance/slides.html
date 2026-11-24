@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -152,31 +151,8 @@ LLM governance documents can omit the operational detail that makes them
 useful
 </li>
 </ul>
-</section>
-<section id="authorship-policy-7-min" class="slide level2 exercise">
-<h2 class="exercise">Authorship Policy (7 min)</h2>
-<p>Write two sentences for the “Authorship” section of your
-<code>CONTRIBUTING.md</code>:</p>
-<ul>
-<li>Sentence 1: what kinds of contributions qualify someone for
-authorship on a paper about the software. Be specific: not “substantial
-contribution” but something that could be assessed independently after
-the fact.</li>
-<li>Sentence 2: how someone who believes they have been omitted can
-raise the issue.</li>
-</ul>
-</section>
-<section id="stress-test-8-min" class="slide level2 exercise">
-<h2 class="exercise">Stress Test (8 min)</h2>
-<p>Work in groups of three. One person reads their governance statement
-aloud. The other two play roles:</p>
-<ol type="1">
-<li>A confused newcomer who wants to contribute but has never interacted
-with the project. Ask one question the statement doesn’t answer.</li>
-<li>A disgruntled long-term contributor who disagrees with a recent
-decision. Ask one question about how they could have raised that
-disagreement.</li>
-</ol>
+<pre class="include"><code>_authorship_policy.qmd
+_stress_test.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -187,6 +163,7 @@ disagreement.</li>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -333,8 +310,26 @@ disagreement.</li>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

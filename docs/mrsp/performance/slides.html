@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -148,42 +147,9 @@ LLM review drafts can sound balanced but lack evidence of actual work
 LLM learning paths may emphasize skills that were valuable years ago
 </li>
 </ul>
-</section>
-<section id="three-team-members-5-min" class="slide level2 exercise">
-<h2 class="exercise">Three Team Members (5 min)</h2>
-<p>The points below describe three people who are in trouble of
-different kinds. Come up with at least one explanation for each
-scenario, and explain how you would figure out if it was accurate.</p>
-<ol type="1">
-<li><p>Someone who does good work is missing every deadline.</p></li>
-<li><p>Someone keeps expanding the scope of their assignments.</p></li>
-<li><p>Someone has stopped communicating without explanation.</p></li>
-</ol>
-</section>
-<section id="feedback-role-play-8-min" class="slide level2 exercise">
-<h2 class="exercise">Feedback Role-Play (8 min)</h2>
-<p>Prompt the LLM to play the role of a junior programmer on your
-team.</p>
-<blockquote>
-<p>Play the role of a junior programmer on my research software team.
-I’m going to give you feedback about [situation]. Respond in character:
-push back if the feedback is vague, accept it if it’s specific and
-fair.</p>
-</blockquote>
-<p>Have the feedback conversation using the SBI format.</p>
-</section>
-<section id="career-conversation-7-min" class="slide level2 exercise">
-<h2 class="exercise">Career Conversation (7 min)</h2>
-<p>Think of someone on your team or someone you manage in a volunteer
-project. Write answers to these two questions as if you were that
-person:</p>
-<ul>
-<li>Where do I want to be professionally in two years?</li>
-<li>What would need to be true for me to get there?</li>
-</ul>
-<p>Then switch perspective: write one thing the project could offer that
-would help them move toward that goal, and one honest constraint you
-would need to name.</p>
+<pre class="include"><code>_three_people.qmd
+_role_play.qmd
+_career_conversation.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -194,6 +160,7 @@ would need to name.</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -340,8 +307,26 @@ would need to name.</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

@@ -1,554 +1,414 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Basic Python</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Basic Python</title>
-<meta content="Unbreaking Software" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a class="active" href="../basicpy/">Basic Python</a></li>
-<li><a href="../interpy/">Intermediate Python</a></li>
-<li><a href="../oopy/">Object-Oriented Python</a></li>
-<li><a href="../regexp/">Regular Expressions</a></li>
-<li><a href="../diot/">Data, I/O, and Testing</a></li>
-<li><a href="../perfcon/">Performance and Concurrency</a></li>
-<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
-<li><a href="../css/">CSS</a></li>
-<li><a href="../web/">HTTP and APIs</a></li>
-<li><a href="../htmx/">HTMX</a></li>
-<li><a href="../alpine/">Alpine.js</a></li>
-<li><a href="../fastapi/">FastAPI</a></li>
-<li><a href="../datasci/">Data Science</a></li>
-<li><a href="../dataviz/">Data Visualization</a></li>
-<li><a href="../polars/">Polars</a></li>
-<li><a href="../shell/">The Unix Shell</a></li>
-<li><a href="../sql/">SQL</a></li>
-<li><a href="../testing/">Testing</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../complex/">Complex Examples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/unbreak">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Basic Python</h1>
-<h2 id="basicpy-sliding">Build sliding windows over a sequence</h2>
-<p>Run this code with a small list (for example, five elements and a window size of
-three) and count the windows by hand. Does the number of windows the code returns
-match the number you counted?</p>
-<div data-inc="sliding.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/sliding.py" class="inc-path" role="img" tabindex="0" title="basicpy/sliding.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return all sliding windows of size k over data."""</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span><span class="p">)]</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">windows</span> <span class="o">=</span> <span class="n">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Windows: </span><span class="si">{</span><span class="n">windows</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is <code>range(len(data) - k)</code> instead of <code>range(len(data) - k + 1)</code>, so the
-last window is never produced.</p>
-<p>Shows: how to identify off-by-one errors in index arithmetic and how
-to verify boundary conditions with small, hand-checkable examples.</p>
-<p>To find it: call the function with <code>data = [1, 2, 3, 4, 5]</code> and <code>k = 3</code>, then list
-every expected window by hand — <code>[1,2,3]</code>, <code>[2,3,4]</code>, <code>[3,4,5]</code> — giving three windows.
-Print <code>len(range(len(data) - k))</code> to see it returns 2. The mismatch between 3 and 2
-reveals the off-by-one.</p>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#build-sliding-windows-over-a-sequence" id="toc-build-sliding-windows-over-a-sequence"><span class="header-section-number">3.1</span> Build sliding windows over a sequence</a></li>
+<li><a href="#average-scores-from-a-text-file" id="toc-average-scores-from-a-text-file"><span class="header-section-number">3.2</span> Average scores from a text file</a></li>
+<li><a href="#validate-a-user-registration-form" id="toc-validate-a-user-registration-form"><span class="header-section-number">3.3</span> Validate a user registration form</a></li>
+<li><a href="#convert-degreesminutesseconds-to-decimal-degrees" id="toc-convert-degreesminutesseconds-to-decimal-degrees"><span class="header-section-number">3.4</span> Convert degrees/minutes/seconds to decimal degrees</a></li>
+<li><a href="#square-and-sort-a-list-of-numbers" id="toc-square-and-sort-a-list-of-numbers"><span class="header-section-number">3.5</span> Square and sort a list of numbers</a></li>
+<li><a href="#count-runs-of-identical-lines-in-a-file" id="toc-count-runs-of-identical-lines-in-a-file"><span class="header-section-number">3.6</span> Count runs of identical lines in a file</a></li>
+<li><a href="#filter-negative-numbers-from-a-list" id="toc-filter-negative-numbers-from-a-list"><span class="header-section-number">3.7</span> Filter negative numbers from a list</a></li>
+<li><a href="#count-word-frequencies-in-a-document" id="toc-count-word-frequencies-in-a-document"><span class="header-section-number">3.8</span> Count word frequencies in a document</a></li>
+<li><a href="#match-user-ids-loaded-from-a-config-file" id="toc-match-user-ids-loaded-from-a-config-file"><span class="header-section-number">3.9</span> Match user IDs loaded from a config file</a></li>
+<li><a href="#compute-factorials-recursively" id="toc-compute-factorials-recursively"><span class="header-section-number">3.10</span> Compute factorials recursively</a></li>
+<li><a href="#collect-results-with-a-helper-function" id="toc-collect-results-with-a-helper-function"><span class="header-section-number">3.11</span> Collect results with a helper function</a></li>
+<li><a href="#compare-lines-read-from-a-file" id="toc-compare-lines-read-from-a-file"><span class="header-section-number">3.12</span> Compare lines read from a file</a></li>
+<li><a href="#clean-up-user-submitted-text" id="toc-clean-up-user-submitted-text"><span class="header-section-number">3.13</span> Clean up user-submitted text</a></li>
+<li><a href="#remove-negative-numbers-from-a-list" id="toc-remove-negative-numbers-from-a-list"><span class="header-section-number">3.14</span> Remove negative numbers from a list</a></li>
+<li><a href="#rank-files-by-version-number" id="toc-rank-files-by-version-number"><span class="header-section-number">3.15</span> Rank files by version number</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Basic Python</h1>
+<h2 data-number="3.1" id="build-sliding-windows-over-a-sequence"><span class="header-section-number">3.1</span> Build sliding windows over a sequence</h2>
+<p>Run this code with a small list (for example, five elements and a window size of three) and count the windows by hand. Does the number of windows the code returns match the number you counted?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sliding_windows(data, k):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return all sliding windows of size k over data."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [data[i : i <span class="op">+</span> k] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(data) <span class="op">-</span> k)]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    windows <span class="op">=</span> sliding_windows(data, k)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Windows: </span><span class="sc">{</span>windows<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is <code>range(len(data) - k)</code> instead of <code>range(len(data) - k + 1)</code>, so the last window is never produced.</p>
+<p>Shows: how to identify off-by-one errors in index arithmetic and how to verify boundary conditions with small, hand-checkable examples.</p>
+<p>To find it: call the function with <code>data = [1, 2, 3, 4, 5]</code> and <code>k = 3</code>, then list every expected window by hand — <code>[1,2,3]</code>, <code>[2,3,4]</code>, <code>[3,4,5]</code> — giving three windows. Print <code>len(range(len(data) - k))</code> to see it returns 2. The mismatch between 3 and 2 reveals the off-by-one.</p>
 </details>
-<h2 id="basicpy-catadd">Average scores from a text file</h2>
-<p>Run this script with the provided input file and examine the average it prints. Does
-the value look like a reasonable average of exam scores?</p>
-<div data-inc="catadd.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/catadd.py" class="inc-path" role="img" tabindex="0" title="basicpy/catadd.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">average_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return the average of numeric scores stored one per line."""</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
-                <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">line</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="n">count</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">average_scores</span><span class="p">(</span><span class="s2">"catadd.txt"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="catadd.txt"><span aria-label="Source: basicpy/catadd.txt" class="inc-path" role="img" tabindex="0" title="basicpy/catadd.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>85
+<h2 data-number="3.2" id="average-scores-from-a-text-file"><span class="header-section-number">3.2</span> Average scores from a text file</h2>
+<p>Run this script with the provided input file and examine the average it prints. Does the value look like a reasonable average of exam scores?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_scores(filename):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the average of numeric scores stored one per line."""</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            line <span class="op">=</span> line.strip()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> line:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                total <span class="op">=</span> total <span class="op">+</span> line</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total <span class="op">/</span> count</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> average_scores(<span class="st">"catadd.txt"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Average: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<pre><code>85
 92
 78
 90
-88
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is accumulating scores with <code>total = total + line.strip()</code> (string
-concatenation) instead of converting each line to a number first, so the script
-always reports a nonsensical average.</p>
-<p>Shows: the difference between string <code>+</code> and numeric <code>+</code>, and how to
-check the type of a value at runtime using <code>type()</code> or <code>isinstance()</code>.</p>
-<p>To find it: print <code>type(total)</code> after the first iteration. You will see
-<code>&lt;class 'str'&gt;</code>, not <code>&lt;class 'int'&gt;</code>. Alternatively, print <code>repr(total)</code> after two
-iterations to see the digits concatenated as a string rather than added as numbers.</p>
+88</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is accumulating scores with <code>total = total + line.strip()</code> (string concatenation) instead of converting each line to a number first, so the script always reports a nonsensical average.</p>
+<p>Shows: the difference between string <code>+</code> and numeric <code>+</code>, and how to check the type of a value at runtime using <code>type()</code> or <code>isinstance()</code>.</p>
+<p>To find it: print <code>type(total)</code> after the first iteration. You will see <code>&lt;class 'str'&gt;</code>, not <code>&lt;class 'int'&gt;</code>. Alternatively, print <code>repr(total)</code> after two iterations to see the digits concatenated as a string rather than added as numbers.</p>
 </details>
-<h2 id="basicpy-andor">Validate a user registration form</h2>
-<p>Call the validation function with several passwords, including one you expect to be
-accepted. Does it accept any of them?</p>
-<div data-inc="andor.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/andor.py" class="inc-path" role="img" tabindex="0" title="basicpy/andor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return True if password is at least 8 characters and contains a digit."""</span>
-    <span class="n">has_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span>
-    <span class="n">has_digit</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_length</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_digit</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span>      <span class="kc">False</span><span class="p">),</span>  <span class="c1"># too short, no digit      — should be rejected</span>
-        <span class="p">(</span><span class="s2">"abcdefgh"</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>  <span class="c1"># long enough but no digit — should be rejected</span>
-        <span class="p">(</span><span class="s2">"abc1"</span><span class="p">,</span>     <span class="kc">False</span><span class="p">),</span>  <span class="c1"># has digit but too short  — should be rejected</span>
-        <span class="p">(</span><span class="s2">"abcdefg1"</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>   <span class="c1"># valid: long enough and has a digit</span>
-    <span class="p">]</span>
-    <span class="k">for</span> <span class="n">password</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="s2">"OK  "</span> <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="n">expected</span> <span class="k">else</span> <span class="s2">"FAIL"</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> is_valid_password(</span><span class="si">{</span><span class="n">password</span><span class="si">!r}</span><span class="s2">) = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is joining the two conditions with <code>and</code> instead of <code>or</code>, which requires
-both to fail simultaneously and almost never happens, so valid passwords are always
-rejected.</p>
-<p>Shows: how Boolean logic errors cause silent misbehavior, and how a
-small truth table reveals which operator is correct.</p>
-<p>To find it: write a two-row truth table for a password that satisfies one condition
-but not the other (e.g., correct length but no special character). With <code>and</code>, both
-conditions must be false for the overall check to return <code>True</code>; valid passwords
-almost never satisfy that, so the gate always rejects.</p>
+<h2 data-number="3.3" id="validate-a-user-registration-form"><span class="header-section-number">3.3</span> Validate a user registration form</h2>
+<p>Call the validation function with several passwords, including one you expect to be accepted. Does it accept any of them?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_password(password):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return True if password is at least 8 characters and contains a digit."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    has_length <span class="op">=</span> <span class="bu">len</span>(password) <span class="op">&gt;=</span> <span class="dv">8</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    has_digit <span class="op">=</span> <span class="bu">any</span>(c.isdigit() <span class="cf">for</span> c <span class="kw">in</span> password)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> has_length <span class="kw">and</span> <span class="kw">not</span> has_digit:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    tests <span class="op">=</span> [</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"abc"</span>,      <span class="va">False</span>),  <span class="co"># too short, no digit      — should be rejected</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"abcdefgh"</span>, <span class="va">False</span>),  <span class="co"># long enough but no digit — should be rejected</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"abc1"</span>,     <span class="va">False</span>),  <span class="co"># has digit but too short  — should be rejected</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"abcdefg1"</span>, <span class="va">True</span>),   <span class="co"># valid: long enough and has a digit</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> password, expected <span class="kw">in</span> tests:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> is_valid_password(password)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        status <span class="op">=</span> <span class="st">"OK  "</span> <span class="cf">if</span> result <span class="op">==</span> expected <span class="cf">else</span> <span class="st">"FAIL"</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>status<span class="sc">}</span><span class="ss"> is_valid_password(</span><span class="sc">{</span>password<span class="sc">!r}</span><span class="ss">) = </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss"> (expected </span><span class="sc">{</span>expected<span class="sc">}</span><span class="ss">)"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is joining the two conditions with <code>and</code> instead of <code>or</code>, which requires both to fail simultaneously and almost never happens, so valid passwords are always rejected.</p>
+<p>Shows: how Boolean logic errors cause silent misbehavior, and how a small truth table reveals which operator is correct.</p>
+<p>To find it: write a two-row truth table for a password that satisfies one condition but not the other (e.g., correct length but no special character). With <code>and</code>, both conditions must be false for the overall check to return <code>True</code>; valid passwords almost never satisfy that, so the gate always rejects.</p>
 </details>
-<h2 id="basicpy-formula">Convert degrees/minutes/seconds to decimal degrees</h2>
-<p>Call the conversion function with a coordinate you can verify by hand—for example,
-1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function
-return the correct value?</p>
-<div data-inc="formula.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/formula.py" class="inc-path" role="img" tabindex="0" title="basicpy/formula.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dms_to_decimal</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Convert degrees/minutes/seconds to decimal degrees."""</span>
-    <span class="k">return</span> <span class="n">degrees</span> <span class="o">+</span> <span class="n">minutes</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mf">1.5</span><span class="p">),</span>   <span class="c1"># 1°30'0"  = 1.5°</span>
-        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3600</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>   <span class="c1"># 0°0'3600" = 1.0°</span>
-        <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>  <span class="mf">45.2583333</span><span class="p">),</span>
-    <span class="p">]</span>
-    <span class="k">for</span> <span class="n">deg</span><span class="p">,</span> <span class="n">mins</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">dms_to_decimal</span><span class="p">(</span><span class="n">deg</span><span class="p">,</span> <span class="n">mins</span><span class="p">,</span> <span class="n">secs</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">deg</span><span class="si">}</span><span class="s2">°</span><span class="si">{</span><span class="n">mins</span><span class="si">}</span><span class="s2">'</span><span class="si">{</span><span class="n">secs</span><span class="si">}</span><span class="se">\"</span><span class="s2"> = </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s2">.7f</span><span class="si">}</span><span class="s2">  (expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is dividing seconds by 60 instead of 3600 (a misremembered formula), so the
-function gives wrong results.</p>
-<p>Shows: how to verify formulas against known values (e.g., 1°30′0″ = 1.5°)
-and how to add assertion checks for values that must fall within a
-known range.</p>
-<p>To find it: call <code>dms_to_decimal(0, 0, 3600)</code>, which represents exactly one degree
-expressed entirely in seconds. The correct result is <code>1.0</code>; if the function divides
-seconds by 60, it returns <code>60.0</code>, making the wrong constant visible without needing
-a reference table.</p>
+<h2 data-number="3.4" id="convert-degreesminutesseconds-to-decimal-degrees"><span class="header-section-number">3.4</span> Convert degrees/minutes/seconds to decimal degrees</h2>
+<p>Call the conversion function with a coordinate you can verify by hand—for example, 1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function return the correct value?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dms_to_decimal(degrees, minutes, seconds):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Convert degrees/minutes/seconds to decimal degrees."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> degrees <span class="op">+</span> minutes <span class="op">/</span> <span class="dv">60</span> <span class="op">+</span> seconds <span class="op">/</span> <span class="dv">60</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    tests <span class="op">=</span> [</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">0</span>,    <span class="fl">1.5</span>),   <span class="co"># 1°30'0"  = 1.5°</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">0</span>,  <span class="dv">3600</span>, <span class="fl">1.0</span>),   <span class="co"># 0°0'3600" = 1.0°</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">45</span>, <span class="dv">15</span>, <span class="dv">30</span>,  <span class="fl">45.2583333</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> deg, mins, secs, expected <span class="kw">in</span> tests:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> dms_to_decimal(deg, mins, secs)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>deg<span class="sc">}</span><span class="ss">°</span><span class="sc">{</span>mins<span class="sc">}</span><span class="ss">'</span><span class="sc">{</span>secs<span class="sc">}</span><span class="ch">\"</span><span class="ss"> = </span><span class="sc">{</span>result<span class="sc">:.7f}</span><span class="ss">  (expected </span><span class="sc">{</span>expected<span class="sc">}</span><span class="ss">)"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is dividing seconds by 60 instead of 3600 (a misremembered formula), so the function gives wrong results.</p>
+<p>Shows: how to verify formulas against known values (e.g., 1°30′0″ = 1.5°) and how to add assertion checks for values that must fall within a known range.</p>
+<p>To find it: call <code>dms_to_decimal(0, 0, 3600)</code>, which represents exactly one degree expressed entirely in seconds. The correct result is <code>1.0</code>; if the function divides seconds by 60, it returns <code>60.0</code>, making the wrong constant visible without needing a reference table.</p>
 </details>
-<h2 id="basicpy-sortnone">Square and sort a list of numbers</h2>
+<h2 data-number="3.5" id="square-and-sort-a-list-of-numbers"><span class="header-section-number">3.5</span> Square and sort a list of numbers</h2>
 <p>Run this script and examine what it prints. Is the list what you expected?</p>
-<div data-inc="sortnone.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/sortnone.py" class="inc-path" role="img" tabindex="0" title="basicpy/sortnone.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">squared_sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return a sorted list of squares of the input numbers."""</span>
-    <span class="n">squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
-    <span class="n">squared</span> <span class="o">=</span> <span class="n">squared</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">squared</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">squared_sorted</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result, so
-the result is <code>None</code> instead of the sorted list.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> squared_sorted(numbers):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a sorted list of squares of the input numbers."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    squared <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> numbers]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    squared <span class="op">=</span> squared.sort()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> squared</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> squared_sorted([<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">2</span>, <span class="dv">6</span>])</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Result: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result, so the result is <code>None</code> instead of the sorted list.</p>
 <p>Shows: that many list methods mutate in place and return <code>None</code>.</p>
-<p>To find it: print <code>squared_sorted([3, 1, 4, 1, 5, 9, 2, 6])</code> immediately after the assignment. The output
-<code>None</code> shows the return value of <code>list.sort()</code> rather than a sorted list.</p>
+<p>To find it: print <code>squared_sorted([3, 1, 4, 1, 5, 9, 2, 6])</code> immediately after the assignment. The output <code>None</code> shows the return value of <code>list.sort()</code> rather than a sorted list.</p>
 </details>
-<h2 id="basicpy-indent">Count runs of identical lines in a file</h2>
-<p>Run this script with the provided input file and examine the run-length counts.
-Then trace through the loop by hand with a short example—track what the "previous
-line" variable holds at each step.</p>
-<div data-inc="indent.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/indent.py" class="inc-path" role="img" tabindex="0" title="basicpy/indent.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">count_runs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return a list of (value, count) pairs for runs of identical lines."""</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
-
-    <span class="n">runs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">prev</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="n">run_count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="n">prev</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">run_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">runs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prev</span><span class="p">,</span> <span class="n">run_count</span><span class="p">))</span>
-            <span class="n">run_count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">run_count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">prev</span> <span class="o">=</span> <span class="n">line</span>
-
-    <span class="k">if</span> <span class="n">run_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">runs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prev</span><span class="p">,</span> <span class="n">run_count</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">runs</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">count_runs</span><span class="p">(</span><span class="s2">"indent.txt"</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="indent.txt"><span aria-label="Source: basicpy/indent.txt" class="inc-path" role="img" tabindex="0" title="basicpy/indent.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>apple
+<h2 data-number="3.6" id="count-runs-of-identical-lines-in-a-file"><span class="header-section-number">3.6</span> Count runs of identical lines in a file</h2>
+<p>Run this script with the provided input file and examine the run-length counts. Then trace through the loop by hand with a short example—track what the “previous line” variable holds at each step.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_runs(filename):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a list of (value, count) pairs for runs of identical lines."""</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> [line.rstrip(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>) <span class="cf">for</span> line <span class="kw">in</span> f]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    runs <span class="op">=</span> []</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    prev <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    run_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(lines):</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> lines[i]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> line <span class="op">!=</span> prev:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> run_count <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                runs.append((prev, run_count))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            run_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        run_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    prev <span class="op">=</span> line</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> run_count <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        runs.append((prev, run_count))</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> runs</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> value, count <span class="kw">in</span> count_runs(<span class="st">"indent.txt"</span>):</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> x </span><span class="sc">{</span>value<span class="sc">!r}</span><span class="ss">"</span>)</span></code></pre></div>
+<pre><code>apple
 apple
 apple
 banana
 banana
-cherry
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the variable storing the previous line is updated outside (after) the
-while loop body due to a missing level of indentation, so every line is counted as
-starting a new run.</p>
-<p>Shows: how indentation governs control flow in Python and how to step
-through a loop mentally to find where state is updated at the wrong
-time.</p>
-<p>To find it: add <code>print(f"prev={prev!r}")</code> as the first line inside the loop body.
-Run with the sample file and watch the printed value — it never changes, which means
-the update is happening outside the loop rather than at the start of each iteration.</p>
+cherry</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the variable storing the previous line is updated outside (after) the while loop body due to a missing level of indentation, so every line is counted as starting a new run.</p>
+<p>Shows: how indentation governs control flow in Python and how to step through a loop mentally to find where state is updated at the wrong time.</p>
+<p>To find it: add <code>print(f"prev={prev!r}")</code> as the first line inside the loop body. Run with the sample file and watch the printed value — it never changes, which means the update is happening outside the loop rather than at the start of each iteration.</p>
 </details>
-<h2 id="basicpy-noreturn">Filter negative numbers from a list</h2>
+<h2 data-number="3.7" id="filter-negative-numbers-from-a-list"><span class="header-section-number">3.7</span> Filter negative numbers from a list</h2>
 <p>Call the function and print its return value. Is it what you expected?</p>
-<div data-inc="noreturn.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/noreturn.py" class="inc-path" role="img" tabindex="0" title="basicpy/noreturn.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return a new list containing only the non-negative values."""</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
-    <span class="n">filtered</span> <span class="o">=</span> <span class="n">filter_negatives</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">filtered</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: [1, 4, 5, 2]"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is a missing <code>return</code> statement: the function builds the result but does not
-return it, so it returns <code>None</code>.</p>
-<p>Shows: that Python functions return <code>None</code> by default and how to spot
-missing <code>return</code> in control flow.</p>
-<p>To find it: print the function's return value directly — <code>print(filter_negatives([-3, 1, -1, 4, -1, 5, -9, 2, -6]))</code>. Seeing
-<code>None</code> identifies a missing <code>return</code>; follow the control flow to find the branch that
-computes the result without returning it.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_negatives(numbers):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a new list containing only the non-negative values."""</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> numbers:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> n <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            result.append(n)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> [<span class="op">-</span><span class="dv">3</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="op">-</span><span class="dv">9</span>, <span class="dv">2</span>, <span class="op">-</span><span class="dv">6</span>]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    filtered <span class="op">=</span> filter_negatives(data)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Result:   </span><span class="sc">{</span>filtered<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Expected: [1, 4, 5, 2]"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is a missing <code>return</code> statement: the function builds the result but does not return it, so it returns <code>None</code>.</p>
+<p>Shows: that Python functions return <code>None</code> by default and how to spot missing <code>return</code> in control flow.</p>
+<p>To find it: print the function’s return value directly — <code>print(filter_negatives([-3, 1, -1, 4, -1, 5, -9, 2, -6]))</code>. Seeing <code>None</code> identifies a missing <code>return</code>; follow the control flow to find the branch that computes the result without returning it.</p>
 </details>
-<h2 id="basicpy-nokey">Count word frequencies in a document</h2>
-<p>Run this script with the provided input file. Read the full traceback carefully.
-Which line raises the error, and what does the error message tell you about what
-is missing?</p>
-<div data-inc="nokey.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/nokey.py" class="inc-path" role="img" tabindex="0" title="basicpy/nokey.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return a dictionary mapping each word to its frequency."""</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
-                <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">counts</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="s2">"nokey.txt"</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])[:</span><span class="mi">5</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="nokey.txt"><span aria-label="Source: basicpy/nokey.txt" class="inc-path" role="img" tabindex="0" title="basicpy/nokey.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>to be or not to be that is the question
+<h2 data-number="3.8" id="count-word-frequencies-in-a-document"><span class="header-section-number">3.8</span> Count word frequencies in a document</h2>
+<p>Run this script with the provided input file. Read the full traceback carefully. Which line raises the error, and what does the error message tell you about what is missing?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_words(filename):</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a dictionary mapping each word to its frequency."""</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    counts <span class="op">=</span> {}</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> word <span class="kw">in</span> line.split():</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                counts[word] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> counts</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    counts <span class="op">=</span> count_words(<span class="st">"nokey.txt"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word, count <span class="kw">in</span> <span class="bu">sorted</span>(counts.items(), key<span class="op">=</span><span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>])[:<span class="dv">5</span>]:</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<pre><code>to be or not to be that is the question
 whether tis nobler in the mind to suffer
 the slings and arrows of outrageous fortune
-or to take arms against a sea of troubles
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is incrementing <code>counts[word]</code> without first checking whether the key exists,
-so the function crashes with a <code>KeyError</code> on the first new word it encounters.</p>
-<p>Shows: defensive dictionary access using <code>dict.get(key, 0)</code> or
-<code>collections.defaultdict</code>, and how to read a <code>KeyError</code> traceback to
-identify the missing key.</p>
-<p>To find it: run the script on the sample file and read the traceback from bottom to
-top. The last line shows <code>KeyError: 'some_word'</code>, naming the exact key that was
-missing. The line above it in the traceback shows <code>counts[word] += 1</code>, which is
-where the crash happened — the key was used before it was created.</p>
+or to take arms against a sea of troubles</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is incrementing <code>counts[word]</code> without first checking whether the key exists, so the function crashes with a <code>KeyError</code> on the first new word it encounters.</p>
+<p>Shows: defensive dictionary access using <code>dict.get(key, 0)</code> or <code>collections.defaultdict</code>, and how to read a <code>KeyError</code> traceback to identify the missing key.</p>
+<p>To find it: run the script on the sample file and read the traceback from bottom to top. The last line shows <code>KeyError: 'some_word'</code>, naming the exact key that was missing. The line above it in the traceback shows <code>counts[word] += 1</code>, which is where the crash happened — the key was used before it was created.</p>
 </details>
-<h2 id="basicpy-streq">Match user IDs loaded from a config file</h2>
-<p>Run this script with a user ID taken directly from the JSON file. Does it grant
-access? Use <code>type()</code> to examine the types of the two values being compared.</p>
-<div data-inc="streq.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/streq.py" class="inc-path" role="img" tabindex="0" title="basicpy/streq.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">is_allowed</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">allowed_file</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return True if user_id appears in the allowed list in allowed_file."""</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">allowed_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">"allowed_ids"</span><span class="p">]</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">user_id</span> <span class="o">=</span> <span class="s2">"42"</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">is_allowed</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s2">"streq.json"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Access granted."</span> <span class="k">if</span> <span class="n">result</span> <span class="k">else</span> <span class="s2">"Access denied."</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="streq.json"><span aria-label="Source: basicpy/streq.json" class="inc-path" role="img" tabindex="0" title="basicpy/streq.json">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">"allowed_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the JSON file stores IDs as integers but the login ID arrives as
-a string, and <code>"42" != 42</code> in Python, so the script always reports "access
-denied" even for valid users.</p>
-<p>Shows: how JSON types map to Python types and why type conversion must
-happen explicitly at system boundaries.</p>
-<p>To find it: print <code>type(user_id)</code> and <code>type(allowed_ids[0])</code> side by side. You will
-see <code>&lt;class 'str'&gt;</code> and <code>&lt;class 'int'&gt;</code> on consecutive lines; that mismatch explains
-why <code>==</code> always returns <code>False</code>.</p>
+<h2 data-number="3.9" id="match-user-ids-loaded-from-a-config-file"><span class="header-section-number">3.9</span> Match user IDs loaded from a config file</h2>
+<p>Run this script with a user ID taken directly from the JSON file. Does it grant access? Use <code>type()</code> to examine the types of the two values being compared.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_allowed(user_id, allowed_file):</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return True if user_id appears in the allowed list in allowed_file."""</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(allowed_file) <span class="im">as</span> f:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> json.load(f)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> user_id <span class="kw">in</span> data[<span class="st">"allowed_ids"</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    user_id <span class="op">=</span> <span class="st">"42"</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> is_allowed(user_id, <span class="st">"streq.json"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Access granted."</span> <span class="cf">if</span> result <span class="cf">else</span> <span class="st">"Access denied."</span>)</span></code></pre></div>
+<pre><code>{
+    "allowed_ids": [1, 42, 100, 256]
+}</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the JSON file stores IDs as integers but the login ID arrives as a string, and <code>"42" != 42</code> in Python, so the script always reports “access denied” even for valid users.</p>
+<p>Shows: how JSON types map to Python types and why type conversion must happen explicitly at system boundaries.</p>
+<p>To find it: print <code>type(user_id)</code> and <code>type(allowed_ids[0])</code> side by side. You will see <code>&lt;class 'str'&gt;</code> and <code>&lt;class 'int'&gt;</code> on consecutive lines; that mismatch explains why <code>==</code> always returns <code>False</code>.</p>
 </details>
-<h2 id="basicpy-recurse">Compute factorials recursively</h2>
+<h2 data-number="3.10" id="compute-factorials-recursively"><span class="header-section-number">3.10</span> Compute factorials recursively</h2>
 <p>Call the function with the argument <code>0</code>. Does it return the correct result?</p>
-<div data-inc="recurse.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/recurse.py" class="inc-path" role="img" tabindex="0" title="basicpy/recurse.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return n! for non-negative n."""</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">! = </span><span class="si">{</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is a base-case condition that uses <code>&gt;</code> instead of <code>&gt;=</code>, so calling the
-function with zero implicitly returns <code>None</code>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return n! for non-negative n."""</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> [<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">0</span>]:</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">! = </span><span class="sc">{</span>factorial(n)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is a base-case condition that uses <code>&gt;</code> instead of <code>&gt;=</code>, so calling the function with zero implicitly returns <code>None</code>.</p>
 <p>Shows: how to identify missing or incorrect base cases in recursion.</p>
-<p>To find it: call <code>factorial(0)</code> directly and read the error. Then read the
-base-case condition: <code>if n &gt; 0</code> means <code>0 &gt; 0</code> is <code>False</code>, so the function
-falls through and returns <code>None</code>.</p>
+<p>To find it: call <code>factorial(0)</code> directly and read the error. Then read the base-case condition: <code>if n &gt; 0</code> means <code>0 &gt; 0</code> is <code>False</code>, so the function falls through and returns <code>None</code>.</p>
 </details>
-<h2 id="basicpy-mutable">Collect results with a helper function</h2>
-<p>Call the function twice in a row with no arguments and compare the two return
-values. Are they the same?</p>
-<div data-inc="mutable.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/mutable.py" class="inc-path" role="img" tabindex="0" title="basicpy/mutable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">collect_items</span><span class="p">(</span><span class="n">new_items</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="p">[]):</span>
-<span class="w">    </span><span class="sd">"""Append new_items to result and return it."""</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">new_items</span><span class="p">:</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">first</span> <span class="o">=</span> <span class="n">collect_items</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"First call:  </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>    <span class="c1"># ['a', 'b']</span>
-
-    <span class="n">second</span> <span class="o">=</span> <span class="n">collect_items</span><span class="p">([</span><span class="s2">"c"</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Second call: </span><span class="si">{</span><span class="n">second</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"First again: </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is a mutable default argument (<code>def f(result=[])</code>), so every call starts
-with leftover items from previous calls.</p>
-<p>Shows: Python's mutable default argument trap and why <code>None</code> is the
-correct default.</p>
-<p>To find it: call <code>collect()</code> twice with no arguments and print both return
-values on the same line (i.e., <code>print(collect(), collect())</code>). The second list
-will contain all items from the first call plus new ones, proving the two calls
-share the same underlying list.</p>
+<h2 data-number="3.11" id="collect-results-with-a-helper-function"><span class="header-section-number">3.11</span> Collect results with a helper function</h2>
+<p>Call the function twice in a row with no arguments and compare the two return values. Are they the same?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> collect_items(new_items, result<span class="op">=</span>[]):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Append new_items to result and return it."""</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> new_items:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        result.append(item)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    first <span class="op">=</span> collect_items([<span class="st">"a"</span>, <span class="st">"b"</span>])</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"First call:  </span><span class="sc">{</span>first<span class="sc">}</span><span class="ss">"</span>)    <span class="co"># ['a', 'b']</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    second <span class="op">=</span> collect_items([<span class="st">"c"</span>])</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Second call: </span><span class="sc">{</span>second<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"First again: </span><span class="sc">{</span>first<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is a mutable default argument (<code>def f(result=[])</code>), so every call starts with leftover items from previous calls.</p>
+<p>Shows: Python’s mutable default argument trap and why <code>None</code> is the correct default.</p>
+<p>To find it: call <code>collect()</code> twice with no arguments and print both return values on the same line (i.e., <code>print(collect(), collect())</code>). The second list will contain all items from the first call plus new ones, proving the two calls share the same underlying list.</p>
 </details>
-<h2 id="basicpy-trailing">Compare lines read from a file</h2>
-<p>Run this script with the provided input file. Use <code>repr()</code> on a field value that
-fails to match its expected string. Does the <code>repr()</code> output reveal anything that
-was not visible before?</p>
-<div data-inc="trailing.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/trailing.py" class="inc-path" role="img" tabindex="0" title="basicpy/trailing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">find_value</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return the value for the matching region name in a pipe-delimited file."""</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="n">region</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">region</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">value</span>
-    <span class="k">return</span> <span class="kc">None</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="s2">"trailing.txt"</span>
-    <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">]:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">find_value</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">target</span><span class="si">!r}</span><span class="s2">: not found"</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">target</span><span class="si">!r}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="trailing.txt"><span aria-label="Source: basicpy/trailing.txt" class="inc-path" role="img" tabindex="0" title="basicpy/trailing.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>North |142
+<h2 data-number="3.12" id="compare-lines-read-from-a-file"><span class="header-section-number">3.12</span> Compare lines read from a file</h2>
+<p>Run this script with the provided input file. Use <code>repr()</code> on a field value that fails to match its expected string. Does the <code>repr()</code> output reveal anything that was not visible before?</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_value(filename, target):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the value for the matching region name in a pipe-delimited file."""</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>            parts <span class="op">=</span> line.rstrip(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>).split(<span class="st">"|"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(parts) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                region <span class="op">=</span> parts[<span class="dv">0</span>]</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                value <span class="op">=</span> parts[<span class="dv">1</span>].strip()</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> region <span class="op">==</span> target:</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> value</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">"trailing.txt"</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> target <span class="kw">in</span> [<span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>, <span class="st">"West"</span>]:</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> find_value(filename, target)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> result <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">!r}</span><span class="ss">: not found"</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">!r}</span><span class="ss">: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<pre><code>North |142
 South|98
 East |201
-West|77
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that certain applications pad fields with trailing spaces, so string
-comparisons always fail for those rows even though the values look correct to the
-naked eye.</p>
-<p>Shows: that real-world data often contains invisible characters, and how
-<code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
-<p>To find it: print <code>repr(row[field])</code> for a row that fails the comparison. You
-will see trailing spaces (e.g., <code>'Smith '</code>) that are invisible in a normal
-<code>print</code> but visible in the <code>repr()</code> output.</p>
+West|77</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that certain applications pad fields with trailing spaces, so string comparisons always fail for those rows even though the values look correct to the naked eye.</p>
+<p>Shows: that real-world data often contains invisible characters, and how <code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
+<p>To find it: print <code>repr(row[field])</code> for a row that fails the comparison. You will see trailing spaces (e.g., <code>'Smith '</code>) that are invisible in a normal <code>print</code> but visible in the <code>repr()</code> output.</p>
 </details>
-<h2 id="basicpy-strmeth">Clean up user-submitted text</h2>
-<p>Call the function and print the message before and after the call. Has the message
-changed?</p>
-<div data-inc="strmeth.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/strmeth.py" class="inc-path" role="img" tabindex="0" title="basicpy/strmeth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">censor</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">banned_words</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Replace each banned word in message with '***'."""</span>
-    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">banned_words</span><span class="p">:</span>
-        <span class="n">message</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">"***"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">message</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="s2">"The quick brown fox jumps over the lazy dog"</span>
-    <span class="n">banned</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"quick"</span><span class="p">,</span> <span class="s2">"lazy"</span><span class="p">]</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">censor</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">banned</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: The *** brown fox jumps over the *** dog"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that <code>str.replace</code> returns a new string, but the return value is
-never assigned back, so the original message is unchanged at the end.</p>
-<p>Shows: that string methods never mutate their argument, and that every string
-transformation must be captured in a variable.</p>
-<p>To find it: print <code>message</code> both before and after calling <code>clean_message</code>. If
-the message is unchanged, the transformation's return value was discarded. Check
-that the result of <code>str.replace</code> is assigned back to a variable.</p>
+<h2 data-number="3.13" id="clean-up-user-submitted-text"><span class="header-section-number">3.13</span> Clean up user-submitted text</h2>
+<p>Call the function and print the message before and after the call. Has the message changed?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> censor(message, banned_words):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Replace each banned word in message with '***'."""</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word <span class="kw">in</span> banned_words:</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        message.replace(word, <span class="st">"***"</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> message</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> <span class="st">"The quick brown fox jumps over the lazy dog"</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    banned <span class="op">=</span> [<span class="st">"quick"</span>, <span class="st">"lazy"</span>]</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> censor(text, banned)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Result:   </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Expected: The *** brown fox jumps over the *** dog"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that <code>str.replace</code> returns a new string, but the return value is never assigned back, so the original message is unchanged at the end.</p>
+<p>Shows: that string methods never mutate their argument, and that every string transformation must be captured in a variable.</p>
+<p>To find it: print <code>message</code> both before and after calling <code>clean_message</code>. If the message is unchanged, the transformation’s return value was discarded. Check that the result of <code>str.replace</code> is assigned back to a variable.</p>
 </details>
-<h2 id="basicpy-mutiter">Remove negative numbers from a list</h2>
-<p>Run this script and count how many items were removed. Is it the number you
-expected? Try with a list where every element should be removed.</p>
-<div data-inc="mutiter.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/mutiter.py" class="inc-path" role="img" tabindex="0" title="basicpy/mutiter.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remove_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Remove all negative numbers from the list in place and return it."""</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">numbers</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">remove_negatives</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: [3, 5]"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is modifying a list while iterating over it, which causes the loop to
-skip every other matching item.</p>
+<h2 data-number="3.14" id="remove-negative-numbers-from-a-list"><span class="header-section-number">3.14</span> Remove negative numbers from a list</h2>
+<p>Run this script and count how many items were removed. Is it the number you expected? Try with a list where every element should be removed.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remove_negatives(numbers):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Remove all negative numbers from the list in place and return it."""</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> numbers:</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>            numbers.remove(n)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> numbers</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> remove_negatives(data)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Result:   </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Expected: [3, 5]"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is modifying a list while iterating over it, which causes the loop to skip every other matching item.</p>
 <p>Shows: why mutating a collection during iteration causes unpredictable behavior.</p>
-<p>To find it: run with <code>numbers = [-1, -2, -3, -4]</code>, which should remove all four
-elements.  Print <code>len(numbers)</code> after the loop; you will get <code>2</code> instead of
-<code>0</code>. Trace the first iteration: removing <code>numbers[0]</code> shifts <code>numbers[1]</code> into
-position 0, which the loop then skips on its next step.</p>
+<p>To find it: run with <code>numbers = [-1, -2, -3, -4]</code>, which should remove all four elements. Print <code>len(numbers)</code> after the loop; you will get <code>2</code> instead of <code>0</code>. Trace the first iteration: removing <code>numbers[0]</code> shifts <code>numbers[1]</code> into position 0, which the loop then skips on its next step.</p>
 </details>
+<h2 data-number="3.15" id="rank-files-by-version-number"><span class="header-section-number">3.15</span> Rank files by version number</h2>
+<p>Run the sort function and examine the output order. Where does <code>file10</code> appear relative to <code>file2</code>?</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sorted_logs(filenames):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return filenames sorted by their embedded sequence number."""</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>(filenames)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> [<span class="st">"file10.txt"</span>, <span class="st">"file2.txt"</span>, <span class="st">"file1.txt"</span>, <span class="st">"file20.txt"</span>, <span class="st">"file3.txt"</span>]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> sorted_logs(files)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sorted order:"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> result:</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Expected numeric order: file1, file2, file3, file10, file20"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using the default <code>sort()</code>, which gives lexicographic order and places <code>file10</code> before <code>file2</code>.</p>
+<p>Shows: the difference between lexicographic and numeric sort order and how to write a <code>key</code> function that extracts the embedded integer so the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
+<p>To find it: run the sort and search for <code>file10</code> in the output. It appears immediately after <code>file1</code>, before <code>file2</code>. That placement is the signature of alphabetical order, where <code>"10" &lt; "2"</code> because <code>"1" &lt; "2"</code> at the first character.</p>
+</details>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
-</div>
-<div class="col-6 center">
-<a href="../">Unbreak</a>
-	  ©
-	  <a href="../contributing/#contributors">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../interpy/">Intermediate Python</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+
+
+</body></html>

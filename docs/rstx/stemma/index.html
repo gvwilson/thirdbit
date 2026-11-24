@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Manuscript Stemma Reconstruction</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">10.1</span> The Problem</a></li>
+<li><a href="#variant-loci-and-hamming-distance" id="toc-variant-loci-and-hamming-distance"><span class="header-section-number">10.2</span> Variant Loci and Hamming Distance</a></li>
+<li><a href="#distance-matrix-for-the-reference-stemma" id="toc-distance-matrix-for-the-reference-stemma"><span class="header-section-number">10.3</span> Distance Matrix for the Reference Stemma</a></li>
+<li><a href="#the-upgma-algorithm" id="toc-the-upgma-algorithm"><span class="header-section-number">10.4</span> The UPGMA Algorithm</a></li>
+<li><a href="#a-worked-example" id="toc-a-worked-example"><span class="header-section-number">10.5</span> A Worked Example</a></li>
+<li><a href="#hamming-distance-function" id="toc-hamming-distance-function"><span class="header-section-number">10.6</span> Hamming Distance Function</a></li>
+<li><a href="#visualizing-the-stemma" id="toc-visualizing-the-stemma"><span class="header-section-number">10.7</span> Visualizing the Stemma</a></li>
+<li><a href="#generating-synthetic-manuscripts" id="toc-generating-synthetic-manuscripts"><span class="header-section-number">10.8</span> Generating Synthetic Manuscripts</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">10.9</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">10.10</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Manuscript Stemma Reconstruction</h1>
+<h2 data-number="10.1" id="the-problem"><span class="header-section-number">10.1</span> The Problem</h2>
+<ul>
+<li>A historical text often survives in multiple manuscript copies, each introduced by scribes who occasionally made errors, omitted passages, or substituted words.</li>
+<li>A <a href="../glossary/index.html#stemma">stemma</a> is the family tree of those copies: it shows which manuscripts descend from which others and reconstructs lost intermediate ancestors.</li>
+<li><a href="../glossary/index.html#stemma_reconstruction">Stemma reconstruction</a> is the computational problem of recovering that tree from the patterns of shared variants across surviving manuscripts.</li>
+<li>The approach here:
+<ul>
+<li>Model each manuscript as a sequence of binary <a href="../glossary/index.html#variant_locus">variant loci</a>.</li>
+<li>Measure pairwise dissimilarity using <a href="../glossary/index.html#hamming_distance">Hamming distance</a>.</li>
+<li>Apply the <a href="../glossary/index.html#upgma">UPGMA</a> algorithm to recover the tree topology and branch lengths.</li>
+<li>Visualize the reconstructed stemma.</li>
+</ul></li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Two manuscripts share 12 unique errors that appear in no other copy. A third manuscript shares none of those errors. What does this pattern most strongly suggest?</p>
+<dl>
+<dt>The two manuscripts are later than the third.</dt>
+<dd>
+Wrong: later position in time does not follow from shared errors; a manuscript copied early can still share errors with a sibling copied later.
+</dd>
+</dl>
+<p>The two manuscripts descend from a common intermediate ancestor that already contained those errors before they were each copied. : Correct: shared unique errors (not present in the archetype or other branches) are the primary evidence for a common intermediate ancestor in stemmatic analysis.</p>
+<dl>
+<dt>The scribe of one manuscript copied the other directly.</dt>
+<dd>
+Partly correct as one possibility, but an intermediate ancestor explains the same pattern without requiring direct copying; more evidence is needed to distinguish the two cases.
+</dd>
+<dt>The errors are scribal conventions and do not indicate copying relationships.</dt>
+<dd>
+Wrong: shared unique errors in the same positions are statistically very unlikely to have arisen independently and are the standard evidence for a copying relationship.
+</dd>
+</dl>
+</div>
+<h2 data-number="10.2" id="variant-loci-and-hamming-distance"><span class="header-section-number">10.2</span> Variant Loci and Hamming Distance</h2>
+<ul>
+<li>A variant locus is a specific position in a manuscript where at least one copy reads differently from the others.</li>
+<li>We represent each manuscript as a binary sequence: 0 if the reading at a locus matches the <a href="../glossary/index.html#archetype">archetype</a>, 1 if it has been corrupted.</li>
+<li>The Hamming distance between two manuscripts is the fraction of loci where they disagree:</li>
+</ul>
+<p><span class="math display">\[D(A, B) = \frac{\text{number of loci where } A \neq B}{\text{total loci}}\]</span></p>
+<ul>
+<li>Manuscripts that share a common intermediate ancestor will have a smaller Hamming distance to each other than to manuscripts from a different family, because they share inherited variants in addition to their unique ones.</li>
+</ul>
+<h2 data-number="10.3" id="distance-matrix-for-the-reference-stemma"><span class="header-section-number">10.3</span> Distance Matrix for the Reference Stemma</h2>
+<ul>
+<li>The reference stemma is:</li>
+</ul>
+<p><span class="math display">\[((A:0.05,\ B:0.03):0.07,\ (C:0.06,\ D:0.04):0.05)\]</span></p>
+<ul>
+<li>Manuscripts A and B share intermediate ancestor alpha, which is separated from the archetype by 0.07. C and D share beta, separated from the archetype by 0.05.</li>
+<li>Pairwise distances are sums of branch lengths along the path between each pair.</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Pair</th>
+<th>Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A, B</td>
+<td>0.05 + 0.03 = 0.08</td>
+</tr>
+<tr class="even">
+<td>A, C</td>
+<td>0.05 + 0.07 + 0.05 + 0.06 = 0.23</td>
+</tr>
+<tr class="odd">
+<td>A, D</td>
+<td>0.05 + 0.07 + 0.05 + 0.04 = 0.21</td>
+</tr>
+<tr class="even">
+<td>B, C</td>
+<td>0.03 + 0.07 + 0.05 + 0.06 = 0.21</td>
+</tr>
+<tr class="odd">
+<td>B, D</td>
+<td>0.03 + 0.07 + 0.05 + 0.04 = 0.19</td>
+</tr>
+<tr class="even">
+<td>C, D</td>
+<td>0.06 + 0.04 = 0.10</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="10.4" id="the-upgma-algorithm"><span class="header-section-number">10.4</span> The UPGMA Algorithm</h2>
+<ul>
+<li>UPGMA (Unweighted Pair-Group Method with Arithmetic means) builds a rooted tree by iteratively merging the pair of nodes with the smallest pairwise distance.</li>
+<li>At each step:
+<ul>
+<li>Find the pair <span class="math inline">\((i, j)\)</span> with the smallest <span class="math inline">\(D(i,j)\)</span>.</li>
+<li>Create an internal node <span class="math inline">\(u\)</span>. Each branch from <span class="math inline">\(u\)</span> has length <span class="math inline">\(D(i,j)/2\)</span>:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\ell_i = \ell_j = \frac{D(i,j)}{2}\]</span></p>
+<ul>
+<li>Replace <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> with <span class="math inline">\(u\)</span>. Distance from <span class="math inline">\(u\)</span> to any remaining taxon <span class="math inline">\(k\)</span> is the average:</li>
+</ul>
+<p><span class="math display">\[D(u,k) = \frac{D(i,k) + D(j,k)}{2}\]</span></p>
+<ul>
+<li>Repeat until two nodes remain, then join them with an edge equal to the remaining distance.</li>
+<li>UPGMA assumes a constant rate of scribal error across all manuscripts (analogous to the molecular clock in phylogenetics). The neighbor-joining algorithm relaxes this assumption but requires more advanced mathematics.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="10.5" id="a-worked-example"><span class="header-section-number">10.5</span> A Worked Example</h2>
+<p>Starting with <span class="math inline">\(n = 4\)</span> manuscripts and the distances from the reference stemma:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>—</td>
+<td>0.08</td>
+<td>0.23</td>
+<td>0.21</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+<td>—</td>
+<td>0.21</td>
+<td>0.19</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+<td></td>
+<td>—</td>
+<td>0.10</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Step 1: the minimum distance is <span class="math inline">\(D(A,B) = 0.08\)</span>. Merge A and B into node4. Branch lengths: <span class="math inline">\(\ell_A = \ell_B = 0.08/2 = 0.04\)</span>. Update the matrix using the UPGMA averaging rule:</p>
+<p><span class="math display">\[D(\text{node4}, C) = \frac{0.23 + 0.21}{2} = 0.22\]</span> <span class="math display">\[D(\text{node4}, D) = \frac{0.21 + 0.19}{2} = 0.20\]</span></p>
+<p>The <span class="math inline">\(3 \times 3\)</span> matrix after step 1:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>node4</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>node4</td>
+<td>—</td>
+<td>0.22</td>
+<td>0.20</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td></td>
+<td>—</td>
+<td>0.10</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td></td>
+<td></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Step 2: the minimum distance is <span class="math inline">\(D(C,D) = 0.10\)</span>. Merge C and D into node5. Branch lengths: <span class="math inline">\(\ell_C = \ell_D = 0.10/2 = 0.05\)</span>. Update:</p>
+<p><span class="math display">\[D(\text{node4}, \text{node5}) = \frac{0.22 + 0.20}{2} = 0.21\]</span></p>
+<p>Step 3: two nodes remain (node4 and node5). Join them with the remaining edge of length <span class="math inline">\(0.21\)</span>.</p>
+<p>The recovered edges are:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Edge</th>
+<th>Length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>node4 – A</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>node4 – B</td>
+<td>0.04</td>
+</tr>
+<tr class="odd">
+<td>node5 – C</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>node5 – D</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>node4 – node5</td>
+<td>0.21</td>
+</tr>
+</tbody>
+</table>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>In step 2 of the worked example, which pair is merged?</p>
+<dl>
+<dt>node4 and C, because D(node4, C) = 0.22 is the second-smallest entry.</dt>
+<dd>
+Wrong: D(C, D) = 0.10 is smaller than D(node4, C) = 0.22 and D(node4, D) = 0.20, so C and D are merged first.
+</dd>
+<dt>C and D, because D(C, D) = 0.10 is the smallest remaining distance.</dt>
+<dd>
+Correct: UPGMA always merges the pair with the global minimum distance in the current matrix.
+</dd>
+<dt>node4 and D, because D(node4, D) = 0.20 is smaller than D(node4, C) = 0.22.</dt>
+<dd>
+Wrong: D(C, D) = 0.10 is the global minimum and is smaller than both cross-family distances, so C and D are merged.
+</dd>
+</dl>
+</div>
+<h2 data-number="10.6" id="hamming-distance-function"><span class="header-section-number">10.6</span> Hamming Distance Function</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="10.7" id="visualizing-the-stemma"><span class="header-section-number">10.7</span> Visualizing the Stemma</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-stemma-tree" class="quarto-float quarto-figure quarto-figure-center" alt="Unrooted tree with four blue leaf nodes labelled A, B, C, D and two grey internal nodes. A and B are connected through one internal node; C and D through another; the two internal nodes are joined by a central edge.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-stemma-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="stemma-tree.svg" alt="Unrooted tree with four blue leaf nodes labelled A, B, C, D and two grey internal nodes. A and B are connected through one internal node; C and D through another; the two internal nodes are joined by a central edge.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stemma-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Reconstructed stemma for the four-manuscript reference example. The two internal (grey) nodes correspond to the lost intermediate ancestors alpha (A–B family) and beta (C–D family). Branch lengths give the fraction of loci that differ along each copying step.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="10.8" id="generating-synthetic-manuscripts"><span class="header-section-number">10.8</span> Generating Synthetic Manuscripts</h2>
+<ul>
+<li>The stochastic generator simulates a known copying tree by propagating random mutations from the archetype through each branch.</li>
+<li>Each locus flips independently with probability <code>MUTATION_PROB = 0.05</code>.</li>
+<li>Only the four surviving manuscripts A, B, C, D are returned; the archetype and intermediate ancestors are not observed.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="10.9" id="testing"><span class="header-section-number">10.9</span> Testing</h2>
+<ul>
+<li>Hamming distance edge cases
+<ul>
+<li>Identical sequences have distance 0.0.</li>
+<li>Sequences that differ at every locus have distance 1.0.</li>
+<li>Sequences that differ at exactly half the loci have distance 0.5.</li>
+</ul></li>
+<li>Distance matrix structure
+<ul>
+<li>The matrix must be symmetric with a zero diagonal.</li>
+<li>Within-family distances (A–B and C–D) must be smaller than any cross-family distance, reflecting the true two-clade topology.</li>
+</ul></li>
+<li>Topology recovery
+<ul>
+<li>A and B must share a private internal ancestor (node4), and C and D must share a different one (node5), with no manuscript connected to both internal nodes.</li>
+<li>UPGMA merges A and B first (D=0.08, the global minimum), then C and D (D=0.10, the next minimum), then joins the two internal nodes.</li>
+</ul></li>
+<li>Branch-length recovery
+<ul>
+<li>With the reference distances, UPGMA assigns branch length 0.04 to each of the A and B edges (half of 0.08), 0.05 to each of the C and D edges (half of 0.10), and 0.21 to the internal edge.</li>
+<li>Tolerance <span class="math inline">\(10^{-10}\)</span> covers only accumulated floating-point rounding.</li>
+</ul></li>
+<li>All lengths positive
+<ul>
+<li>Every branch length returned by UPGMA must be strictly positive, confirming that no degenerate zero-length branches were produced.</li>
+</ul></li>
+<li>Stochastic generator topology
+<ul>
+<li>Manuscripts generated by the copying simulator must also satisfy the within-family vs.&nbsp;cross-family distance inequality, confirming that the mutation rate is low enough for the tree signal to dominate noise.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_stemma <span class="im">import</span> make_manuscripts, MANUSCRIPTS</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> stemma <span class="im">import</span> (</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    hamming_distance,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    make_distance_matrix,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    upgma,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># hamming_distance</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_hamming_identical():</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Two identical sequences have distance 0.0.</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    seq <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>], dtype<span class="op">=</span>np.int8)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> hamming_distance(seq, seq.copy()) <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_hamming_all_different():</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sequences that differ at every locus have distance 1.0.</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    seq_a <span class="op">=</span> np.zeros(<span class="dv">10</span>, dtype<span class="op">=</span>np.int8)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    seq_b <span class="op">=</span> np.ones(<span class="dv">10</span>, dtype<span class="op">=</span>np.int8)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> hamming_distance(seq_a, seq_b) <span class="op">==</span> pytest.approx(<span class="fl">1.0</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_hamming_half():</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sequences differing at exactly half the loci have distance 0.5.</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    seq_a <span class="op">=</span> np.zeros(<span class="dv">8</span>, dtype<span class="op">=</span>np.int8)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    seq_b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>], dtype<span class="op">=</span>np.int8)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> hamming_distance(seq_a, seq_b) <span class="op">==</span> pytest.approx(<span class="fl">0.5</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance matrix</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_distance_matrix_symmetry():</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The distance matrix must be symmetric with zero diagonal.</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(names)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> D.shape <span class="op">==</span> (n, n)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    np.testing.assert_allclose(D, D.T, atol<span class="op">=</span><span class="fl">1e-12</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    np.testing.assert_allclose(np.diag(D), <span class="fl">0.0</span>, atol<span class="op">=</span><span class="fl">1e-12</span>)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_distance_matrix_within_family_smaller():</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Within-family distances (A–B and C–D) must be smaller than cross-family</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># distances (A–C, A–D, B–C, B–D), reflecting the true copying tree.</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> {n: i <span class="cf">for</span> i, n <span class="kw">in</span> <span class="bu">enumerate</span>(names)}</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    d_ab <span class="op">=</span> D[idx[<span class="st">"A"</span>], idx[<span class="st">"B"</span>]]</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    d_cd <span class="op">=</span> D[idx[<span class="st">"C"</span>], idx[<span class="st">"D"</span>]]</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    cross <span class="op">=</span> [D[idx[a], idx[b]] <span class="cf">for</span> a <span class="kw">in</span> <span class="st">"AB"</span> <span class="cf">for</span> b <span class="kw">in</span> <span class="st">"CD"</span>]</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> d_ab <span class="op">&lt;</span> <span class="bu">min</span>(cross)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> d_cd <span class="op">&lt;</span> <span class="bu">min</span>(cross)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co"># UPGMA topology and branch lengths</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_topology_recovery():</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A and B must share a private internal ancestor, and C and D must share</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a different one.  UPGMA merges the pair with the smallest distance first:</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># D(A,B) = 0.08 is the global minimum, so A and B are joined first into</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># node4; then D(C,D) = 0.10 &lt; D(node4,C) = D(node4,D), so C and D are</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># joined into node5; finally node4 and node5 are joined.</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build an adjacency map.</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    adj <span class="op">=</span> {}</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b, _ <span class="kw">in</span> edges:</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>        adj.setdefault(a, []).append(b)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>        adj.setdefault(b, []).append(a)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find the internal node connected to each manuscript.</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    parent_a <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> adj[<span class="st">"A"</span>] <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> MANUSCRIPTS][<span class="dv">0</span>]</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    parent_b <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> adj[<span class="st">"B"</span>] <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> MANUSCRIPTS][<span class="dv">0</span>]</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    parent_c <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> adj[<span class="st">"C"</span>] <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> MANUSCRIPTS][<span class="dv">0</span>]</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    parent_d <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> adj[<span class="st">"D"</span>] <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> MANUSCRIPTS][<span class="dv">0</span>]</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> parent_a <span class="op">==</span> parent_b, <span class="st">"A and B should share an internal ancestor"</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> parent_c <span class="op">==</span> parent_d, <span class="st">"C and D should share an internal ancestor"</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> parent_a <span class="op">!=</span> parent_c, (</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>        <span class="st">"AB family and CD family should have different ancestors"</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_branch_lengths():</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>    <span class="co"># UPGMA branch lengths for the reference distance matrix.</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 1: merge A and B (D=0.08).  Each branch length = 0.08/2 = 0.04.</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   D(node4, C) = (0.23 + 0.21) / 2 = 0.22</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   D(node4, D) = (0.21 + 0.19) / 2 = 0.20</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 2: merge C and D (D=0.10 &lt; 0.20 &lt; 0.22).  Each branch length = 0.05.</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   D(node4, node5) = (0.22 + 0.20) / 2 = 0.21</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 3: join node4 and node5 with the remaining distance = 0.21.</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tolerance 1e-10 covers only accumulated floating-point rounding.</span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>    expected <span class="op">=</span> {</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>        <span class="bu">frozenset</span>([<span class="st">"node4"</span>, <span class="st">"A"</span>]): <span class="fl">0.04</span>,</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>        <span class="bu">frozenset</span>([<span class="st">"node4"</span>, <span class="st">"B"</span>]): <span class="fl">0.04</span>,</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>        <span class="bu">frozenset</span>([<span class="st">"node5"</span>, <span class="st">"C"</span>]): <span class="fl">0.05</span>,</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>        <span class="bu">frozenset</span>([<span class="st">"node5"</span>, <span class="st">"D"</span>]): <span class="fl">0.05</span>,</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>        <span class="bu">frozenset</span>([<span class="st">"node4"</span>, <span class="st">"node5"</span>]): <span class="fl">0.21</span>,</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>    recovered <span class="op">=</span> {<span class="bu">frozenset</span>([a, b]): length <span class="cf">for</span> a, b, length <span class="kw">in</span> edges}</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, true_len <span class="kw">in</span> expected.items():</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> key <span class="kw">in</span> recovered, <span class="ss">f"Missing edge </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> recovered[key] <span class="op">==</span> pytest.approx(true_len, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-10</span>)</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_all_lengths_positive():</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Every branch length in the UPGMA tree must be strictly positive.</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b, length <span class="kw">in</span> edges:</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> length <span class="op">&gt;</span> <span class="dv">0</span>, <span class="ss">f"Non-positive branch length on edge </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">--</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>length<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Stochastic generator topology</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_generator_topology():</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Manuscripts generated stochastically must also produce a distance matrix</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>    <span class="co"># whose minimum within-family distance is smaller than the minimum</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>    <span class="co"># cross-family distance, so UPGMA can still find the correct grouping.</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>    mss <span class="op">=</span> make_manuscripts()</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>    within <span class="op">=</span> [</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>        hamming_distance(mss[<span class="st">"A"</span>], mss[<span class="st">"B"</span>]),</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>        hamming_distance(mss[<span class="st">"C"</span>], mss[<span class="st">"D"</span>]),</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>    cross <span class="op">=</span> [hamming_distance(mss[a], mss[b]) <span class="cf">for</span> a <span class="kw">in</span> <span class="st">"AB"</span> <span class="cf">for</span> b <span class="kw">in</span> <span class="st">"CD"</span>]</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">max</span>(within) <span class="op">&lt;</span> <span class="bu">min</span>(cross), (</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Within-family distances should be smaller than cross-family distances"</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Manuscript stemma key terms</p>
+<dl>
+<dt>Stemma</dt>
+<dd>
+The family tree of manuscript copies of a text, showing which copies derive from which others; internal nodes represent lost intermediate ancestors and leaves represent surviving manuscripts
+</dd>
+<dt>Stemma reconstruction</dt>
+<dd>
+The computational task of recovering the stemma from patterns of shared variants (errors or readings) across surviving manuscripts; analogous to phylogenetic tree reconstruction in biology
+</dd>
+<dt>Archetype</dt>
+<dd>
+The hypothetical original manuscript from which all surviving copies ultimately derive; it may itself be lost, in which case it is inferred as the root of the stemma
+</dd>
+<dt>Variant locus</dt>
+<dd>
+A position in a text where at least two manuscripts have different readings; used as the character data for computing pairwise distances
+</dd>
+<dt>Hamming distance</dt>
+<dd>
+The fraction of corresponding positions at which two sequences differ; for binary variant sequences, it equals the proportion of loci where one manuscript has the archetype reading and the other has a variant
+</dd>
+<dt>UPGMA</dt>
+<dd>
+Unweighted Pair-Group Method with Arithmetic means; a clustering algorithm that builds a rooted, ultrametric tree by iteratively merging the pair of nodes with the smallest pairwise distance and updating distances by averaging; assumes a constant rate of change along all branches
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="10.10" id="exercises"><span class="header-section-number">10.10</span> Exercises</h2>
+<h3 data-number="10.10.1" id="do-the-math"><span class="header-section-number">10.10.1</span> Do the math</h3>
+<ol type="1">
+<li><p>Two manuscripts each have 100 variant loci. Manuscript A differs from the archetype at loci 1–10 and 21–30. Manuscript B differs from the archetype at loci 1–10 and 41–55. What is the Hamming distance between A and B?</p></li>
+<li><p>After merging A and B into node4 in the first UPGMA step, <span class="math inline">\(D(A, C) = 0.23\)</span> and <span class="math inline">\(D(B, C) = 0.21\)</span>. Using the UPGMA averaging rule <span class="math inline">\(D(\text{node4}, C) = (D(A,C) + D(B,C)) / 2\)</span>, what is <span class="math inline">\(D(\text{node4}, C)\)</span>?</p></li>
+</ol>
+<h3 data-number="10.10.2" id="hamming-distance-from-manuscript-sequences"><span class="header-section-number">10.10.2</span> Hamming distance from manuscript sequences</h3>
+<p>The <code>generate_stemma</code> module produces actual sequences, not just distances. Write <code>build_distance_matrix(mss)</code> that accepts the dict returned by <code>make_manuscripts</code> and computes the full <span class="math inline">\(4 \times 4\)</span> Hamming distance matrix. Run UPGMA on this matrix and compare the recovered topology to the one from <code>make_distance_matrix</code>. Do the stochastic distances give the same grouping?</p>
+<h3 data-number="10.10.3" id="effect-of-mutation-rate"><span class="header-section-number">10.10.3</span> Effect of mutation rate</h3>
+<p>Re-run <code>make_manuscripts</code> with <code>mutation_prob</code> values of 0.01, 0.05, 0.10, and 0.20. For each rate, compute the distance matrix and check whether UPGMA recovers the correct two-family topology. At what mutation rate does the signal begin to fail, and why?</p>
+<h3 data-number="10.10.4" id="effect-of-noise-on-upgma"><span class="header-section-number">10.10.4</span> Effect of noise on UPGMA</h3>
+<p>UPGMA assumes all branch rates are equal (the constant-rate assumption). Add Gaussian noise to the reference distance matrix using <code>make_distance_matrix(noise_scale=s)</code> for <span class="math inline">\(s \in \{0.01, 0.02, 0.05\}\)</span>. At what noise level does UPGMA first recover the wrong topology (A or B grouped with C or D)? How does this compare to the noiseless case?</p>
+<h3 data-number="10.10.5" id="adding-a-contaminated-manuscript"><span class="header-section-number">10.10.5</span> Adding a contaminated manuscript</h3>
+<p>A contaminated manuscript (one that was copied partly from two different sources) does not fit a tree model. Add a fifth manuscript E whose sequence is a 50/50 mix of A and C. Compute the distance matrix for all five manuscripts and run UPGMA. Does the algorithm detect the problem, and if so, how is it visible in the recovered tree?</p>
+</section>
+
+</main>
+
+
+</body></html>

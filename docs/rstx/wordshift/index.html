@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Word Frequency Change Over Time</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">20.1</span> The Problem</a></li>
+<li><a href="#normalized-frequency" id="toc-normalized-frequency"><span class="header-section-number">20.2</span> Normalized Frequency</a></li>
+<li><a href="#linear-trend" id="toc-linear-trend"><span class="header-section-number">20.3</span> Linear Trend</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">20.4</span> Generating Synthetic Data</a></li>
+<li><a href="#computing-normalized-frequencies" id="toc-computing-normalized-frequencies"><span class="header-section-number">20.5</span> Computing Normalized Frequencies</a></li>
+<li><a href="#estimating-trend-slopes" id="toc-estimating-trend-slopes"><span class="header-section-number">20.6</span> Estimating Trend Slopes</a></li>
+<li><a href="#visualizing-frequency-trajectories" id="toc-visualizing-frequency-trajectories"><span class="header-section-number">20.7</span> Visualizing Frequency Trajectories</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">20.8</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">20.9</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Word Frequency Change Over Time</h1>
+<h2 data-number="20.1" id="the-problem"><span class="header-section-number">20.1</span> The Problem</h2>
+<ul>
+<li>A word’s relative frequency in a corpus can rise or fall over decades as cultural and linguistic fashions change.</li>
+<li><a href="../glossary/index.html#diachronic_analysis">Diachronic analysis</a> asks: given a corpus of texts labelled by period, how can we detect and quantify these changes?</li>
+<li>The approach here:
+<ul>
+<li>Generate a synthetic corpus in which each decade’s token counts include three target words with known injected linear trends.</li>
+<li>Normalize raw counts by total tokens per decade to obtain <a href="../glossary/index.html#normalized_frequency">normalized frequencies</a>.</li>
+<li>Estimate a <a href="../glossary/index.html#word_shift">word-shift</a> slope for each target word using <a href="../glossary/index.html#ordinary_least_squares">ordinary least squares</a>.</li>
+<li>Visualize frequency trajectories with Vega-Altair.</li>
+</ul></li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why normalize raw word counts by the total tokens per decade rather than comparing raw counts directly?</p>
+<dl>
+<dt>Because raw counts are always larger in recent decades due to digitization bias.</dt>
+<dd>
+Wrong: raw counts may be larger in any decade depending on corpus size; the direction of that bias is not fixed.
+</dd>
+</dl>
+<p>Because a word can appear more often simply because more text was produced in that decade, not because the word became more popular. : Correct: normalizing converts counts to relative frequencies so that an increase in a word’s share of tokens is attributable to changed usage, not to a larger corpus.</p>
+<dl>
+<dt>Because normalized frequencies are always integers and easier to work with.</dt>
+<dd>
+Wrong: normalized frequencies are proportions (values between 0 and 1), not integers.
+</dd>
+<dt>Because the normalization removes all sampling noise from the data.</dt>
+<dd>
+Wrong: normalization corrects for corpus size differences but cannot remove the statistical variation that results from sampling a finite corpus.
+</dd>
+</dl>
+</div>
+<h2 data-number="20.2" id="normalized-frequency"><span class="header-section-number">20.2</span> Normalized Frequency</h2>
+<ul>
+<li>For word <span class="math inline">\(w\)</span> in decade <span class="math inline">\(d\)</span> with raw count <span class="math inline">\(c_{w,d}\)</span> and total token count <span class="math inline">\(N_d = \sum_{w'} c_{w',d}\)</span>, the normalized frequency is:</li>
+</ul>
+<p><span class="math display">\[f_{w,d} = \frac{c_{w,d}}{N_d}\]</span></p>
+<ul>
+<li>All normalized frequencies in a decade sum to 1, making them comparable across decades regardless of how many texts were digitized or produced.</li>
+</ul>
+<h2 data-number="20.3" id="linear-trend"><span class="header-section-number">20.3</span> Linear Trend</h2>
+<ul>
+<li>A linear trend assumes that the normalized frequency changes by a constant amount per decade: <span class="math inline">\(f_{w,d} = \alpha_w + \beta_w \cdot d_{\text{idx}}\)</span>, where <span class="math inline">\(d_{\text{idx}}\)</span> is the decade index (0 for the earliest decade, 1 for the next, and so on).</li>
+<li>The OLS slope estimator is:</li>
+</ul>
+<p><span class="math display">\[\hat{\beta}_w = \frac{\displaystyle\sum_d (d_{\text{idx}} - \bar{d})(f_{w,d} - \bar{f}_w)} {\displaystyle\sum_d (d_{\text{idx}} - \bar{d})^2}\]</span></p>
+<ul>
+<li>A positive <span class="math inline">\(\hat{\beta}_w\)</span> means the word’s share of tokens rose over time; a negative slope means it fell.</li>
+<li>The units of <span class="math inline">\(\hat{\beta}_w\)</span> are normalized-frequency change per 10-year period.</li>
+</ul>
+<h2 data-number="20.4" id="generating-synthetic-data"><span class="header-section-number">20.4</span> Generating Synthetic Data</h2>
+<ul>
+<li>Decade indices run from 0 (1850) to 10 (1950)</li>
+<li>“telegraph” has base frequency 0.005 and rises by 0.002 per decade</li>
+<li>“candle” has base frequency 0.025 and falls by 0.002 per decade</li>
+<li>“steam” is stable at 0.015 throughout (zero slope, used as a control)</li>
+<li>97 background words share the remaining probability mass equally</li>
+<li>Multinomial sampling with 5000 tokens per decade adds realistic noise</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="20.5" id="computing-normalized-frequencies"><span class="header-section-number">20.5</span> Computing Normalized Frequencies</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="20.6" id="estimating-trend-slopes"><span class="header-section-number">20.6</span> Estimating Trend Slopes</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="20.7" id="visualizing-frequency-trajectories"><span class="header-section-number">20.7</span> Visualizing Frequency Trajectories</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-wordshift-trajectory" class="quarto-float quarto-figure quarto-figure-center" alt="Line chart with three lines. The telegraph line rises from near zero to about 0.025. The candle line falls from 0.025 to near zero. The steam line remains roughly flat near 0.015.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-wordshift-trajectory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wordshift-trajectory.svg" alt="Line chart with three lines. The telegraph line rises from near zero to about 0.025. The candle line falls from 0.025 to near zero. The steam line remains roughly flat near 0.015.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wordshift-trajectory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.1: Normalized frequency of three target words across decades 1850–1950. The rising and falling trends in telegraph and candle are clearly visible despite multinomial sampling noise.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="20.8" id="testing"><span class="header-section-number">20.8</span> Testing</h2>
+<dl>
+<dt>Normalization sums to one</dt>
+<dd>
+After normalization, the sum of all word frequencies within each decade must equal 1.0 to floating-point precision.
+</dd>
+<dt>Non-negative frequencies</dt>
+<dd>
+All normalized frequencies must be non-negative; a negative value would indicate a bug in the join or division step.
+</dd>
+<dt>Flat series has zero slope</dt>
+<dd>
+A sequence of identical frequencies gives OLS slope exactly 0.0.
+</dd>
+<dt>Known-slope recovery</dt>
+<dd>
+A perfectly linear sequence with slope 0.002 must return slope 0.002 to machine precision (no sampling noise, so no tolerance needed).
+</dd>
+<dt>Single-point series</dt>
+<dd>
+A single-point input has a zero denominator; the function must return 0.0 rather than raising an exception.
+</dd>
+<dt>Slope signs</dt>
+<dd>
+The slope for “telegraph” must be positive, for “candle” negative, and for “steam” near zero (within 0.001).
+</dd>
+<dt>Slope magnitude</dt>
+<dd>
+The recovered slope for each target word must be within 0.001 of the true injected value. The expected standard error of the OLS estimator for this corpus is below 0.0002, so 0.001 allows more than five standard errors of sampling variation before a test failure.
+</dd>
+</dl>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_wordshift <span class="im">import</span> make_corpus, TARGET_WORDS, TARGET_SLOPE</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordshift <span class="im">import</span> normalize, linear_trend, compute_trends</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_normalize_sums_to_one():</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># After normalization, frequencies within each decade must sum to 1.0.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_corpus()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    freq_df <span class="op">=</span> normalize(df)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    decade_totals <span class="op">=</span> freq_df.group_by(<span class="st">"decade"</span>).agg(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"freq"</span>).<span class="bu">sum</span>().alias(<span class="st">"total_freq"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> total <span class="kw">in</span> decade_totals[<span class="st">"total_freq"</span>].to_list():</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> total <span class="op">==</span> pytest.approx(<span class="fl">1.0</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-9</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_normalize_non_negative():</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All normalized frequencies must be non-negative.</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_corpus()</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    freq_df <span class="op">=</span> normalize(df)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> freq_df[<span class="st">"freq"</span>].<span class="bu">min</span>() <span class="op">&gt;=</span> <span class="fl">0.0</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_linear_trend_flat():</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A constant frequency sequence has slope exactly 0.</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    indices <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">11</span>))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    freqs <span class="op">=</span> [<span class="fl">0.015</span>] <span class="op">*</span> <span class="dv">11</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> linear_trend(indices, freqs) <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_linear_trend_known_slope():</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A perfectly linear sequence has the exact injected slope.</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># slope = 0.002, starting at 0.005, over 11 decades.</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    indices <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">11</span>))</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    freqs <span class="op">=</span> [<span class="fl">0.005</span> <span class="op">+</span> <span class="fl">0.002</span> <span class="op">*</span> i <span class="cf">for</span> i <span class="kw">in</span> indices]</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> linear_trend(indices, freqs) <span class="op">==</span> pytest.approx(<span class="fl">0.002</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">1e-12</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_linear_trend_single_point():</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A single-point series has an undefined denominator; the function</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># must return 0.0 without raising an exception.</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> linear_trend([<span class="dv">0</span>], [<span class="fl">0.5</span>]) <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_slope_signs_correct():</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># telegraph must have a positive slope, candle a negative slope,</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and steam a slope near zero.  Tolerance of 0.001 is 5x the</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># expected standard error given 5000 tokens per decade and 11 decades.</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_corpus()</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    freq_df <span class="op">=</span> normalize(df)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    trends <span class="op">=</span> compute_trends(freq_df, TARGET_WORDS)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> trends[<span class="st">"telegraph"</span>] <span class="op">&gt;</span> <span class="fl">0.0</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> trends[<span class="st">"candle"</span>] <span class="op">&lt;</span> <span class="fl">0.0</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> trends[<span class="st">"steam"</span>] <span class="op">==</span> pytest.approx(<span class="fl">0.0</span>, <span class="bu">abs</span><span class="op">=</span><span class="fl">0.001</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_slope_magnitude():</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The recovered slopes should be within 0.001 of the true injected values.</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Standard error of the OLS slope is &lt; 0.0002 for these parameters,</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># so 0.001 allows for more than 5 standard errors of sampling variation.</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> make_corpus()</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    freq_df <span class="op">=</span> normalize(df)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    trends <span class="op">=</span> compute_trends(freq_df, TARGET_WORDS)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    true_slopes <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(TARGET_WORDS, TARGET_SLOPE))</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word <span class="kw">in</span> TARGET_WORDS:</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> trends[word] <span class="op">==</span> pytest.approx(true_slopes[word], <span class="bu">abs</span><span class="op">=</span><span class="fl">0.001</span>), (</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">: expected slope </span><span class="sc">{</span>true_slopes[word]<span class="sc">}</span><span class="ss">, got </span><span class="sc">{</span>trends[word]<span class="sc">:.5f}</span><span class="ss">"</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Word frequency change key terms</p>
+<dl>
+<dt>Diachronic analysis</dt>
+<dd>
+The study of how linguistic features (word frequencies, grammatical constructions) change across time periods; contrasted with synchronic analysis, which examines a single point in time
+</dd>
+<dt>Normalized frequency</dt>
+<dd>
+A word’s count divided by the total token count for the same period; expresses the word’s share of the corpus rather than its raw occurrence count, making comparisons across periods of different sizes fair
+</dd>
+<dt>Word shift</dt>
+<dd>
+A change in the relative frequency of a word over time; a positive shift indicates rising usage, a negative shift indicates declining usage
+</dd>
+<dt>OLS slope</dt>
+<dd>
+In this context, <span class="math inline">\(\hat{\beta}_w = \sum_d (d-\bar{d})(f-\bar{f}) / \sum_d (d-\bar{d})^2\)</span>; the rate of change of normalized frequency per decade estimated by ordinary least squares
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="20.9" id="exercises"><span class="header-section-number">20.9</span> Exercises</h2>
+<h3 data-number="20.9.1" id="do-the-math"><span class="header-section-number">20.9.1</span> Do the math</h3>
+<ol type="1">
+<li><p>A word appears 50 times in a decade that contains 2000 total tokens. What is its normalized frequency?</p></li>
+<li><p>A word has normalized frequency 0.010 at decade index 0 and 0.020 at decade index 1 (two data points only). The mean decade index is 0.5 and the mean frequency is 0.015. What is the OLS slope?</p></li>
+</ol>
+<h3 data-number="20.9.2" id="confidence-interval-on-the-slope"><span class="header-section-number">20.9.2</span> Confidence interval on the slope</h3>
+<p>Extend <code>linear_trend</code> to return both the slope and its standard error <span class="math inline">\(\text{SE}(\hat{\beta}) = \hat{\sigma} / \sqrt{\sum_d (d - \bar{d})^2}\)</span>, where <span class="math inline">\(\hat{\sigma}^2 = \sum_d (f_{w,d} - \hat{f}_{w,d})^2 / (n - 2)\)</span> is the residual variance. Report a 95% confidence interval for each target word and check whether the interval for “steam” contains zero.</p>
+<h3 data-number="20.9.3" id="detecting-non-linear-change"><span class="header-section-number">20.9.3</span> Detecting non-linear change</h3>
+<p>The linear model assumes a constant rate of change. Add a word “flash” to the generator whose frequency rises steeply from 1850 to 1900 and then falls back to its starting level from 1900 to 1950 (an inverted V shape). Compute its OLS slope and explain why the slope is near zero even though the word’s usage clearly changed. What alternative measure would capture the inverted-V pattern?</p>
+<h3 data-number="20.9.4" id="rank-shift"><span class="header-section-number">20.9.4</span> Rank shift</h3>
+<p>Instead of absolute frequency, use the rank of each target word within each decade (rank 1 = most frequent). Compute the rank-change slope and compare it to the frequency-change slope. In which cases do they agree and in which do they diverge?</p>
+<h3 data-number="20.9.5" id="real-corpus-application"><span class="header-section-number">20.9.5</span> Real corpus application</h3>
+<p>Download word-frequency data for two contrasting words from a public corpus such as Google Ngrams. Normalize by total token count per year, aggregate to decades, and apply <code>linear_trend</code>. Does the recovered slope match the visual trend in the trajectory plot?</p>
+</section>
+
+</main>
+
+
+</body></html>

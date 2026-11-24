@@ -1,371 +1,240 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Polars</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Polars</title>
-<meta content="Unbreaking Software" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../basicpy/">Basic Python</a></li>
-<li><a href="../interpy/">Intermediate Python</a></li>
-<li><a href="../oopy/">Object-Oriented Python</a></li>
-<li><a href="../regexp/">Regular Expressions</a></li>
-<li><a href="../diot/">Data, I/O, and Testing</a></li>
-<li><a href="../perfcon/">Performance and Concurrency</a></li>
-<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
-<li><a href="../css/">CSS</a></li>
-<li><a href="../web/">HTTP and APIs</a></li>
-<li><a href="../htmx/">HTMX</a></li>
-<li><a href="../alpine/">Alpine.js</a></li>
-<li><a href="../fastapi/">FastAPI</a></li>
-<li><a href="../datasci/">Data Science</a></li>
-<li><a href="../dataviz/">Data Visualization</a></li>
-<li><a class="active" href="../polars/">Polars</a></li>
-<li><a href="../shell/">The Unix Shell</a></li>
-<li><a href="../sql/">SQL</a></li>
-<li><a href="../testing/">Testing</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../complex/">Complex Examples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/unbreak">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Polars</h1>
-<h2 id="polars-selectdrop">Add a computed column to a DataFrame</h2>
-<p>Run the script and look at the columns in the result. How many columns does it
-have? How many columns did the original DataFrame have?</p>
-<div data-inc="selectdrop.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/selectdrop.py" class="inc-path" role="img" tabindex="0" title="polars/selectdrop.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">],</span>
-    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">95</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
-    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"adjusted"</span><span class="p">),</span>
-<span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using <code>.select()</code> to add a new column. <code>.select()</code> returns only the
-columns listed in the call and drops all others, so <code>id</code> and <code>name</code> are lost.</p>
-<p>Shows: the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code>
-(add or replace columns while keeping the rest).</p>
-<p>To find it: print <code>result.columns</code> and compare to <code>df.columns</code>. If the result
-has fewer columns than the original, <code>.select()</code> dropped them. Find the <code>.select()</code>
-call in the pipeline and replace it with <code>.with_columns()</code>.</p>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#add-a-computed-column-to-a-dataframe" id="toc-add-a-computed-column-to-a-dataframe"><span class="header-section-number">17.1</span> Add a computed column to a DataFrame</a></li>
+<li><a href="#filter-and-select-rows-from-a-dataset" id="toc-filter-and-select-rows-from-a-dataset"><span class="header-section-number">17.2</span> Filter and select rows from a dataset</a></li>
+<li><a href="#find-rows-with-missing-scores" id="toc-find-rows-with-missing-scores"><span class="header-section-number">17.3</span> Find rows with missing scores</a></li>
+<li><a href="#convert-float-scores-to-integers" id="toc-convert-float-scores-to-integers"><span class="header-section-number">17.4</span> Convert float scores to integers</a></li>
+<li><a href="#add-a-department-average-salary-to-each-employee-row" id="toc-add-a-department-average-salary-to-each-employee-row"><span class="header-section-number">17.5</span> Add a department average salary to each employee row</a></li>
+<li><a href="#join-orders-to-customer-records" id="toc-join-orders-to-customer-records"><span class="header-section-number">17.6</span> Join orders to customer records</a></li>
+<li><a href="#add-a-total-price-column-to-an-order-table" id="toc-add-a-total-price-column-to-an-order-table"><span class="header-section-number">17.7</span> Add a total price column to an order table</a></li>
+<li><a href="#parse-dates-from-a-csv-file" id="toc-parse-dates-from-a-csv-file"><span class="header-section-number">17.8</span> Parse dates from a CSV file</a></li>
+<li><a href="#split-a-tags-column-into-one-row-per-tag" id="toc-split-a-tags-column-into-one-row-per-tag"><span class="header-section-number">17.9</span> Split a tags column into one row per tag</a></li>
+<li><a href="#compute-a-discounted-price-and-order-total-in-one-step" id="toc-compute-a-discounted-price-and-order-total-in-one-step"><span class="header-section-number">17.10</span> Compute a discounted price and order total in one step</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Polars</h1>
+<h2 data-number="17.1" id="add-a-computed-column-to-a-dataframe"><span class="header-section-number">17.1</span> Add a computed column to a DataFrame</h2>
+<p>Run the script and look at the columns in the result. How many columns does it have? How many columns did the original DataFrame have?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="dv">88</span>, <span class="dv">72</span>, <span class="dv">95</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.select([</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (pl.col(<span class="st">"score"</span>) <span class="op">*</span> <span class="fl">1.1</span>).alias(<span class="st">"adjusted"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using <code>.select()</code> to add a new column. <code>.select()</code> returns only the columns listed in the call and drops all others, so <code>id</code> and <code>name</code> are lost.</p>
+<p>Shows: the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code> (add or replace columns while keeping the rest).</p>
+<p>To find it: print <code>result.columns</code> and compare to <code>df.columns</code>. If the result has fewer columns than the original, <code>.select()</code> dropped them. Find the <code>.select()</code> call in the pipeline and replace it with <code>.with_columns()</code>.</p>
 </details>
-<h2 id="polars-nocollect">Filter and select rows from a dataset</h2>
-<p>Run the script and look at what is printed. Is the output a table of data, or
-something else? What type does <code>type(result)</code> report?</p>
-<div data-inc="nocollect.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/nocollect.py" class="inc-path" role="img" tabindex="0" title="polars/nocollect.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"Dave"</span><span class="p">],</span>
-    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">61</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">])</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is calling <code>.lazy()</code> to start a lazy pipeline but never calling <code>.collect()</code>
-at the end, so the result is a <code>LazyFrame</code> (a query plan) rather than a <code>DataFrame</code>.
-The filter and select have not executed.</p>
-<p>Shows: the difference between eager and lazy evaluation in Polars and
-when <code>.collect()</code> is required.</p>
-<p>To find it: add <code>print(type(result))</code> after the pipeline. Seeing
-<code>&lt;class 'polars.LazyFrame'&gt;</code> instead of <code>&lt;class 'polars.DataFrame'&gt;</code> confirms the
-pipeline never executed. Add <code>.collect()</code> at the end of the chain.</p>
+<h2 data-number="17.2" id="filter-and-select-rows-from-a-dataset"><span class="header-section-number">17.2</span> Filter and select rows from a dataset</h2>
+<p>Run the script and look at what is printed. Is the output a table of data, or something else? What type does <code>type(result)</code> report?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>, <span class="st">"Dave"</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="dv">88</span>, <span class="dv">72</span>, <span class="dv">95</span>, <span class="dv">61</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    df.lazy()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">"score"</span>) <span class="op">&gt;=</span> <span class="dv">80</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    .select([<span class="st">"name"</span>, <span class="st">"score"</span>])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is calling <code>.lazy()</code> to start a lazy pipeline but never calling <code>.collect()</code> at the end, so the result is a <code>LazyFrame</code> (a query plan) rather than a <code>DataFrame</code>. The filter and select have not executed.</p>
+<p>Shows: the difference between eager and lazy evaluation in Polars and when <code>.collect()</code> is required.</p>
+<p>To find it: add <code>print(type(result))</code> after the pipeline. Seeing <code>&lt;class 'polars.LazyFrame'&gt;</code> instead of <code>&lt;class 'polars.DataFrame'&gt;</code> confirms the pipeline never executed. Add <code>.collect()</code> at the end of the chain.</p>
 </details>
-<h2 id="polars-nullequal">Find rows with missing scores</h2>
+<h2 data-number="17.3" id="find-rows-with-missing-scores"><span class="header-section-number">17.3</span> Find rows with missing scores</h2>
 <p>Run the script. How many rows does it print? How many rows contain a missing score?</p>
-<div data-inc="nullequal.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/nullequal.py" class="inc-path" role="img" tabindex="0" title="polars/nullequal.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"Dave"</span><span class="p">],</span>
-    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># noqa: E711</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"rows with missing score: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using <code>== None</code> to test for missing values. In Polars, any comparison
-involving null yields null rather than a boolean, so every row in the filtered
-result is null and the filter keeps nothing.</p>
-<p>Shows: null semantics in Polars and how to use <code>.is_null()</code> to
-correctly select rows where a value is missing.</p>
-<p>To find it: print <code>df["score"].is_null().sum()</code> to count actual nulls, then
-compare to <code>len(result)</code> after the filter. If the filter returns 0 rows but the
-null count is positive, the comparison <code>== None</code> is the problem — replace it with
-<code>.is_null()</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>, <span class="st">"Dave"</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="dv">88</span>, <span class="va">None</span>, <span class="dv">95</span>, <span class="va">None</span>],</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.<span class="bu">filter</span>(pl.col(<span class="st">"score"</span>) <span class="op">==</span> <span class="va">None</span>)  <span class="co"># noqa: E711</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"rows with missing score: </span><span class="sc">{</span><span class="bu">len</span>(result)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using <code>== None</code> to test for missing values. In Polars, any comparison involving null yields null rather than a boolean, so every row in the filtered result is null and the filter keeps nothing.</p>
+<p>Shows: null semantics in Polars and how to use <code>.is_null()</code> to correctly select rows where a value is missing.</p>
+<p>To find it: print <code>df["score"].is_null().sum()</code> to count actual nulls, then compare to <code>len(result)</code> after the filter. If the filter returns 0 rows but the null count is positive, the comparison <code>== None</code> is the problem — replace it with <code>.is_null()</code>.</p>
 </details>
-<h2 id="polars-castsilent">Convert float scores to integers</h2>
-<p>Run the script and compare the values in the <code>score</code> column to the expected rounded
-values printed below them. What happened to 88.7 and 95.6?</p>
-<div data-inc="castsilent.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/castsilent.py" class="inc-path" role="img" tabindex="0" title="polars/castsilent.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mf">88.7</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">95.6</span><span class="p">,</span> <span class="mf">61.9</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Int64</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"expected if rounded:"</span><span class="p">,</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">88.7</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">95.6</span><span class="p">,</span> <span class="mf">61.9</span><span class="p">]])</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that <code>cast(pl.Int64)</code> truncates toward zero rather than rounding, so
-88.7 becomes 88 and 95.6 becomes 95 instead of 89 and 96. No error is raised.</p>
-<p>Shows: that integer casting in Polars is a truncation operation, and
-how to use <code>.round(0).cast(pl.Int64)</code> when rounding behavior is
-intended.</p>
-<p>To find it: print <code>df.select(pl.col("score")</code>,
-<code>pl.col("score").round(0).cast(pl.Int64).alias("rounded")</code>,
-and <code>pl.col("score").cast(pl.Int64).alias("truncated"))</code>.
-For a value like 88.7, the <code>rounded</code> column shows 89 and the <code>truncated</code> column
-shows 88. The mismatch reveals that <code>.cast()</code> alone is discarding the fractional
-part rather than rounding.</p>
+<h2 data-number="17.4" id="convert-float-scores-to-integers"><span class="header-section-number">17.4</span> Convert float scores to integers</h2>
+<p>Run the script and compare the values in the <code>score</code> column to the expected rounded values printed below them. What happened to 88.7 and 95.6?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="fl">88.7</span>, <span class="fl">72.3</span>, <span class="fl">95.6</span>, <span class="fl">61.9</span>],</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.with_columns(pl.col(<span class="st">"score"</span>).cast(pl.Int64))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"expected if rounded:"</span>, [<span class="bu">round</span>(x) <span class="cf">for</span> x <span class="kw">in</span> [<span class="fl">88.7</span>, <span class="fl">72.3</span>, <span class="fl">95.6</span>, <span class="fl">61.9</span>]])</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that <code>cast(pl.Int64)</code> truncates toward zero rather than rounding, so 88.7 becomes 88 and 95.6 becomes 95 instead of 89 and 96. No error is raised.</p>
+<p>Shows: that integer casting in Polars is a truncation operation, and how to use <code>.round(0).cast(pl.Int64)</code> when rounding behavior is intended.</p>
+<p>To find it: print <code>df.select(pl.col("score")</code>, <code>pl.col("score").round(0).cast(pl.Int64).alias("rounded")</code>, and <code>pl.col("score").cast(pl.Int64).alias("truncated"))</code>. For a value like 88.7, the <code>rounded</code> column shows 89 and the <code>truncated</code> column shows 88. The mismatch reveals that <code>.cast()</code> alone is discarding the fractional part rather than rounding.</p>
 </details>
-<h2 id="polars-overwindow">Add a department average salary to each employee row</h2>
+<h2 data-number="17.5" id="add-a-department-average-salary-to-each-employee-row"><span class="header-section-number">17.5</span> Add a department average salary to each employee row</h2>
 <p>Run the script. How many rows does the output have? How many rows did you expect?</p>
-<div data-inc="overwindow.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/overwindow.py" class="inc-path" role="img" tabindex="0" title="polars/overwindow.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"Dave"</span><span class="p">,</span> <span class="s2">"Eve"</span><span class="p">],</span>
-    <span class="s2">"dept"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"eng"</span><span class="p">,</span> <span class="s2">"eng"</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">,</span> <span class="s2">"eng"</span><span class="p">],</span>
-    <span class="s2">"salary"</span><span class="p">:</span> <span class="p">[</span><span class="mi">90000</span><span class="p">,</span> <span class="mi">85000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">75000</span><span class="p">,</span> <span class="mi">92000</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"dept"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"salary"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"dept_mean"</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"input rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">, output rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using <code>group_by().agg()</code> when the goal is to add a per-row column showing
-each employee's department mean. <code>group_by().agg()</code> collapses the DataFrame to one row
-per group.</p>
-<p>Shows: the difference between aggregation (which reduces rows) and
-window functions (which compute a value per row), and how to use
-<code>.over()</code> inside <code>.with_columns()</code> to attach group statistics to every
-row.</p>
-<p>To find it: print <code>len(result)</code> and compare to <code>len(df)</code>. If the result has one
-row per department instead of one per employee, <code>group_by().agg()</code> collapsed the
-rows. Replace the <code>group_by().agg()</code> pipeline with
-<code>.with_columns(pl.col("salary").mean().over("department").alias("dept_avg"))</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>, <span class="st">"Dave"</span>, <span class="st">"Eve"</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dept"</span>: [<span class="st">"eng"</span>, <span class="st">"eng"</span>, <span class="st">"hr"</span>, <span class="st">"hr"</span>, <span class="st">"eng"</span>],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"salary"</span>: [<span class="dv">90000</span>, <span class="dv">85000</span>, <span class="dv">70000</span>, <span class="dv">75000</span>, <span class="dv">92000</span>],</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.group_by(<span class="st">"dept"</span>).agg(pl.col(<span class="st">"salary"</span>).mean().alias(<span class="st">"dept_mean"</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"input rows: </span><span class="sc">{</span><span class="bu">len</span>(df)<span class="sc">}</span><span class="ss">, output rows: </span><span class="sc">{</span><span class="bu">len</span>(result)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using <code>group_by().agg()</code> when the goal is to add a per-row column showing each employee’s department mean. <code>group_by().agg()</code> collapses the DataFrame to one row per group.</p>
+<p>Shows: the difference between aggregation (which reduces rows) and window functions (which compute a value per row), and how to use <code>.over()</code> inside <code>.with_columns()</code> to attach group statistics to every row.</p>
+<p>To find it: print <code>len(result)</code> and compare to <code>len(df)</code>. If the result has one row per department instead of one per employee, <code>group_by().agg()</code> collapsed the rows. Replace the <code>group_by().agg()</code> pipeline with <code>.with_columns(pl.col("salary").mean().over("department").alias("dept_avg"))</code>.</p>
 </details>
-<h2 id="polars-innerjoin">Join orders to customer records</h2>
-<p>Run the script and compare the number of input orders to the number of rows in the
-result. Which order is missing, and why?</p>
-<div data-inc="innerjoin.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/innerjoin.py" class="inc-path" role="img" tabindex="0" title="polars/innerjoin.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">orders</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"order_id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="s2">"customer_id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span>
-    <span class="s2">"amount"</span><span class="p">:</span> <span class="p">[</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">customers</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"customer_id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"customer_id"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"orders in input : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"rows after join : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using the default join, which is inner. Order 4 has a <code>customer_id</code> of 99
-that does not appear in the customers table, so it is silently dropped.</p>
-<p>Shows: the difference between inner and left joins, how to specify
-<code>how="left"</code> to retain all rows from the left table, and how to verify
-row counts before and after a join.</p>
-<p>To find it: print <code>len(orders)</code> before the join and <code>len(result)</code> after. If they
-differ, rows were dropped. To identify which, print
-<code>orders["customer_id"].is_in(customers["customer_id"]).value_counts()</code>. Any
-<code>False</code> entries name the customer IDs that have no match and will be lost in an
-inner join.</p>
+<h2 data-number="17.6" id="join-orders-to-customer-records"><span class="header-section-number">17.6</span> Join orders to customer records</h2>
+<p>Run the script and compare the number of input orders to the number of rows in the result. Which order is missing, and why?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"order_id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">99</span>],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"amount"</span>: [<span class="fl">50.0</span>, <span class="fl">75.0</span>, <span class="fl">30.0</span>, <span class="fl">20.0</span>],</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>],</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>],</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> orders.join(customers, on<span class="op">=</span><span class="st">"customer_id"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"orders in input : </span><span class="sc">{</span><span class="bu">len</span>(orders)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"rows after join : </span><span class="sc">{</span><span class="bu">len</span>(result)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using the default join, which is inner. Order 4 has a <code>customer_id</code> of 99 that does not appear in the customers table, so it is silently dropped.</p>
+<p>Shows: the difference between inner and left joins, how to specify <code>how="left"</code> to retain all rows from the left table, and how to verify row counts before and after a join.</p>
+<p>To find it: print <code>len(orders)</code> before the join and <code>len(result)</code> after. If they differ, rows were dropped. To identify which, print <code>orders["customer_id"].is_in(customers["customer_id"]).value_counts()</code>. Any <code>False</code> entries name the customer IDs that have no match and will be lost in an inner join.</p>
 </details>
-<h2 id="polars-aliasexpr">Add a total price column to an order table</h2>
-<p>Run the script and compare the column names and values to the original DataFrame.
-Which column was overwritten, and which column was supposed to be added?</p>
-<div data-inc="aliasexpr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/aliasexpr.py" class="inc-path" role="img" tabindex="0" title="polars/aliasexpr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"price"</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span>
-    <span class="s2">"qty"</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"price"</span><span class="p">)</span> <span class="o">*</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"qty"</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is omitting <code>.alias()</code> on the expression. Without an explicit name, Polars
-assigns the column the name of the left operand (<code>"price"</code>), which silently replaces
-the original <code>price</code> column with the product values instead of adding a new <code>total</code>
-column.</p>
-<p>Shows: how Polars names unnamed expressions and why <code>.alias()</code> is
-needed whenever the result should have a different name from its
-inputs.</p>
-<p>To find it: print <code>result.columns</code> and <code>result.head()</code>. If the <code>price</code> column now
-contains the product of <code>price * quantity</code> rather than unit prices, the expression
-was assigned back to <code>price</code> rather than creating a new column. Add
-<code>.alias("total")</code> to the expression inside <code>.with_columns()</code>.</p>
+<h2 data-number="17.7" id="add-a-total-price-column-to-an-order-table"><span class="header-section-number">17.7</span> Add a total price column to an order table</h2>
+<p>Run the script and compare the column names and values to the original DataFrame. Which column was overwritten, and which column was supposed to be added?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"price"</span>: [<span class="fl">10.0</span>, <span class="fl">20.0</span>, <span class="fl">30.0</span>],</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"qty"</span>: [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.with_columns(pl.col(<span class="st">"price"</span>) <span class="op">*</span> pl.col(<span class="st">"qty"</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is omitting <code>.alias()</code> on the expression. Without an explicit name, Polars assigns the column the name of the left operand (<code>"price"</code>), which silently replaces the original <code>price</code> column with the product values instead of adding a new <code>total</code> column.</p>
+<p>Shows: how Polars names unnamed expressions and why <code>.alias()</code> is needed whenever the result should have a different name from its inputs.</p>
+<p>To find it: print <code>result.columns</code> and <code>result.head()</code>. If the <code>price</code> column now contains the product of <code>price * quantity</code> rather than unit prices, the expression was assigned back to <code>price</code> rather than creating a new column. Add <code>.alias("total")</code> to the expression inside <code>.with_columns()</code>.</p>
 </details>
-<h2 id="polars-strptime">Parse dates from a CSV file</h2>
-<p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as
-April 3rd or March 4th? What date was intended?</p>
-<div data-inc="strptime.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/strptime.py" class="inc-path" role="img" tabindex="0" title="polars/strptime.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"event"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"conference"</span><span class="p">,</span> <span class="s2">"deadline"</span><span class="p">,</span> <span class="s2">"review"</span><span class="p">],</span>
-    <span class="s2">"date_str"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"03/04/2024"</span><span class="p">,</span> <span class="s2">"07/08/2024"</span><span class="p">,</span> <span class="s2">"11/12/2024"</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"date_str"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">to_date</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"%m/</span><span class="si">%d</span><span class="s2">/%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is a mismatch between the data order (day/month/year) and the format string
-(<code>%m/%d/%Y</code>, month/day/year). Because all day and month values are 12 or below,
-every date parses without error, but each one is wrong.</p>
-<p>Shows: how ambiguous numeric date formats cause silent data
-corruption, and why checking a few parsed values against known inputs
-is necessary to confirm the format string is correct.</p>
-<p>To find it: print the first few rows of the parsed <code>date</code> column alongside the
-original string values. Find a row where the day value is greater than 12 (for
-example, <code>"15/04/2024"</code>) and check whether the parsed month is 15 or the parsed
-day is 15. Only one interpretation is possible, and it immediately reveals whether
-<code>%d</code> and <code>%m</code> are swapped in the format string.</p>
+<h2 data-number="17.8" id="parse-dates-from-a-csv-file"><span class="header-section-number">17.8</span> Parse dates from a CSV file</h2>
+<p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as April 3rd or March 4th? What date was intended?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"event"</span>: [<span class="st">"conference"</span>, <span class="st">"deadline"</span>, <span class="st">"review"</span>],</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"date_str"</span>: [<span class="st">"03/04/2024"</span>, <span class="st">"07/08/2024"</span>, <span class="st">"11/12/2024"</span>],</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.with_columns(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"date_str"</span>).<span class="bu">str</span>.to_date(<span class="bu">format</span><span class="op">=</span><span class="st">"%m/</span><span class="sc">%d</span><span class="st">/%Y"</span>).alias(<span class="st">"date"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is a mismatch between the data order (day/month/year) and the format string (<code>%m/%d/%Y</code>, month/day/year). Because all day and month values are 12 or below, every date parses without error, but each one is wrong.</p>
+<p>Shows: how ambiguous numeric date formats cause silent data corruption, and why checking a few parsed values against known inputs is necessary to confirm the format string is correct.</p>
+<p>To find it: print the first few rows of the parsed <code>date</code> column alongside the original string values. Find a row where the day value is greater than 12 (for example, <code>"15/04/2024"</code>) and check whether the parsed month is 15 or the parsed day is 15. Only one interpretation is possible, and it immediately reveals whether <code>%d</code> and <code>%m</code> are swapped in the format string.</p>
 </details>
-<h2 id="polars-explodestring">Split a tags column into one row per tag</h2>
-<p>Run the script and read the error message. What type does Polars report for the
-<code>tags</code> column?</p>
-<div data-inc="explodestring.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/explodestring.py" class="inc-path" role="img" tabindex="0" title="polars/explodestring.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-    <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"python,data,science"</span><span class="p">,</span> <span class="s2">"web,api"</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">"tags"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is calling <code>.explode()</code> on a column that contains plain strings rather than
-lists. Polars raises an <code>InvalidOperationError</code> because <code>.explode()</code> requires a
-list-type column.</p>
-<p>Shows: how to convert a delimited string column into a list column
-with <code>.str.split()</code> before calling <code>.explode()</code>, and how to check
-column types with <code>.schema</code> before applying list operations.</p>
-<p>To find it: print <code>df.schema</code> and check the type of the <code>tags</code> column. Seeing
-<code>String</code> instead of <code>List[String]</code> explains the <code>InvalidOperationError</code>:
-<code>.explode()</code> requires a list-type column. Add
-<code>.with_columns(pl.col("tags").str.split(", "))</code> before the <code>.explode()</code> call.</p>
+<h2 data-number="17.9" id="split-a-tags-column-into-one-row-per-tag"><span class="header-section-number">17.9</span> Split a tags column into one row per tag</h2>
+<p>Run the script and read the error message. What type does Polars report for the <code>tags</code> column?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tags"</span>: [<span class="st">"python,data,science"</span>, <span class="st">"web,api"</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.explode(<span class="st">"tags"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is calling <code>.explode()</code> on a column that contains plain strings rather than lists. Polars raises an <code>InvalidOperationError</code> because <code>.explode()</code> requires a list-type column.</p>
+<p>Shows: how to convert a delimited string column into a list column with <code>.str.split()</code> before calling <code>.explode()</code>, and how to check column types with <code>.schema</code> before applying list operations.</p>
+<p>To find it: print <code>df.schema</code> and check the type of the <code>tags</code> column. Seeing <code>String</code> instead of <code>List[String]</code> explains the <code>InvalidOperationError</code>: <code>.explode()</code> requires a list-type column. Add <code>.with_columns(pl.col("tags").str.split(", "))</code> before the <code>.explode()</code> call.</p>
 </details>
-<h2 id="polars-withcolumnsdep">Compute a discounted price and order total in one step</h2>
-<p>Run the script and read the error message. Which column is reported as not found?
-Is that column present in the original DataFrame?</p>
-<div data-inc="withcolumnsdep.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/withcolumnsdep.py" class="inc-path" role="img" tabindex="0" title="polars/withcolumnsdep.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"price"</span><span class="p">:</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">],</span>
-    <span class="s2">"tax_rate"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">([</span>
-    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"price"</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"discounted_price"</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"discounted_price"</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"tax_rate"</span><span class="p">)))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"total"</span><span class="p">),</span>
-<span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is referencing <code>discounted_price</code> in the same <code>.with_columns()</code> call where
-it is first computed. All expressions in a single <code>.with_columns()</code> call are
-evaluated against the original DataFrame, so <code>discounted_price</code> does not yet exist
-when <code>total</code> is computed, and Polars raises a <code>ColumnNotFoundError</code>.</p>
-<p>Shows: how Polars evaluates expressions in parallel within one call
-and how to chain two separate <code>.with_columns()</code> calls when one result
-depends on another.</p>
-<p>To find it: read the <code>ColumnNotFoundError</code>, which names <code>discounted_price</code> as
-missing. Search the code for where <code>discounted_price</code> is created and where it is
-referenced. If both appear in the same <code>.with_columns()</code> call, split them: put
-the expression that creates <code>discounted_price</code> in one <code>.with_columns()</code> call and
-the expression that uses it in a second chained call.</p>
+<h2 data-number="17.10" id="compute-a-discounted-price-and-order-total-in-one-step"><span class="header-section-number">17.10</span> Compute a discounted price and order total in one step</h2>
+<p>Run the script and read the error message. Which column is reported as not found? Is that column present in the original DataFrame?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"price"</span>: [<span class="fl">100.0</span>, <span class="fl">200.0</span>, <span class="fl">300.0</span>],</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tax_rate"</span>: [<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>],</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.with_columns([</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    (pl.col(<span class="st">"price"</span>) <span class="op">*</span> <span class="fl">0.9</span>).alias(<span class="st">"discounted_price"</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    (pl.col(<span class="st">"discounted_price"</span>) <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> pl.col(<span class="st">"tax_rate"</span>))).alias(<span class="st">"total"</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is referencing <code>discounted_price</code> in the same <code>.with_columns()</code> call where it is first computed. All expressions in a single <code>.with_columns()</code> call are evaluated against the original DataFrame, so <code>discounted_price</code> does not yet exist when <code>total</code> is computed, and Polars raises a <code>ColumnNotFoundError</code>.</p>
+<p>Shows: how Polars evaluates expressions in parallel within one call and how to chain two separate <code>.with_columns()</code> calls when one result depends on another.</p>
+<p>To find it: read the <code>ColumnNotFoundError</code>, which names <code>discounted_price</code> as missing. Search the code for where <code>discounted_price</code> is created and where it is referenced. If both appear in the same <code>.with_columns()</code> call, split them: put the expression that creates <code>discounted_price</code> in one <code>.with_columns()</code> call and the expression that uses it in a second chained call.</p>
 </details>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../dataviz/">Data Visualization</a>
-</div>
-<div class="col-6 center">
-<a href="../">Unbreak</a>
-	  ©
-	  <a href="../contributing/#contributors">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../shell/">The Unix Shell</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+
+
+</body></html>

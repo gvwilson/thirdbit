@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Abrupt Closure</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Abrupt Closure</h1>
+</section>
+
+<section id="the-scenario" class="slide level2">
+<h2>The Scenario</h2>
+<ul>
+<li>Worst case
+<ul>
+<li>The project does not continue</li>
+<li>You get one shot to close it down</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-people-actually-do" class="slide level2">
+<h2>What People Actually Do</h2>
+<ul>
+<li>Under pressure, experts do not compare options
+<ul>
+<li>They recognize a familiar situation and act on the first workable
+course</li>
+<li>Recognition-primed decision making</li>
+</ul></li>
+<li>Experience from other domains can be misleading
+<ul>
+<li>But also more useful than people realize</li>
+<li>Ask “has anyone seen something like this before?”</li>
+</ul></li>
+<li>Attention narrows under acute stress
+<ul>
+<li>Harder to hold multiple competing priorities in mind</li>
+<li>Teams focus on the most visible problem and forget whole
+categories</li>
+<li>A predictable feature of how the brain responds to pressure</li>
+</ul></li>
+</ul>
+</section>
+<section id="convergence-as-a-resource" class="slide level2">
+<h2>Convergence as a Resource</h2>
+<ul>
+<li>Four types of groups form in emergencies
+<ul>
+<li>Established organizations that stick to their routines</li>
+<li>Organizations that extend their routines to the new situation</li>
+<li>Ad hoc groups modeled on established organizations</li>
+<li>Emergent groups with no prior or subsequent existence</li>
+</ul></li>
+<li>People converge on a crisis without being told
+<ul>
+<li>They step forward because the project mattered</li>
+<li>They help if given minimum viable information</li>
+<li>In software, this means unofficial mirrors and community
+threads</li>
+</ul></li>
+<li>Support this if you can without endangering yourself</li>
+</ul>
+</section>
+<section id="a-loose-interpretation-of-the-rules" class="slide level2">
+<h2>A Loose Interpretation of the Rules</h2>
+<ul>
+<li>Frontline workers routinely depart from formal rules
+<ul>
+<li>When applying them mechanically would produce worse outcomes</li>
+<li>Street-level bureaucracy: real policy is made in the moment</li>
+</ul></li>
+<li>Waiting for approval that cannot be obtained is itself a decision
+<ul>
+<li>Usually a worse one</li>
+</ul></li>
+<li>When procedures do not apply, the people present should act within
+their discretion
+<ul>
+<li>Copying data, setting up a forwarding address, sending a brief
+notice</li>
+</ul></li>
+<li>Members of marginalized groups often have more practice with hostile
+bureaucracies
+<ul>
+<li>Their tactics can be instructive</li>
+</ul></li>
+</ul>
+</section>
+<section id="pause-first" class="slide level2">
+<h2>Pause First</h2>
+<ul>
+<li>Surgical failures were usually failures to perform known steps, not
+failures of skill
+<ul>
+<li>A checklist, not more training, was the fix</li>
+<li>The same principle applies to abrupt closure</li>
+</ul></li>
+<li>First, establish how much time you have and what constraints are
+non-negotiable
+<ul>
+<li>Keeping shutdown secret backfires</li>
+<li>Rumors and information vacuums are more destructive than bad
+news</li>
+</ul></li>
+<li>Second, write down every category of thing to address before
+resolving any
+<ul>
+<li>Access, backups, notifications, communication, legal
+obligations</li>
+<li>The list does not need to be complete or ordered</li>
+<li>It just needs to exist to prevent tunnel vision</li>
+</ul></li>
+<li>Third, triage ruthlessly with MoSCoW
+<ul>
+<li>Must do: obligations with legal or financial risk</li>
+<li>Should do: the minimum viable record of the work</li>
+<li>Could do: a way for the community to find each other</li>
+<li>Won’t do: everything else, including “do it properly”</li>
+</ul></li>
+</ul>
+</section>
+<section id="then-speak" class="slide level2">
+<h2>Then Speak</h2>
+<ul>
+<li>Three communication errors increase reputational damage
+<ul>
+<li>Silence: stakeholders fill the vacuum with rumor</li>
+<li>Denial: asserting the crisis is not serious</li>
+<li>Diminishment: acknowledging it but minimizing severity</li>
+</ul></li>
+<li>Rapid, honest, minimal communication is best
+<ul>
+<li>Even when you do not yet know what you will do</li>
+<li>One paragraph: what we know, what we do not know, when we expect
+more</li>
+<li>Not a plan, but it prevents the harms of silence</li>
+</ul></li>
+</ul>
+</section>
+<section id="then-act" class="slide level2">
+<h2>Then Act</h2>
+<ul>
+<li>You probably cannot clean up code, data, or publications
+<ul>
+<li>A README and a runnable script are a viable minimum</li>
+</ul></li>
+<li>Notify funders and stakeholders with binding claims before going
+dark</li>
+<li>Provide a forwarding address
+<ul>
+<li>A working email beats silence</li>
+</ul></li>
+<li>Do not promise maintenance you cannot deliver</li>
+<li>The first conversations are not about logistics
+<ul>
+<li>The next section covers the human side</li>
+</ul></li>
+</ul>
+</section>
+<section id="when-you-are-the-one-being-hit" class="slide level2">
+<h2>When You Are the One Being Hit</h2>
+<ul>
+<li>Most participants are not the ones making the decision</li>
+<li>If your own work is about to disappear, do the minimum viable
+handover
+<ul>
+<li>Push a copy somewhere public</li>
+<li>Export issues and notes</li>
+<li>Hand credentials to a trusted person if it is safe</li>
+</ul></li>
+<li>Pause before speaking or posting publicly
+<ul>
+<li>Have someone you trust review it first</li>
+</ul></li>
+<li>Broader advice lives in an appendix</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

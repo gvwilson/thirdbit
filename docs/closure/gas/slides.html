@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Governance, Assets, and State</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Governance, Assets, and State</h1>
+</section>
+
+<section id="foundations" class="slide level2">
+<h2>Foundations</h2>
+<ul>
+<li>Every scenario relies on the same foundations
+<ul>
+<li>Clear decision-making rules</li>
+<li>An accurate inventory of assets</li>
+</ul></li>
+<li>Put these in place while the project is healthy
+<ul>
+<li>Decisions under stress are harder and more error-prone</li>
+</ul></li>
+<li>Examples use software-intensive projects
+<ul>
+<li>Additions for other kinds of projects are welcome</li>
+</ul></li>
+</ul>
+</section>
+<section id="governance" class="slide level2">
+<h2>Governance</h2>
+<ul>
+<li>Every team needs explicit decision-making rules
+<ul>
+<li>A benevolent dictator for life (BDFL or principal investigator)</li>
+<li>Or Martha’s Rules</li>
+</ul></li>
+<li>Rules must include suffrage
+<ul>
+<li>Who can veto, not just who is consulted</li>
+</ul></li>
+<li>Few projects have a GOVERNANCE.md file
+<ul>
+<li>Fewer still include shutdown criteria</li>
+</ul></li>
+<li>The Apache Software Foundation attic process is a documented model
+<ul>
+<li>At least three active respondents for a viable project</li>
+<li>If they cannot release, shutdown begins</li>
+</ul></li>
+</ul>
+</section>
+<section id="advance-directives" class="slide level2">
+<h2>Advance Directives</h2>
+<ul>
+<li>In medicine, an advance directive specifies wanted care if a patient
+cannot speak</li>
+<li>Write one for the project while it is healthy
+<ul>
+<li>Conditions for shutdown</li>
+<li>Who has authority to make the call</li>
+<li>What assets must be preserved</li>
+<li>What obligations must be honored</li>
+</ul></li>
+<li>A plan that has never been tested is a fantasy document
+<ul>
+<li>Plans often reassure regulators but bear no relation to reality</li>
+<li>Ideally, walk through the plan periodically</li>
+<li>Check that each step is executable with the people available</li>
+</ul></li>
+</ul>
+</section>
+<section id="coupling-and-cascading-failure" class="slide level2">
+<h2>Coupling and Cascading Failure</h2>
+<ul>
+<li>Organizations often blame individuals to deflect systemic
+accountability
+<ul>
+<li>“The driver was not paying attention” instead of “the dashboard was
+too complicated”</li>
+</ul></li>
+<li>Project infrastructure is often tightly coupled
+<ul>
+<li>Only visible during shutdown</li>
+<li>Failures are predictable outcomes of the design</li>
+</ul></li>
+<li>One account that pays for ten services is a risk
+<ul>
+<li>A single personal login controlling a domain can cascade into total
+loss of access</li>
+</ul></li>
+<li>Treat any single point of control that cannot survive 48 hours as a
+bug</li>
+</ul>
+</section>
+<section id="assets" class="slide level2">
+<h2>Assets</h2>
+<ul>
+<li>Knowing what you have is the first step to preserving it
+<ul>
+<li>Code, data, discussion archives, credentials, domain, metadata,
+dependencies</li>
+</ul></li>
+<li>Preservation means making work usable by someone who did not create
+it</li>
+<li>Capture the why, not just the what
+<ul>
+<li>A README on the problem solved outlasts API docs</li>
+</ul></li>
+<li>For each asset type, ask two questions
+<ul>
+<li>How would someone find and use this if we disappeared?</li>
+<li>Under time pressure, what do we do first?</li>
+</ul></li>
+<li>Treat every handover as an asset transfer, not an entity transfer
+<ul>
+<li>An asset transfer moves selected assets and obligations</li>
+<li>An entity transfer moves the whole legal entity including unknown
+liabilities</li>
+<li>Being explicit protects both sides</li>
+</ul></li>
+</ul>
+</section>
+<section id="specifics" class="slide level2">
+<h2>Specifics</h2>
+<ul>
+<li>Code
+<ul>
+<li>Archive to a persistent location such as Zenodo or Software
+Heritage</li>
+<li>Assign a DOI to the final release</li>
+<li>Under pressure, prioritize data over code</li>
+</ul></li>
+<li>Data
+<ul>
+<li>Record provenance, format, units, and known limitations</li>
+<li>Follow FAIR principles where possible</li>
+<li>Under pressure, copy the data out first</li>
+</ul></li>
+<li>Discussion archives
+<ul>
+<li>Often more valuable than formal documentation</li>
+<li>Export before paid services lapse</li>
+<li>One public copy beats zero private ones</li>
+</ul></li>
+<li>Credentials and access
+<ul>
+<li>Hand to a trusted person outside the project before access is
+cut</li>
+<li>Do this first in an emergency</li>
+</ul></li>
+<li>Domain and web presence
+<ul>
+<li>Domains lapse and get squatted</li>
+<li>Migrate content before letting the domain go</li>
+</ul></li>
+<li>Metadata and identifiers
+<ul>
+<li>Mark deprecated versions in package registries</li>
+<li>Point to alternatives with a migration guide</li>
+<li>Write a short finder’s note at the root of the archive</li>
+</ul></li>
+<li>Dependencies
+<ul>
+<li>Record exact versions</li>
+<li>Provide a container image if possible</li>
+</ul></li>
+</ul>
+</section>
+<section id="permissions" class="slide level2">
+<h2>Permissions</h2>
+<ul>
+<li>The lottery factor (also called the bus factor)
+<ul>
+<li>What stops if someone wins the lottery and leaves with zero
+notice?</li>
+</ul></li>
+<li>Use dedicated organizational accounts, not personal ones
+<ul>
+<li>Keep a personal account as a backup</li>
+</ul></li>
+<li>Keep a findable list of privileged actions and the accounts that can
+perform them</li>
+<li>Use a password manager for organizational credentials</li>
+<li>Disaster recovery covers the operational side
+<ul>
+<li>The point here is to build the habit before you need it</li>
+</ul></li>
+</ul>
+</section>
+<section id="legal-and-administrative" class="slide level2">
+<h2>Legal and Administrative</h2>
+<ul>
+<li>The most commonly skipped and the most likely to cause problems</li>
+<li>Keep a record of decisions made during shutdown
+<ul>
+<li>What was transferred, to whom, and when</li>
+<li>Use email rather than chat for a record</li>
+</ul></li>
+<li>Determine who legally owns the outputs
+<ul>
+<li>IP policies differ between institutions</li>
+<li>Check, do not assume</li>
+</ul></li>
+<li>Institutions, journals, and funders have licensing policies
+<ul>
+<li>Ask someone if you do not know</li>
+<li>Look for an Open Source Program Office or IP office</li>
+</ul></li>
+<li>Open source licenses are irrevocable
+<ul>
+<li>Closing repositories still matters to the community</li>
+</ul></li>
+<li>Confidential data has legal obligations for retention and
+deletion</li>
+<li>Trademarks, domains, and social media handles have legal owners
+<ul>
+<li>Transfer or release them explicitly</li>
+</ul></li>
+<li>Financial accounts require formal closure
+<ul>
+<li>Residual funds may need to be donated or returned</li>
+</ul></li>
+<li>Grant reporting obligations survive shutdown</li>
+<li>Build exit clauses into contracts from the start</li>
+</ul>
+</section>
+<section id="normalized-deviations" class="slide level2">
+<h2>Normalized Deviations</h2>
+<ul>
+<li>The Challenger disaster came from a long sequence of small decisions
+<ul>
+<li>Warning signals were noticed and filed away</li>
+<li>Deviation became the norm</li>
+</ul></li>
+<li>Teams approaching closure carry the same backlog</li>
+<li>Deliberate closure should audit normalized deviations
+<ul>
+<li>Things the team accepted because fixing them felt too costly</li>
+</ul></li>
+<li>A shutdown retrospective is most valuable when it names what the
+team learned to live with</li>
+<li>Document these to record the actual state
+<ul>
+<li>Avoid passing silent assumptions to successors</li>
+</ul></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

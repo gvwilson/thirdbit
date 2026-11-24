@@ -31,9 +31,8 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../mccole/slides.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -136,33 +135,8 @@ LLM-prepared candidates often do well on expected questions and poorly
 on follow-ups
 </li>
 </ul>
-</section>
-<section id="the-hiring-brief-10-min" class="slide level2 exercise">
-<h2 class="exercise">The Hiring Brief (10 min)</h2>
-<p>Write the job description for the next hire on your team, thene check
-it against these questions:</p>
-<ul>
-<li>Does it describe the actual work, or the ideal candidate?</li>
-<li>Does it include a salary range?</li>
-<li>Does it describe how candidates will be evaluated?</li>
-</ul>
-<p>Use an LLM to critique what you wrote:</p>
-<blockquote>
-<p>I’m hiring a research software engineer for a small academic project.
-Here is my draft job description. Identify any language that might
-discourage qualified candidates from applying or that signals poor
-hiring practices.</p>
-</blockquote>
-</section>
-<section id="transition-plan-8-min" class="slide level2 exercise">
-<h2 class="exercise">Transition Plan (8 min)</h2>
-<p>Write a transition plan for the most critical role on your current
-team. The plan should include:</p>
-<ul>
-<li>What knowledge or access only they currently hold</li>
-<li>The steps needed to transfer or document that knowledge</li>
-<li>The immediate actions required on their last day</li>
-</ul>
+<pre class="include"><code>_hiring_brief.qmd
+_transition_plan.qmd</code></pre>
 </section>
     </div>
   </div>
@@ -173,6 +147,7 @@ team. The plan should include:</p>
   <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
   <script>
 
@@ -319,8 +294,26 @@ team. The plan should include:</p>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

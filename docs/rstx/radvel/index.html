@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Exoplanet Detection via Radial Velocity</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">28.1</span> The Problem</a></li>
+<li><a href="#the-radial-velocity-signal" id="toc-the-radial-velocity-signal"><span class="header-section-number">28.2</span> The Radial Velocity Signal</a></li>
+<li><a href="#generating-synthetic-observations" id="toc-generating-synthetic-observations"><span class="header-section-number">28.3</span> Generating Synthetic Observations</a></li>
+<li><a href="#fitting-the-model" id="toc-fitting-the-model"><span class="header-section-number">28.4</span> Fitting the Model</a></li>
+<li><a href="#when-the-fit-is-meaningless-pure-noise" id="toc-when-the-fit-is-meaningless-pure-noise"><span class="header-section-number">28.5</span> When the Fit Is Meaningless: Pure Noise</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">28.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">28.7</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Exoplanet Detection via Radial Velocity</h1>
+<h2 data-number="28.1" id="the-problem"><span class="header-section-number">28.1</span> The Problem</h2>
+<ul>
+<li>A planet orbiting a star pulls the star gravitationally, causing it to wobble around the system’s centre of mass</li>
+<li>This wobble produces a periodic Doppler shift in the star’s spectral lines that can be measured as a <a href="../glossary/index.html#radial_velocity">radial-velocity</a> (RV) variation</li>
+<li>Fitting a sinusoidal model to the RV time series recovers the planet’s orbital period and a lower bound on its mass</li>
+<li>The RV method discovered the first confirmed exoplanet around a Sun-like star (51 Pegasi b, in 1995) and remains one of the most productive detection techniques</li>
+</ul>
+<h2 data-number="28.2" id="the-radial-velocity-signal"><span class="header-section-number">28.2</span> The Radial Velocity Signal</h2>
+<ul>
+<li>The velocity of the star along the line of sight varies as:</li>
+</ul>
+<p><span class="math display">\[v(t) = K \sin\!\left(\frac{2\pi t}{P} + \phi\right) + v_\text{sys}\]</span></p>
+<ul>
+<li><span class="math inline">\(K\)</span> is the <a href="../glossary/index.html#semi_amplitude">semi-amplitude</a> (m/s), <span class="math inline">\(P\)</span> the orbital period (days), <span class="math inline">\(\phi\)</span> the phase, and <span class="math inline">\(v_\text{sys}\)</span> the systemic (centre-of-mass) velocity</li>
+<li>For a circular orbit the semi-amplitude is related to the planet mass by:</li>
+</ul>
+<p><span class="math display">\[K = \left(\frac{2\pi G}{P}\right)^{1/3} \frac{M_p \sin i}{(M_\star + M_p)^{2/3}}\]</span></p>
+<ul>
+<li>Because only <span class="math inline">\(M_p \sin i\)</span> appears in the formula, the RV method gives a minimum planet mass; the true mass requires an independent inclination measurement.</li>
+</ul>
+<h2 data-number="28.3" id="generating-synthetic-observations"><span class="header-section-number">28.3</span> Generating Synthetic Observations</h2>
+<ul>
+<li>Observation times are drawn uniformly at random across the time baseline to simulate a realistic (unevenly spaced) survey schedule</li>
+</ul>
+<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<h2 data-number="28.4" id="fitting-the-model"><span class="header-section-number">28.4</span> Fitting the Model</h2>
+<ul>
+<li><code>scipy.optimize.curve_fit</code> minimises the sum of squared residuals between the data and <code>model_rv</code>, returning the best-fit parameters and their <a href="../glossary/index.html#covariance_matrix">covariance matrix</a></li>
+<li>The one-sigma uncertainties are the square roots of the diagonal entries of the covariance matrix</li>
+<li>Initial guesses are derived from the data without assuming knowledge of the true parameters
+<ul>
+<li>The amplitude guess uses the fact that the standard deviation of a sinusoid equals <span class="math inline">\(K / \sqrt{2}\)</span></li>
+<li>The period guess assumes roughly three cycles are visible in the baseline</li>
+</ul></li>
+</ul>
+<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<div class="forma-matching" data-lang="en" data-markdown="1">
+<p>Match each initial-guess formula to the property of a sinusoid it exploits.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Formula</th>
+<th>Sinusoid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>amp_guess</code> = std(rv) <span class="math inline">\(\times \sqrt{2}\)</span></td>
+<td>The time-average of a zero-mean sinusoid is zero</td>
+</tr>
+<tr class="even">
+<td><code>period_guess</code> = <span class="math inline">\((t_\text{max} - t_\text{min}) / 3\)</span></td>
+<td>The std dev of a sinusoid with amplitude K is <span class="math inline">\(K / \sqrt{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>v_sys_guess</code> = mean(rv)</td>
+<td>About three complete cycles are visible in the time baseline</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="fig-radvel-signal" class="quarto-float quarto-figure quarto-figure-center" alt="Radial velocity data (blue points), best-fit sinusoid (red line), and true underlying signal (grey dashed line).">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-radvel-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radvel.svg" alt="Radial velocity data (blue points), best-fit sinusoid (red line), and true underlying signal (grey dashed line).">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radvel-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;28.1: Fifty synthetic observations (noise 10 m/s) with the best-fit sinusoid overlaid. Fitted: K = 51.3 ± 1.7 m/s, P = 10.12 ± 0.05 days. True values: K = 50 m/s, P = 10 days.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="28.5" id="when-the-fit-is-meaningless-pure-noise"><span class="header-section-number">28.5</span> When the Fit Is Meaningless: Pure Noise</h2>
+<ul>
+<li>If there is no planet, the RV measurements contain only noise</li>
+<li>Fitting a sinusoid to pure noise always returns some amplitude and period: the fit cannot report “no signal found”</li>
+<li>The covariance matrix reveals whether the result is meaningful
+<ul>
+<li>If the uncertainty on the fitted amplitude is comparable to or larger than the amplitude itself, the detection is not statistically significant</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>The pure-noise fit returns K = 2.4 m/s with uncertainty <span class="math inline">\(\sigma_K = 2.2\)</span> m/s, so <span class="math inline">\(\sigma_K / K = 0.92\)</span>. What does this mean?</p>
+<dl>
+<dt>The planet has a very small semi-amplitude and is marginally detectable</dt>
+<dd>
+Wrong: <span class="math inline">\(\sigma_K / K = 0.92\)</span> means the uncertainty is nearly as large as the value itself — the signal is consistent with zero, not merely small.
+</dd>
+<dt>The fit converged to a local minimum far from the true parameters</dt>
+<dd>
+Wrong: convergence quality is a separate issue; <span class="math inline">\(\sigma_K / K\)</span> measures statistical significance of the result, not convergence.
+</dd>
+<dt>The fitted amplitude is indistinguishable from zero — no planet is detected</dt>
+<dd>
+Correct: a fractional uncertainty above 0.5 means the fitted amplitude is less than <span class="math inline">\(2\sigma\)</span> from zero, so the detection is not statistically significant.
+</dd>
+<dt>The noise level is 92% of the signal, so the planet is weakly detected</dt>
+<dd>
+Wrong: <span class="math inline">\(\sigma_K / K\)</span> compares the uncertainty to the fitted value, not the noise to the true signal amplitude.
+</dd>
+</dl>
+</div>
+<div id="fig-radvel-noise" class="quarto-float quarto-figure quarto-figure-center" alt="Pure-noise radial velocity data with a meaningless best-fit sinusoid overlaid.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-radvel-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radvel_noise.svg" alt="Pure-noise radial velocity data with a meaningless best-fit sinusoid overlaid.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radvel-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;28.2: Fitting a sinusoid to pure noise (no planet signal). Fitted: K = 2.4 ± 2.2 m/s, fractional uncertainty 0.92. A fractional uncertainty above 0.5 indicates a non-detection.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>The fractional amplitude uncertainty <span class="math inline">\(\sigma_K / K\)</span> is a quick significance diagnostic:
+<ul>
+<li><span class="math inline">\(\sigma_K / K &lt; 0.1\)</span>: strong detection</li>
+<li><span class="math inline">\(\sigma_K / K &gt; 0.5\)</span>: non-detection</li>
+</ul></li>
+</ul>
+<h2 data-number="28.6" id="testing"><span class="header-section-number">28.6</span> Testing</h2>
+<dl>
+<dt>Model values</dt>
+<dd>
+At <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(\phi = 0\)</span> the model reduces to <span class="math inline">\(v_\text{sys}\)</span>. At <span class="math inline">\(t = P/4\)</span> it reaches <span class="math inline">\(K + v_\text{sys}\)</span>. Checking known exact values guards against sign errors in the sine argument.
+</dd>
+<dt>Periodicity</dt>
+<dd>
+Adding one full period to <span class="math inline">\(t\)</span> must return the same velocity. This is a pure algebraic property of the model and requires no tolerance.
+</dd>
+<dt>Noise-free recovery</dt>
+<dd>
+With no measurement noise, the fit must recover both amplitude and period to machine precision. Any failure points to a bug in the fitting setup (wrong parameter order, wrong initial guess structure, or flipped bounds) rather than a noise effect.
+</dd>
+<dt>Noisy recovery of period</dt>
+<dd>
+With noise-to-amplitude ratio 0.20 and 50 points, the <a href="../glossary/index.html#cramer_rao_bound">Cramér-Rao bound</a> on the period uncertainty is roughly 0.2 days. The 5% tolerance (0.5 days) gives a safety factor of 2.5X compared to the measured error of ~0.12 days.
+</dd>
+<dt>Noisy recovery of amplitude</dt>
+<dd>
+The measured fractional amplitude error with <code>seed=42</code> is ~2.5%. The 15% tolerance gives a safety factor of ~6X, which is wide enough to accommodate other random seeds.
+</dd>
+<dt>Pure-noise uncertainty</dt>
+<dd>
+A fractional amplitude uncertainty above 0.5 means the fitted amplitude is not distinguishable from zero at the 2-sigma level. This must always hold for pure noise data. A failure would indicate the fit was accidentally converging to a spurious periodic signal in the noise.
+</dd>
+</dl>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_rv <span class="im">import</span> make_rv_data, make_pure_noise_rv, PERIOD, AMPLITUDE</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> radvel <span class="im">import</span> model_rv, fit_sinusoid</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_model_known_values():</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At t=0 with phase=0, the model reduces to v_sys; at t=P/4 to amplitude + v_sys.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> model_rv(np.array([<span class="fl">0.0</span>]), <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>)[<span class="dv">0</span>] <span class="op">==</span> pytest.approx(<span class="fl">5.0</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> model_rv(np.array([<span class="fl">2.5</span>]), <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>)[<span class="dv">0</span>] <span class="op">==</span> pytest.approx(<span class="fl">50.0</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_model_periodicity():</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adding one full period to t must return the same value.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.array([<span class="fl">3.7</span>])</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    v1 <span class="op">=</span> model_rv(t, <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    v2 <span class="op">=</span> model_rv(t <span class="op">+</span> <span class="fl">10.0</span>, <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(v1, v2)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_noise_free_period():</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise, the fitted period must match the true period to machine precision.</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data(noise_scale<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">1</span>] <span class="op">-</span> PERIOD) <span class="op">&lt;</span> <span class="fl">1e-6</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_noise_free_amplitude():</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise, the fitted amplitude must match the true amplitude to machine precision.</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data(noise_scale<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">0</span>] <span class="op">-</span> AMPLITUDE) <span class="op">&lt;</span> <span class="fl">1e-6</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_recovers_period_with_noise():</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With realistic noise (NOISE_SCALE / AMPLITUDE = 0.20) the fitted period must</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fall within 5% of the true value.</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The Cramér-Rao bound for period uncertainty with 50 points and SNR=5 is</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># roughly 0.2 days; 5% of PERIOD = 0.5 days is a 2.5× safety factor.</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data()</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">1</span>] <span class="op">-</span> PERIOD) <span class="op">/</span> PERIOD <span class="op">&lt;</span> <span class="fl">0.05</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_recovers_amplitude_with_noise():</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The fitted amplitude must fall within 15% of the true value.</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Measured fractional error is ~4%; 15% gives a safety factor of ~3.5.</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data()</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">0</span>] <span class="op">-</span> AMPLITUDE) <span class="op">/</span> AMPLITUDE <span class="op">&lt;</span> <span class="fl">0.15</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_large_uncertainty():</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fitting a sinusoid to pure noise must yield a fractional amplitude uncertainty</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># greater than 0.5 — the fitted amplitude is not statistically significant.</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_pure_noise_rv()</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    popt, perr <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    amplitude, amp_err <span class="op">=</span> popt[<span class="dv">0</span>], perr[<span class="dv">0</span>]</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> amp_err <span class="op">/</span> amplitude <span class="op">&gt;</span> <span class="fl">0.5</span>, (</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Expected fractional uncertainty &gt; 0.5 for noise-only data; "</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"got </span><span class="sc">{</span>amp_err <span class="op">/</span> amplitude<span class="sc">:.2f}</span><span class="ss">"</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="forma-flashcard" data-lang="en" data-markdown="1">
+<p>Radial velocity key terms</p>
+<dl>
+<dt>Semi-amplitude K</dt>
+<dd>
+The maximum radial velocity of the star due to gravitational pull from the planet (m/s) Systemic velocity <span class="math inline">\(v_\text{sys}\)</span>
+</dd>
+<dd>
+The centre-of-mass velocity of the star-planet system along the line of sight; a constant offset in the RV signal Minimum planet mass <span class="math inline">\(M_p \sin i\)</span>
+</dd>
+<dd>
+The RV method cannot determine orbital inclination i, so it gives only a lower bound on the true planet mass Fractional amplitude uncertainty <span class="math inline">\(\sigma_K / K\)</span>
+</dd>
+<dd>
+Values above 0.5 indicate a non-detection: the fitted amplitude is consistent with zero at the 2-sigma level <a href="../glossary/index.html#lomb_scargle">Lomb-Scargle periodogram</a>
+</dd>
+<dd>
+A method for finding periodic signals in unevenly sampled time series without requiring an initial period guess
+</dd>
+</dl>
+</div>
+<section class="exercises">
+<h2 data-number="28.7" id="exercises"><span class="header-section-number">28.7</span> Exercises</h2>
+<h3 data-number="28.7.1" id="do-the-math"><span class="header-section-number">28.7.1</span> Do the math</h3>
+<p>Using <span class="math inline">\(v(t) = K \sin(2\pi t / P + \varphi) + v_\text{sys}\)</span> with <span class="math inline">\(K = 50\)</span> m/s, <span class="math inline">\(P = 10\)</span> days, <span class="math inline">\(\varphi = 0\)</span>, <span class="math inline">\(v_\text{sys} = 0\)</span>, what is <span class="math inline">\(v(2.5)\)</span>? Give your answer in m/s.</p>
+<h3 data-number="28.7.2" id="lomb-scargle-periodogram"><span class="header-section-number">28.7.2</span> Lomb-Scargle periodogram</h3>
+<p><code>scipy.optimize.curve_fit</code> requires a period initial guess; a poor guess may converge to a wrong local minimum. The Lomb-Scargle periodogram finds periodic signals in unevenly sampled data without an initial guess. Use <code>scipy.signal.lombscargle</code> to compute the power spectrum of the synthetic RV data, identify the peak frequency, and use it as the initial period estimate for <code>curve_fit</code>. Show that this two-step approach still recovers the correct period when the single-step approach fails (try a very different initial guess to trigger failure).</p>
+<h3 data-number="28.7.3" id="eccentric-orbit"><span class="header-section-number">28.7.3</span> Eccentric orbit</h3>
+<p>A circular orbit produces a pure sinusoid, but most real exoplanets have eccentric orbits. Replace the model with:</p>
+<p><span class="math display">\[v(t) = K [\cos(\omega + \nu(t)) + e \cos\omega] + v_\text{sys}\]</span></p>
+<p>where <span class="math inline">\(e\)</span> is the eccentricity, <span class="math inline">\(\omega\)</span> the argument of periapsis, and <span class="math inline">\(\nu(t)\)</span> the true anomaly (obtained by solving Kepler’s equation numerically). Generate data with <span class="math inline">\(e = 0.3\)</span> and show that fitting a pure sinusoid to it yields a systematically biased period estimate.</p>
+<h3 data-number="28.7.4" id="multiple-planets"><span class="header-section-number">28.7.4</span> Multiple planets</h3>
+<p>Extend <code>make_rv_data</code> to superpose signals from two planets with different periods. Show that <code>fit_sinusoid</code> (single-planet model) fails to recover either period correctly, then fit a two-planet model and demonstrate clean recovery.</p>
+<h3 data-number="28.7.5" id="detection-threshold"><span class="header-section-number">28.7.5</span> Detection threshold</h3>
+<p>Generate 200 data sets for each of ten noise levels from 2 to 50 m/s. For each data set, run <code>fit_sinusoid</code> and classify the result as a detection when <span class="math inline">\(\sigma_K / K &lt; 0.1\)</span>. Plot the detection fraction as a function of noise level and identify the noise floor at which detection drops below 50%.</p>
+</section>
+
+</main>
+
+
+</body></html>

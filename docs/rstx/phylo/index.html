@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Phylogenetic Tree Reconstruction</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">11.1</span> The Problem</a></li>
+<li><a href="#distance-matrices" id="toc-distance-matrices"><span class="header-section-number">11.2</span> Distance Matrices</a></li>
+<li><a href="#the-upgma-algorithm" id="toc-the-upgma-algorithm"><span class="header-section-number">11.3</span> The UPGMA Algorithm</a></li>
+<li><a href="#a-worked-example" id="toc-a-worked-example"><span class="header-section-number">11.4</span> A Worked Example</a></li>
+<li><a href="#displaying-the-tree" id="toc-displaying-the-tree"><span class="header-section-number">11.5</span> Displaying the Tree</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">11.6</span> Testing</a></li>
+<li><a href="#generating-random-trees" id="toc-generating-random-trees"><span class="header-section-number">11.7</span> Generating Random Trees</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">11.8</span> Exercises</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Phylogenetic Tree Reconstruction</h1>
+<h2 data-number="11.1" id="the-problem"><span class="header-section-number">11.1</span> The Problem</h2>
+<ul>
+<li>Species that share a common ancestor tend to have similar DNA or protein sequences.</li>
+<li>A <a href="../glossary/index.html#phylogenetic_tree">phylogenetic tree</a> shows how a set of species, genes, or individuals are related by common descent</li>
+<li>The leaves of the tree are the observed <a href="../glossary/index.html#taxa">taxa</a>, while internal nodes represent hypothetical ancestors</li>
+<li>Given only pairwise sequence distances, we want to infer the tree topology (who is related to whom) and branch lengths (how different they are)</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>A rooted binary tree on 4 leaves has how many internal nodes (not counting the leaves themselves)?</p>
+<dl>
+<dt>2</dt>
+<dd>
+Wrong: a rooted binary tree on N leaves has N-1 internal nodes, so 4-1=3.
+</dd>
+<dt>3</dt>
+<dd>
+Correct: a rooted binary tree on N leaves has N-1 internal nodes; here 4-1=3.
+</dd>
+<dt>4</dt>
+<dd>
+Wrong: 4 is the number of leaves; the number of internal nodes is N-1=3.
+</dd>
+<dt>5</dt>
+<dd>
+Wrong: this would require N=6 leaves.
+</dd>
+</dl>
+</div>
+<h2 data-number="11.2" id="distance-matrices"><span class="header-section-number">11.2</span> Distance Matrices</h2>
+<ul>
+<li>A <a href="../glossary/index.html#distance_matrix">distance matrix</a> <span class="math inline">\(D\)</span> stores the evolutionary distance between every pair of taxa</li>
+<li>Distances are estimated from aligned sequences: the fraction of positions that differ, corrected for multiple substitutions</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<p>The six pairwise distances for our four-taxon example:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Pair</th>
+<th>Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bat, Chimp</td>
+<td>1.4</td>
+</tr>
+<tr class="even">
+<td>Human, Gorilla</td>
+<td>0.9</td>
+</tr>
+<tr class="odd">
+<td>Bat, Human</td>
+<td>2.2</td>
+</tr>
+<tr class="even">
+<td>Bat, Gorilla</td>
+<td>2.3</td>
+</tr>
+<tr class="odd">
+<td>Chimp, Human</td>
+<td>2.4</td>
+</tr>
+<tr class="even">
+<td>Chimp, Gorilla</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="11.3" id="the-upgma-algorithm"><span class="header-section-number">11.3</span> The UPGMA Algorithm</h2>
+<ul>
+<li>UPGMA (Unweighted Pair Group Method with Arithmetic Mean) reconstructs a rooted tree from a distance matrix using only arithmetic means</li>
+<li>At each step, merge the pair of taxa with the smallest pairwise distance</li>
+<li>Place the new internal node at height <span class="math inline">\(D(i,j)/2\)</span> (i.e., half the merged distance) which is the estimated time of the common ancestor</li>
+<li>Branch length from the new node to each merged taxon is the difference in heights</li>
+<li>Update the distance from the new node <span class="math inline">\(u\)</span> to any remaining taxon <span class="math inline">\(k\)</span> as the arithmetic mean:</li>
+</ul>
+<p><span class="math display">\[D(u, k) = \frac{D(i, k) + D(j, k)}{2}\]</span></p>
+<ul>
+<li>Replace <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> with <span class="math inline">\(u\)</span> in the matrix and repeat until only one node remains.</li>
+</ul>
+<div class="forma-ordering" data-lang="en" data-markdown="1">
+<p>Put these steps for one iteration of UPGMA in the correct order.</p>
+<ol type="1">
+<li>Find the pair (i, j) with the smallest distance in the current matrix</li>
+<li>Create a new internal node u at height D(i, j) / 2</li>
+<li>Record branch lengths: branch to i = height(u) - height(i), branch to j = height(u) - height(j)</li>
+<li>Compute distances from u to all remaining taxa as arithmetic means</li>
+<li>Remove i and j from the matrix, add u, and repeat</li>
+</ol>
+</div>
+<h2 data-number="11.4" id="a-worked-example"><span class="header-section-number">11.4</span> A Worked Example</h2>
+<ul>
+<li>Starting with <span class="math inline">\(n = 4\)</span> taxa and the distances above, Human and Gorilla have the smallest distance (0.9), so they are merged first into node4 at height <span class="math inline">\(0.9/2 = 0.45\)</span></li>
+<li>Branch lengths: <span class="math inline">\(\ell_\text{Human} = 0.45 - 0 = 0.45\)</span> and <span class="math inline">\(\ell_\text{Gorilla} = 0.45 - 0 = 0.45\)</span> (both start at height 0)</li>
+<li>After replacing Human and Gorilla with node4, the next smallest distance is Bat-Chimp (1.4), which becomes node5 at height <span class="math inline">\(1.4/2 = 0.70\)</span>. Branch lengths to Bat and Chimp are each <span class="math inline">\(0.70 - 0 = 0.70\)</span>.</li>
+<li>The final merge joins node4 and node5. The average distance between node4 and node5, computed as the arithmetic mean of all pairwise distances between the two groups, works out to <span class="math inline">\(2.35\)</span>. The final node (node6) sits at height <span class="math inline">\(2.35/2 = 1.175\)</span>. Branch lengths are <span class="math inline">\(1.175 - 0.45 = 0.725\)</span> to node4 and <span class="math inline">\(1.175 - 0.70 = 0.475\)</span> to node5.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en" data-markdown="1">
+<p>Why does UPGMA assume a molecular clock?</p>
+<dl>
+<dt>Because it always picks the pair with the smallest distance, regardless of how far each taxon is from others.</dt>
+<dd>
+Wrong: that is the merge criterion, not the clock assumption.
+</dd>
+<dt>Because it places each internal node at half the merged distance, assuming all lineages evolve at the same rate.</dt>
+<dd>
+Correct: placing the node at <span class="math inline">\(D(i,j)/2\)</span> assumes that <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are equidistant from their common ancestor, which requires equal rates of evolution in both lineages.
+</dd>
+<dt>Because it uses arithmetic means to update distances.</dt>
+<dd>
+Wrong: the arithmetic mean update is a computational convenience, not the molecular clock assumption.
+</dd>
+<dt>Because it produces a rooted tree rather than an unrooted tree.</dt>
+<dd>
+Wrong: whether a tree is rooted or unrooted is independent of the clock assumption.
+</dd>
+</dl>
+</div>
+<h2 data-number="11.5" id="displaying-the-tree"><span class="header-section-number">11.5</span> Displaying the Tree</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="fig-phylo-tree" class="quarto-float quarto-figure quarto-figure-center" alt="Rooted UPGMA tree for Bat, Chimp, Human, Gorilla with branch lengths labelled.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-phylo-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="phylo.svg" alt="Rooted UPGMA tree for Bat, Chimp, Human, Gorilla with branch lengths labelled.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phylo-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey nodes are reconstructed ancestors. Branch lengths reflect the arithmetic-mean distances used at each merge step.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="11.6" id="testing"><span class="header-section-number">11.6</span> Testing</h2>
+<ul>
+<li>Matrix symmetry
+<ul>
+<li>Distances must satisfy <span class="math inline">\(D(i,j) = D(j,i)\)</span> and <span class="math inline">\(D(i,i) = 0\)</span></li>
+<li>An asymmetric matrix would indicate a bug in the construction code</li>
+</ul></li>
+<li>Edge count
+<ul>
+<li>A rooted binary tree on <span class="math inline">\(N\)</span> leaves has exactly <span class="math inline">\(2N - 2\)</span> directed edges (each of the <span class="math inline">\(N - 1\)</span> internal nodes contributes two child edges)</li>
+<li>Any other count means the loop terminated early or ran too many iterations</li>
+</ul></li>
+<li>Topology recovery
+<ul>
+<li>Two pairs of taxa (Bat, Chimp) and (Human, Gorilla) should each share a private internal node</li>
+<li>If either pair is split across different internal nodes, the algorithm recovered the wrong topology</li>
+</ul></li>
+<li>Branch length recovery
+<ul>
+<li>With exact tree-additive distances the algorithm recovers every branch length to machine precision</li>
+<li>No tolerance is needed: floating-point round-off in the arithmetic means is below <span class="math inline">\(10^{-10}\)</span></li>
+</ul></li>
+<li>Topology under noise
+<ul>
+<li>Real distance data are not perfectly additive</li>
+<li>With small Gaussian noise (scale 0.05) the correct topology should still be recovered</li>
+<li>This test documents the robustness of UPGMA to modest measurement error</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> phylo <span class="im">import</span> TAXA, make_distance_matrix, upgma</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tolerance for floating-point comparisons in branch-length tests.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># UPGMA computes only averages and halvings, so round-off is well below 1e-10.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>BRANCH_TOLERANCE <span class="op">=</span> <span class="fl">1e-10</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_matrix_symmetric():</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The distance matrix must be symmetric with zero diagonal.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(D, D.T)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(np.diag(D) <span class="op">==</span> <span class="fl">0.0</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_edge_count():</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A rooted binary tree on N leaves has exactly 2N-2 directed edges</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (each internal node contributes two child edges; there are N-1 internal nodes).</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(edges) <span class="op">==</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">len</span>(TAXA) <span class="op">-</span> <span class="dv">2</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_recovers_topology():</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The reference tree groups (Bat, Chimp) and (Human, Gorilla).</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># UPGMA should merge Human+Gorilla first (smallest distance 0.9),</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># then Bat+Chimp (next smallest distance 1.4), then join the two clades.</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build parent-child adjacency from edges.</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    children <span class="op">=</span> {}</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> parent, child, _ <span class="kw">in</span> edges:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        children.setdefault(parent, []).append(child)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find the internal node whose children are both leaves from the same clade.</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> siblings(taxon_a, taxon_b):</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> parent, kids <span class="kw">in</span> children.items():</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> taxon_a <span class="kw">in</span> kids <span class="kw">and</span> taxon_b <span class="kw">in</span> kids:</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> siblings(<span class="st">"Human"</span>, <span class="st">"Gorilla"</span>), <span class="st">"Human and Gorilla should be sisters"</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> siblings(<span class="st">"Bat"</span>, <span class="st">"Chimp"</span>), <span class="st">"Bat and Chimp should be sisters"</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_recovers_branch_lengths():</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With exact distances UPGMA should recover branch lengths to machine precision.</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># UPGMA merges in this order:</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   node4 &lt;- Human (0.45), Gorilla (0.45)   [merge height = 0.9/2 = 0.45]</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   node5 &lt;- Bat (0.70), Chimp (0.70)        [merge height = 1.4/2 = 0.70]</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   node6 &lt;- node4 (0.725), node5 (0.475)   [merge height = 2.35/2 = 1.175]</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Branch length = merge height of parent - height of child.</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    expected <span class="op">=</span> {</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"node4"</span>, <span class="st">"Human"</span>): <span class="fl">0.45</span>,</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"node4"</span>, <span class="st">"Gorilla"</span>): <span class="fl">0.45</span>,</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"node5"</span>, <span class="st">"Bat"</span>): <span class="fl">0.70</span>,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"node5"</span>, <span class="st">"Chimp"</span>): <span class="fl">0.70</span>,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"node6"</span>, <span class="st">"node4"</span>): <span class="fl">0.725</span>,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"node6"</span>, <span class="st">"node5"</span>): <span class="fl">0.475</span>,</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix()</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(edges) <span class="op">==</span> <span class="bu">len</span>(expected), <span class="ss">f"Expected </span><span class="sc">{</span><span class="bu">len</span>(expected)<span class="sc">}</span><span class="ss"> edges, got </span><span class="sc">{</span><span class="bu">len</span>(edges)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> parent, child, length <span class="kw">in</span> edges:</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>        key <span class="op">=</span> (parent, child)</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> key <span class="kw">in</span> expected, <span class="ss">f"Unexpected edge </span><span class="sc">{</span>parent<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>child<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">abs</span>(length <span class="op">-</span> expected[key]) <span class="op">&lt;</span> BRANCH_TOLERANCE, (</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Edge </span><span class="sc">{</span>parent<span class="sc">}</span><span class="ss">-&gt;</span><span class="sc">{</span>child<span class="sc">}</span><span class="ss">: got </span><span class="sc">{</span>length<span class="sc">:.8f}</span><span class="ss">, expected </span><span class="sc">{</span>expected[key]<span class="sc">:.8f}</span><span class="ss">"</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_upgma_with_noise_recovers_topology():</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With small Gaussian noise (scale 0.05) the correct topology should still</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># be recovered.  The Human-Gorilla distance (0.9) is well below the next</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># smallest (Bat-Chimp at 1.4), so modest noise rarely disrupts the merge order.</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    names, D <span class="op">=</span> make_distance_matrix(noise_scale<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> upgma(names, D)</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    children <span class="op">=</span> {}</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> parent, child, _ <span class="kw">in</span> edges:</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>        children.setdefault(parent, []).append(child)</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> siblings(taxon_a, taxon_b):</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> parent, kids <span class="kw">in</span> children.items():</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> taxon_a <span class="kw">in</span> kids <span class="kw">and</span> taxon_b <span class="kw">in</span> kids:</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> siblings(<span class="st">"Human"</span>, <span class="st">"Gorilla"</span>), (</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Human and Gorilla should be sisters even under small noise"</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> siblings(<span class="st">"Bat"</span>, <span class="st">"Chimp"</span>), (</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Bat and Chimp should be sisters even under small noise"</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<h2 data-number="11.7" id="generating-random-trees"><span class="header-section-number">11.7</span> Generating Random Trees</h2>
+<ul>
+<li>A single hand-crafted example is useful for tracing through the algorithm, but it cannot reveal how UPGMA behaves on different topologies or at larger scales</li>
+<li><code>generate_tree.py</code> provides <code>make_random_tree</code> which builds a random unrooted binary tree and returns its exact distance matrix alongside the true edge list</li>
+</ul>
+<h3 data-number="11.7.1" id="building-a-random-topology"><span class="header-section-number">11.7.1</span> Building a random topology</h3>
+<ul>
+<li>Start with three leaves connected to a single internal node</li>
+<li>For each additional taxon
+<ul>
+<li>Pick a random existing edge</li>
+<li>Insert a new internal node in the middle of it</li>
+<li>Attach the new taxon to that node</li>
+</ul></li>
+<li>Branch lengths are drawn independently from an exponential distribution with a specified mean</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h3 data-number="11.7.2" id="computing-distances-and-checking-topology"><span class="header-section-number">11.7.2</span> Computing distances and checking topology</h3>
+<ul>
+<li>Once the tree is built, pairwise distances are computed as shortest-path lengths through the networkx graph weighted by branch length</li>
+<li>To compare topologies, each tree is converted to its set of <a href="../glossary/index.html#bipartition">bipartitions</a>
+<ul>
+<li>For every edge, the two groups of leaves on either side</li>
+</ul></li>
+<li>Two trees have the same topology if and only if their bipartition sets are identical</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_tree <span class="im">import</span> make_random_tree, bipartitions, MIN_TAXA</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> phylo <span class="im">import</span> neighbor_joining</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_rejects_too_few_taxa():</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(<span class="pp">ValueError</span>):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        make_random_tree(MIN_TAXA <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_edge_count():</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># An unrooted binary tree on N leaves has exactly 2N-3 edges.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">12</span>]:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        _, _, edges <span class="op">=</span> make_random_tree(n)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">len</span>(edges) <span class="op">==</span> <span class="dv">2</span> <span class="op">*</span> n <span class="op">-</span> <span class="dv">3</span>, <span class="ss">f"n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">: got </span><span class="sc">{</span><span class="bu">len</span>(edges)<span class="sc">}</span><span class="ss"> edges"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_distance_matrix_properties():</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    names, D, _ <span class="op">=</span> make_random_tree(<span class="dv">6</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> D.shape <span class="op">==</span> (<span class="dv">6</span>, <span class="dv">6</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(D, D.T)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(np.diag(D) <span class="op">==</span> <span class="fl">0.0</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(D <span class="op">&gt;=</span> <span class="fl">0.0</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nj_recovers_true_topology():</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With exact tree-additive distances, NJ must recover every bipartition</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># of the generating tree.  This holds for all tree-additive inputs</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># regardless of topology or branch lengths.</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> seed <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">42</span>, <span class="dv">99</span>]:</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        names, D, true_edges <span class="op">=</span> make_random_tree(<span class="dv">6</span>, seed<span class="op">=</span>seed)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        inferred_edges <span class="op">=</span> neighbor_joining(names, D)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        true_splits <span class="op">=</span> bipartitions(true_edges, names)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        inferred_splits <span class="op">=</span> bipartitions(inferred_edges, names)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> true_splits <span class="op">==</span> inferred_splits, (</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"seed=</span><span class="sc">{</span>seed<span class="sc">}</span><span class="ss">: topology mismatch</span><span class="ch">\n</span><span class="ss">  true:     </span><span class="sc">{</span>true_splits<span class="sc">}</span><span class="ch">\n</span><span class="ss">  inferred: </span><span class="sc">{</span>inferred_splits<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nj_recovers_topology_under_noise():</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With small Gaussian noise (scale 0.05 ≈ 10% of the default branch mean)</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># NJ should still recover the correct topology on most random trees.</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We test four seeds and require all four to succeed.  Measured failure</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rate at this noise level is below 1% for N=6 with branch_mean=0.5.</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> seed <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">42</span>, <span class="dv">99</span>]:</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        names, D, true_edges <span class="op">=</span> make_random_tree(<span class="dv">6</span>, seed<span class="op">=</span>seed, noise_scale<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        inferred_edges <span class="op">=</span> neighbor_joining(names, D)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        true_splits <span class="op">=</span> bipartitions(true_edges, names)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        inferred_splits <span class="op">=</span> bipartitions(inferred_edges, names)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> true_splits <span class="op">==</span> inferred_splits, (</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"seed=</span><span class="sc">{</span>seed<span class="sc">}</span><span class="ss">: topology mismatch under noise"</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_reproducibility():</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Same seed must always produce identical output.</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    names1, D1, edges1 <span class="op">=</span> make_random_tree(<span class="dv">8</span>)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    names2, D2, edges2 <span class="op">=</span> make_random_tree(<span class="dv">8</span>)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> names1 <span class="op">==</span> names2</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.array_equal(D1, D2)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> edges1 <span class="op">==</span> edges2</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_different_seeds_differ():</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    _, D1, _ <span class="op">=</span> make_random_tree(<span class="dv">6</span>)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    _, D2, _ <span class="op">=</span> make_random_tree(<span class="dv">6</span>, seed<span class="op">=</span><span class="dv">999</span>)</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="kw">not</span> np.allclose(D1, D2)</span></code></pre></div>
+<section class="exercises">
+<h2 data-number="11.8" id="exercises"><span class="header-section-number">11.8</span> Exercises</h2>
+<h3 data-number="11.8.1" id="do-the-math"><span class="header-section-number">11.8.1</span> Do the math</h3>
+<p>In the first UPGMA iteration Human and Gorilla are merged. <span class="math inline">\(D(\text{Human}, \text{Gorilla}) = 0.9\)</span>. The new internal node is placed at height <span class="math inline">\(D/2\)</span>. What is the branch length from the new node to Human? Give your answer to two decimal places.</p>
+<h3 data-number="11.8.2" id="neighbor-joining-comparison"><span class="header-section-number">11.8.2</span> Neighbor-joining comparison</h3>
+<p>Neighbor-joining (Saitou and Nei, 1987) uses a Q-matrix correction that removes long-branch attraction bias and does not assume a molecular clock. Implement <code>neighbor_joining(names, D)</code> returning edges as <code>(node_a, node_b, length)</code> triples. Verify that UPGMA and neighbor-joining agree on the topology for the exact distance matrix, then add noise (scale 0.05) and show a case where they disagree.</p>
+<h3 data-number="11.8.3" id="bootstrapping"><span class="header-section-number">11.8.3</span> Bootstrapping</h3>
+<p>Phylogenetic bootstrap estimates how well-supported each split is. Draw 100 perturbed distance matrices using <code>make_distance_matrix(noise_scale=0.1, seed=i)</code> for <span class="math inline">\(i = 0, \ldots, 99\)</span> and run UPGMA on each. Report what fraction of replicates recover the correct (Bat, Chimp) clade.</p>
+<h3 data-number="11.8.4" id="four-point-condition"><span class="header-section-number">11.8.4</span> Four-point condition</h3>
+<p>A distance matrix is tree-additive if and only if it satisfies the four-point condition: for every four taxa <span class="math inline">\(i, j, k, l\)</span>, the largest two of the three sums <span class="math inline">\(D(i,j)+D(k,l)\)</span>, <span class="math inline">\(D(i,k)+D(j,l)\)</span>, <span class="math inline">\(D(i,l)+D(j,k)\)</span> are equal. Write <code>is_additive(names, D)</code> that checks this condition for all <span class="math inline">\(\binom{N}{4}\)</span> quadruples and returns <code>True</code> or <code>False</code>. Verify that the exact matrix passes and a noisy matrix fails.</p>
+<h3 data-number="11.8.5" id="larger-synthetic-trees"><span class="header-section-number">11.8.5</span> Larger synthetic trees</h3>
+<p>Extend <code>make_distance_matrix</code> to accept an arbitrary Newick-format string such as <code>"((A:0.1,B:0.2):0.3,(C:0.4,D:0.5):0.6)"</code> and compute the full distance matrix from it. Use this to generate a 10-taxon example and confirm that UPGMA recovers the correct topology.</p>
+</section>
+
+</main>
+
+
+</body></html>

@@ -1,382 +1,271 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Data Science</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Data Science</title>
-<meta content="Unbreaking Software" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../basicpy/">Basic Python</a></li>
-<li><a href="../interpy/">Intermediate Python</a></li>
-<li><a href="../oopy/">Object-Oriented Python</a></li>
-<li><a href="../regexp/">Regular Expressions</a></li>
-<li><a href="../diot/">Data, I/O, and Testing</a></li>
-<li><a href="../perfcon/">Performance and Concurrency</a></li>
-<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
-<li><a href="../css/">CSS</a></li>
-<li><a href="../web/">HTTP and APIs</a></li>
-<li><a href="../htmx/">HTMX</a></li>
-<li><a href="../alpine/">Alpine.js</a></li>
-<li><a href="../fastapi/">FastAPI</a></li>
-<li><a class="active" href="../datasci/">Data Science</a></li>
-<li><a href="../dataviz/">Data Visualization</a></li>
-<li><a href="../polars/">Polars</a></li>
-<li><a href="../shell/">The Unix Shell</a></li>
-<li><a href="../sql/">SQL</a></li>
-<li><a href="../testing/">Testing</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../complex/">Complex Examples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/unbreak">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Data Science</h1>
-<h2 id="datasci-filterboundary">Select rows within a date range</h2>
-<p>Run the script and count the rows returned. Then count by hand how many rows in the
-CSV should satisfy the condition. Do the two counts agree?</p>
-<div data-inc="filterboundary.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/filterboundary.py" class="inc-path" role="img" tabindex="0" title="datasci/filterboundary.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="c1"># Keep only rows where value EXCEEDS (strictly greater than) the threshold.</span>
-<span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mf">50.0</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"filterboundary.csv"</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">THRESHOLD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="filterboundary.csv"><span aria-label="Source: datasci/filterboundary.csv" class="inc-path" role="img" tabindex="0" title="datasci/filterboundary.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>product,value
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Chapters</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Appendices</span>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
+    </div>
+    <div class="topnav-dropdown">
+      <span class="topnav-item">Contents</span>
+      <div class="topnav-menu"><ul>
+<li><a href="#select-rows-within-a-date-range" id="toc-select-rows-within-a-date-range"><span class="header-section-number">15.1</span> Select rows within a date range</a></li>
+<li><a href="#read-a-spreadsheet-with-a-two-row-header" id="toc-read-a-spreadsheet-with-a-two-row-header"><span class="header-section-number">15.2</span> Read a spreadsheet with a two-row header</a></li>
+<li><a href="#combine-two-datasets-on-a-shared-identifier" id="toc-combine-two-datasets-on-a-shared-identifier"><span class="header-section-number">15.3</span> Combine two datasets on a shared identifier</a></li>
+<li><a href="#sort-records-by-date-of-collection" id="toc-sort-records-by-date-of-collection"><span class="header-section-number">15.4</span> Sort records by date of collection</a></li>
+<li><a href="#compute-per-group-statistics-before-filtering" id="toc-compute-per-group-statistics-before-filtering"><span class="header-section-number">15.5</span> Compute per-group statistics before filtering</a></li>
+<li><a href="#debug-a-pipeline-that-fails-at-the-wrong-step" id="toc-debug-a-pipeline-that-fails-at-the-wrong-step"><span class="header-section-number">15.6</span> Debug a pipeline that fails at the wrong step</a></li>
+<li><a href="#read-a-tab-separated-export-from-a-database" id="toc-read-a-tab-separated-export-from-a-database"><span class="header-section-number">15.7</span> Read a tab-separated export from a database</a></li>
+<li><a href="#average-measurements-that-include-missing-values" id="toc-average-measurements-that-include-missing-values"><span class="header-section-number">15.8</span> Average measurements that include missing values</a></li>
+<li><a href="#group-survey-responses-by-category" id="toc-group-survey-responses-by-category"><span class="header-section-number">15.9</span> Group survey responses by category</a></li>
+<li><a href="#smooth-a-noisy-sensor-signal" id="toc-smooth-a-noisy-sensor-signal"><span class="header-section-number">15.10</span> Smooth a noisy sensor signal</a></li>
+<li><a href="#plot-measurement-values-on-a-scatter-chart" id="toc-plot-measurement-values-on-a-scatter-chart"><span class="header-section-number">15.11</span> Plot measurement values on a scatter chart</a></li>
+<li><a href="#color-a-chart-by-a-numeric-category" id="toc-color-a-chart-by-a-numeric-category"><span class="header-section-number">15.12</span> Color a chart by a numeric category</a></li>
+<li><a href="#plot-measurements-collected-over-time" id="toc-plot-measurements-collected-over-time"><span class="header-section-number">15.13</span> Plot measurements collected over time</a></li>
+<li><a href="#add-an-interactive-filter-to-a-chart" id="toc-add-an-interactive-filter-to-a-chart"><span class="header-section-number">15.14</span> Add an interactive filter to a chart</a></li>
+<li><a href="#show-column-values-in-a-chart-tooltip" id="toc-show-column-values-in-a-chart-tooltip"><span class="header-section-number">15.15</span> Show column values in a chart tooltip</a></li>
+<li><a href="#pass-a-polars-dataframe-to-a-chart-library" id="toc-pass-a-polars-dataframe-to-a-chart-library"><span class="header-section-number">15.16</span> Pass a Polars dataframe to a chart library</a></li>
+<li><a href="#check-whether-two-measurements-are-related" id="toc-check-whether-two-measurements-are-related"><span class="header-section-number">15.17</span> Check whether two measurements are related</a></li>
+<li><a href="#process-a-large-file-in-pieces" id="toc-process-a-large-file-in-pieces"><span class="header-section-number">15.18</span> Process a large file in pieces</a></li>
+<li><a href="#facet-a-chart-by-year-of-collection" id="toc-facet-a-chart-by-year-of-collection"><span class="header-section-number">15.19</span> Facet a chart by year of collection</a></li>
+<li><a href="#run-a-notebook-after-restarting-the-kernel" id="toc-run-a-notebook-after-restarting-the-kernel"><span class="header-section-number">15.20</span> Run a notebook after restarting the kernel</a></li>
+</ul></div>
+    </div>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Data Science</h1>
+<h2 data-number="15.1" id="select-rows-within-a-date-range"><span class="header-section-number">15.1</span> Select rows within a date range</h2>
+<p>Run the script and count the rows returned. Then count by hand how many rows in the CSV should satisfy the condition. Do the two counts agree?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows where value EXCEEDS (strictly greater than) the threshold.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>THRESHOLD <span class="op">=</span> <span class="fl">50.0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"filterboundary.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.<span class="bu">filter</span>(pl.col(<span class="st">"value"</span>) <span class="op">&gt;=</span> THRESHOLD)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<pre><code>product,value
 alpha,30.0
 beta,50.0
 gamma,70.0
 delta,50.0
-epsilon,90.0
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is using <code>&gt;=</code> instead of <code>&gt;</code> (or vice versa) in the filter expression, so
-the script keeps rows it should drop.</p>
-<p>Shows: how to verify filter logic by checking boundary values and
-using <code>.filter()</code> with explicit comparison operators.</p>
-<p>To find it: count the matching rows by hand from the CSV, then compare to
-<code>print(len(df.filter(...)))</code>. If the counts differ by one, check whether the boundary
-date itself should be included or excluded, and verify whether <code>&gt;=</code> or <code>&gt;</code> is correct.</p>
+epsilon,90.0</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is using <code>&gt;=</code> instead of <code>&gt;</code> (or vice versa) in the filter expression, so the script keeps rows it should drop.</p>
+<p>Shows: how to verify filter logic by checking boundary values and using <code>.filter()</code> with explicit comparison operators.</p>
+<p>To find it: count the matching rows by hand from the CSV, then compare to <code>print(len(df.filter(...)))</code>. If the counts differ by one, check whether the boundary date itself should be included or excluded, and verify whether <code>&gt;=</code> or <code>&gt;</code> is correct.</p>
 </details>
-<h2 id="datasci-multilinecsv">Read a spreadsheet with a two-row header</h2>
-<p>Run the script and look at the row count and the first few rows of the DataFrame.
-Do they match the data you expected to load?</p>
-<div data-inc="multilinecsv.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/multilinecsv.py" class="inc-path" role="img" tabindex="0" title="datasci/multilinecsv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="c1"># Load survey results and report the number of respondents.</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"multilinecsv.csv"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<div data-inc="multilinecsv.csv"><span aria-label="Source: datasci/multilinecsv.csv" class="inc-path" role="img" tabindex="0" title="datasci/multilinecsv.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Source: Annual Survey 2023
+<h2 data-number="15.2" id="read-a-spreadsheet-with-a-two-row-header"><span class="header-section-number">15.2</span> Read a spreadsheet with a two-row header</h2>
+<p>Run the script and look at the row count and the first few rows of the DataFrame. Do they match the data you expected to load?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load survey results and report the number of respondents.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"multilinecsv.csv"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Rows: </span><span class="sc">{</span><span class="bu">len</span>(df)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
+<pre><code>Source: Annual Survey 2023
 Units: thousands
 name,count,value
 Alice,10,100
 Bob,20,200
-Carol,15,150
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is not passing <code>skip_rows</code> to skip the extra header lines, so Polars reads
-the multi-line header as data and reports the wrong number of rows.</p>
-<p>Shows: how to inspect the first few rows of a DataFrame with <code>.head()</code>
-and how to use <code>skip_rows</code> and <code>has_header</code> to handle non-standard
-file layouts.</p>
-<p>To find it: print <code>df.head()</code> and compare the first few rows to the raw CSV. If the
-first "data" row contains what looks like a column header, the loader read one or
-more header lines as data. Check <code>df.shape[0]</code> against the expected row count.</p>
+Carol,15,150</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is not passing <code>skip_rows</code> to skip the extra header lines, so Polars reads the multi-line header as data and reports the wrong number of rows.</p>
+<p>Shows: how to inspect the first few rows of a DataFrame with <code>.head()</code> and how to use <code>skip_rows</code> and <code>has_header</code> to handle non-standard file layouts.</p>
+<p>To find it: print <code>df.head()</code> and compare the first few rows to the raw CSV. If the first “data” row contains what looks like a column header, the loader read one or more header lines as data. Check <code>df.shape[0]</code> against the expected row count.</p>
 </details>
-<h2 id="datasci-casejoin">Combine two datasets on a shared identifier</h2>
-<p>Run the script and examine the <code>mean_amount</code> column in the result. Are there any
-null values where you did not expect them?</p>
-<div data-inc="casejoin.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/casejoin.py" class="inc-path" role="img" tabindex="0" title="datasci/casejoin.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">sales</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"Region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">,</span> <span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">],</span>
-    <span class="s2">"amount"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">210</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="c1"># Compute per-region mean sales.</span>
-<span class="n">means</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"Region"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"amount"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"mean_amount"</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">means</span> <span class="o">=</span> <span class="n">means</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Region"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">to_lowercase</span><span class="p">())</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"Region"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is joining on a column whose name differs by case (<code>"Region"</code> vs.
-<code>"region"</code>), which Polars treats as different columns, so every row in the joined
-output has a null for the group mean.</p>
-<p>Shows: that Polars column names are case-sensitive and how to diagnose
-null-filled join results.</p>
-<p>To find it: print <code>df1.columns</code> and <code>df2.columns</code> side by side. Look for a column
-that appears in both but differs by capitalization. A join on mismatched names
-produces a null-filled column for the unmatched side.</p>
+<h2 data-number="15.3" id="combine-two-datasets-on-a-shared-identifier"><span class="header-section-number">15.3</span> Combine two datasets on a shared identifier</h2>
+<p>Run the script and examine the <code>mean_amount</code> column in the result. Are there any null values where you did not expect them?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Region"</span>: [<span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>, <span class="st">"West"</span>, <span class="st">"North"</span>, <span class="st">"South"</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"amount"</span>: [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">150</span>, <span class="dv">175</span>, <span class="dv">120</span>, <span class="dv">210</span>],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute per-region mean sales.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> sales.group_by(<span class="st">"Region"</span>).agg(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"amount"</span>).mean().alias(<span class="st">"mean_amount"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> means.with_columns(pl.col(<span class="st">"Region"</span>).<span class="bu">str</span>.to_lowercase())</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> sales.join(means, on<span class="op">=</span><span class="st">"Region"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is joining on a column whose name differs by case (<code>"Region"</code> vs. <code>"region"</code>), which Polars treats as different columns, so every row in the joined output has a null for the group mean.</p>
+<p>Shows: that Polars column names are case-sensitive and how to diagnose null-filled join results.</p>
+<p>To find it: print <code>df1.columns</code> and <code>df2.columns</code> side by side. Look for a column that appears in both but differs by capitalization. A join on mismatched names produces a null-filled column for the unmatched side.</p>
 </details>
-<h2 id="datasci-datestring">Sort records by date of collection</h2>
-<p>Run the script and check the schema of the DataFrame. What type does Polars assign
-to the <code>date</code> column? How many rows does the filter return?</p>
-<div data-inc="datestring.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/datestring.py" class="inc-path" role="img" tabindex="0" title="datasci/datestring.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">CUTOFF</span> <span class="o">=</span> <span class="s2">"2024-06-01"</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"datestring.csv"</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">CUTOFF</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="datestring.csv"><span aria-label="Source: datasci/datestring.csv" class="inc-path" role="img" tabindex="0" title="datasci/datestring.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>event,date,count
+<h2 data-number="15.4" id="sort-records-by-date-of-collection"><span class="header-section-number">15.4</span> Sort records by date of collection</h2>
+<p>Run the script and check the schema of the DataFrame. What type does Polars assign to the <code>date</code> column? How many rows does the filter return?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>CUTOFF <span class="op">=</span> <span class="st">"2024-06-01"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"datestring.csv"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.<span class="bu">filter</span>(pl.col(<span class="st">"date"</span>) <span class="op">&gt;</span> CUTOFF)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<pre><code>event,date,count
 launch,2024-03-01,42
 review,2024-06-15,18
 release,2024-09-30,75
-followup,2024-12-01,31
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that Polars read the date column as strings, so the comparison is
-lexicographic rather than chronological and the filter returns no rows even though
-matching rows exist.</p>
-<p>Shows: how to inspect inferred column types with <code>.schema</code>, and how to
-cast a column to <code>pl.Date</code> before filtering.</p>
-<p>To find it: print <code>df.schema</code> and check the type of the date column. If it shows
-<code>String</code> instead of <code>Date</code>, comparisons against a <code>datetime</code> value will return no
-rows because string comparison is lexicographic, not chronological.</p>
+followup,2024-12-01,31</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that Polars read the date column as strings, so the comparison is lexicographic rather than chronological and the filter returns no rows even though matching rows exist.</p>
+<p>Shows: how to inspect inferred column types with <code>.schema</code>, and how to cast a column to <code>pl.Date</code> before filtering.</p>
+<p>To find it: print <code>df.schema</code> and check the type of the date column. If it shows <code>String</code> instead of <code>Date</code>, comparisons against a <code>datetime</code> value will return no rows because string comparison is lexicographic, not chronological.</p>
 </details>
-<h2 id="datasci-aggorder">Compute per-group statistics before filtering</h2>
-<p>Run the script and compare the output totals to the values in the CSV file. Do the
-per-region totals make sense?</p>
-<div data-inc="aggorder.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/aggorder.py" class="inc-path" role="img" tabindex="0" title="datasci/aggorder.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"aggorder.csv"</span><span class="p">)</span>
-
-<span class="c1"># Compute total sales per region.</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"sales"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">lit</span><span class="p">(</span><span class="s2">"all"</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"sales"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="aggorder.csv"><span aria-label="Source: datasci/aggorder.csv" class="inc-path" role="img" tabindex="0" title="datasci/aggorder.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>region,product,sales
+<h2 data-number="15.5" id="compute-per-group-statistics-before-filtering"><span class="header-section-number">15.5</span> Compute per-group statistics before filtering</h2>
+<p>Run the script and compare the output totals to the values in the CSV file. Do the per-region totals make sense?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"aggorder.csv"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute total sales per region.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    df.select(pl.col(<span class="st">"sales"</span>).<span class="bu">sum</span>())</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    .group_by(pl.lit(<span class="st">"all"</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    .agg(pl.col(<span class="st">"sales"</span>).<span class="bu">sum</span>())</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<pre><code>region,product,sales
 North,widget,100
 North,gadget,200
 South,widget,150
 South,gadget,300
 East,widget,120
-East,gadget,180
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is calling <code>.sum()</code> before <code>.group_by()</code>, which sums the entire column first
-and then groups a single-row DataFrame, producing unexpectedly large totals.</p>
-<p>Shows: the importance of operation order in lazy and eager pipelines
-and how to verify intermediate results.</p>
-<p>To find it: break the pipeline into two steps and print the DataFrame after each one.
-After <code>.sum()</code> alone, you will see a single-row DataFrame — the sum already happened
-before grouping.</p>
+East,gadget,180</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is calling <code>.sum()</code> before <code>.group_by()</code>, which sums the entire column first and then groups a single-row DataFrame, producing unexpectedly large totals.</p>
+<p>Shows: the importance of operation order in lazy and eager pipelines and how to verify intermediate results.</p>
+<p>To find it: break the pipeline into two steps and print the DataFrame after each one. After <code>.sum()</code> alone, you will see a single-row DataFrame — the sum already happened before grouping.</p>
 </details>
-<h2 id="datasci-lazyerror">Debug a pipeline that fails at the wrong step</h2>
-<p>Run the script and read the error message and traceback. Which step in the pipeline
-does the error appear to come from? Is that where the mistake actually is?</p>
-<div data-inc="lazyerror.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/lazyerror.py" class="inc-path" role="img" tabindex="0" title="datasci/lazyerror.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">61</span><span class="p">],</span>
-    <span class="s2">"label"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="c1"># Build a lazy pipeline: rename "score" to "points", filter, then select.</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">"score"</span><span class="p">:</span> <span class="s2">"points"</span><span class="p">})</span>
-    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"points"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is referencing a column that was renamed in an earlier step, so a
-<code>ColumnNotFoundError</code> is raised at <code>.collect()</code> time rather than when the
-transformation is written.</p>
-<p>Shows: how Polars lazy evaluation defers errors and how to use
-<code>.collect()</code> on intermediate steps to locate the failing
-transformation.</p>
-<p>To find it: insert <code>.collect()</code> after each transformation step and run the script
-again. The first step where <code>.collect()</code> raises a <code>ColumnNotFoundError</code> is where
-the broken reference is — even though the original error appeared only at the final
-<code>.collect()</code>.</p>
+<h2 data-number="15.6" id="debug-a-pipeline-that-fails-at-the-wrong-step"><span class="header-section-number">15.6</span> Debug a pipeline that fails at the wrong step</h2>
+<p>Run the script and read the error message and traceback. Which step in the pipeline does the error appear to come from? Is that where the mistake actually is?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="dv">88</span>, <span class="dv">72</span>, <span class="dv">95</span>, <span class="dv">61</span>],</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>],</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a lazy pipeline: rename "score" to "points", filter, then select.</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    data.lazy()</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    .rename({<span class="st">"score"</span>: <span class="st">"points"</span>})</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">"points"</span>) <span class="op">&gt;</span> <span class="dv">70</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    .select([<span class="st">"id"</span>, <span class="st">"score"</span>, <span class="st">"label"</span>])</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    .collect()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is referencing a column that was renamed in an earlier step, so a <code>ColumnNotFoundError</code> is raised at <code>.collect()</code> time rather than when the transformation is written.</p>
+<p>Shows: how Polars lazy evaluation defers errors and how to use <code>.collect()</code> on intermediate steps to locate the failing transformation.</p>
+<p>To find it: insert <code>.collect()</code> after each transformation step and run the script again. The first step where <code>.collect()</code> raises a <code>ColumnNotFoundError</code> is where the broken reference is — even though the original error appeared only at the final <code>.collect()</code>.</p>
 </details>
-<h2 id="datasci-wrongdelim">Read a tab-separated export from a database</h2>
-<p>Run the script and examine the column names and values in the combined DataFrame.
-Are the columns what you expected?</p>
-<div data-inc="wrongdelim.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/wrongdelim.py" class="inc-path" role="img" tabindex="0" title="datasci/wrongdelim.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df_a</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"wrongdelim_a.csv"</span><span class="p">)</span>
-
-<span class="n">df_b</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"wrongdelim_b.csv"</span><span class="p">)</span>
-
-<span class="n">combined</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">"diagonal"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Columns: </span><span class="si">{</span><span class="n">combined</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="wrongdelim_a.csv"><span aria-label="Source: datasci/wrongdelim_a.csv" class="inc-path" role="img" tabindex="0" title="datasci/wrongdelim_a.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,age,score
+<h2 data-number="15.7" id="read-a-tab-separated-export-from-a-database"><span class="header-section-number">15.7</span> Read a tab-separated export from a database</h2>
+<p>Run the script and examine the column names and values in the combined DataFrame. Are the columns what you expected?</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_a <span class="op">=</span> pl.read_csv(<span class="st">"wrongdelim_a.csv"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_b <span class="op">=</span> pl.read_csv(<span class="st">"wrongdelim_b.csv"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pl.concat([df_a, df_b], how<span class="op">=</span><span class="st">"diagonal"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Columns: </span><span class="sc">{</span>combined<span class="sc">.</span>columns<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined)</span></code></pre></div>
+<pre><code>name,age,score
 Alice,30,88
-Bob,25,72
-</code></pre></div>
-</div>
-<div data-inc="wrongdelim_b.csv"><span aria-label="Source: datasci/wrongdelim_b.csv" class="inc-path" role="img" tabindex="0" title="datasci/wrongdelim_b.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name;age;score
+Bob,25,72</code></pre>
+<pre><code>name;age;score
 Carol;28;95
-Dave;35;61
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the second file uses semicolons as delimiters, so Polars reads the
-entire row as a single column. When <code>concat</code> is called with <code>how="diagonal"</code>, missing
-columns are filled with nulls and the result has twice as many columns as expected.</p>
-<p>Shows: how to check column names and counts before concatenating
-DataFrames.</p>
-<p>To find it: print <code>df1.columns</code> and <code>df2.columns</code> before the concat. If <code>df2</code> has
-one column whose name looks like an entire row — e.g., <code>"id;name;value"</code> — the file
-uses a different delimiter than the one specified.</p>
+Dave;35;61</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the second file uses semicolons as delimiters, so Polars reads the entire row as a single column. When <code>concat</code> is called with <code>how="diagonal"</code>, missing columns are filled with nulls and the result has twice as many columns as expected.</p>
+<p>Shows: how to check column names and counts before concatenating DataFrames.</p>
+<p>To find it: print <code>df1.columns</code> and <code>df2.columns</code> before the concat. If <code>df2</code> has one column whose name looks like an entire row — e.g., <code>"id;name;value"</code> — the file uses a different delimiter than the one specified.</p>
 </details>
-<h2 id="datasci-sentinel">Average measurements that include missing values</h2>
-<p>Run the script and look at the mean. Then inspect the raw data. Are there any
-values in the column that seem unusually large?</p>
-<div data-inc="sentinel.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/sentinel.py" class="inc-path" role="img" tabindex="0" title="datasci/sentinel.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="c1"># 999 is a sentinel value meaning "no response recorded"; treat as missing.</span>
-<span class="n">SENTINEL</span> <span class="o">=</span> <span class="mi">999</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"sentinel.csv"</span><span class="p">)</span>
-
-<span class="n">clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"response_time"</span><span class="p">)</span><span class="o">.</span><span class="n">fill_null</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="s2">"response_time"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<div data-inc="sentinel.csv"><span aria-label="Source: datasci/sentinel.csv" class="inc-path" role="img" tabindex="0" title="datasci/sentinel.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>participant,age,response_time
+<h2 data-number="15.8" id="average-measurements-that-include-missing-values"><span class="header-section-number">15.8</span> Average measurements that include missing values</h2>
+<p>Run the script and look at the mean. Then inspect the raw data. Are there any values in the column that seem unusually large?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 999 is a sentinel value meaning "no response recorded"; treat as missing.</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>SENTINEL <span class="op">=</span> <span class="dv">999</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"sentinel.csv"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>clean <span class="op">=</span> df.with_columns(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"response_time"</span>).fill_null(<span class="va">None</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(clean[<span class="st">"response_time"</span>].mean())</span></code></pre></div>
+<pre><code>participant,age,response_time
 P001,24,320
 P002,31,999
 P003,19,415
 P004,45,999
 P005,27,280
 P006,38,999
-P007,22,510
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the dataset uses <code>999</code> as a sentinel for missing data rather than a
-true null, so <code>.fill_null()</code> has no effect on them and the mean is skewed by what
-appear to be valid large numbers.</p>
-<p>Shows: how to identify domain-specific sentinel values and replace
-them with <code>pl.Null</code> before analysis.</p>
-<p>To find it: print <code>df["measurement"].max()</code>. A suspiciously round large value like
-<code>999</code> in a column of biological measurements is a sentinel for "not recorded," not
-a real reading. Replace it with <code>pl.Null</code> before computing the mean.</p>
+P007,22,510</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the dataset uses <code>999</code> as a sentinel for missing data rather than a true null, so <code>.fill_null()</code> has no effect on them and the mean is skewed by what appear to be valid large numbers.</p>
+<p>Shows: how to identify domain-specific sentinel values and replace them with <code>pl.Null</code> before analysis.</p>
+<p>To find it: print <code>df["measurement"].max()</code>. A suspiciously round large value like <code>999</code> in a column of biological measurements is a sentinel for “not recorded,” not a real reading. Replace it with <code>pl.Null</code> before computing the mean.</p>
 </details>
-<h2 id="datasci-whitespace">Group survey responses by category</h2>
-<p>Run the script and count the number of groups produced. Is it more than you
-expected? Call <code>.unique()</code> on the grouping column and examine what you see.</p>
-<div data-inc="whitespace.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/whitespace.py" class="inc-path" role="img" tabindex="0" title="datasci/whitespace.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"whitespace.csv"</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"region"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"sales"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="whitespace.csv"><span aria-label="Source: datasci/whitespace.csv" class="inc-path" role="img" tabindex="0" title="datasci/whitespace.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>region,sales
+<h2 data-number="15.9" id="group-survey-responses-by-category"><span class="header-section-number">15.9</span> Group survey responses by category</h2>
+<p>Run the script and count the number of groups produced. Is it more than you expected? Call <code>.unique()</code> on the grouping column and examine what you see.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"whitespace.csv"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.group_by(<span class="st">"region"</span>).agg(pl.col(<span class="st">"sales"</span>).<span class="bu">sum</span>())</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<pre><code>region,sales
 North ,100
 North,120
 South,200
  South,180
 East,150
-East ,160
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that a string column has inconsistent whitespace (e.g., <code>"North "</code> and
-<code>"North"</code> are treated as different groups), so <code>group_by</code> followed by <code>agg</code> produces
-more groups than expected.</p>
-<p>Shows: how to inspect unique values with <code>.unique()</code>, use
-<code>.str.strip_chars()</code> to normalize strings before grouping, and verify
-group counts.</p>
-<p>To find it: print <code>df["category"].unique()</code> and count the items. If you see
-<code>"North"</code> and <code>"North "</code> as separate entries, trailing whitespace is causing the
-split.</p>
+East ,160</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that a string column has inconsistent whitespace (e.g., <code>"North "</code> and <code>"North"</code> are treated as different groups), so <code>group_by</code> followed by <code>agg</code> produces more groups than expected.</p>
+<p>Shows: how to inspect unique values with <code>.unique()</code>, use <code>.str.strip_chars()</code> to normalize strings before grouping, and verify group counts.</p>
+<p>To find it: print <code>df["category"].unique()</code> and count the items. If you see <code>"North"</code> and <code>"North "</code> as separate entries, trailing whitespace is causing the split.</p>
 </details>
-<h2 id="datasci-rolling">Smooth a noisy sensor signal</h2>
-<p>Run the script and count the null values in the <code>rolling_mean</code> column. Is the
-number of null rows what you expected for a 7-day window?</p>
-<div data-inc="rolling.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/rolling.py" class="inc-path" role="img" tabindex="0" title="datasci/rolling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">WINDOW</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># days</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"rolling.csv"</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">rolling_mean</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="n">WINDOW</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"rolling_mean"</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="rolling.csv"><span aria-label="Source: datasci/rolling.csv" class="inc-path" role="img" tabindex="0" title="datasci/rolling.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>day,value
+<h2 data-number="15.10" id="smooth-a-noisy-sensor-signal"><span class="header-section-number">15.10</span> Smooth a noisy sensor signal</h2>
+<p>Run the script and count the null values in the <code>rolling_mean</code> column. Is the number of null rows what you expected for a 7-day window?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>WINDOW <span class="op">=</span> <span class="dv">7</span>  <span class="co"># days</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"rolling.csv"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> df.with_columns(</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"value"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    .rolling_mean(window_size<span class="op">=</span>WINDOW)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    .alias(<span class="st">"rolling_mean"</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<pre><code>day,value
 1,10
 2,12
 3,9
@@ -386,345 +275,233 @@ number of null rows what you expected for a 7-day window?</p>
 7,15
 8,12
 9,10
-10,16
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is passing <code>window_size=7</code> without setting <code>min_periods=1</code>, so any window
-that cannot be fully filled returns null and the result has far more nulls than
-expected.</p>
-<p>Shows: how rolling aggregations handle incomplete windows and how to
-choose between strict and lenient behavior with <code>min_periods</code>.</p>
-<p>To find it: print <code>df["rolling_mean"].is_null().sum()</code> to count null values. If the
-count is much larger than <code>window_size - 1</code>, the window requires more data points
-than are available for most positions. Setting <code>min_periods=1</code> allows partial windows
-to produce a result.</p>
+10,16</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is passing <code>window_size=7</code> without setting <code>min_periods=1</code>, so any window that cannot be fully filled returns null and the result has far more nulls than expected.</p>
+<p>Shows: how rolling aggregations handle incomplete windows and how to choose between strict and lenient behavior with <code>min_periods</code>.</p>
+<p>To find it: print <code>df["rolling_mean"].is_null().sum()</code> to count null values. If the count is much larger than <code>window_size - 1</code>, the window requires more data points than are available for most positions. Setting <code>min_periods=1</code> allows partial windows to produce a result.</p>
 </details>
-<h2 id="datasci-quanttype">Plot measurement values on a scatter chart</h2>
-<p>Run the script and open the saved chart in a browser. Do all the bars have heights
-that reflect the <code>value</code> column?</p>
-<div data-inc="quanttype.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/quanttype.py" class="inc-path" role="img" tabindex="0" title="datasci/quanttype.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"category"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">],</span>
-    <span class="s2">"value"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
-<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"category"</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"value"</span><span class="p">),</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"quanttype.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is encoding the y-axis with <code>alt.Y("value")</code> without specifying
-<code>type="quantitative"</code>, so Altair treats the column as nominal and counts categories
-instead of summing values, giving all bars the same height.</p>
-<p>Shows: how Altair infers encoding types and why specifying <code>type</code>
-explicitly avoids silent misinterpretation.</p>
-<p>To find it: open the chart and count the unique bar heights. If every bar is the same
-height, Altair is counting rows rather than summing values. Call
-<code>alt.Chart(data).mark_bar().encode(y="value").to_dict()</code> and search for <code>"type"</code> in
-the output to see what Altair inferred.</p>
+<h2 data-number="15.11" id="plot-measurement-values-on-a-scatter-chart"><span class="header-section-number">15.11</span> Plot measurement values on a scatter chart</h2>
+<p>Run the script and open the saved chart in a browser. Do all the bars have heights that reflect the <code>value</code> column?</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"category"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>],</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"value"</span>: [<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">25</span>, <span class="dv">60</span>],</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>}).to_pandas()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_bar().encode(</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">"category"</span>),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">"value"</span>),</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"quanttype.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is encoding the y-axis with <code>alt.Y("value")</code> without specifying <code>type="quantitative"</code>, so Altair treats the column as nominal and counts categories instead of summing values, giving all bars the same height.</p>
+<p>Shows: how Altair infers encoding types and why specifying <code>type</code> explicitly avoids silent misinterpretation.</p>
+<p>To find it: open the chart and count the unique bar heights. If every bar is the same height, Altair is counting rows rather than summing values. Call <code>alt.Chart(data).mark_bar().encode(y="value").to_dict()</code> and search for <code>"type"</code> in the output to see what Altair inferred.</p>
 </details>
-<h2 id="datasci-colorscale">Color a chart by a numeric category</h2>
-<p>Run the script and open the saved chart. Does the color scale appear as a
-continuous gradient, or as a discrete set of colors?</p>
-<div data-inc="colorscale.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/colorscale.py" class="inc-path" role="img" tabindex="0" title="datasci/colorscale.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="c1"># Simulated dataset where "temperature" was read from a CSV as strings.</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"x"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="s2">"y"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
-    <span class="s2">"temperature"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1.2"</span><span class="p">,</span> <span class="s2">"2.4"</span><span class="p">,</span> <span class="s2">"3.5"</span><span class="p">,</span> <span class="s2">"4.1"</span><span class="p">,</span> <span class="s2">"5.0"</span><span class="p">],</span>
-<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">"x:Q"</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">"y:Q"</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s2">"temperature"</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"colorscale.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the color column was read as a string (e.g., <code>"3.5"</code>) rather than a
-float, so Altair applies a nominal color scale and the scatter plot shows a discrete
-legend with arbitrary colors instead of a continuous gradient.</p>
-<p>Shows: how data types in the source DataFrame determine Altair's
-default encoding choices.</p>
-<p>To find it: print <code>df.schema</code> and check the type of the color column. If it shows
-<code>String</code> instead of <code>Float64</code>, cast it with <code>.cast(pl.Float64)</code> before charting.</p>
+<h2 data-number="15.12" id="color-a-chart-by-a-numeric-category"><span class="header-section-number">15.12</span> Color a chart by a numeric category</h2>
+<p>Run the script and open the saved chart. Does the color scale appear as a continuous gradient, or as a discrete set of colors?</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated dataset where "temperature" was read from a CSV as strings.</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>],</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"y"</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">25</span>],</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"temperature"</span>: [<span class="st">"1.2"</span>, <span class="st">"2.4"</span>, <span class="st">"3.5"</span>, <span class="st">"4.1"</span>, <span class="st">"5.0"</span>],</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>}).to_pandas()</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_point().encode(</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"x:Q"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"y:Q"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"temperature"</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"colorscale.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the color column was read as a string (e.g., <code>"3.5"</code>) rather than a float, so Altair applies a nominal color scale and the scatter plot shows a discrete legend with arbitrary colors instead of a continuous gradient.</p>
+<p>Shows: how data types in the source DataFrame determine Altair’s default encoding choices.</p>
+<p>To find it: print <code>df.schema</code> and check the type of the color column. If it shows <code>String</code> instead of <code>Float64</code>, cast it with <code>.cast(pl.Float64)</code> before charting.</p>
 </details>
-<h2 id="datasci-temporal">Plot measurements collected over time</h2>
-<p>Open the saved chart in a browser. Are the months arranged in chronological order
-along the x-axis, or in a different order?</p>
-<div data-inc="temporal.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/temporal.py" class="inc-path" role="img" tabindex="0" title="datasci/temporal.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"month"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2024-01"</span><span class="p">,</span> <span class="s2">"2024-02"</span><span class="p">,</span> <span class="s2">"2024-03"</span><span class="p">,</span> <span class="s2">"2024-04"</span><span class="p">,</span> <span class="s2">"2024-05"</span><span class="p">],</span>
-    <span class="s2">"sales"</span><span class="p">:</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">160</span><span class="p">],</span>
-<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"month:N"</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"sales:Q"</span><span class="p">),</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"temporal.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is encoding the x-axis date column as <code>type="nominal"</code> instead of
-<code>type="temporal"</code>, so Altair does not order the points chronologically and the line
-chart draws disconnected segments instead of a continuous line.</p>
-<p>Shows: the difference between nominal and temporal encoding in Altair
-and how to verify axis ordering.</p>
-<p>To find it: open the chart and check whether the x-axis dates are in chronological
-order. If months appear alphabetically — e.g., April before August before December —
-rather than in calendar order, check the <code>alt.X(...)</code> call for <code>type=</code>.</p>
+<h2 data-number="15.13" id="plot-measurements-collected-over-time"><span class="header-section-number">15.13</span> Plot measurements collected over time</h2>
+<p>Open the saved chart in a browser. Are the months arranged in chronological order along the x-axis, or in a different order?</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"month"</span>: [<span class="st">"2024-01"</span>, <span class="st">"2024-02"</span>, <span class="st">"2024-03"</span>, <span class="st">"2024-04"</span>, <span class="st">"2024-05"</span>],</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sales"</span>: [<span class="dv">120</span>, <span class="dv">95</span>, <span class="dv">140</span>, <span class="dv">110</span>, <span class="dv">160</span>],</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>}).to_pandas()</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">"month:N"</span>),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">"sales:Q"</span>),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"temporal.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is encoding the x-axis date column as <code>type="nominal"</code> instead of <code>type="temporal"</code>, so Altair does not order the points chronologically and the line chart draws disconnected segments instead of a continuous line.</p>
+<p>Shows: the difference between nominal and temporal encoding in Altair and how to verify axis ordering.</p>
+<p>To find it: open the chart and check whether the x-axis dates are in chronological order. If months appear alphabetically — e.g., April before August before December — rather than in calendar order, check the <code>alt.X(...)</code> call for <code>type=</code>.</p>
 </details>
-<h2 id="datasci-filterfield">Add an interactive filter to a chart</h2>
-<p>Open the saved chart in a browser. Does it show only the categories whose count
-is 100 or more, or does it show all of them?</p>
-<div data-inc="filterfield.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/filterfield.py" class="inc-path" role="img" tabindex="0" title="datasci/filterfield.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"category"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="s2">"E"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">,</span> <span class="s2">"J"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">],</span>
-    <span class="s2">"count"</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
-<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-
-<span class="c1"># Show only categories with count &gt;= 100.</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"category:N"</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"count:Q"</span><span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">Count</span> <span class="o">&gt;=</span> <span class="mi">100</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"filterfield.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is a field name in <code>alt.Filter</code> that does not match any column. Altair
-silently ignores the filter rather than raising an error, so all categories are
-shown instead of just the top 10.</p>
-<p>Shows: how to debug Altair transforms by inspecting the chart's JSON
-specification and checking field names match the data source.</p>
-<p>To find it: call <code>.to_dict()</code> on the chart and search for the field name inside the
-<code>transform</code> section. Compare it character by character to the actual column name in
-the DataFrame — a one-character difference silently disables the filter.</p>
+<h2 data-number="15.14" id="add-an-interactive-filter-to-a-chart"><span class="header-section-number">15.14</span> Add an interactive filter to a chart</h2>
+<p>Open the saved chart in a browser. Does it show only the categories whose count is 100 or more, or does it show all of them?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"category"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"G"</span>, <span class="st">"H"</span>, <span class="st">"I"</span>, <span class="st">"J"</span>, <span class="st">"K"</span>],</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"count"</span>: [<span class="dv">50</span>, <span class="dv">120</span>, <span class="dv">30</span>, <span class="dv">200</span>, <span class="dv">80</span>, <span class="dv">15</span>, <span class="dv">175</span>, <span class="dv">60</span>, <span class="dv">90</span>, <span class="dv">140</span>, <span class="dv">25</span>],</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>}).to_pandas()</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show only categories with count &gt;= 100.</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_bar().encode(</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">"category:N"</span>),</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">"count:Q"</span>),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    alt.datum.Count <span class="op">&gt;=</span> <span class="dv">100</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"filterfield.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is a field name in <code>alt.Filter</code> that does not match any column. Altair silently ignores the filter rather than raising an error, so all categories are shown instead of just the top 10.</p>
+<p>Shows: how to debug Altair transforms by inspecting the chart’s JSON specification and checking field names match the data source.</p>
+<p>To find it: call <code>.to_dict()</code> on the chart and search for the field name inside the <code>transform</code> section. Compare it character by character to the actual column name in the DataFrame — a one-character difference silently disables the filter.</p>
 </details>
-<h2 id="datasci-tooltip">Show column values in a chart tooltip</h2>
-<p>Open the saved chart in a browser and hover over a point. Does the <code>Sales Region</code>
-field in the tooltip show a value?</p>
-<div data-inc="tooltip.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/tooltip.py" class="inc-path" role="img" tabindex="0" title="datasci/tooltip.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"Product Name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Widget"</span><span class="p">,</span> <span class="s2">"Gadget"</span><span class="p">,</span> <span class="s2">"Doohickey"</span><span class="p">],</span>
-    <span class="s2">"Sales Region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">],</span>
-    <span class="s2">"revenue"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">950</span><span class="p">],</span>
-<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"revenue:Q"</span><span class="p">),</span>
-    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s2">"Product Name:N"</span><span class="p">,</span> <span class="s2">"Sales Region"</span><span class="p">,</span> <span class="s2">"revenue:Q"</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"tooltip.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the tooltip field name has a space in it (e.g., <code>"Sales Region"</code>)
-but is referenced without quoting in the Altair shorthand string, so the tooltip
-shows <code>null</code> for that field even though the data contains values.</p>
-<p>Shows: how Altair shorthand handles special characters and when to use
-<code>alt.Tooltip(field=…, title=…)</code> instead.</p>
-<p>To find it: hover over a point in the chart and note which tooltip field shows
-<code>null</code>. Then print <code>df.columns</code> to find the exact column name. If the name contains
-a space, the Altair shorthand parser stops at the space and the field is never
-matched.</p>
+<h2 data-number="15.15" id="show-column-values-in-a-chart-tooltip"><span class="header-section-number">15.15</span> Show column values in a chart tooltip</h2>
+<p>Open the saved chart in a browser and hover over a point. Does the <code>Sales Region</code> field in the tooltip show a value?</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Product Name"</span>: [<span class="st">"Widget"</span>, <span class="st">"Gadget"</span>, <span class="st">"Doohickey"</span>],</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sales Region"</span>: [<span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>],</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"revenue"</span>: [<span class="dv">1200</span>, <span class="dv">800</span>, <span class="dv">950</span>],</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>}).to_pandas()</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_point().encode(</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">"revenue:Q"</span>),</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"Product Name:N"</span>, <span class="st">"Sales Region"</span>, <span class="st">"revenue:Q"</span>],</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"tooltip.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the tooltip field name has a space in it (e.g., <code>"Sales Region"</code>) but is referenced without quoting in the Altair shorthand string, so the tooltip shows <code>null</code> for that field even though the data contains values.</p>
+<p>Shows: how Altair shorthand handles special characters and when to use <code>alt.Tooltip(field=…, title=…)</code> instead.</p>
+<p>To find it: hover over a point in the chart and note which tooltip field shows <code>null</code>. Then print <code>df.columns</code> to find the exact column name. If the name contains a space, the Altair shorthand parser stops at the space and the field is never matched.</p>
 </details>
-<h2 id="datasci-polarsinaltair">Pass a Polars dataframe to a chart library</h2>
-<p>Run the script and open the saved chart in a browser. Does the chart show any data
-points?</p>
-<div data-inc="polarsinaltair.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/polarsinaltair.py" class="inc-path" role="img" tabindex="0" title="datasci/polarsinaltair.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"x"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="s2">"y"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">"x:Q"</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">"y:Q"</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"polarsinaltair.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is passing the Polars DataFrame directly to <code>alt.Chart()</code> instead of
-converting it to a pandas DataFrame or using <code>alt.Data</code>, so the chart is blank.</p>
-<p>Shows: which data formats Altair accepts natively and how to convert
-between Polars and the formats Altair supports.</p>
-<p>To find it: print <code>type(df)</code> to confirm it is a Polars <code>DataFrame</code>, then open the
-chart — if it is blank, Altair did not receive a supported data format. Convert with
-<code>df.to_pandas()</code> and open the chart again.</p>
+<h2 data-number="15.16" id="pass-a-polars-dataframe-to-a-chart-library"><span class="header-section-number">15.16</span> Pass a Polars dataframe to a chart library</h2>
+<p>Run the script and open the saved chart in a browser. Does the chart show any data points?</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>],</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"y"</span>: [<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">20</span>],</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(df).mark_line().encode(</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"x:Q"</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"y:Q"</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"polarsinaltair.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is passing the Polars DataFrame directly to <code>alt.Chart()</code> instead of converting it to a pandas DataFrame or using <code>alt.Data</code>, so the chart is blank.</p>
+<p>Shows: which data formats Altair accepts natively and how to convert between Polars and the formats Altair supports.</p>
+<p>To find it: print <code>type(df)</code> to confirm it is a Polars <code>DataFrame</code>, then open the chart — if it is blank, Altair did not receive a supported data format. Convert with <code>df.to_pandas()</code> and open the chart again.</p>
 </details>
-<h2 id="datasci-spurcorr">Check whether two measurements are related</h2>
-<p>Run the script and note the correlation value. Then examine how <code>metric_a</code> and
-<code>metric_b</code> are constructed. Should they really be perfectly correlated?</p>
-<div data-inc="spurcorr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/spurcorr.py" class="inc-path" role="img" tabindex="0" title="datasci/spurcorr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"base"</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span>
-<span class="p">})</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"base"</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"metric_a"</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"base"</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.5</span> <span class="o">+</span> <span class="mf">10.0</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"metric_b"</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="s2">"metric_a"</span><span class="p">,</span> <span class="s2">"metric_b"</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Correlation: </span><span class="si">{</span><span class="n">corr</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that both columns were derived from the same source column in the same
-pipeline step (a copy rather than an independent transformation), so the correlation
-is exactly 1.0 for columns that should not be perfectly correlated.</p>
-<p>Shows: how to audit column provenance in a pipeline and use scatter
-plots to sanity-check correlation claims.</p>
-<p>To find it: print the expression used to create each column side by side. If both
-are derived from <code>df["x"]</code> in the same step, they are the same data. A scatter plot
-of <code>metric_a</code> vs. <code>metric_b</code> that falls on a perfect diagonal confirms it.</p>
+<h2 data-number="15.17" id="check-whether-two-measurements-are-related"><span class="header-section-number">15.17</span> Check whether two measurements are related</h2>
+<p>Run the script and note the correlation value. Then examine how <code>metric_a</code> and <code>metric_b</code> are constructed. Should they really be perfectly correlated?</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"base"</span>: [<span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">3.0</span>, <span class="fl">4.0</span>, <span class="fl">5.0</span>, <span class="fl">6.0</span>, <span class="fl">7.0</span>, <span class="fl">8.0</span>],</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.with_columns(</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    (pl.col(<span class="st">"base"</span>) <span class="op">*</span> <span class="fl">2.5</span>).alias(<span class="st">"metric_a"</span>),</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    (pl.col(<span class="st">"base"</span>) <span class="op">*</span> <span class="fl">2.5</span> <span class="op">+</span> <span class="fl">10.0</span>).alias(<span class="st">"metric_b"</span>),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> data.select(pl.corr(<span class="st">"metric_a"</span>, <span class="st">"metric_b"</span>)).item()</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Correlation: </span><span class="sc">{</span>corr<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that both columns were derived from the same source column in the same pipeline step (a copy rather than an independent transformation), so the correlation is exactly 1.0 for columns that should not be perfectly correlated.</p>
+<p>Shows: how to audit column provenance in a pipeline and use scatter plots to sanity-check correlation claims.</p>
+<p>To find it: print the expression used to create each column side by side. If both are derived from <code>df["x"]</code> in the same step, they are the same data. A scatter plot of <code>metric_a</code> vs.&nbsp;<code>metric_b</code> that falls on a perfect diagonal confirms it.</p>
 </details>
-<h2 id="datasci-chunkaccum">Process a large file in pieces</h2>
-<p>Run the script on a large file and watch how memory usage changes as the script
-runs. Does memory stay roughly constant, or does it grow?</p>
-<div data-inc="chunkaccum.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/chunkaccum.py" class="inc-path" role="img" tabindex="0" title="datasci/chunkaccum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># rows per chunk</span>
-
-<span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv_batched</span><span class="p">(</span><span class="s2">"chunkaccum.csv"</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">CHUNK_SIZE</span><span class="p">):</span>
-    <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<div data-inc="chunkaccum.csv"><span aria-label="Source: datasci/chunkaccum.csv" class="inc-path" role="img" tabindex="0" title="datasci/chunkaccum.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>id,value
+<h2 data-number="15.18" id="process-a-large-file-in-pieces"><span class="header-section-number">15.18</span> Process a large file in pieces</h2>
+<p>Run the script on a large file and watch how memory usage changes as the script runs. Does memory stay roughly constant, or does it grow?</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="op">=</span> <span class="dv">2</span>  <span class="co"># rows per chunk</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>chunks <span class="op">=</span> []</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chunk <span class="kw">in</span> pl.read_csv_batched(<span class="st">"chunkaccum.csv"</span>, batch_size<span class="op">=</span>CHUNK_SIZE):</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    chunks.append(chunk)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pl.concat(chunks)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result[<span class="st">"value"</span>].<span class="bu">sum</span>())</span></code></pre></div>
+<pre><code>id,value
 1,10
 2,20
 3,30
 4,40
-5,50
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is accumulating all chunks in memory before concatenating rather than
-processing each chunk and writing results incrementally, so the pipeline runs out of
-memory on large files.</p>
-<p>Shows: streaming versus batch processing patterns and how to use
-Polars' <code>scan_csv</code> with lazy evaluation to avoid loading the full
-file.</p>
-<p>To find it: add <code>import tracemalloc; tracemalloc.start()</code> at the top and print
-<code>tracemalloc.get_traced_memory()</code> after processing each chunk. If the peak figure
-grows linearly with the number of chunks, the chunks are being accumulated in memory
-rather than discarded after each step.</p>
+5,50</code></pre>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is accumulating all chunks in memory before concatenating rather than processing each chunk and writing results incrementally, so the pipeline runs out of memory on large files.</p>
+<p>Shows: streaming versus batch processing patterns and how to use Polars’ <code>scan_csv</code> with lazy evaluation to avoid loading the full file.</p>
+<p>To find it: add <code>import tracemalloc; tracemalloc.start()</code> at the top and print <code>tracemalloc.get_traced_memory()</code> after processing each chunk. If the peak figure grows linearly with the number of chunks, the chunks are being accumulated in memory rather than discarded after each step.</p>
 </details>
-<h2 id="datasci-floatyear">Facet a chart by year of collection</h2>
-<p>Open the saved chart in a browser. How many facet panels does it show? Inspect the
-type of the <code>year</code> column in the DataFrame.</p>
-<div data-inc="floatyear.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/floatyear.py" class="inc-path" role="img" tabindex="0" title="datasci/floatyear.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">],</span>
-    <span class="s2">"year"</span><span class="p">:</span> <span class="p">[</span><span class="mf">2022.0</span><span class="p">,</span> <span class="mf">2022.0</span><span class="p">,</span> <span class="mf">2022.0</span><span class="p">,</span> <span class="mf">2023.0</span><span class="p">,</span> <span class="mf">2023.0</span><span class="p">,</span> <span class="mf">2023.0</span><span class="p">],</span>
-    <span class="s2">"sales"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">140</span><span class="p">],</span>
-<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-
-<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"region:N"</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"sales:Q"</span><span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span>
-    <span class="n">facet</span><span class="o">=</span><span class="s2">"year:N"</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"floatyear.html"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the year column contains floats (e.g., <code>2021.0</code>) because Polars
-inferred it as <code>Float64</code>. Altair's facet treats each unique float as a separate
-nominal value but the layout collapses to one panel due to the unexpected type.</p>
-<p>Shows: how to cast integer-like columns to <code>pl.Int32</code> before charting
-and how to verify facet behavior with a small sample.</p>
-<p>To find it: print <code>df["year"].dtype</code> and <code>df["year"].unique()</code>. If the type is
-<code>Float64</code> and the values show <code>.0</code> suffixes, cast the column with <code>.cast(pl.Int32)</code>
-before passing to Altair.</p>
+<h2 data-number="15.19" id="facet-a-chart-by-year-of-collection"><span class="header-section-number">15.19</span> Facet a chart by year of collection</h2>
+<p>Open the saved chart in a browser. How many facet panels does it show? Inspect the type of the <code>year</code> column in the DataFrame.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"region"</span>: [<span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>, <span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>],</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"year"</span>: [<span class="fl">2022.0</span>, <span class="fl">2022.0</span>, <span class="fl">2022.0</span>, <span class="fl">2023.0</span>, <span class="fl">2023.0</span>, <span class="fl">2023.0</span>],</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sales"</span>: [<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">160</span>, <span class="dv">140</span>],</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>}).to_pandas()</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_bar().encode(</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">"region:N"</span>),</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">"sales:Q"</span>),</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>).facet(</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    facet<span class="op">=</span><span class="st">"year:N"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>chart.save(<span class="st">"floatyear.html"</span>)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the year column contains floats (e.g., <code>2021.0</code>) because Polars inferred it as <code>Float64</code>. Altair’s facet treats each unique float as a separate nominal value but the layout collapses to one panel due to the unexpected type.</p>
+<p>Shows: how to cast integer-like columns to <code>pl.Int32</code> before charting and how to verify facet behavior with a small sample.</p>
+<p>To find it: print <code>df["year"].dtype</code> and <code>df["year"].unique()</code>. If the type is <code>Float64</code> and the values show <code>.0</code> suffixes, cast the column with <code>.cast(pl.Int32)</code> before passing to Altair.</p>
 </details>
-<h2 id="datasci-outoforder">Run a notebook after restarting the kernel</h2>
-<p>Run this script from top to bottom. Does it raise an error? Which line causes the
-error?</p>
-<div data-inc="outoforder.py" data-scrub="\s*# BUG.*"><span aria-label="Source: datasci/outoforder.py" class="inc-path" role="img" tabindex="0" title="datasci/outoforder.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-
-
-<span class="n">raw</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"filterboundary.csv"</span><span class="p">)</span>
-
-<span class="n">summary</span> <span class="o">=</span> <span class="n">clean</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"product"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># noqa: F821</span>
-
-<span class="n">clean</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<details class="explanation">
-<summary>Show explanation</summary>
-<p>The bug is that the notebook had cells executed out of order, leaving a modified
-DataFrame in memory that masked an error in the cleaning step. The script produces
-correct results when run step by step in a notebook but wrong results when run as a
-script.</p>
-<p>Shows: why notebooks must be tested by restarting the kernel and
-running all cells in order, and how to structure pipelines so each
-step depends only on its explicit inputs.</p>
-<p>To find it: run the script as a plain Python file from a fresh process (not inside a
-notebook). If it raises an error that never appeared during interactive execution,
-a cell was run out of order. Add <code>print(df.columns)</code> at the start of each step to
-confirm each step's input matches what the previous step produced.</p>
+<h2 data-number="15.20" id="run-a-notebook-after-restarting-the-kernel"><span class="header-section-number">15.20</span> Run a notebook after restarting the kernel</h2>
+<p>Run this script from top to bottom. Does it raise an error? Which line causes the error?</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> pl.read_csv(<span class="st">"filterboundary.csv"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> clean.group_by(<span class="st">"product"</span>).agg(pl.col(<span class="st">"value"</span>).mean())  <span class="co"># noqa: F821</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>clean <span class="op">=</span> raw.<span class="bu">filter</span>(pl.col(<span class="st">"value"</span>) <span class="op">&gt;</span> <span class="dv">40</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div>
+<details>
+<summary>
+Show explanation
+</summary>
+<p>The bug is that the notebook had cells executed out of order, leaving a modified DataFrame in memory that masked an error in the cleaning step. The script produces correct results when run step by step in a notebook but wrong results when run as a script.</p>
+<p>Shows: why notebooks must be tested by restarting the kernel and running all cells in order, and how to structure pipelines so each step depends only on its explicit inputs.</p>
+<p>To find it: run the script as a plain Python file from a fresh process (not inside a notebook). If it raises an error that never appeared during interactive execution, a cell was run out of order. Add <code>print(df.columns)</code> at the start of each step to confirm each step’s input matches what the previous step produced.</p>
 </details>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../fastapi/">FastAPI</a>
-</div>
-<div class="col-6 center">
-<a href="../">Unbreak</a>
-	  ©
-	  <a href="../contributing/#contributors">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../dataviz/">Data Visualization</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+
+
+</body></html>
