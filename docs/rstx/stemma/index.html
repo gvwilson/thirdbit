@@ -35,34 +35,35 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">10.1</span> The Problem</a></li>
-<li><a href="#variant-loci-and-hamming-distance" id="toc-variant-loci-and-hamming-distance"><span class="header-section-number">10.2</span> Variant Loci and Hamming Distance</a></li>
-<li><a href="#distance-matrix-for-the-reference-stemma" id="toc-distance-matrix-for-the-reference-stemma"><span class="header-section-number">10.3</span> Distance Matrix for the Reference Stemma</a></li>
-<li><a href="#the-upgma-algorithm" id="toc-the-upgma-algorithm"><span class="header-section-number">10.4</span> The UPGMA Algorithm</a></li>
-<li><a href="#a-worked-example" id="toc-a-worked-example"><span class="header-section-number">10.5</span> A Worked Example</a></li>
-<li><a href="#hamming-distance-function" id="toc-hamming-distance-function"><span class="header-section-number">10.6</span> Hamming Distance Function</a></li>
-<li><a href="#visualizing-the-stemma" id="toc-visualizing-the-stemma"><span class="header-section-number">10.7</span> Visualizing the Stemma</a></li>
-<li><a href="#generating-synthetic-manuscripts" id="toc-generating-synthetic-manuscripts"><span class="header-section-number">10.8</span> Generating Synthetic Manuscripts</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">10.9</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">10.10</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">11.1</span> The Problem</a></li>
+<li><a href="#variant-loci-and-hamming-distance" id="toc-variant-loci-and-hamming-distance"><span class="header-section-number">11.2</span> Variant Loci and Hamming Distance</a></li>
+<li><a href="#distance-matrix-for-the-reference-stemma" id="toc-distance-matrix-for-the-reference-stemma"><span class="header-section-number">11.3</span> Distance Matrix for the Reference Stemma</a></li>
+<li><a href="#the-upgma-algorithm" id="toc-the-upgma-algorithm"><span class="header-section-number">11.4</span> The UPGMA Algorithm</a></li>
+<li><a href="#a-worked-example" id="toc-a-worked-example"><span class="header-section-number">11.5</span> A Worked Example</a></li>
+<li><a href="#hamming-distance-function" id="toc-hamming-distance-function"><span class="header-section-number">11.6</span> Hamming Distance Function</a></li>
+<li><a href="#visualizing-the-stemma" id="toc-visualizing-the-stemma"><span class="header-section-number">11.7</span> Visualizing the Stemma</a></li>
+<li><a href="#generating-synthetic-manuscripts" id="toc-generating-synthetic-manuscripts"><span class="header-section-number">11.8</span> Generating Synthetic Manuscripts</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">11.9</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">11.10</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Manuscript Stemma Reconstruction</h1>
-<h2 data-number="10.1" id="the-problem"><span class="header-section-number">10.1</span> The Problem</h2>
+<h2 data-number="11.1" id="the-problem"><span class="header-section-number">11.1</span> The Problem</h2>
 <ul>
 <li>A historical text often survives in multiple manuscript copies, each introduced by scribes who occasionally made errors, omitted passages, or substituted words.</li>
 <li>A <a href="../glossary/index.html#stemma">stemma</a> is the family tree of those copies: it shows which manuscripts descend from which others and reconstructs lost intermediate ancestors.</li>
@@ -95,7 +96,7 @@ Wrong: shared unique errors in the same positions are statistically very unlikel
 </dd>
 </dl>
 </div>
-<h2 data-number="10.2" id="variant-loci-and-hamming-distance"><span class="header-section-number">10.2</span> Variant Loci and Hamming Distance</h2>
+<h2 data-number="11.2" id="variant-loci-and-hamming-distance"><span class="header-section-number">11.2</span> Variant Loci and Hamming Distance</h2>
 <ul>
 <li>A variant locus is a specific position in a manuscript where at least one copy reads differently from the others.</li>
 <li>We represent each manuscript as a binary sequence: 0 if the reading at a locus matches the <a href="../glossary/index.html#archetype">archetype</a>, 1 if it has been corrupted.</li>
@@ -105,7 +106,7 @@ Wrong: shared unique errors in the same positions are statistically very unlikel
 <ul>
 <li>Manuscripts that share a common intermediate ancestor will have a smaller Hamming distance to each other than to manuscripts from a different family, because they share inherited variants in addition to their unique ones.</li>
 </ul>
-<h2 data-number="10.3" id="distance-matrix-for-the-reference-stemma"><span class="header-section-number">10.3</span> Distance Matrix for the Reference Stemma</h2>
+<h2 data-number="11.3" id="distance-matrix-for-the-reference-stemma"><span class="header-section-number">11.3</span> Distance Matrix for the Reference Stemma</h2>
 <ul>
 <li>The reference stemma is:</li>
 </ul>
@@ -149,7 +150,7 @@ Wrong: shared unique errors in the same positions are statistically very unlikel
 </tbody>
 </table>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="10.4" id="the-upgma-algorithm"><span class="header-section-number">10.4</span> The UPGMA Algorithm</h2>
+<h2 data-number="11.4" id="the-upgma-algorithm"><span class="header-section-number">11.4</span> The UPGMA Algorithm</h2>
 <ul>
 <li>UPGMA (Unweighted Pair-Group Method with Arithmetic means) builds a rooted tree by iteratively merging the pair of nodes with the smallest pairwise distance.</li>
 <li>At each step:
@@ -167,8 +168,60 @@ Wrong: shared unique errors in the same positions are statistically very unlikel
 <li>Repeat until two nodes remain, then join them with an edge equal to the remaining distance.</li>
 <li>UPGMA assumes a constant rate of scribal error across all manuscripts (analogous to the molecular clock in phylogenetics). The neighbor-joining algorithm relaxes this assumption but requires more advanced mathematics.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="10.5" id="a-worked-example"><span class="header-section-number">10.5</span> A Worked Example</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> upgma(names, dist_matrix):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run the UPGMA algorithm and return a list of (node_a, node_b, length) edges.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    `names` is a list of manuscript labels.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    `dist_matrix` is a symmetric distance matrix with zero diagonal.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    UPGMA (Unweighted Pair-Group Method with Arithmetic means) builds a rooted,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ultrametric tree.  At each step it merges the pair with the smallest pairwise</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    distance, assigns each branch half that distance, then recomputes distances to</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    the new node as the average of the merged nodes' distances.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a list of (node_a, node_b, branch_length) triples.  For each internal</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    node u created by merging i and j, two edges are added: (u, i, D(i,j)/2) and</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    (u, j, D(i,j)/2).  The final two nodes are joined by one last edge.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> <span class="bu">list</span>(names)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    D <span class="op">=</span> dist_matrix.copy().astype(<span class="bu">float</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> []</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># node_counter starts after all leaf indices so generated names never</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># collide with manuscript labels such as "A", "B", etc.</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    node_counter <span class="op">=</span> <span class="bu">len</span>(names)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">len</span>(names) <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        n <span class="op">=</span> <span class="bu">len</span>(names)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Find the pair (i, j) with i &lt; j that has the smallest distance.</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        np.fill_diagonal(D, np.inf)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> np.argmin(D)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        np.fill_diagonal(D, <span class="fl">0.0</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        i, j <span class="op">=</span> <span class="bu">divmod</span>(<span class="bu">int</span>(idx), n)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> j:</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            i, j <span class="op">=</span> j, i</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        d_ij <span class="op">=</span> D[i, j]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Each branch from the new node u to i and j has length D(i,j)/2.</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        half <span class="op">=</span> d_ij <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        u_name <span class="op">=</span> <span class="ss">f"node</span><span class="sc">{</span>node_counter<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        node_counter <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        edges.append((u_name, names[i], half))</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        edges.append((u_name, names[j], half))</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Distance from u to every remaining taxon k is the average of the</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># distances from i and from j to k (UPGMA averaging rule).</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        new_row <span class="op">=</span> np.array(</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>            [<span class="fl">0.5</span> <span class="op">*</span> (D[i, k] <span class="op">+</span> D[j, k]) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove rows/columns for i and j; append row/column for u.</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        keep <span class="op">=</span> [k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n) <span class="cf">if</span> k <span class="op">!=</span> i <span class="kw">and</span> k <span class="op">!=</span> j]</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        D_new <span class="op">=</span> D[np.ix_(keep, keep)]</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        extra <span class="op">=</span> new_row[keep]</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        size <span class="op">=</span> <span class="bu">len</span>(keep) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        D2 <span class="op">=</span> np.zeros((size, size))</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        D2[: <span class="bu">len</span>(keep), : <span class="bu">len</span>(keep)] <span class="op">=</span> D_new</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        D2[: <span class="bu">len</span>(keep), <span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> extra</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        D2[<span class="op">-</span><span class="dv">1</span>, : <span class="bu">len</span>(keep)] <span class="op">=</span> extra</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        D <span class="op">=</span> D2</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        names <span class="op">=</span> [names[k] <span class="cf">for</span> k <span class="kw">in</span> keep] <span class="op">+</span> [u_name]</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Two nodes remain; connect them with the remaining distance.</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    edges.append((names[<span class="dv">0</span>], names[<span class="dv">1</span>], D[<span class="dv">0</span>, <span class="dv">1</span>]))</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> edges</span></code></pre></div>
+<h2 data-number="11.5" id="a-worked-example"><span class="header-section-number">11.5</span> A Worked Example</h2>
 <p>Starting with <span class="math inline">\(n = 4\)</span> manuscripts and the distances from the reference stemma:</p>
 <table class="caption-top">
 <thead>
@@ -295,28 +348,101 @@ Wrong: D(C, D) = 0.10 is the global minimum and is smaller than both cross-famil
 </dd>
 </dl>
 </div>
-<h2 data-number="10.6" id="hamming-distance-function"><span class="header-section-number">10.6</span> Hamming Distance Function</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="10.7" id="visualizing-the-stemma"><span class="header-section-number">10.7</span> Visualizing the Stemma</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="11.6" id="hamming-distance-function"><span class="header-section-number">11.6</span> Hamming Distance Function</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hamming_distance(seq_a, seq_b):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the fraction of loci where seq_a and seq_b differ.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Both sequences must be 1-D integer arrays of the same length.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    A value of 0.0 means identical manuscripts; 1.0 means they differ at</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    every locus.  This is the Hamming distance normalized by sequence length.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.<span class="bu">sum</span>(seq_a <span class="op">!=</span> seq_b)) <span class="op">/</span> <span class="bu">len</span>(seq_a)</span></code></pre></div>
+<h2 data-number="11.7" id="visualizing-the-stemma"><span class="header-section-number">11.7</span> Visualizing the Stemma</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_stemma(edges, manuscripts, filename):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save an unrooted stemma tree diagram to `filename`.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Manuscript nodes (leaves) are drawn in steelblue; reconstructed</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    intermediate ancestor nodes are drawn in lightgrey.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Edge labels show the branch length (fraction of differing loci)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    rounded to two decimal places.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.Graph()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b, length <span class="kw">in</span> edges:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        G.add_edge(a, b, weight<span class="op">=</span><span class="bu">round</span>(length, <span class="dv">4</span>))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> nx.spring_layout(G, seed<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    leaf_nodes <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> G.nodes() <span class="cf">if</span> n <span class="kw">in</span> manuscripts]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    internal_nodes <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> G.nodes() <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> manuscripts]</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    nx.draw_networkx_nodes(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        G, pos, nodelist<span class="op">=</span>leaf_nodes, node_color<span class="op">=</span><span class="st">"steelblue"</span>, node_size<span class="op">=</span><span class="dv">700</span>, ax<span class="op">=</span>ax</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    nx.draw_networkx_nodes(</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        G, pos, nodelist<span class="op">=</span>internal_nodes, node_color<span class="op">=</span><span class="st">"lightgrey"</span>, node_size<span class="op">=</span><span class="dv">500</span>, ax<span class="op">=</span>ax</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    nx.draw_networkx_labels(</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        G,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        pos,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        ax<span class="op">=</span>ax,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        font_size<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        font_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>{n: n <span class="cf">for</span> n <span class="kw">in</span> leaf_nodes},</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    nx.draw_networkx_labels(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        G, pos, ax<span class="op">=</span>ax, font_size<span class="op">=</span><span class="dv">8</span>, labels<span class="op">=</span>{n: n <span class="cf">for</span> n <span class="kw">in</span> internal_nodes}</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    nx.draw_networkx_edges(G, pos, ax<span class="op">=</span>ax)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    edge_labels <span class="op">=</span> {(a, b): <span class="ss">f"</span><span class="sc">{</span>d<span class="sc">:.2f}</span><span class="ss">"</span> <span class="cf">for</span> a, b, d <span class="kw">in</span> edges}</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    nx.draw_networkx_edge_labels(G, pos, edge_labels<span class="op">=</span>edge_labels, font_size<span class="op">=</span><span class="dv">7</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">"Reconstructed manuscript stemma"</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    plt.savefig(filename)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    plt.close(fig)</span></code></pre></div>
 <div id="fig-stemma-tree" class="quarto-float quarto-figure quarto-figure-center" alt="Unrooted tree with four blue leaf nodes labelled A, B, C, D and two grey internal nodes. A and B are connected through one internal node; C and D through another; the two internal nodes are joined by a central edge.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-stemma-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="stemma-tree.svg" alt="Unrooted tree with four blue leaf nodes labelled A, B, C, D and two grey internal nodes. A and B are connected through one internal node; C and D through another; the two internal nodes are joined by a central edge.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stemma-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.1: Reconstructed stemma for the four-manuscript reference example. The two internal (grey) nodes correspond to the lost intermediate ancestors alpha (A–B family) and beta (C–D family). Branch lengths give the fraction of loci that differ along each copying step.
+Figure&nbsp;11.1: Reconstructed stemma for the four-manuscript reference example. The two internal (grey) nodes correspond to the lost intermediate ancestors alpha (A–B family) and beta (C–D family). Branch lengths give the fraction of loci that differ along each copying step.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="10.8" id="generating-synthetic-manuscripts"><span class="header-section-number">10.8</span> Generating Synthetic Manuscripts</h2>
+<h2 data-number="11.8" id="generating-synthetic-manuscripts"><span class="header-section-number">11.8</span> Generating Synthetic Manuscripts</h2>
 <ul>
 <li>The stochastic generator simulates a known copying tree by propagating random mutations from the archetype through each branch.</li>
 <li>Each locus flips independently with probability <code>MUTATION_PROB = 0.05</code>.</li>
 <li>Only the four surviving manuscripts A, B, C, D are returned; the archetype and intermediate ancestors are not observed.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="10.9" id="testing"><span class="header-section-number">10.9</span> Testing</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_manuscripts(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n_loci<span class="op">=</span>N_LOCI,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    mutation_prob<span class="op">=</span>MUTATION_PROB,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a dict mapping each manuscript name to its variant sequence.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    The copying tree is:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">        archetype</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">        |-- alpha  (intermediate ancestor of A and B)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">        |   |-- A</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">        |   `-- B</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">        `-- beta   (intermediate ancestor of C and D)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">            |-- C</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">            `-- D</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Each branch introduces random mutations independently.  The archetype</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    starts as all-zero; mutations flip a locus from 0 to 1 (or back).</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    Only the four surviving manuscripts are returned; the archetype and</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">    intermediate ancestors are not observed.</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    archetype <span class="op">=</span> np.zeros(n_loci, dtype<span class="op">=</span>np.int8)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> _copy(archetype, mutation_prob, rng)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    beta <span class="op">=</span> _copy(archetype, mutation_prob, rng)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    mss <span class="op">=</span> {</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A"</span>: _copy(alpha, mutation_prob, rng),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"B"</span>: _copy(alpha, mutation_prob, rng),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"C"</span>: _copy(beta, mutation_prob, rng),</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"D"</span>: _copy(beta, mutation_prob, rng),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mss</span></code></pre></div>
+<h2 data-number="11.9" id="testing"><span class="header-section-number">11.9</span> Testing</h2>
 <ul>
 <li>Hamming distance edge cases
 <ul>
@@ -497,23 +623,29 @@ Unweighted Pair-Group Method with Arithmetic means; a clustering algorithm that 
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="10.10" id="exercises"><span class="header-section-number">10.10</span> Exercises</h2>
-<h3 data-number="10.10.1" id="do-the-math"><span class="header-section-number">10.10.1</span> Do the math</h3>
+<h2 data-number="11.10" id="exercises"><span class="header-section-number">11.10</span> Exercises</h2>
+<h3 data-number="11.10.1" id="do-the-math"><span class="header-section-number">11.10.1</span> Do the math</h3>
 <ol type="1">
 <li><p>Two manuscripts each have 100 variant loci. Manuscript A differs from the archetype at loci 1–10 and 21–30. Manuscript B differs from the archetype at loci 1–10 and 41–55. What is the Hamming distance between A and B?</p></li>
 <li><p>After merging A and B into node4 in the first UPGMA step, <span class="math inline">\(D(A, C) = 0.23\)</span> and <span class="math inline">\(D(B, C) = 0.21\)</span>. Using the UPGMA averaging rule <span class="math inline">\(D(\text{node4}, C) = (D(A,C) + D(B,C)) / 2\)</span>, what is <span class="math inline">\(D(\text{node4}, C)\)</span>?</p></li>
 </ol>
-<h3 data-number="10.10.2" id="hamming-distance-from-manuscript-sequences"><span class="header-section-number">10.10.2</span> Hamming distance from manuscript sequences</h3>
+<h3 data-number="11.10.2" id="hamming-distance-from-manuscript-sequences"><span class="header-section-number">11.10.2</span> Hamming distance from manuscript sequences</h3>
 <p>The <code>generate_stemma</code> module produces actual sequences, not just distances. Write <code>build_distance_matrix(mss)</code> that accepts the dict returned by <code>make_manuscripts</code> and computes the full <span class="math inline">\(4 \times 4\)</span> Hamming distance matrix. Run UPGMA on this matrix and compare the recovered topology to the one from <code>make_distance_matrix</code>. Do the stochastic distances give the same grouping?</p>
-<h3 data-number="10.10.3" id="effect-of-mutation-rate"><span class="header-section-number">10.10.3</span> Effect of mutation rate</h3>
+<h3 data-number="11.10.3" id="effect-of-mutation-rate"><span class="header-section-number">11.10.3</span> Effect of mutation rate</h3>
 <p>Re-run <code>make_manuscripts</code> with <code>mutation_prob</code> values of 0.01, 0.05, 0.10, and 0.20. For each rate, compute the distance matrix and check whether UPGMA recovers the correct two-family topology. At what mutation rate does the signal begin to fail, and why?</p>
-<h3 data-number="10.10.4" id="effect-of-noise-on-upgma"><span class="header-section-number">10.10.4</span> Effect of noise on UPGMA</h3>
+<h3 data-number="11.10.4" id="effect-of-noise-on-upgma"><span class="header-section-number">11.10.4</span> Effect of noise on UPGMA</h3>
 <p>UPGMA assumes all branch rates are equal (the constant-rate assumption). Add Gaussian noise to the reference distance matrix using <code>make_distance_matrix(noise_scale=s)</code> for <span class="math inline">\(s \in \{0.01, 0.02, 0.05\}\)</span>. At what noise level does UPGMA first recover the wrong topology (A or B grouped with C or D)? How does this compare to the noiseless case?</p>
-<h3 data-number="10.10.5" id="adding-a-contaminated-manuscript"><span class="header-section-number">10.10.5</span> Adding a contaminated manuscript</h3>
+<h3 data-number="11.10.5" id="adding-a-contaminated-manuscript"><span class="header-section-number">11.10.5</span> Adding a contaminated manuscript</h3>
 <p>A contaminated manuscript (one that was copied partly from two different sources) does not fit a tree model. Add a fifth manuscript E whose sequence is a 50/50 mix of A and C. Compute the distance matrix for all five manuscripts and run UPGMA. Does the algorithm detect the problem, and if so, how is it visible in the recovered tree?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../authorship/index.html">← Authorship Attribution by N-gram Profiles</a>
+    <a class="pager-link next" href="../phylo/index.html">Phylogenetic Tree Reconstruction →</a>
+  </nav>
+</footer>
 
 
 </body></html>

@@ -35,32 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">18.1</span> The Problem</a></li>
-<li><a href="#inverse-distance-weighting" id="toc-inverse-distance-weighting"><span class="header-section-number">18.2</span> Inverse-Distance Weighting</a></li>
-<li><a href="#generating-synthetic-station-data" id="toc-generating-synthetic-station-data"><span class="header-section-number">18.3</span> Generating Synthetic Station Data</a></li>
-<li><a href="#computing-the-idw-grid" id="toc-computing-the-idw-grid"><span class="header-section-number">18.4</span> Computing the IDW Grid</a></li>
-<li><a href="#visualizing-the-interpolation" id="toc-visualizing-the-interpolation"><span class="header-section-number">18.5</span> Visualizing the Interpolation</a></li>
-<li><a href="#cross-validation" id="toc-cross-validation"><span class="header-section-number">18.6</span> Cross-Validation</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">18.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">18.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">19.1</span> The Problem</a></li>
+<li><a href="#inverse-distance-weighting" id="toc-inverse-distance-weighting"><span class="header-section-number">19.2</span> Inverse-Distance Weighting</a></li>
+<li><a href="#generating-synthetic-station-data" id="toc-generating-synthetic-station-data"><span class="header-section-number">19.3</span> Generating Synthetic Station Data</a></li>
+<li><a href="#computing-the-idw-grid" id="toc-computing-the-idw-grid"><span class="header-section-number">19.4</span> Computing the IDW Grid</a></li>
+<li><a href="#visualizing-the-interpolation" id="toc-visualizing-the-interpolation"><span class="header-section-number">19.5</span> Visualizing the Interpolation</a></li>
+<li><a href="#cross-validation" id="toc-cross-validation"><span class="header-section-number">19.6</span> Cross-Validation</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">19.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">19.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Spatial Interpolation of Climate Data</h1>
-<h2 data-number="18.1" id="the-problem"><span class="header-section-number">18.1</span> The Problem</h2>
+<h2 data-number="19.1" id="the-problem"><span class="header-section-number">19.1</span> The Problem</h2>
 <ul>
 <li>Weather stations record temperature and precipitation at discrete locations, but models and maps need values everywhere in the study region</li>
 <li><a href="../glossary/index.html#spatial_interpolation">Spatial interpolation</a> estimates the value at unsampled locations by combining observations from nearby stations</li>
@@ -92,7 +93,7 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 </dd>
 </dl>
 </div>
-<h2 data-number="18.2" id="inverse-distance-weighting"><span class="header-section-number">18.2</span> Inverse-Distance Weighting</h2>
+<h2 data-number="19.2" id="inverse-distance-weighting"><span class="header-section-number">19.2</span> Inverse-Distance Weighting</h2>
 <ul>
 <li>For a query point <span class="math inline">\(\mathbf{q}\)</span>, let <span class="math inline">\(d_i = \|\mathbf{q} - \mathbf{s}_i\|\)</span> be the Euclidean distance to station <span class="math inline">\(i\)</span> with observed value <span class="math inline">\(z_i\)</span></li>
 <li>The IDW estimate is:</li>
@@ -106,7 +107,7 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 <li>A small constant <span class="math inline">\(\varepsilon = 10^{-10}\)</span> is added to each <span class="math inline">\(d_i\)</span> to prevent division by zero when a query point coincides with a station</li>
 <li>Because the weights are non-negative and sum to one after normalization, IDW is a <a href="../glossary/index.html#convexity">convex combination</a>: all estimates lie within <span class="math inline">\([\min_i z_i,\, \max_i z_i]\)</span></li>
 </ul>
-<h2 data-number="18.3" id="generating-synthetic-station-data"><span class="header-section-number">18.3</span> Generating Synthetic Station Data</h2>
+<h2 data-number="19.3" id="generating-synthetic-station-data"><span class="header-section-number">19.3</span> Generating Synthetic Station Data</h2>
 <ul>
 <li>The true temperature field is <span class="math inline">\(T(x, y) = \sin(3\pi x)\cos(2\pi y)\)</span> on <span class="math inline">\([0,1]^2\)</span>, producing three warm-cool bands in <span class="math inline">\(x\)</span> and two in <span class="math inline">\(y\)</span></li>
 <li>Station locations are drawn uniformly at random
@@ -115,32 +116,103 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 </ul></li>
 <li>Using a noise-free reference separates interpolation error from measurement error when evaluating the method</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="18.4" id="computing-the-idw-grid"><span class="header-section-number">18.4</span> Computing the IDW Grid</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_stations(n_stations<span class="op">=</span>N_STATIONS, seed<span class="op">=</span>SEED):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame of synthetic weather station observations.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Columns:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        x     -- easting in [0, 1]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">        y     -- northing in [0, 1]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">        value -- observed temperature (sampled exactly from the true field)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Stations are placed uniformly at random within the unit square.  Their</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    values are taken from the smooth true field without added noise so that</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    the interpolation error can be computed precisely by comparing to the</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    known reference surface.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> rng.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>, n_stations)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> rng.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>, n_stations)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> true_field(xs, ys)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"x"</span>: xs.tolist(), <span class="st">"y"</span>: ys.tolist(), <span class="st">"value"</span>: values.tolist()})</span></code></pre></div>
+<h2 data-number="19.4" id="computing-the-idw-grid"><span class="header-section-number">19.4</span> Computing the IDW Grid</h2>
 <ul>
 <li>Each of the grid points is treated as an independent query</li>
 <li>All <span class="math inline">\((m \times n)\)</span> distances are computed at once by broadcasting: <code>diff = query_xy[:, newaxis, :] - station_xy[newaxis, :, :]</code> yields an <span class="math inline">\((m, n, 2)\)</span> array</li>
 <li>Summing squared differences along the last axis gives the <span class="math inline">\((m, n)\)</span> distance matrix in a single expression</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> idw(station_xy, station_values, query_xy, power<span class="op">=</span>IDW_POWER):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Interpolate values at query points using inverse-distance weighting.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    station_xy     : (n, 2) float array of station (x, y) coordinates</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    station_values : (n,) float array of observed values at each station</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    query_xy       : (m, 2) float array of query point coordinates</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    power          : IDW exponent; larger values give more weight to nearby</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">                     stations relative to distant ones</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    estimates : (m,) float array of interpolated values at each query point</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Each estimate is the weighted average sum(w_i * z_i) / sum(w_i) where</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    w_i = d_i^(-power) and d_i is the Euclidean distance from the query</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    point to station i.  Broadcasting computes all (m, n) distances at once.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    diff <span class="op">=</span> query_xy[:, np.newaxis, :] <span class="op">-</span> station_xy[np.newaxis, :, :]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    dists <span class="op">=</span> np.sqrt((diff<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">2</span>)) <span class="op">+</span> EPSILON</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">=</span> dists <span class="op">**</span> (<span class="op">-</span>power)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (weights <span class="op">*</span> station_values).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> weights.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> interpolate_grid(station_xy, station_values, rows, cols, power<span class="op">=</span>IDW_POWER):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an IDW-interpolated field on a regular (rows x cols) grid.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Grid point (i, j) maps to coordinates (j / (cols-1), i / (rows-1)),</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    matching the coordinate system of make_true_grid in the generator.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="fl">1.0</span>, cols)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="fl">1.0</span>, rows)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    query_xy <span class="op">=</span> np.column_stack([X.ravel(), Y.ravel()])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    estimates <span class="op">=</span> idw(station_xy, station_values, query_xy, power)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> estimates.reshape(rows, cols)</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Order the steps to compute an IDW estimate at a single query point.</p>
 <p>Compute the Euclidean distance from the query point to each station, adding epsilon to prevent division by zero. Compute inverse-distance weights: w_i = d_i^(-p). Form the weighted sum of station values. Divide by the total weight to obtain the normalized estimate.</p>
 </div>
-<h2 data-number="18.5" id="visualizing-the-interpolation"><span class="header-section-number">18.5</span> Visualizing the Interpolation</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="19.5" id="visualizing-the-interpolation"><span class="header-section-number">19.5</span> Visualizing the Interpolation</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_comparison(true_field, idw_field, station_xy, filename):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a side-by-side comparison of the true and interpolated fields."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    vmin <span class="op">=</span> <span class="bu">min</span>(true_field.<span class="bu">min</span>(), idw_field.<span class="bu">min</span>())</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    vmax <span class="op">=</span> <span class="bu">max</span>(true_field.<span class="bu">max</span>(), idw_field.<span class="bu">max</span>())</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ax, field, title <span class="kw">in</span> <span class="bu">zip</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        axes,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        [true_field, idw_field],</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"True field"</span>, <span class="st">"IDW interpolation"</span>],</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        im <span class="op">=</span> ax.imshow(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            field, origin<span class="op">=</span><span class="st">"lower"</span>, vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax, cmap<span class="op">=</span><span class="st">"RdBu_r"</span>, aspect<span class="op">=</span><span class="st">"equal"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        ax.set_title(title)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        ax.set_ylabel(<span class="st">"y"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].scatter(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        station_xy[:, <span class="dv">0</span>] <span class="op">*</span> (idw_field.shape[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        station_xy[:, <span class="dv">1</span>] <span class="op">*</span> (idw_field.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">1</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        c<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">"x"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">"Stations"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].legend(loc<span class="op">=</span><span class="st">"upper right"</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(im, ax<span class="op">=</span>axes, label<span class="op">=</span><span class="st">"Temperature (normalised)"</span>, shrink<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    fig.savefig(filename)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    plt.close(fig)</span></code></pre></div>
 <div id="fig-interp-fields" class="quarto-float quarto-figure quarto-figure-center" alt="Two side-by-side heatmaps on a unit square. The left panel shows the true sinusoidal temperature field as alternating red and blue bands. The right panel shows the IDW interpolation, which broadly reproduces the band pattern with some blurring near the edges. Black crosses mark the 30 station locations.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-interp-fields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="interp-fields.svg" alt="Two side-by-side heatmaps on a unit square. The left panel shows the true sinusoidal temperature field as alternating red and blue bands. The right panel shows the IDW interpolation, which broadly reproduces the band pattern with some blurring near the edges. Black crosses mark the 30 station locations.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interp-fields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.1: True temperature field (left) and IDW interpolation from 30 synthetic weather stations (right, p = 2). The interpolation captures the large-scale structure but smooths detail in regions with sparse station coverage.
+Figure&nbsp;19.1: True temperature field (left) and IDW interpolation from 30 synthetic weather stations (right, p = 2). The interpolation captures the large-scale structure but smooths detail in regions with sparse station coverage.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="18.6" id="cross-validation"><span class="header-section-number">18.6</span> Cross-Validation</h2>
+<h2 data-number="19.6" id="cross-validation"><span class="header-section-number">19.6</span> Cross-Validation</h2>
 <ul>
 <li>Leave-one-out cross-validation (LOO-CV) measures how well the interpolation predicts the value at a completely unsampled location</li>
 <li>For each of the <span class="math inline">\(n\)</span> stations:
@@ -155,7 +227,7 @@ Figure&nbsp;18.1: True temperature field (left) and IDW interpolation from 30 sy
 <li>Evaluating accuracy on training data would systematically underestimate the true prediction error</li>
 </ul></li>
 </ul>
-<h2 data-number="18.7" id="testing"><span class="header-section-number">18.7</span> Testing</h2>
+<h2 data-number="19.7" id="testing"><span class="header-section-number">19.7</span> Testing</h2>
 <dl>
 <dt>Station count</dt>
 <dd>
@@ -266,20 +338,26 @@ A model-evaluation procedure in which each observation is held out in turn, the 
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="18.8" id="exercises"><span class="header-section-number">18.8</span> Exercises</h2>
-<h3 data-number="18.8.1" id="do-the-math"><span class="header-section-number">18.8.1</span> Do the math</h3>
+<h2 data-number="19.8" id="exercises"><span class="header-section-number">19.8</span> Exercises</h2>
+<h3 data-number="19.8.1" id="do-the-math"><span class="header-section-number">19.8.1</span> Do the math</h3>
 <p>Station A is 1 unit from the query point and has value 1.0. Station B is 2 units away and has value 0.0. Using p = 2, what is the IDW estimate at the query point?</p>
-<h3 data-number="18.8.2" id="effect-of-the-power-parameter"><span class="header-section-number">18.8.2</span> Effect of the power parameter</h3>
+<h3 data-number="19.8.2" id="effect-of-the-power-parameter"><span class="header-section-number">19.8.2</span> Effect of the power parameter</h3>
 <p>Run IDW with <span class="math inline">\(p\)</span> values of 1, 2, 4, and 8 on the synthetic station data. For each value compute the LOO-CV MAE and plot the interpolated field. How does the surface change as <span class="math inline">\(p\)</span> increases? Which <span class="math inline">\(p\)</span> minimises LOO-CV error on this dataset?</p>
-<h3 data-number="18.8.3" id="nearest-neighbour-interpolation"><span class="header-section-number">18.8.3</span> Nearest-neighbour interpolation</h3>
+<h3 data-number="19.8.3" id="nearest-neighbour-interpolation"><span class="header-section-number">19.8.3</span> Nearest-neighbour interpolation</h3>
 <p>Implement nearest-neighbour interpolation: assign each grid point the value of its closest station, equivalent to IDW as <span class="math inline">\(p \to \infty\)</span>. Compare the MAE and visual appearance of the nearest-neighbour field to the IDW field at <span class="math inline">\(p = 2\)</span>.</p>
-<h3 data-number="18.8.4" id="station-density-sensitivity"><span class="header-section-number">18.8.4</span> Station density sensitivity</h3>
+<h3 data-number="19.8.4" id="station-density-sensitivity"><span class="header-section-number">19.8.4</span> Station density sensitivity</h3>
 <p>Generate station sets of size 5, 15, 30, and 60, each with a different random seed, and compute the LOO-CV MAE for each. Plot MAE as a function of station count. Does the error halve when the station count doubles?</p>
-<h3 data-number="18.8.5" id="measurement-noise"><span class="header-section-number">18.8.5</span> Measurement noise</h3>
+<h3 data-number="19.8.5" id="measurement-noise"><span class="header-section-number">19.8.5</span> Measurement noise</h3>
 <p>Modify the generator to add Gaussian noise with standard deviation 0.1 to each station’s observed value. How does the LOO-CV MAE change compared to the noise-free case? Is there an optimal <span class="math inline">\(p\)</span> that reduces the impact of measurement noise?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../sdt/index.html">← Signal Detection Theory Analysis</a>
+    <a class="pager-link next" href="../agreement/index.html">Inter-Rater Agreement →</a>
+  </nav>
+</footer>
 
 
 </body></html>

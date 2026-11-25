@@ -35,34 +35,35 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">8.1</span> The Problem</a></li>
-<li><a href="#a-warm-up-edit-distance" id="toc-a-warm-up-edit-distance"><span class="header-section-number">8.2</span> A Warm-Up: Edit Distance</a></li>
-<li><a href="#scoring-an-alignment" id="toc-scoring-an-alignment"><span class="header-section-number">8.3</span> Scoring an Alignment</a></li>
-<li><a href="#the-needleman-wunsch-algorithm" id="toc-the-needleman-wunsch-algorithm"><span class="header-section-number">8.4</span> The Needleman-Wunsch Algorithm</a></li>
-<li><a href="#an-example-dp-table" id="toc-an-example-dp-table"><span class="header-section-number">8.5</span> An Example DP Table</a></li>
-<li><a href="#traceback" id="toc-traceback"><span class="header-section-number">8.6</span> Traceback</a></li>
-<li><a href="#displaying-the-alignment" id="toc-displaying-the-alignment"><span class="header-section-number">8.7</span> Displaying the Alignment</a></li>
-<li><a href="#visualizing-the-scoring-matrix" id="toc-visualizing-the-scoring-matrix"><span class="header-section-number">8.8</span> Visualizing the Scoring Matrix</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">8.9</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">8.10</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">9.1</span> The Problem</a></li>
+<li><a href="#a-warm-up-edit-distance" id="toc-a-warm-up-edit-distance"><span class="header-section-number">9.2</span> A Warm-Up: Edit Distance</a></li>
+<li><a href="#scoring-an-alignment" id="toc-scoring-an-alignment"><span class="header-section-number">9.3</span> Scoring an Alignment</a></li>
+<li><a href="#the-needleman-wunsch-algorithm" id="toc-the-needleman-wunsch-algorithm"><span class="header-section-number">9.4</span> The Needleman-Wunsch Algorithm</a></li>
+<li><a href="#an-example-dp-table" id="toc-an-example-dp-table"><span class="header-section-number">9.5</span> An Example DP Table</a></li>
+<li><a href="#traceback" id="toc-traceback"><span class="header-section-number">9.6</span> Traceback</a></li>
+<li><a href="#displaying-the-alignment" id="toc-displaying-the-alignment"><span class="header-section-number">9.7</span> Displaying the Alignment</a></li>
+<li><a href="#visualizing-the-scoring-matrix" id="toc-visualizing-the-scoring-matrix"><span class="header-section-number">9.8</span> Visualizing the Scoring Matrix</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">9.9</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">9.10</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Pairwise Sequence Alignment</h1>
-<h2 data-number="8.1" id="the-problem"><span class="header-section-number">8.1</span> The Problem</h2>
+<h2 data-number="9.1" id="the-problem"><span class="header-section-number">9.1</span> The Problem</h2>
 <ul>
 <li>Two DNA sequences often share regions of similarity because they evolved from a common ancestor or perform a similar function</li>
 <li>Identifying those shared regions by eye is impractical for sequences longer than a few dozen characters</li>
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>A gap corresponds to an insertion or deletion event during evolution</li>
 <li>Before building the full algorithm, it helps to see a simpler problem with the same structure: computing the minimum number of single-character edits needed to turn one string into another</li>
 </ul>
-<h2 data-number="8.2" id="a-warm-up-edit-distance"><span class="header-section-number">8.2</span> A Warm-Up: Edit Distance</h2>
+<h2 data-number="9.2" id="a-warm-up-edit-distance"><span class="header-section-number">9.2</span> A Warm-Up: Edit Distance</h2>
 <ul>
 <li>The edit distance between two strings is the minimum number of insertions, deletions, or substitutions needed to transform one into the other</li>
 <li>Define <span class="math inline">\(d(i,j)\)</span> as the edit distance between the first <span class="math inline">\(i\)</span> characters of string <span class="math inline">\(a\)</span> and the first <span class="math inline">\(j\)</span> characters of string <span class="math inline">\(b\)</span></li>
@@ -102,7 +103,7 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 </dd>
 </dl>
 </div>
-<h2 data-number="8.3" id="scoring-an-alignment"><span class="header-section-number">8.3</span> Scoring an Alignment</h2>
+<h2 data-number="9.3" id="scoring-an-alignment"><span class="header-section-number">9.3</span> Scoring an Alignment</h2>
 <ul>
 <li>Global alignment assigns a score to each aligned pair of positions rather than a uniform cost:
 <ul>
@@ -111,7 +112,12 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 <li>Each gap character contributes a penalty</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MATCH_SCORE <span class="op">=</span> <span class="dv">2</span>      <span class="co"># reward for aligning identical characters</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>MISMATCH_PENALTY <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># penalty for aligning different characters</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>GAP_PENALTY <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>     <span class="co"># penalty per gap character inserted in either sequence</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example sequences for the lesson.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>SEQ_A <span class="op">=</span> <span class="st">"ACGT"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>SEQ_B <span class="op">=</span> <span class="st">"AGT"</span></span></code></pre></div>
 <ul>
 <li><code>MATCH_SCORE</code> &gt; 0 rewards exact matches</li>
 <li><code>MISMATCH_PENALTY</code> and <code>GAP_PENALTY</code> are both negative and equal here
@@ -123,7 +129,7 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 <li>More elaborate aligners use larger gap-open penalties to discourage fragmented alignments</li>
 </ul></li>
 </ul>
-<h2 data-number="8.4" id="the-needleman-wunsch-algorithm"><span class="header-section-number">8.4</span> The Needleman-Wunsch Algorithm</h2>
+<h2 data-number="9.4" id="the-needleman-wunsch-algorithm"><span class="header-section-number">9.4</span> The Needleman-Wunsch Algorithm</h2>
 <ul>
 <li><a href="../glossary/index.html#needleman_wunsch">Needleman-Wunsch</a> solves global alignment exactly using dynamic programming</li>
 <li>Build a matrix <span class="math inline">\(H\)</span> of size <span class="math inline">\((m+1)\times(n+1)\)</span> where <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are the sequence lengths</li>
@@ -137,7 +143,26 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 <li>The final score of the best global alignment is <span class="math inline">\(H[m, n]\)</span>.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_matrix(seq_a, seq_b):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the Needleman-Wunsch scoring matrix for two sequences.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The matrix has shape (len(seq_a)+1, len(seq_b)+1).  Entry H[i, j] holds</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    the score of the best global alignment of seq_a[:i] with seq_b[:j].</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    The first row and column are initialised to cumulative gap penalties to</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    represent aligning a non-empty prefix with an empty string.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    m, n <span class="op">=</span> <span class="bu">len</span>(seq_a), <span class="bu">len</span>(seq_b)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> np.zeros((m <span class="op">+</span> <span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>), dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        H[i, <span class="dv">0</span>] <span class="op">=</span> i <span class="op">*</span> GAP_PENALTY</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        H[<span class="dv">0</span>, j] <span class="op">=</span> j <span class="op">*</span> GAP_PENALTY</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, m <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            diag <span class="op">=</span> H[i <span class="op">-</span> <span class="dv">1</span>, j <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> _nt_score(seq_a[i <span class="op">-</span> <span class="dv">1</span>], seq_b[j <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            delete <span class="op">=</span> H[i <span class="op">-</span> <span class="dv">1</span>, j] <span class="op">+</span> GAP_PENALTY  <span class="co"># gap in seq_b</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            insert <span class="op">=</span> H[i, j <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> GAP_PENALTY  <span class="co"># gap in seq_a</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            H[i, j] <span class="op">=</span> <span class="bu">max</span>(diag, delete, insert)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> H</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>Needleman-Wunsch does NOT include a <code>max(0, ...)</code> floor in its recurrence. What is the consequence?</p>
 <dl>
@@ -159,7 +184,7 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 </dd>
 </dl>
 </div>
-<h2 data-number="8.5" id="an-example-dp-table"><span class="header-section-number">8.5</span> An Example DP Table</h2>
+<h2 data-number="9.5" id="an-example-dp-table"><span class="header-section-number">9.5</span> An Example DP Table</h2>
 <ul>
 <li>Aligning <code>SEQ_A = "ACGT"</code> with <code>SEQ_B = "AGT"</code> using <code>MATCH_SCORE = 2</code>, <code>MISMATCH_PENALTY = -1</code>, <code>GAP_PENALTY = -1</code>:</li>
 </ul>
@@ -220,7 +245,7 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 </ul></li>
 <li><span class="math inline">\(H[4,3] = 5\)</span>: the score of the best global alignment</li>
 </ul>
-<h2 data-number="8.6" id="traceback"><span class="header-section-number">8.6</span> Traceback</h2>
+<h2 data-number="9.6" id="traceback"><span class="header-section-number">9.6</span> Traceback</h2>
 <ul>
 <li>The best global alignment ends at <span class="math inline">\(H[m, n]\)</span> (bottom-right cell)</li>
 <li>Follow the path that produced each cell’s score back through <span class="math inline">\(H\)</span> until reaching <span class="math inline">\(H[0,0]\)</span></li>
@@ -232,8 +257,39 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 </ul></li>
 <li>Reverse the collected characters at the end, since the traceback runs backwards</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> traceback(H, seq_a, seq_b):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Trace back from the bottom-right cell to recover the global alignment.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (aligned_a, aligned_b, score) where '-' marks a gap.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Global alignment always ends at H[m, n] and traces back to H[0, 0].</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    When the diagonal, delete, and insert moves give equal scores, the</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    diagonal (match/mismatch) move is preferred to produce a unique result.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    i, j <span class="op">=</span> <span class="bu">len</span>(seq_a), <span class="bu">len</span>(seq_b)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    score <span class="op">=</span> <span class="bu">int</span>(H[i, j])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    aligned_a, aligned_b <span class="op">=</span> [], []</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">or</span> j <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            i <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="kw">and</span> j <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="kw">and</span> H[i, j] <span class="op">==</span> H[i <span class="op">-</span> <span class="dv">1</span>, j <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> _nt_score(seq_a[i <span class="op">-</span> <span class="dv">1</span>], seq_b[j <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        ):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            aligned_a.append(seq_a[i <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            aligned_b.append(seq_b[j <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            j <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> i <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> H[i, j] <span class="op">==</span> H[i <span class="op">-</span> <span class="dv">1</span>, j] <span class="op">+</span> GAP_PENALTY:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            aligned_a.append(seq_a[i <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            aligned_b.append(<span class="st">"-"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>            aligned_a.append(<span class="st">"-"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            aligned_b.append(seq_b[j <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            j <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span>.join(<span class="bu">reversed</span>(aligned_a)), <span class="st">""</span>.join(<span class="bu">reversed</span>(aligned_b)), score</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> align(seq_a, seq_b):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the best global alignment of seq_a and seq_b as (aligned_a, aligned_b, score)."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> fill_matrix(seq_a, seq_b)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> traceback(H, seq_a, seq_b)</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put these Needleman-Wunsch steps in the correct order.</p>
 <ol type="1">
@@ -277,8 +333,13 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 </tbody>
 </table>
 </div>
-<h2 data-number="8.7" id="displaying-the-alignment"><span class="header-section-number">8.7</span> Displaying the Alignment</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="9.7" id="displaying-the-alignment"><span class="header-section-number">9.7</span> Displaying the Alignment</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_alignment(aligned_a, aligned_b):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a three-line string representation of an alignment.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The middle row marks matches with '|' and mismatches or gaps with ' '.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    middle <span class="op">=</span> <span class="st">""</span>.join(<span class="st">"|"</span> <span class="cf">if</span> a <span class="op">==</span> b <span class="cf">else</span> <span class="st">" "</span> <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(aligned_a, aligned_b))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"a: </span><span class="sc">{</span>aligned_a<span class="sc">}</span><span class="ch">\n</span><span class="ss">   </span><span class="sc">{</span>middle<span class="sc">}</span><span class="ch">\n</span><span class="ss">b: </span><span class="sc">{</span>aligned_b<span class="sc">}</span><span class="ss">"</span></span></code></pre></div>
 <ul>
 <li>Running the algorithm on <code>SEQ_A = "ACGT"</code> and <code>SEQ_B = "AGT"</code> produces:</li>
 </ul>
@@ -289,23 +350,56 @@ b: A-GT</code></pre>
 <li>The gap in <code>seq_b</code> at position 2 accounts for the <code>C</code> in <code>seq_a</code> that has no counterpart</li>
 <li>The score is <span class="math inline">\(3 \times 2 + (-1) = 5\)</span>: three matches at <code>MATCH_SCORE</code> = 2 and one gap at <code>GAP_PENALTY</code> = -1</li>
 </ul>
-<h2 data-number="8.8" id="visualizing-the-scoring-matrix"><span class="header-section-number">8.8</span> Visualizing the Scoring Matrix</h2>
+<h2 data-number="9.8" id="visualizing-the-scoring-matrix"><span class="header-section-number">9.8</span> Visualizing the Scoring Matrix</h2>
 <ul>
 <li>Plotting <span class="math inline">\(H\)</span> as a heatmap shows where high-scoring regions form</li>
 <li>Bright cells cluster along diagonals where the sequences share runs of matching characters</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_matrix(H, seq_a, seq_b):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair heatmap of the scoring matrix."""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    rows <span class="op">=</span> [</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"i"</span>: i,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"j"</span>: j,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"score"</span>: <span class="bu">int</span>(H[i, j]),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"row_label"</span>: seq_a[i <span class="op">-</span> <span class="dv">1</span>] <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"col_label"</span>: seq_b[j <span class="op">-</span> <span class="dv">1</span>] <span class="cf">if</span> j <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(H.shape[<span class="dv">0</span>])</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(H.shape[<span class="dv">1</span>])</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame(rows)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        .mark_rect()</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">"j:O"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="ss">f"seq_b: </span><span class="sc">{</span>seq_b<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                axis<span class="op">=</span>alt.Axis(labelExpr<span class="op">=</span><span class="st">"datum.value == 0 ? '' : datum.value"</span>),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                <span class="st">"i:O"</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="ss">f"seq_a: </span><span class="sc">{</span>seq_a<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                sort<span class="op">=</span><span class="st">"descending"</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                axis<span class="op">=</span>alt.Axis(labelExpr<span class="op">=</span><span class="st">"datum.value == 0 ? '' : datum.value"</span>),</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(<span class="st">"score:Q"</span>, scale<span class="op">=</span>alt.Scale(scheme<span class="op">=</span><span class="st">"blues"</span>), title<span class="op">=</span><span class="st">"Score"</span>),</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>            tooltip<span class="op">=</span>[<span class="st">"i"</span>, <span class="st">"j"</span>, <span class="st">"score"</span>],</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>        .properties(width<span class="op">=</span><span class="dv">300</span>, height<span class="op">=</span><span class="dv">300</span>, title<span class="op">=</span><span class="st">"Needleman-Wunsch scoring matrix"</span>)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <div id="fig-align-matrix" class="quarto-float quarto-figure quarto-figure-center" alt="Heatmap of the Needleman-Wunsch scoring matrix for ACGT vs AGT, with brightest cell at bottom right.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-align-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="align.svg" alt="Heatmap of the Needleman-Wunsch scoring matrix for ACGT vs AGT, with brightest cell at bottom right.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-align-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.1: Scoring matrix for SEQ_A = ‘ACGT’ vs SEQ_B = ‘AGT’. The traceback follows the brightest path from H[m,n] (bottom right) back to H[0,0] (top left).
+Figure&nbsp;9.1: Scoring matrix for SEQ_A = ‘ACGT’ vs SEQ_B = ‘AGT’. The traceback follows the brightest path from H[m,n] (bottom right) back to H[0,0] (top left).
 </figcaption>
 </figure>
 </div>
-<h2 data-number="8.9" id="testing"><span class="header-section-number">8.9</span> Testing</h2>
+<h2 data-number="9.9" id="testing"><span class="header-section-number">9.9</span> Testing</h2>
 <p>Unlike the <a href="@/diffusion/">diffusion</a> and <a href="@/lotka/">Lotka-Volterra</a> lessons, all scores here are integers computed by exact arithmetic: no floating-point rounding occurs and no tolerance is needed in any test.</p>
 <dl>
 <dt>Matrix shape</dt>
@@ -396,20 +490,26 @@ When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALT
 <span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> aligned_b <span class="op">==</span> <span class="st">"A-GT"</span></span>
 <span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> score <span class="op">==</span> <span class="dv">5</span></span></code></pre></div>
 <section class="exercises">
-<h2 data-number="8.10" id="exercises"><span class="header-section-number">8.10</span> Exercises</h2>
-<h3 data-number="8.10.1" id="do-the-math"><span class="header-section-number">8.10.1</span> Do the math</h3>
+<h2 data-number="9.10" id="exercises"><span class="header-section-number">9.10</span> Exercises</h2>
+<h3 data-number="9.10.1" id="do-the-math"><span class="header-section-number">9.10.1</span> Do the math</h3>
 <p>Aligning “AGTC” with “AGC” using <code>MATCH_SCORE = 2</code>, <code>MISMATCH_PENALTY = -1</code>, <code>GAP_PENALTY = -1</code>: the best global alignment has three matches and one gap. What is the total alignment score?</p>
-<h3 data-number="8.10.2" id="effect-of-gap-penalty"><span class="header-section-number">8.10.2</span> Effect of gap penalty</h3>
+<h3 data-number="9.10.2" id="effect-of-gap-penalty"><span class="header-section-number">9.10.2</span> Effect of gap penalty</h3>
 <p>Change <code>GAP_PENALTY</code> from -1 to -3 (while keeping <code>MISMATCH_PENALTY = -1</code>) and re-run <code>align("ACGT", "AGT")</code>. Does the alignment still contain a gap, or does it change? Explain the result in terms of the recurrence relation.</p>
-<h3 data-number="8.10.3" id="local-alignment-smith-waterman"><span class="header-section-number">8.10.3</span> Local alignment (Smith-Waterman)</h3>
+<h3 data-number="9.10.3" id="local-alignment-smith-waterman"><span class="header-section-number">9.10.3</span> Local alignment (Smith-Waterman)</h3>
 <p>The Smith-Waterman algorithm for local alignment differs from Needleman-Wunsch in exactly two ways: the first row and column are all zeros (not cumulative gap penalties), and each cell uses <code>max(0, diag, delete, insert)</code> instead of <code>max(diag, delete, insert)</code>. Implement <code>fill_local(seq_a, seq_b)</code> and <code>traceback_local(H, seq_a, seq_b)</code> where the traceback starts at the cell with the highest value and stops when it reaches a zero. Verify that aligning <code>"AAACGT"</code> with <code>"CCGT"</code> locally produces a different result than aligning them globally.</p>
-<h3 data-number="8.10.4" id="scoring-matrix-for-amino-acids"><span class="header-section-number">8.10.4</span> Scoring matrix for amino acids</h3>
+<h3 data-number="9.10.4" id="scoring-matrix-for-amino-acids"><span class="header-section-number">9.10.4</span> Scoring matrix for amino acids</h3>
 <p>Biological sequence aligners use substitution matrices such as BLOSUM62 that assign different scores to each pair of amino acid characters, reflecting how often each substitution occurs in evolution. Replace <code>_nt_score</code> with a function that looks up scores in a small hand-written <span class="math inline">\(4 \times 4\)</span> substitution matrix for the four DNA bases A, C, G, T. Assign a higher score to transitions (A vs G, C vs T) than transversions (A vs C, A vs T, etc.), since transitions are more common mutations. Verify that aligning <code>"ATCG"</code> with <code>"AGCG"</code> now gives a different score than with the flat <code>MATCH_SCORE</code> / <code>MISMATCH_PENALTY</code> scheme.</p>
-<h3 data-number="8.10.5" id="affine-gap-penalty"><span class="header-section-number">8.10.5</span> Affine gap penalty</h3>
+<h3 data-number="9.10.5" id="affine-gap-penalty"><span class="header-section-number">9.10.5</span> Affine gap penalty</h3>
 <p>The linear gap penalty <span class="math inline">\(g\)</span> treats opening a gap and extending an existing gap identically. A more realistic affine gap penalty charges a higher cost <span class="math inline">\(g_o\)</span> to open a gap and a lower cost <span class="math inline">\(g_e\)</span> to extend it: a gap of length <span class="math inline">\(k\)</span> costs <span class="math inline">\(g_o + (k-1)g_e\)</span>. Look up the three-matrix formulation of Needleman-Wunsch with affine gaps (using matrices <span class="math inline">\(H\)</span>, <span class="math inline">\(E\)</span>, <span class="math inline">\(F\)</span>) and implement it. Verify that with <span class="math inline">\(g_o = -3\)</span> and <span class="math inline">\(g_e = -1\)</span> the alignment of <code>"ACCCGT"</code> with <code>"AGT"</code> produces a single gap of length 3 rather than three individual gaps.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../leastcost/index.html">← Least-Cost Path Analysis for Trade Routes</a>
+    <a class="pager-link next" href="../authorship/index.html">Authorship Attribution by N-gram Profiles →</a>
+  </nav>
+</footer>
 
 
 </body></html>

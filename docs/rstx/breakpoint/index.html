@@ -35,32 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">32.1</span> The Problem</a></li>
-<li><a href="#the-cusum-statistic" id="toc-the-cusum-statistic"><span class="header-section-number">32.2</span> The CUSUM Statistic</a></li>
-<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">32.3</span> Generating Synthetic Data</a></li>
-<li><a href="#mean-only-residuals-and-cusum" id="toc-mean-only-residuals-and-cusum"><span class="header-section-number">32.4</span> Mean-Only Residuals and CUSUM</a></li>
-<li><a href="#linear-trend-residuals-and-cusum" id="toc-linear-trend-residuals-and-cusum"><span class="header-section-number">32.5</span> Linear-Trend Residuals and CUSUM</a></li>
-<li><a href="#plotting" id="toc-plotting"><span class="header-section-number">32.6</span> Plotting</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">32.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">32.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">33.1</span> The Problem</a></li>
+<li><a href="#the-cusum-statistic" id="toc-the-cusum-statistic"><span class="header-section-number">33.2</span> The CUSUM Statistic</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">33.3</span> Generating Synthetic Data</a></li>
+<li><a href="#mean-only-residuals-and-cusum" id="toc-mean-only-residuals-and-cusum"><span class="header-section-number">33.4</span> Mean-Only Residuals and CUSUM</a></li>
+<li><a href="#linear-trend-residuals-and-cusum" id="toc-linear-trend-residuals-and-cusum"><span class="header-section-number">33.5</span> Linear-Trend Residuals and CUSUM</a></li>
+<li><a href="#plotting" id="toc-plotting"><span class="header-section-number">33.6</span> Plotting</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">33.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">33.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Structural Break Detection in Economic Time Series</h1>
-<h2 data-number="32.1" id="the-problem"><span class="header-section-number">32.1</span> The Problem</h2>
+<h2 data-number="33.1" id="the-problem"><span class="header-section-number">33.1</span> The Problem</h2>
 <ul>
 <li>An economic indicator like inflation can shift abruptly when policy changes or a crisis hits</li>
 <li>A <a href="../glossary/index.html#structural_break">structural break</a> is a point in time where the statistical properties of the series change permanently</li>
@@ -95,7 +96,7 @@ Wrong: absolute size alone does not cause drift; it is the consistent sign that 
 </dd>
 </dl>
 </div>
-<h2 data-number="32.2" id="the-cusum-statistic"><span class="header-section-number">32.2</span> The CUSUM Statistic</h2>
+<h2 data-number="33.2" id="the-cusum-statistic"><span class="header-section-number">33.2</span> The CUSUM Statistic</h2>
 <ul>
 <li>Given a time series <span class="math inline">\(y_0, \ldots, y_{T-1}\)</span> and a fitted model with residuals <span class="math inline">\(\hat{e}_t = y_t - \hat{y}_t\)</span>, the cumulative sum (CUSUM) at step <span class="math inline">\(t\)</span> is:</li>
 </ul>
@@ -109,13 +110,31 @@ Wrong: absolute size alone does not cause drift; it is the consistent sign that 
 <ul>
 <li>Because detect_break returns the last index before the estimated break, the estimated break location in terms of steps is <span class="math inline">\(\hat{\tau} + 1\)</span></li>
 </ul>
-<h2 data-number="32.3" id="generating-synthetic-data"><span class="header-section-number">32.3</span> Generating Synthetic Data</h2>
+<h2 data-number="33.3" id="generating-synthetic-data"><span class="header-section-number">33.3</span> Generating Synthetic Data</h2>
 <ul>
 <li>The series has a single abrupt break at step 100: the mean shifts from 0.0 to 3.0, a change of three standard deviations (<span class="math inline">\(\sigma = 1.0\)</span>)</li>
 <li>This signal-to-noise ratio of 3 gives reliable detection with 200 observations while still leaving visible scatter in the plots</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="32.4" id="mean-only-residuals-and-cusum"><span class="header-section-number">32.4</span> Mean-Only Residuals and CUSUM</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_breakpoint_data(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n_steps<span class="op">=</span>N_STEPS,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    break_step<span class="op">=</span>BREAK_STEP,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    mean_before<span class="op">=</span>MEAN_BEFORE,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    mean_after<span class="op">=</span>MEAN_AFTER,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    noise_std<span class="op">=</span>NOISE_STD,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame with columns 'step' and 'value'.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    The series has a single structural break at break_step:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">      - value[t] ~ N(mean_before, noise_std^2)  for t &lt; break_step</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">      - value[t] ~ N(mean_after,  noise_std^2)  for t &gt;= break_step</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    The break is abrupt: there is no gradual transition.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    steps <span class="op">=</span> np.arange(n_steps)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    means <span class="op">=</span> np.where(steps <span class="op">&lt;</span> break_step, mean_before, mean_after)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> means <span class="op">+</span> rng.normal(<span class="fl">0.0</span>, noise_std, n_steps)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"step"</span>: steps, <span class="st">"value"</span>: values})</span></code></pre></div>
+<h2 data-number="33.4" id="mean-only-residuals-and-cusum"><span class="header-section-number">33.4</span> Mean-Only Residuals and CUSUM</h2>
 <ul>
 <li>Subtract the sample mean from each observation: <span class="math inline">\(\hat{e}_t = y_t - \bar{y}\)</span></li>
 <li>If there is no break, these residuals fluctuate randomly around zero with no consistent pattern</li>
@@ -129,9 +148,28 @@ Wrong: absolute size alone does not cause drift; it is the consistent sign that 
 <li>The peak marks the break</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="32.5" id="linear-trend-residuals-and-cusum"><span class="header-section-number">32.5</span> Linear-Trend Residuals and CUSUM</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> residuals_mean(values):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Residuals from a mean-only fit.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Subtracts the sample mean from each observation.  Residuals sum to zero</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    by construction.  Use this model when the series is expected to be</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    stationary around a constant mean before and after the break.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> values <span class="op">-</span> np.mean(values)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cusum(residuals):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Cumulative sum (CUSUM) of residuals.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    C_t = sum_{s=0}^{t} e_s  (0-indexed).</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    A structural break shifts the expected sign of residuals, so C_t drifts</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    away from zero before the break and then reverses afterwards.  The index</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    of maximum |C_t| estimates the location of the break.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.cumsum(residuals)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_break(cusum_values):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the index where |CUSUM| is largest.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    This index is the last step before the detected break: the series</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    properties are estimated to shift at index detect_break(...) + 1.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(np.argmax(np.<span class="bu">abs</span>(cusum_values)))</span></code></pre></div>
+<h2 data-number="33.5" id="linear-trend-residuals-and-cusum"><span class="header-section-number">33.5</span> Linear-Trend Residuals and CUSUM</h2>
 <ul>
 <li>If the series also has a linear trend, subtracting only the mean conflates the trend with the break
 <ul>
@@ -146,7 +184,17 @@ Wrong: absolute size alone does not cause drift; it is the consistent sign that 
 <li>Applying the mean-only approach to a trending series produces a spurious signal at the point where the trend, not a break, drives the largest cumulative deviation</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> residuals_trend(values):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Residuals from a linear-trend fit.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Fits y_t = a + b*t using np.polyfit, then returns e_t = y_t - (a + b*t).</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Removes any linear drift so the CUSUM responds only to departures from</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    the fitted trend, such as a sudden mean shift.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Use this model when the series is expected to have a linear trend in</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    addition to a possible break.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.arange(<span class="bu">len</span>(values), dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    coeffs <span class="op">=</span> np.polyfit(t, values, <span class="dv">1</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> values <span class="op">-</span> np.polyval(coeffs, t)</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>A time series has GDP values that grow at roughly 2% per year with no sudden shift. Which CUSUM model is more appropriate?</p>
 <dl>
@@ -168,15 +216,70 @@ Wrong: even a modest trend, cumulated over many steps, will dominate the CUSUM a
 </dd>
 </dl>
 </div>
-<h2 data-number="32.6" id="plotting"><span class="header-section-number">32.6</span> Plotting</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="33.6" id="plotting"><span class="header-section-number">33.6</span> Plotting</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_series_with_break(values, detected_break, filename):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a time-series plot with a vertical rule at the detected break."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame({<span class="st">"step"</span>: np.arange(n, dtype<span class="op">=</span><span class="bu">float</span>), <span class="st">"value"</span>: values})</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    series <span class="op">=</span> (</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"steelblue"</span>, strokeWidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"step:Q"</span>, title<span class="op">=</span><span class="st">"Step"</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"value:Q"</span>, title<span class="op">=</span><span class="st">"Value"</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    break_df <span class="op">=</span> pl.DataFrame({<span class="st">"step"</span>: [<span class="bu">float</span>(detected_break <span class="op">+</span> <span class="dv">1</span>)]})</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    break_rule <span class="op">=</span> (</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        alt.Chart(break_df)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        .mark_rule(color<span class="op">=</span><span class="st">"firebrick"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>, strokeDash<span class="op">=</span>[<span class="dv">6</span>, <span class="dv">3</span>])</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        .encode(x<span class="op">=</span><span class="st">"step:Q"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> alt.layer(series, break_rule).properties(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">450</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">250</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Time series with detected break at step </span><span class="sc">{</span>detected_break <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_cusum_comparison(cusum_mean, cusum_trend, true_break, filename):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save CUSUM trajectories for both OLS models on the same axes."""</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(cusum_mean)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    steps <span class="op">=</span> np.arange(n, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"step"</span>: np.concatenate([steps, steps]),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cusum"</span>: np.concatenate([cusum_mean, cusum_trend]),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"model"</span>: [<span class="st">"mean-only"</span>] <span class="op">*</span> n <span class="op">+</span> [<span class="st">"linear trend"</span>] <span class="op">*</span> n,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    lines <span class="op">=</span> (</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        .mark_line(strokeWidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"step:Q"</span>, title<span class="op">=</span><span class="st">"Step"</span>),</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"cusum:Q"</span>, title<span class="op">=</span><span class="st">"CUSUM"</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(<span class="st">"model:N"</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"OLS model"</span>)),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    break_df <span class="op">=</span> pl.DataFrame({<span class="st">"step"</span>: [<span class="bu">float</span>(true_break)]})</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    break_rule <span class="op">=</span> (</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>        alt.Chart(break_df)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>        .mark_rule(color<span class="op">=</span><span class="st">"gray"</span>, strokeDash<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">4</span>], strokeWidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>        .encode(x<span class="op">=</span><span class="st">"step:Q"</span>)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> alt.layer(lines, break_rule).properties(</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">450</span>,</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span>,</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"CUSUM comparison: mean-only vs. linear-trend residuals"</span>,</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-breakpoint-series" class="quarto-float quarto-figure quarto-figure-center" alt="Time series of 200 values with a clear upward jump around step 100 and a dashed vertical rule at that step.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-breakpoint-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="breakpoint-series.svg" alt="Time series of 200 values with a clear upward jump around step 100 and a dashed vertical rule at that step.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-breakpoint-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.1: Synthetic time series with a mean shift from 0.0 to 3.0 at step 100. The dashed red rule shows the break detected by the mean-only CUSUM at step 100 — exact agreement with the true break.
+Figure&nbsp;33.1: Synthetic time series with a mean shift from 0.0 to 3.0 at step 100. The dashed red rule shows the break detected by the mean-only CUSUM at step 100 — exact agreement with the true break.
 </figcaption>
 </figure>
 </div>
@@ -186,11 +289,11 @@ Figure&nbsp;32.1: Synthetic time series with a mean shift from 0.0 to 3.0 at ste
 <img src="breakpoint-cusum.svg" alt="Two overlapping CUSUM curves both reaching their minimum near step 99 and returning toward zero by step 199; a dashed gray vertical line marks step 100.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-breakpoint-cusum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.2: CUSUM trajectories for mean-only (blue) and linear-trend (orange) OLS residuals. Both methods reach their maximum absolute value near step 99 and detect the break at step 100. With no trend in the data the two CUSUMs are nearly identical; the gray dashed line marks the true break.
+Figure&nbsp;33.2: CUSUM trajectories for mean-only (blue) and linear-trend (orange) OLS residuals. Both methods reach their maximum absolute value near step 99 and detect the break at step 100. With no trend in the data the two CUSUMs are nearly identical; the gray dashed line marks the true break.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="32.7" id="testing"><span class="header-section-number">32.7</span> Testing</h2>
+<h2 data-number="33.7" id="testing"><span class="header-section-number">33.7</span> Testing</h2>
 <dl>
 <dt>CUSUM of zero residuals</dt>
 <dd>
@@ -283,20 +386,26 @@ A point in time at which the statistical properties of a time series (mean, vari
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="32.8" id="exercises"><span class="header-section-number">32.8</span> Exercises</h2>
-<h3 data-number="32.8.1" id="do-the-math"><span class="header-section-number">32.8.1</span> Do the math</h3>
+<h2 data-number="33.8" id="exercises"><span class="header-section-number">33.8</span> Exercises</h2>
+<h3 data-number="33.8.1" id="do-the-math"><span class="header-section-number">33.8.1</span> Do the math</h3>
 <p>A noise-free series has value 0 for steps 0-99 and value 3 for steps 100-199. The global mean is 1.5. At which step index (0-based) does <span class="math inline">\(|C_t|\)</span> reach its maximum?</p>
-<h3 data-number="32.8.2" id="two-break-points"><span class="header-section-number">32.8.2</span> Two break points</h3>
+<h3 data-number="33.8.2" id="two-break-points"><span class="header-section-number">33.8.2</span> Two break points</h3>
 <p>Modify <code>make_breakpoint_data</code> to introduce a second break: the mean shifts from 0.0 to 3.0 at step 60 and then from 3.0 to 1.0 at step 140. Plot the CUSUM of the mean-only residuals and explain why the statistic now shows two local extrema. Does <code>detect_break</code> find the larger or smaller break?</p>
-<h3 data-number="32.8.3" id="effect-of-signal-to-noise-ratio"><span class="header-section-number">32.8.3</span> Effect of signal-to-noise ratio</h3>
+<h3 data-number="33.8.3" id="effect-of-signal-to-noise-ratio"><span class="header-section-number">33.8.3</span> Effect of signal-to-noise ratio</h3>
 <p>Run the detection algorithm for five signal-to-noise ratios ($/ = $ 0.5, 1, 2, 3, 5) while keeping all other parameters fixed. For each ratio, report the detected break location and its distance from the true break. At what SNR does reliable detection (within 5 steps) become consistent across different random seeds?</p>
-<h3 data-number="32.8.4" id="trend-with-a-break"><span class="header-section-number">32.8.4</span> Trend with a break</h3>
+<h3 data-number="33.8.4" id="trend-with-a-break"><span class="header-section-number">33.8.4</span> Trend with a break</h3>
 <p>Generate a series with a linear trend (<span class="math inline">\(b = 0.05\)</span> per step) and a mean break at step 100. Apply both the mean-only and linear-trend CUSUM and compare the detected break locations. Show that the mean-only CUSUM gives a biased estimate when a trend is present.</p>
-<h3 data-number="32.8.5" id="scaled-cusum-and-critical-values"><span class="header-section-number">32.8.5</span> Scaled CUSUM and critical values</h3>
+<h3 data-number="33.8.5" id="scaled-cusum-and-critical-values"><span class="header-section-number">33.8.5</span> Scaled CUSUM and critical values</h3>
 <p>The raw CUSUM is not scale-invariant: a larger noise standard deviation produces larger CUSUM values even with no break. Normalise the CUSUM by dividing by <span class="math inline">\(\hat{\sigma}\sqrt{T}\)</span> where <span class="math inline">\(\hat{\sigma}\)</span> is the residual standard error and <span class="math inline">\(T\)</span> is the series length. The scaled statistic exceeds 1.36 with probability 5% under the null hypothesis of no break (Brown-Durbin-Evans critical value). Apply this threshold to the synthetic data and report whether the break is detected at the 5% level.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../survival/index.html">← Survival Analysis</a>
+    <a class="pager-link next" href="../finale/index.html">Conclusion →</a>
+  </nav>
+</footer>
 
 
 </body></html>

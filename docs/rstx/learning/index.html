@@ -35,32 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">27.1</span> The Problem</a></li>
-<li><a href="#the-power-law-learning-model" id="toc-the-power-law-learning-model"><span class="header-section-number">27.2</span> The Power-Law Learning Model</a></li>
-<li><a href="#generating-synthetic-trial-data" id="toc-generating-synthetic-trial-data"><span class="header-section-number">27.3</span> Generating Synthetic Trial Data</a></li>
-<li><a href="#fitting-with-curve_fit" id="toc-fitting-with-curve_fit"><span class="header-section-number">27.4</span> Fitting with curve_fit</a></li>
-<li><a href="#confidence-interval-from-the-covariance-matrix" id="toc-confidence-interval-from-the-covariance-matrix"><span class="header-section-number">27.5</span> Confidence Interval from the Covariance Matrix</a></li>
-<li><a href="#visualizing-the-fit" id="toc-visualizing-the-fit"><span class="header-section-number">27.6</span> Visualizing the Fit</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">27.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">27.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">28.1</span> The Problem</a></li>
+<li><a href="#the-power-law-learning-model" id="toc-the-power-law-learning-model"><span class="header-section-number">28.2</span> The Power-Law Learning Model</a></li>
+<li><a href="#generating-synthetic-trial-data" id="toc-generating-synthetic-trial-data"><span class="header-section-number">28.3</span> Generating Synthetic Trial Data</a></li>
+<li><a href="#fitting-with-curve_fit" id="toc-fitting-with-curve_fit"><span class="header-section-number">28.4</span> Fitting with curve_fit</a></li>
+<li><a href="#confidence-interval-from-the-covariance-matrix" id="toc-confidence-interval-from-the-covariance-matrix"><span class="header-section-number">28.5</span> Confidence Interval from the Covariance Matrix</a></li>
+<li><a href="#visualizing-the-fit" id="toc-visualizing-the-fit"><span class="header-section-number">28.6</span> Visualizing the Fit</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">28.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">28.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Fitting a Learning Curve to Experimental Data</h1>
-<h2 data-number="27.1" id="the-problem"><span class="header-section-number">27.1</span> The Problem</h2>
+<h2 data-number="28.1" id="the-problem"><span class="header-section-number">28.1</span> The Problem</h2>
 <ul>
 <li>Practice improves performance: reaction times fall and error rates decrease</li>
 <li><a href="../glossary/index.html#learning_curve">Learning curves</a> quantify how quickly this improvement happens and how much improvement can be expected with more practice</li>
@@ -92,7 +93,7 @@ Wrong: nonlinear fitting is more complex than linear fitting; the power-law is u
 </dd>
 </dl>
 </div>
-<h2 data-number="27.2" id="the-power-law-learning-model"><span class="header-section-number">27.2</span> The Power-Law Learning Model</h2>
+<h2 data-number="28.2" id="the-power-law-learning-model"><span class="header-section-number">28.2</span> The Power-Law Learning Model</h2>
 <ul>
 <li>The model is <span class="math inline">\(\text{RT}(n) = A \cdot n^{-b}\)</span> where:
 <ul>
@@ -103,7 +104,7 @@ Wrong: nonlinear fitting is more complex than linear fitting; the power-law is u
 <li>Taking logarithms gives <span class="math inline">\(\ln \text{RT} = \ln A - b \ln n\)</span>, showing that the power law is linear in log-log space</li>
 <li>The parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(b\)</span> are estimated simultaneously by nonlinear least squares rather than log-linearizing, which avoids distorting the noise structure when reaction times have additive Gaussian noise.</li>
 </ul>
-<h2 data-number="27.3" id="generating-synthetic-trial-data"><span class="header-section-number">27.3</span> Generating Synthetic Trial Data</h2>
+<h2 data-number="28.3" id="generating-synthetic-trial-data"><span class="header-section-number">28.3</span> Generating Synthetic Trial Data</h2>
 <ul>
 <li>The true parameters are <span class="math inline">\(A = 500\)</span> ms and <span class="math inline">\(b = 0.3\)</span>, which are within the empirical range for simple motor tasks</li>
 <li>Gaussian noise with standard deviation 20 ms is added to each trial
@@ -111,8 +112,27 @@ Wrong: nonlinear fitting is more complex than linear fitting; the power-law is u
 <li>Values below 1 ms are clamped to ensure all reaction times are positive</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="27.4" id="fitting-with-curve_fit"><span class="header-section-number">27.4</span> Fitting with curve_fit</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_trials(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n_trials<span class="op">=</span>N_TRIALS,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    a<span class="op">=</span>TRUE_A,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    b<span class="op">=</span>TRUE_B,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    noise_sd<span class="op">=</span>NOISE_SD,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame of per-trial reaction times.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Columns:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">        trial -- integer trial number starting at 1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">        rt    -- reaction time in milliseconds</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Reaction times follow the power-law model RT = a * trial^(-b) with</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Gaussian noise of standard deviation noise_sd.  Any simulated RT below</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    1 ms is clamped to 1 ms to ensure all values are positive.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    trials <span class="op">=</span> np.arange(<span class="dv">1</span>, n_trials <span class="op">+</span> <span class="dv">1</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    rt <span class="op">=</span> a <span class="op">*</span> trials <span class="op">**</span> (<span class="op">-</span>b) <span class="op">+</span> rng.normal(<span class="fl">0.0</span>, noise_sd, n_trials)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    rt <span class="op">=</span> np.maximum(rt, <span class="fl">1.0</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"trial"</span>: <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, n_trials <span class="op">+</span> <span class="dv">1</span>)), <span class="st">"rt"</span>: rt.tolist()})</span></code></pre></div>
+<h2 data-number="28.4" id="fitting-with-curve_fit"><span class="header-section-number">28.4</span> Fitting with curve_fit</h2>
 <ul>
 <li><code>scipy.optimize.curve_fit(f, x, y, p0)</code> finds the parameter values that minimise <span class="math inline">\(\sum_i (y_i - f(x_i, \theta))^2\)</span> starting from initial guess <code>p0</code></li>
 <li>It returns two objects:
@@ -123,8 +143,31 @@ Wrong: nonlinear fitting is more complex than linear fitting; the power-law is u
 <li>The diagonal entry <code>pcov[1, 1]</code> is the estimated variance of <span class="math inline">\(b\)</span></li>
 <li>Its square root is the standard error <span class="math inline">\(\text{SE}(b)\)</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="27.5" id="confidence-interval-from-the-covariance-matrix"><span class="header-section-number">27.5</span> Confidence Interval from the Covariance Matrix</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_power_law(trials, rt):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit a power-law learning curve to per-trial reaction-time data.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    trials : array-like of trial numbers (1, 2, ..., N)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    rt     : array-like of reaction times in milliseconds</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    a    : fitted amplitude (predicted RT on trial 1, in ms)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    b    : fitted learning rate exponent (larger means faster improvement)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    b_ci : (lower, upper) 95% confidence interval for b</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    scipy.optimize.curve_fit minimises the sum of squared residuals and returns</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    the estimated parameter covariance matrix.  The standard error of b is the</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    square root of the [1, 1] diagonal entry (its variance); multiplying by</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    CI_Z = 1.96 gives the half-width of the approximate 95% CI.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    trials <span class="op">=</span> np.asarray(trials, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    rt <span class="op">=</span> np.asarray(rt, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    p0 <span class="op">=</span> [rt[<span class="dv">0</span>], <span class="fl">0.2</span>]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    popt, pcov <span class="op">=</span> curve_fit(power_law, trials, rt, p0<span class="op">=</span>p0, maxfev<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    a, b <span class="op">=</span> popt</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    se_b <span class="op">=</span> <span class="bu">float</span>(np.sqrt(pcov[<span class="dv">1</span>, <span class="dv">1</span>]))</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    b_ci <span class="op">=</span> (b <span class="op">-</span> CI_Z <span class="op">*</span> se_b, b <span class="op">+</span> CI_Z <span class="op">*</span> se_b)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(a), <span class="bu">float</span>(b), b_ci</span></code></pre></div>
+<h2 data-number="28.5" id="confidence-interval-from-the-covariance-matrix"><span class="header-section-number">28.5</span> Confidence Interval from the Covariance Matrix</h2>
 <ul>
 <li>The approximate 95% confidence interval for <span class="math inline">\(b\)</span> is:</li>
 </ul>
@@ -140,19 +183,57 @@ Wrong: nonlinear fitting is more complex than linear fitting; the power-law is u
 <p>Order the steps to fit a power-law learning curve and report a confidence interval for b.</p>
 <p>Choose initial parameter guesses p0 = [first RT, 0.2]. Call curve_fit(power_law, trials, rt, p0=p0) to obtain popt and pcov. Extract the fitted exponent: b = popt[1]. Compute the standard error: SE = sqrt(pcov[1, 1]). Form the 95% CI: (b - 1.96 * SE, b + 1.96 * SE).</p>
 </div>
-<h2 data-number="27.6" id="visualizing-the-fit"><span class="header-section-number">27.6</span> Visualizing the Fit</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="28.6" id="visualizing-the-fit"><span class="header-section-number">28.6</span> Visualizing the Fit</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_fit(trials, rt, a, b, b_ci, filename):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a scatter plot of raw data with the fitted power-law curve overlaid."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    trials <span class="op">=</span> np.asarray(trials, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    rt <span class="op">=</span> np.asarray(rt, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    curve_n <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">int</span>(trials.<span class="bu">max</span>()) <span class="op">+</span> <span class="dv">1</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    curve_rt <span class="op">=</span> power_law(curve_n, a, b)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    raw <span class="op">=</span> (</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        alt.Chart(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            alt.Data(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                values<span class="op">=</span>[{<span class="st">"trial"</span>: <span class="bu">int</span>(t), <span class="st">"rt"</span>: <span class="bu">float</span>(r)} <span class="cf">for</span> t, r <span class="kw">in</span> <span class="bu">zip</span>(trials, rt)]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        .mark_point(color<span class="op">=</span><span class="st">"steelblue"</span>, opacity<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"trial:Q"</span>, title<span class="op">=</span><span class="st">"Trial number"</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"rt:Q"</span>, title<span class="op">=</span><span class="st">"Reaction time (ms)"</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    fitted <span class="op">=</span> (</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        alt.Chart(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            alt.Data(</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                values<span class="op">=</span>[</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                    {<span class="st">"trial"</span>: <span class="bu">float</span>(t), <span class="st">"rt"</span>: <span class="bu">float</span>(r)}</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> t, r <span class="kw">in</span> <span class="bu">zip</span>(curve_n, curve_rt)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                ]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"firebrick"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">"trial:Q"</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">"rt:Q"</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> (raw <span class="op">+</span> fitted).properties(</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span>(<span class="ss">f"Power-law fit: b = </span><span class="sc">{</span>b<span class="sc">:.3f}</span><span class="ss">  (95% CI [</span><span class="sc">{</span>b_ci[<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>b_ci[<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">])"</span>),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">480</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span>,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-learning-curve" class="quarto-float quarto-figure quarto-figure-center" alt="A scatter plot with trial number on the x-axis and reaction time in milliseconds on the y-axis. Blue points show the noisy per-trial observations, decreasing from around 500 ms at trial 1 to around 280 ms by trial 80. A red power-law curve fits through the data, closely following the decreasing trend.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-learning-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="learning-curve.svg" alt="A scatter plot with trial number on the x-axis and reaction time in milliseconds on the y-axis. Blue points show the noisy per-trial observations, decreasing from around 500 ms at trial 1 to around 280 ms by trial 80. A red power-law curve fits through the data, closely following the decreasing trend.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-learning-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;27.1: Per-trial reaction times (blue points) and the fitted power-law learning curve (red line) for 80 synthetic trials. The fitted exponent b = 0.298 is close to the true value of 0.30; the 95% confidence interval [0.278, 0.318] brackets the true value.
+Figure&nbsp;28.1: Per-trial reaction times (blue points) and the fitted power-law learning curve (red line) for 80 synthetic trials. The fitted exponent b = 0.298 is close to the true value of 0.30; the 95% confidence interval [0.278, 0.318] brackets the true value.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="27.7" id="testing"><span class="header-section-number">27.7</span> Testing</h2>
+<h2 data-number="28.7" id="testing"><span class="header-section-number">28.7</span> Testing</h2>
 <dl>
 <dt>Trial count</dt>
 <dd>
@@ -232,20 +313,26 @@ An interval constructed from data such that, over many repetitions of the experi
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="27.8" id="exercises"><span class="header-section-number">27.8</span> Exercises</h2>
-<h3 data-number="27.8.1" id="do-the-math"><span class="header-section-number">27.8.1</span> Do the math</h3>
+<h2 data-number="28.8" id="exercises"><span class="header-section-number">28.8</span> Exercises</h2>
+<h3 data-number="28.8.1" id="do-the-math"><span class="header-section-number">28.8.1</span> Do the math</h3>
 <p>If A = 400 ms and b = 0.5, what is the predicted reaction time (in ms) on trial 4?</p>
-<h3 data-number="27.8.2" id="log-log-linearity"><span class="header-section-number">27.8.2</span> Log-log linearity</h3>
+<h3 data-number="28.8.2" id="log-log-linearity"><span class="header-section-number">28.8.2</span> Log-log linearity</h3>
 <p>Take the logarithm of both <code>trial</code> and <code>rt</code> from the synthetic data and fit a straight line using <code>numpy.polyfit</code>. Compare the slope of the line to the exponent <span class="math inline">\(b\)</span> returned by <code>curve_fit</code>. Are they equal? If not, explain why the two estimates differ.</p>
-<h3 data-number="27.8.3" id="effect-of-noise-level"><span class="header-section-number">27.8.3</span> Effect of noise level</h3>
+<h3 data-number="28.8.3" id="effect-of-noise-level"><span class="header-section-number">28.8.3</span> Effect of noise level</h3>
 <p>Re-run the generator and fitter with noise standard deviations of 5, 20, 50, and 100 ms. For each noise level record the fitted <span class="math inline">\(b\)</span>, the width of the 95% CI for <span class="math inline">\(b\)</span>, and whether the CI brackets <code>TRUE_B</code>. At what noise level does the CI first fail to contain the true value?</p>
-<h3 data-number="27.8.4" id="confidence-interval-coverage"><span class="header-section-number">27.8.4</span> Confidence interval coverage</h3>
+<h3 data-number="28.8.4" id="confidence-interval-coverage"><span class="header-section-number">28.8.4</span> Confidence interval coverage</h3>
 <p>Generate 200 independent datasets using different random seeds and fit the power-law model to each. Record what fraction of the 95% confidence intervals contain <code>TRUE_B</code>. Is the empirical coverage close to 95%? What does it mean if the coverage is systematically lower?</p>
-<h3 data-number="27.8.5" id="alternative-model"><span class="header-section-number">27.8.5</span> Alternative model</h3>
+<h3 data-number="28.8.5" id="alternative-model"><span class="header-section-number">28.8.5</span> Alternative model</h3>
 <p>Fit an exponential learning model <span class="math inline">\(\text{RT}(n) = c + (A - c)\,e^{-\lambda n}\)</span>, where <span class="math inline">\(c\)</span> is the asymptotic RT, <span class="math inline">\(A\)</span> is the initial RT, and <span class="math inline">\(\lambda\)</span> is the decay rate. Compare the sum of squared residuals of the exponential and power-law fits on the synthetic data. Which model fits better?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../tumor/index.html">← Tumor Classification by Logistic Regression</a>
+    <a class="pager-link next" href="../radvel/index.html">Exoplanet Detection via Radial Velocity →</a>
+  </nav>
+</footer>
 
 
 </body></html>

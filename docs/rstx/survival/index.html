@@ -35,40 +35,41 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">31.1</span> The Problem</a></li>
-<li><a href="#the-survival-function" id="toc-the-survival-function"><span class="header-section-number">31.2</span> The Survival Function</a></li>
-<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">31.3</span> Generating Synthetic Data</a></li>
-<li><a href="#a-naive-estimate" id="toc-a-naive-estimate"><span class="header-section-number">31.4</span> A Naive Estimate</a></li>
-<li><a href="#why-the-naive-estimate-is-biased" id="toc-why-the-naive-estimate-is-biased"><span class="header-section-number">31.5</span> Why the Naive Estimate Is Biased</a></li>
-<li><a href="#a-corrected-estimate" id="toc-a-corrected-estimate"><span class="header-section-number">31.6</span> A Corrected Estimate</a></li>
-<li><a href="#the-empirical-survival-curve" id="toc-the-empirical-survival-curve"><span class="header-section-number">31.7</span> The Empirical Survival Curve</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">31.8</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">31.9</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">32.1</span> The Problem</a></li>
+<li><a href="#the-survival-function" id="toc-the-survival-function"><span class="header-section-number">32.2</span> The Survival Function</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">32.3</span> Generating Synthetic Data</a></li>
+<li><a href="#a-naive-estimate" id="toc-a-naive-estimate"><span class="header-section-number">32.4</span> A Naive Estimate</a></li>
+<li><a href="#why-the-naive-estimate-is-biased" id="toc-why-the-naive-estimate-is-biased"><span class="header-section-number">32.5</span> Why the Naive Estimate Is Biased</a></li>
+<li><a href="#a-corrected-estimate" id="toc-a-corrected-estimate"><span class="header-section-number">32.6</span> A Corrected Estimate</a></li>
+<li><a href="#the-empirical-survival-curve" id="toc-the-empirical-survival-curve"><span class="header-section-number">32.7</span> The Empirical Survival Curve</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">32.8</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">32.9</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Survival Analysis</h1>
-<h2 data-number="31.1" id="the-problem"><span class="header-section-number">31.1</span> The Problem</h2>
+<h2 data-number="32.1" id="the-problem"><span class="header-section-number">32.1</span> The Problem</h2>
 <ul>
 <li>In a clinical trial some patients experience the event of interest (death, relapse, recovery) while others leave the study before the trial ends or are still event-free when the data are analysed.</li>
 <li>An observation where the true event time is unknown because we only know the patient survived past a certain point is called <a href="../glossary/index.html#right_censoring">right-censored</a>.</li>
 <li>Ignoring censored observations or treating them as events both bias the estimate of survival time.</li>
 <li>This lesson builds an exponential survival model, showing how a naive estimate is biased and how maximum-likelihood estimation corrects for censoring.</li>
 </ul>
-<h2 data-number="31.2" id="the-survival-function"><span class="header-section-number">31.2</span> The Survival Function</h2>
+<h2 data-number="32.2" id="the-survival-function"><span class="header-section-number">32.2</span> The Survival Function</h2>
 <ul>
 <li>The <a href="../glossary/index.html#survival_function">survival function</a> <span class="math inline">\(S(t)\)</span> is the probability that a randomly chosen individual survives past time <span class="math inline">\(t\)</span>:</li>
 </ul>
@@ -82,15 +83,41 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>As <span class="math inline">\(t \to \infty\)</span>, <span class="math inline">\(S(t) \to 0\)</span>; the curve decays smoothly rather than dropping in steps.</li>
 <li>The mean survival time is <span class="math inline">\(\mu = 1/\lambda\)</span>; the median is <span class="math inline">\((\ln 2)/\lambda \approx 0.693/\lambda\)</span>.</li>
 </ul>
-<h2 data-number="31.3" id="generating-synthetic-data"><span class="header-section-number">31.3</span> Generating Synthetic Data</h2>
+<h2 data-number="32.3" id="generating-synthetic-data"><span class="header-section-number">32.3</span> Generating Synthetic Data</h2>
 <ul>
 <li>Each patient’s true event time is drawn from Exponential(<span class="math inline">\(\mu = 20\)</span> days, i.e.&nbsp;<span class="math inline">\(\lambda = 1/20\)</span>).</li>
 <li>An independent censoring time drawn from Uniform(<span class="math inline">\(10\)</span>, <span class="math inline">\(35\)</span>) days simulates patients who leave the study at different points.</li>
 <li>The observed time is whichever comes first; <code>observed = 1</code> if the event came first.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="31.4" id="a-naive-estimate"><span class="header-section-number">31.4</span> A Naive Estimate</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>N_PATIENTS <span class="op">=</span> <span class="dv">100</span>  <span class="co"># number of patients in the study</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>MEAN_SURVIVAL <span class="op">=</span> (</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fl">20.0</span>  <span class="co"># mean event time drawn from Exponential(scale=MEAN_SURVIVAL) in days</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Censoring time drawn from Uniform(CENSOR_MIN, CENSOR_MAX): patients followed up for a random</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># duration, with the study ending if the event has not yet occurred.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>CENSOR_MIN <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># minimum follow-up time (days)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>CENSOR_MAX <span class="op">=</span> <span class="fl">35.0</span>  <span class="co"># maximum follow-up time (days)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_survival_data(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span>N_PATIENTS,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    mean_survival<span class="op">=</span>MEAN_SURVIVAL,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    censor_min<span class="op">=</span>CENSOR_MIN,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    censor_max<span class="op">=</span>CENSOR_MAX,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame with columns 'time' and 'observed'.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Each patient has a true event time drawn from Exponential(scale=mean_survival).</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    An independent censoring time is drawn from Uniform(censor_min, censor_max).</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    The observed time is whichever comes first.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    'observed' is 1 if the event occurred before censoring, 0 otherwise.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    true_event_times <span class="op">=</span> rng.exponential(scale<span class="op">=</span>mean_survival, size<span class="op">=</span>n)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    censoring_times <span class="op">=</span> rng.uniform(low<span class="op">=</span>censor_min, high<span class="op">=</span>censor_max, size<span class="op">=</span>n)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    observed <span class="op">=</span> (true_event_times <span class="op">&lt;=</span> censoring_times).astype(<span class="bu">int</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    times <span class="op">=</span> np.minimum(true_event_times, censoring_times)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"time"</span>: times, <span class="st">"observed"</span>: observed})</span></code></pre></div>
+<h2 data-number="32.4" id="a-naive-estimate"><span class="header-section-number">32.4</span> A Naive Estimate</h2>
 <ul>
 <li>A first attempt: use only the patients whose event was actually observed, ignore the rest.</li>
 <li>For an Exponential distribution, the mean of uncensored times estimates <span class="math inline">\(\mu\)</span>, giving:</li>
@@ -118,7 +145,7 @@ Wrong: even though the event did not occur, the censored time still carries info
 </dd>
 </dl>
 </div>
-<h2 data-number="31.5" id="why-the-naive-estimate-is-biased"><span class="header-section-number">31.5</span> Why the Naive Estimate Is Biased</h2>
+<h2 data-number="32.5" id="why-the-naive-estimate-is-biased"><span class="header-section-number">32.5</span> Why the Naive Estimate Is Biased</h2>
 <ul>
 <li>Censored patients were still alive at their last observation — they survived at least that long.</li>
 <li>Dropping them removes longer-than-average survival times from the calculation.</li>
@@ -134,7 +161,7 @@ Wrong: even though the event did not occur, the censored time still carries info
 <li>The mean of the remaining times underestimates <span class="math inline">\(\mu\)</span>, so the rate is overestimated</li>
 </ol>
 </div>
-<h2 data-number="31.6" id="a-corrected-estimate"><span class="header-section-number">31.6</span> A Corrected Estimate</h2>
+<h2 data-number="32.6" id="a-corrected-estimate"><span class="header-section-number">32.6</span> A Corrected Estimate</h2>
 <ul>
 <li>The maximum-likelihood estimate (MLE) of <span class="math inline">\(\lambda\)</span> uses all observed times, not just events.</li>
 <li>The log-likelihood for <span class="math inline">\(n\)</span> patients with times <span class="math inline">\(t_i\)</span> and event indicators <span class="math inline">\(\delta_i\)</span> is:</li>
@@ -153,7 +180,7 @@ Wrong: even though the event did not occur, the censored time still carries info
 <li>A censored patient contributes time up to the point they were last observed: this is called person-time and captures the information that the patient was alive throughout that period.</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="31.7" id="the-empirical-survival-curve"><span class="header-section-number">31.7</span> The Empirical Survival Curve</h2>
+<h2 data-number="32.7" id="the-empirical-survival-curve"><span class="header-section-number">32.7</span> The Empirical Survival Curve</h2>
 <ul>
 <li>To visualize how well the model fits, plot the fraction of uncensored events occurring after each time.</li>
 <li>Sort the uncensored event times
@@ -166,18 +193,63 @@ Wrong: even though the event did not occur, the censored time still carries info
 <ul>
 <li>Overlay the exponential curves <span class="math inline">\(e^{-\hat{\lambda}_{\text{naive}} t}\)</span> and <span class="math inline">\(e^{-\hat{\lambda} t}\)</span> to see which fits the empirical curve more closely</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_survival(times, observed, lam_naive, lam_corrected, filename):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a chart with the empirical survival curve and two exponential fits.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The empirical curve shows the fraction of uncensored events that occurred</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    after each event time.  The naive and corrected exponential curves are</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    overlaid for comparison.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    event_times, fractions <span class="op">=</span> empirical_survival(times, observed)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    emp_df <span class="op">=</span> pl.DataFrame({<span class="st">"t"</span>: event_times, <span class="st">"S"</span>: fractions})</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    emp_line <span class="op">=</span> (</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        alt.Chart(emp_df)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"steelblue"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>, interpolate<span class="op">=</span><span class="st">"step-after"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"t:Q"</span>, title<span class="op">=</span><span class="st">"Time (days)"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"S:Q"</span>, title<span class="op">=</span><span class="st">"Survival fraction"</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>])),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build smooth exponential curves over [0, T_MAX_DAYS].</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    t_vals <span class="op">=</span> np.linspace(<span class="dv">0</span>, T_MAX_DAYS, <span class="dv">300</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    exp_df <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"t"</span>: np.concatenate([t_vals, t_vals]),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"S"</span>: np.concatenate(</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                [np.exp(<span class="op">-</span>lam_naive <span class="op">*</span> t_vals), np.exp(<span class="op">-</span>lam_corrected <span class="op">*</span> t_vals)]</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"model"</span>: [<span class="st">"naive"</span>] <span class="op">*</span> <span class="bu">len</span>(t_vals) <span class="op">+</span> [<span class="st">"corrected"</span>] <span class="op">*</span> <span class="bu">len</span>(t_vals),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    exp_lines <span class="op">=</span> (</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        alt.Chart(exp_df)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        .mark_line(strokeDash<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">2</span>], strokeWidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">"t:Q"</span>,</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">"S:Q"</span>,</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                <span class="st">"model:N"</span>,</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                scale<span class="op">=</span>alt.Scale(</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                    domain<span class="op">=</span>[<span class="st">"naive"</span>, <span class="st">"corrected"</span>],</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">range</span><span class="op">=</span>[<span class="st">"firebrick"</span>, <span class="st">"darkorange"</span>],</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                ),</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> alt.layer(emp_line, exp_lines).properties(</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">500</span>, height<span class="op">=</span><span class="dv">250</span>, title<span class="op">=</span><span class="st">"Empirical survival curve with exponential fits"</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-survival-exp" class="quarto-float quarto-figure quarto-figure-center" alt="Step-function empirical survival curve with two exponential overlays: naive rate (red dashed) decays faster, corrected rate (orange dashed) tracks the empirical curve more closely.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-survival-exp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="survival.svg" alt="Step-function empirical survival curve with two exponential overlays: naive rate (red dashed) decays faster, corrected rate (orange dashed) tracks the empirical curve more closely.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-survival-exp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;31.1: Empirical survival curve for 100 synthetic patients with exponential fits. The naive rate (red) overestimates decay because it ignores censored patients. The corrected MLE rate (orange) fits the empirical curve more closely.
+Figure&nbsp;32.1: Empirical survival curve for 100 synthetic patients with exponential fits. The naive rate (red) overestimates decay because it ignores censored patients. The corrected MLE rate (orange) fits the empirical curve more closely.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="31.8" id="testing"><span class="header-section-number">31.8</span> Testing</h2>
+<h2 data-number="32.8" id="testing"><span class="header-section-number">32.8</span> Testing</h2>
 <ul>
 <li><code>naive_rate</code> should return <span class="math inline">\(1 / \bar{t}_{\text{uncensored}}\)</span>; compute the mean by hand for a small dataset.</li>
 <li><code>corrected_rate</code> should return <span class="math inline">\(d / \sum t_i\)</span>; again, hand-check with a small dataset.</li>
@@ -249,23 +321,29 @@ Dropping censored patients inflates <span class="math inline">\(\hat{\lambda}\)<
 <p>The Kaplan-Meier estimator handles censored observations more carefully using conditional probabilities at each event time, and does not assume an exponential distribution; it requires more advanced statistics.</p>
 </div>
 <section class="exercises">
-<h2 data-number="31.9" id="exercises"><span class="header-section-number">31.9</span> Exercises</h2>
-<h3 data-number="31.9.1" id="do-the-math"><span class="header-section-number">31.9.1</span> Do the math</h3>
+<h2 data-number="32.9" id="exercises"><span class="header-section-number">32.9</span> Exercises</h2>
+<h3 data-number="32.9.1" id="do-the-math"><span class="header-section-number">32.9.1</span> Do the math</h3>
 <ol type="1">
 <li><p>The survival time of a population follows an Exponential distribution with rate <span class="math inline">\(\lambda = 1/20\)</span>. Using <span class="math inline">\(S(t) = e^{-\lambda t}\)</span>, compute <span class="math inline">\(S(20 \ln 2)\)</span> to three decimal places.</p></li>
 <li><p>Three patients have times <span class="math inline">\([2, 4, 10]\)</span> with event indicators <span class="math inline">\([1, 1, 0]\)</span>. Compute <span class="math inline">\(\hat{\lambda} = d / \sum t_i\)</span> to three decimal places.</p></li>
 </ol>
-<h3 data-number="31.9.2" id="confidence-interval-for-the-rate"><span class="header-section-number">31.9.2</span> Confidence interval for the rate</h3>
+<h3 data-number="32.9.2" id="confidence-interval-for-the-rate"><span class="header-section-number">32.9.2</span> Confidence interval for the rate</h3>
 <p>The asymptotic standard error of <span class="math inline">\(\hat{\lambda}\)</span> is <span class="math inline">\(\hat{\lambda} / \sqrt{d}\)</span>. Add a function <code>rate_ci(times, observed, alpha=0.05)</code> that returns a 95% confidence interval using a normal approximation, and verify that the interval contains the true rate on the synthetic dataset.</p>
-<h3 data-number="31.9.3" id="effect-of-censoring-fraction"><span class="header-section-number">31.9.3</span> Effect of censoring fraction</h3>
+<h3 data-number="32.9.3" id="effect-of-censoring-fraction"><span class="header-section-number">32.9.3</span> Effect of censoring fraction</h3>
 <p>Generate datasets with censoring windows that produce 10%, 30%, 50%, and 70% censoring fractions. For each, compute the naive and corrected rates and plot both against the true rate. At what censoring fraction does the naive estimate become seriously misleading?</p>
-<h3 data-number="31.9.4" id="weibull-extension"><span class="header-section-number">31.9.4</span> Weibull extension</h3>
+<h3 data-number="32.9.4" id="weibull-extension"><span class="header-section-number">32.9.4</span> Weibull extension</h3>
 <p>The Weibull distribution generalises the Exponential: <span class="math inline">\(S(t) = e^{-(\lambda t)^k}\)</span> where <span class="math inline">\(k = 1\)</span> recovers the Exponential. Derive the log-likelihood, implement MLE for both <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(k\)</span> using <code>scipy.optimize.minimize</code>, and compare the Weibull and Exponential fits on the synthetic data.</p>
-<h3 data-number="31.9.5" id="two-group-comparison"><span class="header-section-number">31.9.5</span> Two-group comparison</h3>
+<h3 data-number="32.9.5" id="two-group-comparison"><span class="header-section-number">32.9.5</span> Two-group comparison</h3>
 <p>Generate two groups with true rates <span class="math inline">\(\lambda_1 = 0.04\)</span> and <span class="math inline">\(\lambda_2 = 0.06\)</span>. Estimate the corrected rate for each group and test whether the ratio <span class="math inline">\(\hat{\lambda}_1 / \hat{\lambda}_2\)</span> differs significantly from 1 using the fact that <span class="math inline">\(\ln(\hat{\lambda}_1 / \hat{\lambda}_2)\)</span> is approximately normal with standard error <span class="math inline">\(\sqrt{1/d_1 + 1/d_2}\)</span>.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../flood/index.html">← Flood Frequency Analysis</a>
+    <a class="pager-link next" href="../breakpoint/index.html">Structural Break Detection in Economic Time Series →</a>
+  </nav>
+</footer>
 
 
 </body></html>

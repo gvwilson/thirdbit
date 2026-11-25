@@ -35,39 +35,40 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">14.1</span> The Problem</a></li>
-<li><a href="#representing-a-fluorescence-image" id="toc-representing-a-fluorescence-image"><span class="header-section-number">14.2</span> Representing a Fluorescence Image</a></li>
-<li><a href="#step-1-smoothing" id="toc-step-1-smoothing"><span class="header-section-number">14.3</span> Step 1: Smoothing</a></li>
-<li><a href="#step-2-thresholding-and-labelling" id="toc-step-2-thresholding-and-labelling"><span class="header-section-number">14.4</span> Step 2: Thresholding and Labelling</a></li>
-<li><a href="#choosing-the-threshold" id="toc-choosing-the-threshold"><span class="header-section-number">14.5</span> Choosing the Threshold</a></li>
-<li><a href="#what-the-segmenter-finds-in-pure-noise" id="toc-what-the-segmenter-finds-in-pure-noise"><span class="header-section-number">14.6</span> What the Segmenter Finds in Pure Noise</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">14.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">14.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">15.1</span> The Problem</a></li>
+<li><a href="#representing-a-fluorescence-image" id="toc-representing-a-fluorescence-image"><span class="header-section-number">15.2</span> Representing a Fluorescence Image</a></li>
+<li><a href="#step-1-smoothing" id="toc-step-1-smoothing"><span class="header-section-number">15.3</span> Step 1: Smoothing</a></li>
+<li><a href="#step-2-thresholding-and-labelling" id="toc-step-2-thresholding-and-labelling"><span class="header-section-number">15.4</span> Step 2: Thresholding and Labelling</a></li>
+<li><a href="#choosing-the-threshold" id="toc-choosing-the-threshold"><span class="header-section-number">15.5</span> Choosing the Threshold</a></li>
+<li><a href="#what-the-segmenter-finds-in-pure-noise" id="toc-what-the-segmenter-finds-in-pure-noise"><span class="header-section-number">15.6</span> What the Segmenter Finds in Pure Noise</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">15.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">15.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Cell Segmentation in Microscopy Images</h1>
-<h2 data-number="14.1" id="the-problem"><span class="header-section-number">14.1</span> The Problem</h2>
+<h2 data-number="15.1" id="the-problem"><span class="header-section-number">15.1</span> The Problem</h2>
 <ul>
 <li>Fluorescence microscopy makes individual cells visible as bright spots on a dark background</li>
 <li>Counting cells and measuring their sizes by hand is impractical at scale</li>
 <li>Automated segmentation identifies which pixels belong to which cell using image processing</li>
 <li>The same pipeline is used in drug-discovery assays, developmental biology, and pathology</li>
 </ul>
-<h2 data-number="14.2" id="representing-a-fluorescence-image"><span class="header-section-number">14.2</span> Representing a Fluorescence Image</h2>
+<h2 data-number="15.2" id="representing-a-fluorescence-image"><span class="header-section-number">15.2</span> Representing a Fluorescence Image</h2>
 <ul>
 <li>Each cell is modelled as a 2-D Gaussian blob centred at <span class="math inline">\((x_c, y_c)\)</span>:</li>
 </ul>
@@ -83,8 +84,20 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>This separation is chosen large enough that the midpoint intensity between two adjacent cells falls below the operating threshold (below)</li>
 </ul></li>
 </ul>
-<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
-<h2 data-number="14.3" id="step-1-smoothing"><span class="header-section-number">14.3</span> Step 1: Smoothing</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>IMAGE_SIZE <span class="op">=</span> <span class="dv">128</span>  <span class="co"># pixels per side; kept small for fast tests</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_CELLS <span class="op">=</span> <span class="dv">8</span>  <span class="co"># number of cells to place</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>CELL_SIGMA <span class="op">=</span> <span class="dv">6</span>  <span class="co"># Gaussian half-width of each cell (pixels)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>CELL_BRIGHTNESS <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># peak intensity (image values are in [0, 1])</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>NOISE_SCALE <span class="op">=</span> <span class="fl">0.15</span>  <span class="co"># std dev of additive Gaussian noise</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimum centre-to-centre separation that keeps midpoint intensity below the</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># operating threshold of 0.5.  For two Gaussians of amplitude A and sigma σ</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># separated by distance d, the midpoint value is 2A·exp(−d²/(8σ²)).</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting this below 0.5 gives d &gt; 2σ·sqrt(2·ln(4A)) = 2·6·sqrt(2·ln(4)) ≈ 19.8.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># We use 24 pixels for a comfortable margin.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>MIN_SEPARATION <span class="op">=</span> <span class="dv">24</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="15.3" id="step-1-smoothing"><span class="header-section-number">15.3</span> Step 1: Smoothing</h2>
 <ul>
 <li>Raw images are noisy, so the <a href="../glossary/index.html#gaussian_filter">Gaussian filter</a> replaces each pixel with a weighted average of its neighbourhood, suppressing point-to-point fluctuations</li>
 <li><a href="../glossary/index.html#convolution">Convolving</a> the signal Gaussian (<span class="math inline">\(\sigma\)</span>) with the filter Gaussian (<span class="math inline">\(\sigma_s\)</span>) gives a smoothed cell with sigma <span class="math inline">\(\sqrt{\sigma^2 + \sigma_s^2}\)</span> and peak brightness:</li>
@@ -93,8 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
 <ul>
 <li>With <span class="math inline">\(\sigma = 6\)</span> and <span class="math inline">\(\sigma_s = 2\)</span> this gives <span class="math inline">\(B_\text{smooth} = 36/40 = 0.90\)</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="14.4" id="step-2-thresholding-and-labelling"><span class="header-section-number">14.4</span> Step 2: Thresholding and Labelling</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> smooth(image, sigma<span class="op">=</span>SMOOTH_SIGMA):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the image after 2-D Gaussian smoothing with the given sigma."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ndimage.gaussian_filter(image.astype(<span class="bu">float</span>), sigma<span class="op">=</span>sigma)</span></code></pre></div>
+<h2 data-number="15.4" id="step-2-thresholding-and-labelling"><span class="header-section-number">15.4</span> Step 2: Thresholding and Labelling</h2>
 <ul>
 <li>Pixels above a threshold form a <a href="../glossary/index.html#binary_mask">binary mask</a>
 <ul>
@@ -103,7 +118,30 @@ document.addEventListener("DOMContentLoaded", function () {
 <li><code>scipy.ndimage.label</code> assigns a unique integer to each connected component</li>
 <li>Components smaller than <code>MIN_CELL_SIZE</code> pixels are discarded to remove noise artefacts</li>
 </ul>
-<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> segment(image, threshold<span class="op">=</span>THRESHOLD, min_size<span class="op">=</span>MIN_CELL_SIZE):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (labeled, n_cells) from a smoothed image.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Steps:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    1. Threshold to a binary mask (pixels above `threshold` → True).</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    2. Label connected components with scipy.ndimage.label.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    3. Discard components smaller than `min_size` pixels.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    `labeled` is an integer array where 0 is background and 1..n_cells</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    are the detected cells.  Components are re-numbered consecutively</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    after size filtering so the label values are always contiguous.</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    binary <span class="op">=</span> image <span class="op">&gt;</span> threshold</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    raw_labeled, n_raw <span class="op">=</span> ndimage.label(binary)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter by size and re-number labels.</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    filtered <span class="op">=</span> np.zeros_like(raw_labeled)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    new_label <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> old_label <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n_raw <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.<span class="bu">sum</span>(raw_labeled <span class="op">==</span> old_label) <span class="op">&gt;=</span> min_size:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            filtered[raw_labeled <span class="op">==</span> old_label] <span class="op">=</span> new_label</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            new_label <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filtered, new_label <span class="op">-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cell_sizes(labeled):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an array of pixel counts, one per detected cell."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> labeled.<span class="bu">max</span>()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([np.<span class="bu">sum</span>(labeled <span class="op">==</span> i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>)])</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put these cell-segmentation steps in the correct order.</p>
 <ol type="1">
@@ -115,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>Discard components smaller than <code>MIN_CELL_SIZE</code> pixels</li>
 </ol>
 </div>
-<h2 data-number="14.5" id="choosing-the-threshold"><span class="header-section-number">14.5</span> Choosing the Threshold</h2>
+<h2 data-number="15.5" id="choosing-the-threshold"><span class="header-section-number">15.5</span> Choosing the Threshold</h2>
 <ul>
 <li>The smoothed noise has standard deviation:</li>
 </ul>
@@ -124,7 +162,15 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>The operating threshold of 0.50 is approximately <span class="math inline">\(24\,\sigma_\text{noise,smooth}\)</span>, so the probability of a noise pixel exceeding it is vanishingly small</li>
 <li>The minimum cell separation (24 px) ensures the midpoint between two adjacent cells has intensity <span class="math inline">\(2 B \exp(-d^2 / 8\sigma^2) = 2 \exp(-2.25) \approx 0.21\)</span>, well below the threshold, so adjacent cells are never merged into one component</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SMOOTH_SIGMA <span class="op">=</span> <span class="fl">2.0</span>  <span class="co"># std dev of the Gaussian smoothing kernel (pixels)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># After smoothing, cell peak brightness ≈ σ²/(σ²+σ_s²) = 36/40 ≈ 0.90.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Threshold 0.5 sits comfortably below 0.90 and well above the smoothed-noise</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ceiling (≈ 5× the smoothed-noise std dev of 0.021; see lesson for derivation).</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>THRESHOLD <span class="op">=</span> <span class="fl">0.50</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected cell area at the operating threshold ≈ π·r_t² where</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># r_t = sqrt(−2·ln(threshold/peak)) · σ_eff ≈ 1.085 · 6.32 ≈ 6.9 px, area ≈ 148 px².</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># MIN_CELL_SIZE is set well below this to keep real cells while removing noise blobs.</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>MIN_CELL_SIZE <span class="op">=</span> <span class="dv">30</span>  <span class="co"># minimum pixel count for a detected cell</span></span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p><code>MIN_SEPARATION</code> is set to 24 pixels rather than a smaller value. Why?</p>
 <dl>
@@ -146,18 +192,18 @@ Wrong: the separation is derived from the threshold and cell brightness, not fro
 </dd>
 </dl>
 </div>
-<h2 data-number="14.6" id="what-the-segmenter-finds-in-pure-noise"><span class="header-section-number">14.6</span> What the Segmenter Finds in Pure Noise</h2>
+<h2 data-number="15.6" id="what-the-segmenter-finds-in-pure-noise"><span class="header-section-number">15.6</span> What the Segmenter Finds in Pure Noise</h2>
 <ul>
 <li>The same pipeline applied to an image with no cells at all produces false detections when the threshold is too low</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <div id="fig-cellseg-noise" class="quarto-float quarto-figure quarto-figure-center" alt="Pure-noise image with 4 false cell detections shown in colour.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-cellseg-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="cellseg_noise.png" alt="Pure-noise image with 4 false cell detections shown in colour.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cellseg-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: Pure Gaussian noise (no cells) smoothed and segmented at threshold 0.05 with no size filter. Four spurious regions are labelled. The same image at the operating threshold of 0.50 produces zero detections.
+Figure&nbsp;15.1: Pure Gaussian noise (no cells) smoothed and segmented at threshold 0.05 with no size filter. Four spurious regions are labelled. The same image at the operating threshold of 0.50 produces zero detections.
 </figcaption>
 </figure>
 </div>
@@ -175,7 +221,7 @@ Figure&nbsp;14.1: Pure Gaussian noise (no cells) smoothed and segmented at thres
 <img src="cellseg.png" alt="Left: raw synthetic image with 8 Gaussian blobs. Right: segmented image with each cell in a different colour and true centres marked with red crosses.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cellseg-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.2: Eight synthetic cells recovered by the segmentation pipeline. All 8 are found; cell areas range from 143 to 150 pixels squared, close to the analytic value of 148 pixels squared.
+Figure&nbsp;15.2: Eight synthetic cells recovered by the segmentation pipeline. All 8 are found; cell areas range from 143 to 150 pixels squared, close to the analytic value of 148 pixels squared.
 </figcaption>
 </figure>
 </div>
@@ -200,7 +246,7 @@ Correct: at 0.50 <span class="math inline">\(\approx 24\sigma\)</span>, noise ex
 </dd>
 </dl>
 </div>
-<h2 data-number="14.7" id="testing"><span class="header-section-number">14.7</span> Testing</h2>
+<h2 data-number="15.7" id="testing"><span class="header-section-number">15.7</span> Testing</h2>
 <dl>
 <dt>Noise reduction</dt>
 <dd>
@@ -231,63 +277,63 @@ Setting the threshold above the maximum pixel value must return zero cells.
 At threshold 0.05 pure noise must produce at least one false detection, showing that parameter choice matters. At the operating threshold it must produce none, showing the threshold is adequate.
 </dd>
 </dl>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_image <span class="im">import</span> make_image, make_pure_noise, N_CELLS, IMAGE_SIZE</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cellseg <span class="im">import</span> smooth, segment, cell_sizes, THRESHOLD</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_reduces_noise():</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gaussian smoothing must reduce pixel-to-pixel variance.</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(<span class="dv">7</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, (<span class="dv">64</span>, <span class="dv">64</span>))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(noise, sigma<span class="op">=</span><span class="dv">2</span>).var() <span class="op">&lt;</span> noise.var()</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_preserves_shape():</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> np.ones((IMAGE_SIZE, IMAGE_SIZE))</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(image).shape <span class="op">==</span> image.shape</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_constant_unchanged():</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing a uniform image must leave interior values unchanged.</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> np.full((<span class="dv">50</span>, <span class="dv">50</span>), <span class="fl">0.7</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> smooth(image, sigma<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    interior <span class="op">=</span> result[<span class="dv">4</span>:<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>:<span class="op">-</span><span class="dv">4</span>]</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(interior, <span class="fl">0.7</span>, atol<span class="op">=</span><span class="fl">1e-6</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_segment_finds_all_cells():</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With default parameters the pipeline must recover all N_CELLS cells.</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    image, centers <span class="op">=</span> make_image()</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    labeled, n_found <span class="op">=</span> segment(smooth(image))</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_found <span class="op">==</span> N_CELLS, <span class="ss">f"Expected </span><span class="sc">{</span>N_CELLS<span class="sc">}</span><span class="ss"> cells, found </span><span class="sc">{</span>n_found<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_cell_sizes_reasonable():</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Every detected cell must have a pixel area in the physically plausible range.</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At the operating threshold the analytic area is ≈ 148 px²; we allow 50–350 px²</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to accommodate smoothing and noise effects without being unnecessarily tight.</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    image, _ <span class="op">=</span> make_image()</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    labeled, _ <span class="op">=</span> segment(smooth(image))</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    sizes <span class="op">=</span> cell_sizes(labeled)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(sizes <span class="op">&gt;=</span> <span class="dv">50</span>), <span class="ss">f"Cell too small: </span><span class="sc">{</span>sizes<span class="sc">.</span><span class="bu">min</span>()<span class="sc">}</span><span class="ss"> px"</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(sizes <span class="op">&lt;=</span> <span class="dv">350</span>), <span class="ss">f"Cell too large: </span><span class="sc">{</span>sizes<span class="sc">.</span><span class="bu">max</span>()<span class="sc">}</span><span class="ss"> px"</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_threshold_above_max_finds_nothing():</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A threshold above the maximum smoothed value must produce zero cells.</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    image, _ <span class="op">=</span> make_image()</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    labeled, n_found <span class="op">=</span> segment(smooth(image), threshold<span class="op">=</span><span class="fl">999.0</span>)</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_found <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_false_positives():</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At a threshold of 0.05, pure noise produces false detections.</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothed noise std dev ≈ NOISE_SCALE / (2·sqrt(π)·SMOOTH_SIGMA) ≈ 0.021;</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 0.05 ≈ 2.4σ, so roughly 0.8% of pixels exceed it, forming several blobs.</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> make_pure_noise()</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    _, n_false <span class="op">=</span> segment(smooth(noise), threshold<span class="op">=</span><span class="fl">0.05</span>)</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_false <span class="op">&gt;</span> <span class="dv">0</span>, <span class="st">"Expected false positives from pure noise at threshold 0.05"</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At the operating threshold (0.50 ≈ 24σ) pure noise must not trigger any cell.</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    _, n_safe <span class="op">=</span> segment(smooth(noise), threshold<span class="op">=</span>THRESHOLD)</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_safe <span class="op">==</span> <span class="dv">0</span>, <span class="st">"Operating threshold should reject all noise blobs"</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_image <span class="im">import</span> make_image, make_pure_noise, N_CELLS, IMAGE_SIZE</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cellseg <span class="im">import</span> smooth, segment, cell_sizes, THRESHOLD</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_reduces_noise():</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gaussian smoothing must reduce pixel-to-pixel variance.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(<span class="dv">7</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, (<span class="dv">64</span>, <span class="dv">64</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(noise, sigma<span class="op">=</span><span class="dv">2</span>).var() <span class="op">&lt;</span> noise.var()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_preserves_shape():</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> np.ones((IMAGE_SIZE, IMAGE_SIZE))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(image).shape <span class="op">==</span> image.shape</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_constant_unchanged():</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing a uniform image must leave interior values unchanged.</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> np.full((<span class="dv">50</span>, <span class="dv">50</span>), <span class="fl">0.7</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> smooth(image, sigma<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    interior <span class="op">=</span> result[<span class="dv">4</span>:<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>:<span class="op">-</span><span class="dv">4</span>]</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(interior, <span class="fl">0.7</span>, atol<span class="op">=</span><span class="fl">1e-6</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_segment_finds_all_cells():</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With default parameters the pipeline must recover all N_CELLS cells.</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    image, centers <span class="op">=</span> make_image()</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    labeled, n_found <span class="op">=</span> segment(smooth(image))</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_found <span class="op">==</span> N_CELLS, <span class="ss">f"Expected </span><span class="sc">{</span>N_CELLS<span class="sc">}</span><span class="ss"> cells, found </span><span class="sc">{</span>n_found<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_cell_sizes_reasonable():</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Every detected cell must have a pixel area in the physically plausible range.</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At the operating threshold the analytic area is ≈ 148 px²; we allow 50–350 px²</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to accommodate smoothing and noise effects without being unnecessarily tight.</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    image, _ <span class="op">=</span> make_image()</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    labeled, _ <span class="op">=</span> segment(smooth(image))</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    sizes <span class="op">=</span> cell_sizes(labeled)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(sizes <span class="op">&gt;=</span> <span class="dv">50</span>), <span class="ss">f"Cell too small: </span><span class="sc">{</span>sizes<span class="sc">.</span><span class="bu">min</span>()<span class="sc">}</span><span class="ss"> px"</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">all</span>(sizes <span class="op">&lt;=</span> <span class="dv">350</span>), <span class="ss">f"Cell too large: </span><span class="sc">{</span>sizes<span class="sc">.</span><span class="bu">max</span>()<span class="sc">}</span><span class="ss"> px"</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_threshold_above_max_finds_nothing():</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A threshold above the maximum smoothed value must produce zero cells.</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    image, _ <span class="op">=</span> make_image()</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    labeled, n_found <span class="op">=</span> segment(smooth(image), threshold<span class="op">=</span><span class="fl">999.0</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_found <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_false_positives():</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At a threshold of 0.05, pure noise produces false detections.</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothed noise std dev ≈ NOISE_SCALE / (2·sqrt(π)·SMOOTH_SIGMA) ≈ 0.021;</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 0.05 ≈ 2.4σ, so roughly 0.8% of pixels exceed it, forming several blobs.</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> make_pure_noise()</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    _, n_false <span class="op">=</span> segment(smooth(noise), threshold<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_false <span class="op">&gt;</span> <span class="dv">0</span>, <span class="st">"Expected false positives from pure noise at threshold 0.05"</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At the operating threshold (0.50 ≈ 24σ) pure noise must not trigger any cell.</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    _, n_safe <span class="op">=</span> segment(smooth(noise), threshold<span class="op">=</span>THRESHOLD)</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_safe <span class="op">==</span> <span class="dv">0</span>, <span class="st">"Operating threshold should reject all noise blobs"</span></span></code></pre></div>
 <section class="exercises">
-<h2 data-number="14.8" id="exercises"><span class="header-section-number">14.8</span> Exercises</h2>
-<h3 data-number="14.8.1" id="do-the-math"><span class="header-section-number">14.8.1</span> Do the math</h3>
+<h2 data-number="15.8" id="exercises"><span class="header-section-number">15.8</span> Exercises</h2>
+<h3 data-number="15.8.1" id="do-the-math"><span class="header-section-number">15.8.1</span> Do the math</h3>
 <p>A cell has peak brightness <span class="math inline">\(B = 1.0\)</span> and Gaussian width <span class="math inline">\(\sigma = 6\)</span> pixels. After smoothing with a Gaussian filter of width <span class="math inline">\(\sigma_s = 2\)</span> pixels, the smoothed peak brightness is <span class="math inline">\(B \cdot \sigma^2 / (\sigma^2 + \sigma_s^2)\)</span>. What is the result? Give your answer to two decimal places.</p>
-<h3 data-number="14.8.2" id="watershed-segmentation"><span class="header-section-number">14.8.2</span> Watershed segmentation</h3>
+<h3 data-number="15.8.2" id="watershed-segmentation"><span class="header-section-number">15.8.2</span> Watershed segmentation</h3>
 <p>The thresholding approach fails when two cells overlap and merge into a single connected component. Implement watershed segmentation: compute the distance transform of the binary mask (<code>scipy.ndimage.distance_transform_edt</code>), find local maxima of the distance map as seed points, and use <code>scipy.ndimage.watershed_ift</code> (or <code>skimage.segmentation.watershed</code>) to split overlapping regions. Demonstrate that it correctly separates two cells whose centres are only 14 pixels apart (closer than <code>MIN_SEPARATION</code>).</p>
-<h3 data-number="14.8.3" id="intensity-based-cell-classification"><span class="header-section-number">14.8.3</span> Intensity-based cell classification</h3>
+<h3 data-number="15.8.3" id="intensity-based-cell-classification"><span class="header-section-number">15.8.3</span> Intensity-based cell classification</h3>
 <p>Add a second cell type to <code>make_image</code>: dim cells with <code>brightness=0.4</code> alongside the standard bright cells with <code>brightness=1.0</code>. Extend <code>segment</code> to return a label array and a list of per-cell mean intensities, then classify each detected cell as bright or dim using a simple intensity threshold. Report precision and recall for each class.</p>
-<h3 data-number="14.8.4" id="effect-of-noise-on-count-accuracy"><span class="header-section-number">14.8.4</span> Effect of noise on count accuracy</h3>
+<h3 data-number="15.8.4" id="effect-of-noise-on-count-accuracy"><span class="header-section-number">15.8.4</span> Effect of noise on count accuracy</h3>
 <p>Generate 50 images for each of five noise levels: <span class="math inline">\(\sigma_\text{noise} \in \{0.05, 0.10, 0.15, 0.20, 0.25\}\)</span>. Run the full pipeline on each image and record the number of cells found. Plot mean and standard deviation of the cell count as a function of noise level and identify the noise level at which the pipeline begins to fail consistently.</p>
-<h3 data-number="14.8.5" id="adaptive-thresholding"><span class="header-section-number">14.8.5</span> Adaptive thresholding</h3>
+<h3 data-number="15.8.5" id="adaptive-thresholding"><span class="header-section-number">15.8.5</span> Adaptive thresholding</h3>
 <p>Real microscopy images often have uneven illumination: the background is brighter in some regions than others. Simulate this by adding a low-frequency gradient:</p>
 <p>
 <span class="math inline">\(G(x,y) = 0.2 \cdot x / \text{IMAGE\_SIZE}\)</span>
@@ -296,6 +342,12 @@ At threshold 0.05 pure noise must produce at least one false detection, showing 
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../massspec/index.html">← Peak Detection in Mass Spectra</a>
+    <a class="pager-link next" href="../wealth/index.html">Wealth Inequality in an Exchange Economy →</a>
+  </nav>
+</footer>
 
 
 </body></html>

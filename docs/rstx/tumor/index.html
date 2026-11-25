@@ -35,38 +35,39 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">26.1</span> The Problem</a></li>
-<li><a href="#the-logistic-regression-model" id="toc-the-logistic-regression-model"><span class="header-section-number">26.2</span> The Logistic Regression Model</a></li>
-<li><a href="#training-minimising-binary-cross-entropy" id="toc-training-minimising-binary-cross-entropy"><span class="header-section-number">26.3</span> Training: Minimising Binary Cross-Entropy</a></li>
-<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">26.4</span> Generating Synthetic Data</a></li>
-<li><a href="#evaluating-the-classifier" id="toc-evaluating-the-classifier"><span class="header-section-number">26.5</span> Evaluating the Classifier</a></li>
-<li><a href="#visualizing-the-decision-boundary" id="toc-visualizing-the-decision-boundary"><span class="header-section-number">26.6</span> Visualizing the Decision Boundary</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">26.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">26.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">27.1</span> The Problem</a></li>
+<li><a href="#the-logistic-regression-model" id="toc-the-logistic-regression-model"><span class="header-section-number">27.2</span> The Logistic Regression Model</a></li>
+<li><a href="#training-minimising-binary-cross-entropy" id="toc-training-minimising-binary-cross-entropy"><span class="header-section-number">27.3</span> Training: Minimising Binary Cross-Entropy</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">27.4</span> Generating Synthetic Data</a></li>
+<li><a href="#evaluating-the-classifier" id="toc-evaluating-the-classifier"><span class="header-section-number">27.5</span> Evaluating the Classifier</a></li>
+<li><a href="#visualizing-the-decision-boundary" id="toc-visualizing-the-decision-boundary"><span class="header-section-number">27.6</span> Visualizing the Decision Boundary</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">27.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">27.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Tumor Classification by Logistic Regression</h1>
-<h2 data-number="26.1" id="the-problem"><span class="header-section-number">26.1</span> The Problem</h2>
+<h2 data-number="27.1" id="the-problem"><span class="header-section-number">27.1</span> The Problem</h2>
 <ul>
 <li>Computational pathology extracts quantitative features from tissue images — cell size, shape irregularity, nuclear-to-cytoplasm ratio — and uses them to predict whether a sample is benign or malignant.</li>
 <li>Logistic regression is the simplest model that outputs a probability rather than a raw score: the predicted class-1 probability lies in <span class="math inline">\((0, 1)\)</span> so it can be interpreted directly as a risk estimate.</li>
 <li>It fits a linear boundary in feature space and is easy to train, interpret, and test; more complex models often offer little additional accuracy when the classes are linearly separable.</li>
 </ul>
-<h2 data-number="26.2" id="the-logistic-regression-model"><span class="header-section-number">26.2</span> The Logistic Regression Model</h2>
+<h2 data-number="27.2" id="the-logistic-regression-model"><span class="header-section-number">27.2</span> The Logistic Regression Model</h2>
 <ul>
 <li>A linear combination of features <span class="math inline">\(\mathbf{x}\)</span> produces a score <span class="math inline">\(z = \mathbf{w} \cdot \mathbf{x} + b\)</span>.</li>
 <li>The sigmoid function <span class="math inline">\(\sigma(z) = 1/(1 + e^{-z})\)</span> maps <span class="math inline">\(z\)</span> to a probability in <span class="math inline">\((0, 1)\)</span>:</li>
@@ -76,9 +77,18 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>At <span class="math inline">\(z = 0\)</span> the model is completely uncertain: <span class="math inline">\(\sigma(0) = 0.5\)</span>.</li>
 <li>The predicted class is 1 when <span class="math inline">\(p \geq 0.5\)</span>, which is equivalent to <span class="math inline">\(z \geq 0\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="26.3" id="training-minimising-binary-cross-entropy"><span class="header-section-number">26.3</span> Training: Minimising Binary Cross-Entropy</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map any real number to (0, 1) via the logistic function 1 / (1 + exp(-z))."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> np.exp(<span class="op">-</span>z))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_proba(X, w, b):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return predicted class-1 probability for each row of X.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each probability is sigmoid(X @ w + b), the logistic regression output.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sigmoid(X <span class="op">@</span> w <span class="op">+</span> b)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict(X, w, b):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return predicted class labels (0 or 1) by thresholding probabilities at 0.5."""</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (predict_proba(X, w, b) <span class="op">&gt;=</span> <span class="fl">0.5</span>).astype(<span class="bu">int</span>)</span></code></pre></div>
+<h2 data-number="27.3" id="training-minimising-binary-cross-entropy"><span class="header-section-number">27.3</span> Training: Minimising Binary Cross-Entropy</h2>
 <ul>
 <li>The binary cross-entropy loss penalises confident wrong predictions:</li>
 </ul>
@@ -90,7 +100,23 @@ document.addEventListener("DOMContentLoaded", function () {
 <ul>
 <li>The update rule at each step is <span class="math inline">\(\mathbf{w} \leftarrow \mathbf{w} - \eta \partial L / \partial \mathbf{w}\)</span> where <span class="math inline">\(\eta\)</span> is the learning rate.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train(X, y, lr<span class="op">=</span><span class="fl">0.1</span>, n_iter<span class="op">=</span><span class="dv">2000</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit logistic regression by gradient descent on binary cross-entropy loss.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Binary cross-entropy:  L = -(1/n) sum [ y_i log(p_i) + (1-y_i) log(1-p_i) ]</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Gradients:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">        dL/dw = (1/n) X^T (p - y)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">        dL/db = (1/n) sum(p - y)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (w, b): weight vector and scalar bias.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    n, p <span class="op">=</span> X.shape</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> np.zeros(p)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_iter):</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        proba <span class="op">=</span> predict_proba(X, w, b)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        residual <span class="op">=</span> proba <span class="op">-</span> y</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        w <span class="op">-=</span> lr <span class="op">*</span> (X.T <span class="op">@</span> residual) <span class="op">/</span> n</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        b <span class="op">-=</span> lr <span class="op">*</span> np.mean(residual)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w, b</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>In the gradient update <code>w -= lr * (X.T @ residual) / n</code>, what does <code>residual</code> represent?</p>
 <dl>
@@ -112,19 +138,64 @@ Wrong: the learning rate is a separate scalar <code>lr</code>; <code>residual</c
 </dd>
 </dl>
 </div>
-<h2 data-number="26.4" id="generating-synthetic-data"><span class="header-section-number">26.4</span> Generating Synthetic Data</h2>
+<h2 data-number="27.4" id="generating-synthetic-data"><span class="header-section-number">27.4</span> Generating Synthetic Data</h2>
 <ul>
 <li>Two isotropic Gaussian clusters in 2D simulate benign (centred at <span class="math inline">\([1.5, 1.5]\)</span>) and malignant (centred at <span class="math inline">\([3.5, 3.5]\)</span>) cell populations.</li>
 <li>The Euclidean distance between class means is <span class="math inline">\(\sqrt{8} \approx 2.83\)</span> standard deviations, making the classes well-separated but not trivially so.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="26.5" id="evaluating-the-classifier"><span class="header-section-number">26.5</span> Evaluating the Classifier</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>N_PER_CLASS <span class="op">=</span> <span class="dv">150</span>  <span class="co"># samples per class</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Class 0 (benign): Gaussian cluster centred at BENIGN_MEAN.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Class 1 (malignant): Gaussian cluster centred at MALIGNANT_MEAN.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Both classes share the same isotropic standard deviation FEATURE_STD.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>BENIGN_MEAN <span class="op">=</span> [<span class="fl">1.5</span>, <span class="fl">1.5</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>MALIGNANT_MEAN <span class="op">=</span> [<span class="fl">3.5</span>, <span class="fl">3.5</span>]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>FEATURE_STD <span class="op">=</span> <span class="fl">0.6</span>  <span class="co"># within-class spread for each feature</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_tumor_data(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n_per_class<span class="op">=</span>N_PER_CLASS,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    benign_mean<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    malignant_mean<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    feature_std<span class="op">=</span>FEATURE_STD,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame with columns 'feature_1', 'feature_2', and 'label'.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Class 0 (benign) is centred at benign_mean; class 1 (malignant) at malignant_mean.</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Both use isotropic Gaussian noise with standard deviation feature_std.</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Rows are shuffled so that class labels do not appear in a block.</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> benign_mean <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        benign_mean <span class="op">=</span> BENIGN_MEAN</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> malignant_mean <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        malignant_mean <span class="op">=</span> MALIGNANT_MEAN</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    benign <span class="op">=</span> rng.normal(benign_mean, feature_std, (n_per_class, <span class="dv">2</span>))</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    malignant <span class="op">=</span> rng.normal(malignant_mean, feature_std, (n_per_class, <span class="dv">2</span>))</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> np.vstack([benign, malignant])</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.array([<span class="dv">0</span>] <span class="op">*</span> n_per_class <span class="op">+</span> [<span class="dv">1</span>] <span class="op">*</span> n_per_class)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> rng.permutation(<span class="bu">len</span>(labels))</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> features[idx]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> labels[idx]</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame(</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"feature_1"</span>: features[:, <span class="dv">0</span>], <span class="st">"feature_2"</span>: features[:, <span class="dv">1</span>], <span class="st">"label"</span>: labels}</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<h2 data-number="27.5" id="evaluating-the-classifier"><span class="header-section-number">27.5</span> Evaluating the Classifier</h2>
 <ul>
 <li>A <a href="../glossary/index.html#confusion_matrix">confusion matrix</a> tabulates the four combinations of actual and predicted class: true negatives (TN), false positives (FP), false negatives (FN), and true positives (TP).</li>
 <li>False negatives (malignant predicted as benign) are typically more harmful than false positives in cancer screening, which motivates choosing a threshold below 0.5 in practice.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confusion_matrix(y_true, y_pred):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a 2x2 confusion matrix [[TN, FP], [FN, TP]].</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Rows index actual class (0 = benign, 1 = malignant).</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Columns index predicted class (0 = benign, 1 = malignant).</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    tn <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>((y_pred <span class="op">==</span> <span class="dv">0</span>) <span class="op">&amp;</span> (y_true <span class="op">==</span> <span class="dv">0</span>)))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    fp <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>((y_pred <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (y_true <span class="op">==</span> <span class="dv">0</span>)))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    fn <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>((y_pred <span class="op">==</span> <span class="dv">0</span>) <span class="op">&amp;</span> (y_true <span class="op">==</span> <span class="dv">1</span>)))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    tp <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>((y_pred <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (y_true <span class="op">==</span> <span class="dv">1</span>)))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([[tn, fp], [fn, tp]])</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accuracy(y_true, y_pred):</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the fraction of correctly classified samples."""</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.mean(y_true <span class="op">==</span> y_pred))</span></code></pre></div>
 <div class="forma-labeling" data-lang="en" data-markdown="1">
 <p>Label each cell of the 2X2 confusion matrix [[TN, FP], [FN, TP]].</p>
 <table class="caption-top">
@@ -158,19 +229,52 @@ Wrong: the learning rate is a separate scalar <code>lr</code>; <code>residual</c
 </tbody>
 </table>
 </div>
-<h2 data-number="26.6" id="visualizing-the-decision-boundary"><span class="header-section-number">26.6</span> Visualizing the Decision Boundary</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="27.6" id="visualizing-the-decision-boundary"><span class="header-section-number">27.6</span> Visualizing the Decision Boundary</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_boundary(X, y, w, b, filename):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a scatter plot of the two classes with the logistic regression decision boundary.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The boundary is the line w[0]*x1 + w[1]*x2 + b = 0, i.e.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">        x2 = -(w[0]*x1 + b) / w[1]</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    plotted over the range of feature 1 values in the data.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    scatter_df <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"feature_1"</span>: X[:, <span class="dv">0</span>], <span class="st">"feature_2"</span>: X[:, <span class="dv">1</span>], <span class="st">"label"</span>: y.astype(<span class="bu">str</span>)}</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    scatter <span class="op">=</span> (</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        alt.Chart(scatter_df)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        .mark_point(opacity<span class="op">=</span><span class="fl">0.7</span>, size<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"feature_1:Q"</span>, title<span class="op">=</span><span class="st">"Feature 1 (cell size)"</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"feature_2:Q"</span>, title<span class="op">=</span><span class="st">"Feature 2 (cell shape)"</span>),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                <span class="st">"label:N"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="st">"0"</span>, <span class="st">"1"</span>], <span class="bu">range</span><span class="op">=</span>[<span class="st">"steelblue"</span>, <span class="st">"firebrick"</span>]),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Class (0=benign, 1=malignant)"</span>),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    x1_range <span class="op">=</span> np.linspace(X[:, <span class="dv">0</span>].<span class="bu">min</span>(), X[:, <span class="dv">0</span>].<span class="bu">max</span>(), <span class="dv">200</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    x2_boundary <span class="op">=</span> <span class="op">-</span>(w[<span class="dv">0</span>] <span class="op">*</span> x1_range <span class="op">+</span> b) <span class="op">/</span> w[<span class="dv">1</span>]</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    boundary_df <span class="op">=</span> pl.DataFrame({<span class="st">"feature_1"</span>: x1_range, <span class="st">"feature_2"</span>: x2_boundary})</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    boundary_line <span class="op">=</span> (</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        alt.Chart(boundary_df)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"black"</span>, strokeWidth<span class="op">=</span><span class="fl">1.5</span>, strokeDash<span class="op">=</span>[<span class="dv">5</span>, <span class="dv">3</span>])</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        .encode(x<span class="op">=</span><span class="st">"feature_1:Q"</span>, y<span class="op">=</span><span class="st">"feature_2:Q"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> alt.layer(scatter, boundary_line).properties(</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">400</span>, height<span class="op">=</span><span class="dv">350</span>, title<span class="op">=</span><span class="st">"Logistic regression decision boundary"</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-tumor-boundary" class="quarto-float quarto-figure quarto-figure-center" alt="2D scatter plot of 300 samples in two colours (benign=blue, malignant=red) separated by a dashed diagonal decision boundary.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-tumor-boundary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="tumor.svg" alt="2D scatter plot of 300 samples in two colours (benign=blue, malignant=red) separated by a dashed diagonal decision boundary.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tumor-boundary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;26.1: Logistic regression applied to 300 synthetic tumour samples. The dashed black line is the learned decision boundary <span class="math inline">\(w_1 x_1 + w_2 x_2 + b = 0\)</span>. Test accuracy 96.7%: two benign samples misclassified as malignant, zero malignant samples missed.
+Figure&nbsp;27.1: Logistic regression applied to 300 synthetic tumour samples. The dashed black line is the learned decision boundary <span class="math inline">\(w_1 x_1 + w_2 x_2 + b = 0\)</span>. Test accuracy 96.7%: two benign samples misclassified as malignant, zero malignant samples missed.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="26.7" id="testing"><span class="header-section-number">26.7</span> Testing</h2>
+<h2 data-number="27.7" id="testing"><span class="header-section-number">27.7</span> Testing</h2>
 <ul>
 <li>Sigmoid exact values
 <ul>
@@ -277,20 +381,26 @@ A <span class="math inline">\(2\times2\)</span> table of TN, FP, FN, TP counts; 
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="26.8" id="exercises"><span class="header-section-number">26.8</span> Exercises</h2>
-<h3 data-number="26.8.1" id="do-the-math"><span class="header-section-number">26.8.1</span> Do the math</h3>
+<h2 data-number="27.8" id="exercises"><span class="header-section-number">27.8</span> Exercises</h2>
+<h3 data-number="27.8.1" id="do-the-math"><span class="header-section-number">27.8.1</span> Do the math</h3>
 <p>A logistic regression model with <span class="math inline">\(\mathbf{w} = [1, 0]\)</span> and <span class="math inline">\(b = 1\)</span> receives input <span class="math inline">\(\mathbf{x} = [0, 0]\)</span>. Compute <span class="math inline">\(\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)\)</span> to three decimal places.</p>
-<h3 data-number="26.8.2" id="feature-normalisation"><span class="header-section-number">26.8.2</span> Feature normalisation</h3>
+<h3 data-number="27.8.2" id="feature-normalisation"><span class="header-section-number">27.8.2</span> Feature normalisation</h3>
 <p>Logistic regression is sensitive to feature scale: a feature with large absolute values dominates the dot product before training has adjusted the corresponding weight. Normalise each feature to zero mean and unit variance before training: <span class="math inline">\(x' = (x - \bar{x}) / \hat{\sigma}\)</span>. Show that normalisation speeds up convergence (reaches the same accuracy in fewer iterations) when the two features have very different scales (e.g.&nbsp;feature 1 in <span class="math inline">\([0, 100]\)</span> and feature 2 in <span class="math inline">\([0, 1]\)</span>).</p>
-<h3 data-number="26.8.3" id="precision-recall-and-f1"><span class="header-section-number">26.8.3</span> Precision, recall, and F1</h3>
+<h3 data-number="27.8.3" id="precision-recall-and-f1"><span class="header-section-number">27.8.3</span> Precision, recall, and F1</h3>
 <p>Overall accuracy can be misleading when classes are imbalanced. Implement functions for precision <span class="math inline">\(= \text{TP}/(\text{TP}+\text{FP})\)</span>, recall <span class="math inline">\(= \text{TP}/(\text{TP}+\text{FN})\)</span>, and <span class="math inline">\(F_1 = 2 \cdot \text{precision} \cdot \text{recall} / (\text{precision} + \text{recall})\)</span>. Generate a dataset where class 1 is 10% of the data and show that high accuracy is achievable by predicting class 0 always — while precision, recall, and <span class="math inline">\(F_1\)</span> expose the failure.</p>
-<h3 data-number="26.8.4" id="decision-threshold-adjustment"><span class="header-section-number">26.8.4</span> Decision threshold adjustment</h3>
+<h3 data-number="27.8.4" id="decision-threshold-adjustment"><span class="header-section-number">27.8.4</span> Decision threshold adjustment</h3>
 <p>The default threshold of 0.5 minimises misclassification rate on balanced classes. For cancer screening, false negatives (missed malignancies) should be penalised more than false positives. Plot precision and recall as functions of the decision threshold from 0.1 to 0.9. Find the threshold that achieves recall <span class="math inline">\(\geq 0.98\)</span> with the highest possible precision.</p>
-<h3 data-number="26.8.5" id="multinomial-extension"><span class="header-section-number">26.8.5</span> Multinomial extension</h3>
+<h3 data-number="27.8.5" id="multinomial-extension"><span class="header-section-number">27.8.5</span> Multinomial extension</h3>
 <p>Extend the binary classifier to three classes (benign, low-grade malignant, high-grade malignant). Generate three Gaussian clusters and implement softmax regression using the one-vs-rest strategy: train one binary classifier per class and predict the class with the highest predicted probability. Report the three-class confusion matrix.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../mineral/index.html">← Mineral Classification by Geochemistry</a>
+    <a class="pager-link next" href="../learning/index.html">Fitting a Learning Curve to Experimental Data →</a>
+  </nav>
+</footer>
 
 
 </body></html>

@@ -35,47 +35,48 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">12.1</span> The Problem</a></li>
-<li><a href="#rolling-statistics" id="toc-rolling-statistics"><span class="header-section-number">12.2</span> Rolling Statistics</a></li>
-<li><a href="#detecting-anomalies" id="toc-detecting-anomalies"><span class="header-section-number">12.3</span> Detecting Anomalies</a></li>
-<li><a href="#generating-synthetic-vital-signs" id="toc-generating-synthetic-vital-signs"><span class="header-section-number">12.4</span> Generating Synthetic Vital Signs</a></li>
-<li><a href="#rolling-mean-and-standard-deviation" id="toc-rolling-mean-and-standard-deviation"><span class="header-section-number">12.5</span> Rolling Mean and Standard Deviation</a></li>
-<li><a href="#flagging-anomalies" id="toc-flagging-anomalies"><span class="header-section-number">12.6</span> Flagging Anomalies</a></li>
-<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">12.7</span> Visualizing the Results</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">12.8</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">12.9</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">13.1</span> The Problem</a></li>
+<li><a href="#rolling-statistics" id="toc-rolling-statistics"><span class="header-section-number">13.2</span> Rolling Statistics</a></li>
+<li><a href="#detecting-anomalies" id="toc-detecting-anomalies"><span class="header-section-number">13.3</span> Detecting Anomalies</a></li>
+<li><a href="#generating-synthetic-vital-signs" id="toc-generating-synthetic-vital-signs"><span class="header-section-number">13.4</span> Generating Synthetic Vital Signs</a></li>
+<li><a href="#rolling-mean-and-standard-deviation" id="toc-rolling-mean-and-standard-deviation"><span class="header-section-number">13.5</span> Rolling Mean and Standard Deviation</a></li>
+<li><a href="#flagging-anomalies" id="toc-flagging-anomalies"><span class="header-section-number">13.6</span> Flagging Anomalies</a></li>
+<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">13.7</span> Visualizing the Results</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">13.8</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">13.9</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Anomaly Detection in Patient Vital Signs</h1>
-<h2 data-number="12.1" id="the-problem"><span class="header-section-number">12.1</span> The Problem</h2>
+<h2 data-number="13.1" id="the-problem"><span class="header-section-number">13.1</span> The Problem</h2>
 <ul>
 <li>Intensive care units record physiological signals continuously: heart rate, blood pressure, oxygen saturation, respiratory rate.</li>
 <li>Clinicians cannot watch every channel at every moment, so automated flagging of unusual readings reduces the chance of a dangerous change going unnoticed.</li>
 <li>Two qualitatively different anomalies are common: sustained <a href="../glossary/index.html#step_change">step changes</a> (the baseline shifts to a new level) and isolated <a href="../glossary/index.html#spike_outlier">spikes</a> (a single reading is far from the local trend).</li>
 <li>A simple but effective detector compares each reading to a local reference built from the most recent <span class="math inline">\(w\)</span> readings; a deviation beyond a chosen threshold raises a flag.</li>
 </ul>
-<h2 data-number="12.2" id="rolling-statistics"><span class="header-section-number">12.2</span> Rolling Statistics</h2>
+<h2 data-number="13.2" id="rolling-statistics"><span class="header-section-number">13.2</span> Rolling Statistics</h2>
 <ul>
 <li>A <a href="../glossary/index.html#rolling_window">rolling window</a> of width <span class="math inline">\(w\)</span> centred (or trailing) at position <span class="math inline">\(i\)</span> uses only the <span class="math inline">\(w\)</span> most recent observations to estimate the local mean and variance.</li>
 <li>This makes the reference adaptive: it follows slow drifts in the baseline without permanently inflating the variance estimate when a sustained shift begins.</li>
 <li>If <span class="math inline">\(\bar{x}_i\)</span> and <span class="math inline">\(\hat{\sigma}_i\)</span> are the rolling mean and standard deviation, the <a href="../glossary/index.html#z_score">z-score</a> of reading <span class="math inline">\(x_i\)</span> against the rolling window is:</li>
 </ul>
 <p><span class="math display">\[z_i = \frac{x_i - \bar{x}_i}{\hat{\sigma}_i}\]</span></p>
-<h2 data-number="12.3" id="detecting-anomalies"><span class="header-section-number">12.3</span> Detecting Anomalies</h2>
+<h2 data-number="13.3" id="detecting-anomalies"><span class="header-section-number">13.3</span> Detecting Anomalies</h2>
 <ul>
 <li>A reading is flagged when <span class="math inline">\(|z_i| &gt; \theta\)</span>, where <span class="math inline">\(\theta\)</span> is the detection threshold.</li>
 <li>Raising <span class="math inline">\(\theta\)</span> reduces false positives (normal variation incorrectly flagged) at the cost of more false negatives (real anomalies missed); lowering it does the reverse.</li>
@@ -102,22 +103,81 @@ Wrong: the standard deviation is computed from the data; changing the threshold 
 </dd>
 </dl>
 </div>
-<h2 data-number="12.4" id="generating-synthetic-vital-signs"><span class="header-section-number">12.4</span> Generating Synthetic Vital Signs</h2>
+<h2 data-number="13.4" id="generating-synthetic-vital-signs"><span class="header-section-number">13.4</span> Generating Synthetic Vital Signs</h2>
 <ul>
 <li>The baseline is Gaussian noise around 70 bpm (a typical resting heart rate).</li>
 <li>A sustained step change of 12 bpm begins at minute 90, simulating a fever or haemodynamic deterioration.</li>
 <li>Three isolated spikes of 18 bpm above the local baseline are injected at known positions.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="12.5" id="rolling-mean-and-standard-deviation"><span class="header-section-number">12.5</span> Rolling Mean and Standard Deviation</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>N_POINTS <span class="op">=</span> <span class="dv">200</span>  <span class="co"># number of time points (minutes)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>BASELINE_MEAN <span class="op">=</span> <span class="fl">70.0</span>  <span class="co"># baseline heart rate (bpm)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>BASELINE_STD <span class="op">=</span> <span class="fl">2.0</span>  <span class="co"># normal beat-to-beat variation (bpm)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>STEP_START <span class="op">=</span> <span class="dv">90</span>  <span class="co"># time index where a sustained step change begins</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>STEP_SIZE <span class="op">=</span> <span class="fl">12.0</span>  <span class="co"># magnitude of the step change (bpm)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Positions of isolated spike outliers and their magnitude.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>SPIKE_POSITIONS <span class="op">=</span> [<span class="dv">30</span>, <span class="dv">110</span>, <span class="dv">165</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>SPIKE_SIZE <span class="op">=</span> <span class="fl">18.0</span>  <span class="co"># spike magnitude above local baseline (bpm)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_vitals_data(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span>N_POINTS,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    baseline_mean<span class="op">=</span>BASELINE_MEAN,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    baseline_std<span class="op">=</span>BASELINE_STD,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    step_start<span class="op">=</span>STEP_START,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    step_size<span class="op">=</span>STEP_SIZE,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    spike_positions<span class="op">=</span>SPIKE_POSITIONS,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    spike_size<span class="op">=</span>SPIKE_SIZE,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame with columns 'time', 'heart_rate', and 'is_anomaly'.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    The baseline is Gaussian noise around baseline_mean.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    A sustained step change of step_size bpm begins at step_start.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Isolated spikes of spike_size bpm are injected at spike_positions.</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    'is_anomaly' marks both step-change positions and spike positions as 1.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    times <span class="op">=</span> np.arange(n)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> rng.normal(baseline_mean, baseline_std, n)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    values[step_start:] <span class="op">+=</span> step_size</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pos <span class="kw">in</span> spike_positions:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        values[pos] <span class="op">+=</span> spike_size</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    anomaly <span class="op">=</span> np.zeros(n, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    anomaly[step_start:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pos <span class="kw">in</span> spike_positions:</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        anomaly[pos] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"time"</span>: times, <span class="st">"heart_rate"</span>: values, <span class="st">"is_anomaly"</span>: anomaly})</span></code></pre></div>
+<h2 data-number="13.5" id="rolling-mean-and-standard-deviation"><span class="header-section-number">13.5</span> Rolling Mean and Standard Deviation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rolling_stats(values, window):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Compute trailing rolling mean and standard deviation.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    For position i the window covers indices [max(0, i - window + 1), i].</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The first window - 1 positions use a shorter window as data accumulates.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Standard deviation uses ddof=1 (sample std); positions with only one</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    value in the window return std = 0.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    means <span class="op">=</span> np.empty(n)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    stds <span class="op">=</span> np.empty(n)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> <span class="bu">max</span>(<span class="dv">0</span>, i <span class="op">-</span> window <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        segment <span class="op">=</span> values[start : i <span class="op">+</span> <span class="dv">1</span>]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        means[i] <span class="op">=</span> np.mean(segment)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        stds[i] <span class="op">=</span> np.std(segment, ddof<span class="op">=</span><span class="dv">1</span>) <span class="cf">if</span> <span class="bu">len</span>(segment) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> means, stds</span></code></pre></div>
 <ul>
 <li>The trailing window (ending at the current position) is the natural choice for real-time monitoring: a reading can only be compared against previous observations.</li>
 <li>The first <span class="math inline">\(w - 1\)</span> positions use a shorter window as data accumulates; this warm-up period means the detector is less reliable at the very start of the recording.</li>
 </ul>
-<h2 data-number="12.6" id="flagging-anomalies"><span class="header-section-number">12.6</span> Flagging Anomalies</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="13.6" id="flagging-anomalies"><span class="header-section-number">13.6</span> Flagging Anomalies</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_anomalies(values, window, threshold):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Flag time points where the value deviates from the rolling mean by more than</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    threshold standard deviations.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (flagged, means, stds) where flagged is a boolean array.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    A position is flagged when |value - rolling_mean| &gt; threshold * rolling_std.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Positions with rolling_std = 0 are never flagged (no variation to compare against).</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    means, stds <span class="op">=</span> rolling_stats(values, window)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    deviations <span class="op">=</span> np.<span class="bu">abs</span>(values <span class="op">-</span> means)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    flagged <span class="op">=</span> deviations <span class="op">&gt;</span> threshold <span class="op">*</span> stds</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> flagged, means, stds</span></code></pre></div>
 <div class="forma-matching" data-lang="en" data-markdown="1">
 <p>Match each anomaly type to the property that makes it detectable.</p>
 <table class="caption-top">
@@ -147,19 +207,44 @@ Wrong: the standard deviation is computed from the data; changing the threshold 
 </tbody>
 </table>
 </div>
-<h2 data-number="12.7" id="visualizing-the-results"><span class="header-section-number">12.7</span> Visualizing the Results</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="13.7" id="visualizing-the-results"><span class="header-section-number">13.7</span> Visualizing the Results</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_vitals(times, values, means, flagged, filename):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save an Altair figure with the time series, rolling mean, and flagged anomalies."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame({<span class="st">"time"</span>: times, <span class="st">"heart_rate"</span>: values, <span class="st">"rolling_mean"</span>: means})</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    flag_df <span class="op">=</span> pl.DataFrame({<span class="st">"time"</span>: times[flagged], <span class="st">"heart_rate"</span>: values[flagged]})</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    raw_line <span class="op">=</span> (</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"steelblue"</span>, strokeWidth<span class="op">=</span><span class="dv">1</span>, opacity<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"time:Q"</span>, title<span class="op">=</span><span class="st">"Time (minutes)"</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"heart_rate:Q"</span>, title<span class="op">=</span><span class="st">"Heart rate (bpm)"</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    mean_line <span class="op">=</span> (</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"darkorange"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        .encode(x<span class="op">=</span><span class="st">"time:Q"</span>, y<span class="op">=</span><span class="st">"rolling_mean:Q"</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    anomaly_pts <span class="op">=</span> (</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        alt.Chart(flag_df)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        .mark_point(color<span class="op">=</span><span class="st">"firebrick"</span>, size<span class="op">=</span><span class="dv">60</span>, shape<span class="op">=</span><span class="st">"triangle-up"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        .encode(x<span class="op">=</span><span class="st">"time:Q"</span>, y<span class="op">=</span><span class="st">"heart_rate:Q"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> alt.layer(raw_line, mean_line, anomaly_pts).properties(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">550</span>, height<span class="op">=</span><span class="dv">250</span>, title<span class="op">=</span><span class="st">"Anomaly detection in patient vital signs"</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-vitals-anomalies" class="quarto-float quarto-figure quarto-figure-center" alt="Time series of heart rate with rolling mean overlay and red triangle markers at four flagged anomaly positions.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-vitals-anomalies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="vitals.svg" alt="Time series of heart rate with rolling mean overlay and red triangle markers at four flagged anomaly positions.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vitals-anomalies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: Two hundred minutes of synthetic heart rate (blue line) with 20-minute rolling mean (orange). Red triangles mark the four readings flagged at threshold 3: all three injected spikes and the first point where the step change raises the z-score above 3.
+Figure&nbsp;13.1: Two hundred minutes of synthetic heart rate (blue line) with 20-minute rolling mean (orange). Red triangles mark the four readings flagged at threshold 3: all three injected spikes and the first point where the step change raises the z-score above 3.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="12.8" id="testing"><span class="header-section-number">12.8</span> Testing</h2>
+<h2 data-number="13.8" id="testing"><span class="header-section-number">13.8</span> Testing</h2>
 <dl>
 <dt>Rolling statistics length</dt>
 <dd>
@@ -270,22 +355,28 @@ An isolated outlier reading that returns to baseline immediately; the rolling wi
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="12.9" id="exercises"><span class="header-section-number">12.9</span> Exercises</h2>
-<h3 data-number="12.9.1" id="do-the-math"><span class="header-section-number">12.9.1</span> Do the math</h3>
+<h2 data-number="13.9" id="exercises"><span class="header-section-number">13.9</span> Exercises</h2>
+<h3 data-number="13.9.1" id="do-the-math"><span class="header-section-number">13.9.1</span> Do the math</h3>
 <p>A trailing window of width 3 contains values [68, 70, 72]. The window mean is 70, and the sample standard deviation is 2. A new reading of 74 arrives. What is the z-score of 74 against this window?</p>
-<h3 data-number="12.9.2" id="bidirectional-window"><span class="header-section-number">12.9.2</span> Bidirectional window</h3>
+<h3 data-number="13.9.2" id="bidirectional-window"><span class="header-section-number">13.9.2</span> Bidirectional window</h3>
 <p>The trailing window can react only after the anomaly has entered the window. Replace the trailing window with a centred window that looks <span class="math inline">\(w/2\)</span> steps back and <span class="math inline">\(w/2\)</span> steps forward. Show that this detects a spike at the exact position it occurs rather than <span class="math inline">\(w/2\)</span> steps after. What is the cost of using a centred window in a real-time application?</p>
-<h3 data-number="12.9.3" id="threshold-sweep"><span class="header-section-number">12.9.3</span> Threshold sweep</h3>
+<h3 data-number="13.9.3" id="threshold-sweep"><span class="header-section-number">13.9.3</span> Threshold sweep</h3>
 <p>Generate 100 replicate datasets with the same parameters but different random seeds. For each dataset count the true positive rate (fraction of injected anomalies flagged) and false positive rate (fraction of normal readings flagged) at thresholds <span class="math inline">\(1, 2, 3, 4\)</span>. Plot the resulting ROC curve and find the threshold that maximises the F1 score.</p>
-<h3 data-number="12.9.4" id="exponentially-weighted-mean"><span class="header-section-number">12.9.4</span> Exponentially weighted mean</h3>
+<h3 data-number="13.9.4" id="exponentially-weighted-mean"><span class="header-section-number">13.9.4</span> Exponentially weighted mean</h3>
 <p>Replace the uniform rolling window with an exponentially weighted moving average (EWMA):</p>
 <p><span class="math display">\[\bar{x}_i = \alpha x_i + (1 - \alpha) \bar{x}_{i-1}\]</span></p>
 <p>with smoothing factor <span class="math inline">\(\alpha \in (0, 1)\)</span>. Derive the corresponding EWMA variance estimator and re-implement <code>rolling_stats</code> using it. Compare the detection lag between the uniform and EWMA detectors on the step-change data.</p>
-<h3 data-number="12.9.5" id="multivariate-anomaly-score"><span class="header-section-number">12.9.5</span> Multivariate anomaly score</h3>
+<h3 data-number="13.9.5" id="multivariate-anomaly-score"><span class="header-section-number">13.9.5</span> Multivariate anomaly score</h3>
 <p>A patient has two simultaneous signals: heart rate and respiratory rate. Anomalies in both signals at the same time are more clinically significant than anomalies in just one. Combine the two individual z-scores into a single multivariate score (e.g.&nbsp;the Euclidean norm of the two z-score vectors) and show that it improves detection of anomalies that affect both signals simultaneously while maintaining the per-signal false-positive rate.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../phylo/index.html">← Phylogenetic Tree Reconstruction</a>
+    <a class="pager-link next" href="../massspec/index.html">Peak Detection in Mass Spectra →</a>
+  </nav>
+</footer>
 
 
 </body></html>

@@ -35,44 +35,56 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">4.1</span> The Problem</a></li>
-<li><a href="#representing-the-river-network" id="toc-representing-the-river-network"><span class="header-section-number">4.2</span> Representing the River Network</a></li>
-<li><a href="#the-transport-model" id="toc-the-transport-model"><span class="header-section-number">4.3</span> The Transport Model</a></li>
-<li><a href="#building-the-upstream-table" id="toc-building-the-upstream-table"><span class="header-section-number">4.4</span> Building the Upstream Table</a></li>
-<li><a href="#running-the-simulation" id="toc-running-the-simulation"><span class="header-section-number">4.5</span> Running the Simulation</a></li>
-<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">4.6</span> Visualizing the Results</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">4.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">4.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">5.1</span> The Problem</a></li>
+<li><a href="#representing-the-river-network" id="toc-representing-the-river-network"><span class="header-section-number">5.2</span> Representing the River Network</a></li>
+<li><a href="#the-transport-model" id="toc-the-transport-model"><span class="header-section-number">5.3</span> The Transport Model</a></li>
+<li><a href="#building-the-upstream-table" id="toc-building-the-upstream-table"><span class="header-section-number">5.4</span> Building the Upstream Table</a></li>
+<li><a href="#running-the-simulation" id="toc-running-the-simulation"><span class="header-section-number">5.5</span> Running the Simulation</a></li>
+<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">5.6</span> Visualizing the Results</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">5.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">5.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Pollutant Spread in a River Network</h1>
-<h2 data-number="4.1" id="the-problem"><span class="header-section-number">4.1</span> The Problem</h2>
+<h2 data-number="5.1" id="the-problem"><span class="header-section-number">5.1</span> The Problem</h2>
 <ul>
 <li>River networks branch and merge: pollutant introduced at one node is carried to all nodes reachable from it</li>
 <li>We want to track the concentration at each node over time to predict when downstream communities are affected</li>
 <li>This is a <a href="../glossary/index.html#flow_network">flow network</a> problem: a directed graph where edges carry material from node to node</li>
 </ul>
-<h2 data-number="4.2" id="representing-the-river-network"><span class="header-section-number">4.2</span> Representing the River Network</h2>
+<h2 data-number="5.2" id="representing-the-river-network"><span class="header-section-number">5.2</span> Representing the River Network</h2>
 <ul>
 <li>The network is a directed tree: water flows from headwaters to an outlet, with no cycles</li>
 <li>Nodes represent measurement stations or junctions; edges represent river reaches</li>
 <li>Edge weights record relative discharge (i.e., mean flow rate)</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># River network: 5 nodes in a directed tree (upstream to downstream).</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Node indices correspond to NODE_NAMES.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>NODE_NAMES <span class="op">=</span> [<span class="st">"upstream_a"</span>, <span class="st">"upstream_b"</span>, <span class="st">"junction"</span>, <span class="st">"reach"</span>, <span class="st">"outlet"</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Node 4 (outlet) is the sink: pollutant that arrives there is not transported further.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>SINK <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial spill: unit concentration at upstream_a only.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>SPILL_NODE <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fraction of concentration at each non-sink node transported downstream per step.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># At 0.4, roughly 40 % of mass moves forward each time step.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>TRANSPORT_RATE <span class="op">=</span> <span class="fl">0.4</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>N_STEPS <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>SNAPSHOT_INTERVAL <span class="op">=</span> <span class="dv">5</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <ul>
 <li><code>upstream_a</code> (node 0) is the spill site</li>
@@ -104,7 +116,7 @@ Wrong: undirected graphs support weighted edges just as directed graphs do.
 </dd>
 </dl>
 </div>
-<h2 data-number="4.3" id="the-transport-model"><span class="header-section-number">4.3</span> The Transport Model</h2>
+<h2 data-number="5.3" id="the-transport-model"><span class="header-section-number">5.3</span> The Transport Model</h2>
 <ul>
 <li>At each time step, a fraction <code>TRANSPORT_RATE</code> of the concentration at each non-sink node moves downstream</li>
 <li>The remaining fraction <span class="math inline">\((1 - \text{TRANSPORT\_RATE})\)</span> stays at the node (representing mixing and retention in the water column)</li>
@@ -116,7 +128,7 @@ Wrong: undirected graphs support weighted edges just as directed graphs do.
 <li>When a node drains into a single successor, <span class="math inline">\(f_k = \alpha\)</span></li>
 <li>When a node splits equally among two successors, each receives <span class="math inline">\(\alpha / 2\)</span></li>
 </ul>
-<h2 data-number="4.4" id="building-the-upstream-table"><span class="header-section-number">4.4</span> Building the Upstream Table</h2>
+<h2 data-number="5.4" id="building-the-upstream-table"><span class="header-section-number">5.4</span> Building the Upstream Table</h2>
 <ul>
 <li>Rather than building a matrix, we pre-compute the list of <span class="math inline">\((u, f)\)</span> pairs for each node <span class="math inline">\(v\)</span>, where <span class="math inline">\(u\)</span> is an upstream neighbour and <span class="math inline">\(f\)</span> is the fraction of <span class="math inline">\(u\)</span>’s concentration that flows into <span class="math inline">\(v\)</span></li>
 <li>This list is empty for headwater nodes (no upstream neighbours) and for isolated nodes</li>
@@ -152,25 +164,73 @@ Wrong: 1.0 would mean all concentration moves downstream and none is retained.
 </dd>
 </dl>
 </div>
-<h2 data-number="4.5" id="running-the-simulation"><span class="header-section-number">4.5</span> Running the Simulation</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="5.5" id="running-the-simulation"><span class="header-section-number">5.5</span> Running the Simulation</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate(G):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Simulate pollutant transport and return concentration snapshots.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    For each time step the new concentration at node v is:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">        new_c[v] = c[v] * (1 - outflow_rate[v])</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">                   + sum(fraction * c[u] for (u, fraction) in upstream[v])</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    where outflow_rate[v] is TRANSPORT_RATE for non-sink nodes (0 for the sink).</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    The sink retains everything it receives and sends nothing downstream.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(NODE_NAMES)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    c[SPILL_NODE] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> build_upstream(G)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Outflow rate for each node: TRANSPORT_RATE for non-sink nodes that have</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># at least one downstream successor; 0 for the sink and for isolated nodes.</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    outflow <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> u <span class="op">!=</span> SINK <span class="kw">and</span> <span class="bu">list</span>(G.successors(u)):</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            outflow[u] <span class="op">=</span> TRANSPORT_RATE</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> _snapshot(c, <span class="dv">0</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, N_STEPS <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        new_c <span class="op">=</span> [<span class="fl">0.0</span>] <span class="op">*</span> n</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            retained <span class="op">=</span> c[v] <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> outflow[v])</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            inflow <span class="op">=</span> <span class="bu">sum</span>(fraction <span class="op">*</span> c[u] <span class="cf">for</span> (u, fraction) <span class="kw">in</span> upstream[v])</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            new_c[v] <span class="op">=</span> retained <span class="op">+</span> inflow</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> new_c</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> step <span class="op">%</span> SNAPSHOT_INTERVAL <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            records <span class="op">+=</span> _snapshot(c, step)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame(records)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _snapshot(c, step):</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"node"</span>: NODE_NAMES[i], <span class="st">"concentration"</span>: <span class="bu">float</span>(c[i]), <span class="st">"step"</span>: step}</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(NODE_NAMES))</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    ]</span></code></pre></div>
 <ul>
 <li>For each time step and each node <span class="math inline">\(v\)</span>, <code>retained</code> is the fraction staying put and <code>inflow</code> is the sum of fractions arriving from upstream neighbours</li>
 <li>The loop saves a snapshot every <code>SNAPSHOT_INTERVAL</code> steps so that only a small table is stored</li>
 </ul>
-<h2 data-number="4.6" id="visualizing-the-results"><span class="header-section-number">4.6</span> Visualizing the Results</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="5.6" id="visualizing-the-results"><span class="header-section-number">5.6</span> Visualizing the Results</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(df):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair line chart of concentration at each node over time."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        .mark_line(point<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"step:O"</span>, title<span class="op">=</span><span class="st">"Time step"</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"concentration:Q"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">"Concentration"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">1.0</span>]),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(<span class="st">"node:N"</span>, title<span class="op">=</span><span class="st">"Node"</span>, sort<span class="op">=</span>NODE_NAMES),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        .properties(width<span class="op">=</span><span class="dv">350</span>, height<span class="op">=</span><span class="dv">250</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <div id="fig-pollute-concentrations" class="quarto-float quarto-figure quarto-figure-center" alt="Line chart showing concentration at each node over 20 time steps. upstream_a decays from 1.0; junction and reach rise then fall; outlet rises monotonically.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-pollute-concentrations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="pollute.svg" alt="Line chart showing concentration at each node over 20 time steps. upstream_a decays from 1.0; junction and reach rise then fall; outlet rises monotonically.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pollute-concentrations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Concentration at each node over 20 time steps. The pollutant pulse travels from the spill site (upstream_a) through the network toward the outlet.
+Figure&nbsp;5.1: Concentration at each node over 20 time steps. The pollutant pulse travels from the spill site (upstream_a) through the network toward the outlet.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="4.7" id="testing"><span class="header-section-number">4.7</span> Testing</h2>
+<h2 data-number="5.7" id="testing"><span class="header-section-number">5.7</span> Testing</h2>
 <ul>
 <li>Mass conservation
 <ul>
@@ -326,21 +386,27 @@ Figure&nbsp;4.1: Concentration at each node over 20 time steps. The pollutant pu
 <span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"node </span><span class="sc">{</span>NODE_NAMES[u]<span class="sc">}</span><span class="ss"> sends </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss">, expected </span><span class="sc">{</span>TRANSPORT_RATE<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
 <section class="exercises">
-<h2 data-number="4.8" id="exercises"><span class="header-section-number">4.8</span> Exercises</h2>
-<h3 data-number="4.8.1" id="do-the-math"><span class="header-section-number">4.8.1</span> Do the math</h3>
+<h2 data-number="5.8" id="exercises"><span class="header-section-number">5.8</span> Exercises</h2>
+<h3 data-number="5.8.1" id="do-the-math"><span class="header-section-number">5.8.1</span> Do the math</h3>
 <p>Starting from <span class="math inline">\(c = [1, 0, 0, 0, 0]\)</span> and using <code>TRANSPORT_RATE</code> = 0.4, what is the concentration at <code>junction</code> (node 2) after exactly 2 time steps? Give your answer to two decimal places.</p>
-<p>Hint: trace through the update rule step by step. At step 1, junction receives <span class="math inline">\(0.4 \times c_0[\text{upstream\_a}]\)</span> from upstream_a. At step 2, junction retains <span class="math inline">\(0.6\)</span> of its step-1 value and receives another inflow from upstream_a.</p>
-<h3 data-number="4.8.2" id="adding-a-tributary"><span class="header-section-number">4.8.2</span> Adding a tributary</h3>
+<p>Hint: trace through the update rule step by step. At step 1, junction receives <span class="math inline">\(0.4 \times c_0[\text{upstream\_a}]\)</span> from <code>upstream_a</code>. At step 2, junction retains <span class="math inline">\(0.6\)</span> of its step-1 value and receives another inflow from <code>upstream_a</code>.</p>
+<h3 data-number="5.8.2" id="adding-a-tributary"><span class="header-section-number">5.8.2</span> Adding a tributary</h3>
 <p>Add a sixth node <code>tributary</code> (node 5) that joins at <code>reach</code> (node 3) with edge weight 2.0. Update <code>build_network</code> and rerun the simulation. Does <code>test_mass_conservation</code> still pass? Does the pollutant reach the outlet faster or slower?</p>
-<h3 data-number="4.8.3" id="variable-transport-rate"><span class="header-section-number">4.8.3</span> Variable transport rate</h3>
+<h3 data-number="5.8.3" id="variable-transport-rate"><span class="header-section-number">5.8.3</span> Variable transport rate</h3>
 <p>Replace the uniform <code>TRANSPORT_RATE</code> with per-edge rates stored in a dictionary keyed by <code>(src, dst)</code>. Assign higher rates to high-flow edges (e.g., rate proportional to edge weight / max edge weight). Modify <code>build_upstream</code> to use per-edge rates and update <code>simulate</code> accordingly. How does the arrival time at the outlet change compared to the uniform-rate model?</p>
-<h3 data-number="4.8.4" id="continuous-spill"><span class="header-section-number">4.8.4</span> Continuous spill</h3>
+<h3 data-number="5.8.4" id="continuous-spill"><span class="header-section-number">5.8.4</span> Continuous spill</h3>
 <p>Change the initial condition so that <code>upstream_a</code> receives a constant input of 0.1 concentration units per step (a continuous source rather than an instantaneous spill). Modify <code>simulate</code> to add this source term to <code>new_c[SPILL_NODE]</code> after each update step. Is mass still conserved? At what step does the outlet concentration stabilise?</p>
-<h3 data-number="4.8.5" id="two-spill-comparison"><span class="header-section-number">4.8.5</span> Two-spill comparison</h3>
+<h3 data-number="5.8.5" id="two-spill-comparison"><span class="header-section-number">5.8.5</span> Two-spill comparison</h3>
 <p>Run two separate simulations: one with the spill at <code>upstream_a</code> and one with a spill at <code>upstream_b</code>. Add the two concentration lists at each step. Compare the result to a single simulation that starts with concentration 1.0 at both headwater nodes simultaneously. Are the results identical? Explain why in terms of the structure of the update rule.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../vocab/index.html">← Vocabulary Richness in Historical Texts</a>
+    <a class="pager-link next" href="../porous/index.html">Percolation in a Porous Medium →</a>
+  </nav>
+</footer>
 
 
 </body></html>

@@ -35,39 +35,40 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">24.1</span> The Problem</a></li>
-<li><a href="#the-sir-equations" id="toc-the-sir-equations"><span class="header-section-number">24.2</span> The SIR Equations</a></li>
-<li><a href="#integrating-the-model" id="toc-integrating-the-model"><span class="header-section-number">24.3</span> Integrating the Model</a></li>
-<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">24.4</span> Generating Synthetic Data</a></li>
-<li><a href="#fitting-the-model" id="toc-fitting-the-model"><span class="header-section-number">24.5</span> Fitting the Model</a></li>
-<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">24.6</span> Visualizing the Results</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">24.7</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">24.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">25.1</span> The Problem</a></li>
+<li><a href="#the-sir-equations" id="toc-the-sir-equations"><span class="header-section-number">25.2</span> The SIR Equations</a></li>
+<li><a href="#integrating-the-model" id="toc-integrating-the-model"><span class="header-section-number">25.3</span> Integrating the Model</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">25.4</span> Generating Synthetic Data</a></li>
+<li><a href="#fitting-the-model" id="toc-fitting-the-model"><span class="header-section-number">25.5</span> Fitting the Model</a></li>
+<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">25.6</span> Visualizing the Results</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">25.7</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">25.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Fitting an SIR Epidemic Model</h1>
-<h2 data-number="24.1" id="the-problem"><span class="header-section-number">24.1</span> The Problem</h2>
+<h2 data-number="25.1" id="the-problem"><span class="header-section-number">25.1</span> The Problem</h2>
 <ul>
 <li>During an outbreak, public health officials observe daily case counts but do not know the underlying transmission dynamics</li>
 <li>Estimating the transmission rate and recovery rate from the observed curve allows prediction of the epidemic’s peak and total size</li>
 <li>The <a href="../glossary/index.html#sir_model">SIR model</a> is the simplest compartmental model that captures this</li>
 <li>It divides a fixed population into Susceptible, Infectious, and Recovered (immune) individuals</li>
 </ul>
-<h2 data-number="24.2" id="the-sir-equations"><span class="header-section-number">24.2</span> The SIR Equations</h2>
+<h2 data-number="25.2" id="the-sir-equations"><span class="header-section-number">25.2</span> The SIR Equations</h2>
 <ul>
 <li>The population <span class="math inline">\(N\)</span> is constant; individuals move only from S to I to R:</li>
 </ul>
@@ -102,7 +103,7 @@ Wrong: <span class="math inline">\(R_0\)</span> is not a percentage; final epide
 </dd>
 </dl>
 </div>
-<h2 data-number="24.3" id="integrating-the-model"><span class="header-section-number">24.3</span> Integrating the Model</h2>
+<h2 data-number="25.3" id="integrating-the-model"><span class="header-section-number">25.3</span> Integrating the Model</h2>
 <ul>
 <li><code>scipy.integrate.solve_ivp</code> advances the ODE system from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t_\text{max}\)</span> using an adaptive <a href="../glossary/index.html#runge_kutta">Runge-Kutta method</a></li>
 <li>The observable quantity is the daily incidence
@@ -134,7 +135,7 @@ Wrong: <span class="math inline">\(R_0 = \beta/\gamma\)</span> is a parameter, n
 </dd>
 </dl>
 </div>
-<h2 data-number="24.4" id="generating-synthetic-data"><span class="header-section-number">24.4</span> Generating Synthetic Data</h2>
+<h2 data-number="25.4" id="generating-synthetic-data"><span class="header-section-number">25.4</span> Generating Synthetic Data</h2>
 <ul>
 <li>We generate 160 days of daily case counts from known parameters and add Poisson observation noise.</li>
 <li>Poisson noise models the stochasticity of real disease reporting
@@ -142,8 +143,44 @@ Wrong: <span class="math inline">\(R_0 = \beta/\gamma\)</span> is a parameter, n
 <li>The variance equals the mean</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># True SIR parameters used to generate synthetic outbreak data.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># BETA_TRUE: number of contacts per day that lead to transmission.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># GAMMA_TRUE: 1/GAMMA_TRUE is the mean infectious period (10 days here).</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># R0_TRUE = BETA_TRUE / GAMMA_TRUE = 3.0: each case generates 3 secondary</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cases early in the outbreak, so an epidemic occurs (R0 &gt; 1).</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>BETA_TRUE <span class="op">=</span> <span class="fl">0.30</span>  <span class="co"># transmission rate (day^-1)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>GAMMA_TRUE <span class="op">=</span> <span class="fl">0.10</span>  <span class="co"># recovery rate (day^-1)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>N_POP <span class="op">=</span> <span class="dv">10_000</span>  <span class="co"># total population (constant; no births or deaths)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>I0 <span class="op">=</span> <span class="dv">10</span>  <span class="co"># initial number of infectious individuals</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>T_MAX <span class="op">=</span> <span class="dv">160</span>  <span class="co"># simulation length (days)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate(beta<span class="op">=</span>BETA_TRUE, gamma<span class="op">=</span>GAMMA_TRUE, n<span class="op">=</span>N_POP, i0<span class="op">=</span>I0, t_max<span class="op">=</span>T_MAX, seed<span class="op">=</span>SEED):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return daily new-case counts from an SIR model with Poisson observation noise.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Integrates the SIR ODEs from day 0 to day t_max and approximates the</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    daily incidence as the decrease in S between consecutive integer days:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    new_cases(t) = S(t-1) - S(t).  Poisson noise is added to mimic</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    stochastic reporting; the Poisson mean is clipped to zero to avoid</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    negative arguments (can occur near the epidemic peak due to ODE</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    interpolation).</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    t_eval <span class="op">=</span> np.arange(<span class="dv">0</span>, t_max <span class="op">+</span> <span class="dv">1</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        _sir_rhs,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        [<span class="fl">0.0</span>, <span class="bu">float</span>(t_max)],</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        [<span class="bu">float</span>(n <span class="op">-</span> i0), <span class="bu">float</span>(i0), <span class="fl">0.0</span>],</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        args<span class="op">=</span>(beta, gamma, n),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        t_eval<span class="op">=</span>t_eval,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        rtol<span class="op">=</span><span class="fl">1e-8</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        atol<span class="op">=</span><span class="fl">1e-10</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Daily incidence: drop in S from one day to the next.</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    new_cases_true <span class="op">=</span> np.maximum(np.diff(sol.y[<span class="dv">0</span>]) <span class="op">*</span> <span class="op">-</span><span class="fl">1.0</span>, <span class="fl">0.0</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    new_cases_obs <span class="op">=</span> rng.poisson(new_cases_true).astype(<span class="bu">float</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"day"</span>: np.arange(<span class="dv">1</span>, t_max <span class="op">+</span> <span class="dv">1</span>), <span class="st">"cases"</span>: new_cases_obs})</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _sir_rhs(t, y, beta, gamma, n):</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    susc, infect, rec <span class="op">=</span> y</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    force <span class="op">=</span> beta <span class="op">*</span> susc <span class="op">*</span> infect <span class="op">/</span> n</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="op">-</span>force, force <span class="op">-</span> gamma <span class="op">*</span> infect, gamma <span class="op">*</span> infect]</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put these steps in the correct order to generate a synthetic SIR outbreak with Poisson noise.</p>
 <ol type="1">
@@ -153,26 +190,69 @@ Wrong: <span class="math inline">\(R_0 = \beta/\gamma\)</span> is a parameter, n
 <li>Draw Poisson samples with means equal to the clipped incidence values</li>
 </ol>
 </div>
-<h2 data-number="24.5" id="fitting-the-model"><span class="header-section-number">24.5</span> Fitting the Model</h2>
+<h2 data-number="25.5" id="fitting-the-model"><span class="header-section-number">25.5</span> Fitting the Model</h2>
 <ul>
 <li><code>scipy.optimize.least_squares</code> minimises the sum of squared residuals <span class="math inline">\(\sum_t (\hat{c}_t - c_t)^2\)</span>, where <span class="math inline">\(\hat{c}_t\)</span> is the modelled incidence and <span class="math inline">\(c_t\)</span> is the observed count</li>
 <li>Both <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> must be positive, so we impose box constraints with <code>bounds</code></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="24.6" id="visualizing-the-results"><span class="header-section-number">24.6</span> Visualizing the Results</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial parameter guesses for the optimizer.  Starting near biologically</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plausible values helps the solver converge; exact values do not matter</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># as long as residuals decrease monotonically from the starting point.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>BETA_INIT <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>GAMMA_INIT <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Both parameters must be positive; upper bounds are generous.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>LOWER_BOUNDS <span class="op">=</span> [<span class="fl">1e-6</span>, <span class="fl">1e-6</span>]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>UPPER_BOUNDS <span class="op">=</span> [<span class="fl">2.0</span>, <span class="fl">2.0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit(observed, n<span class="op">=</span>N_POP, i0<span class="op">=</span>I0, t_max<span class="op">=</span>T_MAX):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit beta and gamma to observed daily case counts by least squares.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Minimises the sum of squared residuals between the modelled and observed</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    daily incidence.  Returns the fitted (beta, gamma) as a tuple.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> residuals(params):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        beta, gamma <span class="op">=</span> params</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_cases(beta, gamma, n, i0, t_max) <span class="op">-</span> observed</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> least_squares(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        residuals,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        x0<span class="op">=</span>[BETA_INIT, GAMMA_INIT],</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        bounds<span class="op">=</span>(LOWER_BOUNDS, UPPER_BOUNDS),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(result.x[<span class="dv">0</span>]), <span class="bu">float</span>(result.x[<span class="dv">1</span>])</span></code></pre></div>
+<h2 data-number="25.6" id="visualizing-the-results"><span class="header-section-number">25.6</span> Visualizing the Results</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(days, observed, beta, gamma):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair chart of observed cases and the fitted SIR model curve."""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    fitted <span class="op">=</span> model_cases(beta, gamma)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    df_obs <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"day"</span>: days, <span class="st">"cases"</span>: observed.tolist(), <span class="st">"source"</span>: [<span class="st">"observed"</span>] <span class="op">*</span> <span class="bu">len</span>(days)}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    df_fit <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"day"</span>: <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, T_MAX <span class="op">+</span> <span class="dv">1</span>)),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cases"</span>: fitted.tolist(),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"source"</span>: [<span class="st">"fitted"</span>] <span class="op">*</span> T_MAX,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        alt.Chart(pl.concat([df_obs, df_fit]))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        .mark_line()</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"day:Q"</span>, title<span class="op">=</span><span class="st">"Day"</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"cases:Q"</span>, title<span class="op">=</span><span class="st">"New cases per day"</span>),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(<span class="st">"source:N"</span>, title<span class="op">=</span><span class="st">""</span>),</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>            strokeDash<span class="op">=</span>alt.StrokeDash(<span class="st">"source:N"</span>),</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        .properties(width<span class="op">=</span><span class="dv">400</span>, height<span class="op">=</span><span class="dv">280</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <div id="fig-sir-fit" class="quarto-float quarto-figure quarto-figure-center" alt="Two curves: noisy observed daily cases (blue) and smooth fitted SIR model (orange). The fitted curve tracks the observed data closely.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-sir-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sir.svg" alt="Two curves: noisy observed daily cases (blue) and smooth fitted SIR model (orange). The fitted curve tracks the observed data closely.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sir-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.1: Observed daily cases (with Poisson noise) and the fitted SIR model. The fitted curve recovers the epidemic shape despite the observation noise.
+Figure&nbsp;25.1: Observed daily cases (with Poisson noise) and the fitted SIR model. The fitted curve recovers the epidemic shape despite the observation noise.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="24.7" id="testing"><span class="header-section-number">24.7</span> Testing</h2>
+<h2 data-number="25.7" id="testing"><span class="header-section-number">25.7</span> Testing</h2>
 <ul>
 <li>Population conservation
 <ul>
@@ -256,20 +336,26 @@ Figure&nbsp;24.1: Observed daily cases (with Poisson noise) and the fitted SIR m
 <span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(beta_fit <span class="op">-</span> BETA_TRUE) <span class="op">/</span> BETA_TRUE <span class="op">&lt;</span> <span class="fl">0.01</span></span>
 <span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(gamma_fit <span class="op">-</span> GAMMA_TRUE) <span class="op">/</span> GAMMA_TRUE <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div>
 <section class="exercises">
-<h2 data-number="24.8" id="exercises"><span class="header-section-number">24.8</span> Exercises</h2>
-<h3 data-number="24.8.1" id="do-the-math"><span class="header-section-number">24.8.1</span> Do the math</h3>
+<h2 data-number="25.8" id="exercises"><span class="header-section-number">25.8</span> Exercises</h2>
+<h3 data-number="25.8.1" id="do-the-math"><span class="header-section-number">25.8.1</span> Do the math</h3>
 <p>Using <code>BETA_TRUE</code> = 0.30 day<span class="math inline">\(^{-1}\)</span> and <code>GAMMA_TRUE</code> = 0.10 day<span class="math inline">\(^{-1}\)</span>, compute <span class="math inline">\(R_0 = \beta / \gamma\)</span>. Give your answer to one decimal place.</p>
-<h3 data-number="24.8.2" id="herd-immunity-threshold"><span class="header-section-number">24.8.2</span> Herd immunity threshold</h3>
+<h3 data-number="25.8.2" id="herd-immunity-threshold"><span class="header-section-number">25.8.2</span> Herd immunity threshold</h3>
 <p>The epidemic stops growing when <span class="math inline">\(S/N\)</span> falls below <span class="math inline">\(1/R_0\)</span> (the herd immunity threshold). For the true parameters, compute the fraction of the population that has been infected by the time <span class="math inline">\(I(t)\)</span> reaches its peak. Compare this to <span class="math inline">\(1 - 1/R_0\)</span>. Are they the same?</p>
-<h3 data-number="24.8.3" id="fitting-r_0-instead-of-beta-and-gamma"><span class="header-section-number">24.8.3</span> Fitting <span class="math inline">\(R_0\)</span> instead of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span></h3>
+<h3 data-number="25.8.3" id="fitting-r_0-instead-of-beta-and-gamma"><span class="header-section-number">25.8.3</span> Fitting <span class="math inline">\(R_0\)</span> instead of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span></h3>
 <p>Instead of fitting <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> separately, reparametrise the model with <span class="math inline">\(R_0\)</span> and <span class="math inline">\(\gamma\)</span> as the two parameters (so <span class="math inline">\(\beta = R_0 \gamma\)</span>). Does the optimiser converge faster? Are the confidence intervals on <span class="math inline">\(R_0\)</span> narrower than when computing <span class="math inline">\(R_0 = \hat{\beta}/\hat{\gamma}\)</span> from independently fitted parameters?</p>
-<h3 data-number="24.8.4" id="seir-extension"><span class="header-section-number">24.8.4</span> SEIR extension</h3>
+<h3 data-number="25.8.4" id="seir-extension"><span class="header-section-number">25.8.4</span> SEIR extension</h3>
 <p>Add an exposed (latent) compartment <span class="math inline">\(E\)</span> between <span class="math inline">\(S\)</span> and <span class="math inline">\(I\)</span>: <span class="math inline">\(dE/dt = \beta SI/N - \sigma E\)</span> and <span class="math inline">\(dI/dt = \sigma E - \gamma I\)</span>, where <span class="math inline">\(\sigma^{-1}\)</span> is the mean latent period. Generate synthetic data with <span class="math inline">\(\sigma = 0.2\)</span> day<span class="math inline">\(^{-1}\)</span> (mean 5-day latent period) and fit the four-parameter SEIR model. Does the SIR fit to SEIR data give biased estimates of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>?</p>
-<h3 data-number="24.8.5" id="sensitivity-analysis"><span class="header-section-number">24.8.5</span> Sensitivity analysis</h3>
+<h3 data-number="25.8.5" id="sensitivity-analysis"><span class="header-section-number">25.8.5</span> Sensitivity analysis</h3>
 <p>Vary <span class="math inline">\(\beta\)</span> from 0.1 to 0.5 (holding <span class="math inline">\(\gamma = 0.1\)</span> fixed) and plot the epidemic peak size and peak timing as functions of <span class="math inline">\(\beta\)</span>. At what value of <span class="math inline">\(\beta\)</span> does the epidemic just barely cross the threshold (peak in <span class="math inline">\(I\)</span> is very small)? How close is this to the theoretical threshold <span class="math inline">\(\beta = \gamma\)</span>?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../lotka/index.html">← Predator-Prey Dynamics</a>
+    <a class="pager-link next" href="../mineral/index.html">Mineral Classification by Geochemistry →</a>
+  </nav>
+</footer>
 
 
 </body></html>

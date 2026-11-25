@@ -35,31 +35,32 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">15.1</span> The Problem</a></li>
-<li><a href="#the-gini-coefficient" id="toc-the-gini-coefficient"><span class="header-section-number">15.2</span> The Gini Coefficient</a></li>
-<li><a href="#the-exchange-simulation" id="toc-the-exchange-simulation"><span class="header-section-number">15.3</span> The Exchange Simulation</a></li>
-<li><a href="#the-lorenz-curve" id="toc-the-lorenz-curve"><span class="header-section-number">15.4</span> The Lorenz Curve</a></li>
-<li><a href="#gini-trajectory" id="toc-gini-trajectory"><span class="header-section-number">15.5</span> Gini Trajectory</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">15.6</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">15.7</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">16.1</span> The Problem</a></li>
+<li><a href="#the-gini-coefficient" id="toc-the-gini-coefficient"><span class="header-section-number">16.2</span> The Gini Coefficient</a></li>
+<li><a href="#the-exchange-simulation" id="toc-the-exchange-simulation"><span class="header-section-number">16.3</span> The Exchange Simulation</a></li>
+<li><a href="#the-lorenz-curve" id="toc-the-lorenz-curve"><span class="header-section-number">16.4</span> The Lorenz Curve</a></li>
+<li><a href="#gini-trajectory" id="toc-gini-trajectory"><span class="header-section-number">16.5</span> Gini Trajectory</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">16.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">16.7</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Wealth Inequality in an Exchange Economy</h1>
-<h2 data-number="15.1" id="the-problem"><span class="header-section-number">15.1</span> The Problem</h2>
+<h2 data-number="16.1" id="the-problem"><span class="header-section-number">16.1</span> The Problem</h2>
 <ul>
 <li>Even when individuals exchange resources randomly with no deliberate hoarding, wealth concentrates in a small number of hands over time.</li>
 <li>This is the central insight of agent-based models of exchange: inequality can emerge from random processes, not only from skill differences or deliberate exploitation.</li>
@@ -91,7 +92,7 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 </dd>
 </dl>
 </div>
-<h2 data-number="15.2" id="the-gini-coefficient"><span class="header-section-number">15.2</span> The Gini Coefficient</h2>
+<h2 data-number="16.2" id="the-gini-coefficient"><span class="header-section-number">16.2</span> The Gini Coefficient</h2>
 <ul>
 <li>The <a href="../glossary/index.html#gini_coefficient">Gini coefficient</a> <span class="math inline">\(G\)</span> is the most widely used scalar summary of inequality: it equals 0 for perfect equality and approaches 1 when all wealth is concentrated in one agent.</li>
 <li>It is defined as the mean absolute difference in wealth between all pairs, normalised by twice the mean wealth:</li>
@@ -101,13 +102,46 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 <li>Computing this directly requires <span class="math inline">\(O(n^2)\)</span> comparisons. Sorting the wealth array first reduces the cost to <span class="math inline">\(O(n \log n)\)</span>: after sorting so that <span class="math inline">\(w_{(1)} \leq w_{(2)} \leq \cdots \leq w_{(n)}\)</span>,</li>
 </ul>
 <p><span class="math display">\[G = \frac{2\sum_{i=1}^n i\,w_{(i)} - (n+1)\sum_i w_i}{n \sum_i w_i}\]</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="15.3" id="the-exchange-simulation"><span class="header-section-number">15.3</span> The Exchange Simulation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini(wealth):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Gini coefficient of a wealth distribution.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses the sorted-array formula:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        G = (2 * sum(i * w_(i)) - (n+1) * sum(w)) / (n * sum(w))</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    where indices i are 1-based and w_(i) is the i-th smallest wealth.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns 0 for perfect equality and (n-1)/n when one agent holds everything.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(wealth)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    sorted_w <span class="op">=</span> np.sort(wealth)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    indices <span class="op">=</span> np.arange(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> np.<span class="bu">sum</span>(sorted_w)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fl">2.0</span> <span class="op">*</span> np.dot(indices, sorted_w) <span class="op">-</span> (n <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> total) <span class="op">/</span> (n <span class="op">*</span> total)</span></code></pre></div>
+<h2 data-number="16.3" id="the-exchange-simulation"><span class="header-section-number">16.3</span> The Exchange Simulation</h2>
 <ul>
 <li>The simulation records the Gini coefficient after every exchange so we can watch inequality grow from zero.</li>
 <li>A key invariant: total wealth <span class="math inline">\(\sum_i w_i = N\)</span> is conserved exactly at every step because each transfer moves wealth without creating or destroying it.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_exchange(n_agents<span class="op">=</span>N_AGENTS, n_steps<span class="op">=</span>N_STEPS, seed<span class="op">=</span>SEED):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run the random-exchange wealth model.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Agents start with equal wealth of 1.0 each.  At every step two distinct</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    agents are chosen uniformly at random; the poorer transfers a uniformly</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    random fraction of their own wealth to the richer.  Total wealth is</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    conserved exactly at n_agents throughout.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (final_wealth, gini_history) where gini_history[t] is the Gini</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    coefficient after t exchanges (gini_history[0] is the initial value 0.0).</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    wealth <span class="op">=</span> np.ones(n_agents, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    gini_history <span class="op">=</span> np.empty(n_steps <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    gini_history[<span class="dv">0</span>] <span class="op">=</span> gini(wealth)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(n_steps):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        i, j <span class="op">=</span> rng.choice(n_agents, size<span class="op">=</span><span class="dv">2</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> wealth[i] <span class="op">&gt;</span> wealth[j]:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            i, j <span class="op">=</span> j, i  <span class="co"># i is now the poorer agent</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        fraction <span class="op">=</span> rng.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        transfer <span class="op">=</span> fraction <span class="op">*</span> wealth[i]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        wealth[i] <span class="op">-=</span> transfer</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        wealth[j] <span class="op">+=</span> transfer</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        gini_history[step <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> gini(wealth)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wealth, gini_history</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put the exchange steps in the correct order.</p>
 <ol type="1">
@@ -118,22 +152,54 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 <li>Update <span class="math inline">\(w_i \leftarrow w_i - \delta\)</span> and <span class="math inline">\(w_j \leftarrow w_j + \delta\)</span></li>
 </ol>
 </div>
-<h2 data-number="15.4" id="the-lorenz-curve"><span class="header-section-number">15.4</span> The Lorenz Curve</h2>
+<h2 data-number="16.4" id="the-lorenz-curve"><span class="header-section-number">16.4</span> The Lorenz Curve</h2>
 <ul>
 <li>The <a href="../glossary/index.html#lorenz_curve">Lorenz curve</a> gives a visual picture of the whole distribution, not just a single number.</li>
 <li>Sort agents by wealth ascending; the curve plots the cumulative fraction of total wealth held by the bottom <span class="math inline">\(x\)</span> fraction of the population.</li>
 <li>Perfect equality produces the 45-degree line <span class="math inline">\(y = x\)</span>. Any inequality bows the curve below that line.</li>
 <li>The Gini coefficient equals twice the area between the Lorenz curve and the equality line.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lorenz_curve(wealth):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (population_fractions, wealth_fractions) arrays for the Lorenz curve.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Both arrays start at (0, 0) and end at (1, 1).  The area between the</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    curve and the 45-degree equality line equals G/2, where G is the Gini</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    coefficient.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(wealth)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    sorted_w <span class="op">=</span> np.sort(wealth)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    cum_w <span class="op">=</span> np.cumsum(sorted_w)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    pop_fracs <span class="op">=</span> np.arange(<span class="dv">0</span>, n <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> n</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    wealth_fracs <span class="op">=</span> np.concatenate([[<span class="fl">0.0</span>], cum_w <span class="op">/</span> cum_w[<span class="op">-</span><span class="dv">1</span>]])</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pop_fracs, wealth_fracs</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_lorenz_curve(wealth, filename):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a Lorenz curve with the line of equality overlaid."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    pop_fracs, wealth_fracs <span class="op">=</span> lorenz_curve(wealth)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    df_lorenz <span class="op">=</span> pl.DataFrame({<span class="st">"population"</span>: pop_fracs, <span class="st">"wealth"</span>: wealth_fracs})</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    df_equal <span class="op">=</span> pl.DataFrame({<span class="st">"population"</span>: [<span class="fl">0.0</span>, <span class="fl">1.0</span>], <span class="st">"wealth"</span>: [<span class="fl">0.0</span>, <span class="fl">1.0</span>]})</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    lorenz_line <span class="op">=</span> (</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df_lorenz)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"steelblue"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"population:Q"</span>, title<span class="op">=</span><span class="st">"Cumulative share of population"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"wealth:Q"</span>, title<span class="op">=</span><span class="st">"Cumulative share of wealth"</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    equal_line <span class="op">=</span> (</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df_equal)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"gray"</span>, strokeDash<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">4</span>], strokeWidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        .encode(x<span class="op">=</span><span class="st">"population:Q"</span>, y<span class="op">=</span><span class="st">"wealth:Q"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> alt.layer(equal_line, lorenz_line).properties(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">350</span>, height<span class="op">=</span><span class="dv">350</span>, title<span class="op">=</span><span class="st">"Lorenz curve after 2000 exchanges"</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-wealth-lorenz" class="quarto-float quarto-figure quarto-figure-center" alt="Lorenz curve bowing well below the diagonal line of equality, with the bottom 80% of agents holding roughly 20% of total wealth.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-wealth-lorenz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="wealth-lorenz.svg" alt="Lorenz curve bowing well below the diagonal line of equality, with the bottom 80% of agents holding roughly 20% of total wealth.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wealth-lorenz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: Lorenz curve after 2000 exchanges with 200 agents (seed 7493418). The bottom 80% of agents hold roughly 20% of total wealth; the final Gini coefficient is 0.88.
+Figure&nbsp;16.1: Lorenz curve after 2000 exchanges with 200 agents (seed 7493418). The bottom 80% of agents hold roughly 20% of total wealth; the final Gini coefficient is 0.88.
 </figcaption>
 </figure>
 </div>
@@ -158,15 +224,34 @@ Wrong: the Gini is twice the area between the Lorenz curve and the diagonal, not
 </dd>
 </dl>
 </div>
-<h2 data-number="15.5" id="gini-trajectory"><span class="header-section-number">15.5</span> Gini Trajectory</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="16.5" id="gini-trajectory"><span class="header-section-number">16.5</span> Gini Trajectory</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_gini_trajectory(gini_history, filename):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a line chart of the Gini coefficient at each exchange step."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"step"</span>: np.arange(<span class="bu">len</span>(gini_history)),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"gini"</span>: gini_history,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> (</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        .mark_line(color<span class="op">=</span><span class="st">"steelblue"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"step:Q"</span>, title<span class="op">=</span><span class="st">"Exchange step"</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="st">"gini:Q"</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">1.0</span>]), title<span class="op">=</span><span class="st">"Gini coefficient"</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        .properties(width<span class="op">=</span><span class="dv">450</span>, height<span class="op">=</span><span class="dv">300</span>, title<span class="op">=</span><span class="st">"Gini coefficient over time"</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-wealth-gini" class="quarto-float quarto-figure quarto-figure-center" alt="Line chart rising steeply from 0 in the first few hundred steps, then levelling off near 0.88 by step 2000.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-wealth-gini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="wealth-gini.svg" alt="Line chart rising steeply from 0 in the first few hundred steps, then levelling off near 0.88 by step 2000.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wealth-gini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2: Gini coefficient over 2000 pairwise exchanges with 200 agents. The coefficient rises from 0.00 (perfect equality) to 0.88, consistent with the exponential steady-state distribution whose theoretical Gini is 0.50 — the simulation has not yet fully converged but is still rising.
+Figure&nbsp;16.2: Gini coefficient over 2000 pairwise exchanges with 200 agents. The coefficient rises from 0.00 (perfect equality) to 0.88, consistent with the exponential steady-state distribution whose theoretical Gini is 0.50 — the simulation has not yet fully converged but is still rising.
 </figcaption>
 </figure>
 </div>
@@ -175,7 +260,7 @@ Figure&nbsp;15.2: Gini coefficient over 2000 pairwise exchanges with 200 agents.
 <li>Growth slows as wealth concentrates: the few richest agents now dominate exchanges, but the model has no way to reverse concentration once it is established.</li>
 <li>The theoretical steady-state Gini for an exponential wealth distribution is exactly 0.5 (see Exercises), but the yardsale model’s convergence is slow and in practice the simulated Gini often exceeds 0.5 because the distribution is not yet truly exponential.</li>
 </ul>
-<h2 data-number="15.6" id="testing"><span class="header-section-number">15.6</span> Testing</h2>
+<h2 data-number="16.6" id="testing"><span class="header-section-number">16.6</span> Testing</h2>
 <dl>
 <dt>Equal-distribution baseline</dt>
 <dd>
@@ -258,20 +343,26 @@ Random exchange rule in which the poorer agent transfers a random fraction of th
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="15.7" id="exercises"><span class="header-section-number">15.7</span> Exercises</h2>
-<h3 data-number="15.7.1" id="do-the-math"><span class="header-section-number">15.7.1</span> Do the math</h3>
+<h2 data-number="16.7" id="exercises"><span class="header-section-number">16.7</span> Exercises</h2>
+<h3 data-number="16.7.1" id="do-the-math"><span class="header-section-number">16.7.1</span> Do the math</h3>
 <p>Three agents hold 1, 1, and 1 unit of wealth respectively. Using the formula <span class="math inline">\(G = (2\sum i\,w_{(i)} - (n+1)\sum w) / (n\sum w)\)</span> with <span class="math inline">\(n=3\)</span>, compute the Gini coefficient.</p>
-<h3 data-number="15.7.2" id="theoretical-steady-state-gini"><span class="header-section-number">15.7.2</span> Theoretical steady-state Gini</h3>
+<h3 data-number="16.7.2" id="theoretical-steady-state-gini"><span class="header-section-number">16.7.2</span> Theoretical steady-state Gini</h3>
 <p>For an exponential distribution with rate <span class="math inline">\(\lambda\)</span>, all agents draw wealth <span class="math inline">\(w \sim \text{Exp}(\lambda)\)</span> independently. Show algebraically that the Gini coefficient of this distribution is exactly 0.5. (Hint: use the formula <span class="math inline">\(G = 1 - 2\int_0^\infty S(w)^2 \, dw / \text{E}[W]\)</span> where <span class="math inline">\(S(w) = e^{-\lambda w}\)</span> is the survival function.)</p>
-<h3 data-number="15.7.3" id="convergence-as-a-function-of-n"><span class="header-section-number">15.7.3</span> Convergence as a function of <span class="math inline">\(N\)</span></h3>
+<h3 data-number="16.7.3" id="convergence-as-a-function-of-n"><span class="header-section-number">16.7.3</span> Convergence as a function of <span class="math inline">\(N\)</span></h3>
 <p>Run the simulation with 50, 200, and 1000 agents for 10 000 steps each and plot the final Gini as a function of <span class="math inline">\(N\)</span>. Does the steady-state Gini depend on the population size, or does it converge to the same value regardless of <span class="math inline">\(N\)</span>?</p>
-<h3 data-number="15.7.4" id="redistribution-policy"><span class="header-section-number">15.7.4</span> Redistribution policy</h3>
+<h3 data-number="16.7.4" id="redistribution-policy"><span class="header-section-number">16.7.4</span> Redistribution policy</h3>
 <p>Add a “redistribution step” every 100 exchanges: take 10% of the total wealth held by the top decile (wealthiest 10% of agents) and distribute it equally to all agents. How does this change the trajectory and steady-state Gini?</p>
-<h3 data-number="15.7.5" id="symmetric-exchange-rule"><span class="header-section-number">15.7.5</span> Symmetric exchange rule</h3>
+<h3 data-number="16.7.5" id="symmetric-exchange-rule"><span class="header-section-number">16.7.5</span> Symmetric exchange rule</h3>
 <p>Change the transfer rule: instead of the poorer agent transferring a fraction of their own wealth, both agents contribute a fraction of their own wealth to a pool and the pool is split 50/50. Show that total wealth is still conserved under this rule, then compare the resulting Gini trajectory to the original yardsale model.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../cellseg/index.html">← Cell Segmentation in Microscopy Images</a>
+    <a class="pager-link next" href="../topics/index.html">Topic Modeling a Document Corpus →</a>
+  </nav>
+</footer>
 
 
 </body></html>

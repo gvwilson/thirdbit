@@ -35,44 +35,52 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">5.1</span> The Problem</a></li>
-<li><a href="#the-grid-model" id="toc-the-grid-model"><span class="header-section-number">5.2</span> The Grid Model</a></li>
-<li><a href="#depth-first-search" id="toc-depth-first-search"><span class="header-section-number">5.3</span> Depth-First Search</a></li>
-<li><a href="#sweeping-the-probability" id="toc-sweeping-the-probability"><span class="header-section-number">5.4</span> Sweeping the Probability</a></li>
-<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">5.5</span> Visualizing the Results</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">5.6</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">5.7</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">6.1</span> The Problem</a></li>
+<li><a href="#the-grid-model" id="toc-the-grid-model"><span class="header-section-number">6.2</span> The Grid Model</a></li>
+<li><a href="#depth-first-search" id="toc-depth-first-search"><span class="header-section-number">6.3</span> Depth-First Search</a></li>
+<li><a href="#sweeping-the-probability" id="toc-sweeping-the-probability"><span class="header-section-number">6.4</span> Sweeping the Probability</a></li>
+<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">6.5</span> Visualizing the Results</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">6.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">6.7</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Percolation in a Porous Medium</h1>
-<h2 data-number="5.1" id="the-problem"><span class="header-section-number">5.1</span> The Problem</h2>
+<h2 data-number="6.1" id="the-problem"><span class="header-section-number">6.1</span> The Problem</h2>
 <ul>
 <li>Porous materials such as sandstone, soil, and filter membranes have a random network of connected pores.</li>
 <li>A fluid injected at one face can flow to the other face only if there is a continuous path of connected open pores.</li>
 <li>The critical question is: at what fraction of open pores does flow first become possible?</li>
 <li>This is the <a href="../glossary/index.html#percolation_threshold">percolation threshold</a>, a sharp transition that appears in hydrology, materials science, and network theory.</li>
 </ul>
-<h2 data-number="5.2" id="the-grid-model"><span class="header-section-number">5.2</span> The Grid Model</h2>
+<h2 data-number="6.2" id="the-grid-model"><span class="header-section-number">6.2</span> The Grid Model</h2>
 <ul>
 <li>We approximate the material as a square grid: each cell is independently open (passable) with probability <span class="math inline">\(p\)</span> or blocked (solid) with probability <span class="math inline">\(1-p\)</span>.</li>
 <li>This is <a href="../glossary/index.html#site_percolation">site percolation</a> on a 2D square lattice with 4-neighbor (von Neumann) connectivity.</li>
 <li>“Percolation” means a connected path of open cells exists from any cell in the top row to any cell in the bottom row.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GRID_SIZE <span class="op">=</span> <span class="dv">20</span>  <span class="co"># side length of the square grid (cells)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>N_TRIALS <span class="op">=</span> <span class="dv">200</span>  <span class="co"># independent trials per probability value</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_PROBS <span class="op">=</span> <span class="dv">41</span>  <span class="co"># number of probability values from 0.0 to 1.0 inclusive</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>RNG_SEED <span class="op">=</span> <span class="dv">7493418</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Theoretical site-percolation threshold for a 2D square lattice with</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4-neighbor (von Neumann) connectivity.  From Stauffer &amp; Aharony,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduction to Percolation Theory (2nd ed., 1994), Appendix B.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>THRESHOLD_THEORY <span class="op">=</span> <span class="fl">0.5927</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>The expression <code>rng.random((GRID_SIZE, GRID_SIZE)) &lt; p</code> produces a boolean grid. What fraction of its cells are True on average?</p>
@@ -95,13 +103,38 @@ Wrong: the comparison <code>&lt; p</code> gives probability p directly, with no 
 </dd>
 </dl>
 </div>
-<h2 data-number="5.3" id="depth-first-search"><span class="header-section-number">5.3</span> Depth-First Search</h2>
+<h2 data-number="6.3" id="depth-first-search"><span class="header-section-number">6.3</span> Depth-First Search</h2>
 <ul>
 <li>We test percolation by searching for a path from the top row to the bottom row.</li>
 <li><a href="../glossary/index.html#depth_first_search">Depth-first search</a> (DFS) explores as far as possible along each branch before backtracking.</li>
 <li>All open cells in row 0 are added to a stack as starting points; the search succeeds as soon as any visited cell reaches the last row.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> percolates(grid):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return True if an open path connects any top-row cell to any bottom-row cell.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses iterative depth-first search with 4-neighbor (von Neumann) connectivity.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    All open cells in row 0 are added to the stack as starting points.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    The search succeeds as soon as any visited cell lies in the last row.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    nrows, ncols <span class="op">=</span> grid.shape</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> np.zeros_like(grid, dtype<span class="op">=</span><span class="bu">bool</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> [(<span class="dv">0</span>, c) <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(ncols) <span class="cf">if</span> grid[<span class="dv">0</span>, c]]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r, c <span class="kw">in</span> stack:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        visited[r, c] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> stack:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        r, c <span class="op">=</span> stack.pop()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r <span class="op">==</span> nrows <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> dr, dc <span class="kw">in</span> ((<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="dv">0</span>, <span class="dv">1</span>)):</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            nr, nc <span class="op">=</span> r <span class="op">+</span> dr, c <span class="op">+</span> dc</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                <span class="dv">0</span> <span class="op">&lt;=</span> nr <span class="op">&lt;</span> nrows</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> nc <span class="op">&lt;</span> ncols</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                <span class="kw">and</span> grid[nr, nc]</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="kw">and</span> <span class="kw">not</span> visited[nr, nc]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            ):</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                visited[nr, nc] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                stack.append((nr, nc))</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span></code></pre></div>
 <ul>
 <li><code>visited</code> prevents cells from being added to the stack twice, keeping the search <span class="math inline">\(O(N^2)\)</span> in the grid size.</li>
 <li>Marking cells as visited before the main loop (not after popping) ensures no cell is pushed onto the stack more than once.</li>
@@ -137,38 +170,64 @@ Wrong: the check <code>r == nrows - 1</code> happens after popping; the order of
 </dd>
 </dl>
 </div>
-<h2 data-number="5.4" id="sweeping-the-probability"><span class="header-section-number">5.4</span> Sweeping the Probability</h2>
+<h2 data-number="6.4" id="sweeping-the-probability"><span class="header-section-number">6.4</span> Sweeping the Probability</h2>
 <ul>
 <li>We run <code>N_TRIALS</code> independent trials at each probability value and record the fraction that percolate.</li>
 <li>At low <span class="math inline">\(p\)</span>, almost no trial percolates; at high <span class="math inline">\(p\)</span>, almost every trial does.</li>
 <li>The transition from 0 to 1 sharpens as the grid size increases.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sweep():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a DataFrame with the percolation fraction at each probability.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    For each p in a uniform grid from 0 to 1, runs N_TRIALS independent</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    experiments and records the fraction that percolate.  All trials share</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    a single RNG to ensure reproducibility from RNG_SEED.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(RNG_SEED)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    probs <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="fl">1.0</span>, N_PROBS)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    fractions <span class="op">=</span> [</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sum</span>(percolates(make_grid(p, rng)) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(N_TRIALS)) <span class="op">/</span> N_TRIALS</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> probs</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"probability"</span>: probs, <span class="st">"fraction_percolating"</span>: fractions})</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="5.5" id="visualizing-the-results"><span class="header-section-number">5.5</span> Visualizing the Results</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="6.5" id="visualizing-the-results"><span class="header-section-number">6.5</span> Visualizing the Results</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(df):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair line chart of percolation fraction vs. open probability."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        .mark_line(point<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"probability:Q"</span>, title<span class="op">=</span><span class="st">"Open-cell probability p"</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"fraction_percolating:Q"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">"Fraction of trials that percolate"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">1.0</span>]),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        .properties(width<span class="op">=</span><span class="dv">400</span>, height<span class="op">=</span><span class="dv">300</span>, title<span class="op">=</span><span class="st">"Percolation threshold sweep"</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <div id="fig-porous-sweep" class="quarto-float quarto-figure quarto-figure-center" alt="S-shaped curve: fraction percolating vs. open probability. The curve rises steeply near p = 0.59.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-porous-sweep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="porous.svg" alt="S-shaped curve: fraction percolating vs. open probability. The curve rises steeply near p = 0.59.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-porous-sweep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: Percolation fraction vs.&nbsp;open-cell probability p on a 20 x 20 grid, 200 trials per point. The transition is centred near the theoretical threshold p_c = 0.5927.
+Figure&nbsp;6.1: Percolation fraction vs.&nbsp;open-cell probability p on a 20 x 20 grid, 200 trials per point. The transition is centred near the theoretical threshold p_c = 0.5927.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="5.6" id="testing"><span class="header-section-number">5.6</span> Testing</h2>
-<h3 data-number="5.6.1" id="boundary-cases"><span class="header-section-number">5.6.1</span> Boundary cases</h3>
+<h2 data-number="6.6" id="testing"><span class="header-section-number">6.6</span> Testing</h2>
+<h3 data-number="6.6.1" id="boundary-cases"><span class="header-section-number">6.6.1</span> Boundary cases</h3>
 <ul>
 <li>At <span class="math inline">\(p = 0\)</span> all cells are closed; the stack starts empty and the search returns <code>False</code> immediately.</li>
 <li>At <span class="math inline">\(p = 1\)</span> all cells are open; a straight vertical path always exists.</li>
 <li>A single-row grid percolates if and only if any cell in that row is open (row 0 and row <span class="math inline">\(N-1\)</span> are the same).</li>
 </ul>
-<h3 data-number="5.6.2" id="fraction-in-0-1"><span class="header-section-number">5.6.2</span> Fraction in <span class="math inline">\([0, 1]\)</span></h3>
+<h3 data-number="6.6.2" id="fraction-in-0-1"><span class="header-section-number">6.6.2</span> Fraction in <span class="math inline">\([0, 1]\)</span></h3>
 <ul>
 <li>Each trial produces a boolean; the fraction is a count divided by <code>N_TRIALS</code>, always in <span class="math inline">\([0, 1]\)</span>.</li>
 </ul>
-<h3 data-number="5.6.3" id="threshold-near-theory"><span class="header-section-number">5.6.3</span> Threshold near theory</h3>
+<h3 data-number="6.6.3" id="threshold-near-theory"><span class="header-section-number">6.6.3</span> Threshold near theory</h3>
 <ul>
 <li>On an infinite lattice the threshold is <span class="math inline">\(p_c \approx 0.5927\)</span> (Stauffer &amp; Aharony 1994).</li>
 <li>On a <span class="math inline">\(20 \times 20\)</span> grid with 200 trials the finite-size correction and Monte Carlo variance together are within 0.07 of this value.</li>
@@ -218,20 +277,26 @@ Figure&nbsp;5.1: Percolation fraction vs.&nbsp;open-cell probability p on a 20 x
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"estimated threshold </span><span class="sc">{</span>p_c<span class="sc">:.3f}</span><span class="ss"> is too far from theory </span><span class="sc">{</span>THRESHOLD_THEORY<span class="sc">:.4f}</span><span class="ss">"</span></span>
 <span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <section class="exercises">
-<h2 data-number="5.7" id="exercises"><span class="header-section-number">5.7</span> Exercises</h2>
-<h3 data-number="5.7.1" id="do-the-math"><span class="header-section-number">5.7.1</span> Do the math</h3>
+<h2 data-number="6.7" id="exercises"><span class="header-section-number">6.7</span> Exercises</h2>
+<h3 data-number="6.7.1" id="do-the-math"><span class="header-section-number">6.7.1</span> Do the math</h3>
 <p>The theoretical percolation threshold for 2D site percolation on a square lattice with 4-neighbor connectivity is commonly cited as 0.5927. To three decimal places, what is <code>THRESHOLD_THEORY</code> as defined in <code>porous.py</code>?</p>
-<h3 data-number="5.7.2" id="larger-grids"><span class="header-section-number">5.7.2</span> Larger grids</h3>
+<h3 data-number="6.7.2" id="larger-grids"><span class="header-section-number">6.7.2</span> Larger grids</h3>
 <p>Increase <code>GRID_SIZE</code> to 50 and rerun <code>sweep</code> (you may need to reduce <code>N_TRIALS</code> to 50 to keep the run time reasonable). Does the threshold estimate get closer to 0.5927? Does the transition curve become steeper?</p>
-<h3 data-number="5.7.3" id="neighbor-connectivity"><span class="header-section-number">5.7.3</span> 8-neighbor connectivity</h3>
+<h3 data-number="6.7.3" id="neighbor-connectivity"><span class="header-section-number">6.7.3</span> 8-neighbor connectivity</h3>
 <p>Change the neighbor offsets in <code>percolates</code> from the 4-neighbor pattern to 8-neighbor (Moore neighborhood): add the four diagonal directions <span class="math inline">\((\pm 1, \pm 1)\)</span>. The theoretical threshold for 8-neighbor site percolation is approximately 0.407. Update <code>THRESHOLD_THEORY</code> and verify that <code>test_threshold_near_theory</code> still passes.</p>
-<h3 data-number="5.7.4" id="bond-percolation"><span class="header-section-number">5.7.4</span> Bond percolation</h3>
+<h3 data-number="6.7.4" id="bond-percolation"><span class="header-section-number">6.7.4</span> Bond percolation</h3>
 <p>In bond percolation, edges between adjacent cells are open with probability <span class="math inline">\(p\)</span> (rather than cells themselves). Implement a <code>make_bond_grid</code> function that creates a random boolean array for horizontal bonds and another for vertical bonds. Modify <code>percolates</code> to use bond arrays instead of a cell array. The theoretical threshold for 2D bond percolation on a square lattice is exactly <span class="math inline">\(p_c = 0.5\)</span>. Estimate it numerically and compare.</p>
-<h3 data-number="5.7.5" id="cluster-size-distribution"><span class="header-section-number">5.7.5</span> Cluster size distribution</h3>
+<h3 data-number="6.7.5" id="cluster-size-distribution"><span class="header-section-number">6.7.5</span> Cluster size distribution</h3>
 <p>Instead of returning only a boolean, modify <code>percolates</code> to return the sizes of all connected open clusters found during the DFS. At <span class="math inline">\(p = p_c\)</span>, the largest cluster grows as a power law of the grid size <span class="math inline">\(N\)</span>. Run sweeps at several grid sizes and plot the largest cluster size vs.&nbsp;<span class="math inline">\(N\)</span> near the threshold.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../pollute/index.html">← Pollutant Spread in a River Network</a>
+    <a class="pager-link next" href="../archcluster/index.html">Spatial Clustering of Archaeological Sites →</a>
+  </nav>
+</footer>
 
 
 </body></html>

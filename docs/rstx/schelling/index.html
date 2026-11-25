@@ -35,33 +35,34 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">2.1</span> The Problem</a></li>
-<li><a href="#the-grid-and-neighbourhood" id="toc-the-grid-and-neighbourhood"><span class="header-section-number">2.2</span> The Grid and Neighbourhood</a></li>
-<li><a href="#initializing-the-grid" id="toc-initializing-the-grid"><span class="header-section-number">2.3</span> Initializing the Grid</a></li>
-<li><a href="#computing-the-same-neighbour-fraction" id="toc-computing-the-same-neighbour-fraction"><span class="header-section-number">2.4</span> Computing the Same-Neighbour Fraction</a></li>
-<li><a href="#one-simulation-step" id="toc-one-simulation-step"><span class="header-section-number">2.5</span> One Simulation Step</a></li>
-<li><a href="#measuring-segregation" id="toc-measuring-segregation"><span class="header-section-number">2.6</span> Measuring Segregation</a></li>
-<li><a href="#running-the-simulation" id="toc-running-the-simulation"><span class="header-section-number">2.7</span> Running the Simulation</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">2.8</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">2.9</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">3.1</span> The Problem</a></li>
+<li><a href="#the-grid-and-neighbourhood" id="toc-the-grid-and-neighbourhood"><span class="header-section-number">3.2</span> The Grid and Neighbourhood</a></li>
+<li><a href="#initializing-the-grid" id="toc-initializing-the-grid"><span class="header-section-number">3.3</span> Initializing the Grid</a></li>
+<li><a href="#computing-the-same-neighbour-fraction" id="toc-computing-the-same-neighbour-fraction"><span class="header-section-number">3.4</span> Computing the Same-Neighbour Fraction</a></li>
+<li><a href="#one-simulation-step" id="toc-one-simulation-step"><span class="header-section-number">3.5</span> One Simulation Step</a></li>
+<li><a href="#measuring-segregation" id="toc-measuring-segregation"><span class="header-section-number">3.6</span> Measuring Segregation</a></li>
+<li><a href="#running-the-simulation" id="toc-running-the-simulation"><span class="header-section-number">3.7</span> Running the Simulation</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">3.8</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">3.9</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Schelling Segregation Model</h1>
-<h2 data-number="2.1" id="the-problem"><span class="header-section-number">2.1</span> The Problem</h2>
+<h2 data-number="3.1" id="the-problem"><span class="header-section-number">3.1</span> The Problem</h2>
 <ul>
 <li>In 1971, economist Thomas Schelling asked whether mild individual preferences for similar neighbours could produce large-scale residential segregation</li>
 <li>The answer is yes: even when each agent requires only 30% of occupied neighbours to share its type, the population self-organises into sharply segregated clusters</li>
@@ -93,7 +94,7 @@ Wrong: random movement does not preserve spatial structure; systematic movement 
 </dd>
 </dl>
 </div>
-<h2 data-number="2.2" id="the-grid-and-neighbourhood"><span class="header-section-number">2.2</span> The Grid and Neighbourhood</h2>
+<h2 data-number="3.2" id="the-grid-and-neighbourhood"><span class="header-section-number">3.2</span> The Grid and Neighbourhood</h2>
 <ul>
 <li>The grid is an <span class="math inline">\(N \times N\)</span> array. Each cell holds one of three values: 0 (empty), 1 (red agent), or 2 (blue agent)</li>
 <li>The <a href="../glossary/index.html#moore_neighborhood">Moore neighbourhood</a> of a cell is the set of up to eight surrounding cells (horizontal, vertical, and diagonal)</li>
@@ -104,31 +105,105 @@ Wrong: random movement does not preserve spatial structure; systematic movement 
 <li>An agent is satisfied when <span class="math inline">\(f(r,c) \geq \theta\)</span>, where <span class="math inline">\(\theta\)</span> is the threshold</li>
 <li>An agent with no occupied neighbours is treated as satisfied (<span class="math inline">\(f = 1\)</span>) so that isolated agents do not drift endlessly across empty space</li>
 </ul>
-<h2 data-number="2.3" id="initializing-the-grid"><span class="header-section-number">2.3</span> Initializing the Grid</h2>
+<h2 data-number="3.3" id="initializing-the-grid"><span class="header-section-number">3.3</span> Initializing the Grid</h2>
 <ul>
 <li>Equal numbers of red and blue agents are placed at random in a fraction <span class="math inline">\((1 - p_e)\)</span> of cells, where <span class="math inline">\(p_e\)</span> is the empty fraction</li>
 <li>The empty cells provide the vacancies that dissatisfied agents move into</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="2.4" id="computing-the-same-neighbour-fraction"><span class="header-section-number">2.4</span> Computing the Same-Neighbour Fraction</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_grid(size<span class="op">=</span>GRID_SIZE, empty_fraction<span class="op">=</span>EMPTY_FRACTION, seed<span class="op">=</span>SEED):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a random grid of RED and BLUE agents with some EMPTY cells.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each cell contains 0 (EMPTY), 1 (RED), or 2 (BLUE).  The two agent</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    types are equal in number; the remaining cells are empty.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    n_cells <span class="op">=</span> size <span class="op">*</span> size</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    n_empty <span class="op">=</span> <span class="bu">int</span>(n_cells <span class="op">*</span> empty_fraction)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    n_agents <span class="op">=</span> n_cells <span class="op">-</span> n_empty</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    n_red <span class="op">=</span> n_agents <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    n_blue <span class="op">=</span> n_agents <span class="op">-</span> n_red</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    flat <span class="op">=</span> np.array([EMPTY] <span class="op">*</span> n_empty <span class="op">+</span> [RED] <span class="op">*</span> n_red <span class="op">+</span> [BLUE] <span class="op">*</span> n_blue)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    rng.shuffle(flat)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> flat.reshape(size, size)</span></code></pre></div>
+<h2 data-number="3.4" id="computing-the-same-neighbour-fraction"><span class="header-section-number">3.4</span> Computing the Same-Neighbour Fraction</h2>
 <ul>
 <li>Iterating over the 8 relative offsets <span class="math inline">\((\Delta r, \Delta c) \in \{-1,0,1\}^2 \setminus \{(0,0)\}\)</span> visits each neighbour exactly once</li>
 <li>Grid boundaries are handled by checking that the neighbour index lies within <span class="math inline">\([0, N)\)</span></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="2.5" id="one-simulation-step"><span class="header-section-number">2.5</span> One Simulation Step</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> same_neighbor_fraction(grid, row, col):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the fraction of occupied neighbours of the same type.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses the Moore neighbourhood (up to 8 surrounding cells).</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns 1.0 when no neighbours are occupied so isolated agents</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    are always considered satisfied.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    size <span class="op">=</span> grid.shape[<span class="dv">0</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    agent_type <span class="op">=</span> grid[row, col]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    n_same <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    n_occupied <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> dr <span class="kw">in</span> (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> dc <span class="kw">in</span> (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> dr <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> dc <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            r, c <span class="op">=</span> row <span class="op">+</span> dr, col <span class="op">+</span> dc</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> r <span class="op">&lt;</span> size <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> c <span class="op">&lt;</span> size <span class="kw">and</span> grid[r, c] <span class="op">!=</span> EMPTY:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                n_occupied <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> grid[r, c] <span class="op">==</span> agent_type:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                    n_same <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n_occupied <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">1.0</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n_same <span class="op">/</span> n_occupied</span></code></pre></div>
+<h2 data-number="3.5" id="one-simulation-step"><span class="header-section-number">3.5</span> One Simulation Step</h2>
 <ul>
 <li>All dissatisfied agents are identified first, then all empty cells</li>
 <li>Both lists are shuffled independently and paired in order</li>
 <li>Each dissatisfied agent moves to the corresponding empty cell if one exists</li>
 <li>Shuffling before pairing ensures no agent is systematically favoured</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="2.6" id="measuring-segregation"><span class="header-section-number">2.6</span> Measuring Segregation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> step(grid, threshold<span class="op">=</span>THRESHOLD, rng<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a new grid after moving all dissatisfied agents.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each dissatisfied agent is paired with a randomly chosen empty cell</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    and moved there.  Agents that cannot be matched (too few vacancies)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    stay in place.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> rng <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        rng <span class="op">=</span> np.random.default_rng(SEED)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    size <span class="op">=</span> grid.shape[<span class="dv">0</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    dissatisfied <span class="op">=</span> [</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        (r, c)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(size)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(size)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> grid[r, c] <span class="op">!=</span> EMPTY <span class="kw">and</span> same_neighbor_fraction(grid, r, c) <span class="op">&lt;</span> threshold</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    empties <span class="op">=</span> [(r, c) <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(size) <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(size) <span class="cf">if</span> grid[r, c] <span class="op">==</span> EMPTY]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    rng.shuffle(dissatisfied)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    rng.shuffle(empties)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    new_grid <span class="op">=</span> grid.copy()</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (r, c) <span class="kw">in</span> <span class="bu">enumerate</span>(dissatisfied):</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&lt;</span> <span class="bu">len</span>(empties):</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            er, ec <span class="op">=</span> empties[i]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            new_grid[er, ec] <span class="op">=</span> grid[r, c]</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            new_grid[r, c] <span class="op">=</span> EMPTY</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_grid</span></code></pre></div>
+<h2 data-number="3.6" id="measuring-segregation"><span class="header-section-number">3.6</span> Measuring Segregation</h2>
 <ul>
 <li>The satisfaction rate (i.e., the fraction of agents that meet the threshold) rises as the grid segregates and reaches 1.0 when every agent is happy with its neighbourhood</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> satisfaction_rate(grid, threshold<span class="op">=</span>THRESHOLD):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the fraction of agents that are satisfied.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    A higher satisfaction rate indicates that agents have clustered with</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    like neighbours; it approaches 1.0 as stable clusters form.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    size <span class="op">=</span> grid.shape[<span class="dv">0</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    n_agents <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    n_satisfied <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(size):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(size):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> grid[r, c] <span class="op">!=</span> EMPTY:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                n_agents <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> same_neighbor_fraction(grid, r, c) <span class="op">&gt;=</span> threshold:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                    n_satisfied <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n_agents <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">1.0</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n_satisfied <span class="op">/</span> n_agents</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>After 20 steps with threshold 0.3, the satisfaction rate is 0.92. What does this mean?</p>
 <dl>
@@ -150,20 +225,42 @@ Wrong: the threshold is 0.3, not 1.0; an agent with even one same-type neighbour
 </dd>
 </dl>
 </div>
-<h2 data-number="2.7" id="running-the-simulation"><span class="header-section-number">2.7</span> Running the Simulation</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="3.7" id="running-the-simulation"><span class="header-section-number">3.7</span> Running the Simulation</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run(grid, n_steps<span class="op">=</span>N_STEPS, threshold<span class="op">=</span>THRESHOLD, seed<span class="op">=</span>SEED):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run the simulation and return a list of grid snapshots.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Element 0 is the initial grid; element i is the grid after i steps.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    snapshots <span class="op">=</span> [grid.copy()]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_steps):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        grid <span class="op">=</span> step(grid, threshold, rng)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        snapshots.append(grid.copy())</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> snapshots</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_snapshots(snapshots, steps_to_show, filename):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a figure showing the grid state at the given step indices.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    White cells are empty, red cells are type RED, blue cells are type BLUE.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(steps_to_show)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    cmap <span class="op">=</span> mcolors.ListedColormap([<span class="st">"white"</span>, <span class="st">"tomato"</span>, <span class="st">"steelblue"</span>])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, n, figsize<span class="op">=</span>(<span class="dv">3</span> <span class="op">*</span> n, <span class="dv">3</span>))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ax, idx <span class="kw">in</span> <span class="bu">zip</span>(axes, steps_to_show):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        ax.imshow(snapshots[idx], cmap<span class="op">=</span>cmap, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">2</span>, interpolation<span class="op">=</span><span class="st">"nearest"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        ax.set_title(<span class="ss">f"Step </span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    fig.tight_layout()</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    fig.savefig(filename, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    plt.close(fig)</span></code></pre></div>
 <div id="fig-schelling-grid" class="quarto-float quarto-figure quarto-figure-center" alt="Four grid snapshots at steps 0, 5, 10, and 20. Step 0 shows a random mix of red and blue. By step 20 large patches of each colour have formed.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-schelling-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="schelling-grid.svg" alt="Four grid snapshots at steps 0, 5, 10, and 20. Step 0 shows a random mix of red and blue. By step 20 large patches of each colour have formed.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schelling-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Grid state at steps 0, 5, 10, and 20 (GRID_SIZE=50, EMPTY_FRACTION=0.2, THRESHOLD=0.3). The initially random arrangement self-organises into large segregated clusters. The satisfaction rate rises from 0.832 at step 0 to 1.000 at step 20.
+Figure&nbsp;3.1: Grid state at steps 0, 5, 10, and 20 (GRID_SIZE=50, EMPTY_FRACTION=0.2, THRESHOLD=0.3). The initially random arrangement self-organises into large segregated clusters. The satisfaction rate rises from 0.832 at step 0 to 1.000 at step 20.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="2.8" id="testing"><span class="header-section-number">2.8</span> Testing</h2>
+<h2 data-number="3.8" id="testing"><span class="header-section-number">3.8</span> Testing</h2>
 <ul>
 <li>Grid shape and contents
 <ul>
@@ -275,20 +372,26 @@ Large-scale spatial separation of agent types arising from individual satisfacti
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="2.9" id="exercises"><span class="header-section-number">2.9</span> Exercises</h2>
-<h3 data-number="2.9.1" id="do-the-math"><span class="header-section-number">2.9.1</span> Do the math</h3>
+<h2 data-number="3.9" id="exercises"><span class="header-section-number">3.9</span> Exercises</h2>
+<h3 data-number="3.9.1" id="do-the-math"><span class="header-section-number">3.9.1</span> Do the math</h3>
 <p>An agent has 8 fully occupied Moore neighbours, of which 3 are the same type. What is its same-neighbour fraction?</p>
-<h3 data-number="2.9.2" id="effect-of-threshold"><span class="header-section-number">2.9.2</span> Effect of threshold</h3>
+<h3 data-number="3.9.2" id="effect-of-threshold"><span class="header-section-number">3.9.2</span> Effect of threshold</h3>
 <p>Run the simulation with thresholds of 0.1, 0.3, 0.5, and 0.7. Plot the satisfaction rate over time for each threshold on the same axes. At what threshold does the model fail to reach a satisfaction rate above 0.95 within 50 steps?</p>
-<h3 data-number="2.9.3" id="asymmetric-populations"><span class="header-section-number">2.9.3</span> Asymmetric populations</h3>
+<h3 data-number="3.9.3" id="asymmetric-populations"><span class="header-section-number">3.9.3</span> Asymmetric populations</h3>
 <p>Modify <code>make_grid</code> so that red agents make up 70% of the occupied cells and blue agents make up 30%. Run the simulation with threshold 0.3 and compare the final satisfaction rate with the balanced case. Which type ends up more satisfied, and why?</p>
-<h3 data-number="2.9.4" id="segregation-index"><span class="header-section-number">2.9.4</span> Segregation index</h3>
+<h3 data-number="3.9.4" id="segregation-index"><span class="header-section-number">3.9.4</span> Segregation index</h3>
 <p>The satisfaction rate measures individual happiness, not the spatial extent of clustering. Implement a <code>mean_cluster_size</code> function that computes the mean size of same-type connected components using <code>scipy.ndimage.label</code>. Plot mean cluster size over time alongside the satisfaction rate.</p>
-<h3 data-number="2.9.5" id="convergence-detection"><span class="header-section-number">2.9.5</span> Convergence detection</h3>
+<h3 data-number="3.9.5" id="convergence-detection"><span class="header-section-number">3.9.5</span> Convergence detection</h3>
 <p>Add a <code>converged</code> parameter to <code>run</code> that stops early when fewer than 1% of agents are dissatisfied. How many steps are needed to converge at threshold 0.3 for a 100x100 grid?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../intro/index.html">← Introduction</a>
+    <a class="pager-link next" href="../vocab/index.html">Vocabulary Richness in Historical Texts →</a>
+  </nav>
+</footer>
 
 
 </body></html>

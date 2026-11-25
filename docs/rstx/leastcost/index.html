@@ -35,31 +35,32 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">7.1</span> The Problem</a></li>
-<li><a href="#the-cost-surface" id="toc-the-cost-surface"><span class="header-section-number">7.2</span> The Cost Surface</a></li>
-<li><a href="#generating-synthetic-terrain" id="toc-generating-synthetic-terrain"><span class="header-section-number">7.3</span> Generating Synthetic Terrain</a></li>
-<li><a href="#dijkstras-algorithm-on-a-grid" id="toc-dijkstras-algorithm-on-a-grid"><span class="header-section-number">7.4</span> Dijkstra’s Algorithm on a Grid</a></li>
-<li><a href="#visualizing-the-path" id="toc-visualizing-the-path"><span class="header-section-number">7.5</span> Visualizing the Path</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">7.6</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">7.7</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">8.1</span> The Problem</a></li>
+<li><a href="#the-cost-surface" id="toc-the-cost-surface"><span class="header-section-number">8.2</span> The Cost Surface</a></li>
+<li><a href="#generating-synthetic-terrain" id="toc-generating-synthetic-terrain"><span class="header-section-number">8.3</span> Generating Synthetic Terrain</a></li>
+<li><a href="#dijkstras-algorithm-on-a-grid" id="toc-dijkstras-algorithm-on-a-grid"><span class="header-section-number">8.4</span> Dijkstra’s Algorithm on a Grid</a></li>
+<li><a href="#visualizing-the-path" id="toc-visualizing-the-path"><span class="header-section-number">8.5</span> Visualizing the Path</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">8.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">8.7</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Least-Cost Path Analysis for Trade Routes</h1>
-<h2 data-number="7.1" id="the-problem"><span class="header-section-number">7.1</span> The Problem</h2>
+<h2 data-number="8.1" id="the-problem"><span class="header-section-number">8.1</span> The Problem</h2>
 <ul>
 <li>Modern roads follow valleys and passes because crossing ridges is slow and exhausting, and ancient routes did the same</li>
 <li><a href="../glossary/index.html#landscape_archaeology">Landscape archaeology</a> asks where historical travelers and traders were most likely to move through a terrain</li>
@@ -91,7 +92,7 @@ Wrong: Dijkstra’s minimises accumulated cost, not geometric length; a longer v
 </dd>
 </dl>
 </div>
-<h2 data-number="7.2" id="the-cost-surface"><span class="header-section-number">7.2</span> The Cost Surface</h2>
+<h2 data-number="8.2" id="the-cost-surface"><span class="header-section-number">8.2</span> The Cost Surface</h2>
 <ul>
 <li>The elevation grid is a 2-D array with values normalised to <span class="math inline">\([0, 1]\)</span>
 <ul>
@@ -104,37 +105,111 @@ Wrong: Dijkstra’s minimises accumulated cost, not geometric length; a longer v
 <li>Averaging the endpoint elevations penalises entering a ridge from a valley proportionally (and vice versa).</li>
 <li><span class="math inline">\(d(A, B) = 1\)</span> for orthogonal moves and <span class="math inline">\(\sqrt{2}\)</span> for diagonal moves, so longer edges cost proportionally more.</li>
 </ul>
-<h2 data-number="7.3" id="generating-synthetic-terrain"><span class="header-section-number">7.3</span> Generating Synthetic Terrain</h2>
+<h2 data-number="8.3" id="generating-synthetic-terrain"><span class="header-section-number">8.3</span> Generating Synthetic Terrain</h2>
 <ul>
 <li>The terrain is a superposition of sinusoidal waves at four octaves</li>
 <li>Each successive octave has half the amplitude and twice the spatial frequency of the previous, producing a fractal-like surface of ridges and valleys</li>
 <li>The result is normalised to <span class="math inline">\([0, 1]\)</span> so that cost surface values are comparable regardless of the raw wave amplitudes</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="7.4" id="dijkstras-algorithm-on-a-grid"><span class="header-section-number">7.4</span> Dijkstra’s Algorithm on a Grid</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_terrain(rows, cols, seed<span class="op">=</span>SEED):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a (rows, cols) elevation array with values in [0, 1].</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The terrain is a superposition of sinusoidal waves at four octaves.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Each octave has half the amplitude of the previous and twice the spatial</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    frequency, producing a fractal-like surface.  Random per-octave phases</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    are seeded for reproducibility.  The result is normalised so that the</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    minimum elevation is 0 and the maximum is 1; valleys appear dark and</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    ridges appear bright.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="fl">2.0</span> <span class="op">*</span> np.pi, cols)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="fl">2.0</span> <span class="op">*</span> np.pi, rows)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    elev <span class="op">=</span> np.zeros((rows, cols))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        amp <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> k</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        px <span class="op">=</span> rng.uniform(<span class="fl">0.0</span>, <span class="fl">2.0</span> <span class="op">*</span> np.pi)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        py <span class="op">=</span> rng.uniform(<span class="fl">0.0</span>, <span class="fl">2.0</span> <span class="op">*</span> np.pi)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        elev <span class="op">+=</span> amp <span class="op">*</span> np.sin(k <span class="op">*</span> X <span class="op">+</span> px) <span class="op">*</span> np.cos(k <span class="op">*</span> Y <span class="op">+</span> py)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> elev.<span class="bu">min</span>(), elev.<span class="bu">max</span>()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (elev <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo)</span></code></pre></div>
+<h2 data-number="8.4" id="dijkstras-algorithm-on-a-grid"><span class="header-section-number">8.4</span> Dijkstra’s Algorithm on a Grid</h2>
 <ul>
 <li>Dijkstra’s algorithm maintains a priority queue of cells ordered by their current best-known distance from the source</li>
 <li>At each step it pops the cheapest cell, examines its eight neighbors, and updates any neighbor whose new cost would be lower than its current best</li>
 <li>When the destination is popped from the queue, its accumulated cost is optimal and the shortest-path tree stored in <code>prev</code> can be traced back to recover the route</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> least_cost_path(elev, start, end):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the least-cost path through an elevation grid.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a list of (row, col) pairs from start to end (inclusive).</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The cost of traversing the edge from cell A to adjacent cell B is:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">        edge_cost = (elev[A] + elev[B]) / 2 * step_length</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Averaging the endpoint elevations penalises ridges and rewards valleys.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Dijkstra's algorithm finds the path that minimises the total accumulated</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    cost from start to end.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    rows, cols <span class="op">=</span> elev.shape</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    dist <span class="op">=</span> np.full((rows, cols), np.inf)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    prev <span class="op">=</span> {}</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    dist[start] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    heap <span class="op">=</span> [(<span class="fl">0.0</span>, start)]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> heap:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        d, (r, c) <span class="op">=</span> heapq.heappop(heap)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (r, c) <span class="op">==</span> end:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> d <span class="op">&gt;</span> dist[r, c]:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> dr, dc <span class="kw">in</span> OFFSETS:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            nr, nc <span class="op">=</span> r <span class="op">+</span> dr, c <span class="op">+</span> dc</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> (<span class="dv">0</span> <span class="op">&lt;=</span> nr <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> nc <span class="op">&lt;</span> cols):</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            step <span class="op">=</span> STEP_LEN[(dr, dc)]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            edge <span class="op">=</span> (elev[r, c] <span class="op">+</span> elev[nr, nc]) <span class="op">/</span> <span class="fl">2.0</span> <span class="op">*</span> step</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            new_d <span class="op">=</span> dist[r, c] <span class="op">+</span> edge</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> new_d <span class="op">&lt;</span> dist[nr, nc]:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                dist[nr, nc] <span class="op">=</span> new_d</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                prev[(nr, nc)] <span class="op">=</span> (r, c)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>                heapq.heappush(heap, (new_d, (nr, nc)))</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> []</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    node <span class="op">=</span> end</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> node <span class="op">!=</span> start:</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        path.append(node)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        node <span class="op">=</span> prev[node]</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    path.append(start)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    path.reverse()</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> path</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Order the steps of Dijkstra’s algorithm as applied to this terrain grid.</p>
 <p>Initialize all distances to infinity; set distance of start cell to 0 and push it onto the priority queue. Pop the cell with the lowest accumulated cost from the priority queue. For each unvisited neighbor, compute the edge cost and update distance if the new route is cheaper. Stop when the destination cell is popped; trace back through the predecessor map to recover the path.</p>
 </div>
-<h2 data-number="7.5" id="visualizing-the-path"><span class="header-section-number">7.5</span> Visualizing the Path</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="8.5" id="visualizing-the-path"><span class="header-section-number">8.5</span> Visualizing the Path</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_path(elev, path, filename):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a terrain map with the least-cost path overlaid as an SVG."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    im <span class="op">=</span> ax.imshow(elev, cmap<span class="op">=</span><span class="st">"terrain"</span>, origin<span class="op">=</span><span class="st">"upper"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(im, ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">"Normalized elevation"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    rows_p <span class="op">=</span> [r <span class="cf">for</span> r, c <span class="kw">in</span> path]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cols_p <span class="op">=</span> [c <span class="cf">for</span> r, c <span class="kw">in</span> path]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ax.plot(cols_p, rows_p, color<span class="op">=</span><span class="st">"red"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">"Least-cost path"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ax.plot(cols_p[<span class="dv">0</span>], rows_p[<span class="dv">0</span>], <span class="st">"wo"</span>, markersize<span class="op">=</span><span class="dv">8</span>, label<span class="op">=</span><span class="st">"Start"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ax.plot(cols_p[<span class="op">-</span><span class="dv">1</span>], rows_p[<span class="op">-</span><span class="dv">1</span>], <span class="st">"w^"</span>, markersize<span class="op">=</span><span class="dv">8</span>, label<span class="op">=</span><span class="st">"End"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ax.legend(loc<span class="op">=</span><span class="st">"upper left"</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">"Least-cost trade route through synthetic terrain"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"Column"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"Row"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    fig.tight_layout()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    fig.savefig(filename)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    plt.close(fig)</span></code></pre></div>
 <div id="fig-leastcost-path" class="quarto-float quarto-figure quarto-figure-center" alt="A terrain colour map ranging from dark blue (low elevation) to white (high elevation). A red line traces a route from the top-left corner to the bottom-right corner, winding through the darker low-elevation regions and avoiding the bright high-elevation ridges.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-leastcost-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="leastcost-path.svg" alt="A terrain colour map ranging from dark blue (low elevation) to white (high elevation). A red line traces a route from the top-left corner to the bottom-right corner, winding through the darker low-elevation regions and avoiding the bright high-elevation ridges.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leastcost-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: Least-cost trade route through a synthetic 40x60 terrain grid. The path avoids the high-elevation ridges (bright) and follows valley corridors (dark) to minimise accumulated travel cost.
+Figure&nbsp;8.1: Least-cost trade route through a synthetic 40x60 terrain grid. The path avoids the high-elevation ridges (bright) and follows valley corridors (dark) to minimise accumulated travel cost.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="7.6" id="testing"><span class="header-section-number">7.6</span> Testing</h2>
+<h2 data-number="8.6" id="testing"><span class="header-section-number">8.6</span> Testing</h2>
 <dl>
 <dt>Terrain shape</dt>
 <dd>
@@ -273,20 +348,26 @@ The cost assigned to moving from one grid cell to an adjacent cell; computed her
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="7.7" id="exercises"><span class="header-section-number">7.7</span> Exercises</h2>
-<h3 data-number="7.7.1" id="do-the-math"><span class="header-section-number">7.7.1</span> Do the math</h3>
+<h2 data-number="8.7" id="exercises"><span class="header-section-number">8.7</span> Exercises</h2>
+<h3 data-number="8.7.1" id="do-the-math"><span class="header-section-number">8.7.1</span> Do the math</h3>
 <p>Cell A has elevation 0.5 and orthogonally adjacent cell B has elevation 1.0. What is the edge cost from A to B?</p>
-<h3 data-number="7.7.2" id="slope-based-cost"><span class="header-section-number">7.7.2</span> Slope-based cost</h3>
+<h3 data-number="8.7.2" id="slope-based-cost"><span class="header-section-number">8.7.2</span> Slope-based cost</h3>
 <p>Replace the elevation-averaging cost with a slope-based cost: the absolute elevation difference between the two cells divided by the step distance. Compare the resulting path to the elevation-average path. Does the slope cost prefer steeper or gentler routes?</p>
-<h3 data-number="7.7.3" id="anisotropic-cost"><span class="header-section-number">7.7.3</span> Anisotropic cost</h3>
+<h3 data-number="8.7.3" id="anisotropic-cost"><span class="header-section-number">8.7.3</span> Anisotropic cost</h3>
 <p>Historical travelers going downhill moved faster than travelers going uphill. Modify the edge cost so that moving to a lower cell costs less than moving to a higher cell (for example, multiply by a factor of 0.5 for downhill moves). How does the preferred route change?</p>
-<h3 data-number="7.7.4" id="multiple-waypoints"><span class="header-section-number">7.7.4</span> Multiple waypoints</h3>
+<h3 data-number="8.7.4" id="multiple-waypoints"><span class="header-section-number">8.7.4</span> Multiple waypoints</h3>
 <p>Extend <code>least_cost_path</code> to accept a list of waypoints and return the path that passes through every waypoint in order at minimum total cost. Apply this to the synthetic terrain with two intermediate waypoints and compare the total cost to the direct source-to-destination path.</p>
-<h3 data-number="7.7.5" id="sensitivity-to-epsilon"><span class="header-section-number">7.7.5</span> Sensitivity to epsilon</h3>
+<h3 data-number="8.7.5" id="sensitivity-to-epsilon"><span class="header-section-number">8.7.5</span> Sensitivity to epsilon</h3>
 <p>Generate terrain at three different random seeds and run least-cost path analysis on each. For each terrain, compute the total path cost and the fraction of cells on the path that lie below the mean elevation. Does a lower mean elevation on the path reliably predict lower total cost?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../archcluster/index.html">← Spatial Clustering of Archaeological Sites</a>
+    <a class="pager-link next" href="../align/index.html">Pairwise Sequence Alignment →</a>
+  </nav>
+</footer>
 
 
 </body></html>

@@ -35,32 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">17.1</span> The Problem</a></li>
-<li><a href="#computing-hit-rate-and-false-alarm-rate" id="toc-computing-hit-rate-and-false-alarm-rate"><span class="header-section-number">17.2</span> Computing Hit Rate and False Alarm Rate</a></li>
-<li><a href="#the-roc-curve-as-a-threshold-sweep" id="toc-the-roc-curve-as-a-threshold-sweep"><span class="header-section-number">17.3</span> The ROC Curve as a Threshold Sweep</a></li>
-<li><a href="#area-under-the-roc-curve" id="toc-area-under-the-roc-curve"><span class="header-section-number">17.4</span> Area Under the ROC Curve</a></li>
-<li><a href="#visualizing-the-roc-curve" id="toc-visualizing-the-roc-curve"><span class="header-section-number">17.5</span> Visualizing the ROC Curve</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">17.6</span> Testing</a></li>
-<li><a href="#note-on-the-gaussian-model" id="toc-note-on-the-gaussian-model"><span class="header-section-number">17.7</span> Note on the Gaussian Model</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">17.8</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">18.1</span> The Problem</a></li>
+<li><a href="#computing-hit-rate-and-false-alarm-rate" id="toc-computing-hit-rate-and-false-alarm-rate"><span class="header-section-number">18.2</span> Computing Hit Rate and False Alarm Rate</a></li>
+<li><a href="#the-roc-curve-as-a-threshold-sweep" id="toc-the-roc-curve-as-a-threshold-sweep"><span class="header-section-number">18.3</span> The ROC Curve as a Threshold Sweep</a></li>
+<li><a href="#area-under-the-roc-curve" id="toc-area-under-the-roc-curve"><span class="header-section-number">18.4</span> Area Under the ROC Curve</a></li>
+<li><a href="#visualizing-the-roc-curve" id="toc-visualizing-the-roc-curve"><span class="header-section-number">18.5</span> Visualizing the ROC Curve</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">18.6</span> Testing</a></li>
+<li><a href="#note-on-the-gaussian-model" id="toc-note-on-the-gaussian-model"><span class="header-section-number">18.7</span> Note on the Gaussian Model</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">18.8</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Signal Detection Theory Analysis</h1>
-<h2 data-number="17.1" id="the-problem"><span class="header-section-number">17.1</span> The Problem</h2>
+<h2 data-number="18.1" id="the-problem"><span class="header-section-number">18.1</span> The Problem</h2>
 <ul>
 <li>In a detection experiment, an observer responds “yes” or “no” to each stimulus</li>
 <li>Some stimuli contain a signal, others do not</li>
@@ -123,8 +124,23 @@ Wrong: hits and false alarms have been swapped; hits come from signal trials and
 </dd>
 </dl>
 </div>
-<h2 data-number="17.2" id="computing-hit-rate-and-false-alarm-rate"><span class="header-section-number">17.2</span> Computing Hit Rate and False Alarm Rate</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="18.2" id="computing-hit-rate-and-false-alarm-rate"><span class="header-section-number">18.2</span> Computing Hit Rate and False Alarm Rate</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confusion_rates(labels, decisions):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (hit_rate, false_alarm_rate) from binary label and decision arrays.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    labels    -- 1-D array of 1 (signal) or 0 (noise) for each trial</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    decisions -- 1-D array of 1 (responded yes) or 0 (responded no)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    hit_rate        = hits / total signal trials</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    false_alarm_rate = false alarms / total noise trials</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.asarray(labels)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    decisions <span class="op">=</span> np.asarray(decisions)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    signal_trials <span class="op">=</span> labels <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    noise_trials <span class="op">=</span> labels <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    hits <span class="op">=</span> np.<span class="bu">sum</span>((decisions <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> signal_trials)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    false_alarms <span class="op">=</span> np.<span class="bu">sum</span>((decisions <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> noise_trials)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    hit_rate <span class="op">=</span> hits <span class="op">/</span> np.<span class="bu">sum</span>(signal_trials)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    false_alarm_rate <span class="op">=</span> false_alarms <span class="op">/</span> np.<span class="bu">sum</span>(noise_trials)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(hit_rate), <span class="bu">float</span>(false_alarm_rate)</span></code></pre></div>
 <ul>
 <li><code>labels</code> is an array of 1 (signal) and 0 (noise) for each trial.</li>
 <li><code>decisions</code> is an array of 1 (responded yes) and 0 (responded no).</li>
@@ -134,7 +150,7 @@ Wrong: hits and false alarms have been swapped; hits come from signal trials and
 <p>Order the steps to compute the hit rate from experiment data.</p>
 <p>Count the number of trials on which a signal was present. Count the number of those signal trials on which the observer responded “yes” (hits). Divide the hit count by the total number of signal trials.</p>
 </div>
-<h2 data-number="17.3" id="the-roc-curve-as-a-threshold-sweep"><span class="header-section-number">17.3</span> The ROC Curve as a Threshold Sweep</h2>
+<h2 data-number="18.3" id="the-roc-curve-as-a-threshold-sweep"><span class="header-section-number">18.3</span> The ROC Curve as a Threshold Sweep</h2>
 <ul>
 <li>An observer does not simply say “yes” or “no”
 <ul>
@@ -160,7 +176,34 @@ Wrong: hits and false alarms have been swapped; hits come from signal trials and
 </ul></li>
 <li>A curve that bows toward the upper-left corner means that the observer can achieve high hit rates with low false alarm rates, i.e., better discrimination</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> roc_curve(scores, labels):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (far, hr) arrays tracing the ROC curve from evidence scores.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    scores -- 1-D array of numeric evidence values, one per trial</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    labels -- 1-D array of 1 (signal) or 0 (noise) for each trial</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    The threshold sweeps over all unique score values plus a value just</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    above the maximum so that the curve starts near (0, 0).  At each</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    threshold, a trial is classified as "yes" when its score is &gt;= threshold.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    The curve runs from near (0, 0) at the highest threshold to (1, 1) at</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    the lowest, tracing all (FAR, HR) pairs the observer can achieve.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">=</span> np.asarray(scores, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.asarray(labels)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Thresholds: from just above max down to min, covering the full range.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    thresholds <span class="op">=</span> np.sort(np.unique(scores))[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prepend a threshold above every score so the curve starts at (0, 0).</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    top <span class="op">=</span> np.array([thresholds[<span class="dv">0</span>] <span class="op">+</span> <span class="fl">1.0</span>])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    thresholds <span class="op">=</span> np.concatenate([top, thresholds])</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    n_signal <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span> <span class="dv">1</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    n_noise <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    far <span class="op">=</span> np.empty(<span class="bu">len</span>(thresholds))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    hr <span class="op">=</span> np.empty(<span class="bu">len</span>(thresholds))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, t <span class="kw">in</span> <span class="bu">enumerate</span>(thresholds):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        decisions <span class="op">=</span> (scores <span class="op">&gt;=</span> t).astype(<span class="bu">int</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        hits <span class="op">=</span> np.<span class="bu">sum</span>((decisions <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (labels <span class="op">==</span> <span class="dv">1</span>))</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        fa <span class="op">=</span> np.<span class="bu">sum</span>((decisions <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (labels <span class="op">==</span> <span class="dv">0</span>))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        hr[i] <span class="op">=</span> hits <span class="op">/</span> n_signal</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        far[i] <span class="op">=</span> fa <span class="op">/</span> n_noise</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> far, hr</span></code></pre></div>
 <ul>
 <li><code>scores</code> contains the numeric evidence value for each trial</li>
 <li><code>labels</code> contains 1 for signal trials and 0 for noise trials</li>
@@ -184,7 +227,7 @@ Intermediate hit rate and false alarm rate (moderate operating point).
 </dd>
 </dl>
 </div>
-<h2 data-number="17.4" id="area-under-the-roc-curve"><span class="header-section-number">17.4</span> Area Under the ROC Curve</h2>
+<h2 data-number="18.4" id="area-under-the-roc-curve"><span class="header-section-number">18.4</span> Area Under the ROC Curve</h2>
 <ul>
 <li>Any single (FAR, HR) pair depends on the threshold chosen, which may vary between observers or experiments</li>
 <li>The <a href="../glossary/index.html#area_under_curve">area under the ROC curve</a> (AUC) summarizes performance across all thresholds with a single number</li>
@@ -201,20 +244,55 @@ Intermediate hit rate and false alarm rate (moderate operating point).
 </ul></li>
 <li>As the number of threshold steps increases, the sum converges to the true area</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="17.5" id="visualizing-the-roc-curve"><span class="header-section-number">17.5</span> Visualizing the ROC Curve</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> auc(far, hr):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the area under the ROC curve using the trapezoidal rule.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The trapezoidal rule approximates the area as a sum of trapezoids:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">        AUC = sum_i  0.5 * (HR_i + HR_{i+1}) * |FAR_i - FAR_{i+1}|</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    This is a Riemann sum that converges to the true AUC as the number</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    of threshold steps increases.  AUC = 0.5 for chance performance</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    (the diagonal) and AUC = 1.0 for perfect discrimination.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    far <span class="op">=</span> np.asarray(far, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    hr <span class="op">=</span> np.asarray(hr, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sort by FAR so the trapezoidal sum goes left to right.</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    order <span class="op">=</span> np.argsort(far)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    sorted_far <span class="op">=</span> far[order]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    sorted_hr <span class="op">=</span> hr[order]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    widths <span class="op">=</span> np.<span class="bu">abs</span>(np.diff(sorted_far))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    heights <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (sorted_hr[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> sorted_hr[<span class="dv">1</span>:])</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.<span class="bu">sum</span>(widths <span class="op">*</span> heights))</span></code></pre></div>
+<h2 data-number="18.5" id="visualizing-the-roc-curve"><span class="header-section-number">18.5</span> Visualizing the ROC Curve</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_roc(roc_far, roc_hr, filename):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save an ROC curve plot as an SVG file."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    curve_data <span class="op">=</span> [{<span class="st">"far"</span>: <span class="bu">float</span>(f), <span class="st">"hr"</span>: <span class="bu">float</span>(h)} <span class="cf">for</span> f, h <span class="kw">in</span> <span class="bu">zip</span>(roc_far, roc_hr)]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    diag_data <span class="op">=</span> [{<span class="st">"far"</span>: <span class="fl">0.0</span>, <span class="st">"hr"</span>: <span class="fl">0.0</span>}, {<span class="st">"far"</span>: <span class="fl">1.0</span>, <span class="st">"hr"</span>: <span class="fl">1.0</span>}]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> alt.Chart().encode(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"far:Q"</span>, title<span class="op">=</span><span class="st">"False alarm rate"</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>])),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"hr:Q"</span>, title<span class="op">=</span><span class="st">"Hit rate"</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>])),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    curve <span class="op">=</span> base.mark_line(color<span class="op">=</span><span class="st">"steelblue"</span>, strokeWidth<span class="op">=</span><span class="dv">2</span>).properties(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>alt.Data(values<span class="op">=</span>curve_data)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    diagonal <span class="op">=</span> base.mark_line(strokeDash<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">4</span>], color<span class="op">=</span><span class="st">"gray"</span>).properties(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>alt.Data(values<span class="op">=</span>diag_data)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> (curve <span class="op">+</span> diagonal).properties(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"ROC curve (threshold sweep)"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">360</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">360</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-sdt-roc" class="quarto-float quarto-figure quarto-figure-center" alt="A square plot with false alarm rate on the x-axis and hit rate on the y-axis, both ranging from 0 to 1. A blue curve bows toward the upper-left corner above the gray diagonal chance line.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-sdt-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sdt-roc.svg" alt="A square plot with false alarm rate on the x-axis and hit rate on the y-axis, both ranging from 0 to 1. A blue curve bows toward the upper-left corner above the gray diagonal chance line.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdt-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17.1: ROC curve produced by sweeping over score thresholds (blue). The gray dashed diagonal represents chance performance (AUC = 0.5). The bowing of the curve above the diagonal indicates the observer can discriminate signal from noise.
+Figure&nbsp;18.1: ROC curve produced by sweeping over score thresholds (blue). The gray dashed diagonal represents chance performance (AUC = 0.5). The bowing of the curve above the diagonal indicates the observer can discriminate signal from noise.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="17.6" id="testing"><span class="header-section-number">17.6</span> Testing</h2>
+<h2 data-number="18.6" id="testing"><span class="header-section-number">18.6</span> Testing</h2>
 <ul>
 <li>Hit rate is 1.0 when all signal trials are detected
 <ul>
@@ -372,7 +450,7 @@ A summary of ROC performance computed using the trapezoidal rule; AUC = 0.5 for 
 </dd>
 </dl>
 </div>
-<h2 data-number="17.7" id="note-on-the-gaussian-model"><span class="header-section-number">17.7</span> Note on the Gaussian Model</h2>
+<h2 data-number="18.7" id="note-on-the-gaussian-model"><span class="header-section-number">18.7</span> Note on the Gaussian Model</h2>
 <ul>
 <li>The equal-variance Gaussian model summarizes performance compactly via <span class="math inline">\(d' = \Phi^{-1}(\text{HR}) - \Phi^{-1}(\text{FAR})\)</span>, where <span class="math inline">\(\Phi^{-1}\)</span> is the inverse of the standard normal CDF</li>
 <li>This assumes both the noise distribution and the signal distribution are normal with equal variance
@@ -385,20 +463,26 @@ A summary of ROC performance computed using the trapezoidal rule; AUC = 0.5 for 
 </ul></li>
 </ul>
 <section class="exercises">
-<h2 data-number="17.8" id="exercises"><span class="header-section-number">17.8</span> Exercises</h2>
-<h3 data-number="17.8.1" id="do-the-math"><span class="header-section-number">17.8.1</span> Do the math</h3>
+<h2 data-number="18.8" id="exercises"><span class="header-section-number">18.8</span> Exercises</h2>
+<h3 data-number="18.8.1" id="do-the-math"><span class="header-section-number">18.8.1</span> Do the math</h3>
 <p>An observer’s evidence scores are identical for signal and noise trials, so their ROC curve follows the diagonal exactly. What is their AUC?</p>
-<h3 data-number="17.8.2" id="compute-auc-from-a-small-example"><span class="header-section-number">17.8.2</span> Compute AUC from a small example</h3>
+<h3 data-number="18.8.2" id="compute-auc-from-a-small-example"><span class="header-section-number">18.8.2</span> Compute AUC from a small example</h3>
 <p>Given evidence scores <code>[0.1, 0.4, 0.35, 0.8]</code> and labels <code>[0, 0, 1, 1]</code> (0 = noise, 1 = signal), trace through <code>roc_curve</code> by hand at each unique score threshold. Compute the AUC using the trapezoidal rule. Check your answer against the function.</p>
-<h3 data-number="17.8.3" id="effect-of-threshold-on-the-confusion-matrix"><span class="header-section-number">17.8.3</span> Effect of threshold on the confusion matrix</h3>
+<h3 data-number="18.8.3" id="effect-of-threshold-on-the-confusion-matrix"><span class="header-section-number">18.8.3</span> Effect of threshold on the confusion matrix</h3>
 <p>Using the synthetic data from <code>generate_sdt.py</code>, choose three thresholds: the 25th, 50th, and 75th percentile of all scores. For each threshold, compute HR and FAR and mark the corresponding point on the ROC curve. How does moving from a conservative threshold to a liberal threshold change the confusion matrix?</p>
-<h3 data-number="17.8.4" id="comparing-two-observers"><span class="header-section-number">17.8.4</span> Comparing two observers</h3>
+<h3 data-number="18.8.4" id="comparing-two-observers"><span class="header-section-number">18.8.4</span> Comparing two observers</h3>
 <p>Observer A has evidence scores that follow N(0, 1) for noise and N(1.0, 1) for signal. Observer B has scores that follow N(0, 1) for noise and N(2.0, 1) for signal. Generate 200 trials for each observer (RNG seed 7493418), compute their ROC curves and AUCs, and plot both curves on the same axes. Which observer has the higher AUC and why?</p>
-<h3 data-number="17.8.5" id="trapezoidal-approximation-error"><span class="header-section-number">17.8.5</span> Trapezoidal approximation error</h3>
+<h3 data-number="18.8.5" id="trapezoidal-approximation-error"><span class="header-section-number">18.8.5</span> Trapezoidal approximation error</h3>
 <p>The trapezoidal rule is exact only when the curve is piecewise linear. Generate a fine-grained ROC (1 000 signal and 1 000 noise trials) and a coarse-grained ROC (20 signal and 20 noise trials) from the same underlying score distributions. Compare their AUC estimates. How large is the approximation error in the coarse case?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../topics/index.html">← Topic Modeling a Document Corpus</a>
+    <a class="pager-link next" href="../interp/index.html">Spatial Interpolation of Climate Data →</a>
+  </nav>
+</footer>
 
 
 </body></html>

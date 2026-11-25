@@ -35,34 +35,35 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">9.1</span> The Problem</a></li>
-<li><a href="#character-n-gram-profiles" id="toc-character-n-gram-profiles"><span class="header-section-number">9.2</span> Character N-gram Profiles</a></li>
-<li><a href="#cosine-similarity" id="toc-cosine-similarity"><span class="header-section-number">9.3</span> Cosine Similarity</a></li>
-<li><a href="#generating-synthetic-texts" id="toc-generating-synthetic-texts"><span class="header-section-number">9.4</span> Generating Synthetic Texts</a></li>
-<li><a href="#building-n-gram-profiles" id="toc-building-n-gram-profiles"><span class="header-section-number">9.5</span> Building N-gram Profiles</a></li>
-<li><a href="#computing-cosine-similarity" id="toc-computing-cosine-similarity"><span class="header-section-number">9.6</span> Computing Cosine Similarity</a></li>
-<li><a href="#attributing-an-unknown-text" id="toc-attributing-an-unknown-text"><span class="header-section-number">9.7</span> Attributing an Unknown Text</a></li>
-<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">9.8</span> Visualizing the Results</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">9.9</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">9.10</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">10.1</span> The Problem</a></li>
+<li><a href="#character-n-gram-profiles" id="toc-character-n-gram-profiles"><span class="header-section-number">10.2</span> Character N-gram Profiles</a></li>
+<li><a href="#cosine-similarity" id="toc-cosine-similarity"><span class="header-section-number">10.3</span> Cosine Similarity</a></li>
+<li><a href="#generating-synthetic-texts" id="toc-generating-synthetic-texts"><span class="header-section-number">10.4</span> Generating Synthetic Texts</a></li>
+<li><a href="#building-n-gram-profiles" id="toc-building-n-gram-profiles"><span class="header-section-number">10.5</span> Building N-gram Profiles</a></li>
+<li><a href="#computing-cosine-similarity" id="toc-computing-cosine-similarity"><span class="header-section-number">10.6</span> Computing Cosine Similarity</a></li>
+<li><a href="#attributing-an-unknown-text" id="toc-attributing-an-unknown-text"><span class="header-section-number">10.7</span> Attributing an Unknown Text</a></li>
+<li><a href="#visualizing-the-results" id="toc-visualizing-the-results"><span class="header-section-number">10.8</span> Visualizing the Results</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">10.9</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">10.10</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Authorship Attribution by N-gram Profiles</h1>
-<h2 data-number="9.1" id="the-problem"><span class="header-section-number">9.1</span> The Problem</h2>
+<h2 data-number="10.1" id="the-problem"><span class="header-section-number">10.1</span> The Problem</h2>
 <ul>
 <li><a href="../glossary/index.html#authorship_attribution">Authorship attribution</a> asks, “Given an anonymous text and a set of candidate authors, whose writing style does the text most resemble?”</li>
 <li>Applications include forensic linguistics (disputed documents, plagiarism detection) and literary studies (anonymous or pseudonymous works)</li>
@@ -94,7 +95,7 @@ Wrong: although n-grams can be applied across languages, this is not the reason 
 </dd>
 </dl>
 </div>
-<h2 data-number="9.2" id="character-n-gram-profiles"><span class="header-section-number">9.2</span> Character N-gram Profiles</h2>
+<h2 data-number="10.2" id="character-n-gram-profiles"><span class="header-section-number">10.2</span> Character N-gram Profiles</h2>
 <ul>
 <li>A <a href="../glossary/index.html#char_ngram">character n-gram</a> is a sequence of <span class="math inline">\(n\)</span> consecutive characters in a text
 <ul>
@@ -107,7 +108,7 @@ Wrong: although n-grams can be applied across languages, this is not the reason 
 <ul>
 <li>The profile is a probability distribution over the set of observed n-grams</li>
 </ul>
-<h2 data-number="9.3" id="cosine-similarity"><span class="header-section-number">9.3</span> Cosine Similarity</h2>
+<h2 data-number="10.3" id="cosine-similarity"><span class="header-section-number">10.3</span> Cosine Similarity</h2>
 <ul>
 <li>Given two profiles <span class="math inline">\(\mathbf{p}_A\)</span> and <span class="math inline">\(\mathbf{p}_B\)</span> (treated as vectors indexed by n-gram), with <span class="math inline">\(\|\mathbf{p}\| = \sqrt{\sum_{ng} p(ng)^2}\)</span>, the cosine similarity is:</li>
 </ul>
@@ -116,7 +117,7 @@ Wrong: although n-grams can be applied across languages, this is not the reason 
 <li>Cosine similarity ranges from 0 (no shared n-grams) to 1 (identical profiles)</li>
 <li>Dividing by the norms makes the measure length-independent: a short text and a long text with the same relative frequencies score 1</li>
 </ul>
-<h2 data-number="9.4" id="generating-synthetic-texts"><span class="header-section-number">9.4</span> Generating Synthetic Texts</h2>
+<h2 data-number="10.4" id="generating-synthetic-texts"><span class="header-section-number">10.4</span> Generating Synthetic Texts</h2>
 <ul>
 <li>The 15-character alphabet “abcdefghijklmno” is divided into three equal groups of five</li>
 <li>Each author favors one group</li>
@@ -125,19 +126,105 @@ Wrong: although n-grams can be applied across languages, this is not the reason 
 <li>texts contain 150 words</li>
 <li>The last of the four texts per author serves as the <a href="../glossary/index.html#hold_out">held-out</a> test text</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="9.5" id="building-n-gram-profiles"><span class="header-section-number">9.5</span> Building N-gram Profiles</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="9.6" id="computing-cosine-similarity"><span class="header-section-number">9.6</span> Computing Cosine Similarity</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="9.7" id="attributing-an-unknown-text"><span class="header-section-number">9.7</span> Attributing an Unknown Text</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_corpus(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    authors<span class="op">=</span>AUTHORS,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    chars<span class="op">=</span>CHARS,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    preferred_weight<span class="op">=</span>PREFERRED_WEIGHT,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    other_weight<span class="op">=</span>OTHER_WEIGHT,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    chars_per_author<span class="op">=</span>CHARS_PER_AUTHOR,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    word_length_min<span class="op">=</span>WORD_LENGTH_MIN,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    word_length_max<span class="op">=</span>WORD_LENGTH_MAX,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    words_per_text<span class="op">=</span>WORDS_PER_TEXT,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    texts_per_author<span class="op">=</span>TEXTS_PER_AUTHOR,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame with columns author, text_id, role, text.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    role is 'train' for the first texts_per_author-1 texts per author and</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    'test' for the last.  Each text is a space-separated sequence of synthetic</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    words; each author's words are biased toward their preferred character set</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    so that character n-gram profiles are clearly distinct between authors.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    n_chars <span class="op">=</span> <span class="bu">len</span>(chars)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> []</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    text_id <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a_idx, author <span class="kw">in</span> <span class="bu">enumerate</span>(authors):</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        probs <span class="op">=</span> np.full(n_chars, other_weight)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> a_idx <span class="op">*</span> chars_per_author</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        end <span class="op">=</span> start <span class="op">+</span> chars_per_author</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        probs[start:end] <span class="op">=</span> preferred_weight</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        probs <span class="op">/=</span> probs.<span class="bu">sum</span>()</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t_idx <span class="kw">in</span> <span class="bu">range</span>(texts_per_author):</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            words <span class="op">=</span> []</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(words_per_text):</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                length <span class="op">=</span> <span class="bu">int</span>(rng.integers(word_length_min, word_length_max <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                word <span class="op">=</span> <span class="st">""</span>.join(</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                    chars[<span class="bu">int</span>(rng.choice(n_chars, p<span class="op">=</span>probs))] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(length)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                words.append(word)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            role <span class="op">=</span> <span class="st">"test"</span> <span class="cf">if</span> t_idx <span class="op">==</span> texts_per_author <span class="op">-</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"train"</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>            records.append(</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                {</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"author"</span>: author,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"text_id"</span>: text_id,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"role"</span>: role,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"text"</span>: <span class="st">" "</span>.join(words),</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>            text_id <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame(records)</span></code></pre></div>
+<h2 data-number="10.5" id="building-n-gram-profiles"><span class="header-section-number">10.5</span> Building N-gram Profiles</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> char_ngrams(text, n):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Counter of character n-grams in text.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Spaces are included so that word-boundary patterns (e.g., the bigram</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    formed by the last character of one word and the space before the next)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    contribute to the profile alongside within-word patterns.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Counter(text[i : i <span class="op">+</span> n] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(text) <span class="op">-</span> n <span class="op">+</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_profile(texts, n<span class="op">=</span>NGRAM_SIZE):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Build a normalised character n-gram frequency profile from a list of texts.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Counts are pooled across all texts, then divided by the total count so that</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    the profile is a probability distribution over observed n-grams.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a dict mapping n-gram string to relative frequency.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    counts <span class="op">=</span> Counter()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> text <span class="kw">in</span> texts:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        counts <span class="op">+=</span> char_ngrams(text, n)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="bu">sum</span>(counts.values())</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {ng: c <span class="op">/</span> total <span class="cf">for</span> ng, c <span class="kw">in</span> counts.items()}</span></code></pre></div>
+<h2 data-number="10.6" id="computing-cosine-similarity"><span class="header-section-number">10.6</span> Computing Cosine Similarity</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cosine_similarity(profile_a, profile_b):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the cosine similarity between two n-gram frequency profiles.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Profiles are dicts of {ngram: frequency}.  The similarity is computed as:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">      dot(a, b) / (norm(a) * norm(b))</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    where only n-grams present in both profiles contribute to the dot product,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    and each norm is taken over all n-grams in that profile.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a value in [0, 1]: 1 means identical profiles, 0 means no shared n-grams.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    shared <span class="op">=</span> <span class="bu">set</span>(profile_a) <span class="op">&amp;</span> <span class="bu">set</span>(profile_b)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    dot <span class="op">=</span> <span class="bu">sum</span>(profile_a[ng] <span class="op">*</span> profile_b[ng] <span class="cf">for</span> ng <span class="kw">in</span> shared)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    norm_a <span class="op">=</span> <span class="bu">sum</span>(v <span class="op">*</span> v <span class="cf">for</span> v <span class="kw">in</span> profile_a.values()) <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    norm_b <span class="op">=</span> <span class="bu">sum</span>(v <span class="op">*</span> v <span class="cf">for</span> v <span class="kw">in</span> profile_b.values()) <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> norm_a <span class="op">==</span> <span class="fl">0.0</span> <span class="kw">or</span> norm_b <span class="op">==</span> <span class="fl">0.0</span>:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">0.0</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dot <span class="op">/</span> (norm_a <span class="op">*</span> norm_b)</span></code></pre></div>
+<h2 data-number="10.7" id="attributing-an-unknown-text"><span class="header-section-number">10.7</span> Attributing an Unknown Text</h2>
 <ul>
 <li>For each candidate author, build a profile from their training texts</li>
 <li>Compute the cosine similarity between the unknown text’s profile and each candidate profile</li>
 <li>The candidate with the highest similarity is the predicted author</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> attribute(unknown_profile, candidate_profiles):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return candidates ranked by cosine similarity to the unknown profile.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    unknown_profile is a dict produced by build_profile for one unknown text.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    candidate_profiles is a dict mapping author name to its profile dict.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a list of (author, similarity) pairs sorted from highest to lowest.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">=</span> [</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        (author, cosine_similarity(unknown_profile, profile))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> author, profile <span class="kw">in</span> candidate_profiles.items()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>(scores, key<span class="op">=</span><span class="kw">lambda</span> pair: pair[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>An unknown text scores 0.94 similarity to Author A and 0.31 to Author B. What would it mean if Author A’s score were only slightly higher than Author B’s, say 0.52 vs 0.48?</p>
 <dl>
@@ -158,19 +245,40 @@ Wrong: the method returns a ranking; reporting a tie requires a separate statist
 </dd>
 </dl>
 </div>
-<h2 data-number="9.8" id="visualizing-the-results"><span class="header-section-number">9.8</span> Visualizing the Results</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="10.8" id="visualizing-the-results"><span class="header-section-number">10.8</span> Visualizing the Results</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_similarity(ranked, filename):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a horizontal bar chart of cosine similarity scores."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame([{<span class="st">"author"</span>: author, <span class="st">"similarity"</span>: sim} <span class="cf">for</span> author, sim <span class="kw">in</span> ranked])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> (</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        .mark_bar()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"author:N"</span>, title<span class="op">=</span><span class="st">"Candidate author"</span>, sort<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"similarity:Q"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">"Cosine similarity"</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">1.0</span>]),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(<span class="st">"author:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        .properties(</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            width<span class="op">=</span><span class="dv">320</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            height<span class="op">=</span><span class="dv">160</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            title<span class="op">=</span><span class="st">"Authorship attribution by character bigram similarity"</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-authorship-similarity" class="quarto-float quarto-figure quarto-figure-center" alt="A horizontal bar chart with three bars. The bar for Author C extends to approximately 0.94 on the similarity axis while the bars for Author A and Author B each reach approximately 0.33 and 0.30.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-authorship-similarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="authorship-similarity.svg" alt="A horizontal bar chart with three bars. The bar for Author C extends to approximately 0.94 on the similarity axis while the bars for Author A and Author B each reach approximately 0.33 and 0.30.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-authorship-similarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.1: Cosine similarity of the Author C test text against each candidate’s training profile (NGRAM_SIZE=2). Author C scores 0.94; Authors A and B score 0.33 and 0.30, correctly identifying the author with a large margin.
+Figure&nbsp;10.1: Cosine similarity of the Author C test text against each candidate’s training profile (NGRAM_SIZE=2). Author C scores 0.94; Authors A and B score 0.33 and 0.30, correctly identifying the author with a large margin.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="9.9" id="testing"><span class="header-section-number">9.9</span> Testing</h2>
+<h2 data-number="10.9" id="testing"><span class="header-section-number">10.9</span> Testing</h2>
 <ul>
 <li>Bigram counts
 <ul>
@@ -262,20 +370,26 @@ The difference between the top candidate’s similarity score and the next-highe
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="9.10" id="exercises"><span class="header-section-number">9.10</span> Exercises</h2>
-<h3 data-number="9.10.1" id="do-the-math"><span class="header-section-number">9.10.1</span> Do the math</h3>
+<h2 data-number="10.10" id="exercises"><span class="header-section-number">10.10</span> Exercises</h2>
+<h3 data-number="10.10.1" id="do-the-math"><span class="header-section-number">10.10.1</span> Do the math</h3>
 <p>Profile A has bigrams “ab” with frequency 0.6 and “cd” with frequency 0.8 (it contains no other bigrams, and the two frequencies form a unit vector). Profile B has “ab” with frequency 0.8 and “cd” with frequency 0.6. What is the cosine similarity of A and B?</p>
-<h3 data-number="9.10.2" id="effect-of-n-gram-size"><span class="header-section-number">9.10.2</span> Effect of n-gram size</h3>
+<h3 data-number="10.10.2" id="effect-of-n-gram-size"><span class="header-section-number">10.10.2</span> Effect of n-gram size</h3>
 <p>Repeat the attribution experiment with <span class="math inline">\(n = 1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, and <span class="math inline">\(4\)</span>. Plot the similarity scores for all three test texts at each <span class="math inline">\(n\)</span>. At which n-gram size does the margin between the correct author and the next-best candidate peak? Explain why very large <span class="math inline">\(n\)</span> might reduce accuracy on short texts.</p>
-<h3 data-number="9.10.3" id="profile-distance-matrix"><span class="header-section-number">9.10.3</span> Profile distance matrix</h3>
+<h3 data-number="10.10.3" id="profile-distance-matrix"><span class="header-section-number">10.10.3</span> Profile distance matrix</h3>
 <p>Build profiles for all training texts (not averaged per author) and compute the pairwise cosine similarity matrix. Visualize it as a heatmap. Do texts from the same author cluster together?</p>
-<h3 data-number="9.10.4" id="cross-validation"><span class="header-section-number">9.10.4</span> Cross-validation</h3>
+<h3 data-number="10.10.4" id="cross-validation"><span class="header-section-number">10.10.4</span> Cross-validation</h3>
 <p>Modify the experiment so that for each author, one of the training texts is held out as the test text while the remaining training texts are used to build the profile. Repeat for each training text in turn (leave-one-out cross-validation) and report the attribution accuracy rate.</p>
-<h3 data-number="9.10.5" id="impostor-experiment"><span class="header-section-number">9.10.5</span> Impostor experiment</h3>
+<h3 data-number="10.10.5" id="impostor-experiment"><span class="header-section-number">10.10.5</span> Impostor experiment</h3>
 <p>Create a fourth author whose preferred character set overlaps 50% with Author A’s. Does the attribution method correctly distinguish Author A from the impostor? What similarity score threshold would you set to report “uncertain” rather than making a forced choice?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../align/index.html">← Pairwise Sequence Alignment</a>
+    <a class="pager-link next" href="../stemma/index.html">Manuscript Stemma Reconstruction →</a>
+  </nav>
+</footer>
 
 
 </body></html>

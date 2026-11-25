@@ -35,33 +35,34 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">20.1</span> The Problem</a></li>
-<li><a href="#normalized-frequency" id="toc-normalized-frequency"><span class="header-section-number">20.2</span> Normalized Frequency</a></li>
-<li><a href="#linear-trend" id="toc-linear-trend"><span class="header-section-number">20.3</span> Linear Trend</a></li>
-<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">20.4</span> Generating Synthetic Data</a></li>
-<li><a href="#computing-normalized-frequencies" id="toc-computing-normalized-frequencies"><span class="header-section-number">20.5</span> Computing Normalized Frequencies</a></li>
-<li><a href="#estimating-trend-slopes" id="toc-estimating-trend-slopes"><span class="header-section-number">20.6</span> Estimating Trend Slopes</a></li>
-<li><a href="#visualizing-frequency-trajectories" id="toc-visualizing-frequency-trajectories"><span class="header-section-number">20.7</span> Visualizing Frequency Trajectories</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">20.8</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">20.9</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">21.1</span> The Problem</a></li>
+<li><a href="#normalized-frequency" id="toc-normalized-frequency"><span class="header-section-number">21.2</span> Normalized Frequency</a></li>
+<li><a href="#linear-trend" id="toc-linear-trend"><span class="header-section-number">21.3</span> Linear Trend</a></li>
+<li><a href="#generating-synthetic-data" id="toc-generating-synthetic-data"><span class="header-section-number">21.4</span> Generating Synthetic Data</a></li>
+<li><a href="#computing-normalized-frequencies" id="toc-computing-normalized-frequencies"><span class="header-section-number">21.5</span> Computing Normalized Frequencies</a></li>
+<li><a href="#estimating-trend-slopes" id="toc-estimating-trend-slopes"><span class="header-section-number">21.6</span> Estimating Trend Slopes</a></li>
+<li><a href="#visualizing-frequency-trajectories" id="toc-visualizing-frequency-trajectories"><span class="header-section-number">21.7</span> Visualizing Frequency Trajectories</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">21.8</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">21.9</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Word Frequency Change Over Time</h1>
-<h2 data-number="20.1" id="the-problem"><span class="header-section-number">20.1</span> The Problem</h2>
+<h2 data-number="21.1" id="the-problem"><span class="header-section-number">21.1</span> The Problem</h2>
 <ul>
 <li>A word’s relative frequency in a corpus can rise or fall over decades as cultural and linguistic fashions change.</li>
 <li><a href="../glossary/index.html#diachronic_analysis">Diachronic analysis</a> asks: given a corpus of texts labelled by period, how can we detect and quantify these changes?</li>
@@ -93,7 +94,7 @@ Wrong: normalization corrects for corpus size differences but cannot remove the 
 </dd>
 </dl>
 </div>
-<h2 data-number="20.2" id="normalized-frequency"><span class="header-section-number">20.2</span> Normalized Frequency</h2>
+<h2 data-number="21.2" id="normalized-frequency"><span class="header-section-number">21.2</span> Normalized Frequency</h2>
 <ul>
 <li>For word <span class="math inline">\(w\)</span> in decade <span class="math inline">\(d\)</span> with raw count <span class="math inline">\(c_{w,d}\)</span> and total token count <span class="math inline">\(N_d = \sum_{w'} c_{w',d}\)</span>, the normalized frequency is:</li>
 </ul>
@@ -101,7 +102,7 @@ Wrong: normalization corrects for corpus size differences but cannot remove the 
 <ul>
 <li>All normalized frequencies in a decade sum to 1, making them comparable across decades regardless of how many texts were digitized or produced.</li>
 </ul>
-<h2 data-number="20.3" id="linear-trend"><span class="header-section-number">20.3</span> Linear Trend</h2>
+<h2 data-number="21.3" id="linear-trend"><span class="header-section-number">21.3</span> Linear Trend</h2>
 <ul>
 <li>A linear trend assumes that the normalized frequency changes by a constant amount per decade: <span class="math inline">\(f_{w,d} = \alpha_w + \beta_w \cdot d_{\text{idx}}\)</span>, where <span class="math inline">\(d_{\text{idx}}\)</span> is the decade index (0 for the earliest decade, 1 for the next, and so on).</li>
 <li>The OLS slope estimator is:</li>
@@ -111,7 +112,7 @@ Wrong: normalization corrects for corpus size differences but cannot remove the 
 <li>A positive <span class="math inline">\(\hat{\beta}_w\)</span> means the word’s share of tokens rose over time; a negative slope means it fell.</li>
 <li>The units of <span class="math inline">\(\hat{\beta}_w\)</span> are normalized-frequency change per 10-year period.</li>
 </ul>
-<h2 data-number="20.4" id="generating-synthetic-data"><span class="header-section-number">20.4</span> Generating Synthetic Data</h2>
+<h2 data-number="21.4" id="generating-synthetic-data"><span class="header-section-number">21.4</span> Generating Synthetic Data</h2>
 <ul>
 <li>Decade indices run from 0 (1850) to 10 (1950)</li>
 <li>“telegraph” has base frequency 0.005 and rises by 0.002 per decade</li>
@@ -120,24 +121,111 @@ Wrong: normalization corrects for corpus size differences but cannot remove the 
 <li>97 background words share the remaining probability mass equally</li>
 <li>Multinomial sampling with 5000 tokens per decade adds realistic noise</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="20.5" id="computing-normalized-frequencies"><span class="header-section-number">20.5</span> Computing Normalized Frequencies</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="20.6" id="estimating-trend-slopes"><span class="header-section-number">20.6</span> Estimating Trend Slopes</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="20.7" id="visualizing-frequency-trajectories"><span class="header-section-number">20.7</span> Visualizing Frequency Trajectories</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_corpus(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    decades<span class="op">=</span>DECADES,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    tokens_per_decade<span class="op">=</span>TOKENS_PER_DECADE,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    bg_vocab_size<span class="op">=</span>BACKGROUND_VOCAB_SIZE,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    target_words<span class="op">=</span>TARGET_WORDS,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    target_base_freq<span class="op">=</span>TARGET_BASE_FREQ,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    target_slope<span class="op">=</span>TARGET_SLOPE,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame with columns decade, word, count.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    For each decade, target word frequencies follow the injected linear trend</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    (base_freq + slope * decade_index).  The remaining probability mass is</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    shared equally among bg_vocab_size background words and sampled with a</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    multinomial draw, so each run with the same seed produces identical counts.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> []</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> decade_index, decade <span class="kw">in</span> <span class="bu">enumerate</span>(decades):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Target word frequencies for this decade.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        target_freqs <span class="op">=</span> [</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            base <span class="op">+</span> slope <span class="op">*</span> decade_index</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> base, slope <span class="kw">in</span> <span class="bu">zip</span>(target_base_freq, target_slope)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        remaining <span class="op">=</span> <span class="fl">1.0</span> <span class="op">-</span> <span class="bu">sum</span>(target_freqs)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        bg_freq <span class="op">=</span> remaining <span class="op">/</span> bg_vocab_size</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Build probability vector: target words first, then background words.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        bg_words <span class="op">=</span> [<span class="ss">f"word</span><span class="sc">{</span>i<span class="sc">:03d}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(bg_vocab_size)]</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        all_words <span class="op">=</span> target_words <span class="op">+</span> bg_words</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        all_probs <span class="op">=</span> target_freqs <span class="op">+</span> [bg_freq] <span class="op">*</span> bg_vocab_size</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        counts <span class="op">=</span> rng.multinomial(tokens_per_decade, all_probs)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> word, count <span class="kw">in</span> <span class="bu">zip</span>(all_words, counts):</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            records.append({<span class="st">"decade"</span>: decade, <span class="st">"word"</span>: word, <span class="st">"count"</span>: <span class="bu">int</span>(count)})</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame(records)</span></code></pre></div>
+<h2 data-number="21.5" id="computing-normalized-frequencies"><span class="header-section-number">21.5</span> Computing Normalized Frequencies</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(df):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return df with a 'freq' column: each word's share of tokens that decade.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    freq = count / sum(count) for the same decade.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The result is a probability distribution over words for each decade,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    so values sum to 1.0 within each decade.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    totals <span class="op">=</span> df.group_by(<span class="st">"decade"</span>).agg(pl.col(<span class="st">"count"</span>).<span class="bu">sum</span>().alias(<span class="st">"total"</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.join(totals, on<span class="op">=</span><span class="st">"decade"</span>).with_columns(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        (pl.col(<span class="st">"count"</span>) <span class="op">/</span> pl.col(<span class="st">"total"</span>)).alias(<span class="st">"freq"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<h2 data-number="21.6" id="estimating-trend-slopes"><span class="header-section-number">21.6</span> Estimating Trend Slopes</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linear_trend(decade_indices, freqs):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the OLS slope: change in normalized frequency per decade.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses the closed-form ordinary least-squares formula:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">        slope = sum((x - x_mean) * (y - y_mean)) / sum((x - x_mean)^2)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    where x is the decade index (0, 1, ..., n-1) and y is the normalized</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    frequency.  The result is in units of frequency change per 10-year period.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.asarray(decade_indices, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.asarray(freqs, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    x_c <span class="op">=</span> x <span class="op">-</span> x.mean()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    denom <span class="op">=</span> np.dot(x_c, x_c)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> denom <span class="op">==</span> <span class="fl">0.0</span>:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">0.0</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.dot(x_c, y) <span class="op">/</span> denom)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_trends(freq_df, words):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a dict mapping each word to its OLS slope (per decade).</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    freq_df must have columns decade, word, freq, sorted by decade.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Decade index 0 corresponds to the earliest decade in the data.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    min_decade <span class="op">=</span> freq_df[<span class="st">"decade"</span>].<span class="bu">min</span>()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    trends <span class="op">=</span> {}</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        subset <span class="op">=</span> freq_df.<span class="bu">filter</span>(pl.col(<span class="st">"word"</span>) <span class="op">==</span> word).sort(<span class="st">"decade"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        decade_indices <span class="op">=</span> [(d <span class="op">-</span> min_decade) <span class="op">//</span> <span class="dv">10</span> <span class="cf">for</span> d <span class="kw">in</span> subset[<span class="st">"decade"</span>].to_list()]</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        freqs <span class="op">=</span> subset[<span class="st">"freq"</span>].to_list()</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        trends[word] <span class="op">=</span> linear_trend(decade_indices, freqs)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> trends</span></code></pre></div>
+<h2 data-number="21.7" id="visualizing-frequency-trajectories"><span class="header-section-number">21.7</span> Visualizing Frequency Trajectories</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_trajectories(freq_df, words, filename):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save an Altair line chart of normalized frequency over time for each word.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each word appears as a separate line; the x-axis is the decade and the</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    y-axis is the normalized frequency (proportion of all tokens that decade).</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    chart_df <span class="op">=</span> freq_df.<span class="bu">filter</span>(pl.col(<span class="st">"word"</span>).is_in(words)).sort([<span class="st">"word"</span>, <span class="st">"decade"</span>])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> (</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        alt.Chart(chart_df)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        .mark_line(point<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"decade:O"</span>, title<span class="op">=</span><span class="st">"Decade"</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"freq:Q"</span>, title<span class="op">=</span><span class="st">"Normalized frequency"</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(<span class="st">"word:N"</span>, title<span class="op">=</span><span class="st">"Word"</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        .properties(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            width<span class="op">=</span><span class="dv">400</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            height<span class="op">=</span><span class="dv">260</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            title<span class="op">=</span><span class="st">"Word frequency trajectories by decade"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-wordshift-trajectory" class="quarto-float quarto-figure quarto-figure-center" alt="Line chart with three lines. The telegraph line rises from near zero to about 0.025. The candle line falls from 0.025 to near zero. The steam line remains roughly flat near 0.015.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-wordshift-trajectory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="wordshift-trajectory.svg" alt="Line chart with three lines. The telegraph line rises from near zero to about 0.025. The candle line falls from 0.025 to near zero. The steam line remains roughly flat near 0.015.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wordshift-trajectory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.1: Normalized frequency of three target words across decades 1850–1950. The rising and falling trends in telegraph and candle are clearly visible despite multinomial sampling noise.
+Figure&nbsp;21.1: Normalized frequency of three target words across decades 1850–1950. The rising and falling trends in telegraph and candle are clearly visible despite multinomial sampling noise.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="20.8" id="testing"><span class="header-section-number">20.8</span> Testing</h2>
+<h2 data-number="21.8" id="testing"><span class="header-section-number">21.8</span> Testing</h2>
 <dl>
 <dt>Normalization sums to one</dt>
 <dd>
@@ -245,23 +333,29 @@ In this context, <span class="math inline">\(\hat{\beta}_w = \sum_d (d-\bar{d})(
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="20.9" id="exercises"><span class="header-section-number">20.9</span> Exercises</h2>
-<h3 data-number="20.9.1" id="do-the-math"><span class="header-section-number">20.9.1</span> Do the math</h3>
+<h2 data-number="21.9" id="exercises"><span class="header-section-number">21.9</span> Exercises</h2>
+<h3 data-number="21.9.1" id="do-the-math"><span class="header-section-number">21.9.1</span> Do the math</h3>
 <ol type="1">
 <li><p>A word appears 50 times in a decade that contains 2000 total tokens. What is its normalized frequency?</p></li>
 <li><p>A word has normalized frequency 0.010 at decade index 0 and 0.020 at decade index 1 (two data points only). The mean decade index is 0.5 and the mean frequency is 0.015. What is the OLS slope?</p></li>
 </ol>
-<h3 data-number="20.9.2" id="confidence-interval-on-the-slope"><span class="header-section-number">20.9.2</span> Confidence interval on the slope</h3>
+<h3 data-number="21.9.2" id="confidence-interval-on-the-slope"><span class="header-section-number">21.9.2</span> Confidence interval on the slope</h3>
 <p>Extend <code>linear_trend</code> to return both the slope and its standard error <span class="math inline">\(\text{SE}(\hat{\beta}) = \hat{\sigma} / \sqrt{\sum_d (d - \bar{d})^2}\)</span>, where <span class="math inline">\(\hat{\sigma}^2 = \sum_d (f_{w,d} - \hat{f}_{w,d})^2 / (n - 2)\)</span> is the residual variance. Report a 95% confidence interval for each target word and check whether the interval for “steam” contains zero.</p>
-<h3 data-number="20.9.3" id="detecting-non-linear-change"><span class="header-section-number">20.9.3</span> Detecting non-linear change</h3>
+<h3 data-number="21.9.3" id="detecting-non-linear-change"><span class="header-section-number">21.9.3</span> Detecting non-linear change</h3>
 <p>The linear model assumes a constant rate of change. Add a word “flash” to the generator whose frequency rises steeply from 1850 to 1900 and then falls back to its starting level from 1900 to 1950 (an inverted V shape). Compute its OLS slope and explain why the slope is near zero even though the word’s usage clearly changed. What alternative measure would capture the inverted-V pattern?</p>
-<h3 data-number="20.9.4" id="rank-shift"><span class="header-section-number">20.9.4</span> Rank shift</h3>
+<h3 data-number="21.9.4" id="rank-shift"><span class="header-section-number">21.9.4</span> Rank shift</h3>
 <p>Instead of absolute frequency, use the rank of each target word within each decade (rank 1 = most frequent). Compute the rank-change slope and compare it to the frequency-change slope. In which cases do they agree and in which do they diverge?</p>
-<h3 data-number="20.9.5" id="real-corpus-application"><span class="header-section-number">20.9.5</span> Real corpus application</h3>
+<h3 data-number="21.9.5" id="real-corpus-application"><span class="header-section-number">21.9.5</span> Real corpus application</h3>
 <p>Download word-frequency data for two contrasting words from a public corpus such as Google Ngrams. Normalize by total token count per year, aggregate to decades, and apply <code>linear_trend</code>. Does the recovered slope match the visual trend in the trajectory plot?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../agreement/index.html">← Inter-Rater Agreement</a>
+    <a class="pager-link next" href="../diffusion/index.html">1D Diffusion Simulation →</a>
+  </nav>
+</footer>
 
 
 </body></html>

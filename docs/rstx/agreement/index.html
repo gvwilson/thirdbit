@@ -35,33 +35,34 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">19.1</span> The Problem</a></li>
-<li><a href="#the-contingency-table" id="toc-the-contingency-table"><span class="header-section-number">19.2</span> The Contingency Table</a></li>
-<li><a href="#cohens-kappa" id="toc-cohens-kappa"><span class="header-section-number">19.3</span> Cohen’s Kappa</a></li>
-<li><a href="#the-expected-agreement-p_e" id="toc-the-expected-agreement-p_e"><span class="header-section-number">19.4</span> The Expected Agreement P_e</a></li>
-<li><a href="#generating-synthetic-rating-data" id="toc-generating-synthetic-rating-data"><span class="header-section-number">19.5</span> Generating Synthetic Rating Data</a></li>
-<li><a href="#standard-error-of-kappa" id="toc-standard-error-of-kappa"><span class="header-section-number">19.6</span> Standard Error of Kappa</a></li>
-<li><a href="#comparing-scenarios" id="toc-comparing-scenarios"><span class="header-section-number">19.7</span> Comparing Scenarios</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">19.8</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">19.9</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">20.1</span> The Problem</a></li>
+<li><a href="#the-contingency-table" id="toc-the-contingency-table"><span class="header-section-number">20.2</span> The Contingency Table</a></li>
+<li><a href="#cohens-kappa" id="toc-cohens-kappa"><span class="header-section-number">20.3</span> Cohen’s Kappa</a></li>
+<li><a href="#the-expected-agreement-p_e" id="toc-the-expected-agreement-p_e"><span class="header-section-number">20.4</span> The Expected Agreement P_e</a></li>
+<li><a href="#generating-synthetic-rating-data" id="toc-generating-synthetic-rating-data"><span class="header-section-number">20.5</span> Generating Synthetic Rating Data</a></li>
+<li><a href="#standard-error-of-kappa" id="toc-standard-error-of-kappa"><span class="header-section-number">20.6</span> Standard Error of Kappa</a></li>
+<li><a href="#comparing-scenarios" id="toc-comparing-scenarios"><span class="header-section-number">20.7</span> Comparing Scenarios</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">20.8</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">20.9</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Inter-Rater Agreement</h1>
-<h2 data-number="19.1" id="the-problem"><span class="header-section-number">19.1</span> The Problem</h2>
+<h2 data-number="20.1" id="the-problem"><span class="header-section-number">20.1</span> The Problem</h2>
 <ul>
 <li>In qualitative research, clinical coding, or data annotation, two or more human raters independently assign categories to the same observations</li>
 <li>The fraction of observations on which raters agree is straightforward to compute, but it is inflated by the agreement that would occur by chance even if raters were assigning labels randomly.</li>
@@ -93,14 +94,23 @@ Wrong: practice is not relevant here; the calculation is a probability under the
 </dd>
 </dl>
 </div>
-<h2 data-number="19.2" id="the-contingency-table"><span class="header-section-number">19.2</span> The Contingency Table</h2>
+<h2 data-number="20.2" id="the-contingency-table"><span class="header-section-number">20.2</span> The Contingency Table</h2>
 <ul>
 <li>For <span class="math inline">\(K\)</span> categories, the contingency table is a <span class="math inline">\(K \times K\)</span> integer matrix where entry <span class="math inline">\(C_{ij}\)</span> is the number of items for which rater A assigned category <span class="math inline">\(i\)</span> and rater B assigned category <span class="math inline">\(j\)</span></li>
 <li>The diagonal entries <span class="math inline">\(C_{ii}\)</span> represent agreements, while off-diagonal entries represent disagreements</li>
 <li>The table summarises all information needed to compute kappa</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="19.3" id="cohens-kappa"><span class="header-section-number">19.3</span> Cohen’s Kappa</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> contingency_table(rater_a, rater_b, n_cats):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a (n_cats x n_cats) integer contingency table.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    table[i, j] is the number of items for which rater A assigned</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    category i and rater B assigned category j.  Diagonal entries</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    represent agreement; off-diagonal entries represent disagreement.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    table <span class="op">=</span> np.zeros((n_cats, n_cats), dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(rater_a, rater_b):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        table[a, b] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> table</span></code></pre></div>
+<h2 data-number="20.3" id="cohens-kappa"><span class="header-section-number">20.3</span> Cohen’s Kappa</h2>
 <ul>
 <li>Let <span class="math inline">\(N\)</span> be the total number of items and:
 <ul>
@@ -117,8 +127,38 @@ Wrong: practice is not relevant here; the calculation is a probability under the
 <li><span class="math inline">\(\kappa = 1\)</span> when raters agree perfectly (<span class="math inline">\(P_o = 1\)</span>)</li>
 <li><span class="math inline">\(\kappa &lt; 0\)</span> is possible when observed agreement falls below chance, though this rarely occurs in practice</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="19.4" id="the-expected-agreement-p_e"><span class="header-section-number">19.4</span> The Expected Agreement P_e</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cohen_kappa(table):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return Cohen's kappa and its standard error from a contingency table.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    table : (K, K) integer array; table[i, j] = count where rater A said i</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">            and rater B said j</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    kappa : Cohen's kappa, correcting for chance agreement</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    se    : asymptotic standard error of kappa</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Derivation</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    N   = total item count</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    P_o = sum(diagonal) / N               (observed agreement proportion)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    p_i = row_i_sum / N                   (rater A's marginal for category i)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    q_j = col_j_sum / N                   (rater B's marginal for category j)</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    P_e = sum_i(p_i * q_i)               (expected agreement under independence)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    kappa = (P_o - P_e) / (1 - P_e)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    The standard error uses the asymptotic formula of Cohen (1960):</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    se = sqrt(P_o * (1 - P_o) / (N * (1 - P_e)^2))</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    This approximates SE(P_o) = sqrt(P_o*(1-P_o)/N) and propagates it</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">    through the kappa formula, ignoring variability in P_e.</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> table.<span class="bu">sum</span>()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    p_o <span class="op">=</span> table.diagonal().<span class="bu">sum</span>() <span class="op">/</span> n</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    row_sums <span class="op">=</span> table.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> n</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    col_sums <span class="op">=</span> table.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">/</span> n</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    p_e <span class="op">=</span> <span class="bu">float</span>((row_sums <span class="op">*</span> col_sums).<span class="bu">sum</span>())</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    kappa <span class="op">=</span> (p_o <span class="op">-</span> p_e) <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">-</span> p_e)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    se <span class="op">=</span> np.sqrt(p_o <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> p_o) <span class="op">/</span> (n <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> p_e) <span class="op">**</span> <span class="dv">2</span>))</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(kappa), <span class="bu">float</span>(se)</span></code></pre></div>
+<h2 data-number="20.4" id="the-expected-agreement-p_e"><span class="header-section-number">20.4</span> The Expected Agreement P_e</h2>
 <ul>
 <li><span class="math inline">\(P_e = \sum_i p_i q_i\)</span> is the probability that two independently drawn labels (one from rater A’s marginal, one from rater B’s) happen to match</li>
 <li>Under the generation model used here, with probability <code>agree_prob</code> both raters draw the same uniform label, and otherwise they draw independently</li>
@@ -127,12 +167,34 @@ Wrong: practice is not relevant here; the calculation is a probability under the
 <p><span class="math display">\[P_o = \text{agree\_prob} + \frac{1 - \text{agree\_prob}}{K}\]</span></p>
 <ul>
 <li>When marginals are uniform (<span class="math inline">\(p_i = q_i = 1/K\)</span>): <span class="math inline">\(P_e = K \cdot (1/K)^2 = 1/K\)</span></li>
-<li>Substituting into the kappa formula and simplifying gives <span class="math inline">\(\kappa = \text{agree\_prob}\)</span>.</li>
+<li>Substituting into the kappa formula and simplifying gives <span class="math inline">\(\kappa = \text{agree_prob}\)</span>.</li>
 <li>So the synthetic generator produces data where the expected kappa directly equals the underlying agreement probability, making it easy to verify the implementation</li>
 </ul>
-<h2 data-number="19.5" id="generating-synthetic-rating-data"><span class="header-section-number">19.5</span> Generating Synthetic Rating Data</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="19.6" id="standard-error-of-kappa"><span class="header-section-number">19.6</span> Standard Error of Kappa</h2>
+<h2 data-number="20.5" id="generating-synthetic-rating-data"><span class="header-section-number">20.5</span> Generating Synthetic Rating Data</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_ratings(n_items<span class="op">=</span>N_ITEMS, n_cats<span class="op">=</span>N_CATS, agree_prob<span class="op">=</span>AGREE_PROB, seed<span class="op">=</span>SEED):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame of paired rater label vectors.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Columns:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">        rater_a -- integer category label from rater A (0 to n_cats - 1)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">        rater_b -- integer category label from rater B (0 to n_cats - 1)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    For each item, with probability agree_prob both raters draw the same</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    category uniformly from 0..n_cats-1.  With probability 1 - agree_prob</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    each rater independently draws a category uniformly.  Under this model</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    the expected Cohen's kappa equals agree_prob when marginals are uniform</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    (see lesson for the derivation).</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    a_labels <span class="op">=</span> np.empty(n_items, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    b_labels <span class="op">=</span> np.empty(n_items, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_items):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> rng.random() <span class="op">&lt;</span> agree_prob:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            label <span class="op">=</span> <span class="bu">int</span>(rng.integers(<span class="dv">0</span>, n_cats))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            a_labels[i] <span class="op">=</span> label</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            b_labels[i] <span class="op">=</span> label</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            a_labels[i] <span class="op">=</span> <span class="bu">int</span>(rng.integers(<span class="dv">0</span>, n_cats))</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            b_labels[i] <span class="op">=</span> <span class="bu">int</span>(rng.integers(<span class="dv">0</span>, n_cats))</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"rater_a"</span>: a_labels.tolist(), <span class="st">"rater_b"</span>: b_labels.tolist()})</span></code></pre></div>
+<h2 data-number="20.6" id="standard-error-of-kappa"><span class="header-section-number">20.6</span> Standard Error of Kappa</h2>
 <ul>
 <li>The asymptotic standard error is:</li>
 </ul>
@@ -141,19 +203,53 @@ Wrong: practice is not relevant here; the calculation is a probability under the
 <li>This approximates <span class="math inline">\(\text{SE}(P_o) = \sqrt{P_o(1-P_o)/N}\)</span> (each item is an independent Bernoulli trial for agreement) and propagates it through the kappa formula by dividing by <span class="math inline">\((1 - P_e)\)</span></li>
 <li>A 95% confidence interval for <span class="math inline">\(\kappa\)</span> is <span class="math inline">\(\kappa \pm 1.96 \cdot \text{SE}(\kappa)\)</span></li>
 </ul>
-<h2 data-number="19.7" id="comparing-scenarios"><span class="header-section-number">19.7</span> Comparing Scenarios</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 data-number="20.7" id="comparing-scenarios"><span class="header-section-number">20.7</span> Comparing Scenarios</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_kappa_scenarios(scenarios, n_items, n_cats, seed, filename):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a bar chart of kappa values across underlying agreement scenarios."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> []</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> prob <span class="kw">in</span> scenarios:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> make_ratings(n_items<span class="op">=</span>n_items, n_cats<span class="op">=</span>n_cats, agree_prob<span class="op">=</span>prob, seed<span class="op">=</span>seed)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        table <span class="op">=</span> contingency_table(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            df[<span class="st">"rater_a"</span>].to_numpy(), df[<span class="st">"rater_b"</span>].to_numpy(), n_cats</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        kappa, se <span class="op">=</span> cohen_kappa(table)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        records.append(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                <span class="st">"agree_prob"</span>: <span class="bu">str</span>(prob),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="st">"kappa"</span>: <span class="bu">round</span>(kappa, <span class="dv">4</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                <span class="st">"se"</span>: <span class="bu">round</span>(se, <span class="dv">4</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    chart <span class="op">=</span> (</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        alt.Chart(alt.Data(values<span class="op">=</span>records))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        .mark_bar()</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        .encode(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>alt.X(<span class="st">"agree_prob:O"</span>, title<span class="op">=</span><span class="st">"Underlying agreement probability"</span>),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>alt.Y(<span class="st">"kappa:Q"</span>, title<span class="op">=</span><span class="st">"Cohen's kappa"</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>])),</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>alt.Color(</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">"kappa:Q"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                scale<span class="op">=</span>alt.Scale(scheme<span class="op">=</span><span class="st">"blues"</span>),</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                legend<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        .properties(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            title<span class="op">=</span><span class="st">"Cohen's kappa across agreement scenarios (N = 100, K = 3)"</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>            width<span class="op">=</span><span class="dv">360</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>            height<span class="op">=</span><span class="dv">280</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    chart.save(filename)</span></code></pre></div>
 <div id="fig-agreement-kappa" class="quarto-float quarto-figure quarto-figure-center" alt="A bar chart with five bars. The x-axis shows underlying agreement probabilities of 0.2, 0.4, 0.6, 0.8, and 0.95. The y-axis shows Cohen's kappa from 0 to 1. The bars increase from left to right, reaching close to 1 for the highest agreement probability. Bar color darkens with increasing kappa.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-agreement-kappa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="agreement-kappa.svg" alt="A bar chart with five bars. The x-axis shows underlying agreement probabilities of 0.2, 0.4, 0.6, 0.8, and 0.95. The y-axis shows Cohen's kappa from 0 to 1. The bars increase from left to right, reaching close to 1 for the highest agreement probability. Bar color darkens with increasing kappa.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agreement-kappa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;19.1: Cohen’s kappa for five synthetic rating scenarios (N = 100 items, K = 3 categories). Kappa closely tracks the underlying agreement probability, confirming the theoretical result that expected kappa equals agree_prob under the uniform marginal model.
+Figure&nbsp;20.1: Cohen’s kappa for five synthetic rating scenarios (N = 100 items, K = 3 categories). Kappa closely tracks the underlying agreement probability, confirming the theoretical result that expected kappa equals agree_prob under the uniform marginal model.
 </figcaption>
 </figure>
 </div>
-<h2 data-number="19.8" id="testing"><span class="header-section-number">19.8</span> Testing</h2>
+<h2 data-number="20.8" id="testing"><span class="header-section-number">20.8</span> Testing</h2>
 <dl>
 <dt>Table shape</dt>
 <dd>
@@ -255,20 +351,26 @@ The probability that two raters would agree purely by chance, computed as the su
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="19.9" id="exercises"><span class="header-section-number">19.9</span> Exercises</h2>
-<h3 data-number="19.9.1" id="do-the-math"><span class="header-section-number">19.9.1</span> Do the math</h3>
+<h2 data-number="20.9" id="exercises"><span class="header-section-number">20.9</span> Exercises</h2>
+<h3 data-number="20.9.1" id="do-the-math"><span class="header-section-number">20.9.1</span> Do the math</h3>
 <p>A 3x3 contingency table has 20 items on each diagonal cell and 5 items on each off-diagonal cell (N = 90). Given P_o = 2/3 and P_e = 1/3, what is kappa?</p>
-<h3 data-number="19.9.2" id="weighted-kappa"><span class="header-section-number">19.9.2</span> Weighted kappa</h3>
+<h3 data-number="20.9.2" id="weighted-kappa"><span class="header-section-number">20.9.2</span> Weighted kappa</h3>
 <p>In ordinal coding (e.g., severity on a 1-5 scale) disagreements near the diagonal should be penalised less than disagreements far from it. Implement weighted kappa using linear weights: <span class="math inline">\(w_{ij} = 1 - |i - j| / (K - 1)\)</span>. Apply it to a 5-category synthetic dataset and compare it to the unweighted kappa. When does the difference between weighted and unweighted kappa matter most?</p>
-<h3 data-number="19.9.3" id="confidence-intervals-across-scenarios"><span class="header-section-number">19.9.3</span> Confidence intervals across scenarios</h3>
+<h3 data-number="20.9.3" id="confidence-intervals-across-scenarios"><span class="header-section-number">20.9.3</span> Confidence intervals across scenarios</h3>
 <p>For each of the five <code>SCENARIOS</code> in <code>agreement.py</code>, compute the 95% confidence interval for kappa using the standard error formula. Add error bars to the bar chart. Do the confidence intervals for adjacent scenarios overlap?</p>
-<h3 data-number="19.9.4" id="three-or-more-raters"><span class="header-section-number">19.9.4</span> Three or more raters</h3>
+<h3 data-number="20.9.4" id="three-or-more-raters"><span class="header-section-number">20.9.4</span> Three or more raters</h3>
 <p>Extend the generator to produce ratings from three raters. Compute all three pairwise kappa values and the mean pairwise kappa. How do pairwise kappas relate to each other when one rater is systematically more conservative than the others?</p>
-<h3 data-number="19.9.5" id="category-prevalence"><span class="header-section-number">19.9.5</span> Category prevalence</h3>
+<h3 data-number="20.9.5" id="category-prevalence"><span class="header-section-number">20.9.5</span> Category prevalence</h3>
 <p>The expected-agreement correction assumes the marginal distributions are determined by chance. Generate a dataset where rater A’s marginals are highly skewed (e.g., 70% in category 0) and compute kappa. How does a skewed marginal affect kappa relative to percent agreement?</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../interp/index.html">← Spatial Interpolation of Climate Data</a>
+    <a class="pager-link next" href="../wordshift/index.html">Word Frequency Change Over Time →</a>
+  </nav>
+</footer>
 
 
 </body></html>

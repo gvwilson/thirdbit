@@ -35,37 +35,38 @@ document.addEventListener("DOMContentLoaded", function () {
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../schelling/index.html">Schelling Segregation Model</a></li><li><a href="../vocab/index.html">Vocabulary Richness in Historical Texts</a></li><li><a href="../pollute/index.html">Pollutant Spread in a River Network</a></li><li><a href="../porous/index.html">Percolation in a Porous Medium</a></li><li><a href="../archcluster/index.html">Spatial Clustering of Archaeological Sites</a></li><li><a href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes</a></li><li><a href="../align/index.html">Pairwise Sequence Alignment</a></li><li><a href="../authorship/index.html">Authorship Attribution by N-gram Profiles</a></li><li><a href="../stemma/index.html">Manuscript Stemma Reconstruction</a></li><li><a href="../phylo/index.html">Phylogenetic Tree Reconstruction</a></li><li><a href="../vitals/index.html">Anomaly Detection in Patient Vital Signs</a></li><li><a href="../massspec/index.html">Peak Detection in Mass Spectra</a></li><li><a href="../cellseg/index.html">Cell Segmentation in Microscopy Images</a></li><li><a href="../wealth/index.html">Wealth Inequality in an Exchange Economy</a></li><li><a href="../topics/index.html">Topic Modeling a Document Corpus</a></li><li><a href="../sdt/index.html">Signal Detection Theory Analysis</a></li><li><a href="../interp/index.html">Spatial Interpolation of Climate Data</a></li><li><a href="../agreement/index.html">Inter-Rater Agreement</a></li><li><a href="../wordshift/index.html">Word Frequency Change Over Time</a></li><li><a href="../diffusion/index.html">1D Diffusion Simulation</a></li><li><a href="../heatwall/index.html">Heat Conduction Through a Composite Wall</a></li><li><a href="../lotka/index.html">Predator-Prey Dynamics</a></li><li><a href="../sir/index.html">Fitting an SIR Epidemic Model</a></li><li><a href="../mineral/index.html">Mineral Classification by Geochemistry</a></li><li><a href="../tumor/index.html">Tumor Classification by Logistic Regression</a></li><li><a href="../learning/index.html">Fitting a Learning Curve to Experimental Data</a></li><li><a href="../radvel/index.html">Exoplanet Detection via Radial Velocity</a></li><li><a href="../elasticity/index.html">Estimating Price Elasticity of Demand</a></li><li><a href="../flood/index.html">Flood Frequency Analysis</a></li><li><a href="../survival/index.html">Survival Analysis</a></li><li><a href="../breakpoint/index.html">Structural Break Detection in Economic Time Series</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">25.1</span> The Problem</a></li>
-<li><a href="#generating-synthetic-geochemical-data" id="toc-generating-synthetic-geochemical-data"><span class="header-section-number">25.2</span> Generating Synthetic Geochemical Data</a></li>
-<li><a href="#the-logistic-regression-model" id="toc-the-logistic-regression-model"><span class="header-section-number">25.3</span> The Logistic Regression Model</a></li>
-<li><a href="#training-by-gradient-descent" id="toc-training-by-gradient-descent"><span class="header-section-number">25.4</span> Training by Gradient Descent</a></li>
-<li><a href="#decision-boundary-and-classification" id="toc-decision-boundary-and-classification"><span class="header-section-number">25.5</span> Decision Boundary and Classification</a></li>
-<li><a href="#testing" id="toc-testing"><span class="header-section-number">25.6</span> Testing</a></li>
-<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">25.7</span> Exercises</a></li>
+<li><a href="#the-problem" id="toc-the-problem"><span class="header-section-number">26.1</span> The Problem</a></li>
+<li><a href="#generating-synthetic-geochemical-data" id="toc-generating-synthetic-geochemical-data"><span class="header-section-number">26.2</span> Generating Synthetic Geochemical Data</a></li>
+<li><a href="#the-logistic-regression-model" id="toc-the-logistic-regression-model"><span class="header-section-number">26.3</span> The Logistic Regression Model</a></li>
+<li><a href="#training-by-gradient-descent" id="toc-training-by-gradient-descent"><span class="header-section-number">26.4</span> Training by Gradient Descent</a></li>
+<li><a href="#decision-boundary-and-classification" id="toc-decision-boundary-and-classification"><span class="header-section-number">26.5</span> Decision Boundary and Classification</a></li>
+<li><a href="#testing" id="toc-testing"><span class="header-section-number">26.6</span> Testing</a></li>
+<li><a href="#exercises" id="toc-exercises"><span class="header-section-number">26.7</span> Exercises</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/rstx">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Mineral Classification by Geochemistry</h1>
-<h2 data-number="25.1" id="the-problem"><span class="header-section-number">25.1</span> The Problem</h2>
+<h2 data-number="26.1" id="the-problem"><span class="header-section-number">26.1</span> The Problem</h2>
 <ul>
 <li>Geochemists measure rock samples as oxide weight percentages (wt%), which is the fraction of each chemical compound in the rock</li>
 <li>A classifier that assigns samples to mineral classes from their chemistry automates a task that otherwise requires expert visual inspection of thin sections under a microscope</li>
 <li>We train a <a href="../glossary/index.html#logistic_regression">logistic regression</a> model on <span class="math inline">\(\text{SiO}_2\)</span> (silica) and <span class="math inline">\(\text{Al}_2\text{O}_3\)</span> (alumina) to separate felsic rocks (granite-like, silica-rich) from mafic rocks (basalt-like, silica-poor)</li>
 </ul>
-<h2 data-number="25.2" id="generating-synthetic-geochemical-data"><span class="header-section-number">25.2</span> Generating Synthetic Geochemical Data</h2>
+<h2 data-number="26.2" id="generating-synthetic-geochemical-data"><span class="header-section-number">26.2</span> Generating Synthetic Geochemical Data</h2>
 <ul>
 <li>We start with synthetic data drawn from two Gaussian distributions that mimic the composition ranges reported in igneous petrology textbooks</li>
 <li>Felsic rocks average 70 wt% <span class="math inline">\(\text{SiO}_2\)</span> and 14 wt% <span class="math inline">\(\text{Al}_2\text{O}_3\)</span>
@@ -74,8 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
 </ul></li>
 <li>The two distributions overlap because real mineral classification is never perfectly clean</li>
 </ul>
-<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
-<h2 data-number="25.3" id="the-logistic-regression-model"><span class="header-section-number">25.3</span> The Logistic Regression Model</h2>
+<p><code class="sourceCode python"><span class="co"># Synthetic geochemical data: two mineral classes distinguished by oxide concentrations.</span>
+<span class="co"># Felsic rocks (e.g. granite) are silica-rich; mafic rocks (e.g. basalt) are silica-poor.</span>
+<span class="co"># Feature 0: SiO2 concentration (wt%)</span>
+<span class="co"># Feature 1: Al2O3 concentration (wt%)</span>
+SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed</span>
+FELSIC_MEAN <span class="op">=</span> [<span class="fl">70.0</span>, <span class="fl">14.0</span>]  <span class="co"># granite-like: high silica, moderate alumina</span>
+FELSIC_STD <span class="op">=</span> [<span class="fl">3.0</span>, <span class="fl">1.5</span>]
+MAFIC_MEAN <span class="op">=</span> [<span class="fl">50.0</span>, <span class="fl">9.0</span>]  <span class="co"># basalt-like: lower silica, lower alumina</span>
+MAFIC_STD <span class="op">=</span> [<span class="fl">3.0</span>, <span class="fl">1.5</span>]
+N_FELSIC <span class="op">=</span> <span class="dv">80</span>  <span class="co"># training + test samples per class</span>
+N_MAFIC <span class="op">=</span> <span class="dv">80</span>
+TRAIN_FRAC <span class="op">=</span> <span class="fl">0.75</span>  <span class="co"># fraction used for training</span></code> <code class="sourceCode python"></code></p>
+<h2 data-number="26.3" id="the-logistic-regression-model"><span class="header-section-number">26.3</span> The Logistic Regression Model</h2>
 <ul>
 <li>The model predicts the probability that a sample is mafic (class 1):</li>
 </ul>
@@ -85,7 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <li><span class="math inline">\(x_0\)</span> and <span class="math inline">\(x_1\)</span> are the (normalised) <span class="math inline">\(\text{SiO}_2\)</span> and <span class="math inline">\(\text{Al}_2\text{O}_3\)</span> concentrations</li>
 <li><span class="math inline">\(w_0\)</span>, <span class="math inline">\(w_1\)</span>, and <span class="math inline">\(b\)</span> are learned from data</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map any real number to (0, 1): sigma(z) = 1 / (1 + exp(-z))."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> np.exp(<span class="op">-</span>z))</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>Why must features be normalized before training logistic regression with gradient descent?</p>
 <dl>
@@ -106,8 +120,17 @@ Wrong: the sigmoid is defined for all real numbers; the <span class="math inline
 </dd>
 </dl>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<h2 data-number="25.4" id="training-by-gradient-descent"><span class="header-section-number">25.4</span> Training by Gradient Descent</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(X, mean<span class="op">=</span><span class="va">None</span>, std<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Standardize X to zero mean and unit standard deviation.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    If mean and std are supplied (from the training set), apply them to X</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    without recomputing — this ensures test data is scaled identically.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mean <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        mean <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> std <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        std <span class="op">=</span> X.std(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (X <span class="op">-</span> mean) <span class="op">/</span> std, mean, std</span></code></pre></div>
+<h2 data-number="26.4" id="training-by-gradient-descent"><span class="header-section-number">26.4</span> Training by Gradient Descent</h2>
 <ul>
 <li>At each iteration, the model computes the <a href="../glossary/index.html#cross_entropy">binary cross-entropy</a> loss:</li>
 </ul>
@@ -116,7 +139,38 @@ Wrong: the sigmoid is defined for all real numbers; the <span class="math inline
 <li>The gradient of <span class="math inline">\(\mathcal{L}\)</span> with respect to the weights is <span class="math inline">\(\mathbf{X}^\top (\mathbf{p} - \mathbf{y}) / n\)</span>, and with respect to the bias is <span class="math inline">\(\text{mean}(\mathbf{p} - \mathbf{y})\)</span></li>
 <li>Each gradient-descent step subtracts the gradient scaled by the learning rate</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train(X, y, lr<span class="op">=</span>LEARNING_RATE, n_iter<span class="op">=</span>N_ITER):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit a logistic regression model by gradient descent.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    X : (n, p) array of features (should be normalized)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    y : (n,) array of labels, 0 or 1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    lr : learning rate</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    n_iter : number of full-batch gradient steps</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    w : (p,) weight vector</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    b : scalar bias</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    losses : list of binary cross-entropy loss at each iteration</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    n, p <span class="op">=</span> X.shape</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> np.zeros(p)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    losses <span class="op">=</span> []</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_iter):</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        z <span class="op">=</span> X <span class="op">@</span> w <span class="op">+</span> b</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        p_hat <span class="op">=</span> sigmoid(z)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Binary cross-entropy; clip to avoid log(0)</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        p_hat_clipped <span class="op">=</span> np.clip(p_hat, <span class="fl">1e-12</span>, <span class="dv">1</span> <span class="op">-</span> <span class="fl">1e-12</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> <span class="op">-</span>np.mean(y <span class="op">*</span> np.log(p_hat_clipped) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> y) <span class="op">*</span> np.log(<span class="dv">1</span> <span class="op">-</span> p_hat_clipped))</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        losses.append(loss)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Gradients</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        err <span class="op">=</span> p_hat <span class="op">-</span> y</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        dw <span class="op">=</span> X.T <span class="op">@</span> err <span class="op">/</span> n</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        db <span class="op">=</span> err.mean()</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        w <span class="op">-=</span> lr <span class="op">*</span> dw</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        b <span class="op">-=</span> lr <span class="op">*</span> db</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w, b, losses</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put the steps of one gradient-descent iteration in the correct order.</p>
 <ol type="1">
@@ -127,7 +181,7 @@ Wrong: the sigmoid is defined for all real numbers; the <span class="math inline
 <li>Update weights: <span class="math inline">\(w \leftarrow w - \alpha \cdot \partial \mathcal{L}/\partial w\)</span></li>
 </ol>
 </div>
-<h2 data-number="25.5" id="decision-boundary-and-classification"><span class="header-section-number">25.5</span> Decision Boundary and Classification</h2>
+<h2 data-number="26.5" id="decision-boundary-and-classification"><span class="header-section-number">26.5</span> Decision Boundary and Classification</h2>
 <ul>
 <li>The decision boundary is the line where <span class="math inline">\(p = 0.5\)</span>, i.e., where <span class="math inline">\(w_0 x_0 + w_1 x_1 + b = 0\)</span></li>
 <li>Rearranging for <span class="math inline">\(x_1\)</span> (<span class="math inline">\(\text{Al}_2\text{O}_3\)</span>) as a function of <span class="math inline">\(x_0\)</span> (<span class="math inline">\(\text{SiO}_2\)</span>) gives:</li>
@@ -136,14 +190,29 @@ Wrong: the sigmoid is defined for all real numbers; the <span class="math inline
 <ul>
 <li>Because features were normalised during training, the boundary must be mapped back to original units before plotting</li>
 </ul>
-<p><code class="sourceCode python"></code> <code class="sourceCode python"></code></p>
+<p><code class="sourceCode python"><span class="kw">def</span> decision_boundary_line(w, b, mean, std, x_range):
+    <span class="co">"""Return (x_vals, y_vals) for the decision boundary in original feature space.</span>
+<span class="co">    The boundary satisfies w[0]*x_norm + w[1]*y_norm + b = 0.</span>
+<span class="co">    Re-expressing in un-normalized coordinates:</span>
+<span class="co">        w[0]*(x - mean[0])/std[0] + w[1]*(y - mean[1])/std[1] + b = 0</span>
+<span class="co">    Solving for y:</span>
+<span class="co">        y = mean[1] - std[1]/w[1] * (w[0]*(x - mean[0])/std[0] + b)</span>
+<span class="co">    """</span>
+    x_vals <span class="op">=</span> np.linspace(<span class="op">*</span>x_range, <span class="dv">200</span>)
+    y_vals <span class="op">=</span> mean[<span class="dv">1</span>] <span class="op">-</span> (std[<span class="dv">1</span>] <span class="op">/</span> w[<span class="dv">1</span>]) <span class="op">*</span> (w[<span class="dv">0</span>] <span class="op">*</span> (x_vals <span class="op">-</span> mean[<span class="dv">0</span>]) <span class="op">/</span> std[<span class="dv">0</span>] <span class="op">+</span> b)
+    <span class="cf">return</span> x_vals, y_vals</code> <code class="sourceCode python"><span class="kw">def</span> predict(X, w, b, threshold<span class="op">=</span><span class="fl">0.5</span>):
+    <span class="co">"""Return binary class predictions (0 or 1) for each row of X."""</span>
+    <span class="cf">return</span> (sigmoid(X <span class="op">@</span> w <span class="op">+</span> b) <span class="op">&gt;=</span> threshold).astype(<span class="bu">int</span>)
+<span class="kw">def</span> accuracy(y_true, y_pred):
+    <span class="co">"""Return fraction of correct predictions."""</span>
+    <span class="cf">return</span> np.mean(y_true <span class="op">==</span> y_pred)</code></p>
 <div id="fig-mineral-boundary" class="quarto-float quarto-figure quarto-figure-center" alt="Scatter plot of SiO₂ vs Al₂O₃ with felsic (blue circles) and mafic (red triangles) training samples and a dashed decision boundary.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-mineral-boundary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="mineral.svg" alt="Scatter plot of SiO₂ vs Al₂O₃ with felsic (blue circles) and mafic (red triangles) training samples and a dashed decision boundary.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mineral-boundary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25.1: Training data for 120 samples (80% of 160 total). The dashed line is the learned decision boundary. The two classes are well separated in SiO₂ but overlap slightly in Al₂O₃.
+Figure&nbsp;26.1: Training data for 120 samples (80% of 160 total). The dashed line is the learned decision boundary. The two classes are well separated in SiO₂ but overlap slightly in Al₂O₃.
 </figcaption>
 </figure>
 </div>
@@ -180,7 +249,7 @@ Figure&nbsp;25.1: Training data for 120 samples (80% of 160 total). The dashed l
 </tbody>
 </table>
 </div>
-<h2 data-number="25.6" id="testing"><span class="header-section-number">25.6</span> Testing</h2>
+<h2 data-number="26.6" id="testing"><span class="header-section-number">26.6</span> Testing</h2>
 <dl>
 <dt>Sigmoid known values</dt>
 <dd>
@@ -306,20 +375,26 @@ Iterative optimisation that moves weights in the direction that most rapidly dec
 </dl>
 </div>
 <section class="exercises">
-<h2 data-number="25.7" id="exercises"><span class="header-section-number">25.7</span> Exercises</h2>
-<h3 data-number="25.7.1" id="do-the-math"><span class="header-section-number">25.7.1</span> Do the math</h3>
+<h2 data-number="26.7" id="exercises"><span class="header-section-number">26.7</span> Exercises</h2>
+<h3 data-number="26.7.1" id="do-the-math"><span class="header-section-number">26.7.1</span> Do the math</h3>
 <p>The Mahalanobis distance between two univariate Gaussians with means <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> and equal standard deviation <span class="math inline">\(\sigma\)</span> is <span class="math inline">\(|\mu_1 - \mu_2| / \sigma\)</span>. Using <code>FELSIC_MEAN[0] = 70</code>, <code>MAFIC_MEAN[0] = 50</code>, <code>FELSIC_STD[0] = 3</code>, what fraction of the <span class="math inline">\(\text{SiO}_2\)</span> distributions overlap? (Hint: use the 68-95-99.7 rule: the distance is about <span class="math inline">\(6.7\sigma\)</span>, so overlap <span class="math inline">\(\approx 0\)</span>.)</p>
-<h3 data-number="25.7.2" id="three-class-classification"><span class="header-section-number">25.7.2</span> Three-class classification</h3>
+<h3 data-number="26.7.2" id="three-class-classification"><span class="header-section-number">26.7.2</span> Three-class classification</h3>
 <p>Add a third class (ultramafic rocks, e.g.&nbsp;peridotite, with <span class="math inline">\(\text{SiO}_2 \approx 42\)</span> wt% and <span class="math inline">\(\text{Al}_2\text{O}_3 \approx 3\)</span> wt%). Extend <code>train</code> to use the softmax function and categorical cross-entropy loss instead of the binary formulation. Report per-class precision and recall on a held-out test set.</p>
-<h3 data-number="25.7.3" id="learning-rate-sensitivity"><span class="header-section-number">25.7.3</span> Learning-rate sensitivity</h3>
+<h3 data-number="26.7.3" id="learning-rate-sensitivity"><span class="header-section-number">26.7.3</span> Learning-rate sensitivity</h3>
 <p>Run <code>train</code> with learning rates <span class="math inline">\(\alpha \in \{0.001, 0.01, 0.1, 1.0, 10.0\}\)</span> for 500 iterations each. Plot the final training loss as a function of <span class="math inline">\(\alpha\)</span> and identify the range where gradient descent converges reliably. Explain why very large learning rates cause divergence.</p>
-<h3 data-number="25.7.4" id="decision-boundary-as-a-function-of-iteration-count"><span class="header-section-number">25.7.4</span> Decision boundary as a function of iteration count</h3>
+<h3 data-number="26.7.4" id="decision-boundary-as-a-function-of-iteration-count"><span class="header-section-number">26.7.4</span> Decision boundary as a function of iteration count</h3>
 <p>Save the weights <span class="math inline">\(w\)</span> and bias <span class="math inline">\(b\)</span> every 50 iterations during training. Plot the decision boundary at each checkpoint on the same scatter plot. Show that the boundary rotates and shifts as training progresses and stabilises near the optimum.</p>
-<h3 data-number="25.7.5" id="effect-of-class-imbalance"><span class="header-section-number">25.7.5</span> Effect of class imbalance</h3>
+<h3 data-number="26.7.5" id="effect-of-class-imbalance"><span class="header-section-number">26.7.5</span> Effect of class imbalance</h3>
 <p>Generate a dataset with 160 felsic samples and 20 mafic samples. Train the classifier and report the confusion matrix. Show that the model achieves high overall accuracy by predicting felsic almost everywhere, then implement class-weighted cross-entropy loss (multiply the mafic term by <code>n_felsic / n_mafic</code>) and show that it recovers better detection of the minority class.</p>
 </section>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../sir/index.html">← Fitting an SIR Epidemic Model</a>
+    <a class="pager-link next" href="../tumor/index.html">Tumor Classification by Logistic Regression →</a>
+  </nav>
+</footer>
 
 
 </body></html>
