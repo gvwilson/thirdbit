@@ -1,138 +1,71 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Contributing</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contributing</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxjs</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../introduction/">Introduction</a></li>
-<li><a href="../sysprog/">Systems Programming</a></li>
-<li><a href="../async/">Asynchronous Programming</a></li>
-<li><a href="../test/">Unit Testing</a></li>
-<li><a href="../backup/">File Backup</a></li>
-<li><a href="../table/">Data Tables</a></li>
-<li><a href="../glob/">Pattern Matching</a></li>
-<li><a href="../parser/">Parsing Expressions</a></li>
-<li><a href="../templater/">Page Templates</a></li>
-<li><a href="../build/">Build Manager</a></li>
-<li><a href="../layout/">Layout Engine</a></li>
-<li><a href="../interp/">File Interpolator</a></li>
-<li><a href="../loader/">Module Loader</a></li>
-<li><a href="../style/">Style Checker</a></li>
-<li><a href="../codegen/">Code Generator</a></li>
-<li><a href="../docgen/">Documentation Generator</a></li>
-<li><a href="../bundler/">Module Bundler</a></li>
-<li><a href="../packman/">Package Manager</a></li>
-<li><a href="../vm/">Virtual Machine</a></li>
-<li><a href="../debugger/">Debugger</a></li>
-<li><a href="../conclusion/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a class="active" href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxjs">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Contributing</h1>
-<p>Contributions are very welcome;
-please contact us by email or by filing an issue on this site.
-All contributors must abide by our Code of Conduct.</p>
-<h2>Making Decisions</h2>
-<p>This project uses <a href="https://journals.sagepub.com/doi/10.1177/088610998600100206">Martha's Rules</a> for consensus decision making:</p>
-<ol>
-<li>
-<p>Before each meeting, anyone who wishes may sponsor a proposal by filing an
-    issue in the GitHub repository tagged "proposal".  People must file proposals
-    at least 24 hours before a meeting in order for them to be considered at that
-    meeting, and must include:</p>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../introduction/index.html">Introduction</a></li><li><a href="../sysprog/index.html">Systems Programming</a></li><li><a href="../async/index.html">Asynchronous Programming</a></li><li><a href="../test/index.html">Unit Testing</a></li><li><a href="../backup/index.html">File Backup</a></li><li><a href="../table/index.html">Data Tables</a></li><li><a href="../glob/index.html">Pattern Matching</a></li><li><a href="../parser/index.html">Parsing Expressions</a></li><li><a href="../templater/index.html">Page Templates</a></li><li><a href="../build/index.html">Build Manager</a></li><li><a href="../layout/index.html">Layout Engine</a></li><li><a href="../interp/index.html">File Interpolator</a></li><li><a href="../loader/index.html">Module Loader</a></li><li><a href="../style/index.html">Style Checker</a></li><li><a href="../codegen/index.html">Code Generator</a></li><li><a href="../docgen/index.html">Documentation Generator</a></li><li><a href="../bundler/index.html">Module Bundler</a></li><li><a href="../packman/index.html">Package Manager</a></li><li><a href="../vm/index.html">Virtual Machine</a></li><li><a href="../debugger/index.html">Debugger</a></li><li><a href="../conclusion/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#making-decisions" id="toc-making-decisions"><span class="header-section-number">C.1</span> Making Decisions</a></li>
+<li><a href="#formatting" id="toc-formatting"><span class="header-section-number">C.2</span> Formatting</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxjs">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Contributing</h1>
+<p>Contributions are very welcome; please contact us by email or by filing an issue on this site. All contributors must abide by our Code of Conduct.</p>
+<h2 data-number="C.1" id="making-decisions"><span class="header-section-number">C.1</span> Making Decisions</h2>
+<p>This project uses [Martha’s Rules][marthas_rules] for consensus decision making:</p>
+<ol type="1">
+<li><p>Before each meeting, anyone who wishes may sponsor a proposal by filing an issue in the GitHub repository tagged “proposal”. People must file proposals at least 24 hours before a meeting in order for them to be considered at that meeting, and must include:</p>
 <ul>
 <li>a one-line summary (the subject line of the issue)</li>
 <li>the full text of the proposal</li>
 <li>any required background information</li>
 <li>pros and cons</li>
 <li>possible alternatives</li>
-</ul>
-</li>
-<li>
-<p>A quorum is established in a meeting if half or more of voting members are
-    present.</p>
-</li>
-<li>
-<p>Once a person has sponsored a proposal, they are responsible for it.  The
-    group may not discuss or vote on the issue unless the sponsor or their
-    delegate is present.  The sponsor is also responsible for presenting the
-    item to the group.</p>
-</li>
-<li>
-<p>After the sponsor presents the proposal, a "sense" vote is cast for the
-    proposal before any discussion:</p>
+</ul></li>
+<li><p>A quorum is established in a meeting if half or more of voting members are present.</p></li>
+<li><p>Once a person has sponsored a proposal, they are responsible for it. The group may not discuss or vote on the issue unless the sponsor or their delegate is present. The sponsor is also responsible for presenting the item to the group.</p></li>
+<li><p>After the sponsor presents the proposal, a “sense” vote is cast for the proposal before any discussion:</p>
 <ul>
 <li>Who likes the proposal?</li>
 <li>Who can live with the proposal?</li>
 <li>Who is uncomfortable with the proposal?</li>
-</ul>
-</li>
-<li>
-<p>If everyone likes or can live with the proposal, it passes immediately.</p>
-</li>
-<li>
-<p>If most of the group is uncomfortable with the proposal, it is postponed for
-    further rework by the sponsor.</p>
-</li>
-<li>
-<p>Otherwise, members who are uncomfortable can briefly state their objections.
-    A timer is then set for a brief discussion moderated by the facilitator.
-    After 10 minutes or when no one has anything further to add (whichever comes
-    first), the facilitator calls for a yes-or-no vote on the question: "Should
-    we implement this decision over the stated objections?"  If a majority votes
-    "yes" the proposal is implemented.  Otherwise, the proposal is returned to
-    the sponsor for further work.</p>
-</li>
+</ul></li>
+<li><p>If everyone likes or can live with the proposal, it passes immediately.</p></li>
+<li><p>If most of the group is uncomfortable with the proposal, it is postponed for further rework by the sponsor.</p></li>
+<li><p>Otherwise, members who are uncomfortable can briefly state their objections. A timer is then set for a brief discussion moderated by the facilitator. After 10 minutes or when no one has anything further to add (whichever comes first), the facilitator calls for a yes-or-no vote on the question: “Should we implement this decision over the stated objections?” If a majority votes “yes” the proposal is implemented. Otherwise, the proposal is returned to the sponsor for further work.</p></li>
 </ol>
-<h2>Formatting</h2>
-<p>This material uses <a href="https://www.dmulholl.com/docs/ivy/dev/">Ivy</a> with some custom extensions.
-Run <code>make</code> in the root directory to get a list of available commands.
-Some of these rely on scripts in the <code>./bin/</code> directory.
-Please see <a href="https://github.com/gvwilson/sdxjs/">our Git repository</a> for up-to-date instructions.</p>
+<h2 data-number="C.2" id="formatting"><span class="header-section-number">C.2</span> Formatting</h2>
+<p>This material uses [Ivy][ivy] with some custom extensions. Run <code>make</code> in the root directory to get a list of available commands. Some of these rely on scripts in the <code>./bin/</code> directory. Please see [our Git repository][book_repo] for up-to-date instructions.</p>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxjs</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../bibliography/">Bibliography</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../conduct/index.html">← Code of Conduct</a>
+    <a class="pager-link next" href="../bibliography/index.html">Bibliography →</a>
+  </nav>
 </footer>
-</body>
-</html>
+
+
+</body></html>

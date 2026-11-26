@@ -4,30 +4,8 @@
   <title>Cell Segmentation in Microscopy Images</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -96,7 +74,31 @@ document.addEventListener("DOMContentLoaded", function () {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting this below 0.5 gives d &gt; 2σ·sqrt(2·ln(4A)) = 2·6·sqrt(2·ln(4)) ≈ 19.8.</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># We use 24 pixels for a comfortable margin.</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>MIN_SEPARATION <span class="op">=</span> <span class="dv">24</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_image(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    n_cells<span class="op">=</span>N_CELLS,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    sigma<span class="op">=</span>CELL_SIGMA,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    brightness<span class="op">=</span>CELL_BRIGHTNESS,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>NOISE_SCALE,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    image_size<span class="op">=</span>IMAGE_SIZE,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (image, centers) for a synthetic fluorescence image.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Each cell is a 2-D Gaussian with peak `brightness` and width `sigma`.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Independent Gaussian noise with std dev `noise_scale` is added to every</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    pixel.  Pixel values are clipped to [0, 1].  `centers` is a list of</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    (x, y) pixel coordinates of the true cell centres.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    centers <span class="op">=</span> _place_cells(n_cells, image_size, MIN_SEPARATION, rng)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    ys, xs <span class="op">=</span> np.mgrid[<span class="dv">0</span>:image_size, <span class="dv">0</span>:image_size]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> np.zeros((image_size, image_size))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cx, cy <span class="kw">in</span> centers:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        image <span class="op">+=</span> brightness <span class="op">*</span> np.exp(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((xs <span class="op">-</span> cx) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (ys <span class="op">-</span> cy) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> sigma<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    image <span class="op">+=</span> rng.normal(<span class="fl">0.0</span>, noise_scale, image.shape)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> np.clip(image, <span class="fl">0.0</span>, <span class="va">None</span>)  <span class="co"># negative counts are unphysical</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> image, centers</span></code></pre></div>
 <h2 data-number="15.3" id="step-1-smoothing"><span class="header-section-number">15.3</span> Step 1: Smoothing</h2>
 <ul>
 <li>Raw images are noisy, so the <a href="../glossary/index.html#gaussian_filter">Gaussian filter</a> replaces each pixel with a weighted average of its neighbourhood, suppressing point-to-point fluctuations</li>
@@ -196,7 +198,13 @@ Wrong: the separation is derived from the threshold and cell brightness, not fro
 <ul>
 <li>The same pipeline applied to an image with no cells at all produces false detections when the threshold is too low</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise(noise_scale<span class="op">=</span>NOISE_SCALE, image_size<span class="op">=</span>IMAGE_SIZE, seed<span class="op">=</span>SEED):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an image containing only Gaussian noise, no cell signal.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Used to demonstrate the false-positive behaviour of the segmentation</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    pipeline when the threshold is set below the noise floor.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.maximum(rng.normal(<span class="fl">0.0</span>, noise_scale, (image_size, image_size)), <span class="fl">0.0</span>)</span></code></pre></div>
 <div id="fig-cellseg-noise" class="quarto-float quarto-figure quarto-figure-center" alt="Pure-noise image with 4 false cell detections shown in colour.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-cellseg-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -323,7 +331,6 @@ At threshold 0.05 pure noise must produce at least one false detection, showing 
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At the operating threshold (0.50 ≈ 24σ) pure noise must not trigger any cell.</span></span>
 <span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    _, n_safe <span class="op">=</span> segment(smooth(noise), threshold<span class="op">=</span>THRESHOLD)</span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> n_safe <span class="op">==</span> <span class="dv">0</span>, <span class="st">"Operating threshold should reject all noise blobs"</span></span></code></pre></div>
-<section class="exercises">
 <h2 data-number="15.8" id="exercises"><span class="header-section-number">15.8</span> Exercises</h2>
 <h3 data-number="15.8.1" id="do-the-math"><span class="header-section-number">15.8.1</span> Do the math</h3>
 <p>A cell has peak brightness <span class="math inline">\(B = 1.0\)</span> and Gaussian width <span class="math inline">\(\sigma = 6\)</span> pixels. After smoothing with a Gaussian filter of width <span class="math inline">\(\sigma_s = 2\)</span> pixels, the smoothed peak brightness is <span class="math inline">\(B \cdot \sigma^2 / (\sigma^2 + \sigma_s^2)\)</span>. What is the result? Give your answer to two decimal places.</p>
@@ -336,10 +343,9 @@ At threshold 0.05 pure noise must produce at least one false detection, showing 
 <h3 data-number="15.8.5" id="adaptive-thresholding"><span class="header-section-number">15.8.5</span> Adaptive thresholding</h3>
 <p>Real microscopy images often have uneven illumination: the background is brighter in some regions than others. Simulate this by adding a low-frequency gradient:</p>
 <p>
-<span class="math inline">\(G(x,y) = 0.2 \cdot x / \text{IMAGE\_SIZE}\)</span>
+<span class="math inline">\(G(x,y) = 0.2 \cdot x / \text{IMAGE_SIZE}\)</span>
 </p>
 <p>to the synthetic image before adding noise. Show that the global threshold misses cells in dark regions or over-detects in bright regions, then implement local thresholding (<code>scipy.ndimage.generic_filter</code> with a percentile-based local estimate) and show that it restores accurate cell counts.</p>
-</section>
 
 </main>
 <footer class="page-footer">

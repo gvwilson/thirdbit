@@ -12,34 +12,35 @@
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#fetch-and-parse-data-from-an-api-endpoint" id="toc-fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">11.1</span> Fetch and parse data from an API endpoint</a></li>
-<li><a href="#submit-a-new-record-to-an-api-as-json" id="toc-submit-a-new-record-to-an-api-as-json"><span class="header-section-number">11.2</span> Submit a new record to an API as JSON</a></li>
-<li><a href="#search-an-api-with-a-multi-word-query-parameter" id="toc-search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">11.3</span> Search an API with a multi-word query parameter</a></li>
-<li><a href="#retrieve-all-records-from-a-paginated-api" id="toc-retrieve-all-records-from-a-paginated-api"><span class="header-section-number">11.4</span> Retrieve all records from a paginated API</a></li>
-<li><a href="#fetch-data-from-a-potentially-slow-api-endpoint" id="toc-fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">11.5</span> Fetch data from a potentially slow API endpoint</a></li>
-<li><a href="#create-a-new-resource-via-a-post-request" id="toc-create-a-new-resource-via-a-post-request"><span class="header-section-number">11.6</span> Create a new resource via a POST request</a></li>
-<li><a href="#retry-a-request-after-hitting-a-rate-limit" id="toc-retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">11.7</span> Retry a request after hitting a rate limit</a></li>
-<li><a href="#update-a-single-field-in-an-existing-api-resource" id="toc-update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">11.8</span> Update a single field in an existing API resource</a></li>
-<li><a href="#authenticate-with-an-api-using-a-secret-key" id="toc-authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">11.9</span> Authenticate with an API using a secret key</a></li>
-<li><a href="#submit-form-data-to-an-endpoint-that-redirects" id="toc-submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">11.10</span> Submit form data to an endpoint that redirects</a></li>
+<li><a href="#fetch-and-parse-data-from-an-api-endpoint" id="toc-fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">10.1</span> Fetch and parse data from an API endpoint</a></li>
+<li><a href="#submit-a-new-record-to-an-api-as-json" id="toc-submit-a-new-record-to-an-api-as-json"><span class="header-section-number">10.2</span> Submit a new record to an API as JSON</a></li>
+<li><a href="#search-an-api-with-a-multi-word-query-parameter" id="toc-search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">10.3</span> Search an API with a multi-word query parameter</a></li>
+<li><a href="#retrieve-all-records-from-a-paginated-api" id="toc-retrieve-all-records-from-a-paginated-api"><span class="header-section-number">10.4</span> Retrieve all records from a paginated API</a></li>
+<li><a href="#fetch-data-from-a-potentially-slow-api-endpoint" id="toc-fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">10.5</span> Fetch data from a potentially slow API endpoint</a></li>
+<li><a href="#create-a-new-resource-via-a-post-request" id="toc-create-a-new-resource-via-a-post-request"><span class="header-section-number">10.6</span> Create a new resource via a POST request</a></li>
+<li><a href="#retry-a-request-after-hitting-a-rate-limit" id="toc-retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">10.7</span> Retry a request after hitting a rate limit</a></li>
+<li><a href="#update-a-single-field-in-an-existing-api-resource" id="toc-update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">10.8</span> Update a single field in an existing API resource</a></li>
+<li><a href="#authenticate-with-an-api-using-a-secret-key" id="toc-authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">10.9</span> Authenticate with an API using a secret key</a></li>
+<li><a href="#submit-form-data-to-an-endpoint-that-redirects" id="toc-submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">10.10</span> Submit form data to an endpoint that redirects</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/unbreak">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">HTTP and APIs</h1>
-<h2 data-number="11.1" id="fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">11.1</span> Fetch and parse data from an API endpoint</h2>
+<h2 data-number="10.1" id="fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">10.1</span> Fetch and parse data from an API endpoint</h2>
 <p>Run the script and read the error message. What type of error is raised, and which line causes it? Is the problem in the line that fails or somewhere earlier?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
@@ -68,7 +69,7 @@ Show explanation
 <p>Shows: how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading the response body.</p>
 <p>To find it: print <code>r.status_code</code> before calling <code>r.json()</code>. A status other than 200 means the response body is likely an error page, not JSON. The <code>JSONDecodeError</code> is a symptom; the root cause is the failed request that was never checked.</p>
 </details>
-<h2 data-number="11.2" id="submit-a-new-record-to-an-api-as-json"><span class="header-section-number">11.2</span> Submit a new record to an API as JSON</h2>
+<h2 data-number="10.2" id="submit-a-new-record-to-an-api-as-json"><span class="header-section-number">10.2</span> Submit a new record to an API as JSON</h2>
 <p>Run the script and read the output. What content type does the server report receiving? What content type did you intend to send?</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
@@ -99,7 +100,7 @@ Show explanation
 <p>Shows: the difference between these two keyword arguments and why the server may silently reject or misparse a request sent with the wrong encoding.</p>
 <p>To find it: print <code>r.request.headers["content-type"]</code>. If it shows <code>application/x-www-form-urlencoded</code>, the request was sent as form data. Change <code>data=</code> to <code>json=</code> and print the header again to confirm it now shows <code>application/json</code>.</p>
 </details>
-<h2 data-number="11.3" id="search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">11.3</span> Search an API with a multi-word query parameter</h2>
+<h2 data-number="10.3" id="search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">10.3</span> Search an API with a multi-word query parameter</h2>
 <p>Run the script and read the output. How many query parameters did the server receive? How many did the code intend to send?</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
@@ -134,7 +135,7 @@ Show explanation
 <p>Shows: how to pass query parameters as a <code>params=</code> dict so the HTTP client encodes special characters correctly.</p>
 <p>To find it: print the constructed URL string before sending the request. If a literal <code>&amp;</code> appears inside a parameter value, the ampersand was interpreted as a separator rather than being percent-encoded. Pass parameters as a <code>params=</code> dictionary to let the HTTP library encode them correctly.</p>
 </details>
-<h2 data-number="11.4" id="retrieve-all-records-from-a-paginated-api"><span class="header-section-number">11.4</span> Retrieve all records from a paginated API</h2>
+<h2 data-number="10.4" id="retrieve-all-records-from-a-paginated-api"><span class="header-section-number">10.4</span> Retrieve all records from a paginated API</h2>
 <p>Run the script and compare the number of records retrieved to the total available. What field in the response tells you that more data exists?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -172,7 +173,7 @@ Show explanation
 <p>Shows: how to recognize and follow pagination cursors and why APIs return data in pages rather than all at once.</p>
 <p>To find it: print <code>len(records)</code> after fetching and compare it to the <code>total</code> field in the response JSON. If <code>len(records) &lt; total</code>, the API is returning data in pages. Check the response for a <code>next_page</code>, <code>next_cursor</code>, or <code>Link</code> header that points to the next page.</p>
 </details>
-<h2 data-number="11.5" id="fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">11.5</span> Fetch data from a potentially slow API endpoint</h2>
+<h2 data-number="10.5" id="fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">10.5</span> Fetch data from a potentially slow API endpoint</h2>
 <p>Run the script. Does it return promptly? How long does it wait before producing output?</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
@@ -200,7 +201,7 @@ Show explanation
 <p>Shows: the difference between httpx’s default timeout and <code>timeout=None</code>, and how to set an explicit <code>httpx.Timeout</code> to bound how long a request may take.</p>
 <p>To find it: time the script with <code>time python script.py</code>. If it hangs indefinitely, grep the source for <code>timeout=</code> and check whether the value is <code>None</code>. Replace it with an explicit duration such as <code>timeout=10</code> and confirm the script now returns promptly with a timeout error.</p>
 </details>
-<h2 data-number="11.6" id="create-a-new-resource-via-a-post-request"><span class="header-section-number">11.6</span> Create a new resource via a POST request</h2>
+<h2 data-number="10.6" id="create-a-new-resource-via-a-post-request"><span class="header-section-number">10.6</span> Create a new resource via a POST request</h2>
 <p>Run the script. What status code does the server return? What does the script print? Is the request actually successful?</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -235,7 +236,7 @@ Show explanation
 <p>Shows: the range of 2xx status codes, when each is used, and how to use <code>r.is_success</code> to accept any successful response.</p>
 <p>To find it: print <code>r.status_code</code> after the POST. If it prints <code>201</code>, the resource was created successfully but the check <code>r.status_code == 200</code> treats it as a failure. Replace the check with <code>r.is_success</code> to accept any 2xx status code.</p>
 </details>
-<h2 data-number="11.7" id="retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">11.7</span> Retry a request after hitting a rate limit</h2>
+<h2 data-number="10.7" id="retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">10.7</span> Retry a request after hitting a rate limit</h2>
 <p>Run the script and look at the status code and headers on each attempt. What does the <code>Retry-After</code> header contain? Does the script wait before retrying?</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -275,7 +276,7 @@ Show explanation
 <p>Shows: what 429 means, how to detect it, and how to wait the server-specified duration before the next attempt.</p>
 <p>To find it: print <code>r.status_code</code> and <code>r.headers.get("Retry-After")</code> on each attempt. If the status is <code>429</code> on every attempt and the <code>Retry-After</code> value is nonzero, the script is not waiting before retrying. Add <code>time.sleep(int(r.headers["Retry-After"]))</code> before the next attempt.</p>
 </details>
-<h2 data-number="11.8" id="update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">11.8</span> Update a single field in an existing API resource</h2>
+<h2 data-number="10.8" id="update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">10.8</span> Update a single field in an existing API resource</h2>
 <p>Run the script and compare the resource state before and after the PUT request. Which fields changed, and which fields were you expecting to keep?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -312,7 +313,7 @@ Show explanation
 <p>Shows: the semantic difference between PUT (full replacement) and PATCH (partial update), and why sending only the fields you want to change requires PATCH.</p>
 <p>To find it: fetch and print the resource before the request, then fetch and print it again after. If fields you did not include in the request body now show default or null values, PUT replaced the entire resource. Switch to PATCH and send only the fields you want to change.</p>
 </details>
-<h2 data-number="11.9" id="authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">11.9</span> Authenticate with an API using a secret key</h2>
+<h2 data-number="10.9" id="authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">10.9</span> Authenticate with an API using a secret key</h2>
 <p>Run the script and read the output. In which part of the request does the API key appear? What would a server log entry look like?</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
@@ -342,7 +343,7 @@ Show explanation
 <p>Shows: how to pass credentials in an <code>Authorization</code> header instead, where they are kept out of logs and not cached by browsers.</p>
 <p>To find it: print <code>str(r.request.url)</code> to see the full URL including query parameters. If the API key appears there (e.g., if <code>?api_key=secret</code> is in the query) it will be recorded in any server access log. Move it to an <code>Authorization</code> header instead.</p>
 </details>
-<h2 data-number="11.10" id="submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">11.10</span> Submit form data to an endpoint that redirects</h2>
+<h2 data-number="10.10" id="submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">10.10</span> Submit form data to an endpoint that redirects</h2>
 <p>Run the script and read the output. What HTTP method reached the final endpoint? What happened to the request body that was sent to <code>/submit</code>?</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -385,6 +386,12 @@ Show explanation
 </details>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../css/index.html">← CSS</a>
+    <a class="pager-link next" href="../htmx/index.html">HTMX →</a>
+  </nav>
+</footer>
 
 
 </body></html>

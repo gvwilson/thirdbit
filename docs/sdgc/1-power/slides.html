@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Power and Institutions</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Power and Institutions</h1>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026</p>
+</section>
+
+<section id="opening-question" class="slide level2">
+<h2>Opening question</h2>
+<ul>
+<li>Think of a product decision at your company</li>
+<li>Who actually decided it?</li>
+<li>Whose interests won?</li>
+<li>Lasswell defined politics in 1936 as “who gets what, when, how”</li>
+</ul>
+</section>
+<section id="three-faces-of-power-lukes2021" class="slide level2">
+<h2>Three faces of power <span class="citation"
+data-cites="Lukes2021">[@Lukes2021]</span></h2>
+<ul>
+<li>Face one: who wins when there is a visible decision</li>
+<li>Face two: who controls what gets onto the agenda in the first
+place</li>
+<li>Face three: who shapes what people even want, so some options never
+occur to anyone</li>
+<li>Power is not only about winning visible fights</li>
+</ul>
+</section>
+<section id="face-one-the-visible-decision" class="slide level2">
+<h2>Face one: the visible decision</h2>
+<ul>
+<li>Who wins the vote, the launch review, the promotion panel</li>
+<li>Everyone can see this face, so it gets the most attention</li>
+<li>But the menu was usually fixed before the meeting started</li>
+<li>The announced decision is the last act, not the first</li>
+</ul>
+</section>
+<section id="face-two-the-agenda" class="slide level2">
+<h2>Face two: the agenda</h2>
+<ul>
+<li>Who decides what goes on the roadmap, the API surface, the meeting
+agenda</li>
+<li>A “neutral” default or a “technical” constraint is usually
+agenda-setting</li>
+<li>Absence from the agenda is a form of power</li>
+<li>If a problem is never scheduled, it is never decided</li>
+</ul>
+</section>
+<section id="face-three-preference-shaping" class="slide level2">
+<h2>Face three: preference-shaping</h2>
+<ul>
+<li>Who shapes what feels natural, obvious, or inevitable</li>
+<li>“We don’t do politics here” is the third face’s catchphrase</li>
+<li>It usually means the winners already have what they want</li>
+<li>And they can describe their arrangement as natural</li>
+</ul>
+</section>
+<section id="institutions-are-the-rules-of-the-game-north1990"
+class="slide level2">
+<h2>Institutions are the rules of the game <span class="citation"
+data-cites="North1990">[@North1990]</span></h2>
+<ul>
+<li>Formal rules: laws and contracts</li>
+<li>Informal constraints: norms, conventions, taboos</li>
+<li>Institutions always allocate advantage; they are never neutral</li>
+<li>They structure interaction before any individual makes a choice</li>
+</ul>
+</section>
+<section id="software-is-an-institution" class="slide level2">
+<h2>Software is an institution</h2>
+<ul>
+<li>Default settings, permission models, and rate limits are rules</li>
+<li>Each one allocates advantage to someone</li>
+<li>The corporation is also an institution, and its form is a
+choice</li>
+<li>Founders and venture capitalists benefit most from the conventional
+structure</li>
+</ul>
+</section>
+<section id="a-design-decision-is-a-governance-decision"
+class="slide level2">
+<h2>A design decision is a governance decision</h2>
+<ul>
+<li>The 1886 US railroad gauge change was a market weapon, not a
+technical necessity
+<ul>
+<li>Southern carriers profited from reloading freight at the gauge
+boundary</li>
+</ul></li>
+<li>A design choice that looked technical was actually a tariff</li>
+<li>An employer controls income; an infrastructure provider controls the
+conditions of earning</li>
+</ul>
+</section>
+<section id="tithing-and-excommunication" class="slide level2">
+<h2>Tithing and excommunication</h2>
+<ul>
+<li>The App Store’s 30 percent cut is a tithe</li>
+<li>Deplatforming is excommunication from the infrastructure needed to
+do business</li>
+<li>A suspended WeChat account removes civic and commercial life, not
+just chat</li>
+<li>Governance is whoever controls the infrastructure</li>
+</ul>
+</section>
+<section id="incentives-produce-the-wrongdoing" class="slide level2">
+<h2>Incentives produce the wrongdoing</h2>
+<ul>
+<li>Wells Fargo fired 5,300 staff over fake accounts, under “eight is
+great”</li>
+<li>Mass wrongdoing flows from impossible quotas, not from bad
+individuals</li>
+<li>The institution produced the behavior the designers later blamed on
+employees</li>
+</ul>
+</section>
+<section id="self-fulfilling-design" class="slide level2">
+<h2>Self-fulfilling design</h2>
+<ul>
+<li>Terms of service written for adversaries produce the distrust they
+assume</li>
+<li>Moderation that treats everyone as a suspect does the same</li>
+<li>Contrast with Ostrom’s governed commons, where rules assume
+cooperation</li>
+<li>Institutions teach people how to behave, then reward what they
+teach</li>
+</ul>
+</section>
+<section id="platforms-as-quasi-governments" class="slide level2">
+<h2>Platforms as quasi-governments</h2>
+<ul>
+<li>eBay adjudicates disputes</li>
+<li>App Store review is the only appeal</li>
+<li>Facebook makes de facto regulatory decisions in other countries</li>
+<li>The yakuza delivered 2011 Tohoku disaster relief faster than the
+state</li>
+</ul>
+</section>
+<section id="the-company-town" class="slide level2">
+<h2>The company town</h2>
+<ul>
+<li>George Pullman cut wages in 1893 while holding rents fixed
+<ul>
+<li>Workers could not cut other expenses because the company controlled
+those too</li>
+</ul></li>
+<li>The 1894 Pullman Strike paralyzed rail traffic and required federal
+troops</li>
+<li>Total control eventually produces resistance</li>
+</ul>
+</section>
+<section id="legibility-scott1998" class="slide level2">
+<h2>Legibility <span class="citation"
+data-cites="Scott1998">[@Scott1998]</span></h2>
+<ul>
+<li>Surnames, house numbers, and passports exist so the state can tax,
+draft, and police</li>
+<li>South Africa’s pass laws became the world’s first biometric register
+in 1986</li>
+<li>Standardization is an instrument of administration, not a neutral
+convenience</li>
+<li>The state standardizes people so they can be governed</li>
+</ul>
+</section>
+<section id="philanthrocapitalism" class="slide level2">
+<h2>Philanthrocapitalism</h2>
+<ul>
+<li>Donor-advised funds and the Giving Pledge convert taxable wealth
+into controlled endowments</li>
+<li>Roughly $230 billion sits in donor-advised funds</li>
+<li>The Gates Foundation was at one point the WHO’s second-largest
+funder</li>
+<li>Private money buys policy influence while wearing the language of
+charity</li>
+</ul>
+</section>
+<section id="collective-action-olson1965" class="slide level2">
+<h2>Collective action <span class="citation"
+data-cites="Olson1965">[@Olson1965]</span></h2>
+<ul>
+<li>It is easier to organize a small group with a large stake than a
+large group with a small stake</li>
+<li>This is why producers beat consumers and platforms beat users</li>
+<li>Ad-tech firms are few, organized, and rich; users are many,
+unorganized, and each has a small stake</li>
+<li>This single asymmetry predicts much of tech policy</li>
+</ul>
+</section>
+<section id="the-winning-coalition" class="slide level2">
+<h2>The winning coalition</h2>
+<ul>
+<li>Selectorate theory: leaders distribute to the small coalition that
+keeps them in power</li>
+<li>Not to the whole population, and not to the whole “family”</li>
+<li>Musk’s “hardcore” email let the remaining staff confirm loyalty
+while others resigned</li>
+<li>Pfeffer found political skill predicts advancement better than
+technical competence</li>
+</ul>
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<ul>
+<li>Power is about who sets the agenda and who shapes what people think
+they want</li>
+<li>Institutions are the mechanism, and they are never neutral</li>
+<li>Path dependence: early choices lock in later outcomes even after the
+original reasons disappear</li>
+<li>The enclosure movement is the same lesson: the winners wrote the
+rules through Parliament</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -4,30 +4,8 @@
   <title>1D Diffusion Simulation</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -98,7 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
 <li><code>DT</code> is derived from the stability condition explained below</li>
 <li>The initial concentration is a Gaussian pulse centered in the domain:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_initial():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return spatial grid and Gaussian initial concentration profile."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="dv">0</span>, LENGTH, GRID_POINTS)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> np.exp(<span class="op">-</span>((x <span class="op">-</span> PULSE_CENTER) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> PULSE_WIDTH<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x, c</span></code></pre></div>
 <h2 data-number="22.3" id="deriving-the-update-rule"><span class="header-section-number">22.3</span> Deriving the Update Rule</h2>
 <ul>
 <li>Label grid points <span class="math inline">\(i = 0, 1, \ldots, N-1\)</span> and time steps <span class="math inline">\(n = 0, 1, 2, \ldots\)</span></li>
@@ -357,7 +339,6 @@ Figure&nbsp;22.1: Concentration profiles at five equally-spaced snapshots. The p
 <span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>((x <span class="op">-</span> PULSE_CENTER) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> sigma2)</span>
 <span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.<span class="bu">max</span>(np.<span class="bu">abs</span>(c <span class="op">-</span> analytical)) <span class="op">&lt;</span> <span class="fl">5e-3</span></span></code></pre></div>
-<section class="exercises">
 <h2 data-number="22.10" id="exercises"><span class="header-section-number">22.10</span> Exercises</h2>
 <h3 data-number="22.10.1" id="do-the-math"><span class="header-section-number">22.10.1</span> Do the math</h3>
 <p>Using the analytical formula <span class="math inline">\(\sigma^2(t) = \sigma_0^2 + 2Dt\)</span>, compute <span class="math inline">\(\sigma^2\)</span> after <code>N_STEPS</code> = 500 steps. Use <code>PULSE_WIDTH</code> = 0.05 for <span class="math inline">\(\sigma_0\)</span>, <code>DIFFUSIVITY</code> = 0.1, <code>GRID_POINTS</code> = 50, <code>LENGTH</code> = 1.0, and note that <code>DT</code> = <code>STABILITY_RATIO * DX**2 / DIFFUSIVITY</code>. Give your answer to three decimal places.</p>
@@ -369,7 +350,6 @@ Figure&nbsp;22.1: Concentration profiles at five equally-spaced snapshots. The p
 <p>Set <code>STABILITY_RATIO = 0.6</code> (above the stability limit of 0.5) and run the simulation for 20 steps. Describe what happens to the concentration values. Confirm that <code>test_stability_ratio</code> catches this before any time-stepping occurs.</p>
 <h3 data-number="22.10.5" id="grid-refinement-and-convergence"><span class="header-section-number">22.10.5</span> Grid refinement and convergence</h3>
 <p>Double <code>GRID_POINTS</code> to 100 (leaving <code>STABILITY_RATIO</code> unchanged so <code>DT</code> is recalculated automatically). Measure the new maximum error in <code>test_matches_analytical</code> at <span class="math inline">\(n = 20\)</span> steps. The truncation error scales as <span class="math inline">\(O(\Delta t + \Delta x^2)\)</span>; with twice as many points, <span class="math inline">\(\Delta x\)</span> halves and <span class="math inline">\(\Delta t\)</span> (derived from <span class="math inline">\(\Delta x^2\)</span>) quarters. Is the observed reduction in error consistent with this prediction?</p>
-</section>
 
 </main>
 <footer class="page-footer">

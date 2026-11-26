@@ -4,30 +4,8 @@
   <title>Heat Conduction Through a Composite Wall</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -529,7 +507,6 @@ An iterative relaxation method in which each interior node is repeatedly updated
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="23.10" id="exercises"><span class="header-section-number">23.10</span> Exercises</h2>
 <h3 data-number="23.10.1" id="do-the-math"><span class="header-section-number">23.10.1</span> Do the math</h3>
 <ol type="1">
@@ -546,7 +523,6 @@ An iterative relaxation method in which each interior node is repeatedly updated
 <p>Remove the steady-state assumption and discretize the full 1D heat equation <span class="math inline">\(\rho c_p \partial T / \partial t = \partial (k \partial T / \partial x) / \partial x\)</span> using the explicit Euler method. Use <span class="math inline">\(\rho = 1800\,\text{kg}\,\text{m}^{-3}\)</span> and <span class="math inline">\(c_p = 900\,\text{J}\,\text{kg}^{-1}\,\text{K}^{-1}\)</span> for all layers (representative brick). Start from a uniform initial temperature of 20°C, apply <span class="math inline">\(T_\text{right} = -10\)</span>°C at <span class="math inline">\(t=0\)</span>, and run until the solution is within 1°C of the steady state everywhere. Verify the stability condition <span class="math inline">\(\Delta t \le \Delta x^2 / (2 \alpha)\)</span> where <span class="math inline">\(\alpha = k / (\rho c_p)\)</span> is the thermal diffusivity.</p>
 <h3 data-number="23.10.5" id="optimal-insulation-placement"><span class="header-section-number">23.10.5</span> Optimal insulation placement</h3>
 <p>Fix the total insulation thickness at 5 cm and split it between two locations: one slab immediately inside the brick and one immediately inside the concrete. Let the inner slab have thickness <span class="math inline">\(t\)</span> (<span class="math inline">\(0 \le t \le 0.05\)</span> m) and the outer slab <span class="math inline">\((0.05 - t)\)</span> m. Compute the heat flux for each split and show that the total resistance — and therefore the heat flux — is independent of how the insulation is distributed. Explain this result using the series-resistance formula.</p>
-</section>
 
 </main>
 <footer class="page-footer">

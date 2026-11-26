@@ -4,30 +4,8 @@
   <title>Phylogenetic Tree Reconstruction</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -141,7 +119,26 @@ Wrong: this would require N=6 leaves.
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_distance_matrix(noise_scale<span class="op">=</span><span class="fl">0.0</span>, seed<span class="op">=</span>SEED):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (names, D) where D is the symmetric pairwise distance matrix.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    When noise_scale=0.0 (default) the distances are exact tree-additive values.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    A non-zero noise_scale adds symmetric Gaussian noise so that the distances</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    no longer satisfy the four-point condition exactly, simulating real data.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(TAXA)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    D <span class="op">=</span> np.zeros((n, n))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, a <span class="kw">in</span> <span class="bu">enumerate</span>(TAXA):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j, b <span class="kw">in</span> <span class="bu">enumerate</span>(TAXA):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&lt;</span> j:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                key <span class="op">=</span> (a, b) <span class="cf">if</span> (a, b) <span class="kw">in</span> _BRANCH <span class="cf">else</span> (b, a)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                D[i, j] <span class="op">=</span> D[j, i] <span class="op">=</span> _BRANCH[key]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise_scale <span class="op">&gt;</span> <span class="fl">0.0</span>:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, noise_scale, (n, n))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> (noise <span class="op">+</span> noise.T) <span class="op">/</span> <span class="dv">2</span>  <span class="co"># keep symmetric</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        np.fill_diagonal(noise, <span class="dv">0</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        D <span class="op">=</span> np.maximum(D <span class="op">+</span> noise, <span class="dv">0</span>)  <span class="co"># distances must be non-negative</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(TAXA), D</span></code></pre></div>
 <h2 data-number="12.3" id="the-upgma-algorithm"><span class="header-section-number">12.3</span> The UPGMA Algorithm</h2>
 <ul>
 <li>UPGMA (Unweighted Pair Group Method with Arithmetic Mean) reconstructs a rooted tree from a distance matrix using only arithmetic means</li>
@@ -356,7 +353,53 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
 </ul></li>
 <li>Branch lengths are drawn independently from an exponential distribution with a specified mean</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_random_tree(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n_taxa, seed<span class="op">=</span>SEED, branch_mean<span class="op">=</span>DEFAULT_BRANCH_MEAN, noise_scale<span class="op">=</span><span class="fl">0.0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (names, D, true_edges) for a random unrooted binary tree.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    names      — list of n_taxa strings "S00", "S01", ...</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    D          — n_taxa x n_taxa symmetric distance matrix</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    true_edges — list of (node_a, node_b, length) for the generating tree</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n_taxa <span class="op">&lt;</span> MIN_TAXA:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"n_taxa must be at least </span><span class="sc">{</span>MIN_TAXA<span class="sc">}</span><span class="ss">, got </span><span class="sc">{</span>n_taxa<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> [<span class="ss">f"S</span><span class="sc">{</span>i<span class="sc">:02d}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_taxa)]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Start with the three-leaf star: S00, S01, S02 all connected to I0.</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    internal_counter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    first_internal <span class="op">=</span> <span class="ss">f"I</span><span class="sc">{</span>internal_counter<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    internal_counter <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> [</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        [names[<span class="dv">0</span>], first_internal, rng.exponential(branch_mean)],</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        [names[<span class="dv">1</span>], first_internal, rng.exponential(branch_mean)],</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        [names[<span class="dv">2</span>], first_internal, rng.exponential(branch_mean)],</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Insert each remaining taxon by splitting a random existing edge.</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>, n_taxa):</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> <span class="bu">int</span>(rng.integers(<span class="bu">len</span>(edges)))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        u, v, _ <span class="op">=</span> edges.pop(idx)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        new_internal <span class="op">=</span> <span class="ss">f"I</span><span class="sc">{</span>internal_counter<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        internal_counter <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        edges.append([u, new_internal, rng.exponential(branch_mean)])</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        edges.append([v, new_internal, rng.exponential(branch_mean)])</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        edges.append([names[i], new_internal, rng.exponential(branch_mean)])</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute all pairwise distances through the tree.</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.Graph()</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b, w <span class="kw">in</span> edges:</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        G.add_edge(a, b, weight<span class="op">=</span>w)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    all_dists <span class="op">=</span> <span class="bu">dict</span>(nx.all_pairs_dijkstra_path_length(G, weight<span class="op">=</span><span class="st">"weight"</span>))</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(names)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    D <span class="op">=</span> np.zeros((n, n))</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, a <span class="kw">in</span> <span class="bu">enumerate</span>(names):</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j, b <span class="kw">in</span> <span class="bu">enumerate</span>(names):</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            D[i, j] <span class="op">=</span> all_dists[a][b]</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise_scale <span class="op">&gt;</span> <span class="fl">0.0</span>:</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, noise_scale, (n, n))</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> (noise <span class="op">+</span> noise.T) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        np.fill_diagonal(noise, <span class="dv">0</span>)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        D <span class="op">=</span> np.maximum(D <span class="op">+</span> noise, <span class="fl">0.0</span>)</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    true_edges <span class="op">=</span> [(a, b, w) <span class="cf">for</span> a, b, w <span class="kw">in</span> edges]</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> names, D, true_edges</span></code></pre></div>
 <h3 data-number="12.7.2" id="computing-distances-and-checking-topology"><span class="header-section-number">12.7.2</span> Computing distances and checking topology</h3>
 <ul>
 <li>Once the tree is built, pairwise distances are computed as shortest-path lengths through the networkx graph weighted by branch length</li>
@@ -420,7 +463,6 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
 <span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    _, D1, _ <span class="op">=</span> make_random_tree(<span class="dv">6</span>)</span>
 <span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    _, D2, _ <span class="op">=</span> make_random_tree(<span class="dv">6</span>, seed<span class="op">=</span><span class="dv">999</span>)</span>
 <span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="kw">not</span> np.allclose(D1, D2)</span></code></pre></div>
-<section class="exercises">
 <h2 data-number="12.8" id="exercises"><span class="header-section-number">12.8</span> Exercises</h2>
 <h3 data-number="12.8.1" id="do-the-math"><span class="header-section-number">12.8.1</span> Do the math</h3>
 <p>In the first UPGMA iteration Human and Gorilla are merged. <span class="math inline">\(D(\text{Human}, \text{Gorilla}) = 0.9\)</span>. The new internal node is placed at height <span class="math inline">\(D/2\)</span>. What is the branch length from the new node to Human? Give your answer to two decimal places.</p>
@@ -432,7 +474,6 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
 <p>A distance matrix is tree-additive if and only if it satisfies the four-point condition: for every four taxa <span class="math inline">\(i, j, k, l\)</span>, the largest two of the three sums <span class="math inline">\(D(i,j)+D(k,l)\)</span>, <span class="math inline">\(D(i,k)+D(j,l)\)</span>, <span class="math inline">\(D(i,l)+D(j,k)\)</span> are equal. Write <code>is_additive(names, D)</code> that checks this condition for all <span class="math inline">\(\binom{N}{4}\)</span> quadruples and returns <code>True</code> or <code>False</code>. Verify that the exact matrix passes and a noisy matrix fails.</p>
 <h3 data-number="12.8.5" id="larger-synthetic-trees"><span class="header-section-number">12.8.5</span> Larger synthetic trees</h3>
 <p>Extend <code>make_distance_matrix</code> to accept an arbitrary Newick-format string such as <code>"((A:0.1,B:0.2):0.3,(C:0.4,D:0.5):0.6)"</code> and compute the full distance matrix from it. Use this to generate a 10-taxon example and confirm that UPGMA recovers the correct topology.</p>
-</section>
 
 </main>
 <footer class="page-footer">

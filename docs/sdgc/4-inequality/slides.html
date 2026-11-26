@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Inequality</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Inequality</h1>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026</p>
+</section>
+
+<section id="opening-question" class="slide level2">
+<h2>Opening question</h2>
+<ul>
+<li>When you explain why someone succeeded or failed, which verbs do you
+reach for?</li>
+<li>Our default is to explain others by their traits and ourselves by
+circumstance</li>
+<li>This asymmetry is the doorway into structural explanation</li>
+</ul>
+</section>
+<section id="three-dimensions-of-stratification-weber1946"
+class="slide level2">
+<h2>Three dimensions of stratification <span class="citation"
+data-cites="Weber1946">[@Weber1946]</span></h2>
+<ul>
+<li>Class: economic position</li>
+<li>Status: prestige and honor</li>
+<li>Power: capacity to realize one’s will</li>
+<li>They overlap but do not coincide</li>
+</ul>
+</section>
+<section id="mismatches-matter" class="slide level2">
+<h2>Mismatches matter</h2>
+<ul>
+<li>A staff engineer may have high class but limited power</li>
+<li>A founder has power</li>
+<li>A moderator has neither</li>
+<li>High income and low security can coexist in the same role</li>
+</ul>
+</section>
+<section id="more-unequal-societies-wilkinson2011" class="slide level2">
+<h2>More unequal societies <span class="citation"
+data-cites="Wilkinson2011">[@Wilkinson2011]</span></h2>
+<ul>
+<li>More unequal societies do worse on nearly every social
+indicator</li>
+<li>The mechanism is status anxiety</li>
+<li>People compare themselves upward</li>
+<li>The gap itself is the harm, not just the average level</li>
+</ul>
+</section>
+<section id="structural-vs.-individual" class="slide level2">
+<h2>Structural vs. individual</h2>
+<ul>
+<li>The fundamental attribution error applied to society</li>
+<li>We explain others’ outcomes by their traits and our own by
+circumstance</li>
+<li>Individual explanation is the tech default</li>
+<li>Structural explanation asks what the rules, networks, and positions
+did</li>
+</ul>
+</section>
+<section id="cumulative-advantage-and-opportunity-hoarding"
+class="slide level2">
+<h2>Cumulative advantage and opportunity hoarding</h2>
+<ul>
+<li>Cumulative advantage: early advantage compounds over a lifetime</li>
+<li>The Matthew effect: advantage begets advantage</li>
+<li>Opportunity hoarding: “merit” filters are built to reproduce
+advantage <span class="citation"
+data-cites="Tilly1998">[@Tilly1998]</span></li>
+<li>Credentials, networks, and gatekeeping do the sorting while
+appearing to reward merit</li>
+</ul>
+</section>
+<section id="intersectionality-crenshaw1989" class="slide level2">
+<h2>Intersectionality <span class="citation"
+data-cites="Crenshaw1989">[@Crenshaw1989]</span></h2>
+<ul>
+<li>Overlapping disadvantage interacts; it does not simply add</li>
+<li>A facial-recognition model or hiring algorithm distributes harm
+unevenly across identities</li>
+<li>Single-axis analysis misses the worst harms</li>
+<li>Race, class, gender, and disability compound rather than stack</li>
+</ul>
+</section>
+<section id="discrimination-made-concrete-audit-studies"
+class="slide level2">
+<h2>Discrimination made concrete: audit studies</h2>
+<ul>
+<li>Identical resumes with white-coded names get more callbacks</li>
+<li>Rivera’s “polished” versus “rough around the edges” is class, not
+competence</li>
+<li>The name at the top changes the outcome</li>
+<li>The process looks neutral while the result is not</li>
+</ul>
+</section>
+<section id="discrimination-made-concrete-tech" class="slide level2">
+<h2>Discrimination made concrete: tech</h2>
+<ul>
+<li>Amazon’s recruiting tool penalized resumes containing “women’s”
+(abandoned 2018)</li>
+<li>Women’s share of computing was higher in the 1980s than today</li>
+<li>The “pipeline” explanation is contradicted by the evidence</li>
+<li>Becker’s 1957 prediction that competition eliminates discrimination
+was falsified</li>
+</ul>
+</section>
+<section id="the-pencil-test" class="slide level2">
+<h2>The pencil test</h2>
+<ul>
+<li>South Africa’s Race Classification Board used a pencil in the hair
+to sort people</li>
+<li>Siblings could be classified differently, with different rights</li>
+<li>The “Hispanic” category was invented by the Nixon administration in
+1970</li>
+<li>Categories are made, not found</li>
+</ul>
+</section>
+<section id="poverty-is-a-tax-on-cognition-mullainathan2013"
+class="slide level2">
+<h2>Poverty is a tax on cognition <span class="citation"
+data-cites="Mullainathan2013">[@Mullainathan2013]</span></h2>
+<ul>
+<li>Scarcity depletes cognitive bandwidth the way sleep deprivation
+does</li>
+<li>McIntosh’s invisible knapsack explains why “just try harder” fails
+<span class="citation"
+data-cites="McIntosh1989">[@McIntosh1989]</span></li>
+<li>Credit bureaus collect without consent and profit whether the data
+is accurate or not</li>
+<li>Equifax 2017 exposed roughly 147 million people; accuracy is not
+fairness</li>
+</ul>
+</section>
+<section id="meritocracy-examined-young1958" class="slide level2">
+<h2>Meritocracy, examined <span class="citation"
+data-cites="Young1958">[@Young1958]</span></h2>
+<ul>
+<li>The word was coined in a 1958 satire by Michael Young</li>
+<li>Merit-pay organizations show larger gender pay gaps via moral
+licensing <span class="citation"
+data-cites="Castilla2010">[@Castilla2010]</span></li>
+<li>Believing in meritocracy predicts harsher judgment of the poor</li>
+<li>The term legitimizes the inheritance it claims to have replaced</li>
+</ul>
+</section>
+<section id="merit-badges-and-hoarding" class="slide level2">
+<h2>Merit badges and hoarding</h2>
+<ul>
+<li>Carnegie: ten workers killed by Pinkertons in 1892, then a lifetime
+funding libraries on his terms</li>
+<li>The Flexner Report raised medical standards and closed most schools
+that trained Black physicians or admitted women</li>
+<li>Both are opportunity hoarding wearing a merit badge</li>
+<li>Waring: a woman cooking for her family adds nothing to GDP, but
+hiring a cook raises it twice <span class="citation"
+data-cites="Waring1988">[@Waring1988]</span></li>
+</ul>
+</section>
+<section id="takeaway" class="slide level2">
+<h2>Takeaway</h2>
+<ul>
+<li>Inequality is not a sorting of individuals by merit</li>
+<li>It is the accumulated effect of rules, networks, and compounding
+advantage</li>
+<li>Mobility is low and sticky across generations</li>
+<li>Meritocracy is a claim to test, and often a story that legitimizes
+inheritance</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

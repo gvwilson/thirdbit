@@ -4,30 +4,8 @@
   <title>Predator-Prey Dynamics</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -335,7 +313,6 @@ Linearising the LV equations around equilibrium gives small oscillations with pe
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(t_peaks) <span class="op">&gt;=</span> <span class="dv">3</span>, <span class="st">"too few peaks detected to estimate period"</span></span>
 <span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    measured_period <span class="op">=</span> np.diff(t_peaks).mean()</span>
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(measured_period <span class="op">-</span> PERIOD_APPROX) <span class="op">/</span> PERIOD_APPROX <span class="op">&lt;</span> <span class="fl">0.10</span></span></code></pre></div>
-<section class="exercises">
 <h2 data-number="24.8" id="exercises"><span class="header-section-number">24.8</span> Exercises</h2>
 <h3 data-number="24.8.1" id="starting-at-the-equilibrium"><span class="header-section-number">24.8.1</span> Starting at the equilibrium</h3>
 <p>Set <code>PREY_INIT = PREY_EQ</code> and <code>PRED_INIT = PRED_EQ</code> and run the simulation. What does <code>plot_time_series</code> show? What does <code>plot_trajectory</code> show? Explain why in terms of the fixed-point analysis.</p>
@@ -345,7 +322,6 @@ Linearising the LV equations around equilibrium gives small oscillations with pe
 <p>Add a constant harvesting term to the prey equation: <span class="math inline">\(dx/dt = ax - bxy - h\)</span>, where <span class="math inline">\(h &gt; 0\)</span> represents the rate at which prey are removed by fishing, hunting, or sampling. Derive the new equilibrium <span class="math inline">\((x_h^*, y_h^*)\)</span> algebraically. Implement the modified <code>rhs</code> and verify your algebra by checking that the simulation stays constant when started exactly at the new equilibrium.</p>
 <h3 data-number="24.8.4" id="numerical-accuracy-and-solver-tolerance"><span class="header-section-number">24.8.4</span> Numerical accuracy and solver tolerance</h3>
 <p>Reduce <code>rtol</code> and <code>atol</code> by a factor of 100 (to <span class="math inline">\(10^{-6}\)</span> and <span class="math inline">\(10^{-8}\)</span>) and re-run the simulation. Run the simulation for <code>T_MAX</code> time units and check whether the population trajectory still forms a nearly closed loop. At what tolerance does the loop visibly fail to close? What does this tell you about the relationship between solver accuracy and the appearance of the trajectory?</p>
-</section>
 
 </main>
 <footer class="page-footer">

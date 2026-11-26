@@ -4,30 +4,8 @@
   <title>Peak Detection in Mass Spectra</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -76,18 +54,40 @@ document.addEventListener("DOMContentLoaded", function () {
 <li><span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(h_k\)</span>, and <span class="math inline">\(\sigma_k\)</span> are the center, height, and width of peak <span class="math inline">\(k\)</span></li>
 <li>Intensities are clipped to zero because a negative ion count has no physical meaning</li>
 </ul>
-<p><code class="sourceCode python">MZ_MIN <span class="op">=</span> <span class="fl">100.0</span>  <span class="co"># lower end of m/z range (daltons)</span>
-MZ_MAX <span class="op">=</span> <span class="fl">600.0</span>  <span class="co"># upper end of m/z range (daltons)</span>
-N_POINTS <span class="op">=</span> <span class="dv">500</span>  <span class="co"># number of evenly-spaced m/z values</span>
-<span class="co"># Each peak is (center_mz, height, sigma): three compounds at known masses.</span>
-<span class="co"># Heights are relative to the tallest peak (1.0).</span>
-PEAKS <span class="op">=</span> [
-    (<span class="fl">150.0</span>, <span class="fl">1.00</span>, <span class="fl">2.0</span>),  <span class="co"># compound A</span>
-    (<span class="fl">280.0</span>, <span class="fl">0.65</span>, <span class="fl">1.5</span>),  <span class="co"># compound B</span>
-    (<span class="fl">390.0</span>, <span class="fl">0.85</span>, <span class="fl">2.5</span>),  <span class="co"># compound C</span>
-    (<span class="fl">510.0</span>, <span class="fl">0.45</span>, <span class="fl">2.0</span>),  <span class="co"># compound D</span>
-]
-DEFAULT_NOISE <span class="op">=</span> <span class="fl">0.05</span>  <span class="co"># Gaussian noise std dev relative to tallest peak</span></code> <code class="sourceCode python"></code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MZ_MIN <span class="op">=</span> <span class="fl">100.0</span>  <span class="co"># lower end of m/z range (daltons)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>MZ_MAX <span class="op">=</span> <span class="fl">600.0</span>  <span class="co"># upper end of m/z range (daltons)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_POINTS <span class="op">=</span> <span class="dv">500</span>  <span class="co"># number of evenly-spaced m/z values</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Each peak is (center_mz, height, sigma): three compounds at known masses.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Heights are relative to the tallest peak (1.0).</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>PEAKS <span class="op">=</span> [</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">150.0</span>, <span class="fl">1.00</span>, <span class="fl">2.0</span>),  <span class="co"># compound A</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">280.0</span>, <span class="fl">0.65</span>, <span class="fl">1.5</span>),  <span class="co"># compound B</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">390.0</span>, <span class="fl">0.85</span>, <span class="fl">2.5</span>),  <span class="co"># compound C</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">510.0</span>, <span class="fl">0.45</span>, <span class="fl">2.0</span>),  <span class="co"># compound D</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>DEFAULT_NOISE <span class="op">=</span> <span class="fl">0.05</span>  <span class="co"># Gaussian noise std dev relative to tallest peak</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_spectrum(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    peaks<span class="op">=</span>PEAKS,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>DEFAULT_NOISE,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    n_points<span class="op">=</span>N_POINTS,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    mz_min<span class="op">=</span>MZ_MIN,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    mz_max<span class="op">=</span>MZ_MAX,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (mz, intensity) for a synthetic mass spectrum.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    The signal is a sum of Gaussian peaks, each defined by a</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    (center_mz, height, sigma) triple.  Independent Gaussian noise</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    with standard deviation `noise_scale` is added at every point.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Negative intensities are clipped to zero.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    mz <span class="op">=</span> np.linspace(mz_min, mz_max, n_points)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.zeros(n_points)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> center, height, sigma <span class="kw">in</span> peaks:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        intensity <span class="op">+=</span> height <span class="op">*</span> np.exp(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> center) <span class="op">/</span> sigma) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">+=</span> rng.normal(<span class="fl">0.0</span>, noise_scale, n_points)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.maximum(intensity, <span class="fl">0.0</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mz, intensity</span></code></pre></div>
 <h2 data-number="14.3" id="smoothing"><span class="header-section-number">14.3</span> Smoothing</h2>
 <ul>
 <li>Noise causes random local maxima that look like peaks but carry no chemical information</li>
@@ -97,15 +97,15 @@ DEFAULT_NOISE <span class="op">=</span> <span class="fl">0.05</span>  <span clas
 <ul>
 <li>Smoothing attenuates noise without shifting peak positions as long as <span class="math inline">\(w\)</span> is small relative to the peak width</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> smooth(intensity, window<span class="op">=</span>SMOOTH_WINDOW):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the moving-average of `intensity` over `window` points.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses np.convolve with mode='same', which zero-pads at both ends.</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The first and last floor(window/2) values are therefore attenuated;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    this is acceptable because real spectra rarely have peaks at the</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    very edge of the m/z range.</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    kernel <span class="op">=</span> np.ones(window) <span class="op">/</span> window</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.convolve(intensity, kernel, mode<span class="op">=</span><span class="st">"same"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> smooth(intensity, window<span class="op">=</span>SMOOTH_WINDOW):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the moving-average of `intensity` over `window` points.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses np.convolve with mode='same', which zero-pads at both ends.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The first and last floor(window/2) values are therefore attenuated;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    this is acceptable because real spectra rarely have peaks at the</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    very edge of the m/z range.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    kernel <span class="op">=</span> np.ones(window) <span class="op">/</span> window</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.convolve(intensity, kernel, mode<span class="op">=</span><span class="st">"same"</span>)</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>The noise standard deviation before smoothing is <span class="math inline">\(\sigma_\text{noise} = 0.05\)</span>. After applying a moving-average filter with window w = 5, what is the approximate standard deviation of the smoothed noise?</p>
 <dl>
@@ -133,30 +133,30 @@ Wrong: smoothing reduces noise, not increases it.
 <li>A single broad peak can produce several adjacent local maxima after smoothing</li>
 <li><a href="../glossary/index.html#non_maximum_suppression">Non-maximum suppression</a> keeps only the tallest candidate within a window of <code>min_distance</code> index positions</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_peaks(mz, intensity, threshold<span class="op">=</span>THRESHOLD, min_distance<span class="op">=</span>MIN_DISTANCE):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the m/z positions of peaks in `intensity`.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    A candidate peak must satisfy two conditions:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    1. Its smoothed intensity exceeds `threshold`.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    2. It is a strict local maximum (greater than both neighbours).</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    When two candidates are within `min_distance` indices of each other,</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    only the taller one is kept.  This non-maximum suppression prevents</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    a single broad peak from being reported multiple times.</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 1: strict local maxima above threshold.</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    is_max <span class="op">=</span> (intensity[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> intensity[:<span class="op">-</span><span class="dv">2</span>]) <span class="op">&amp;</span> (intensity[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> intensity[<span class="dv">2</span>:])</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    above <span class="op">=</span> intensity[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> threshold</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    candidates <span class="op">=</span> np.where(is_max <span class="op">&amp;</span> above)[<span class="dv">0</span>] <span class="op">+</span> <span class="dv">1</span>  <span class="co"># +1: offset for the slice</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(candidates) <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array([])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 2: non-maximum suppression — greedily keep tallest in each neighbourhood.</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    order <span class="op">=</span> np.argsort(<span class="op">-</span>intensity[candidates])</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    kept <span class="op">=</span> []</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> order:</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> candidates[i]</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">all</span>(<span class="bu">abs</span>(idx <span class="op">-</span> k) <span class="op">&gt;=</span> min_distance <span class="cf">for</span> k <span class="kw">in</span> kept):</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            kept.append(idx)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    kept.sort()</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mz[np.array(kept)]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_peaks(mz, intensity, threshold<span class="op">=</span>THRESHOLD, min_distance<span class="op">=</span>MIN_DISTANCE):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the m/z positions of peaks in `intensity`.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    A candidate peak must satisfy two conditions:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    1. Its smoothed intensity exceeds `threshold`.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    2. It is a strict local maximum (greater than both neighbours).</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    When two candidates are within `min_distance` indices of each other,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    only the taller one is kept.  This non-maximum suppression prevents</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    a single broad peak from being reported multiple times.</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 1: strict local maxima above threshold.</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    is_max <span class="op">=</span> (intensity[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> intensity[:<span class="op">-</span><span class="dv">2</span>]) <span class="op">&amp;</span> (intensity[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> intensity[<span class="dv">2</span>:])</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    above <span class="op">=</span> intensity[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> threshold</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    candidates <span class="op">=</span> np.where(is_max <span class="op">&amp;</span> above)[<span class="dv">0</span>] <span class="op">+</span> <span class="dv">1</span>  <span class="co"># +1: offset for the slice</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(candidates) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array([])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 2: non-maximum suppression — greedily keep tallest in each neighbourhood.</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    order <span class="op">=</span> np.argsort(<span class="op">-</span>intensity[candidates])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    kept <span class="op">=</span> []</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> order:</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> candidates[i]</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">all</span>(<span class="bu">abs</span>(idx <span class="op">-</span> k) <span class="op">&gt;=</span> min_distance <span class="cf">for</span> k <span class="kw">in</span> kept):</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            kept.append(idx)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    kept.sort()</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mz[np.array(kept)]</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put these peak-detection steps in the correct order.</p>
 <ol type="1">
@@ -210,7 +210,21 @@ Figure&nbsp;14.1: Synthetic spectrum with four compounds. Grey: raw signal. Blue
 <ul>
 <li>The same detector, with the same threshold, applied to a spectrum that contains no signal at all produces false peaks</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>DEFAULT_NOISE,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    n_points<span class="op">=</span>N_POINTS,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    mz_min<span class="op">=</span>MZ_MIN,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    mz_max<span class="op">=</span>MZ_MAX,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (mz, intensity) containing only Gaussian noise, no signal peaks.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    This is used to demonstrate the false-positive behaviour of the</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    peak detector when the threshold is set too low.</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    mz <span class="op">=</span> np.linspace(mz_min, mz_max, n_points)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.maximum(rng.normal(<span class="fl">0.0</span>, noise_scale, n_points), <span class="fl">0.0</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mz, intensity</span></code></pre></div>
 <div id="fig-massspec-noise" class="quarto-float quarto-figure quarto-figure-center" alt="Pure-noise spectrum with 9 false peaks marked by red vertical lines.">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-massspec-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -232,15 +246,15 @@ Figure&nbsp;14.2: Pure Gaussian noise (no signal) smoothed and searched with a t
 <li>Fewer than one point in 100,000 exceeds it by chance, making false positives negligible for a 500-point spectrum</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SMOOTH_WINDOW <span class="op">=</span> <span class="dv">5</span>  <span class="co"># number of points in the moving-average filter;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wide enough to suppress point-to-point noise,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># narrow enough not to blur nearby peaks</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>THRESHOLD <span class="op">=</span> <span class="fl">0.10</span>  <span class="co"># minimum smoothed intensity to be reported as a peak;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># chosen to be roughly 2× the smoothed-noise standard</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># deviation (see "Choosing the threshold" in lesson)</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>MIN_DISTANCE <span class="op">=</span> <span class="dv">15</span>  <span class="co"># minimum index separation between reported peaks;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># at 500 points over 500 Da this equals 1 Da per index,</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># so MIN_DISTANCE = 15 means peaks must be ≥ 15 Da apart</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SMOOTH_WINDOW <span class="op">=</span> <span class="dv">5</span>  <span class="co"># number of points in the moving-average filter;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wide enough to suppress point-to-point noise,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># narrow enough not to blur nearby peaks</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>THRESHOLD <span class="op">=</span> <span class="fl">0.10</span>  <span class="co"># minimum smoothed intensity to be reported as a peak;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># chosen to be roughly 2× the smoothed-noise standard</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># deviation (see "Choosing the threshold" in lesson)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>MIN_DISTANCE <span class="op">=</span> <span class="dv">15</span>  <span class="co"># minimum index separation between reported peaks;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># at 500 points over 500 Da this equals 1 Da per index,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># so MIN_DISTANCE = 15 means peaks must be ≥ 15 Da apart</span></span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>The noise figure shows 9 false peaks at threshold 0.04 and 0 false peaks at threshold 0.10. What is the most important conclusion?</p>
 <dl>
@@ -293,72 +307,71 @@ The test constructs two well-separated Gaussians (10 Da apart, sigma = 2 Da) tha
 Running the detector on pure noise at a low threshold must return at least one false peak, confirming the expected false-positive behaviour. Running at the operating threshold must return none, confirming it is set high enough.
 </dd>
 </dl>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_spectrum <span class="im">import</span> make_spectrum, make_pure_noise, PEAKS, DEFAULT_NOISE</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> massspec <span class="im">import</span> smooth, detect_peaks, SMOOTH_WINDOW, THRESHOLD</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_constant():</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing a constant signal must return the same constant everywhere.</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.full(<span class="dv">50</span>, <span class="fl">3.7</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> smooth(intensity, window<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Edges are zero-padded by convolve mode='same'; only test the interior.</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    interior <span class="op">=</span> result[SMOOTH_WINDOW <span class="op">//</span> <span class="dv">2</span> : <span class="op">-</span>(SMOOTH_WINDOW <span class="op">//</span> <span class="dv">2</span>)]</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(interior, <span class="fl">3.7</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_reduces_variance():</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing must reduce point-to-point variance.</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">200</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(noise, window<span class="op">=</span><span class="dv">7</span>).var() <span class="op">&lt;</span> noise.var()</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_preserves_length():</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.ones(<span class="dv">123</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(smooth(intensity, window<span class="op">=</span><span class="dv">5</span>)) <span class="op">==</span> <span class="dv">123</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_detect_known_peaks():</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The detector must find all four compound peaks within 5 Da of their true centers.</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tolerance of 5 Da is well above the grid spacing (1 Da) and well below</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the separation between any two peaks (&gt; 100 Da).</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_spectrum()</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_peaks(mz, smooth(raw))</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    true_centers <span class="op">=</span> np.array([p[<span class="dv">0</span>] <span class="cf">for</span> p <span class="kw">in</span> PEAKS])</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detected) <span class="op">==</span> <span class="bu">len</span>(true_centers), (</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Expected </span><span class="sc">{</span><span class="bu">len</span>(true_centers)<span class="sc">}</span><span class="ss"> peaks, got </span><span class="sc">{</span><span class="bu">len</span>(detected)<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> center, found <span class="kw">in</span> <span class="bu">zip</span>(true_centers, detected):</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">abs</span>(found <span class="op">-</span> center) <span class="op">&lt;=</span> <span class="fl">5.0</span>, (</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Peak at </span><span class="sc">{</span>center<span class="sc">}</span><span class="ss"> Da detected at </span><span class="sc">{</span>found<span class="sc">:.1f}</span><span class="ss"> Da (&gt; 5 Da error)"</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_no_peaks_below_threshold():</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A threshold above all intensities must return no peaks.</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_spectrum()</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_peaks(mz, smooth(raw), threshold<span class="op">=</span><span class="fl">999.0</span>)</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detected) <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_min_distance_suppresses_duplicates():</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use a 101-point grid (1 Da per index) so index distance equals Da distance.</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Peaks at 50 and 60 Da are 10 indices apart and have distinct local maxima.</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># min_distance=12 merges them to the taller one; min_distance=5 keeps both.</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    mz <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">101</span>)</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.exp(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> <span class="dv">50</span>) <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> <span class="fl">0.9</span> <span class="op">*</span> np.exp(</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> <span class="dv">60</span>) <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    one <span class="op">=</span> detect_peaks(mz, intensity, threshold<span class="op">=</span><span class="fl">0.1</span>, min_distance<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    two <span class="op">=</span> detect_peaks(mz, intensity, threshold<span class="op">=</span><span class="fl">0.1</span>, min_distance<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(one) <span class="op">==</span> <span class="dv">1</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(two) <span class="op">==</span> <span class="dv">2</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_produces_false_positives():</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Running the detector on pure noise with a threshold close to the noise</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># floor must produce false positives, demonstrating that threshold choice</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># matters.  The smoothed-noise std dev is DEFAULT_NOISE / sqrt(SMOOTH_WINDOW)</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ≈ 0.022.  A threshold of 0.04 (~1.8 sigma) should yield several false peaks.</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_pure_noise(noise_scale<span class="op">=</span>DEFAULT_NOISE)</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    smoothed <span class="op">=</span> smooth(raw)</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    low_threshold <span class="op">=</span> <span class="fl">0.04</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    false_peaks <span class="op">=</span> detect_peaks(mz, smoothed, threshold<span class="op">=</span>low_threshold)</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(false_peaks) <span class="op">&gt;</span> <span class="dv">0</span>, (</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Expected false positives from pure noise at a low threshold"</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And at the normal threshold, noise alone must not trigger any peaks.</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detect_peaks(mz, smoothed, threshold<span class="op">=</span>THRESHOLD)) <span class="op">==</span> <span class="dv">0</span>, (</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Normal threshold should reject all noise peaks"</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
-<section class="exercises">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_spectrum <span class="im">import</span> make_spectrum, make_pure_noise, PEAKS, DEFAULT_NOISE</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> massspec <span class="im">import</span> smooth, detect_peaks, SMOOTH_WINDOW, THRESHOLD</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_constant():</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing a constant signal must return the same constant everywhere.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.full(<span class="dv">50</span>, <span class="fl">3.7</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> smooth(intensity, window<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Edges are zero-padded by convolve mode='same'; only test the interior.</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    interior <span class="op">=</span> result[SMOOTH_WINDOW <span class="op">//</span> <span class="dv">2</span> : <span class="op">-</span>(SMOOTH_WINDOW <span class="op">//</span> <span class="dv">2</span>)]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(interior, <span class="fl">3.7</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_reduces_variance():</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Smoothing must reduce point-to-point variance.</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">200</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> smooth(noise, window<span class="op">=</span><span class="dv">7</span>).var() <span class="op">&lt;</span> noise.var()</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_preserves_length():</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.ones(<span class="dv">123</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(smooth(intensity, window<span class="op">=</span><span class="dv">5</span>)) <span class="op">==</span> <span class="dv">123</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_detect_known_peaks():</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The detector must find all four compound peaks within 5 Da of their true centers.</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tolerance of 5 Da is well above the grid spacing (1 Da) and well below</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the separation between any two peaks (&gt; 100 Da).</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_spectrum()</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_peaks(mz, smooth(raw))</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    true_centers <span class="op">=</span> np.array([p[<span class="dv">0</span>] <span class="cf">for</span> p <span class="kw">in</span> PEAKS])</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detected) <span class="op">==</span> <span class="bu">len</span>(true_centers), (</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Expected </span><span class="sc">{</span><span class="bu">len</span>(true_centers)<span class="sc">}</span><span class="ss"> peaks, got </span><span class="sc">{</span><span class="bu">len</span>(detected)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> center, found <span class="kw">in</span> <span class="bu">zip</span>(true_centers, detected):</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">abs</span>(found <span class="op">-</span> center) <span class="op">&lt;=</span> <span class="fl">5.0</span>, (</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Peak at </span><span class="sc">{</span>center<span class="sc">}</span><span class="ss"> Da detected at </span><span class="sc">{</span>found<span class="sc">:.1f}</span><span class="ss"> Da (&gt; 5 Da error)"</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_no_peaks_below_threshold():</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A threshold above all intensities must return no peaks.</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_spectrum()</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    detected <span class="op">=</span> detect_peaks(mz, smooth(raw), threshold<span class="op">=</span><span class="fl">999.0</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detected) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_min_distance_suppresses_duplicates():</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use a 101-point grid (1 Da per index) so index distance equals Da distance.</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Peaks at 50 and 60 Da are 10 indices apart and have distinct local maxima.</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># min_distance=12 merges them to the taller one; min_distance=5 keeps both.</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    mz <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">101</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.exp(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> <span class="dv">50</span>) <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> <span class="fl">0.9</span> <span class="op">*</span> np.exp(</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> ((mz <span class="op">-</span> <span class="dv">60</span>) <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    one <span class="op">=</span> detect_peaks(mz, intensity, threshold<span class="op">=</span><span class="fl">0.1</span>, min_distance<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>    two <span class="op">=</span> detect_peaks(mz, intensity, threshold<span class="op">=</span><span class="fl">0.1</span>, min_distance<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(one) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(two) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_produces_false_positives():</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Running the detector on pure noise with a threshold close to the noise</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># floor must produce false positives, demonstrating that threshold choice</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># matters.  The smoothed-noise std dev is DEFAULT_NOISE / sqrt(SMOOTH_WINDOW)</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ≈ 0.022.  A threshold of 0.04 (~1.8 sigma) should yield several false peaks.</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    mz, raw <span class="op">=</span> make_pure_noise(noise_scale<span class="op">=</span>DEFAULT_NOISE)</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    smoothed <span class="op">=</span> smooth(raw)</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    low_threshold <span class="op">=</span> <span class="fl">0.04</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>    false_peaks <span class="op">=</span> detect_peaks(mz, smoothed, threshold<span class="op">=</span>low_threshold)</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(false_peaks) <span class="op">&gt;</span> <span class="dv">0</span>, (</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Expected false positives from pure noise at a low threshold"</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And at the normal threshold, noise alone must not trigger any peaks.</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(detect_peaks(mz, smoothed, threshold<span class="op">=</span>THRESHOLD)) <span class="op">==</span> <span class="dv">0</span>, (</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Normal threshold should reject all noise peaks"</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <h2 data-number="14.7" id="exercises"><span class="header-section-number">14.7</span> Exercises</h2>
 <h3 data-number="14.7.1" id="savitzky-golay-filter"><span class="header-section-number">14.7.1</span> Savitzky-Golay filter</h3>
 <p>Replace the moving-average smoother with a Savitzky-Golay filter, which fits a low-degree polynomial to each window rather than taking a plain mean. The advantage is that the filter preserves peak heights more accurately. Use <code>scipy.signal.savgol_filter</code> and compare the peak positions and heights it reports to those from the moving-average filter on the same synthetic spectrum.</p>
@@ -368,7 +381,6 @@ Running the detector on pure noise at a low threshold must return at least one f
 <p>The area under a Gaussian peak is <span class="math inline">\(h \sigma \sqrt{2\pi}\)</span> and is proportional to compound abundance. After detecting each peak, fit a Gaussian to the smoothed signal in a small window around it using <code>scipy.optimize.curve_fit</code> and report the fitted height, center, and area. Compare the fitted values to the ground truth in <code>PEAKS</code>.</p>
 <h3 data-number="14.7.4" id="receiver-operating-characteristic"><span class="header-section-number">14.7.4</span> Receiver operating characteristic</h3>
 <p>Use <code>make_pure_noise</code> to generate 200 noise-only spectra and <code>make_spectrum</code> to generate 200 signal spectra. For each, record whether the detector finds at least one peak. Sweep the threshold from 0.01 to 0.30 and plot the ROC curve (true positive rate vs. false positive rate). Report the threshold that maximises the F1 score.</p>
-</section>
 
 </main>
 <footer class="page-footer">

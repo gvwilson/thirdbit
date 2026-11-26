@@ -4,30 +4,8 @@
   <title>Flood Frequency Analysis</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -136,7 +114,16 @@ Wrong: dividing the log-mean by the log-standard-deviation has no statistical in
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return periods of interest (years).  A T-year flood has probability</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1/T of being exceeded in any given year.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>RETURN_PERIODS <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_lognormal(flows):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Estimate log-normal parameters by the method of moments.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    For a log-normal distribution, ln(X) ~ Normal(mu_y, sigma_y).</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The method-of-moments estimates are simply the sample mean and</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    sample standard deviation of the log-transformed flows.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    log_flows <span class="op">=</span> np.log(flows)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    mu_y <span class="op">=</span> <span class="bu">float</span>(np.mean(log_flows))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    sigma_y <span class="op">=</span> <span class="bu">float</span>(np.std(log_flows, ddof<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mu_y, sigma_y</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put these steps in the correct order for method-of-moments estimation of log-normal parameters.</p>
 <ol type="1">
@@ -155,7 +142,16 @@ Wrong: dividing the log-mean by the log-standard-deviation has no statistical in
 <ul>
 <li>Here, <span class="math inline">\(z_p = \Phi^{-1}(p)\)</span> is the standard normal quantile at probability <span class="math inline">\(p\)</span>, computed with <code>scipy.stats.norm.ppf</code>.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> return_level(mu_y, sigma_y, T):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the flood magnitude exceeded on average once every T years.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The T-year return level is the quantile at non-exceedance probability</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    p = 1 - 1/T.  For the log-normal distribution:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">      x_T = exp(mu_y + z_p * sigma_y)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    where z_p = norm.ppf(p) is the standard normal quantile at probability p.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> <span class="fl">1.0</span> <span class="op">-</span> <span class="fl">1.0</span> <span class="op">/</span> T</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    z_p <span class="op">=</span> norm.ppf(p)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.exp(mu_y <span class="op">+</span> z_p <span class="op">*</span> sigma_y)</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>A community’s flood barrier is designed for the 100-year return level. Over the next 100 years, what is the probability that the barrier is overtopped at least once?</p>
 <dl>
@@ -183,7 +179,19 @@ Wrong: the return period T such that P(at least one exceedance in T years) = 0.5
 <li>The <a href="../glossary/index.html#weibull_plotting_position">Weibull plotting position</a> <span class="math inline">\(p_i = i/(n+1)\)</span> assigns a non-exceedance probability to each ranked observation without assuming a specific distribution</li>
 <li>The theoretical normal quantile <span class="math inline">\(z_i = \Phi^{-1}(p_i)\)</span> linearises the log-normal CDF: if <span class="math inline">\(\ln X\)</span> is normally distributed, plotting <span class="math inline">\((z_i, \ln x_{(i)})\)</span> gives a straight line</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotting_positions(flows):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (normal_quantiles, sorted_log_flows) for a normal probability plot.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Ranks observations from smallest to largest and assigns Weibull</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    plotting positions p_i = i / (n + 1).  The theoretical normal quantile</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    z_i = norm.ppf(p_i) linearises the log-normal CDF: if ln(X) is normally</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    distributed, plotting (z_i, ln(x_(i))) gives a straight line.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(flows)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    sorted_log_flows <span class="op">=</span> np.log(np.sort(flows))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    ranks <span class="op">=</span> np.arange(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> ranks <span class="op">/</span> (n <span class="op">+</span> <span class="fl">1.0</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> norm.ppf(p)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> z, sorted_log_flows</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(flows, mu_y, sigma_y):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair normal probability plot (Q-Q plot) for log-flows.</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Points are the empirical log-flows plotted against their theoretical</span></span>
@@ -294,7 +302,6 @@ Figure&nbsp;31.1: Normal probability plot of log-flows. Points are ranked log-ob
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    z, log_q <span class="op">=</span> plotting_positions(flows)</span>
 <span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.isfinite(z).<span class="bu">all</span>(), <span class="st">"normal quantiles contain infinite values"</span></span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> (np.diff(log_q) <span class="op">&gt;=</span> <span class="dv">0</span>).<span class="bu">all</span>(), <span class="st">"log-flows are not sorted ascending"</span></span></code></pre></div>
-<section class="exercises">
 <h2 data-number="31.8" id="exercises"><span class="header-section-number">31.8</span> Exercises</h2>
 <h3 data-number="31.8.1" id="do-the-math"><span class="header-section-number">31.8.1</span> Do the math</h3>
 <p>Using <span class="math inline">\(\hat{\mu}_y = 4.80\)</span> and <span class="math inline">\(\hat{\sigma}_y = 0.40\)</span>, the standard normal quantile at <span class="math inline">\(p = 0.99\)</span> is <span class="math inline">\(z_{0.99} \approx 2.3263\)</span>. Compute the 100-year return level <span class="math inline">\(x_{100} = \exp(4.80 + 2.3263 \times 0.40)\)</span>. Give your answer in m^3/s, rounded to one decimal place.</p>
@@ -306,7 +313,6 @@ Figure&nbsp;31.1: Normal probability plot of log-flows. Points are ranked log-ob
 <p>The log-normal is one of several distributions used in hydrology; the Pearson Type III (a three-parameter gamma family) is another common choice. Use <code>scipy.stats.pearson3.fit</code> to fit the Pearson Type III distribution to the log-flows and compare its 100-year return level with the log-normal estimate. Which distribution fits the Q-Q plot more closely?</p>
 <h3 data-number="31.8.5" id="annual-maxima-from-daily-data"><span class="header-section-number">31.8.5</span> Annual maxima from daily data</h3>
 <p>Generate a synthetic series of daily flows for 50 years as the exponent of a first-order autoregressive process: <span class="math inline">\(\ln Q_t = \phi \ln Q_{t-1} + \varepsilon_t\)</span> with <span class="math inline">\(\phi = 0.8\)</span> and <span class="math inline">\(\varepsilon_t \sim \text{Normal}(0, 0.2)\)</span>. Extract the annual maximum from each year. Fit the log-normal distribution to the maxima and plot the result on a normal probability plot. How does the quality of the fit compare to the case where the data were drawn directly from a log-normal distribution?</p>
-</section>
 
 </main>
 <footer class="page-footer">

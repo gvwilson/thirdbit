@@ -4,30 +4,8 @@
   <title>Wealth Inequality in an Exchange Economy</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -342,7 +320,6 @@ Random exchange rule in which the poorer agent transfers a random fraction of th
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="16.7" id="exercises"><span class="header-section-number">16.7</span> Exercises</h2>
 <h3 data-number="16.7.1" id="do-the-math"><span class="header-section-number">16.7.1</span> Do the math</h3>
 <p>Three agents hold 1, 1, and 1 unit of wealth respectively. Using the formula <span class="math inline">\(G = (2\sum i\,w_{(i)} - (n+1)\sum w) / (n\sum w)\)</span> with <span class="math inline">\(n=3\)</span>, compute the Gini coefficient.</p>
@@ -354,7 +331,6 @@ Random exchange rule in which the poorer agent transfers a random fraction of th
 <p>Add a “redistribution step” every 100 exchanges: take 10% of the total wealth held by the top decile (wealthiest 10% of agents) and distribute it equally to all agents. How does this change the trajectory and steady-state Gini?</p>
 <h3 data-number="16.7.5" id="symmetric-exchange-rule"><span class="header-section-number">16.7.5</span> Symmetric exchange rule</h3>
 <p>Change the transfer rule: instead of the poorer agent transferring a fraction of their own wealth, both agents contribute a fraction of their own wealth to a pool and the pool is split 50/50. Show that total wealth is still conserved under this rule, then compare the resulting Gini trajectory to the original yardsale model.</p>
-</section>
 
 </main>
 <footer class="page-footer">

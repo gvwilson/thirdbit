@@ -4,30 +4,8 @@
   <title>Word Frequency Change Over Time</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -332,7 +310,6 @@ In this context, <span class="math inline">\(\hat{\beta}_w = \sum_d (d-\bar{d})(
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="21.9" id="exercises"><span class="header-section-number">21.9</span> Exercises</h2>
 <h3 data-number="21.9.1" id="do-the-math"><span class="header-section-number">21.9.1</span> Do the math</h3>
 <ol type="1">
@@ -347,7 +324,6 @@ In this context, <span class="math inline">\(\hat{\beta}_w = \sum_d (d-\bar{d})(
 <p>Instead of absolute frequency, use the rank of each target word within each decade (rank 1 = most frequent). Compute the rank-change slope and compare it to the frequency-change slope. In which cases do they agree and in which do they diverge?</p>
 <h3 data-number="21.9.5" id="real-corpus-application"><span class="header-section-number">21.9.5</span> Real corpus application</h3>
 <p>Download word-frequency data for two contrasting words from a public corpus such as Google Ngrams. Normalize by total token count per year, aggregate to decades, and apply <code>linear_trend</code>. Does the recovered slope match the visual trend in the trajectory plot?</p>
-</section>
 
 </main>
 <footer class="page-footer">

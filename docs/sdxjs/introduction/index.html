@@ -1,283 +1,140 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Introduction</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Introduction</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxjs</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a class="active" href="../introduction/">Introduction</a></li>
-<li><a href="../sysprog/">Systems Programming</a></li>
-<li><a href="../async/">Asynchronous Programming</a></li>
-<li><a href="../test/">Unit Testing</a></li>
-<li><a href="../backup/">File Backup</a></li>
-<li><a href="../table/">Data Tables</a></li>
-<li><a href="../glob/">Pattern Matching</a></li>
-<li><a href="../parser/">Parsing Expressions</a></li>
-<li><a href="../templater/">Page Templates</a></li>
-<li><a href="../build/">Build Manager</a></li>
-<li><a href="../layout/">Layout Engine</a></li>
-<li><a href="../interp/">File Interpolator</a></li>
-<li><a href="../loader/">Module Loader</a></li>
-<li><a href="../style/">Style Checker</a></li>
-<li><a href="../codegen/">Code Generator</a></li>
-<li><a href="../docgen/">Documentation Generator</a></li>
-<li><a href="../bundler/">Module Bundler</a></li>
-<li><a href="../packman/">Package Manager</a></li>
-<li><a href="../vm/">Virtual Machine</a></li>
-<li><a href="../debugger/">Debugger</a></li>
-<li><a href="../conclusion/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxjs">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Introduction</h1>
-<p>The best way to learn design is to study examples [<a class="bib-ref" href="../bibliography/#Schon1984">Schon1984</a>, <a class="bib-ref" href="../bibliography/#Petre2016">Petre2016</a>],
-and some of the best examples of software design come from
-the tools programmers use in their own work.
-In these lessons we build small versions of things like file backup systems,
-testing frameworks,
-regular expression matchers,
-and browser layout engines
-both to demystify them
-and to give some insights into how experienced programmers think.
-We draw inspiration from [<a class="bib-ref" href="../bibliography/#Brown2011">Brown2011</a>, <a class="bib-ref" href="../bibliography/#Brown2012">Brown2012</a>, <a class="bib-ref" href="../bibliography/#Brown2016">Brown2016</a>],
-<a href="https://maryrosecook.com/">Mary Rose Cook's</a> <a href="http://gitlet.maryrosecook.com/">Gitlet</a>,
-and the books that introduced the Unix philosophy to an entire generation of programmers
-[<a class="bib-ref" href="../bibliography/#Kernighan1979">Kernighan1979</a>, <a class="bib-ref" href="../bibliography/#Kernighan1981">Kernighan1981</a>, <a class="bib-ref" href="../bibliography/#Kernighan1983">Kernighan1983</a>, <a class="bib-ref" href="../bibliography/#Kernighan1988">Kernighan1988</a>].</p>
-<p>All of the written material in this project can be freely reused
-under the terms of the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons - Attribution - NonCommercial license</a>,
-while all of the software is made available under the terms of
-the <a href="https://firstdonoharm.dev/">Hippocratic License</a>.
-All proceeds from this project will go to support the <a href="https://www.reddoorshelter.ca/">Red Door Family Shelter</a>.</p>
-<h2 id="introduction-audience">Who is our audience?</h2>
-<p>Every lesson should be written with specific learners in mind.
-These three <a href="https://teachtogether.tech/en/index.html#s:process-personas">personas</a> describe ours:</p>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../introduction/index.html">Introduction</a></li><li><a href="../sysprog/index.html">Systems Programming</a></li><li><a href="../async/index.html">Asynchronous Programming</a></li><li><a href="../test/index.html">Unit Testing</a></li><li><a href="../backup/index.html">File Backup</a></li><li><a href="../table/index.html">Data Tables</a></li><li><a href="../glob/index.html">Pattern Matching</a></li><li><a href="../parser/index.html">Parsing Expressions</a></li><li><a href="../templater/index.html">Page Templates</a></li><li><a href="../build/index.html">Build Manager</a></li><li><a href="../layout/index.html">Layout Engine</a></li><li><a href="../interp/index.html">File Interpolator</a></li><li><a href="../loader/index.html">Module Loader</a></li><li><a href="../style/index.html">Style Checker</a></li><li><a href="../codegen/index.html">Code Generator</a></li><li><a href="../docgen/index.html">Documentation Generator</a></li><li><a href="../bundler/index.html">Module Bundler</a></li><li><a href="../packman/index.html">Package Manager</a></li><li><a href="../vm/index.html">Virtual Machine</a></li><li><a href="../debugger/index.html">Debugger</a></li><li><a href="../conclusion/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#introduction-audience" id="toc-introduction-audience"><span class="header-section-number">1.1</span> Who is our audience?</a></li>
+<li><a href="#introduction-contents" id="toc-introduction-contents"><span class="header-section-number">1.2</span> What tools and ideas do we cover?</a></li>
+<li><a href="#introduction-layout" id="toc-introduction-layout"><span class="header-section-number">1.3</span> How are these lessons laid out?</a></li>
+<li><a href="#introduction-history" id="toc-introduction-history"><span class="header-section-number">1.4</span> How did we get here?</a></li>
+<li><a href="#introduction-use" id="toc-introduction-use"><span class="header-section-number">1.5</span> How can people use and contribute to this material?</a></li>
+<li><a href="#introduction-help" id="toc-introduction-help"><span class="header-section-number">1.6</span> Who helped us?</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxjs">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Introduction</h1>
+<p>The best way to learn design is to study examples <span class="citation" data-cites="Schon1984 Petre2016">(<a href="../bibliography/index.html#ref-Schon1984" role="doc-biblioref">Schon 1984</a>; <a href="../bibliography/index.html#ref-Petre2016" role="doc-biblioref">Petre and Hoek 2016</a>)</span>, and some of the best examples of software design come from the tools programmers use in their own work. In these lessons we build small versions of things like file backup systems, testing frameworks, regular expression matchers, and browser layout engines both to demystify them and to give some insights into how experienced programmers think. We draw inspiration from <span class="citation" data-cites="Brown2011 Brown2012 Brown2016">(<a href="../bibliography/index.html#ref-Brown2011" role="doc-biblioref">Brown and Wilson 2011</a>, <a href="../bibliography/index.html#ref-Brown2012" role="doc-biblioref">2012</a>; <a href="../bibliography/index.html#ref-Brown2016" role="doc-biblioref">Brown and DiBernardo 2016</a>)</span>, <a href="https://maryrosecook.com/">Mary Rose Cook’s</a> <a href="http://gitlet.maryrosecook.com/">Gitlet</a>, and the books that introduced the Unix philosophy to an entire generation of programmers <span class="citation" data-cites="Kernighan1979 Kernighan1981 Kernighan1983 Kernighan1988">(<a href="../bibliography/index.html#ref-Kernighan1979" role="doc-biblioref">Kernighan and Plauger 1979</a>, <a href="../bibliography/index.html#ref-Kernighan1981" role="doc-biblioref">1981</a>; <a href="../bibliography/index.html#ref-Kernighan1983" role="doc-biblioref">Kernighan and Pike 1983</a>; <a href="../bibliography/index.html#ref-Kernighan1988" role="doc-biblioref">Kernighan and Ritchie 1988</a>)</span>.</p>
+<p>All of the written material in this project can be freely reused under the terms of the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons - Attribution - NonCommercial license</a>, while all of the software is made available under the terms of the <a href="https://firstdonoharm.dev/">Hippocratic License</a>. All proceeds from this project will go to support the <a href="https://www.reddoorshelter.ca/">Red Door Family Shelter</a>.</p>
+<h2 data-number="1.1" id="introduction-audience"><span class="header-section-number">1.1</span> Who is our audience?</h2>
+<p>Every lesson should be written with specific learners in mind. These three <a href="https://teachtogether.tech/en/index.html#s:process-personas">personas</a> describe ours:</p>
 <ul>
-<li>
-<p>Aïsha started writing VB macros for Excel in an accounting course and never looked back.
-    After spending three years doing front-end JavaScript work
-    she now wants to learn how to build back-end applications.
-    This material will fill in some gaps in her programming knowledge
-    and teach her some common design patterns.</p>
-</li>
-<li>
-<p>Rupinder is studying computer science at college.
-    He has learned a lot about the theory of algorithms,
-    and while he uses Git and unit testing tools in his assignments,
-    he doesn't feel he understands how they work.
-    This material will give him a better understanding of those tools
-    and of how to design new ones.</p>
-</li>
-<li>
-<p>Yim builds mobile apps for a living
-    but also teaches two college courses:
-    one on full-stack web development using JavaScript and Node
-    and another titled "Software Design".
-    They are happy with the former,
-    but frustrated that so many books about the latter subject talk about it in the abstract
-    and use examples that their students can't relate to.
-    This material will fill those gaps
-    and give them starting points for a wide variety of course assignments.</p>
-</li>
+<li><p>Aïsha started writing VB macros for Excel in an accounting course and never looked back. After spending three years doing front-end JavaScript work she now wants to learn how to build back-end applications. This material will fill in some gaps in her programming knowledge and teach her some common design patterns.</p></li>
+<li><p>Rupinder is studying computer science at college. He has learned a lot about the theory of algorithms, and while he uses Git and unit testing tools in his assignments, he doesn’t feel he understands how they work. This material will give him a better understanding of those tools and of how to design new ones.</p></li>
+<li><p>Yim builds mobile apps for a living but also teaches two college courses: one on full-stack web development using JavaScript and Node and another titled “Software Design”. They are happy with the former, but frustrated that so many books about the latter subject talk about it in the abstract and use examples that their students can’t relate to. This material will fill those gaps and give them starting points for a wide variety of course assignments.</p></li>
 </ul>
 <p>Like these three personas, readers should be able to:</p>
 <ul>
-<li>
-<p>Write JavaScript programs using loops, arrays, functions, and classes.</p>
-</li>
-<li>
-<p>Create static web pages using <a class="gl-ref" href="../glossary/#html">HTML</a> and <a class="gl-ref" href="../glossary/#css">CSS</a>.</p>
-</li>
-<li>
-<p>Install Node on their computer
-    and run programs with it from the command line.</p>
-</li>
-<li>
-<p>Use <a href="https://git-scm.com/">Git</a> to save and share files.
-    (It's OK not to know <a href="https://git-man-page-generator.lokaltog.net/">the more obscure commands</a>.)</p>
-</li>
-<li>
-<p>Explain what a <a class="gl-ref" href="../glossary/#tree">tree</a> is and how to process one recursively.
-    (This is the most complicated data structure and algorithm we <em>don't</em> explain.)</p>
-</li>
+<li><p>Write JavaScript programs using loops, arrays, functions, and classes.</p></li>
+<li><p>Create static web pages using <a href="../glossary/index.html#html">HTML</a> and <a href="../glossary/index.html#css">CSS</a>.</p></li>
+<li><p>Install Node on their computer and run programs with it from the command line.</p></li>
+<li><p>Use <a href="https://git-scm.com/">Git</a> to save and share files. (It’s OK not to know <a href="https://git-man-page-generator.lokaltog.net/">the more obscure commands</a>.)</p></li>
+<li><p>Explain what a <a href="../glossary/index.html#tree">tree</a> is and how to process one recursively. (This is the most complicated data structure and algorithm we <em>don’t</em> explain.)</p></li>
 </ul>
-<p>This book can be read on its own or used as a classroom resource.
-If you are looking for a project to do in a software design course,
-adding a tool to those covered here would be fun as well as educational.
-Please see <a class="xref" href="../conclusion/">Chapter 21</a> for more details.</p>
-<h2 id="introduction-contents">What tools and ideas do we cover?</h2>
-<p>Programmers have invented <a href="https://en.wikipedia.org/wiki/Programming_tool">a lot of tools</a> to make their lives easier.
-This volume focuses on a few that individual developers use while writing software;
-we hope future volumes
-will explore those used in the applications that programmers build.</p>
-<p><a class="xref" href="../glossary/">Appendix E</a> defines the terms we introduce in these lessons,
-which in turn define their scope:</p>
+<p>This book can be read on its own or used as a classroom resource. If you are looking for a project to do in a software design course, adding a tool to those covered here would be fun as well as educational. Please see <a href="../conclusion/index.html" class="quarto-xref"><span>Chapter 21</span></a> for more details.</p>
+<h2 data-number="1.2" id="introduction-contents"><span class="header-section-number">1.2</span> What tools and ideas do we cover?</h2>
+<p>Programmers have invented <a href="https://en.wikipedia.org/wiki/Programming_tool">a lot of tools</a> to make their lives easier. This volume focuses on a few that individual developers use while writing software; we hope future volumes will explore those used in the applications that programmers build.</p>
+<p><a href="../glossary/index.html" class="quarto-xref"><span>Appendix E</span></a> defines the terms we introduce in these lessons, which in turn define their scope:</p>
 <ul>
-<li>
-<p>How to process a program like any other piece of text.</p>
-</li>
-<li>
-<p>How to turn a program into a data structure that can be analyzed and modified.</p>
-</li>
-<li>
-<p>What design patterns are and which ones are used most often.</p>
-</li>
-<li>
-<p>How programs are executed and how we can control and inspect their execution.</p>
-</li>
-<li>
-<p>How we can analyze programs' performance in order to make sensible design tradeoffs.</p>
-</li>
-<li>
-<p>How to find and run code modules on the fly.</p>
-</li>
+<li><p>How to process a program like any other piece of text.</p></li>
+<li><p>How to turn a program into a data structure that can be analyzed and modified.</p></li>
+<li><p>What design patterns are and which ones are used most often.</p></li>
+<li><p>How programs are executed and how we can control and inspect their execution.</p></li>
+<li><p>How we can analyze programs’ performance in order to make sensible design tradeoffs.</p></li>
+<li><p>How to find and run code modules on the fly.</p></li>
 </ul>
-<h2 id="introduction-layout">How are these lessons laid out?</h2>
+<h2 data-number="1.3" id="introduction-layout"><span class="header-section-number">1.3</span> How are these lessons laid out?</h2>
 <p>We display JavaScript source code like this:</p>
-<div data-inc="example.js"><span aria-label="Source: introduction/example.js" class="inc-path" role="img" tabindex="0" title="introduction/example.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">thing</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">thing</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<p>Unix <a class="gl-ref" href="../glossary/#shell">shell</a> commands are shown like this:</p>
-<div data-inc="example.sh"><span aria-label="Source: introduction/example.sh" class="inc-path" role="img" tabindex="0" title="introduction/example.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">for</span><span class="w"> </span>filename<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.dat
-<span class="k">do</span>
-<span class="w">    </span>cut<span class="w"> </span>-d<span class="w"> </span>,<span class="w"> </span>-f<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="nv">$filename</span>
-<span class="k">done</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> thing <span class="kw">in</span> collection) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(thing)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Unix <a href="../glossary/index.html#shell">shell</a> commands are shown like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="pp">*</span>.dat</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cut</span> <span class="at">-d</span> , <span class="at">-f</span> 10 <span class="va">$filename</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>and data and output like this:</p>
-<div data-inc="example.out"><span aria-label="Source: introduction/example.out" class="inc-path" role="img" tabindex="0" title="introduction/example.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Package,Releases
+<pre><code>Package,Releases
 0,1
 0-0,0
 0-0-1,1
 00print-lol,2
 00smalinux,0
-01changer,0
-</code></pre></div>
+01changer,0</code></pre>
+<p>We occasionally wrap lines in source code in unnatural ways to make listings fit the printed page, and sometimes use <code>...</code> to show where lines have been omitted. Where we need to break lines of output for the same reason, we end all but the last line with a single backslash <code>\</code>. The full listings are all available in <a href="https://github.com/gvwilson/sdxjs/">our Git repository</a> and <a href="https://stjs.tech/">on our website</a>.</p>
+<p>Finally, we write functions as <code>functionName</code> rather than <code>functionName()</code>; the latter is more common, but people don’t use <code>objectName{}</code> for objects or <code>arrayName[]</code> for arrays, and the empty parentheses makes it hard to tell whether we’re talking about “the function itself” or “a call to the function with no <a href="../glossary/index.html#parameter">parameters</a>”.</p>
+<h2 data-number="1.4" id="introduction-history"><span class="header-section-number">1.4</span> How did we get here?</h2>
+<p>In the early 2000s, the University of Toronto asked <a href="https://third-bit.com/">Greg Wilson</a> to teach an undergraduate course on software architecture. After delivering the course three times he told the university they should cancel it: between them, the dozen textbooks he had purchased with the phrase “software architecture” in their titles devoted a total of less than 30 pages to describing the designs of actual systems.</p>
+<p>Frustrated by that, he and <a href="http://www.praxagora.com/">Andy Oram</a> persuaded some well-known programmers to contribute a chapter each to a collection called <em>Beautiful Code</em> <span class="citation" data-cites="Oram2007">(<a href="../bibliography/index.html#ref-Oram2007" role="doc-biblioref">Oram and Wilson 2007</a>)</span>, which went on to win the Jolt Award in 2007. Entries in the book described everything from figuring out whether three points are on a line to core components of Linux and the software for the Mars Rover, but the breadth that made them fun to read also meant they weren’t particularly useful for teaching.</p>
+<p>To fix that, Greg Wilson, <a href="https://www.amyrhodabrown.com/">Amy Brown</a>, <a href="http://tavisharmstrong.com/">Tavish Armstrong</a>, and <a href="https://mikedebo.com/">Mike DiBernardo</a> edited a four-book series between 2011 and 2016 called <em><a href="https://aosabook.org/">The Architecture of Open Source Applications</a></em>. In the first two volumes, the creators of fifty open source projects described their systems’ designs; the third book explored the performance of those systems, while in the fourth volume contributors built scale models of common tools as a way of demonstrating how those tools worked. These books were closer to what an instructor would need for an undergraduate class on software design, but still not quite right: the intended audience would probably not be familiar with many of the problem domains, and since each author used the programming language of their choice, much of the code would be hard to understand.</p>
+<p><em>Software Tools in JavaScript</em> is meant to address these shortcomings: all of the code is written in one language, and the examples are all tools that programmers use daily. Most of the programs are less than 60 lines long and the longest is less than 200; we believe each chapter can be covered in class in 1-2 hours, while the exercises range in difficulty from a few minutes to a couple of days.</p>
+<h2 data-number="1.5" id="introduction-use"><span class="header-section-number">1.5</span> How can people use and contribute to this material?</h2>
+<p>All of the written material on this site is made available under the Creative Commons - Attribution - NonCommercial 4.0 International license (CC-BY-NC-4.0), while the software is made available under the Hippocratic License. The first allows you to use and remix this material for non-commercial purposes, as-is or in adapted form, provided you cite its original source; the second allows you to use and remix the software on this site provided you do not violate international agreements governing human rights. Please see <a href="../license/index.html" class="quarto-xref"><span>Appendix A</span></a> for details.</p>
+<p>If you would like to improve what we have or add new material, please see the Code of Conduct in <a href="../conduct/index.html" class="quarto-xref"><span>Appendix B</span></a> and the contributor guidelines in <a href="../contributing/index.html" class="quarto-xref"><span>Appendix C</span></a>. If you have questions or would like to use this material in a course, please file an issue in <a href="https://github.com/gvwilson/sdxjs/">our GitHub repository</a> or send us email.</p>
+<h2 data-number="1.6" id="introduction-help"><span class="header-section-number">1.6</span> Who helped us?</h2>
+<p>I am grateful to the creators of <a href="https://www.diagrams.net/">diagrams.net</a>, <a href="https://www.gnu.org/software/emacs/">Emacs</a>, <a href="https://eslint.org/">ESLint</a>, <a href="https://github.com/carpentries/glosario">Glosario</a>, <a href="https://www.gnu.org/software/make/">GNU Make</a>, <a href="https://www.latex-project.org/">LaTeX</a>, <a href="https://nodejs.org/en/">Node</a>, <a href="https://www.npmjs.com/">NPM</a>, <a href="https://standardjs.com/">Standard JS</a>, <a href="https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg">SVG Screenshot</a>, <a href="https://wave.webaim.org/">WAVE</a>, and all the other open source tools used in creating these lessons: if we all give a little, we all get a lot. I would also like to thank Darren McElligott, Evan Schultz, and Juanan Pereira for their feedback; any errors, omissions, or misunderstandings that remain are entirely my fault.</p>
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Brown2016" class="csl-entry" role="listitem">
+Brown, Amy, and Michael DiBernardo, eds. 2016. <em>500 Lines or Less: Experienced Programmers Solve Interesting Problems</em>. Lulu. ISBN 9781329871274.
 </div>
-<p>We occasionally wrap lines in source code in unnatural ways to make listings fit the printed page,
-and sometimes use <code>...</code> to show where lines have been omitted.
-Where we need to break lines of output for the same reason,
-we end all but the last line with a single backslash <code>\</code>.
-The full listings are all available in <a href="https://github.com/gvwilson/sdxjs/">our Git repository</a>
-and <a href="https://stjs.tech/">on our website</a>.</p>
-<p>Finally,
-we write functions as <code>functionName</code> rather than <code>functionName()</code>;
-the latter is more common,
-but people don't use <code>objectName{}</code> for objects or <code>arrayName[]</code> for arrays,
-and the empty parentheses makes it hard to tell
-whether we're talking about "the function itself" or "a call to the function with no <a class="gl-ref" href="../glossary/#parameter">parameters</a>".</p>
-<h2 id="introduction-history">How did we get here?</h2>
-<p>In the early 2000s,
-the University of Toronto asked <a href="https://third-bit.com/">Greg Wilson</a>
-to teach an undergraduate course on software architecture.
-After delivering the course three times he told the university they should cancel it:
-between them,
-the dozen textbooks he had purchased with the phrase "software architecture" in their titles
-devoted a total of less than 30 pages to describing the designs of actual systems.</p>
-<p>Frustrated by that,
-he and <a href="http://www.praxagora.com/">Andy Oram</a> persuaded some well-known programmers to contribute a chapter each
-to a collection called <em>Beautiful Code</em> [<a class="bib-ref" href="../bibliography/#Oram2007">Oram2007</a>],
-which went on to win the Jolt Award in 2007.
-Entries in the book described everything from figuring out whether three points are on a line
-to core components of Linux
-and the software for the Mars Rover,
-but the breadth that made them fun to read
-also meant they weren't particularly useful for teaching.</p>
-<p>To fix that,
-Greg Wilson, <a href="https://www.amyrhodabrown.com/">Amy Brown</a>,
-<a href="http://tavisharmstrong.com/">Tavish Armstrong</a>,
-and <a href="https://mikedebo.com/">Mike DiBernardo</a>
-edited a four-book series between 2011 and 2016 called <em><a href="https://aosabook.org/">The Architecture of Open Source Applications</a></em>.
-In the first two volumes,
-the creators of fifty open source projects described their systems' designs;
-the third book explored the performance of those systems,
-while in the fourth volume contributors built scale models of common tools
-as a way of demonstrating how those tools worked.
-These books were closer to what an instructor would need for an undergraduate class on software design,
-but still not quite right:
-the intended audience would probably not be familiar with many of the problem domains,
-and since each author used the programming language of their choice,
-much of the code would be hard to understand.</p>
-<p><em>Software Tools in JavaScript</em> is meant to address these shortcomings:
-all of the code is written in one language,
-and the examples are all tools that programmers use daily.
-Most of the programs are less than 60 lines long and the longest is less than 200;
-we believe each chapter can be covered in class in 1-2 hours,
-while the exercises range in difficulty from a few minutes to a couple of days.</p>
-<h2 id="introduction-use">How can people use and contribute to this material?</h2>
-<p>All of the written material on this site is made available under the Creative
-Commons - Attribution - NonCommercial 4.0 International license (CC-BY-NC-4.0),
-while the software is made available under the Hippocratic License.  The first
-allows you to use and remix this material for non-commercial purposes, as-is or
-in adapted form, provided you cite its original source; the second allows you to
-use and remix the software on this site provided you do not violate
-international agreements governing human rights. Please see <a class="xref" href="../license/">Appendix A</a>
-for details.</p>
-<p>If you would like to improve what we have or add new material, please see the
-Code of Conduct in <a class="xref" href="../conduct/">Appendix B</a> and the contributor guidelines in
-<a class="xref" href="../contributing/">Appendix C</a>.  If you have questions or would like to use this material in
-a course, please file an issue in <a href="https://github.com/gvwilson/sdxjs/">our GitHub repository</a> or send us email.</p>
-<h2 id="introduction-help">Who helped us?</h2>
-<p>I am grateful to the creators of <a href="https://www.diagrams.net/">diagrams.net</a>,
-<a href="https://www.gnu.org/software/emacs/">Emacs</a>,
-<a href="https://eslint.org/">ESLint</a>,
-<a href="https://github.com/carpentries/glosario">Glosario</a>,
-<a href="https://www.gnu.org/software/make/">GNU Make</a>,
-<a href="https://www.latex-project.org/">LaTeX</a>,
-<a href="https://nodejs.org/en/">Node</a>,
-<a href="https://www.npmjs.com/">NPM</a>,
-<a href="https://standardjs.com/">Standard JS</a>,
-<a href="https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg">SVG Screenshot</a>,
-<a href="https://wave.webaim.org/">WAVE</a>,
-and all the other open source tools used in creating these lessons:
-if we all give a little,
-we all get a lot.
-I would also like to thank Darren McElligott, Evan Schultz, and Juanan Pereira
-for their feedback;
-any errors, omissions, or misunderstandings that remain are entirely my fault.</p>
+<div id="ref-Brown2011" class="csl-entry" role="listitem">
+Brown, Amy, and Greg Wilson, eds. 2011. <em>The Architecture of Open Source Applications: Elegance, Evolution, and a Few Fearless Hacks</em>. Lulu. ISBN 9781257638017.
+</div>
+<div id="ref-Brown2012" class="csl-entry" role="listitem">
+Brown, Amy, and Greg Wilson, eds. 2012. <em>The Architecture of Open Source Applications: Structure, Scale, and a Few More Fearless Hacks</em>. Lulu. ISBN 9780201103427.
+</div>
+<div id="ref-Kernighan1983" class="csl-entry" role="listitem">
+Kernighan, Brian W., and Rob Pike. 1983. <em>The Unix Programming Environment</em>. Prentice-Hall. ISBN 9780139376818.
+</div>
+<div id="ref-Kernighan1979" class="csl-entry" role="listitem">
+Kernighan, Brian W., and P. J. Plauger. 1979. <em>The Elements of Programming Style</em>. McGraw-Hill. ISBN 9780070342071.
+</div>
+<div id="ref-Kernighan1981" class="csl-entry" role="listitem">
+Kernighan, Brian W., and P. J. Plauger. 1981. <em>Software Tools in Pascal</em>. Addison-Wesley Professional. ISBN 9780201103427.
+</div>
+<div id="ref-Kernighan1988" class="csl-entry" role="listitem">
+Kernighan, Brian W., and Dennis M. Ritchie. 1988. <em>The c Programming Language</em>. Prentice-Hall. ISBN 9780131103627.
+</div>
+<div id="ref-Oram2007" class="csl-entry" role="listitem">
+Oram, Andy, and Greg Wilson, eds. 2007. <em>Beautiful Code: Leading Programmers Explain How They Think</em>. O’Reilly. ISBN 9780596510046.
+</div>
+<div id="ref-Petre2016" class="csl-entry" role="listitem">
+Petre, Marian, and André van der Hoek. 2016. <em>Software Design Decoded: 66 Ways Experts Think</em>. MIT Press. ISBN 9780262035187.
+</div>
+<div id="ref-Schon1984" class="csl-entry" role="listitem">
+Schon, Donald A. 1984. <em>The Reflective Practitioner: How Professionals Think in Action</em>. Basic Books. ISBN 9780465068784.
+</div>
+</div>
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-</div>
-<div class="col-6 center">
-<a href="../">sdxjs</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../sysprog/">Systems Programming</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../index.html">← Home</a>
+    <a class="pager-link next" href="../sysprog/index.html">Systems Programming →</a>
+  </nav>
 </footer>
-</body>
-</html>
+
+
+</body></html>

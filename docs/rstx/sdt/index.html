@@ -4,30 +4,8 @@
   <title>Signal Detection Theory Analysis</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -462,7 +440,6 @@ A summary of ROC performance computed using the trapezoidal rule; AUC = 0.5 for 
 <li>It works for any numeric evidence score and any underlying distribution</li>
 </ul></li>
 </ul>
-<section class="exercises">
 <h2 data-number="18.8" id="exercises"><span class="header-section-number">18.8</span> Exercises</h2>
 <h3 data-number="18.8.1" id="do-the-math"><span class="header-section-number">18.8.1</span> Do the math</h3>
 <p>An observer’s evidence scores are identical for signal and noise trials, so their ROC curve follows the diagonal exactly. What is their AUC?</p>
@@ -474,7 +451,6 @@ A summary of ROC performance computed using the trapezoidal rule; AUC = 0.5 for 
 <p>Observer A has evidence scores that follow N(0, 1) for noise and N(1.0, 1) for signal. Observer B has scores that follow N(0, 1) for noise and N(2.0, 1) for signal. Generate 200 trials for each observer (RNG seed 7493418), compute their ROC curves and AUCs, and plot both curves on the same axes. Which observer has the higher AUC and why?</p>
 <h3 data-number="18.8.5" id="trapezoidal-approximation-error"><span class="header-section-number">18.8.5</span> Trapezoidal approximation error</h3>
 <p>The trapezoidal rule is exact only when the curve is piecewise linear. Generate a fine-grained ROC (1 000 signal and 1 000 noise trials) and a coarse-grained ROC (20 signal and 20 noise trials) from the same underlying score distributions. Compare their AUC estimates. How large is the approximation error in the coarse case?</p>
-</section>
 
 </main>
 <footer class="page-footer">

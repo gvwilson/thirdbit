@@ -12,44 +12,45 @@
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#select-rows-within-a-date-range" id="toc-select-rows-within-a-date-range"><span class="header-section-number">15.1</span> Select rows within a date range</a></li>
-<li><a href="#read-a-spreadsheet-with-a-two-row-header" id="toc-read-a-spreadsheet-with-a-two-row-header"><span class="header-section-number">15.2</span> Read a spreadsheet with a two-row header</a></li>
-<li><a href="#combine-two-datasets-on-a-shared-identifier" id="toc-combine-two-datasets-on-a-shared-identifier"><span class="header-section-number">15.3</span> Combine two datasets on a shared identifier</a></li>
-<li><a href="#sort-records-by-date-of-collection" id="toc-sort-records-by-date-of-collection"><span class="header-section-number">15.4</span> Sort records by date of collection</a></li>
-<li><a href="#compute-per-group-statistics-before-filtering" id="toc-compute-per-group-statistics-before-filtering"><span class="header-section-number">15.5</span> Compute per-group statistics before filtering</a></li>
-<li><a href="#debug-a-pipeline-that-fails-at-the-wrong-step" id="toc-debug-a-pipeline-that-fails-at-the-wrong-step"><span class="header-section-number">15.6</span> Debug a pipeline that fails at the wrong step</a></li>
-<li><a href="#read-a-tab-separated-export-from-a-database" id="toc-read-a-tab-separated-export-from-a-database"><span class="header-section-number">15.7</span> Read a tab-separated export from a database</a></li>
-<li><a href="#average-measurements-that-include-missing-values" id="toc-average-measurements-that-include-missing-values"><span class="header-section-number">15.8</span> Average measurements that include missing values</a></li>
-<li><a href="#group-survey-responses-by-category" id="toc-group-survey-responses-by-category"><span class="header-section-number">15.9</span> Group survey responses by category</a></li>
-<li><a href="#smooth-a-noisy-sensor-signal" id="toc-smooth-a-noisy-sensor-signal"><span class="header-section-number">15.10</span> Smooth a noisy sensor signal</a></li>
-<li><a href="#plot-measurement-values-on-a-scatter-chart" id="toc-plot-measurement-values-on-a-scatter-chart"><span class="header-section-number">15.11</span> Plot measurement values on a scatter chart</a></li>
-<li><a href="#color-a-chart-by-a-numeric-category" id="toc-color-a-chart-by-a-numeric-category"><span class="header-section-number">15.12</span> Color a chart by a numeric category</a></li>
-<li><a href="#plot-measurements-collected-over-time" id="toc-plot-measurements-collected-over-time"><span class="header-section-number">15.13</span> Plot measurements collected over time</a></li>
-<li><a href="#add-an-interactive-filter-to-a-chart" id="toc-add-an-interactive-filter-to-a-chart"><span class="header-section-number">15.14</span> Add an interactive filter to a chart</a></li>
-<li><a href="#show-column-values-in-a-chart-tooltip" id="toc-show-column-values-in-a-chart-tooltip"><span class="header-section-number">15.15</span> Show column values in a chart tooltip</a></li>
-<li><a href="#pass-a-polars-dataframe-to-a-chart-library" id="toc-pass-a-polars-dataframe-to-a-chart-library"><span class="header-section-number">15.16</span> Pass a Polars dataframe to a chart library</a></li>
-<li><a href="#check-whether-two-measurements-are-related" id="toc-check-whether-two-measurements-are-related"><span class="header-section-number">15.17</span> Check whether two measurements are related</a></li>
-<li><a href="#process-a-large-file-in-pieces" id="toc-process-a-large-file-in-pieces"><span class="header-section-number">15.18</span> Process a large file in pieces</a></li>
-<li><a href="#facet-a-chart-by-year-of-collection" id="toc-facet-a-chart-by-year-of-collection"><span class="header-section-number">15.19</span> Facet a chart by year of collection</a></li>
-<li><a href="#run-a-notebook-after-restarting-the-kernel" id="toc-run-a-notebook-after-restarting-the-kernel"><span class="header-section-number">15.20</span> Run a notebook after restarting the kernel</a></li>
+<li><a href="#select-rows-within-a-date-range" id="toc-select-rows-within-a-date-range"><span class="header-section-number">14.1</span> Select rows within a date range</a></li>
+<li><a href="#read-a-spreadsheet-with-a-two-row-header" id="toc-read-a-spreadsheet-with-a-two-row-header"><span class="header-section-number">14.2</span> Read a spreadsheet with a two-row header</a></li>
+<li><a href="#combine-two-datasets-on-a-shared-identifier" id="toc-combine-two-datasets-on-a-shared-identifier"><span class="header-section-number">14.3</span> Combine two datasets on a shared identifier</a></li>
+<li><a href="#sort-records-by-date-of-collection" id="toc-sort-records-by-date-of-collection"><span class="header-section-number">14.4</span> Sort records by date of collection</a></li>
+<li><a href="#compute-per-group-statistics-before-filtering" id="toc-compute-per-group-statistics-before-filtering"><span class="header-section-number">14.5</span> Compute per-group statistics before filtering</a></li>
+<li><a href="#debug-a-pipeline-that-fails-at-the-wrong-step" id="toc-debug-a-pipeline-that-fails-at-the-wrong-step"><span class="header-section-number">14.6</span> Debug a pipeline that fails at the wrong step</a></li>
+<li><a href="#read-a-tab-separated-export-from-a-database" id="toc-read-a-tab-separated-export-from-a-database"><span class="header-section-number">14.7</span> Read a tab-separated export from a database</a></li>
+<li><a href="#average-measurements-that-include-missing-values" id="toc-average-measurements-that-include-missing-values"><span class="header-section-number">14.8</span> Average measurements that include missing values</a></li>
+<li><a href="#group-survey-responses-by-category" id="toc-group-survey-responses-by-category"><span class="header-section-number">14.9</span> Group survey responses by category</a></li>
+<li><a href="#smooth-a-noisy-sensor-signal" id="toc-smooth-a-noisy-sensor-signal"><span class="header-section-number">14.10</span> Smooth a noisy sensor signal</a></li>
+<li><a href="#plot-measurement-values-on-a-scatter-chart" id="toc-plot-measurement-values-on-a-scatter-chart"><span class="header-section-number">14.11</span> Plot measurement values on a scatter chart</a></li>
+<li><a href="#color-a-chart-by-a-numeric-category" id="toc-color-a-chart-by-a-numeric-category"><span class="header-section-number">14.12</span> Color a chart by a numeric category</a></li>
+<li><a href="#plot-measurements-collected-over-time" id="toc-plot-measurements-collected-over-time"><span class="header-section-number">14.13</span> Plot measurements collected over time</a></li>
+<li><a href="#add-an-interactive-filter-to-a-chart" id="toc-add-an-interactive-filter-to-a-chart"><span class="header-section-number">14.14</span> Add an interactive filter to a chart</a></li>
+<li><a href="#show-column-values-in-a-chart-tooltip" id="toc-show-column-values-in-a-chart-tooltip"><span class="header-section-number">14.15</span> Show column values in a chart tooltip</a></li>
+<li><a href="#pass-a-polars-dataframe-to-a-chart-library" id="toc-pass-a-polars-dataframe-to-a-chart-library"><span class="header-section-number">14.16</span> Pass a Polars dataframe to a chart library</a></li>
+<li><a href="#check-whether-two-measurements-are-related" id="toc-check-whether-two-measurements-are-related"><span class="header-section-number">14.17</span> Check whether two measurements are related</a></li>
+<li><a href="#process-a-large-file-in-pieces" id="toc-process-a-large-file-in-pieces"><span class="header-section-number">14.18</span> Process a large file in pieces</a></li>
+<li><a href="#facet-a-chart-by-year-of-collection" id="toc-facet-a-chart-by-year-of-collection"><span class="header-section-number">14.19</span> Facet a chart by year of collection</a></li>
+<li><a href="#run-a-notebook-after-restarting-the-kernel" id="toc-run-a-notebook-after-restarting-the-kernel"><span class="header-section-number">14.20</span> Run a notebook after restarting the kernel</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/unbreak">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Data Science</h1>
-<h2 data-number="15.1" id="select-rows-within-a-date-range"><span class="header-section-number">15.1</span> Select rows within a date range</h2>
+<h2 data-number="14.1" id="select-rows-within-a-date-range"><span class="header-section-number">14.1</span> Select rows within a date range</h2>
 <p>Run the script and count the rows returned. Then count by hand how many rows in the CSV should satisfy the condition. Do the two counts agree?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows where value EXCEEDS (strictly greater than) the threshold.</span></span>
@@ -71,7 +72,7 @@ Show explanation
 <p>Shows: how to verify filter logic by checking boundary values and using <code>.filter()</code> with explicit comparison operators.</p>
 <p>To find it: count the matching rows by hand from the CSV, then compare to <code>print(len(df.filter(...)))</code>. If the counts differ by one, check whether the boundary date itself should be included or excluded, and verify whether <code>&gt;=</code> or <code>&gt;</code> is correct.</p>
 </details>
-<h2 data-number="15.2" id="read-a-spreadsheet-with-a-two-row-header"><span class="header-section-number">15.2</span> Read a spreadsheet with a two-row header</h2>
+<h2 data-number="14.2" id="read-a-spreadsheet-with-a-two-row-header"><span class="header-section-number">14.2</span> Read a spreadsheet with a two-row header</h2>
 <p>Run the script and look at the row count and the first few rows of the DataFrame. Do they match the data you expected to load?</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load survey results and report the number of respondents.</span></span>
@@ -92,7 +93,7 @@ Show explanation
 <p>Shows: how to inspect the first few rows of a DataFrame with <code>.head()</code> and how to use <code>skip_rows</code> and <code>has_header</code> to handle non-standard file layouts.</p>
 <p>To find it: print <code>df.head()</code> and compare the first few rows to the raw CSV. If the first “data” row contains what looks like a column header, the loader read one or more header lines as data. Check <code>df.shape[0]</code> against the expected row count.</p>
 </details>
-<h2 data-number="15.3" id="combine-two-datasets-on-a-shared-identifier"><span class="header-section-number">15.3</span> Combine two datasets on a shared identifier</h2>
+<h2 data-number="14.3" id="combine-two-datasets-on-a-shared-identifier"><span class="header-section-number">14.3</span> Combine two datasets on a shared identifier</h2>
 <p>Run the script and examine the <code>mean_amount</code> column in the result. Are there any null values where you did not expect them?</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> pl.DataFrame({</span>
@@ -114,7 +115,7 @@ Show explanation
 <p>Shows: that Polars column names are case-sensitive and how to diagnose null-filled join results.</p>
 <p>To find it: print <code>df1.columns</code> and <code>df2.columns</code> side by side. Look for a column that appears in both but differs by capitalization. A join on mismatched names produces a null-filled column for the unmatched side.</p>
 </details>
-<h2 data-number="15.4" id="sort-records-by-date-of-collection"><span class="header-section-number">15.4</span> Sort records by date of collection</h2>
+<h2 data-number="14.4" id="sort-records-by-date-of-collection"><span class="header-section-number">14.4</span> Sort records by date of collection</h2>
 <p>Run the script and check the schema of the DataFrame. What type does Polars assign to the <code>date</code> column? How many rows does the filter return?</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>CUTOFF <span class="op">=</span> <span class="st">"2024-06-01"</span></span>
@@ -134,7 +135,7 @@ Show explanation
 <p>Shows: how to inspect inferred column types with <code>.schema</code>, and how to cast a column to <code>pl.Date</code> before filtering.</p>
 <p>To find it: print <code>df.schema</code> and check the type of the date column. If it shows <code>String</code> instead of <code>Date</code>, comparisons against a <code>datetime</code> value will return no rows because string comparison is lexicographic, not chronological.</p>
 </details>
-<h2 data-number="15.5" id="compute-per-group-statistics-before-filtering"><span class="header-section-number">15.5</span> Compute per-group statistics before filtering</h2>
+<h2 data-number="14.5" id="compute-per-group-statistics-before-filtering"><span class="header-section-number">14.5</span> Compute per-group statistics before filtering</h2>
 <p>Run the script and compare the output totals to the values in the CSV file. Do the per-region totals make sense?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"aggorder.csv"</span>)</span>
@@ -160,7 +161,7 @@ Show explanation
 <p>Shows: the importance of operation order in lazy and eager pipelines and how to verify intermediate results.</p>
 <p>To find it: break the pipeline into two steps and print the DataFrame after each one. After <code>.sum()</code> alone, you will see a single-row DataFrame — the sum already happened before grouping.</p>
 </details>
-<h2 data-number="15.6" id="debug-a-pipeline-that-fails-at-the-wrong-step"><span class="header-section-number">15.6</span> Debug a pipeline that fails at the wrong step</h2>
+<h2 data-number="14.6" id="debug-a-pipeline-that-fails-at-the-wrong-step"><span class="header-section-number">14.6</span> Debug a pipeline that fails at the wrong step</h2>
 <p>Run the script and read the error message and traceback. Which step in the pipeline does the error appear to come from? Is that where the mistake actually is?</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
@@ -185,7 +186,7 @@ Show explanation
 <p>Shows: how Polars lazy evaluation defers errors and how to use <code>.collect()</code> on intermediate steps to locate the failing transformation.</p>
 <p>To find it: insert <code>.collect()</code> after each transformation step and run the script again. The first step where <code>.collect()</code> raises a <code>ColumnNotFoundError</code> is where the broken reference is — even though the original error appeared only at the final <code>.collect()</code>.</p>
 </details>
-<h2 data-number="15.7" id="read-a-tab-separated-export-from-a-database"><span class="header-section-number">15.7</span> Read a tab-separated export from a database</h2>
+<h2 data-number="14.7" id="read-a-tab-separated-export-from-a-database"><span class="header-section-number">14.7</span> Read a tab-separated export from a database</h2>
 <p>Run the script and examine the column names and values in the combined DataFrame. Are the columns what you expected?</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_a <span class="op">=</span> pl.read_csv(<span class="st">"wrongdelim_a.csv"</span>)</span>
@@ -207,7 +208,7 @@ Show explanation
 <p>Shows: how to check column names and counts before concatenating DataFrames.</p>
 <p>To find it: print <code>df1.columns</code> and <code>df2.columns</code> before the concat. If <code>df2</code> has one column whose name looks like an entire row — e.g., <code>"id;name;value"</code> — the file uses a different delimiter than the one specified.</p>
 </details>
-<h2 data-number="15.8" id="average-measurements-that-include-missing-values"><span class="header-section-number">15.8</span> Average measurements that include missing values</h2>
+<h2 data-number="14.8" id="average-measurements-that-include-missing-values"><span class="header-section-number">14.8</span> Average measurements that include missing values</h2>
 <p>Run the script and look at the mean. Then inspect the raw data. Are there any values in the column that seem unusually large?</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 999 is a sentinel value meaning "no response recorded"; treat as missing.</span></span>
@@ -233,7 +234,7 @@ Show explanation
 <p>Shows: how to identify domain-specific sentinel values and replace them with <code>pl.Null</code> before analysis.</p>
 <p>To find it: print <code>df["measurement"].max()</code>. A suspiciously round large value like <code>999</code> in a column of biological measurements is a sentinel for “not recorded,” not a real reading. Replace it with <code>pl.Null</code> before computing the mean.</p>
 </details>
-<h2 data-number="15.9" id="group-survey-responses-by-category"><span class="header-section-number">15.9</span> Group survey responses by category</h2>
+<h2 data-number="14.9" id="group-survey-responses-by-category"><span class="header-section-number">14.9</span> Group survey responses by category</h2>
 <p>Run the script and count the number of groups produced. Is it more than you expected? Call <code>.unique()</code> on the grouping column and examine what you see.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"whitespace.csv"</span>)</span>
@@ -254,7 +255,7 @@ Show explanation
 <p>Shows: how to inspect unique values with <code>.unique()</code>, use <code>.str.strip_chars()</code> to normalize strings before grouping, and verify group counts.</p>
 <p>To find it: print <code>df["category"].unique()</code> and count the items. If you see <code>"North"</code> and <code>"North "</code> as separate entries, trailing whitespace is causing the split.</p>
 </details>
-<h2 data-number="15.10" id="smooth-a-noisy-sensor-signal"><span class="header-section-number">15.10</span> Smooth a noisy sensor signal</h2>
+<h2 data-number="14.10" id="smooth-a-noisy-sensor-signal"><span class="header-section-number">14.10</span> Smooth a noisy sensor signal</h2>
 <p>Run the script and count the null values in the <code>rolling_mean</code> column. Is the number of null rows what you expected for a 7-day window?</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>WINDOW <span class="op">=</span> <span class="dv">7</span>  <span class="co"># days</span></span>
@@ -284,7 +285,7 @@ Show explanation
 <p>Shows: how rolling aggregations handle incomplete windows and how to choose between strict and lenient behavior with <code>min_periods</code>.</p>
 <p>To find it: print <code>df["rolling_mean"].is_null().sum()</code> to count null values. If the count is much larger than <code>window_size - 1</code>, the window requires more data points than are available for most positions. Setting <code>min_periods=1</code> allows partial windows to produce a result.</p>
 </details>
-<h2 data-number="15.11" id="plot-measurement-values-on-a-scatter-chart"><span class="header-section-number">15.11</span> Plot measurement values on a scatter chart</h2>
+<h2 data-number="14.11" id="plot-measurement-values-on-a-scatter-chart"><span class="header-section-number">14.11</span> Plot measurement values on a scatter chart</h2>
 <p>Run the script and open the saved chart in a browser. Do all the bars have heights that reflect the <code>value</code> column?</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -305,7 +306,7 @@ Show explanation
 <p>Shows: how Altair infers encoding types and why specifying <code>type</code> explicitly avoids silent misinterpretation.</p>
 <p>To find it: open the chart and count the unique bar heights. If every bar is the same height, Altair is counting rows rather than summing values. Call <code>alt.Chart(data).mark_bar().encode(y="value").to_dict()</code> and search for <code>"type"</code> in the output to see what Altair inferred.</p>
 </details>
-<h2 data-number="15.12" id="color-a-chart-by-a-numeric-category"><span class="header-section-number">15.12</span> Color a chart by a numeric category</h2>
+<h2 data-number="14.12" id="color-a-chart-by-a-numeric-category"><span class="header-section-number">14.12</span> Color a chart by a numeric category</h2>
 <p>Run the script and open the saved chart. Does the color scale appear as a continuous gradient, or as a discrete set of colors?</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -329,7 +330,7 @@ Show explanation
 <p>Shows: how data types in the source DataFrame determine Altair’s default encoding choices.</p>
 <p>To find it: print <code>df.schema</code> and check the type of the color column. If it shows <code>String</code> instead of <code>Float64</code>, cast it with <code>.cast(pl.Float64)</code> before charting.</p>
 </details>
-<h2 data-number="15.13" id="plot-measurements-collected-over-time"><span class="header-section-number">15.13</span> Plot measurements collected over time</h2>
+<h2 data-number="14.13" id="plot-measurements-collected-over-time"><span class="header-section-number">14.13</span> Plot measurements collected over time</h2>
 <p>Open the saved chart in a browser. Are the months arranged in chronological order along the x-axis, or in a different order?</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -350,7 +351,7 @@ Show explanation
 <p>Shows: the difference between nominal and temporal encoding in Altair and how to verify axis ordering.</p>
 <p>To find it: open the chart and check whether the x-axis dates are in chronological order. If months appear alphabetically — e.g., April before August before December — rather than in calendar order, check the <code>alt.X(...)</code> call for <code>type=</code>.</p>
 </details>
-<h2 data-number="15.14" id="add-an-interactive-filter-to-a-chart"><span class="header-section-number">15.14</span> Add an interactive filter to a chart</h2>
+<h2 data-number="14.14" id="add-an-interactive-filter-to-a-chart"><span class="header-section-number">14.14</span> Add an interactive filter to a chart</h2>
 <p>Open the saved chart in a browser. Does it show only the categories whose count is 100 or more, or does it show all of them?</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -374,7 +375,7 @@ Show explanation
 <p>Shows: how to debug Altair transforms by inspecting the chart’s JSON specification and checking field names match the data source.</p>
 <p>To find it: call <code>.to_dict()</code> on the chart and search for the field name inside the <code>transform</code> section. Compare it character by character to the actual column name in the DataFrame — a one-character difference silently disables the filter.</p>
 </details>
-<h2 data-number="15.15" id="show-column-values-in-a-chart-tooltip"><span class="header-section-number">15.15</span> Show column values in a chart tooltip</h2>
+<h2 data-number="14.15" id="show-column-values-in-a-chart-tooltip"><span class="header-section-number">14.15</span> Show column values in a chart tooltip</h2>
 <p>Open the saved chart in a browser and hover over a point. Does the <code>Sales Region</code> field in the tooltip show a value?</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -396,7 +397,7 @@ Show explanation
 <p>Shows: how Altair shorthand handles special characters and when to use <code>alt.Tooltip(field=…, title=…)</code> instead.</p>
 <p>To find it: hover over a point in the chart and note which tooltip field shows <code>null</code>. Then print <code>df.columns</code> to find the exact column name. If the name contains a space, the Altair shorthand parser stops at the space and the field is never matched.</p>
 </details>
-<h2 data-number="15.16" id="pass-a-polars-dataframe-to-a-chart-library"><span class="header-section-number">15.16</span> Pass a Polars dataframe to a chart library</h2>
+<h2 data-number="14.16" id="pass-a-polars-dataframe-to-a-chart-library"><span class="header-section-number">14.16</span> Pass a Polars dataframe to a chart library</h2>
 <p>Run the script and open the saved chart in a browser. Does the chart show any data points?</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -417,7 +418,7 @@ Show explanation
 <p>Shows: which data formats Altair accepts natively and how to convert between Polars and the formats Altair supports.</p>
 <p>To find it: print <code>type(df)</code> to confirm it is a Polars <code>DataFrame</code>, then open the chart — if it is blank, Altair did not receive a supported data format. Convert with <code>df.to_pandas()</code> and open the chart again.</p>
 </details>
-<h2 data-number="15.17" id="check-whether-two-measurements-are-related"><span class="header-section-number">15.17</span> Check whether two measurements are related</h2>
+<h2 data-number="14.17" id="check-whether-two-measurements-are-related"><span class="header-section-number">14.17</span> Check whether two measurements are related</h2>
 <p>Run the script and note the correlation value. Then examine how <code>metric_a</code> and <code>metric_b</code> are constructed. Should they really be perfectly correlated?</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.DataFrame({</span>
@@ -437,7 +438,7 @@ Show explanation
 <p>Shows: how to audit column provenance in a pipeline and use scatter plots to sanity-check correlation claims.</p>
 <p>To find it: print the expression used to create each column side by side. If both are derived from <code>df["x"]</code> in the same step, they are the same data. A scatter plot of <code>metric_a</code> vs.&nbsp;<code>metric_b</code> that falls on a perfect diagonal confirms it.</p>
 </details>
-<h2 data-number="15.18" id="process-a-large-file-in-pieces"><span class="header-section-number">15.18</span> Process a large file in pieces</h2>
+<h2 data-number="14.18" id="process-a-large-file-in-pieces"><span class="header-section-number">14.18</span> Process a large file in pieces</h2>
 <p>Run the script on a large file and watch how memory usage changes as the script runs. Does memory stay roughly constant, or does it grow?</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="op">=</span> <span class="dv">2</span>  <span class="co"># rows per chunk</span></span>
@@ -460,7 +461,7 @@ Show explanation
 <p>Shows: streaming versus batch processing patterns and how to use Polars’ <code>scan_csv</code> with lazy evaluation to avoid loading the full file.</p>
 <p>To find it: add <code>import tracemalloc; tracemalloc.start()</code> at the top and print <code>tracemalloc.get_traced_memory()</code> after processing each chunk. If the peak figure grows linearly with the number of chunks, the chunks are being accumulated in memory rather than discarded after each step.</p>
 </details>
-<h2 data-number="15.19" id="facet-a-chart-by-year-of-collection"><span class="header-section-number">15.19</span> Facet a chart by year of collection</h2>
+<h2 data-number="14.19" id="facet-a-chart-by-year-of-collection"><span class="header-section-number">14.19</span> Facet a chart by year of collection</h2>
 <p>Open the saved chart in a browser. How many facet panels does it show? Inspect the type of the <code>year</code> column in the DataFrame.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -485,7 +486,7 @@ Show explanation
 <p>Shows: how to cast integer-like columns to <code>pl.Int32</code> before charting and how to verify facet behavior with a small sample.</p>
 <p>To find it: print <code>df["year"].dtype</code> and <code>df["year"].unique()</code>. If the type is <code>Float64</code> and the values show <code>.0</code> suffixes, cast the column with <code>.cast(pl.Int32)</code> before passing to Altair.</p>
 </details>
-<h2 data-number="15.20" id="run-a-notebook-after-restarting-the-kernel"><span class="header-section-number">15.20</span> Run a notebook after restarting the kernel</h2>
+<h2 data-number="14.20" id="run-a-notebook-after-restarting-the-kernel"><span class="header-section-number">14.20</span> Run a notebook after restarting the kernel</h2>
 <p>Run this script from top to bottom. Does it raise an error? Which line causes the error?</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> pl.read_csv(<span class="st">"filterboundary.csv"</span>)</span>
@@ -502,6 +503,12 @@ Show explanation
 </details>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../fastapi/index.html">← FastAPI</a>
+    <a class="pager-link next" href="../dataviz/index.html">Data Visualization →</a>
+  </nav>
+</footer>
 
 
 </body></html>

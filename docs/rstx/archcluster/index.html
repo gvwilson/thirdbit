@@ -4,30 +4,8 @@
   <title>Spatial Clustering of Archaeological Sites</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -113,7 +91,24 @@ Wrong: in the synthetic data there are 20 noise points and 60 cluster sites, but
 </ul></li>
 <li>Count the number of sites in each cell; the result is a 2D integer array of shape <code>(grid_size, grid_size)</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_grid(coords, region_min, region_max, grid_size):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Count sites per grid cell.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each coordinate is mapped to a cell index by floor division:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        cell = int((value - region_min) / cell_width)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    clipped to [0, grid_size - 1] so that sites exactly on the upper boundary</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    fall in the last cell rather than out of bounds.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a 2D integer array of shape (grid_size, grid_size) where entry</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    [row, col] counts sites whose northing maps to row and easting to col.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    cell_width <span class="op">=</span> (region_max <span class="op">-</span> region_min) <span class="op">/</span> grid_size</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> np.zeros((grid_size, grid_size), dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> easting, northing <span class="kw">in</span> coords:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        col <span class="op">=</span> <span class="bu">int</span>((easting <span class="op">-</span> region_min) <span class="op">/</span> cell_width)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> <span class="bu">int</span>((northing <span class="op">-</span> region_min) <span class="op">/</span> cell_width)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        col <span class="op">=</span> <span class="bu">min</span>(col, grid_size <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> <span class="bu">min</span>(row, grid_size <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        grid[row, col] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> grid</span></code></pre></div>
 <h2 data-number="7.3" id="identifying-concentration-cells"><span class="header-section-number">7.3</span> Identifying Concentration Cells</h2>
 <ul>
 <li>A cell with <code>count &gt;= HOT_THRESHOLD</code> is called a “hot” cell
@@ -126,7 +121,9 @@ Wrong: in the synthetic data there are 20 noise points and 60 cluster sites, but
 </ul></li>
 <li>The Boolean mask of hot cells is straightforward:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_hot_cells(grid, threshold):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Boolean mask: True where count &gt;= threshold."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> grid <span class="op">&gt;=</span> threshold</span></code></pre></div>
 <ul>
 <li>Raising <code>HOT_THRESHOLD</code> requires denser concentrations before a cell qualifies, which can split a real cluster into fragments or eliminate it entirely</li>
 <li>Lowering <code>HOT_THRESHOLD</code> to 1 makes every occupied cell hot, merging isolated noise points into spurious clusters</li>
@@ -158,7 +155,38 @@ Wrong: larger cells aggregate more sites; the tendency is to merge clusters, not
 <li>The same iterative DFS used in the <code>porous</code> lesson labels connected components</li>
 <li>Here it assigns cluster IDs instead of testing for top-to-bottom percolation</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_clusters(hot):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""DFS connected components with 8-connectivity.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Visits every True cell in the boolean mask exactly once, assigning</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    consecutive integer labels starting at 0.  Cells where hot is False</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    receive label -1.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    8-connectivity means each cell has up to 8 neighbors (4 cardinal + 4</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    diagonal), so clusters that touch only at corners are still merged.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns an integer label array of the same shape as hot.</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    nrows, ncols <span class="op">=</span> hot.shape</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.full((nrows, ncols), <span class="op">-</span><span class="dv">1</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    cluster_id <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> start_r <span class="kw">in</span> <span class="bu">range</span>(nrows):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> start_c <span class="kw">in</span> <span class="bu">range</span>(ncols):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> hot[start_r, start_c] <span class="kw">or</span> labels[start_r, start_c] <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Start a new cluster from this unlabelled hot cell.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            stack <span class="op">=</span> [(start_r, start_c)]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            labels[start_r, start_c] <span class="op">=</span> cluster_id</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> stack:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                r, c <span class="op">=</span> stack.pop()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> dr <span class="kw">in</span> (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>):</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> dc <span class="kw">in</span> (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>):</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> dr <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> dc <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">continue</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                        nr, nc <span class="op">=</span> r <span class="op">+</span> dr, c <span class="op">+</span> dc</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nr <span class="op">&lt;</span> nrows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> nc <span class="op">&lt;</span> ncols:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> hot[nr, nc] <span class="kw">and</span> labels[nr, nc] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                                labels[nr, nc] <span class="op">=</span> cluster_id</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                                stack.append((nr, nc))</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            cluster_id <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> labels</span></code></pre></div>
 <ul>
 <li><code>labels</code> is initialized to -1
 <ul>
@@ -202,7 +230,22 @@ Wrong: raising the threshold removes cells from the hot set, so more sites end u
 <li>The site receives the cluster label of its cell</li>
 <li>Sites in background cells receive -1 (noise)</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> assign_labels(coords, cell_labels, region_min, region_max, grid_size):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map each site coordinate to its cluster label.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Applies the same floor-division formula used in build_grid to find which</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    cell each site belongs to, then returns the label for that cell.  Sites</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    whose cell is not hot receive label -1 (noise).</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a 1D integer array of length len(coords).</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    cell_width <span class="op">=</span> (region_max <span class="op">-</span> region_min) <span class="op">/</span> grid_size</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    site_labels <span class="op">=</span> np.empty(<span class="bu">len</span>(coords), dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (easting, northing) <span class="kw">in</span> <span class="bu">enumerate</span>(coords):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        col <span class="op">=</span> <span class="bu">int</span>((easting <span class="op">-</span> region_min) <span class="op">/</span> cell_width)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> <span class="bu">int</span>((northing <span class="op">-</span> region_min) <span class="op">/</span> cell_width)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        col <span class="op">=</span> <span class="bu">min</span>(col, grid_size <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> <span class="bu">min</span>(row, grid_size <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        site_labels[i] <span class="op">=</span> cell_labels[row, col]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> site_labels</span></code></pre></div>
 <ul>
 <li>Sites in hot cells that belong to a small disconnected cluster receive a distinct positive label, not noise</li>
 <li>Two sites in adjacent cells may receive different labels if one cell is hot and the other is not, even if the sites are physically close</li>
@@ -233,7 +276,17 @@ Wrong: the grid method assigns labels by cell membership, not by distance to clu
 <li>The centroid of a cluster is the mean easting and mean northing of all sites assigned to that cluster</li>
 <li>Centroids summarize each cluster’s geographic location and can be compared with known landscape features</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_centroids(coords, labels):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Mean x/y per cluster, excluding noise (label -1).</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a dict mapping each non-negative cluster label to a (easting,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    northing) tuple.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    centroids <span class="op">=</span> {}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    unique_labels <span class="op">=</span> <span class="bu">set</span>(labels[labels <span class="op">&gt;=</span> <span class="dv">0</span>])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> lbl <span class="kw">in</span> unique_labels:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        mask <span class="op">=</span> labels <span class="op">==</span> lbl</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        centroids[lbl] <span class="op">=</span> (coords[mask, <span class="dv">0</span>].mean(), coords[mask, <span class="dv">1</span>].mean())</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> centroids</span></code></pre></div>
 <ul>
 <li>Noise sites (label -1) are excluded from all centroid calculations</li>
 <li>The centroid of a cluster recovered from Gaussian-distributed data should be close to the planted center
@@ -376,7 +429,6 @@ The mean easting and northing of all sites assigned to a cluster; summarizes the
 <li>DBSCAN handles clusters of irregular shape and density without discretizing space</li>
 <li>It requires a more advanced algorithms course.</li>
 </ul>
-<section class="exercises">
 <h2 data-number="7.8" id="exercises"><span class="header-section-number">7.8</span> Exercises</h2>
 <h3 data-number="7.8.1" id="do-the-math"><span class="header-section-number">7.8.1</span> Do the math</h3>
 <ol type="1">
@@ -391,7 +443,6 @@ The mean easting and northing of all sites assigned to a cluster; summarizes the
 <p>Move one planted cluster center 10 units closer to another and regenerate the synthetic data. Do the two clusters merge into one under the default parameters? At what separation distance do they first appear as a single cluster?</p>
 <h3 data-number="7.8.5" id="centroid-error"><span class="header-section-number">7.8.5</span> Centroid error</h3>
 <p>For each recovered cluster, compute the Euclidean distance between its centroid and the nearest planted cluster center. Is the error consistent across all four clusters, or does it vary with cluster size?</p>
-</section>
 
 </main>
 <footer class="page-footer">

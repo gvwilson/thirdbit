@@ -4,30 +4,8 @@
   <title>Vocabulary Richness in Historical Texts</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -299,7 +277,6 @@ The fixed number of tokens in each local TTR window; must be short enough to kee
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="4.8" id="exercises"><span class="header-section-number">4.8</span> Exercises</h2>
 <h3 data-number="4.8.1" id="do-the-math"><span class="header-section-number">4.8.1</span> Do the math</h3>
 <p>A 100-word text contains 60 distinct word types. What is its type-token ratio?</p>
@@ -311,7 +288,6 @@ The fixed number of tokens in each local TTR window; must be short enough to kee
 <p>Download two public-domain texts of very different lengths from Project Gutenberg. Tokenise each into lowercase words (strip punctuation), then compute TTR and MATTR with a 50-word window. Does MATTR correct the length bias visible in TTR?</p>
 <h3 data-number="4.8.5" id="hapax-legomena-rate"><span class="header-section-number">4.8.5</span> Hapax legomena rate</h3>
 <p>A hapax legomenon is a word that appears exactly once in a text. Implement <code>hapax_rate(words)</code> that returns the fraction of total tokens that are hapax legomena. Compare hapax rate with MATTR across the three synthetic authors and discuss whether hapax rate is also length-independent.</p>
-</section>
 
 </main>
 <footer class="page-footer">

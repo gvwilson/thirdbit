@@ -4,30 +4,8 @@
   <title>Exoplanet Detection via Radial Velocity</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -84,14 +62,35 @@ document.addEventListener("DOMContentLoaded", function () {
 <ul>
 <li>Observation times are drawn uniformly at random across the time baseline to simulate a realistic (unevenly spaced) survey schedule</li>
 </ul>
-<p><code class="sourceCode python">SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed</span>
-PERIOD <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># orbital period (days)</span>
-AMPLITUDE <span class="op">=</span> <span class="fl">50.0</span>  <span class="co"># radial-velocity semi-amplitude (m/s)</span>
-PHASE <span class="op">=</span> <span class="fl">0.3</span>  <span class="co"># initial orbital phase (radians)</span>
-V_SYSTEMIC <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># centre-of-mass (systemic) velocity (m/s)</span>
-NOISE_SCALE <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># per-observation measurement noise (m/s); 20% of AMPLITUDE</span>
-N_POINTS <span class="op">=</span> <span class="dv">50</span>  <span class="co"># number of observations</span>
-T_MAX <span class="op">=</span> <span class="fl">30.0</span>  <span class="co"># time baseline (days); spans 3 complete periods</span></code> <code class="sourceCode python"></code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PERIOD <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># orbital period (days)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>AMPLITUDE <span class="op">=</span> <span class="fl">50.0</span>  <span class="co"># radial-velocity semi-amplitude (m/s)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>PHASE <span class="op">=</span> <span class="fl">0.3</span>  <span class="co"># initial orbital phase (radians)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>V_SYSTEMIC <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># centre-of-mass (systemic) velocity (m/s)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>NOISE_SCALE <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># per-observation measurement noise (m/s); 20% of AMPLITUDE</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>N_POINTS <span class="op">=</span> <span class="dv">50</span>  <span class="co"># number of observations</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>T_MAX <span class="op">=</span> <span class="fl">30.0</span>  <span class="co"># time baseline (days); spans 3 complete periods</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_rv_data(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    period<span class="op">=</span>PERIOD,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    amplitude<span class="op">=</span>AMPLITUDE,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    phase<span class="op">=</span>PHASE,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    v_sys<span class="op">=</span>V_SYSTEMIC,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>NOISE_SCALE,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    n_points<span class="op">=</span>N_POINTS,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    t_max<span class="op">=</span>T_MAX,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span>SEED,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (t, rv) for a star hosting one planet.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Observation times are drawn uniformly at random over [0, t_max] to</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    simulate realistic (unevenly spaced) survey data.  Radial velocity is:</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">        v(t) = amplitude * sin(2π t / period + phase) + v_sys + ε</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    where ε ~ N(0, noise_scale²).</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.sort(rng.uniform(<span class="fl">0.0</span>, t_max, n_points))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    signal <span class="op">=</span> amplitude <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> period <span class="op">+</span> phase) <span class="op">+</span> v_sys</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    rv <span class="op">=</span> signal <span class="op">+</span> rng.normal(<span class="fl">0.0</span>, noise_scale, n_points)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> t, rv</span></code></pre></div>
 <h2 data-number="29.4" id="fitting-the-model"><span class="header-section-number">29.4</span> Fitting the Model</h2>
 <ul>
 <li><code>scipy.optimize.curve_fit</code> minimises the sum of squared residuals between the data and <code>model_rv</code>, returning the best-fit parameters and their <a href="../glossary/index.html#covariance_matrix">covariance matrix</a></li>
@@ -102,31 +101,32 @@ T_MAX <span class="op">=</span> <span class="fl">30.0</span>  <span class="co">#
 <li>The period guess assumes roughly three cycles are visible in the baseline</li>
 </ul></li>
 </ul>
-<p><code class="sourceCode python"><span class="kw">def</span> model_rv(t, amplitude, period, phase, v_sys):
-    <span class="co">"""Sinusoidal radial-velocity model for a single planet.</span>
-<span class="co">    v(t) = amplitude * sin(2π t / period + phase) + v_sys</span>
-<span class="co">    """</span>
-    <span class="cf">return</span> amplitude <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> period <span class="op">+</span> phase) <span class="op">+</span> v_sys</code> <code class="sourceCode python"><span class="kw">def</span> fit_sinusoid(t, rv):
-    <span class="co">"""Fit model_rv to the data and return (params, errors).</span>
-<span class="co">    params = [amplitude, period, phase, v_sys]</span>
-<span class="co">    errors = one-standard-deviation uncertainties from the covariance matrix</span>
-<span class="co">    Initial guesses:</span>
-<span class="co">      amplitude ← std(rv) * sqrt(2)   (std of a sinusoid = K / sqrt(2))</span>
-<span class="co">      period    ← time span / 3       (assumes ≈3 cycles are visible)</span>
-<span class="co">      phase     ← 0</span>
-<span class="co">      v_sys     ← mean(rv)</span>
-<span class="co">    Bounds keep amplitude positive and period within [0.5 day, full baseline].</span>
-<span class="co">    """</span>
-    amp_guess <span class="op">=</span> np.std(rv) <span class="op">*</span> np.sqrt(<span class="dv">2</span>)
-    period_guess <span class="op">=</span> (t[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>]) <span class="op">/</span> <span class="fl">3.0</span>
-    p0 <span class="op">=</span> [amp_guess, period_guess, <span class="fl">0.0</span>, np.mean(rv)]
-    bounds <span class="op">=</span> (
-        [<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="op">-</span>np.pi, <span class="op">-</span>np.inf],
-        [np.inf, t[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>], np.pi, np.inf],
-    )
-    popt, pcov <span class="op">=</span> curve_fit(model_rv, t, rv, p0<span class="op">=</span>p0, bounds<span class="op">=</span>bounds, max_nfev<span class="op">=</span><span class="dv">10_000</span>)
-    perr <span class="op">=</span> np.sqrt(np.diag(pcov))
-    <span class="cf">return</span> popt, perr</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_rv(t, amplitude, period, phase, v_sys):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Sinusoidal radial-velocity model for a single planet.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    v(t) = amplitude * sin(2π t / period + phase) + v_sys</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> amplitude <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> period <span class="op">+</span> phase) <span class="op">+</span> v_sys</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_sinusoid(t, rv):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit model_rv to the data and return (params, errors).</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    params = [amplitude, period, phase, v_sys]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    errors = one-standard-deviation uncertainties from the covariance matrix</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Initial guesses:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">      amplitude ← std(rv) * sqrt(2)   (std of a sinusoid = K / sqrt(2))</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">      period    ← time span / 3       (assumes ≈3 cycles are visible)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">      phase     ← 0</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">      v_sys     ← mean(rv)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Bounds keep amplitude positive and period within [0.5 day, full baseline].</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    amp_guess <span class="op">=</span> np.std(rv) <span class="op">*</span> np.sqrt(<span class="dv">2</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    period_guess <span class="op">=</span> (t[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>]) <span class="op">/</span> <span class="fl">3.0</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    p0 <span class="op">=</span> [amp_guess, period_guess, <span class="fl">0.0</span>, np.mean(rv)]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    bounds <span class="op">=</span> (</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        [<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="op">-</span>np.pi, <span class="op">-</span>np.inf],</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        [np.inf, t[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>], np.pi, np.inf],</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    popt, pcov <span class="op">=</span> curve_fit(model_rv, t, rv, p0<span class="op">=</span>p0, bounds<span class="op">=</span>bounds, max_nfev<span class="op">=</span><span class="dv">10_000</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    perr <span class="op">=</span> np.sqrt(np.diag(pcov))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> popt, perr</span></code></pre></div>
 <div class="forma-matching" data-lang="en" data-markdown="1">
 <p>Match each initial-guess formula to the property of a sinusoid it exploits.</p>
 <table class="caption-top">
@@ -175,7 +175,14 @@ Figure&nbsp;29.1: Fifty synthetic observations (noise 10 m/s) with the best-fit 
 <li>If the uncertainty on the fitted amplitude is comparable to or larger than the amplitude itself, the detection is not statistically significant</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise_rv(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>NOISE_SCALE, n_points<span class="op">=</span>N_POINTS, t_max<span class="op">=</span>T_MAX, seed<span class="op">=</span>SEED</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (t, rv) containing only measurement noise, no planetary signal."""</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.sort(rng.uniform(<span class="fl">0.0</span>, t_max, n_points))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    rv <span class="op">=</span> rng.normal(<span class="fl">0.0</span>, noise_scale, n_points)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> t, rv</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>The pure-noise fit returns K = 2.4 m/s with uncertainty <span class="math inline">\(\sigma_K = 2.2\)</span> m/s, so <span class="math inline">\(\sigma_K / K = 0.92\)</span>. What does this mean?</p>
 <dl>
@@ -241,54 +248,54 @@ The measured fractional amplitude error with <code>seed=42</code> is ~2.5%. The 
 A fractional amplitude uncertainty above 0.5 means the fitted amplitude is not distinguishable from zero at the 2-sigma level. This must always hold for pure noise data. A failure would indicate the fit was accidentally converging to a spurious periodic signal in the noise.
 </dd>
 </dl>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_rv <span class="im">import</span> make_rv_data, make_pure_noise_rv, PERIOD, AMPLITUDE</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> radvel <span class="im">import</span> model_rv, fit_sinusoid</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_model_known_values():</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At t=0 with phase=0, the model reduces to v_sys; at t=P/4 to amplitude + v_sys.</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> model_rv(np.array([<span class="fl">0.0</span>]), <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>)[<span class="dv">0</span>] <span class="op">==</span> pytest.approx(<span class="fl">5.0</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> model_rv(np.array([<span class="fl">2.5</span>]), <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>)[<span class="dv">0</span>] <span class="op">==</span> pytest.approx(<span class="fl">50.0</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_model_periodicity():</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adding one full period to t must return the same value.</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.array([<span class="fl">3.7</span>])</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    v1 <span class="op">=</span> model_rv(t, <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    v2 <span class="op">=</span> model_rv(t <span class="op">+</span> <span class="fl">10.0</span>, <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(v1, v2)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_noise_free_period():</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise, the fitted period must match the true period to machine precision.</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data(noise_scale<span class="op">=</span><span class="fl">0.0</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">1</span>] <span class="op">-</span> PERIOD) <span class="op">&lt;</span> <span class="fl">1e-6</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_noise_free_amplitude():</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise, the fitted amplitude must match the true amplitude to machine precision.</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data(noise_scale<span class="op">=</span><span class="fl">0.0</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">0</span>] <span class="op">-</span> AMPLITUDE) <span class="op">&lt;</span> <span class="fl">1e-6</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_recovers_period_with_noise():</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With realistic noise (NOISE_SCALE / AMPLITUDE = 0.20) the fitted period must</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fall within 5% of the true value.</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The Cramér-Rao bound for period uncertainty with 50 points and SNR=5 is</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># roughly 0.2 days; 5% of PERIOD = 0.5 days is a 2.5× safety factor.</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data()</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">1</span>] <span class="op">-</span> PERIOD) <span class="op">/</span> PERIOD <span class="op">&lt;</span> <span class="fl">0.05</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_recovers_amplitude_with_noise():</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The fitted amplitude must fall within 15% of the true value.</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Measured fractional error is ~4%; 15% gives a safety factor of ~3.5.</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data()</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">0</span>] <span class="op">-</span> AMPLITUDE) <span class="op">/</span> AMPLITUDE <span class="op">&lt;</span> <span class="fl">0.15</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_large_uncertainty():</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fitting a sinusoid to pure noise must yield a fractional amplitude uncertainty</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># greater than 0.5 — the fitted amplitude is not statistically significant.</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_pure_noise_rv()</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    popt, perr <span class="op">=</span> fit_sinusoid(t, rv)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    amplitude, amp_err <span class="op">=</span> popt[<span class="dv">0</span>], perr[<span class="dv">0</span>]</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> amp_err <span class="op">/</span> amplitude <span class="op">&gt;</span> <span class="fl">0.5</span>, (</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Expected fractional uncertainty &gt; 0.5 for noise-only data; "</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"got </span><span class="sc">{</span>amp_err <span class="op">/</span> amplitude<span class="sc">:.2f}</span><span class="ss">"</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_rv <span class="im">import</span> make_rv_data, make_pure_noise_rv, PERIOD, AMPLITUDE</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> radvel <span class="im">import</span> model_rv, fit_sinusoid</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_model_known_values():</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># At t=0 with phase=0, the model reduces to v_sys; at t=P/4 to amplitude + v_sys.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> model_rv(np.array([<span class="fl">0.0</span>]), <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>)[<span class="dv">0</span>] <span class="op">==</span> pytest.approx(<span class="fl">5.0</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> model_rv(np.array([<span class="fl">2.5</span>]), <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>)[<span class="dv">0</span>] <span class="op">==</span> pytest.approx(<span class="fl">50.0</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_model_periodicity():</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adding one full period to t must return the same value.</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.array([<span class="fl">3.7</span>])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    v1 <span class="op">=</span> model_rv(t, <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    v2 <span class="op">=</span> model_rv(t <span class="op">+</span> <span class="fl">10.0</span>, <span class="fl">50.0</span>, <span class="fl">10.0</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.allclose(v1, v2)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_noise_free_period():</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise, the fitted period must match the true period to machine precision.</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data(noise_scale<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">1</span>] <span class="op">-</span> PERIOD) <span class="op">&lt;</span> <span class="fl">1e-6</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_noise_free_amplitude():</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With no noise, the fitted amplitude must match the true amplitude to machine precision.</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data(noise_scale<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">0</span>] <span class="op">-</span> AMPLITUDE) <span class="op">&lt;</span> <span class="fl">1e-6</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_recovers_period_with_noise():</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With realistic noise (NOISE_SCALE / AMPLITUDE = 0.20) the fitted period must</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fall within 5% of the true value.</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The Cramér-Rao bound for period uncertainty with 50 points and SNR=5 is</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># roughly 0.2 days; 5% of PERIOD = 0.5 days is a 2.5× safety factor.</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data()</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">1</span>] <span class="op">-</span> PERIOD) <span class="op">/</span> PERIOD <span class="op">&lt;</span> <span class="fl">0.05</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fit_recovers_amplitude_with_noise():</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The fitted amplitude must fall within 15% of the true value.</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Measured fractional error is ~4%; 15% gives a safety factor of ~3.5.</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_rv_data()</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    popt, _ <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(popt[<span class="dv">0</span>] <span class="op">-</span> AMPLITUDE) <span class="op">/</span> AMPLITUDE <span class="op">&lt;</span> <span class="fl">0.15</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pure_noise_large_uncertainty():</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fitting a sinusoid to pure noise must yield a fractional amplitude uncertainty</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># greater than 0.5 — the fitted amplitude is not statistically significant.</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    t, rv <span class="op">=</span> make_pure_noise_rv()</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    popt, perr <span class="op">=</span> fit_sinusoid(t, rv)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    amplitude, amp_err <span class="op">=</span> popt[<span class="dv">0</span>], perr[<span class="dv">0</span>]</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> amp_err <span class="op">/</span> amplitude <span class="op">&gt;</span> <span class="fl">0.5</span>, (</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Expected fractional uncertainty &gt; 0.5 for noise-only data; "</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"got </span><span class="sc">{</span>amp_err <span class="op">/</span> amplitude<span class="sc">:.2f}</span><span class="ss">"</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <div class="forma-flashcard" data-lang="en" data-markdown="1">
 <p>Radial velocity key terms</p>
 <dl>
@@ -310,7 +317,6 @@ A method for finding periodic signals in unevenly sampled time series without re
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="29.7" id="exercises"><span class="header-section-number">29.7</span> Exercises</h2>
 <h3 data-number="29.7.1" id="do-the-math"><span class="header-section-number">29.7.1</span> Do the math</h3>
 <p>Using <span class="math inline">\(v(t) = K \sin(2\pi t / P + \varphi) + v_\text{sys}\)</span> with <span class="math inline">\(K = 50\)</span> m/s, <span class="math inline">\(P = 10\)</span> days, <span class="math inline">\(\varphi = 0\)</span>, <span class="math inline">\(v_\text{sys} = 0\)</span>, what is <span class="math inline">\(v(2.5)\)</span>? Give your answer in m/s.</p>
@@ -324,7 +330,6 @@ A method for finding periodic signals in unevenly sampled time series without re
 <p>Extend <code>make_rv_data</code> to superpose signals from two planets with different periods. Show that <code>fit_sinusoid</code> (single-planet model) fails to recover either period correctly, then fit a two-planet model and demonstrate clean recovery.</p>
 <h3 data-number="29.7.5" id="detection-threshold"><span class="header-section-number">29.7.5</span> Detection threshold</h3>
 <p>Generate 200 data sets for each of ten noise levels from 2 to 50 m/s. For each data set, run <code>fit_sinusoid</code> and classify the result as a detection when <span class="math inline">\(\sigma_K / K &lt; 0.1\)</span>. Plot the detection fraction as a function of noise level and identify the noise floor at which detection drops below 50%.</p>
-</section>
 
 </main>
 <footer class="page-footer">

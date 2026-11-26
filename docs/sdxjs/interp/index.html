@@ -1,595 +1,375 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>File Interpolator</title>
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>File Interpolator</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxjs</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../introduction/">Introduction</a></li>
-<li><a href="../sysprog/">Systems Programming</a></li>
-<li><a href="../async/">Asynchronous Programming</a></li>
-<li><a href="../test/">Unit Testing</a></li>
-<li><a href="../backup/">File Backup</a></li>
-<li><a href="../table/">Data Tables</a></li>
-<li><a href="../glob/">Pattern Matching</a></li>
-<li><a href="../parser/">Parsing Expressions</a></li>
-<li><a href="../templater/">Page Templates</a></li>
-<li><a href="../build/">Build Manager</a></li>
-<li><a href="../layout/">Layout Engine</a></li>
-<li><a class="active" href="../interp/">File Interpolator</a></li>
-<li><a href="../loader/">Module Loader</a></li>
-<li><a href="../style/">Style Checker</a></li>
-<li><a href="../codegen/">Code Generator</a></li>
-<li><a href="../docgen/">Documentation Generator</a></li>
-<li><a href="../bundler/">Module Bundler</a></li>
-<li><a href="../packman/">Package Manager</a></li>
-<li><a href="../vm/">Virtual Machine</a></li>
-<li><a href="../debugger/">Debugger</a></li>
-<li><a href="../conclusion/">Conclusion</a></li>
-</ul>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../introduction/index.html">Introduction</a></li><li><a href="../sysprog/index.html">Systems Programming</a></li><li><a href="../async/index.html">Asynchronous Programming</a></li><li><a href="../test/index.html">Unit Testing</a></li><li><a href="../backup/index.html">File Backup</a></li><li><a href="../table/index.html">Data Tables</a></li><li><a href="../glob/index.html">Pattern Matching</a></li><li><a href="../parser/index.html">Parsing Expressions</a></li><li><a href="../templater/index.html">Page Templates</a></li><li><a href="../build/index.html">Build Manager</a></li><li><a href="../layout/index.html">Layout Engine</a></li><li><a href="../interp/index.html">File Interpolator</a></li><li><a href="../loader/index.html">Module Loader</a></li><li><a href="../style/index.html">Style Checker</a></li><li><a href="../codegen/index.html">Code Generator</a></li><li><a href="../docgen/index.html">Documentation Generator</a></li><li><a href="../bundler/index.html">Module Bundler</a></li><li><a href="../packman/index.html">Package Manager</a></li><li><a href="../vm/index.html">Virtual Machine</a></li><li><a href="../debugger/index.html">Debugger</a></li><li><a href="../conclusion/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#file-interpolator-dynamic" id="toc-file-interpolator-dynamic"><span class="header-section-number">12.1</span> How can we evaluate JavaScript dynamically?</a></li>
+<li><a href="#file-interpolator-manage" id="toc-file-interpolator-manage"><span class="header-section-number">12.2</span> How can we manage files?</a></li>
+<li><a href="#file-interpolator-find" id="toc-file-interpolator-find"><span class="header-section-number">12.3</span> How can we find files?</a></li>
+<li><a href="#file-interpolator-interpolate" id="toc-file-interpolator-interpolate"><span class="header-section-number">12.4</span> How can we interpolate pieces of code?</a></li>
+<li><a href="#file-interpolator-instead" id="toc-file-interpolator-instead"><span class="header-section-number">12.5</span> What did we do instead?</a></li>
+<li><a href="#file-interpolator-exercises" id="toc-file-interpolator-exercises"><span class="header-section-number">12.6</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxjs">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">File Interpolator</h1>
+<p>Many of the examples in these lessons are too long to show comfortably in one block of code on a printed page, so we needed a way to break them up. As an experiment, we wrote a custom <a href="../glossary/index.html#loader">module loader</a> that reads a source file containing specially-formatted comments and then reads and inserts the files specified in those comments before running the code (<a href="#fig-file-interpolator-conceptual" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>). Modern programming languages don’t work this way, but C and C++ do this with <a href="../glossary/index.html#header_file">header files</a>, and static site generators (<a href="../templater/index.html" class="quarto-xref"><span>Chapter 9</span></a>) do this to share fragments of HTML.</p>
+<div id="fig-file-interpolator-conceptual" class="quarto-float quarto-figure quarto-figure-center" alt="How code fragments are combined into an executable program.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-file-interpolator-conceptual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="conceptual.svg" alt="How code fragments are combined into an executable program.">
 </div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxjs">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>File Interpolator</h1>
-<p>Many of the examples in these lessons are too long
-to show comfortably in one block of code on a printed page,
-so we needed a way to break them up.
-As an experiment,
-we wrote a custom <a class="gl-ref" href="../glossary/#loader">module loader</a>
-that reads a source file containing specially-formatted comments
-and then reads and inserts the files specified in those comments
-before running the code
-(<a class="fig-ref" href="#f:file-interpolator-conceptual">Figure 1</a>).
-Modern programming languages don't work this way,
-but C and C++ do this
-with <a class="gl-ref" href="../glossary/#header_file">header files</a>,
-and static site generators
-(<a class="xref" href="../templater/">Chapter 9</a>) do this to share fragments of HTML.</p>
-<figure id="f:file-interpolator-conceptual">
-<img alt="Using file inclusions" src="conceptual.svg"/>
-<figcaption>Figure 1: Including fragments of code to create runnable programs.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-file-interpolator-conceptual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Including fragments of code to create runnable programs.
+</figcaption>
 </figure>
-<p>The special comments in our source files contain
-the text to put in the displayed version
-and file to include when loading:</p>
-<div data-inc="interpolation-example.js"><span aria-label="Source: interp/interpolation-example.js" class="inc-path" role="img" tabindex="0" title="interp/interpolation-example.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="kd">class</span><span class="w"> </span><span class="nx">Something</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="cm">/*+ constructor + constructor.js +*/</span>
-
-<span class="w">  </span><span class="cm">/*+ a long method + long_method.js +*/</span>
-
-<span class="w">  </span><span class="cm">/*+ another method + another_method.js +*/</span>
-<span class="p">}</span>
-</code></pre></div>
 </div>
-<p>We got this to work,
-but decided to use a different approach in this book.
-The stumbling block was that the style-checking tool <a href="https://eslint.org/">ESLint</a>
-didn't know what to make of our inclusions,
-so we would either have to modify it or build a style checker of our own.
-(We will actually do that in <a class="xref" href="../style/">Chapter 14</a>,
-but we won't go nearly as far as ESLint.)</p>
-<p>Despite being a dead end,
-the inclusion tool is a good way to show
-how JavaScript turns source code into something it can execute.
-We need to be able to do this in the next couple of chapters,
-so we might as well tackle it now.</p>
-<h2 id="file-interpolator-dynamic">How can we evaluate JavaScript dynamically?</h2>
-<p>We want to display files as they are on the web and in print,
-but interpolate the files referenced in special comments
-when we load things with <code>import</code>.
-To do this,
-we need to understand the lifecycle of a JavaScript program.
-When we ask for a file,
-<a href="https://nodejs.org/en/">Node</a> reads the text,
-translates it into runnable instructions,
-and runs those instructions.
-We can do the second and third steps whenever we want using a function called <code>eval</code>,
-which takes a string as input and executes it as if it were part of the program
-(<a class="fig-ref" href="#f:file-interpolator-eval">Figure 2</a>).</p>
-<figure id="f:file-interpolator-eval">
-<img alt="How eval works" src="eval.svg"/>
-<figcaption>Figure 2: `eval` vs. normal translation and execution.</figcaption>
+<p>The special comments in our source files contain the text to put in the displayed version and file to include when loading:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Something {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*+ constructor + constructor.js +*/</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*+ a long method + long_method.js +*/</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*+ another method + another_method.js +*/</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>We got this to work, but decided to use a different approach in this book. The stumbling block was that the style-checking tool <a href="https://eslint.org/">ESLint</a> didn’t know what to make of our inclusions, so we would either have to modify it or build a style checker of our own. (We will actually do that in <a href="../style/index.html" class="quarto-xref"><span>Chapter 14</span></a>, but we won’t go nearly as far as ESLint.)</p>
+<p>Despite being a dead end, the inclusion tool is a good way to show how JavaScript turns source code into something it can execute. We need to be able to do this in the next couple of chapters, so we might as well tackle it now.</p>
+<h2 data-number="12.1" id="file-interpolator-dynamic"><span class="header-section-number">12.1</span> How can we evaluate JavaScript dynamically?</h2>
+<p>We want to display files as they are on the web and in print, but interpolate the files referenced in special comments when we load things with <code>import</code>. To do this, we need to understand the lifecycle of a JavaScript program. When we ask for a file, <a href="https://nodejs.org/en/">Node</a> reads the text, translates it into runnable instructions, and runs those instructions. We can do the second and third steps whenever we want using a function called <code>eval</code>, which takes a string as input and executes it as if it were part of the program (<a href="#fig-file-interpolator-eval" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>).</p>
+<div id="fig-file-interpolator-eval" class="quarto-float quarto-figure quarto-figure-center" alt="Comparison of eval against ordinary translation and execution.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-file-interpolator-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="eval.svg" alt="Comparison of eval against ordinary translation and execution.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-file-interpolator-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.2: <code>eval</code> vs.&nbsp;normal translation and execution.
+</figcaption>
 </figure>
-<div class="callout">
-<h3>This is not a good idea</h3>
-<p><code>eval</code> is a security risk:
-arbitrary code can do arbitrary things,
-so if we take a string typed in by a user and execute it without any checks
-it could email our bookmark list to villains all over the world,
-erase our hard drive,
-or do anything else that code can do (which is pretty much anything).
-Browsers do their best to run code in a <a class="gl-ref" href="../glossary/#sandbox">sandbox</a> for safety,
-but Node doesn't,
-so it's up to us to be (very) careful.</p>
 </div>
-<p>To see <code>eval</code> in action,
-let's evaluate an expression:</p>
-<div data-inc="eval-two-plus-two.js"><span aria-label="Source: interp/eval-two-plus-two.js" class="inc-path" role="img" tabindex="0" title="interp/eval-two-plus-two.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">'2 + 2'</span><span class="p">))</span>
-</code></pre></div>
+<div>
+<blockquote>
+<p><strong>This is not a good idea</strong></p>
+<p><code>eval</code> is a security risk: arbitrary code can do arbitrary things, so if we take a string typed in by a user and execute it without any checks it could email our bookmark list to villains all over the world, erase our hard drive, or do anything else that code can do (which is pretty much anything). Browsers do their best to run code in a <a href="../glossary/index.html#sandbox">sandbox</a> for safety, but Node doesn’t, so it’s up to us to be (very) careful.</p>
+</blockquote>
 </div>
-<p class="continuation"></p>
-<div data-inc="eval-two-plus-two.out"><span aria-label="Source: interp/eval-two-plus-two.out" class="inc-path" role="img" tabindex="0" title="interp/eval-two-plus-two.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>4
-</code></pre></div>
-</div>
-<p>Notice that the input to <code>eval</code> is <em>not</em> <code>2 + 2</code>,
-but rather a string containing the digit 2,
-a space,
-a plus sign,
-another space,
-and another 2.
-When we call <code>eval</code>,
-it translates this string
-using exactly the same parser that Node uses for our program
-and immediately runs the result.</p>
-<p>We can make the example a little more interesting
-by constructing the string dynamically:</p>
-<div data-inc="eval-loop.js"><span aria-label="Source: interp/eval-loop.js" class="inc-path" role="img" tabindex="0" title="interp/eval-loop.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="c1">// eslint-disable-line</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="c1">// eslint-disable-line</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="c1">// eslint-disable-line</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">[</span><span class="s1">'x'</span><span class="p">,</span><span class="w"> </span><span class="s1">'y'</span><span class="p">,</span><span class="w"> </span><span class="s1">'z'</span><span class="p">,</span><span class="w"> </span><span class="s1">'oops'</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> + 1`</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="s1">'+ 1 ='</span><span class="p">,</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="nx">expr</span><span class="p">))</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div data-inc="eval-loop.out"><span aria-label="Source: interp/eval-loop.out" class="inc-path" role="img" tabindex="0" title="interp/eval-loop.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>x + 1 = 2
+<p>To see <code>eval</code> in action, let’s evaluate an expression:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="pp">eval</span>(<span class="st">'2 + 2'</span>))</span></code></pre></div>
+<pre><code>4</code></pre>
+<p>Notice that the input to <code>eval</code> is <em>not</em> <code>2 + 2</code>, but rather a string containing the digit 2, a space, a plus sign, another space, and another 2. When we call <code>eval</code>, it translates this string using exactly the same parser that Node uses for our program and immediately runs the result.</p>
+<p>We can make the example a little more interesting by constructing the string dynamically:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> x <span class="op">=</span> <span class="dv">1</span> <span class="co">// eslint-disable-line</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> y <span class="op">=</span> <span class="dv">3</span> <span class="co">// eslint-disable-line</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> z <span class="op">=</span> <span class="dv">5</span> <span class="co">// eslint-disable-line</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> name <span class="kw">of</span> [<span class="st">'x'</span><span class="op">,</span> <span class="st">'y'</span><span class="op">,</span> <span class="st">'z'</span><span class="op">,</span> <span class="st">'oops'</span>]) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> expr <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>name<span class="sc">}</span><span class="vs"> + 1`</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(name<span class="op">,</span> <span class="st">'+ 1 ='</span><span class="op">,</span> <span class="pp">eval</span>(expr))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>x + 1 = 2
 y + 1 = 4
 z + 1 = 6
 undefined:1
 oops + 1
 ^
-
 ReferenceError: oops is not defined
     at eval (eval at &lt;anonymous&gt; \
     (/u/stjs/file-interpolator/eval-loop.js:7:30), &lt;anonymous&gt;:1:1)
     at /u/stjs/file-interpolator/eval-loop.js:7:30
     at ModuleJob.run (internal/modules/esm/module_job.js:152:23)
     at async Loader.import (internal/modules/esm/loader.js:166:24)
-    at async Object.loadESM (internal/process/esm_loader.js:68:5)
-</code></pre></div>
-</div>
-<p>The first time the loop runs the string is <code>'x + 1'</code>;
-since there's a variable called <code>x</code> in scope,
-<code>eval</code> does the addition and we print the result.
-The same thing happens for the variables <code>y</code> and <code>z</code>,
-but we get an error when we try to evaluate the string <code>'oops + 1'</code>
-because there is no variable in scope called <code>oops</code>.</p>
-<p><code>eval</code> can use whatever variables are in scope when it's called,
-but what happens to any variables it defines?
-This example creates a variable called <code>x</code> and runs <code>console.log</code> to display it,
-but as the output shows,
-<code>x</code> is local to the <code>eval</code> call
-just as variables created inside a function
-only exist during a call to that function:</p>
-<div data-inc="eval-local-vars.js"><span aria-label="Source: interp/eval-local-vars.js" class="inc-path" role="img" tabindex="0" title="interp/eval-local-vars.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
-<span class="sb">  const x = 'hello'</span>
-<span class="sb">  console.log('x in eval is', x)</span>
-<span class="sb">`</span>
-
-<span class="nb">eval</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'typeof x after eval'</span><span class="p">,</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="eval-local-vars.out"><span aria-label="Source: interp/eval-local-vars.out" class="inc-path" role="img" tabindex="0" title="interp/eval-local-vars.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>x in eval is hello
-typeof x after eval undefined
-</code></pre></div>
-</div>
-<p>However,
-<code>eval</code> can modify variables defined outside the text being evaluated
-in the same way that a function can modify global variables:</p>
-<div data-inc="eval-global-vars.js"><span aria-label="Source: interp/eval-global-vars.js" class="inc-path" role="img" tabindex="0" title="interp/eval-global-vars.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'original'</span><span class="w"> </span><span class="c1">// eslint-disable-line</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s1">'x = "modified"'</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'x after eval is'</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="eval-global-vars.out"><span aria-label="Source: interp/eval-global-vars.out" class="inc-path" role="img" tabindex="0" title="interp/eval-global-vars.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>x after eval is modified
-</code></pre></div>
-</div>
-<p>This means that
-if the text we give to <code>eval</code> modifies a structure that is defined outside the text,
-that change outlives the call to <code>eval</code>:</p>
-<div data-inc="eval-global-structure.js"><span aria-label="Source: interp/eval-global-structure.js" class="inc-path" role="img" tabindex="0" title="interp/eval-global-structure.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">seen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">[</span><span class="s1">'x'</span><span class="p">,</span><span class="w"> </span><span class="s1">'y'</span><span class="p">,</span><span class="w"> </span><span class="s1">'z'</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`seen["</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">"] = "</span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span><span class="si">}</span><span class="sb">"`</span>
-<span class="w">  </span><span class="nb">eval</span><span class="p">(</span><span class="nx">expr</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">seen</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="eval-global-structure.out"><span aria-label="Source: interp/eval-global-structure.out" class="inc-path" role="img" tabindex="0" title="interp/eval-global-structure.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>{ x: 'X', y: 'Y', z: 'Z' }
-</code></pre></div>
-</div>
-<p>The examples so far have all evaluated strings embedded in the program itself,
-but <code>eval</code> doesn't care where its input comes from.
-Let's move the code that does the modifying into <code>to-be-loaded.js</code>:</p>
-<div data-inc="to-be-loaded.js"><span aria-label="Source: interp/to-be-loaded.js" class="inc-path" role="img" tabindex="0" title="interp/to-be-loaded.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="c1">// Modify a global structure defined by whoever loads us.</span>
-<span class="nx">Seen</span><span class="p">.</span><span class="nx">from_loaded_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'from loaded file'</span>
-</code></pre></div>
-</div>
-<p>This doesn't work on its own because <code>Seen</code> isn't defined:</p>
-<div data-inc="to-be-loaded.out"><span aria-label="Source: interp/to-be-loaded.out" class="inc-path" role="img" tabindex="0" title="interp/to-be-loaded.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>/u/stjs/file-interpolator/to-be-loaded.js:3
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)</code></pre>
+<p>The first time the loop runs the string is <code>'x + 1'</code>; since there’s a variable called <code>x</code> in scope, <code>eval</code> does the addition and we print the result. The same thing happens for the variables <code>y</code> and <code>z</code>, but we get an error when we try to evaluate the string <code>'oops + 1'</code> because there is no variable in scope called <code>oops</code>.</p>
+<p><code>eval</code> can use whatever variables are in scope when it’s called, but what happens to any variables it defines? This example creates a variable called <code>x</code> and runs <code>console.log</code> to display it, but as the output shows, <code>x</code> is local to the <code>eval</code> call just as variables created inside a function only exist during a call to that function:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> code <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="vs">  const x = 'hello'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="vs">  console.log('x in eval is', x)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="pp">eval</span>(code)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'typeof x after eval'</span><span class="op">,</span> <span class="kw">typeof</span> x)</span></code></pre></div>
+<pre><code>x in eval is hello
+typeof x after eval undefined</code></pre>
+<p>However, <code>eval</code> can modify variables defined outside the text being evaluated in the same way that a function can modify global variables:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="st">'original'</span> <span class="co">// eslint-disable-line</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="pp">eval</span>(<span class="st">'x = "modified"'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'x after eval is'</span><span class="op">,</span> x)</span></code></pre></div>
+<pre><code>x after eval is modified</code></pre>
+<p>This means that if the text we give to <code>eval</code> modifies a structure that is defined outside the text, that change outlives the call to <code>eval</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> seen <span class="op">=</span> {}</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> name <span class="kw">of</span> [<span class="st">'x'</span><span class="op">,</span> <span class="st">'y'</span><span class="op">,</span> <span class="st">'z'</span>]) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> expr <span class="op">=</span> <span class="vs">`seen["</span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">"] = "</span><span class="sc">${</span>name<span class="op">.</span><span class="fu">toUpperCase</span>()<span class="sc">}</span><span class="vs">"`</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="pp">eval</span>(expr)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(seen)</span></code></pre></div>
+<pre><code>{ x: 'X', y: 'Y', z: 'Z' }</code></pre>
+<p>The examples so far have all evaluated strings embedded in the program itself, but <code>eval</code> doesn’t care where its input comes from. Let’s move the code that does the modifying into <code>to-be-loaded.js</code>:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Modify a global structure defined by whoever loads us.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Seen<span class="op">.</span><span class="at">from_loaded_file</span> <span class="op">=</span> <span class="st">'from loaded file'</span></span></code></pre></div>
+<p>This doesn’t work on its own because <code>Seen</code> isn’t defined:</p>
+<pre><code>/u/stjs/file-interpolator/to-be-loaded.js:3
 Seen.from_loaded_file = 'from loaded file'
 ^
-
 ReferenceError: Seen is not defined
     at /u/stjs/file-interpolator/to-be-loaded.js:3:1
     at ModuleJob.run (internal/modules/esm/module_job.js:152:23)
     at async Loader.import (internal/modules/esm/loader.js:166:24)
-    at async Object.loadESM (internal/process/esm_loader.js:68:5)
-</code></pre></div>
-</div>
-<p>But if we read the file and <code>eval</code> the text <em>after</em> defining <code>Seen</code>,
-it does what we want:</p>
-<div data-inc="does-the-loading.js"><span aria-label="Source: interp/does-the-loading.js" class="inc-path" role="img" tabindex="0" title="interp/does-the-loading.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'fs'</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">Seen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="s1">'utf-8'</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'before eval, Seen is'</span><span class="p">,</span><span class="w"> </span><span class="nx">Seen</span><span class="p">)</span>
-<span class="nb">eval</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'after eval, Seen is'</span><span class="p">,</span><span class="w"> </span><span class="nx">Seen</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="does-the-loading.sh"><span aria-label="Source: interp/does-the-loading.sh" class="inc-path" role="img" tabindex="0" title="interp/does-the-loading.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>node<span class="w"> </span>does-the-loading.js<span class="w"> </span>to-be-loaded.js
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="does-the-loading.out"><span aria-label="Source: interp/does-the-loading.out" class="inc-path" role="img" tabindex="0" title="interp/does-the-loading.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>before eval, Seen is {}
-after eval, Seen is { from_loaded_file: 'from loaded file' }
-</code></pre></div>
-</div>
-<h2 id="file-interpolator-manage">How can we manage files?</h2>
-<p>The source files in this book are small enough
-that we don't have to worry about reading them repeatedly,
-but we would like to avoid re-reading things unnecessarily
-in large systems or when there might be network delays.
-The usual approach is to create a cache
-using the Singleton pattern
-that we first met in <a class="xref" href="../test/">Chapter 4</a>.
-Whenever we want to read a file,
-we check to see if it's already in the cache
-(<a class="fig-ref" href="#f:file-interpolator-cache">Figure 3</a>).
-If it is,
-we use that copy;
-if not,
-we read it and add it to the cache
-using the file path as a lookup key.</p>
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)</code></pre>
+<p>But if we read the file and <code>eval</code> the text <em>after</em> defining <code>Seen</code>, it does what we want:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fs <span class="im">from</span> <span class="st">'fs'</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> Seen <span class="op">=</span> {}</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> filename <span class="op">=</span> <span class="bu">process</span><span class="op">.</span><span class="at">argv</span>[<span class="dv">2</span>]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> content <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(filename<span class="op">,</span> <span class="st">'utf-8'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'before eval, Seen is'</span><span class="op">,</span> Seen)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="pp">eval</span>(content)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'after eval, Seen is'</span><span class="op">,</span> Seen)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> does-the-loading.js to-be-loaded.js</span></code></pre></div>
+<pre><code>before eval, Seen is {}
+after eval, Seen is { from_loaded_file: 'from loaded file' }</code></pre>
+<h2 data-number="12.2" id="file-interpolator-manage"><span class="header-section-number">12.2</span> How can we manage files?</h2>
+<p>The source files in this book are small enough that we don’t have to worry about reading them repeatedly, but we would like to avoid re-reading things unnecessarily in large systems or when there might be network delays. The usual approach is to create a cache using the Singleton pattern that we first met in <a href="../test/index.html" class="quarto-xref"><span>Chapter 4</span></a>. Whenever we want to read a file, we check to see if it’s already in the cache (<a href="#fig-file-interpolator-cache" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>). If it is, we use that copy; if not, we read it and add it to the cache using the file path as a lookup key.</p>
 <p>We can write a simple cache in just a few lines of code:</p>
-<div data-inc="need-simple.js"><span aria-label="Source: interp/need-simple.js" class="inc-path" role="img" tabindex="0" title="interp/need-simple.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'fs'</span>
-
-<span class="kd">class</span><span class="w"> </span><span class="nx">Cache</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">need</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">name</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`returning cached value for </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`loading </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="s1">'utf-8'</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cache</span><span class="p">()</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">cache</span><span class="p">.</span><span class="nx">need</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fs <span class="im">from</span> <span class="st">'fs'</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cache {</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span> () {</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">loaded</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">need</span> (name) {</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">this</span><span class="op">.</span><span class="at">loaded</span><span class="op">.</span><span class="fu">has</span>(name)) {</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`returning cached value for </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">loaded</span><span class="op">.</span><span class="fu">get</span>(name)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`loading </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> content <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(name<span class="op">,</span> <span class="st">'utf-8'</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> result <span class="op">=</span> <span class="pp">eval</span>(content)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">loaded</span><span class="op">.</span><span class="fu">set</span>(name<span class="op">,</span> result)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> cache <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cache</span>()</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> (name) <span class="kw">=&gt;</span> {</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cache<span class="op">.</span><span class="fu">need</span>(name)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="fig-file-interpolator-cache" class="quarto-float quarto-figure quarto-figure-center" alt="A Singleton-based cache holding already-loaded files.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-file-interpolator-cache-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="cache.svg" alt="A Singleton-based cache holding already-loaded files.">
 </div>
-<figure id="f:file-interpolator-cache">
-<img alt="Implementing a cache as a singleton" src="cache.svg"/>
-<figcaption>Figure 3: Using the Singleton pattern to implement a cache of loaded files.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-file-interpolator-cache-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.3: Using the Singleton pattern to implement a cache of loaded files.
+</figcaption>
 </figure>
-<p>Since we are using <code>eval</code>, though,
-we can't rely on <code>export</code> to make things available to the rest of the program.
-Instead,
-we rely on the fact that the result of an <code>eval</code> call is the value of
-the last expression evaluated.
-Since a variable name on its own evaluates to the variable's value,
-we can create a function and then use its name
-to "export" it from the evaluated file:</p>
-<div data-inc="import-simple.js"><span aria-label="Source: interp/import-simple.js" class="inc-path" role="img" tabindex="0" title="interp/import-simple.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="c1">// Define.</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`report in import-01.js with message "</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">"`</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// Export.</span>
-<span class="nx">report</span>
-</code></pre></div>
 </div>
-<p>To test our program,
-we load the implementation of the cache using <code>import</code>,
-then use it to load and evaluate another file.
-This example expects that "other file" to define a function,
-which we call in order to show that everything is working:</p>
-<div data-inc="test-simple.js"><span aria-label="Source: interp/test-simple.js" class="inc-path" role="img" tabindex="0" title="interp/test-simple.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">need</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./need-simple.js'</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">imported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">need</span><span class="p">(</span><span class="s1">'./import-simple.js'</span><span class="p">)</span>
-<span class="nx">imported</span><span class="p">(</span><span class="s1">'called from test-simple.js'</span><span class="p">)</span>
-</code></pre></div>
+<p>Since we are using <code>eval</code>, though, we can’t rely on <code>export</code> to make things available to the rest of the program. Instead, we rely on the fact that the result of an <code>eval</code> call is the value of the last expression evaluated. Since a variable name on its own evaluates to the variable’s value, we can create a function and then use its name to “export” it from the evaluated file:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Define.</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> report <span class="op">=</span> (message) <span class="kw">=&gt;</span> {</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`report in import-01.js with message "</span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">"`</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Export.</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>report</span></code></pre></div>
+<p>To test our program, we load the implementation of the cache using <code>import</code>, then use it to load and evaluate another file. This example expects that “other file” to define a function, which we call in order to show that everything is working:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> need <span class="im">from</span> <span class="st">'./need-simple.js'</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> imported <span class="op">=</span> <span class="fu">need</span>(<span class="st">'./import-simple.js'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">imported</span>(<span class="st">'called from test-simple.js'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> test-simple.js</span></code></pre></div>
+<h2 data-number="12.3" id="file-interpolator-find"><span class="header-section-number">12.3</span> How can we find files?</h2>
+<p>Each of the files included in our examples is in the same directory as the file including it, but in C/C++ or a page templating system we might include a particular file in several different places. We don’t want to have to put all of our files in a single directory, so we need a way to specify where to look for files that are being included.</p>
+<p>One option is to use <a href="../glossary/index.html#relative_path">relative paths</a>, but another option is to give our program a list of directories to look in. This is called a <a href="../glossary/index.html#search_path">search path</a>, and many programs use them, including Node itself. By convention, a search path is written as a colon-separated list of directories on Unix or using semi-colons on Windows. If the path to an included file starts with <code>./</code>, we look for it locally; if not, we go through the directories in the search path in order until we find a file with a matching name (<a href="#fig-file-interpolator-search-path" class="quarto-xref">Figure&nbsp;<span>12.4</span></a>).</p>
+<div id="fig-file-interpolator-search-path" class="quarto-float quarto-figure quarto-figure-center" alt="Searching a colon-separated list of directories for a file.">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-file-interpolator-search-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="search-path.svg" alt="Searching a colon-separated list of directories for a file.">
 </div>
-<p class="continuation"></p>
-<div data-inc="test-simple.sh"><span aria-label="Source: interp/test-simple.sh" class="inc-path" role="img" tabindex="0" title="interp/test-simple.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>node<span class="w"> </span>test-simple.js
-</code></pre></div>
-</div>
-<h2 id="file-interpolator-find">How can we find files?</h2>
-<p>Each of the files included in our examples is in the same directory as the file including it,
-but in C/C++ or a page templating system
-we might include a particular file in several different places.
-We don't want to have to put all of our files in a single directory,
-so we need a way to specify where to look for files that are being included.</p>
-<p>One option is to use <a class="gl-ref" href="../glossary/#relative_path">relative paths</a>,
-but another option is to give our program
-a list of directories to look in.
-This is called a <a class="gl-ref" href="../glossary/#search_path">search path</a>,
-and many programs use them,
-including Node itself.
-By convention,
-a search path is written as a colon-separated list of directories on Unix
-or using semi-colons on Windows.
-If the path to an included file starts with <code>./</code>,
-we look for it locally;
-if not,
-we go through the directories in the search path in order
-until we find a file with a matching name
-(<a class="fig-ref" href="#f:file-interpolator-search-path">Figure 4</a>).</p>
-<figure id="f:file-interpolator-search-path">
-<img alt="Implementing a search path" src="search-path.svg"/>
-<figcaption>Figure 4: Using a colon-separated list of directories as a search path.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-file-interpolator-search-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.4: Using a colon-separated list of directories as a search path.
+</figcaption>
 </figure>
-<div class="callout">
-<h3>That's just how it is</h3>
-<p>The rules about search paths in the paragraph above are a convention:
-somebody did it this way years ago
-and (almost) everyone has imitated it since.
-We could implement search paths some other way,
-but as with configuration file formats,
-variable naming conventions,
-and many other things,
-the last thing the world needs is more innovation.</p>
 </div>
-<p>Since the cache is responsible for finding files,
-it should also handle the search path.
-The outline of the class stays the same:</p>
-<div data-inc="need-path.js" data-omit="skip"><span aria-label="Source: interp/need-path.js" class="inc-path" role="img" tabindex="0" title="interp/need-path.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable no-eval</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'fs'</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'path'</span>
-
-<span class="kd">class</span><span class="w"> </span><span class="nx">Cache</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">constructSearchPath</span><span class="p">()</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">need</span><span class="w"> </span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`returning cached value for </span><span class="si">${</span><span class="nx">fileSpec</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`loading value for </span><span class="si">${</span><span class="nx">fileSpec</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span><span class="w"> </span><span class="s1">'utf-8'</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">loaded</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="c1">// ...34 lines not shown...</span>
-<span class="p">}</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cache</span><span class="p">()</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">cache</span><span class="p">.</span><span class="nx">need</span><span class="p">(</span><span class="nx">fileSpec</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<div>
+<blockquote>
+<p><strong>That’s just how it is</strong></p>
+<p>The rules about search paths in the paragraph above are a convention: somebody did it this way years ago and (almost) everyone has imitated it since. We could implement search paths some other way, but as with configuration file formats, variable naming conventions, and many other things, the last thing the world needs is more innovation.</p>
+</blockquote>
 </div>
-<p>To get the search path,
-we look for the <a class="gl-ref" href="../glossary/#shell_variable">shell variable</a> <code>NEED_PATH</code>.
-(Writing shell variables' names in upper case is another convention.)
-If <code>NEED_PATH</code> exists,
-we split it on colons to create a list of directories:</p>
-<div data-inc="need-path.js" data-mark="search"><span aria-label="Source: interp/need-path.js" class="inc-path" role="img" tabindex="0" title="interp/need-path.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="nx">constructSearchPath</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">searchPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s1">'NEED_PATH'</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">searchPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEED_PATH</span>
-<span class="w">        </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-</code></pre></div>
-</div>
-<p>When we need to find a file we first check to see if the path is local.
-If it's not,
-we try the directories in the search path in order:</p>
-<div data-inc="need-path.js" data-mark="search"><span aria-label="Source: interp/need-path.js" class="inc-path" role="img" tabindex="0" title="interp/need-path.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="nx">constructSearchPath</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">searchPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s1">'NEED_PATH'</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">searchPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEED_PATH</span>
-<span class="w">        </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-</code></pre></div>
-</div>
-<p>To test this,
-we put the file to import in a subdirectory called <code>modules</code>:</p>
-<div data-inc="modules/imported-left.js"><span aria-label="Source: interp/modules/imported-left.js" class="inc-path" role="img" tabindex="0" title="interp/modules/imported-left.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="c1">// Define.</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`in LEFT with message "</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">"`</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// Export.</span>
-<span class="nx">report</span>
-</code></pre></div>
-</div>
+<p>Since the cache is responsible for finding files, it should also handle the search path. The outline of the class stays the same:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable no-eval</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fs <span class="im">from</span> <span class="st">'fs'</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> path <span class="im">from</span> <span class="st">'path'</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cache {</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span> () {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">loaded</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">constructSearchPath</span>()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">need</span> (fileSpec) {</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">this</span><span class="op">.</span><span class="at">loaded</span><span class="op">.</span><span class="fu">has</span>(fileSpec)) {</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`returning cached value for </span><span class="sc">${</span>fileSpec<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">loaded</span><span class="op">.</span><span class="fu">get</span>(fileSpec)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`loading value for </span><span class="sc">${</span>fileSpec<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> filePath <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">find</span>(fileSpec)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> content <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(filePath<span class="op">,</span> <span class="st">'utf-8'</span>)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> result <span class="op">=</span> <span class="pp">eval</span>(content)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">loaded</span><span class="op">.</span><span class="fu">set</span>(fileSpec<span class="op">,</span> result)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// mccole:skip</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// mccole:search</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructSearchPath</span> () {</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">searchPath</span> <span class="op">=</span> []</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="st">'NEED_PATH'</span> <span class="kw">in</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span>) {</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">searchPath</span> <span class="op">=</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">NEED_PATH</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">split</span>(<span class="st">':'</span>)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span>(x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// mccole:/search</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">// mccole:find</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">find</span> (fileSpec) {</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> result</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (fileSpec<span class="op">.</span><span class="fu">startsWith</span>(<span class="st">'.'</span>)) {</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`..trying local file for </span><span class="sc">${</span>fileSpec<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (fs<span class="op">.</span><span class="fu">existsSync</span>(fileSpec)) {</span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> fileSpec</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">const</span> dir <span class="kw">of</span> <span class="kw">this</span><span class="op">.</span><span class="at">searchPath</span>) {</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> filePath <span class="op">=</span> path<span class="op">.</span><span class="fu">join</span>(dir<span class="op">,</span> fileSpec)</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`trying </span><span class="sc">${</span>filePath<span class="sc">}</span><span class="vs"> for </span><span class="sc">${</span>fileSpec<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (fs<span class="op">.</span><span class="fu">existsSync</span>(filePath)) {</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>          result <span class="op">=</span> filePath</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>          <span class="cf">break</span></span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (result <span class="op">===</span> <span class="kw">undefined</span>) {</span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="vs">`unable to import </span><span class="sc">${</span>fileSpec<span class="sc">}</span><span class="vs">: no match found`</span>)</span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>  <span class="co">// mccole:/find</span></span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a>  <span class="co">// mccole:/skip</span></span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> cache <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cache</span>()</span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> (fileSpec) <span class="kw">=&gt;</span> {</span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cache<span class="op">.</span><span class="fu">need</span>(fileSpec)</span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To get the search path, we look for the <a href="../glossary/index.html#shell_variable">shell variable</a> <code>NEED_PATH</code>. (Writing shell variables’ names in upper case is another convention.) If <code>NEED_PATH</code> exists, we split it on colons to create a list of directories:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"></code></pre></div>
+<p>When we need to find a file we first check to see if the path is local. If it’s not, we try the directories in the search path in order:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"></code></pre></div>
+<p>To test this, we put the file to import in a subdirectory called <code>modules</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Define.</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> report <span class="op">=</span> (message) <span class="kw">=&gt;</span> {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`in LEFT with message "</span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">"`</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Export.</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>report</span></code></pre></div>
 <p>and then put the file doing the importing in the current directory:</p>
-<div data-inc="test-import-left.js"><span aria-label="Source: interp/test-import-left.js" class="inc-path" role="img" tabindex="0" title="interp/test-import-left.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">need</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./need-path.js'</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">imported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">need</span><span class="p">(</span><span class="s1">'imported-left.js'</span><span class="p">)</span>
-<span class="nx">imported</span><span class="p">(</span><span class="s1">'called from test-import-left.js'</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>We now need to set the variable <code>NEED_PATH</code>.
-There are many ways to do this in shell;
-if we only need the variable to exist for a single command,
-the simplest is to write it as:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nv">NAME</span><span class="o">=</span>value<span class="w"> </span><span class="nb">command</span>
-</code></pre></div>
-<p>right before the command (on the same line).
-Here's the shell command that runs our test case
-using <code>$PWD</code> to get the current working directory:</p>
-<div data-inc="test-import-left.sh"><span aria-label="Source: interp/test-import-left.sh" class="inc-path" role="img" tabindex="0" title="interp/test-import-left.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nv">NEED_PATH</span><span class="o">=</span><span class="nv">$PWD</span>/modules/<span class="w"> </span>node<span class="w"> </span>test-import-left.js
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="test-import-left.out"><span aria-label="Source: interp/test-import-left.out" class="inc-path" role="img" tabindex="0" title="interp/test-import-left.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>loading value for imported-left.js
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> need <span class="im">from</span> <span class="st">'./need-path.js'</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> imported <span class="op">=</span> <span class="fu">need</span>(<span class="st">'imported-left.js'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">imported</span>(<span class="st">'called from test-import-left.js'</span>)</span></code></pre></div>
+<p>We now need to set the variable <code>NEED_PATH</code>. There are many ways to do this in shell; if we only need the variable to exist for a single command, the simplest is to write it as:</p>
+<pre class="shell"><code>NAME=value command</code></pre>
+<p>right before the command (on the same line). Here’s the shell command that runs our test case using <code>$PWD</code> to get the current working directory:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="va">NEED_PATH</span><span class="op">=</span><span class="va">$PWD</span>/modules/ <span class="ex">node</span> test-import-left.js</span></code></pre></div>
+<pre><code>loading value for imported-left.js
 trying /u/stjs/file-interpolator/modules/imported-left.js for \
 imported-left.js
-in LEFT with message "called from test-import-left.js"
-</code></pre></div>
-</div>
-<p>Now let's create a second importable file in the <code>modules</code> directory:</p>
-<div data-inc="modules/imported-right.js"><span aria-label="Source: interp/modules/imported-right.js" class="inc-path" role="img" tabindex="0" title="interp/modules/imported-right.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="c1">// Define.</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`in RIGHT with message "</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">"`</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// Export.</span>
-<span class="nx">report</span>
-</code></pre></div>
-</div>
+in LEFT with message "called from test-import-left.js"</code></pre>
+<p>Now let’s create a second importable file in the <code>modules</code> directory:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Define.</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> report <span class="op">=</span> (message) <span class="kw">=&gt;</span> {</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`in RIGHT with message "</span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">"`</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Export.</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>report</span></code></pre></div>
 <p>and load that twice to check that caching works:</p>
-<div data-inc="test-import-right.js"><span aria-label="Source: interp/test-import-right.js" class="inc-path" role="img" tabindex="0" title="interp/test-import-right.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">need</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./need-path.js'</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">imported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">need</span><span class="p">(</span><span class="s1">'imported-right.js'</span><span class="p">)</span>
-<span class="nx">imported</span><span class="p">(</span><span class="s1">'called from test-import-right.js'</span><span class="p">)</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">alsoImported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">need</span><span class="p">(</span><span class="s1">'imported-right.js'</span><span class="p">)</span>
-<span class="nx">alsoImported</span><span class="p">(</span><span class="s1">'called from test-import-right.js'</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="test-import-right.out"><span aria-label="Source: interp/test-import-right.out" class="inc-path" role="img" tabindex="0" title="interp/test-import-right.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>loading value for imported-right.js
+<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> need <span class="im">from</span> <span class="st">'./need-path.js'</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> imported <span class="op">=</span> <span class="fu">need</span>(<span class="st">'imported-right.js'</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">imported</span>(<span class="st">'called from test-import-right.js'</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> alsoImported <span class="op">=</span> <span class="fu">need</span>(<span class="st">'imported-right.js'</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">alsoImported</span>(<span class="st">'called from test-import-right.js'</span>)</span></code></pre></div>
+<pre><code>loading value for imported-right.js
 trying /u/stjs/file-interpolator/modules/imported-right.js for \
 imported-right.js
 in RIGHT with message "called from test-import-right.js"
 returning cached value for imported-right.js
-in RIGHT with message "called from test-import-right.js"
-</code></pre></div>
-</div>
-<h2 id="file-interpolator-interpolate">How can we interpolate pieces of code?</h2>
-<p>Interpolating files is straightforward once we have this machinery in place.
-We modify <code>Cache.find</code> to return a directory and a file path,
-then add an <code>interpolate</code> method to replace special comments:</p>
-<div data-inc="caching.js"><span aria-label="Source: interp/caching.js" class="inc-path" role="img" tabindex="0" title="interp/caching.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="kd">class</span><span class="w"> </span><span class="nx">Cache</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="nx">interpolate</span><span class="w"> </span><span class="p">(</span><span class="nx">fileDir</span><span class="p">,</span><span class="w"> </span><span class="nx">outer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">outer</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Cache</span><span class="p">.</span><span class="nx">INTERPOLATE_PAT</span><span class="p">,</span>
-<span class="w">                         </span><span class="p">(</span><span class="nx">match</span><span class="p">,</span><span class="w"> </span><span class="nx">comment</span><span class="p">,</span><span class="w"> </span><span class="nx">filename</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filename</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">fileDir</span><span class="p">,</span><span class="w"> </span><span class="nx">filename</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">filePath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Cannot find </span><span class="si">${</span><span class="nx">filePath</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span><span class="w"> </span><span class="s1">'utf-8'</span><span class="p">)</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">inner</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="c1">// ...</span>
-<span class="p">}</span>
-<span class="nx">Cache</span><span class="p">.</span><span class="nx">INTERPOLATE_PAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\/\*\+(.+?)\+(.+?)\+\*\//g</span>
-</code></pre></div>
-</div>
+in RIGHT with message "called from test-import-right.js"</code></pre>
+<h2 data-number="12.4" id="file-interpolator-interpolate"><span class="header-section-number">12.4</span> How can we interpolate pieces of code?</h2>
+<p>Interpolating files is straightforward once we have this machinery in place. We modify <code>Cache.find</code> to return a directory and a file path, then add an <code>interpolate</code> method to replace special comments:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cache {</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">interpolate</span> (fileDir<span class="op">,</span> outer) {</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outer<span class="op">.</span><span class="fu">replace</span>(Cache<span class="op">.</span><span class="at">INTERPOLATE_PAT</span><span class="op">,</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                         (match<span class="op">,</span> comment<span class="op">,</span> filename) <span class="kw">=&gt;</span> {</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>      filename <span class="op">=</span> filename<span class="op">.</span><span class="fu">trim</span>()</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> filePath <span class="op">=</span> path<span class="op">.</span><span class="fu">join</span>(fileDir<span class="op">,</span> filename)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="op">!</span>fs<span class="op">.</span><span class="fu">existsSync</span>(filePath)) {</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="vs">`Cannot find </span><span class="sc">${</span>filePath<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> inner <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(filePath<span class="op">,</span> <span class="st">'utf-8'</span>)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> inner</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>Cache<span class="op">.</span><span class="at">INTERPOLATE_PAT</span> <span class="op">=</span> <span class="ss">/</span><span class="sc">\/\*\+(</span><span class="ss">.</span><span class="sc">+?)\+(</span><span class="ss">.</span><span class="sc">+?)\+\*\/</span><span class="ss">/g</span></span></code></pre></div>
 <p>We can now have a file like this:</p>
-<div data-inc="import-interpolate.js"><span aria-label="Source: interp/import-interpolate.js" class="inc-path" role="img" tabindex="0" title="interp/import-interpolate.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="kd">class</span><span class="w"> </span><span class="nx">Example</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">constructorMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">msg</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="cm">/*+ top method + import-interpolate-topmethod.js +*/</span>
-<span class="w">  </span><span class="cm">/*+ bottom method + import-interpolate-bottommethod.js +*/</span>
-<span class="p">}</span>
-
-<span class="nx">Example</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Example {</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span> (msg) {</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">constructorMessage</span> <span class="op">=</span> msg</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*+ top method + import-interpolate-topmethod.js +*/</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*+ bottom method + import-interpolate-bottommethod.js +*/</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>Example</span></code></pre></div>
 <p>and subfiles like this:</p>
-<div data-inc="import-interpolate-topmethod.js"><span aria-label="Source: interp/import-interpolate-topmethod.js" class="inc-path" role="img" tabindex="0" title="interp/import-interpolate-topmethod.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="nx">topMethod</span><span class="w"> </span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">bottomMethod</span><span class="p">(</span><span class="sb">`(topMethod </span><span class="si">${</span><span class="nx">msg</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">topMethod</span> (msg) {</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="fu">bottomMethod</span>(<span class="vs">`(topMethod </span><span class="sc">${</span>msg<span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>and this:</p>
-<div data-inc="import-interpolate-bottommethod.js"><span aria-label="Source: interp/import-interpolate-bottommethod.js" class="inc-path" role="img" tabindex="0" title="interp/import-interpolate-bottommethod.js">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// eslint-disable</span>
-<span class="nx">bottomMethod</span><span class="w"> </span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(bottomMethod </span><span class="si">${</span><span class="nx">msg</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<p>Let's test it:</p>
-<div data-inc="test-import-interpolate.sh"><span aria-label="Source: interp/test-import-interpolate.sh" class="inc-path" role="img" tabindex="0" title="interp/test-import-interpolate.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>node<span class="w"> </span>test-import-interpolate.js
-</code></pre></div>
-</div>
-<p class="continuation"></p>
-<div data-inc="test-import-interpolate.out"><span aria-label="Source: interp/test-import-interpolate.out" class="inc-path" role="img" tabindex="0" title="interp/test-import-interpolate.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>(bottomMethod (topMethod called from test-import-interpolate.js))
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">// eslint-disable</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bottomMethod</span> (msg) {</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`(bottomMethod </span><span class="sc">${</span>msg<span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Let’s test it:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> test-import-interpolate.js</span></code></pre></div>
+<pre><code>(bottomMethod (topMethod called from test-import-interpolate.js))</code></pre>
 <p>When this program runs, its lifecycle is:</p>
-<ol>
+<ol type="1">
 <li>Node starts to run <code>test-import-interpolate.js</code>.</li>
 <li>It sees the <code>import</code> of <code>need-interpolate</code> so it reads and evaluates that code.</li>
 <li>Doing this creates a singleton cache object.</li>
@@ -603,160 +383,96 @@ then add an <code>interpolate</code> method to replace special comments:</p>
 <li>It also returns that class.</li>
 <li>We then create an instance of that class and call its method.</li>
 </ol>
-<p>This works,
-but as we said in the introduction we decided not to use it
-because it didn't play well with other tools.
-No piece of software exists in isolation;
-when we evaluate a design,
-we always have to ask how it fits into everything else we have.</p>
-<h2 id="file-interpolator-instead">What did we do instead?</h2>
-<p>Rather than interpolating file fragments,
-we extract or erase parts of regular JavaScript files
-based on specially formatted comments
-like the <code>&lt;fragment&gt;...&lt;/fragment&gt;</code> pair shown below.</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Example</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// &lt;fragment&gt;</span>
-<span class="w">  </span><span class="nx">fragment</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="c1">// &lt;/fragment&gt;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The code that selects the part of the file we want to display
-is part of our page templating system.
-It re-extracts code for display every time the web version of this site is built,
-which ensures that we always shows what's in the current version of our examples.
-However,
-this system doesn't automatically update the description of the code:
-if we write, "It does X,"
-then modify the code to do Y,
-our lesson can be inconsistent.
-<a class="gl-ref" href="../glossary/#literate_programming">Literate programming</a> was invented
-to try to prevent this from happening,
-but it never really caught on---unfortunately,
-most programming systems that describe themselves as "literate" these days
-only implement part of <a href="https://www-cs-faculty.stanford.edu/~knuth/">Donald Knuth's</a> original vision.</p>
-<section aria-label="Exercises" class="exercises">
-<h2 id="file-interpolator-exercises">Exercises</h2>
-<h3>Security concerns</h3>
-<ol>
-<li>
-<p>Write a function <code>loadAndRun</code> that reads a file, evaluates it, and returns the result.</p>
-</li>
-<li>
-<p>Create a file <code>trust-me.js</code> that prints "nothing happening here" when it is evaluated,
-    but also deletes everything in the directory called <code>target</code>.</p>
-</li>
-<li>
-<p>Write tests for this using <a href="https://www.npmjs.com/package/mock-fs"><code>mock-fs</code></a>.</p>
-</li>
+<p>This works, but as we said in the introduction we decided not to use it because it didn’t play well with other tools. No piece of software exists in isolation; when we evaluate a design, we always have to ask how it fits into everything else we have.</p>
+<h2 data-number="12.5" id="file-interpolator-instead"><span class="header-section-number">12.5</span> What did we do instead?</h2>
+<p>Rather than interpolating file fragments, we extract or erase parts of regular JavaScript files based on specially formatted comments like the <code>&lt;fragment&gt;...&lt;/fragment&gt;</code> pair shown below.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Example {</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span> (name) {</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">name</span> <span class="op">=</span> name</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &lt;fragment&gt;</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fragment</span> (message) {</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &lt;/fragment&gt;</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The code that selects the part of the file we want to display is part of our page templating system. It re-extracts code for display every time the web version of this site is built, which ensures that we always shows what’s in the current version of our examples. However, this system doesn’t automatically update the description of the code: if we write, “It does X,” then modify the code to do Y, our lesson can be inconsistent. <a href="../glossary/index.html#literate_programming">Literate programming</a> was invented to try to prevent this from happening, but it never really caught on—unfortunately, most programming systems that describe themselves as “literate” these days only implement part of <a href="https://www-cs-faculty.stanford.edu/~knuth/">Donald Knuth’s</a> original vision.</p>
+<section class="exercises">
+<h2 data-number="12.6" id="file-interpolator-exercises"><span class="header-section-number">12.6</span> Exercises</h2>
+<h3 data-number="12.6.1" id="security-concerns"><span class="header-section-number">12.6.1</span> Security concerns</h3>
+<ol type="1">
+<li><p>Write a function <code>loadAndRun</code> that reads a file, evaluates it, and returns the result.</p></li>
+<li><p>Create a file <code>trust-me.js</code> that prints “nothing happening here” when it is evaluated, but also deletes everything in the directory called <code>target</code>.</p></li>
+<li><p>Write tests for this using <a href="https://www.npmjs.com/package/mock-fs"><code>mock-fs</code></a>.</p></li>
 </ol>
 <p>Please be careful doing this exercise.</p>
-<h3>Loading functions</h3>
+<h3 data-number="12.6.2" id="loading-functions"><span class="header-section-number">12.6.2</span> Loading functions</h3>
 <p>Write a function that reads a file containing single-argument functions like this:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nx">addOne</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span>
-<span class="nx">halve</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span>
-<span class="nx">array</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-</code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>addOne<span class="op">:</span> (x) <span class="kw">=&gt;</span> x <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>halve<span class="op">:</span> (x) <span class="kw">=&gt;</span> x <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>array<span class="op">:</span> (x) <span class="kw">=&gt;</span> <span class="bu">Array</span>(x)<span class="op">.</span><span class="fu">fill</span>(<span class="dv">0</span>)</span></code></pre></div>
 <p>and returns an object containing callable functions.</p>
-<h3>Registering functions</h3>
+<h3 data-number="12.6.3" id="registering-functions"><span class="header-section-number">12.6.3</span> Registering functions</h3>
 <p>Write a function that loads one or more files containing function definitions like this:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kr">double</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span>
-<span class="p">}</span>
-
-<span class="nx">EXPORTS</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="kr">double</span><span class="p">)</span>
-</code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> double <span class="op">=</span> (x) <span class="kw">=&gt;</span> {</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> x</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>EXPORTS<span class="op">.</span><span class="fu">append</span>(double)</span></code></pre></div>
 <p>and returns a list containing all the loaded functions.</p>
-<h3>Indenting inclusions</h3>
-<p>Modify the file inclusion system
-so that inclusions are indented by the same amount as the including comment.
-For example,
-if the including file is:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">withLogging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="cm">/*+ logging call + logging.js +*/</span>
-<span class="p">}</span>
-
-<span class="nx">withLogging</span>
-</code></pre></div>
+<h3 data-number="12.6.4" id="indenting-inclusions"><span class="header-section-number">12.6.4</span> Indenting inclusions</h3>
+<p>Modify the file inclusion system so that inclusions are indented by the same amount as the including comment. For example, if the including file is:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> withLogging <span class="op">=</span> (args) <span class="kw">=&gt;</span> {</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*+ logging call + logging.js +*/</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>withLogging</span></code></pre></div>
 <p>and the included file is:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'first message'</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'second message'</span><span class="p">)</span>
-</code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'first message'</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'second message'</span>)</span></code></pre></div>
 <p>then the result will be:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">withLogging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'first message'</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'second message'</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nx">withLogging</span>
-</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> withLogging <span class="op">=</span> (args) <span class="kw">=&gt;</span> {</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'first message'</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'second message'</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>withLogging</span></code></pre></div>
 <p>i.e., all lines of the inclusion will be indented to match the first.</p>
-<h3>Interpolating from subdirectories</h3>
+<h3 data-number="12.6.5" id="interpolating-from-subdirectories"><span class="header-section-number">12.6.5</span> Interpolating from subdirectories</h3>
 <p>Modify the file interpolator so that snippets can be included from sub-directories using relative paths.</p>
-<h3>Recursive search for inclusions</h3>
-<ol>
-<li>
-<p>Modify the file interpolator so that it searches recursively
-    through all subdirectories of the directories on the search path
-    to find inclusions.</p>
-</li>
-<li>
-<p>Explain why this is a bad idea.</p>
-</li>
+<h3 data-number="12.6.6" id="recursive-search-for-inclusions"><span class="header-section-number">12.6.6</span> Recursive search for inclusions</h3>
+<ol type="1">
+<li><p>Modify the file interpolator so that it searches recursively through all subdirectories of the directories on the search path to find inclusions.</p></li>
+<li><p>Explain why this is a bad idea.</p></li>
 </ol>
-<h3>Defining variables</h3>
-<p>Modify the file inclusion system so that users can pass in a <code>Map</code> containing name-value pairs
-and have these interpolated into the text of the files being loaded.
-To interpolate a value,
-the included file must use <code>@@name@@</code>.</p>
-<h3>Specifying markers</h3>
-<p>Modify the file inclusion system so that the user can override the inclusion comment markers.
-For example, the user should be able to specify that <code>/*!</code> and <code>!*/</code> be used to mark inclusions.
-(This is often used in tutorials that need to show the inclusion markers without them being interpreted.)</p>
-<h3>Recursive inclusions</h3>
-<p>Modify the file interpolator to support recursive includes,
-i.e.,
-to handle inclusion markers in files that are being included.
-Be sure to check for the case of infinite includes.</p>
-<h3>Slicing files</h3>
-<p>Write a function that reads a JavaScript source file
-containing specially-formatted comments like the ones shown below
-and extracts the indicated section.</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">toBeLeftOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'this should not appear'</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// &lt;keepThis&gt;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">toBeKept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'only this function should appear'</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">// &lt;/keepThis&gt;</span>
-</code></pre></div>
-<p>Users should be able to specify any tag they want,
-and if that tag occurs multiple times,
-all of the sections marked with that tag should be kept.
-(This is the approach we took for this book instead of file interpolation.)</p>
+<h3 data-number="12.6.7" id="defining-variables"><span class="header-section-number">12.6.7</span> Defining variables</h3>
+<p>Modify the file inclusion system so that users can pass in a <code>Map</code> containing name-value pairs and have these interpolated into the text of the files being loaded. To interpolate a value, the included file must use <code>@@name@@</code>.</p>
+<h3 data-number="12.6.8" id="specifying-markers"><span class="header-section-number">12.6.8</span> Specifying markers</h3>
+<p>Modify the file inclusion system so that the user can override the inclusion comment markers. For example, the user should be able to specify that <code>/*!</code> and <code>!*/</code> be used to mark inclusions. (This is often used in tutorials that need to show the inclusion markers without them being interpreted.)</p>
+<h3 data-number="12.6.9" id="recursive-inclusions"><span class="header-section-number">12.6.9</span> Recursive inclusions</h3>
+<p>Modify the file interpolator to support recursive includes, i.e., to handle inclusion markers in files that are being included. Be sure to check for the case of infinite includes.</p>
+<h3 data-number="12.6.10" id="slicing-files"><span class="header-section-number">12.6.10</span> Slicing files</h3>
+<p>Write a function that reads a JavaScript source file containing specially-formatted comments like the ones shown below and extracts the indicated section.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> toBeLeftOut <span class="op">=</span> (args) <span class="kw">=&gt;</span> {</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'this should not appear'</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co">// &lt;keepThis&gt;</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> toBeKept <span class="op">=</span> (args) <span class="kw">=&gt;</span> {</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'only this function should appear'</span>)</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">// &lt;/keepThis&gt;</span></span></code></pre></div>
+<p>Users should be able to specify any tag they want, and if that tag occurs multiple times, all of the sections marked with that tag should be kept. (This is the approach we took for this book instead of file interpolation.)</p>
 </section>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../layout/">Layout Engine</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxjs</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../loader/">Module Loader</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../layout/index.html">← Layout Engine</a>
+    <a class="pager-link next" href="../loader/index.html">Module Loader →</a>
+  </nav>
 </footer>
-</body>
-</html>
+
+
+</body></html>

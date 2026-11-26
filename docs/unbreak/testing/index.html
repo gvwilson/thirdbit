@@ -12,35 +12,36 @@
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#write-a-test-that-is-actually-discovered" id="toc-write-a-test-that-is-actually-discovered"><span class="header-section-number">20.1</span> Write a test that is actually discovered</a></li>
-<li><a href="#test-that-a-doubling-function-returns-the-right-value" id="toc-test-that-a-doubling-function-returns-the-right-value"><span class="header-section-number">20.2</span> Test that a doubling function returns the right value</a></li>
-<li><a href="#test-that-a-result-contains-no-nan" id="toc-test-that-a-result-contains-no-nan"><span class="header-section-number">20.3</span> Test that a result contains no NaN</a></li>
-<li><a href="#test-that-a-function-rejects-invalid-input" id="toc-test-that-a-function-rejects-invalid-input"><span class="header-section-number">20.4</span> Test that a function rejects invalid input</a></li>
-<li><a href="#test-a-function-that-reads-from-a-temporary-file" id="toc-test-a-function-that-reads-from-a-temporary-file"><span class="header-section-number">20.5</span> Test a function that reads from a temporary file</a></li>
-<li><a href="#test-a-registry-that-stores-and-retrieves-entries" id="toc-test-a-registry-that-stores-and-retrieves-entries"><span class="header-section-number">20.6</span> Test a registry that stores and retrieves entries</a></li>
-<li><a href="#share-a-list-fixture-across-multiple-tests" id="toc-share-a-list-fixture-across-multiple-tests"><span class="header-section-number">20.7</span> Share a list fixture across multiple tests</a></li>
-<li><a href="#test-that-a-function-raises-an-error-on-bad-input" id="toc-test-that-a-function-raises-an-error-on-bad-input"><span class="header-section-number">20.8</span> Test that a function raises an error on bad input</a></li>
-<li><a href="#test-a-function-with-an-unreachable-assertion" id="toc-test-a-function-with-an-unreachable-assertion"><span class="header-section-number">20.9</span> Test a function with an unreachable assertion</a></li>
-<li><a href="#test-that-the-right-error-message-is-raised" id="toc-test-that-the-right-error-message-is-raised"><span class="header-section-number">20.10</span> Test that the right error message is raised</a></li>
-<li><a href="#test-a-function-that-writes-json-to-a-file" id="toc-test-a-function-that-writes-json-to-a-file"><span class="header-section-number">20.11</span> Test a function that writes JSON to a file</a></li>
+<li><a href="#write-a-test-that-is-actually-discovered" id="toc-write-a-test-that-is-actually-discovered"><span class="header-section-number">19.1</span> Write a test that is actually discovered</a></li>
+<li><a href="#test-that-a-doubling-function-returns-the-right-value" id="toc-test-that-a-doubling-function-returns-the-right-value"><span class="header-section-number">19.2</span> Test that a doubling function returns the right value</a></li>
+<li><a href="#test-that-a-result-contains-no-nan" id="toc-test-that-a-result-contains-no-nan"><span class="header-section-number">19.3</span> Test that a result contains no NaN</a></li>
+<li><a href="#test-that-a-function-rejects-invalid-input" id="toc-test-that-a-function-rejects-invalid-input"><span class="header-section-number">19.4</span> Test that a function rejects invalid input</a></li>
+<li><a href="#test-a-function-that-reads-from-a-temporary-file" id="toc-test-a-function-that-reads-from-a-temporary-file"><span class="header-section-number">19.5</span> Test a function that reads from a temporary file</a></li>
+<li><a href="#test-a-registry-that-stores-and-retrieves-entries" id="toc-test-a-registry-that-stores-and-retrieves-entries"><span class="header-section-number">19.6</span> Test a registry that stores and retrieves entries</a></li>
+<li><a href="#share-a-list-fixture-across-multiple-tests" id="toc-share-a-list-fixture-across-multiple-tests"><span class="header-section-number">19.7</span> Share a list fixture across multiple tests</a></li>
+<li><a href="#test-that-a-function-raises-an-error-on-bad-input" id="toc-test-that-a-function-raises-an-error-on-bad-input"><span class="header-section-number">19.8</span> Test that a function raises an error on bad input</a></li>
+<li><a href="#test-a-function-with-an-unreachable-assertion" id="toc-test-a-function-with-an-unreachable-assertion"><span class="header-section-number">19.9</span> Test a function with an unreachable assertion</a></li>
+<li><a href="#test-that-the-right-error-message-is-raised" id="toc-test-that-the-right-error-message-is-raised"><span class="header-section-number">19.10</span> Test that the right error message is raised</a></li>
+<li><a href="#test-a-function-that-writes-json-to-a-file" id="toc-test-a-function-that-writes-json-to-a-file"><span class="header-section-number">19.11</span> Test a function that writes JSON to a file</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/unbreak">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Testing</h1>
-<h2 data-number="20.1" id="write-a-test-that-is-actually-discovered"><span class="header-section-number">20.1</span> Write a test that is actually discovered</h2>
+<h2 data-number="19.1" id="write-a-test-that-is-actually-discovered"><span class="header-section-number">19.1</span> Write a test that is actually discovered</h2>
 <p>Run <code>pytest test_discovery.py -v</code>. How many tests ran? Why does pytest report that no tests were collected?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(values):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values)</span>
@@ -55,7 +56,7 @@ Show explanation
 <p>Shows: pytest’s test-discovery rule and why a misspelled test name means the function is never exercised.</p>
 <p>To find it: run <code>pytest test_discovery.py --collect-only</code>. It lists no tests. Rename <code>check_total</code> to <code>test_total</code> and rerun to confirm the function is now collected.</p>
 </details>
-<h2 data-number="20.2" id="test-that-a-doubling-function-returns-the-right-value"><span class="header-section-number">20.2</span> Test that a doubling function returns the right value</h2>
+<h2 data-number="19.2" id="test-that-a-doubling-function-returns-the-right-value"><span class="header-section-number">19.2</span> Test that a doubling function returns the right value</h2>
 <p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value does <code>double(4)</code> actually return? Check the pytest warning in the output.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(x):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> <span class="dv">3</span>  <span class="co"># deliberate wrong implementation</span></span>
@@ -71,7 +72,7 @@ Show explanation
 <p>Shows: how easy it is to write an assertion that looks plausible but is logically vacuous, and why pytest’s warning about this pattern should not be ignored.</p>
 <p>To find it: read the pytest output carefully. It includes a warning that a non-empty tuple is always truthy. Remove the outer parentheses so the assertion becomes <code>assert result == expected</code>, then rerun to confirm the test can now fail.</p>
 </details>
-<h2 data-number="20.3" id="test-that-a-result-contains-no-nan"><span class="header-section-number">20.3</span> Test that a result contains no NaN</h2>
+<h2 data-number="19.3" id="test-that-a-result-contains-no-nan"><span class="header-section-number">19.3</span> Test that a result contains no NaN</h2>
 <p>Run <code>pytest test_nan.py -v</code>. Does the test pass? The result list contains a <code>NaN</code> — should it have failed?</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(values):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="bu">len</span>(values)</span>
@@ -87,7 +88,7 @@ Show explanation
 <p>Shows: that <code>NaN</code> comparisons are always <code>False</code>, and how to detect <code>NaN</code> with <code>math.isnan</code>.</p>
 <p>To find it: print <code>float("nan") == float("nan")</code> — it prints <code>False</code>. Replace the assertion with <code>assert not any(math.isnan(x) for x in result)</code>.</p>
 </details>
-<h2 data-number="20.4" id="test-that-a-function-rejects-invalid-input"><span class="header-section-number">20.4</span> Test that a function rejects invalid input</h2>
+<h2 data-number="19.4" id="test-that-a-function-rejects-invalid-input"><span class="header-section-number">19.4</span> Test that a function rejects invalid input</h2>
 <p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception does <code>parse_count(None)</code> actually raise? Is that the exception the test intended to check?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_count(value):</span>
@@ -103,7 +104,7 @@ Show explanation
 <p>Shows: how to use a specific exception type in <code>pytest.raises</code> and why catching the base <code>Exception</code> class in tests hides incorrect behaviour.</p>
 <p>To find it: add <code>assert isinstance(exc.value, ValueError)</code> after the <code>with pytest.raises(Exception) as exc:</code> block. If that assertion fails, the function is raising a different exception type than intended.</p>
 </details>
-<h2 data-number="20.5" id="test-a-function-that-reads-from-a-temporary-file"><span class="header-section-number">20.5</span> Test a function that reads from a temporary file</h2>
+<h2 data-number="19.5" id="test-a-function-that-reads-from-a-temporary-file"><span class="header-section-number">19.5</span> Test a function that reads from a temporary file</h2>
 <p>Run <code>pytest test_noyield.py -v</code>. The test fails. After it fails, check whether the temp file still exists. Then change <code>return path</code> to <code>yield path</code> and add <code>os.remove(path)</code> after the yield. Run again and check the filesystem.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tempfile</span>
@@ -125,7 +126,7 @@ Show explanation
 <p>Shows: the difference between <code>return</code> and <code>yield</code> in pytest fixtures and why <code>yield</code> is necessary for reliable cleanup.</p>
 <p>To find it: after the test fails, list the files in the working directory. If the temp file is still present, cleanup did not run. Change <code>return path</code> to <code>yield path</code> in the fixture and add <code>os.remove(path)</code> after the <code>yield</code>, then rerun to confirm the file is removed.</p>
 </details>
-<h2 data-number="20.6" id="test-a-registry-that-stores-and-retrieves-entries"><span class="header-section-number">20.6</span> Test a registry that stores and retrieves entries</h2>
+<h2 data-number="19.6" id="test-a-registry-that-stores-and-retrieves-entries"><span class="header-section-number">19.6</span> Test a registry that stores and retrieves entries</h2>
 <p>Run <code>pytest test_orderdep.py -v</code>. Both tests pass. Now run <code>pytest test_orderdep.py::test_lookup -v</code> to run only the second test. What happens?</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>_registry <span class="op">=</span> {}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> register(name, value):</span>
@@ -145,7 +146,7 @@ Show explanation
 <p>Shows: why each test must set up its own state independently rather than relying on side effects from other tests, and how to use fixtures to provide shared setup.</p>
 <p>To find it: run <code>pytest test_orderdep.py::test_lookup -v</code> alone without running <code>test_register</code> first. If it fails with a <code>KeyError</code>, the test depends on state left by another test.</p>
 </details>
-<h2 data-number="20.7" id="share-a-list-fixture-across-multiple-tests"><span class="header-section-number">20.7</span> Share a list fixture across multiple tests</h2>
+<h2 data-number="19.7" id="share-a-list-fixture-across-multiple-tests"><span class="header-section-number">19.7</span> Share a list fixture across multiple tests</h2>
 <p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order of the two tests and run again. Does the other test now fail?</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>)</span>
@@ -164,7 +165,7 @@ Show explanation
 <p>Shows: the difference between fixture scopes, why mutable objects should use function scope (the default) rather than session scope, and how fixture scope bugs often appear only when tests are run in a particular order.</p>
 <p>To find it: reverse the order of the tests in the file and run again. If a different test now fails, the tests are sharing state through the fixture. Check the fixture for a <code>scope=</code> argument: <code>"session"</code> means one instance is shared across the entire run.</p>
 </details>
-<h2 data-number="20.8" id="test-that-a-function-raises-an-error-on-bad-input"><span class="header-section-number">20.8</span> Test that a function raises an error on bad input</h2>
+<h2 data-number="19.8" id="test-that-a-function-raises-an-error-on-bad-input"><span class="header-section-number">19.8</span> Test that a function raises an error on bad input</h2>
 <p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a <code>print("reached")</code> on the line after <code>result = parse_positive(0)</code>. Run again. Is the print executed?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_positive(value):</span>
@@ -183,7 +184,7 @@ Show explanation
 <p>Shows: that assertions on return values must be placed after the <code>with pytest.raises()</code> block, not inside it.</p>
 <p>To find it: add <code>print("reached")</code> on the line immediately after the raising call, inside the <code>with</code> block. Run the test: if the print never appears, execution never reached that line. Move the assertion to after the <code>with</code> block.</p>
 </details>
-<h2 data-number="20.9" id="test-a-function-with-an-unreachable-assertion"><span class="header-section-number">20.9</span> Test a function with an unreachable assertion</h2>
+<h2 data-number="19.9" id="test-a-function-with-an-unreachable-assertion"><span class="header-section-number">19.9</span> Test a function with an unreachable assertion</h2>
 <p>Run <code>pytest test_unreachable.py -v</code>. Does the test pass? Does it actually exercise all three branches of <code>classify</code>?</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify(n):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
@@ -204,7 +205,7 @@ Show explanation
 <p>Shows: how an early <code>return</code> silently truncates a test and why coverage tools flag branches that no assertion ever reaches.</p>
 <p>To find it: add <code>print("after return")</code> on the line after the <code>return</code>. It never prints. Remove the <code>return</code> so every assertion runs.</p>
 </details>
-<h2 data-number="20.10" id="test-that-the-right-error-message-is-raised"><span class="header-section-number">20.10</span> Test that the right error message is raised</h2>
+<h2 data-number="19.10" id="test-that-the-right-error-message-is-raised"><span class="header-section-number">19.10</span> Test that the right error message is raised</h2>
 <p>Run <code>pytest test_raisematch.py -v</code>. Does the test pass? Which <code>ValueError</code> message did <code>parse_count("abc")</code> actually raise — the one the test intended?</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_count(value):</span>
@@ -224,7 +225,7 @@ Show explanation
 <p>Shows: that <code>match=</code> pins a test to the specific message, and why checking the type alone can let the wrong failure through.</p>
 <p>To find it: print the caught exception with <code>with pytest.raises(ValueError) as exc: ...; print(exc.value)</code>. Add <code>match="cannot be None"</code> and rerun to confirm the test now fails for the wrong input.</p>
 </details>
-<h2 data-number="20.11" id="test-a-function-that-writes-json-to-a-file"><span class="header-section-number">20.11</span> Test a function that writes JSON to a file</h2>
+<h2 data-number="19.11" id="test-a-function-that-writes-json-to-a-file"><span class="header-section-number">19.11</span> Test a function that writes JSON to a file</h2>
 <p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes, list the files in your working directory. What file was left behind?</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarize(values):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"count"</span>: <span class="bu">len</span>(values), <span class="st">"total"</span>: <span class="bu">sum</span>(values)}</span>
@@ -248,6 +249,12 @@ Show explanation
 </details>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../sql/index.html">← SQL</a>
+    <a class="pager-link next" href="../finale/index.html">Conclusion →</a>
+  </nav>
+</footer>
 
 
 </body></html>

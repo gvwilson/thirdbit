@@ -4,30 +4,8 @@
   <title>Fitting an SIR Epidemic Model</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -112,8 +90,33 @@ Wrong: <span class="math inline">\(R_0\)</span> is not a percentage; final epide
 </ul></li>
 <li>In discrete form, new_cases(<span class="math inline">\(t\)</span>) <span class="math inline">\(\approx S(t-1) - S(t)\)</span> when evaluated at integer days</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sir_rhs(t, y, beta, gamma, n):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return [dS/dt, dI/dt, dR/dt] for the SIR epidemic model.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    S, I, R are the numbers of susceptible, infectious, and recovered</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    individuals.  The force of infection beta * I / N uses</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    frequency-dependent (proportional) transmission: each susceptible</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    encounters a fixed fraction of the population per unit time.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    The total N = S + I + R is conserved: dS/dt + dI/dt + dR/dt = 0.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    susc, infect, rec <span class="op">=</span> y</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    force <span class="op">=</span> beta <span class="op">*</span> susc <span class="op">*</span> infect <span class="op">/</span> n</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="op">-</span>force, force <span class="op">-</span> gamma <span class="op">*</span> infect, gamma <span class="op">*</span> infect]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_cases(beta, gamma, n<span class="op">=</span>N_POP, i0<span class="op">=</span>I0, t_max<span class="op">=</span>T_MAX):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return modelled daily new cases for parameters beta and gamma.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Integrates the SIR ODEs at integer days and returns the daily incidence</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    new_cases(t) = S(t-1) - S(t), the number of new infections per day.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    t_eval <span class="op">=</span> np.arange(<span class="dv">0</span>, t_max <span class="op">+</span> <span class="dv">1</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        sir_rhs,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        [<span class="fl">0.0</span>, <span class="bu">float</span>(t_max)],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        [<span class="bu">float</span>(n <span class="op">-</span> i0), <span class="bu">float</span>(i0), <span class="fl">0.0</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        args<span class="op">=</span>(beta, gamma, n),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        t_eval<span class="op">=</span>t_eval,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        rtol<span class="op">=</span><span class="fl">1e-8</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        atol<span class="op">=</span><span class="fl">1e-10</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.maximum(np.diff(sol.y[<span class="dv">0</span>]) <span class="op">*</span> <span class="op">-</span><span class="fl">1.0</span>, <span class="fl">0.0</span>)</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>The SIR equations satisfy <span class="math inline">\(dS/dt + dI/dt + dR/dt = 0\)</span> for all <span class="math inline">\(t\)</span>. What does this imply about the numerical solution?</p>
 <dl>
@@ -335,7 +338,6 @@ Figure&nbsp;25.1: Observed daily cases (with Poisson noise) and the fitted SIR m
 <span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    beta_fit, gamma_fit <span class="op">=</span> fit(noiseless)</span>
 <span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(beta_fit <span class="op">-</span> BETA_TRUE) <span class="op">/</span> BETA_TRUE <span class="op">&lt;</span> <span class="fl">0.01</span></span>
 <span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(gamma_fit <span class="op">-</span> GAMMA_TRUE) <span class="op">/</span> GAMMA_TRUE <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div>
-<section class="exercises">
 <h2 data-number="25.8" id="exercises"><span class="header-section-number">25.8</span> Exercises</h2>
 <h3 data-number="25.8.1" id="do-the-math"><span class="header-section-number">25.8.1</span> Do the math</h3>
 <p>Using <code>BETA_TRUE</code> = 0.30 day<span class="math inline">\(^{-1}\)</span> and <code>GAMMA_TRUE</code> = 0.10 day<span class="math inline">\(^{-1}\)</span>, compute <span class="math inline">\(R_0 = \beta / \gamma\)</span>. Give your answer to one decimal place.</p>
@@ -347,7 +349,6 @@ Figure&nbsp;25.1: Observed daily cases (with Poisson noise) and the fitted SIR m
 <p>Add an exposed (latent) compartment <span class="math inline">\(E\)</span> between <span class="math inline">\(S\)</span> and <span class="math inline">\(I\)</span>: <span class="math inline">\(dE/dt = \beta SI/N - \sigma E\)</span> and <span class="math inline">\(dI/dt = \sigma E - \gamma I\)</span>, where <span class="math inline">\(\sigma^{-1}\)</span> is the mean latent period. Generate synthetic data with <span class="math inline">\(\sigma = 0.2\)</span> day<span class="math inline">\(^{-1}\)</span> (mean 5-day latent period) and fit the four-parameter SEIR model. Does the SIR fit to SEIR data give biased estimates of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>?</p>
 <h3 data-number="25.8.5" id="sensitivity-analysis"><span class="header-section-number">25.8.5</span> Sensitivity analysis</h3>
 <p>Vary <span class="math inline">\(\beta\)</span> from 0.1 to 0.5 (holding <span class="math inline">\(\gamma = 0.1\)</span> fixed) and plot the epidemic peak size and peak timing as functions of <span class="math inline">\(\beta\)</span>. At what value of <span class="math inline">\(\beta\)</span> does the epidemic just barely cross the threshold (peak in <span class="math inline">\(I\)</span> is very small)? How close is this to the theoretical threshold <span class="math inline">\(\beta = \gamma\)</span>?</p>
-</section>
 
 </main>
 <footer class="page-footer">

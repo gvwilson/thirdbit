@@ -4,30 +4,8 @@
   <title>Survival Analysis</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -123,7 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>For an Exponential distribution, the mean of uncensored times estimates <span class="math inline">\(\mu\)</span>, giving:</li>
 </ul>
 <p><span class="math display">\[\hat{\lambda}_{\text{naive}} = \frac{1}{\bar{t}_{\text{uncensored}}}\]</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> naive_rate(times, observed):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Estimate lambda using only uncensored observations."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    uncensored <span class="op">=</span> [t <span class="cf">for</span> t, o <span class="kw">in</span> <span class="bu">zip</span>(times, observed) <span class="cf">if</span> o]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="bu">sum</span>(uncensored) <span class="op">/</span> <span class="bu">len</span>(uncensored))</span></code></pre></div>
 <div class="forma-multiple-choice" data-lang="en" data-markdown="1">
 <p>Patient A is censored at day 10. Patient B has an event at day 25. If we compute the naive rate using only uncensored patients, which of these is true?</p>
 <dl>
@@ -179,7 +160,10 @@ Wrong: even though the event did not occur, the censored time still carries info
 <li>Every patient’s time contributes to <span class="math inline">\(\sum_i t_i\)</span>, whether or not the event occurred.</li>
 <li>A censored patient contributes time up to the point they were last observed: this is called person-time and captures the information that the patient was alive throughout that period.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> corrected_rate(times, observed):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""MLE of lambda for exponential under censoring: d / sum(t)."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> <span class="bu">sum</span>(observed)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d <span class="op">/</span> <span class="bu">sum</span>(times)</span></code></pre></div>
 <h2 data-number="32.7" id="the-empirical-survival-curve"><span class="header-section-number">32.7</span> The Empirical Survival Curve</h2>
 <ul>
 <li>To visualize how well the model fits, plot the fraction of uncensored events occurring after each time.</li>
@@ -189,7 +173,12 @@ Wrong: even though the event did not occur, the censored time still carries info
 </ul></li>
 <li>This gives a non-increasing step function that starts at 1 and reaches <span class="math inline">\(1/n\)</span> at the last event</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> empirical_survival(times, observed):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Empirical survival: fraction of uncensored events occurring after each time point."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    event_times <span class="op">=</span> <span class="bu">sorted</span>(t <span class="cf">for</span> t, o <span class="kw">in</span> <span class="bu">zip</span>(times, observed) <span class="cf">if</span> o)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(event_times)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    fractions <span class="op">=</span> [(n <span class="op">-</span> i) <span class="op">/</span> n <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> event_times, fractions</span></code></pre></div>
 <ul>
 <li>Overlay the exponential curves <span class="math inline">\(e^{-\hat{\lambda}_{\text{naive}} t}\)</span> and <span class="math inline">\(e^{-\hat{\lambda} t}\)</span> to see which fits the empirical curve more closely</li>
 </ul>
@@ -320,7 +309,6 @@ Dropping censored patients inflates <span class="math inline">\(\hat{\lambda}\)<
 <div class="note">
 <p>The Kaplan-Meier estimator handles censored observations more carefully using conditional probabilities at each event time, and does not assume an exponential distribution; it requires more advanced statistics.</p>
 </div>
-<section class="exercises">
 <h2 data-number="32.9" id="exercises"><span class="header-section-number">32.9</span> Exercises</h2>
 <h3 data-number="32.9.1" id="do-the-math"><span class="header-section-number">32.9.1</span> Do the math</h3>
 <ol type="1">
@@ -335,7 +323,6 @@ Dropping censored patients inflates <span class="math inline">\(\hat{\lambda}\)<
 <p>The Weibull distribution generalises the Exponential: <span class="math inline">\(S(t) = e^{-(\lambda t)^k}\)</span> where <span class="math inline">\(k = 1\)</span> recovers the Exponential. Derive the log-likelihood, implement MLE for both <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(k\)</span> using <code>scipy.optimize.minimize</code>, and compare the Weibull and Exponential fits on the synthetic data.</p>
 <h3 data-number="32.9.5" id="two-group-comparison"><span class="header-section-number">32.9.5</span> Two-group comparison</h3>
 <p>Generate two groups with true rates <span class="math inline">\(\lambda_1 = 0.04\)</span> and <span class="math inline">\(\lambda_2 = 0.06\)</span>. Estimate the corrected rate for each group and test whether the ratio <span class="math inline">\(\hat{\lambda}_1 / \hat{\lambda}_2\)</span> differs significantly from 1 using the fact that <span class="math inline">\(\ln(\hat{\lambda}_1 / \hat{\lambda}_2)\)</span> is approximately normal with standard error <span class="math inline">\(\sqrt{1/d_1 + 1/d_2}\)</span>.</p>
-</section>
 
 </main>
 <footer class="page-footer">

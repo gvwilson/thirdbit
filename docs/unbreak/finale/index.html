@@ -12,33 +12,34 @@
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#general" id="toc-general"><span class="header-section-number">21.1</span> General</a></li>
-<li><a href="#inspecting-values" id="toc-inspecting-values"><span class="header-section-number">21.2</span> Inspecting values</a></li>
-<li><a href="#contracts-and-exceptions" id="toc-contracts-and-exceptions"><span class="header-section-number">21.3</span> Contracts and exceptions</a></li>
-<li><a href="#data-and-pipelines" id="toc-data-and-pipelines"><span class="header-section-number">21.4</span> Data and pipelines</a></li>
-<li><a href="#performance" id="toc-performance"><span class="header-section-number">21.5</span> Performance</a></li>
-<li><a href="#browser-and-frontend" id="toc-browser-and-frontend"><span class="header-section-number">21.6</span> Browser and frontend</a></li>
-<li><a href="#shell" id="toc-shell"><span class="header-section-number">21.7</span> Shell</a></li>
-<li><a href="#patterns" id="toc-patterns"><span class="header-section-number">21.8</span> Patterns</a></li>
+<li><a href="#general" id="toc-general"><span class="header-section-number">20.1</span> General</a></li>
+<li><a href="#inspecting-values" id="toc-inspecting-values"><span class="header-section-number">20.2</span> Inspecting values</a></li>
+<li><a href="#contracts-and-exceptions" id="toc-contracts-and-exceptions"><span class="header-section-number">20.3</span> Contracts and exceptions</a></li>
+<li><a href="#data-and-pipelines" id="toc-data-and-pipelines"><span class="header-section-number">20.4</span> Data and pipelines</a></li>
+<li><a href="#performance" id="toc-performance"><span class="header-section-number">20.5</span> Performance</a></li>
+<li><a href="#browser-and-frontend" id="toc-browser-and-frontend"><span class="header-section-number">20.6</span> Browser and frontend</a></li>
+<li><a href="#shell" id="toc-shell"><span class="header-section-number">20.7</span> Shell</a></li>
+<li><a href="#patterns" id="toc-patterns"><span class="header-section-number">20.8</span> Patterns</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/unbreak">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Conclusion</h1>
 <p>Every exercise in this book uses one or more of the following tactics to locate a bug.</p>
-<h2 data-number="21.1" id="general"><span class="header-section-number">21.1</span> General</h2>
+<h2 data-number="20.1" id="general"><span class="header-section-number">20.1</span> General</h2>
 <ol type="1">
 <li>Read a traceback from bottom to top: the last frame names the line that raised the error; the frames above it show what triggered that line. The error message on the final line is often enough — read it before scrolling up.</li>
 <li>Run the code with the smallest input you can verify entirely by hand, then check every output value against your manual calculation. Five items and a window of three beats a thousand items every time.</li>
@@ -46,14 +47,14 @@
 <li>Add <code>print("entered function_name")</code> at the top of every function or method you suspect, so you can see which ones actually run and in what order.</li>
 <li>Call a function twice with identical arguments and compare both return values. If they differ, the function has hidden state that changes between calls.</li>
 </ol>
-<h2 data-number="21.2" id="inspecting-values"><span class="header-section-number">21.2</span> Inspecting values</h2>
+<h2 data-number="20.2" id="inspecting-values"><span class="header-section-number">20.2</span> Inspecting values</h2>
 <ol start="6" type="1">
 <li>Print <code>type(value)</code> when a comparison unexpectedly fails. A mismatch between <code>str</code> and <code>int</code>, or between a plain number and a NumPy scalar, explains why <code>==</code> returns <code>False</code> or raises <code>TypeError</code>.</li>
 <li>Print <code>repr(value)</code> to reveal invisible characters such as trailing spaces, embedded newlines, or a <code>\r</code> that looks identical to nothing in plain <code>print</code> output but breaks every string comparison.</li>
 <li>Print <code>vars(obj)</code> to see exactly which attributes an object has stored. An empty dictionary after construction means <code>__init__</code> never assigned anything to <code>self</code>; a misspelled key means the attribute was stored under a different name than the one being read.</li>
 <li>Print <code>id(a)</code> and <code>id(b)</code> when two names that should be independent seem linked. The same number means they point to the same object in memory, which explains why modifying one changes the other.</li>
 </ol>
-<h2 data-number="21.3" id="contracts-and-exceptions"><span class="header-section-number">21.3</span> Contracts and exceptions</h2>
+<h2 data-number="20.3" id="contracts-and-exceptions"><span class="header-section-number">20.3</span> Contracts and exceptions</h2>
 <ol start="10" type="1">
 <li>Check that the return type matches what the caller expects. Python’s special methods have exact contracts: <code>__str__</code> and <code>__repr__</code> must return <code>str</code>, <code>__len__</code> must return a non-negative <code>int</code>, <code>__bool__</code> must return <code>bool</code> or <code>int</code>, and <code>__init__</code> must return <code>None</code>. Returning the wrong type raises <code>TypeError</code> with a message that names the method.</li>
 <li>Replace a broad <code>except Exception: pass</code> or bare <code>except: pass</code> with <code>logging.exception("caught")</code> to see the actual exception type and message being swallowed. Silent failure is almost never the right choice.</li>
@@ -61,33 +62,39 @@
 <li>Run each test in isolation with <code>pytest path/test_file.py::test_name</code> to verify it does not depend on another test having run first.</li>
 <li>Add <code>print("mock was called")</code> as the first line of a mock or patch to confirm it is actually intercepting the real call instead of leaving the original in place.</li>
 </ol>
-<h2 data-number="21.4" id="data-and-pipelines"><span class="header-section-number">21.4</span> Data and pipelines</h2>
+<h2 data-number="20.4" id="data-and-pipelines"><span class="header-section-number">20.4</span> Data and pipelines</h2>
 <ol start="15" type="1">
 <li>Check the exact stored values in a column before writing a filter, e.g., use <code>SELECT DISTINCT col</code> in SQL or <code>.unique()</code> in a dataframe to confirm the literal strings or numbers the data actually contains, including leading or trailing spaces.</li>
 <li>Count rows before and after each transformation step to detect rows that were silently dropped, duplicated, or merged incorrectly.</li>
 <li>Insert <code>.collect()</code> after each step in a lazy query pipeline to pin down which transformation is raising an error, rather than getting a single traceback from the final collect.</li>
 </ol>
-<h2 data-number="21.5" id="performance"><span class="header-section-number">21.5</span> Performance</h2>
+<h2 data-number="20.5" id="performance"><span class="header-section-number">20.5</span> Performance</h2>
 <ol start="18" type="1">
 <li>Run <code>python -m cProfile -s cumulative script.py | head -20</code> to find the slow function instead of guessing. The cumulative column shows where time actually accumulates, which is rarely where intuition points.</li>
 </ol>
-<h2 data-number="21.6" id="browser-and-frontend"><span class="header-section-number">21.6</span> Browser and frontend</h2>
+<h2 data-number="20.6" id="browser-and-frontend"><span class="header-section-number">20.6</span> Browser and frontend</h2>
 <ol start="19" type="1">
 <li>Open the browser’s Network tab before reproducing the bug, then reload: the tab records every request, its status code, the request headers, and the response body. Check the Console tab for JavaScript errors at the same time.</li>
 <li>When a CSS rule seems to have no effect, open DevTools, select the element, and look at the Styles panel. A strikethrough means the declaration was overridden by a more specific rule; a warning triangle means the value is invalid and was silently discarded.</li>
 <li>Check the HTTP status code before parsing the response body: a <code>404</code> or <code>422</code> response usually returns HTML or a JSON error object, not the data you expected, so the parse error is a symptom and the status code is the cause.</li>
 </ol>
-<h2 data-number="21.7" id="shell"><span class="header-section-number">21.7</span> Shell</h2>
+<h2 data-number="20.7" id="shell"><span class="header-section-number">20.7</span> Shell</h2>
 <ol start="22" type="1">
 <li>Echo or print the exact string a shell command receives before running it on real data; use <code>echo "$var"</code> to check variable contents, or replace a command with <code>echo</code> to preview what the shell will execute without side effects.</li>
 <li>Sketch the directory tree on paper and count levels before running a command that uses a relative path such as <code>../..</code>, since one extra or missing <code>..</code> quietly reads or writes the wrong directory.</li>
 </ol>
-<h2 data-number="21.8" id="patterns"><span class="header-section-number">21.8</span> Patterns</h2>
+<h2 data-number="20.8" id="patterns"><span class="header-section-number">20.8</span> Patterns</h2>
 <ol start="24" type="1">
 <li>Test a regular expression against known-invalid inputs, not just valid ones, to verify the pattern rejects what it should. A pattern that matches everything is not the same as a pattern that matches the right things.</li>
 </ol>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../testing/index.html">← Testing</a>
+    <a class="pager-link next" href="../license/index.html">License →</a>
+  </nav>
+</footer>
 
 
 </body></html>

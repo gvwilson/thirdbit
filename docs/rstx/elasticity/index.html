@@ -4,30 +4,8 @@
   <title>Estimating Price Elasticity of Demand</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -335,7 +313,6 @@ A linear regression of <span class="math inline">\(\ln Q\)</span> on <span class
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="30.7" id="exercises"><span class="header-section-number">30.7</span> Exercises</h2>
 <h3 data-number="30.7.1" id="do-the-math"><span class="header-section-number">30.7.1</span> Do the math</h3>
 <p>Using <span class="math inline">\(\ln Q = a + \varepsilon \ln P\)</span> with <span class="math inline">\(a = 5\)</span> and <span class="math inline">\(\varepsilon = -1.5\)</span>, compute <span class="math inline">\(\ln Q\)</span> when <span class="math inline">\(P = e\)</span> (Euler’s number, so <span class="math inline">\(\ln P = 1\)</span>). What is the corresponding elasticity (the slope of the log-log line)?</p>
@@ -347,7 +324,6 @@ A linear regression of <span class="math inline">\(\ln Q\)</span> on <span class
 <p>In observational data, price is not set randomly — firms charge more when demand is high, creating a spurious correlation. Instrumental variables estimation uses an instrument <span class="math inline">\(Z\)</span> correlated with price but uncorrelated with the demand shock. Simulate endogenous prices by adding a common demand shock to both price and log-quantity, then show that OLS overestimates <span class="math inline">\(|\varepsilon|\)</span> while two-stage least squares (using a cost instrument) recovers the true elasticity.</p>
 <h3 data-number="30.7.5" id="bootstrap-confidence-intervals"><span class="header-section-number">30.7.5</span> Bootstrap confidence intervals</h3>
 <p>The OLS confidence interval assumes normally distributed residuals. Implement a bootstrap estimate: resample the 80 observations with replacement, fit the log-log model to each resample, and take the 2.5th and 97.5th percentiles of the 1000 bootstrapped slopes as the CI. Compare the bootstrap CI with the analytic CI; do they agree closely for the synthetic data?</p>
-</section>
 
 </main>
 <footer class="page-footer">

@@ -4,30 +4,8 @@
   <title>Fitting a Learning Curve to Experimental Data</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -312,7 +290,6 @@ An interval constructed from data such that, over many repetitions of the experi
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="28.8" id="exercises"><span class="header-section-number">28.8</span> Exercises</h2>
 <h3 data-number="28.8.1" id="do-the-math"><span class="header-section-number">28.8.1</span> Do the math</h3>
 <p>If A = 400 ms and b = 0.5, what is the predicted reaction time (in ms) on trial 4?</p>
@@ -324,7 +301,6 @@ An interval constructed from data such that, over many repetitions of the experi
 <p>Generate 200 independent datasets using different random seeds and fit the power-law model to each. Record what fraction of the 95% confidence intervals contain <code>TRUE_B</code>. Is the empirical coverage close to 95%? What does it mean if the coverage is systematically lower?</p>
 <h3 data-number="28.8.5" id="alternative-model"><span class="header-section-number">28.8.5</span> Alternative model</h3>
 <p>Fit an exponential learning model <span class="math inline">\(\text{RT}(n) = c + (A - c)\,e^{-\lambda n}\)</span>, where <span class="math inline">\(c\)</span> is the asymptotic RT, <span class="math inline">\(A\)</span> is the initial RT, and <span class="math inline">\(\lambda\)</span> is the decay rate. Compare the sum of squared residuals of the exponential and power-law fits on the synthetic data. Which model fits better?</p>
-</section>
 
 </main>
 <footer class="page-footer">

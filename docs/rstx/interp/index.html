@@ -4,30 +4,8 @@
   <title>Spatial Interpolation of Climate Data</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -337,7 +315,6 @@ A model-evaluation procedure in which each observation is held out in turn, the 
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="19.8" id="exercises"><span class="header-section-number">19.8</span> Exercises</h2>
 <h3 data-number="19.8.1" id="do-the-math"><span class="header-section-number">19.8.1</span> Do the math</h3>
 <p>Station A is 1 unit from the query point and has value 1.0. Station B is 2 units away and has value 0.0. Using p = 2, what is the IDW estimate at the query point?</p>
@@ -349,7 +326,6 @@ A model-evaluation procedure in which each observation is held out in turn, the 
 <p>Generate station sets of size 5, 15, 30, and 60, each with a different random seed, and compute the LOO-CV MAE for each. Plot MAE as a function of station count. Does the error halve when the station count doubles?</p>
 <h3 data-number="19.8.5" id="measurement-noise"><span class="header-section-number">19.8.5</span> Measurement noise</h3>
 <p>Modify the generator to add Gaussian noise with standard deviation 0.1 to each station’s observed value. How does the LOO-CV MAE change compared to the noise-free case? Is there an optimal <span class="math inline">\(p\)</span> that reduces the impact of measurement noise?</p>
-</section>
 
 </main>
 <footer class="page-footer">

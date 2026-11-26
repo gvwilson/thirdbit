@@ -4,30 +4,8 @@
   <title>Anomaly Detection in Patient Vital Signs</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -354,7 +332,6 @@ An isolated outlier reading that returns to baseline immediately; the rolling wi
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="13.9" id="exercises"><span class="header-section-number">13.9</span> Exercises</h2>
 <h3 data-number="13.9.1" id="do-the-math"><span class="header-section-number">13.9.1</span> Do the math</h3>
 <p>A trailing window of width 3 contains values [68, 70, 72]. The window mean is 70, and the sample standard deviation is 2. A new reading of 74 arrives. What is the z-score of 74 against this window?</p>
@@ -368,7 +345,6 @@ An isolated outlier reading that returns to baseline immediately; the rolling wi
 <p>with smoothing factor <span class="math inline">\(\alpha \in (0, 1)\)</span>. Derive the corresponding EWMA variance estimator and re-implement <code>rolling_stats</code> using it. Compare the detection lag between the uniform and EWMA detectors on the step-change data.</p>
 <h3 data-number="13.9.5" id="multivariate-anomaly-score"><span class="header-section-number">13.9.5</span> Multivariate anomaly score</h3>
 <p>A patient has two simultaneous signals: heart rate and respiratory rate. Anomalies in both signals at the same time are more clinically significant than anomalies in just one. Combine the two individual z-scores into a single multivariate score (e.g.&nbsp;the Euclidean norm of the two z-score vectors) and show that it improves detection of anomalies that affect both signals simultaneously while maintaining the per-signal false-positive rate.</p>
-</section>
 
 </main>
 <footer class="page-footer">

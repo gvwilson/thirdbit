@@ -4,30 +4,8 @@
   <title>Topic Modeling a Document Corpus</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -455,7 +433,6 @@ Dividing a vector by its Euclidean length <span class="math inline">\(\|\mathbf{
     to be a mixture of topics, and each topic to be a distribution over words.
 -   LDA inference uses Bayesian methods (specifically collapsed Gibbs sampling, a form
     of Markov chain Monte Carlo) and requires more advanced statistics than k-means.</code></pre>
-<section class="exercises">
 <h2 data-number="17.11" id="exercises"><span class="header-section-number">17.11</span> Exercises</h2>
 <h3 data-number="17.11.1" id="do-the-math"><span class="header-section-number">17.11.1</span> Do the math</h3>
 <p>Consider two document vectors <span class="math inline">\(\mathbf{a} = [3, 4]\)</span> and centroid <span class="math inline">\(\mathbf{c} = [0, 0]\)</span>. What is the Euclidean distance <span class="math inline">\(d(\mathbf{a}, \mathbf{c})\)</span>?</p>
@@ -469,7 +446,6 @@ Dividing a vector by its Euclidean length <span class="math inline">\(\|\mathbf{
 <p>The within-cluster sum of squared distances (inertia) measures how tightly packed each cluster is:</p>
 <p><span class="math display">\[\text{inertia} = \sum_{k=0}^{K-1} \sum_{d:\,\text{label}(d)=k} \|\hat{\mathbf{t}}_d - \mathbf{c}_k\|_2^2\]</span></p>
 <p>Implement <code>inertia(matrix, labels, centroids)</code> and plot inertia against <span class="math inline">\(K\)</span> for <span class="math inline">\(K \in \{2, 3, 4, 5, 6\}\)</span>. The “elbow” in the plot (where inertia stops dropping sharply) is a common heuristic for choosing <span class="math inline">\(K\)</span>. Does the elbow occur at <span class="math inline">\(K = 3\)</span> for this corpus?</p>
-</section>
 
 </main>
 <footer class="page-footer">

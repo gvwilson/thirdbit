@@ -4,30 +4,8 @@
   <title>Least-Cost Path Analysis for Trade Routes</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -100,7 +78,7 @@ Wrong: Dijkstra’s minimises accumulated cost, not geometric length; a longer v
 </ul></li>
 <li>Moving from cell <span class="math inline">\(A\)</span> to an adjacent cell <span class="math inline">\(B\)</span> incurs an edge cost:</li>
 </ul>
-<p><span class="math display">\[\text{edge\_cost}(A, B) = \frac{\text{elev}(A) + \text{elev}(B)}{2} \times d(A, B)\]</span></p>
+<p><span class="math display">\[\text{edge_cost}(A, B) = \frac{\text{elev}(A) + \text{elev}(B)}{2} \times d(A, B)\]</span></p>
 <ul>
 <li>Averaging the endpoint elevations penalises entering a ridge from a valley proportionally (and vice versa).</li>
 <li><span class="math inline">\(d(A, B) = 1\)</span> for orthogonal moves and <span class="math inline">\(\sqrt{2}\)</span> for diagonal moves, so longer edges cost proportionally more.</li>
@@ -347,7 +325,6 @@ The cost assigned to moving from one grid cell to an adjacent cell; computed her
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="8.7" id="exercises"><span class="header-section-number">8.7</span> Exercises</h2>
 <h3 data-number="8.7.1" id="do-the-math"><span class="header-section-number">8.7.1</span> Do the math</h3>
 <p>Cell A has elevation 0.5 and orthogonally adjacent cell B has elevation 1.0. What is the edge cost from A to B?</p>
@@ -359,7 +336,6 @@ The cost assigned to moving from one grid cell to an adjacent cell; computed her
 <p>Extend <code>least_cost_path</code> to accept a list of waypoints and return the path that passes through every waypoint in order at minimum total cost. Apply this to the synthetic terrain with two intermediate waypoints and compare the total cost to the direct source-to-destination path.</p>
 <h3 data-number="8.7.5" id="sensitivity-to-epsilon"><span class="header-section-number">8.7.5</span> Sensitivity to epsilon</h3>
 <p>Generate terrain at three different random seeds and run least-cost path analysis on each. For each terrain, compute the total path cost and the fraction of cells on the path that lie below the mean elevation. Does a lower mean elevation on the path reliably predict lower total cost?</p>
-</section>
 
 </main>
 <footer class="page-footer">

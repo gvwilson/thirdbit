@@ -4,30 +4,8 @@
   <title>Structural Break Detection in Economic Time Series</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -385,7 +363,6 @@ A point in time at which the statistical properties of a time series (mean, vari
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="33.8" id="exercises"><span class="header-section-number">33.8</span> Exercises</h2>
 <h3 data-number="33.8.1" id="do-the-math"><span class="header-section-number">33.8.1</span> Do the math</h3>
 <p>A noise-free series has value 0 for steps 0-99 and value 3 for steps 100-199. The global mean is 1.5. At which step index (0-based) does <span class="math inline">\(|C_t|\)</span> reach its maximum?</p>
@@ -397,7 +374,6 @@ A point in time at which the statistical properties of a time series (mean, vari
 <p>Generate a series with a linear trend (<span class="math inline">\(b = 0.05\)</span> per step) and a mean break at step 100. Apply both the mean-only and linear-trend CUSUM and compare the detected break locations. Show that the mean-only CUSUM gives a biased estimate when a trend is present.</p>
 <h3 data-number="33.8.5" id="scaled-cusum-and-critical-values"><span class="header-section-number">33.8.5</span> Scaled CUSUM and critical values</h3>
 <p>The raw CUSUM is not scale-invariant: a larger noise standard deviation produces larger CUSUM values even with no break. Normalise the CUSUM by dividing by <span class="math inline">\(\hat{\sigma}\sqrt{T}\)</span> where <span class="math inline">\(\hat{\sigma}\)</span> is the residual standard error and <span class="math inline">\(T\)</span> is the series length. The scaled statistic exceeds 1.36 with probability 5% under the null hypothesis of no break (Brown-Durbin-Evans critical value). Apply this threshold to the synthetic data and report whether the break is detected at the 5% level.</p>
-</section>
 
 </main>
 <footer class="page-footer">

@@ -4,30 +4,8 @@
   <title>Tumor Classification by Logistic Regression</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -380,7 +358,6 @@ A <span class="math inline">\(2\times2\)</span> table of TN, FP, FN, TP counts; 
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="27.8" id="exercises"><span class="header-section-number">27.8</span> Exercises</h2>
 <h3 data-number="27.8.1" id="do-the-math"><span class="header-section-number">27.8.1</span> Do the math</h3>
 <p>A logistic regression model with <span class="math inline">\(\mathbf{w} = [1, 0]\)</span> and <span class="math inline">\(b = 1\)</span> receives input <span class="math inline">\(\mathbf{x} = [0, 0]\)</span>. Compute <span class="math inline">\(\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)\)</span> to three decimal places.</p>
@@ -392,7 +369,6 @@ A <span class="math inline">\(2\times2\)</span> table of TN, FP, FN, TP counts; 
 <p>The default threshold of 0.5 minimises misclassification rate on balanced classes. For cancer screening, false negatives (missed malignancies) should be penalised more than false positives. Plot precision and recall as functions of the decision threshold from 0.1 to 0.9. Find the threshold that achieves recall <span class="math inline">\(\geq 0.98\)</span> with the highest possible precision.</p>
 <h3 data-number="27.8.5" id="multinomial-extension"><span class="header-section-number">27.8.5</span> Multinomial extension</h3>
 <p>Extend the binary classifier to three classes (benign, low-grade malignant, high-grade malignant). Generate three Gaussian clusters and implement softmax regression using the one-vs-rest strategy: train one binary classifier per class and predict the class with the highest predicted probability. Report the three-class confusion matrix.</p>
-</section>
 
 </main>
 <footer class="page-footer">

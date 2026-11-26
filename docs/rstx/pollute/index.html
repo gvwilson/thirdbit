@@ -4,30 +4,8 @@
   <title>Pollutant Spread in a River Network</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -85,7 +63,20 @@ document.addEventListener("DOMContentLoaded", function () {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>TRANSPORT_RATE <span class="op">=</span> <span class="fl">0.4</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>N_STEPS <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>SNAPSHOT_INTERVAL <span class="op">=</span> <span class="dv">5</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_network():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a directed graph representing the river network.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Edge weights represent relative mean discharge (arbitrary units) and</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    are used for visualization only; transport uses a uniform rate.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    G.add_nodes_from(<span class="bu">range</span>(<span class="bu">len</span>(NODE_NAMES)))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># upstream_a and upstream_b both drain into the junction.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    G.add_edge(<span class="dv">0</span>, <span class="dv">2</span>, weight<span class="op">=</span><span class="fl">3.0</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    G.add_edge(<span class="dv">1</span>, <span class="dv">2</span>, weight<span class="op">=</span><span class="fl">5.0</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># junction drains to reach, reach drains to outlet.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    G.add_edge(<span class="dv">2</span>, <span class="dv">3</span>, weight<span class="op">=</span><span class="fl">8.0</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    G.add_edge(<span class="dv">3</span>, <span class="dv">4</span>, weight<span class="op">=</span><span class="fl">8.0</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> G</span></code></pre></div>
 <ul>
 <li><code>upstream_a</code> (node 0) is the spill site</li>
 <li><code>upstream_b</code> (node 1) is an uncontaminated headwater</li>
@@ -119,12 +110,12 @@ Wrong: undirected graphs support weighted edges just as directed graphs do.
 <h2 data-number="5.3" id="the-transport-model"><span class="header-section-number">5.3</span> The Transport Model</h2>
 <ul>
 <li>At each time step, a fraction <code>TRANSPORT_RATE</code> of the concentration at each non-sink node moves downstream</li>
-<li>The remaining fraction <span class="math inline">\((1 - \text{TRANSPORT\_RATE})\)</span> stays at the node (representing mixing and retention in the water column)</li>
+<li>The remaining fraction <span class="math inline">\((1 - \text{TRANSPORT_RATE})\)</span> stays at the node (representing mixing and retention in the water column)</li>
 <li>For a node <span class="math inline">\(v\)</span> with upstream neighbours <span class="math inline">\(u_1, u_2, \ldots\)</span> each contributing fraction <span class="math inline">\(f_k\)</span>, the update rule is:</li>
 </ul>
 <p><span class="math display">\[c_v^{n+1} = (1 - \alpha)\,c_v^n + \sum_k f_k\,c_{u_k}^n\]</span></p>
 <ul>
-<li><span class="math inline">\(\alpha = \text{TRANSPORT\_RATE}\)</span> and <span class="math inline">\(f_k = \alpha / \text{(number of downstream neighbours of } u_k\text{)}\)</span></li>
+<li><span class="math inline">\(\alpha = \text{TRANSPORT_RATE}\)</span> and <span class="math inline">\(f_k = \alpha / \text{(number of downstream neighbours of } u_k\text{)}\)</span></li>
 <li>When a node drains into a single successor, <span class="math inline">\(f_k = \alpha\)</span></li>
 <li>When a node splits equally among two successors, each receives <span class="math inline">\(\alpha / 2\)</span></li>
 </ul>
@@ -133,7 +124,24 @@ Wrong: undirected graphs support weighted edges just as directed graphs do.
 <li>Rather than building a matrix, we pre-compute the list of <span class="math inline">\((u, f)\)</span> pairs for each node <span class="math inline">\(v\)</span>, where <span class="math inline">\(u\)</span> is an upstream neighbour and <span class="math inline">\(f\)</span> is the fraction of <span class="math inline">\(u\)</span>’s concentration that flows into <span class="math inline">\(v\)</span></li>
 <li>This list is empty for headwater nodes (no upstream neighbours) and for isolated nodes</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_upstream(G):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return upstream[v] = list of (u, fraction) pairs for each node v.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    For each edge u -&gt; v, the fraction of u's concentration that flows to v</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    in one step is TRANSPORT_RATE divided by the number of downstream</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    neighbours of u.  A node with no upstream neighbours has an empty list.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(NODE_NAMES)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    upstream <span class="op">=</span> {v: [] <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(n)}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> u <span class="op">==</span> SINK:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        succs <span class="op">=</span> <span class="bu">list</span>(G.successors(u))</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> succs:</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        fraction <span class="op">=</span> TRANSPORT_RATE <span class="op">/</span> <span class="bu">len</span>(succs)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v <span class="kw">in</span> succs:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            upstream[v].append((u, fraction))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> upstream</span></code></pre></div>
 <div class="forma-ordering" data-lang="en" data-markdown="1">
 <p>Put these steps in the correct order to fill in the upstream table for one non-sink node u.</p>
 <ol type="1">
@@ -385,11 +393,10 @@ Figure&nbsp;5.1: Concentration at each node over 20 time steps. The pollutant pu
 <span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>            <span class="cf">assert</span> <span class="bu">abs</span>(total <span class="op">-</span> TRANSPORT_RATE) <span class="op">&lt;</span> <span class="fl">1e-12</span>, (</span>
 <span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"node </span><span class="sc">{</span>NODE_NAMES[u]<span class="sc">}</span><span class="ss"> sends </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss">, expected </span><span class="sc">{</span>TRANSPORT_RATE<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
-<section class="exercises">
 <h2 data-number="5.8" id="exercises"><span class="header-section-number">5.8</span> Exercises</h2>
 <h3 data-number="5.8.1" id="do-the-math"><span class="header-section-number">5.8.1</span> Do the math</h3>
 <p>Starting from <span class="math inline">\(c = [1, 0, 0, 0, 0]\)</span> and using <code>TRANSPORT_RATE</code> = 0.4, what is the concentration at <code>junction</code> (node 2) after exactly 2 time steps? Give your answer to two decimal places.</p>
-<p>Hint: trace through the update rule step by step. At step 1, junction receives <span class="math inline">\(0.4 \times c_0[\text{upstream\_a}]\)</span> from <code>upstream_a</code>. At step 2, junction retains <span class="math inline">\(0.6\)</span> of its step-1 value and receives another inflow from <code>upstream_a</code>.</p>
+<p>Hint: trace through the update rule step by step. At step 1, junction receives <span class="math inline">\(0.4 \times c_0[\text{upstream_a}]\)</span> from <code>upstream_a</code>. At step 2, junction retains <span class="math inline">\(0.6\)</span> of its step-1 value and receives another inflow from <code>upstream_a</code>.</p>
 <h3 data-number="5.8.2" id="adding-a-tributary"><span class="header-section-number">5.8.2</span> Adding a tributary</h3>
 <p>Add a sixth node <code>tributary</code> (node 5) that joins at <code>reach</code> (node 3) with edge weight 2.0. Update <code>build_network</code> and rerun the simulation. Does <code>test_mass_conservation</code> still pass? Does the pollutant reach the outlet faster or slower?</p>
 <h3 data-number="5.8.3" id="variable-transport-rate"><span class="header-section-number">5.8.3</span> Variable transport rate</h3>
@@ -398,7 +405,6 @@ Figure&nbsp;5.1: Concentration at each node over 20 time steps. The pollutant pu
 <p>Change the initial condition so that <code>upstream_a</code> receives a constant input of 0.1 concentration units per step (a continuous source rather than an instantaneous spill). Modify <code>simulate</code> to add this source term to <code>new_c[SPILL_NODE]</code> after each update step. Is mass still conserved? At what step does the outlet concentration stabilise?</p>
 <h3 data-number="5.8.5" id="two-spill-comparison"><span class="header-section-number">5.8.5</span> Two-spill comparison</h3>
 <p>Run two separate simulations: one with the spill at <code>upstream_a</code> and one with a spill at <code>upstream_b</code>. Add the two concentration lists at each step. Compare the result to a single simulation that starts with concentration 1.0 at both headwater nodes simultaneously. Are the results identical? Explain why in terms of the structure of the update rule.</p>
-</section>
 
 </main>
 <footer class="page-footer">

@@ -4,30 +4,8 @@
   <title>Manuscript Stemma Reconstruction</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -149,7 +127,27 @@ Wrong: shared unique errors in the same positions are statistically very unlikel
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_distance_matrix(noise_scale<span class="op">=</span><span class="fl">0.0</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (names, D) using exact tree-additive distances.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    When noise_scale=0.0 (default) the distances are exact and NJ recovers</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    the true topology and branch lengths to machine precision.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    A non-zero noise_scale adds symmetric Gaussian noise to simulate the</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    imperfect additivity of real manuscript data.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(MANUSCRIPTS)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    D <span class="op">=</span> np.zeros((n, n))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, a <span class="kw">in</span> <span class="bu">enumerate</span>(MANUSCRIPTS):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j, b <span class="kw">in</span> <span class="bu">enumerate</span>(MANUSCRIPTS):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&lt;</span> j:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                key <span class="op">=</span> (a, b) <span class="cf">if</span> (a, b) <span class="kw">in</span> _BRANCH <span class="cf">else</span> (b, a)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                D[i, j] <span class="op">=</span> D[j, i] <span class="op">=</span> _BRANCH[key]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise_scale <span class="op">&gt;</span> <span class="fl">0.0</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> rng.normal(<span class="dv">0</span>, noise_scale, (n, n))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> (noise <span class="op">+</span> noise.T) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        np.fill_diagonal(noise, <span class="dv">0</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        D <span class="op">=</span> np.maximum(D <span class="op">+</span> noise, <span class="fl">0.0</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(MANUSCRIPTS), D</span></code></pre></div>
 <h2 data-number="11.4" id="the-upgma-algorithm"><span class="header-section-number">11.4</span> The UPGMA Algorithm</h2>
 <ul>
 <li>UPGMA (Unweighted Pair-Group Method with Arithmetic means) builds a rooted tree by iteratively merging the pair of nodes with the smallest pairwise distance.</li>
@@ -622,7 +620,6 @@ Unweighted Pair-Group Method with Arithmetic means; a clustering algorithm that 
 </dd>
 </dl>
 </div>
-<section class="exercises">
 <h2 data-number="11.10" id="exercises"><span class="header-section-number">11.10</span> Exercises</h2>
 <h3 data-number="11.10.1" id="do-the-math"><span class="header-section-number">11.10.1</span> Do the math</h3>
 <ol type="1">
@@ -637,7 +634,6 @@ Unweighted Pair-Group Method with Arithmetic means; a clustering algorithm that 
 <p>UPGMA assumes all branch rates are equal (the constant-rate assumption). Add Gaussian noise to the reference distance matrix using <code>make_distance_matrix(noise_scale=s)</code> for <span class="math inline">\(s \in \{0.01, 0.02, 0.05\}\)</span>. At what noise level does UPGMA first recover the wrong topology (A or B grouped with C or D)? How does this compare to the noiseless case?</p>
 <h3 data-number="11.10.5" id="adding-a-contaminated-manuscript"><span class="header-section-number">11.10.5</span> Adding a contaminated manuscript</h3>
 <p>A contaminated manuscript (one that was copied partly from two different sources) does not fit a tree model. Add a fifth manuscript E whose sequence is a 50/50 mix of A and C. Compute the distance matrix for all five manuscripts and run UPGMA. Does the algorithm detect the problem, and if so, how is it visible in the recovered tree?</p>
-</section>
 
 </main>
 <footer class="page-footer">

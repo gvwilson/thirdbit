@@ -12,29 +12,30 @@
 <header class="topbar">
   <nav class="topnav">
     <a class="topnav-item" href="../index.html">Home</a>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Chapters</span>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../basicpy/index.html">Basic Python</a></li><li><a href="../interpy/index.html">Intermediate Python</a></li><li><a href="../oopy/index.html">Object-Oriented Python</a></li><li><a href="../regexp/index.html">Regular Expressions</a></li><li><a href="../diot/index.html">Data, I/O, and Testing</a></li><li><a href="../perfcon/index.html">Performance, Concurrency, and System Interaction</a></li><li><a href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser</a></li><li><a href="../css/index.html">CSS</a></li><li><a href="../web/index.html">HTTP and APIs</a></li><li><a href="../htmx/index.html">HTMX</a></li><li><a href="../alpine/index.html">Alpine.js</a></li><li><a href="../fastapi/index.html">FastAPI</a></li><li><a href="../datasci/index.html">Data Science</a></li><li><a href="../dataviz/index.html">Data Visualization</a></li><li><a href="../polars/index.html">Polars</a></li><li><a href="../shell/index.html">The Unix Shell</a></li><li><a href="../sql/index.html">SQL</a></li><li><a href="../testing/index.html">Testing</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Appendices</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
       <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../complex/index.html">Complex Examples</a></li></ul></div>
-    </div>
-    <div class="topnav-dropdown">
-      <span class="topnav-item">Contents</span>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
       <div class="topnav-menu"><ul>
-<li><a href="#find-the-most-common-word-in-a-text" id="toc-find-the-most-common-word-in-a-text"><span class="header-section-number">8.1</span> Find the most common word in a text</a></li>
-<li><a href="#run-an-external-tool-and-capture-its-output" id="toc-run-an-external-tool-and-capture-its-output"><span class="header-section-number">8.2</span> Run an external tool and capture its output</a></li>
-<li><a href="#count-requests-handled-by-concurrent-workers" id="toc-count-requests-handled-by-concurrent-workers"><span class="header-section-number">8.3</span> Count requests handled by concurrent workers</a></li>
-<li><a href="#share-a-lookup-table-across-worker-processes" id="toc-share-a-lookup-table-across-worker-processes"><span class="header-section-number">8.4</span> Share a lookup table across worker processes</a></li>
-<li><a href="#mock-a-function-where-it-is-imported" id="toc-mock-a-function-where-it-is-imported"><span class="header-section-number">8.5</span> Mock a function where it is imported</a></li>
+<li><a href="#find-the-most-common-word-in-a-text" id="toc-find-the-most-common-word-in-a-text"><span class="header-section-number">7.1</span> Find the most common word in a text</a></li>
+<li><a href="#run-an-external-tool-and-capture-its-output" id="toc-run-an-external-tool-and-capture-its-output"><span class="header-section-number">7.2</span> Run an external tool and capture its output</a></li>
+<li><a href="#count-requests-handled-by-concurrent-workers" id="toc-count-requests-handled-by-concurrent-workers"><span class="header-section-number">7.3</span> Count requests handled by concurrent workers</a></li>
+<li><a href="#share-a-lookup-table-across-worker-processes" id="toc-share-a-lookup-table-across-worker-processes"><span class="header-section-number">7.4</span> Share a lookup table across worker processes</a></li>
+<li><a href="#mock-a-function-where-it-is-imported" id="toc-mock-a-function-where-it-is-imported"><span class="header-section-number">7.5</span> Mock a function where it is imported</a></li>
 </ul></div>
-    </div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/unbreak">Source</a>
   </nav>
 </header>
 <main class="content"><header id="title-block-header" class="quarto-title-block"></header>
 <h1 class="title">Performance, Concurrency, and System Interaction</h1>
-<h2 data-number="8.1" id="find-the-most-common-word-in-a-text"><span class="header-section-number">8.1</span> Find the most common word in a text</h2>
+<h2 data-number="7.1" id="find-the-most-common-word-in-a-text"><span class="header-section-number">7.1</span> Find the most common word in a text</h2>
 <p>Run the word-frequency function on the provided text file and time how long it takes. Then run <code>cProfile</code> on it to see which lines consume the most time.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -82,7 +83,7 @@ Show explanation
 <p>Shows: how to identify repeated-scan inefficiency with <code>cProfile</code> and how choosing the right data structure eliminates the need for multiple passes.</p>
 <p>To find it: run <code>python -m cProfile -s cumulative script.py | head -20</code> and look for <code>str.count</code> near the top of the cumulative-time column. Each call re-scans the entire string; multiplying the call count by the string length shows why this is slow.</p>
 </details>
-<h2 data-number="8.2" id="run-an-external-tool-and-capture-its-output"><span class="header-section-number">8.2</span> Run an external tool and capture its output</h2>
+<h2 data-number="7.2" id="run-an-external-tool-and-capture-its-output"><span class="header-section-number">7.2</span> Run an external tool and capture its output</h2>
 <p>Run this script. Does it return promptly, or does it hang?</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -117,7 +118,7 @@ Show explanation
 <p>Shows: how subprocess I/O streams work and how to use <code>communicate()</code> safely.</p>
 <p>To find it: run the script and wait ten seconds. If it does not return, kill it with Ctrl-C. Then check the <code>Popen</code> call: if <code>stdin</code> is not set to <code>subprocess.DEVNULL</code> or <code>subprocess.PIPE</code> paired with <code>communicate()</code>, the child inherits the terminal and blocks waiting for input that never arrives.</p>
 </details>
-<h2 data-number="8.3" id="count-requests-handled-by-concurrent-workers"><span class="header-section-number">8.3</span> Count requests handled by concurrent workers</h2>
+<h2 data-number="7.3" id="count-requests-handled-by-concurrent-workers"><span class="header-section-number">7.3</span> Count requests handled by concurrent workers</h2>
 <p>Run this script several times and record the final counter value each time. Is the value always the same? Is it always the value you expect?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>THREADS <span class="op">=</span> <span class="dv">5</span></span>
@@ -148,7 +149,7 @@ Show explanation
 <p>Shows: what a race condition is, why it is hard to reproduce, and how to use <code>threading.Lock</code> to fix it.</p>
 <p>To find it: run the script five times in a row and record each final counter value. If the values differ across runs, the counter is not being updated atomically. Print the expected value (number of threads multiplied by increments per thread) alongside each observed value to make the discrepancy concrete.</p>
 </details>
-<h2 data-number="8.4" id="share-a-lookup-table-across-worker-processes"><span class="header-section-number">8.4</span> Share a lookup table across worker processes</h2>
+<h2 data-number="7.4" id="share-a-lookup-table-across-worker-processes"><span class="header-section-number">7.4</span> Share a lookup table across worker processes</h2>
 <p>Run this script and compare the contents of the shared list before and after the worker processes run. Did the workers modify the list you passed in?</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> multiprocessing</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
@@ -176,7 +177,7 @@ Show explanation
 <p>Shows: the difference between threading and multiprocessing memory models.</p>
 <p>To find it: print <code>id(shared_list)</code> inside the worker function and inside the parent process. If the two addresses differ, each process has its own copy of the list and modifications inside workers are invisible to the parent.</p>
 </details>
-<h2 data-number="8.5" id="mock-a-function-where-it-is-imported"><span class="header-section-number">8.5</span> Mock a function where it is imported</h2>
+<h2 data-number="7.5" id="mock-a-function-where-it-is-imported"><span class="header-section-number">7.5</span> Mock a function where it is imported</h2>
 <p>Run the test. Does it pass? Add a print statement inside the mock to check whether the mock is actually being called. Then look at the return value of the function under test.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_data():</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return records from the data store."""</span></span>
@@ -213,6 +214,12 @@ Show explanation
 </details>
 
 </main>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../diot/index.html">← Data, I/O, and Testing</a>
+    <a class="pager-link next" href="../jsbrowser/index.html">JavaScript Fundamentals and the Browser →</a>
+  </nav>
+</footer>
 
 
 </body></html>

@@ -4,30 +4,8 @@
   <title>Pairwise Sequence Alignment</title>
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.getElementsByClassName("math");
-  for (var i = 0; i < elems.length; i++) {
-    var el = elems[i];
-    var tex = el.firstChild;
-    if (el.tagName === "SPAN" && tex) {
-      var text = tex.data;
-      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
-        text = text.slice(2);
-      }
-      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
-        text = text.slice(0, -2);
-      }
-      katex.render(text, el, {
-        displayMode: el.classList.contains("display"),
-        throwOnError: false
-      });
-    }
-  }
-});
-</script>
+<link rel="stylesheet" href="../../mccole/mccole-forma.css">
+<script type="module" src="../../mccole/forma.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -142,7 +120,9 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 <li>There is no zero floor: unlike local alignment, global alignment must account for every character in both sequences, so negative scores are allowed</li>
 <li>The final score of the best global alignment is <span class="math inline">\(H[m, n]\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _nt_score(a, b):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return match score or mismatch penalty for two nucleotide characters."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> MATCH_SCORE <span class="cf">if</span> a <span class="op">==</span> b <span class="cf">else</span> MISMATCH_PENALTY</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_matrix(seq_a, seq_b):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the Needleman-Wunsch scoring matrix for two sequences.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The matrix has shape (len(seq_a)+1, len(seq_b)+1).  Entry H[i, j] holds</span></span>
@@ -412,7 +392,7 @@ The matrix must have one extra row and column for the gap-penalty border. An off
 </dd>
 <dt>Identical sequences</dt>
 <dd>
-Aligning a sequence with itself must match at every position with no gaps or mismatches. The score is exactly <span class="math inline">\(\text{len} \times \text{MATCH\_SCORE}\)</span>. This test also checks that the aligned strings are returned in the correct order (not reversed).
+Aligning a sequence with itself must match at every position with no gaps or mismatches. The score is exactly <span class="math inline">\(\text{len} \times \text{MATCH_SCORE}\)</span>. This test also checks that the aligned strings are returned in the correct order (not reversed).
 </dd>
 <dt>Mismatch in alignment</dt>
 <dd>
@@ -424,7 +404,7 @@ Aligning a sequence with itself must match at every position with no gaps or mis
 </dd>
 <dt>All mismatches</dt>
 <dd>
-When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALTY</code>, the optimal global alignment still pairs all characters (no gaps), since introducing a gap would not improve the score. Score = <span class="math inline">\(\text{len} \times \text{MISMATCH\_PENALTY}\)</span>. Note the difference from Smith-Waterman, which would return an empty alignment with score 0.
+When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALTY</code>, the optimal global alignment still pairs all characters (no gaps), since introducing a gap would not improve the score. Score = <span class="math inline">\(\text{len} \times \text{MISMATCH_PENALTY}\)</span>. Note the difference from Smith-Waterman, which would return an empty alignment with score 0.
 </dd>
 </dl>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> align <span class="im">import</span> (</span>
@@ -489,7 +469,6 @@ When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALT
 <span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> aligned_a <span class="op">==</span> <span class="st">"ACGT"</span></span>
 <span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> aligned_b <span class="op">==</span> <span class="st">"A-GT"</span></span>
 <span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> score <span class="op">==</span> <span class="dv">5</span></span></code></pre></div>
-<section class="exercises">
 <h2 data-number="9.10" id="exercises"><span class="header-section-number">9.10</span> Exercises</h2>
 <h3 data-number="9.10.1" id="do-the-math"><span class="header-section-number">9.10.1</span> Do the math</h3>
 <p>Aligning “AGTC” with “AGC” using <code>MATCH_SCORE = 2</code>, <code>MISMATCH_PENALTY = -1</code>, <code>GAP_PENALTY = -1</code>: the best global alignment has three matches and one gap. What is the total alignment score?</p>
@@ -501,7 +480,6 @@ When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALT
 <p>Biological sequence aligners use substitution matrices such as BLOSUM62 that assign different scores to each pair of amino acid characters, reflecting how often each substitution occurs in evolution. Replace <code>_nt_score</code> with a function that looks up scores in a small hand-written <span class="math inline">\(4 \times 4\)</span> substitution matrix for the four DNA bases A, C, G, T. Assign a higher score to transitions (A vs G, C vs T) than transversions (A vs C, A vs T, etc.), since transitions are more common mutations. Verify that aligning <code>"ATCG"</code> with <code>"AGCG"</code> now gives a different score than with the flat <code>MATCH_SCORE</code> / <code>MISMATCH_PENALTY</code> scheme.</p>
 <h3 data-number="9.10.5" id="affine-gap-penalty"><span class="header-section-number">9.10.5</span> Affine gap penalty</h3>
 <p>The linear gap penalty <span class="math inline">\(g\)</span> treats opening a gap and extending an existing gap identically. A more realistic affine gap penalty charges a higher cost <span class="math inline">\(g_o\)</span> to open a gap and a lower cost <span class="math inline">\(g_e\)</span> to extend it: a gap of length <span class="math inline">\(k\)</span> costs <span class="math inline">\(g_o + (k-1)g_e\)</span>. Look up the three-matrix formulation of Needleman-Wunsch with affine gaps (using matrices <span class="math inline">\(H\)</span>, <span class="math inline">\(E\)</span>, <span class="math inline">\(F\)</span>) and implement it. Verify that with <span class="math inline">\(g_o = -3\)</span> and <span class="math inline">\(g_e = -1\)</span> the alignment of <code>"ACCCGT"</code> with <code>"AGT"</code> produces a single gap of length 3 rather than three individual gaps.</p>
-</section>
 
 </main>
 <footer class="page-footer">
