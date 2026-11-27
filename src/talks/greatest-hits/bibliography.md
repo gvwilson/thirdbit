@@ -2,6 +2,7 @@
 title: "Bibliography"
 template: page
 ---
+<div class="bibliography">
 
 <p id="Altadmri2015">[Altadmri2015]
   Amjad Altadmri and Neil C.C. Brown:
@@ -202,3 +203,4 @@ template: page
   <em>MSR'21</em>,
   <a class="doi" href="https://doi.org/10.1109/msr52588.2021.00065">10.1109/msr52588.2021.00065</a>.
 </p>
+</div>

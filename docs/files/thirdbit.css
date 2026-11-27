@@ -1,3 +1,46 @@
+/* Ark adaptation: mccole-book.css sets `body { margin: 0 }` and targets
+   Quarto's `main.content`, so restore centering and content width here. */
+body {
+    margin: 0 auto;
+}
+
+main#main-content {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1rem 2rem 1rem;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+/* Grid: fixed-width columns with gutters, replicating chota (mccole-book.css's
+   .row > * { flex: 1 } makes columns grow with no gutters). */
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.col, [class*=" col-"], [class^="col-"] {
+    margin: 0 10px 10px;
+}
+
+.col-1 { flex: 0 0 calc(8.333% - 20px); max-width: calc(8.333% - 20px); }
+.col-2 { flex: 0 0 calc(16.667% - 20px); max-width: calc(16.667% - 20px); }
+.col-3 { flex: 0 0 calc(25% - 20px); max-width: calc(25% - 20px); }
+.col-4 { flex: 0 0 calc(33.333% - 20px); max-width: calc(33.333% - 20px); }
+.col-5 { flex: 0 0 calc(41.667% - 20px); max-width: calc(41.667% - 20px); }
+.col-6 { flex: 0 0 calc(50% - 20px); max-width: calc(50% - 20px); }
+.col-7 { flex: 0 0 calc(58.333% - 20px); max-width: calc(58.333% - 20px); }
+.col-8 { flex: 0 0 calc(66.667% - 20px); max-width: calc(66.667% - 20px); }
+.col-9 { flex: 0 0 calc(75% - 20px); max-width: calc(75% - 20px); }
+.col-10 { flex: 0 0 calc(83.333% - 20px); max-width: calc(83.333% - 20px); }
+.col-11 { flex: 0 0 calc(91.667% - 20px); max-width: calc(91.667% - 20px); }
+.col-12 { flex: 0 0 calc(100% - 20px); max-width: calc(100% - 20px); }
+
 /* Headings: light gray background (thirdbit look) */
 h1, h2, h3, h4 {
     background-color: var(--bg-secondary-color);
@@ -28,8 +71,8 @@ img.image {
 
 /* Bibliography hanging indent */
 div.bibliography p {
-    padding-left: 1rem;
-    text-indent: -1rem;
+    padding-left: var(--hanging-indent);
+    text-indent: calc(-1 * var(--hanging-indent));
 }
 
 /* Disclaimer text */
@@ -38,14 +81,12 @@ p.disclaimer {
     font-style: italic;
 }
 
-/* Smaller heading for project/book cards */
-h3.card-title {
+/* Smaller heading for cards (books, projects, talks, packages) */
+.card h2,
+.card h3,
+.card h4 {
     font-size: 1.1em;
-}
-
-/* Equal-height cards within a row */
-[class*="col-"] > .card {
-    height: 100%;
+    margin-top: 0;
 }
 
 /* Beta cards: left border accent */

@@ -1,7 +1,5 @@
----
-title: "Bibliography"
-template: page
----
+<h1>Bibliography</h1>
+<div class="bibliography">
 
 <p id="abad2018">
 Abad, Zahra Shakeri Hossein, Oliver Karras, Kurt Schneider, Ken Barker,
@@ -34,6 +32,13 @@ Abdelsalam, Youssef, Norman Peitek, Anna-Maria Maurer, Mariya Toneva,
 and Sven Apel. 2025. <em>How Do Humans and LLMs Process Confusing
 Code?</em> <a href="https://arxiv.org/abs/2508.18547">https://arxiv.org/abs/2508.18547</a>.
  <em>Empirical study comparing LLM perplexity to human neurophysiological (EEG) responses on clean vs. confusing code; LLM perplexity spikes correlate in location and amplitude with human confusion signals; proposes LLM-based tool to identify confusing code regions.</em></p>
+<p id="abouelenein2025">
+Abouelenein, Yousri Attia Mohamed, Ayat Fawzy Ahmed Ghazala, Eman Mahdy
+Mohamed Mahdy, and Mohamed Hassan Ragab Khalaf. 2025. “The R5E
+Pattern: Can Artificial Intelligence Enhance Programming Skills
+Development?” <em>Education and Information Technologies</em> 30
+(15): 22177–205. <a href="https://doi.org/10.1007/s10639-025-13616-3">10.1007/s10639-025-13616-3</a>.
+ <em>Quasi-experimental study (70 undergrads) of the R5E pedagogical pattern for integrating ChatGPT into programming education; students in the structured R5E group significantly outperformed unstructured ChatGPT users on both cognitive and performance assessments of programming skill.</em></p>
 <p id="acciai2023">
 Acciai, Claudia, Jesper W. Schneider, and Mathias W. Nielsen. 2023.
 “Estimating Social Bias in Data Sharing Behaviours: An Open
@@ -49,11 +54,28 @@ Adams, Sophie, Sheree Bekker, Yanan Fan, et al. 2021. “Gender Bias
 in Student Evaluations of Teaching: ’Punish[ing] Those Who Fail to Do
 Their Gender Right’.” <em>Higher Education</em> 83 (March). <a href="https://doi.org/10.1007/s10734-021-00704-9">10.1007/s10734-021-00704-9</a>.
  <em>Qualitative study at an Australian university finds student evaluations of teaching measure conformity with gendered expectations rather than teaching quality, with particularly negative effects for women.</em></p>
-<p id="agarwal2026">
+<p id="adeeb2025">
+Adeeb, Elmira, and Kasia Muldner. 2025. “How Do Novice Programmers
+Solve Code-Tracing Problems When ChatGPT Is Available? A Qualitative
+Analysis.” <em>Proceedings of the 2025 ACM Conference on
+International Computing Education Research v.1</em>, August, 421–34. <a href="https://doi.org/10.1145/3702652.3744207">10.1145/3702652.3744207</a>.
+ <em>Qualitative think-aloud study of 21 novice programmers tracing code with GPT-4o; found substantially more independent problem solving than expected given prior reports of LLM over-reliance.</em></p>
+<p id="afroz2026">
+Afroz, Sadia, Courtney Miller, Tyler Menezes, Edward Gilmour, Anita
+Sarma, and Zixuan Feng. 2026. <em>"AI Slop Is DDoSing Open Source":
+Understanding the Impact of AI-Generated Contributions on Open Source
+Sustainability</em>. <a href="https://arxiv.org/abs/2607.04003">https://arxiv.org/abs/2607.04003</a>.
+ <em>Mixed-methods study of 'AI-DDoS', low-quality AI-generated contributions overwhelming OSS maintainers; analysis of 294 repositories (2M+ PRs/issues) shows rising PR volume but falling merge rates (-18.18% for one-time contributors), with 11 remediation strategies validated by 229 practitioners.</em></p>
+<p id="agarwal2026a">
 Agarwal, Shyam, Hao He, and Bogdan Vasilescu. 2026. <em>AI IDEs or
 Autonomous Agents? Measuring the Impact of Coding Agents on Software
 Development</em>. <a href="https://arxiv.org/abs/2601.13597">https://arxiv.org/abs/2601.13597</a>.
  <em>Longitudinal causal study (staggered diff-in-diff) of coding agent adoption in OSS repos; velocity gains large but front-loaded and only when agents are the first AI tool; quality risks (18% more warnings, 39% higher complexity) persist regardless; highlights need for quality safeguards and selective deployment.</em></p>
+<p id="agarwal2026b">
+Agarwal, Shyam, Courtney Miller, Christian Kästner, and Bogdan
+Vasilescu. 2026. <em>3100 Opinions on Code Review in an AI World:
+Building Causal Theory from Practitioner Discourse</em>. <a href="https://arxiv.org/abs/2607.07980">https://arxiv.org/abs/2607.07980</a>.
+ <em>Builds a causal theory of code review in the AI era from 3,100 LLM-coded grey-literature documents; the resulting model (26 constructs, 67 relationships) positions review as the control point deciding a coding agent's effect on software, with its sign set by the team.</em></p>
 <p id="aghajani2019">
 Aghajani, Emad, Csaba Nagy, Olga Lucero Vega-Marquez, et al. 2019.
 “Software Documentation Issues Unveiled.” <em>Proc.
@@ -109,11 +131,32 @@ Ajami, Shulamyt, Yonatan Woodbridge, and Dror G. Feitelson. 2018.
 Complexity?” <em>Empirical Software Engineering</em> 24 (1):
 287–328. <a href="https://doi.org/10.1007/s10664-018-9628-3">10.1007/s10664-018-9628-3</a>.
  <em>Game-like experiment with 220 professional programmers finds for loops harder than ifs, loops counting down harder than up, and comprehension time and error rate are not equivalent measures of difficulty.</em></p>
+<p id="akcapinar2024">
+Akçapınar, Gökhan, and Elif Sidan. 2024. “AI Chatbots in
+Programming Education: Guiding Success or Encouraging
+Plagiarism.” <em>Discover Artificial Intelligence</em> 4 (1). <a href="https://doi.org/10.1007/s44163-024-00203-7">10.1007/s44163-024-00203-7</a>.
+ <em>Quasi-experimental study showing an AI programming assistant raised mean exam scores from 48.33 to 74.47 (d=1.56), yet 61% of students given an obviously wrong AI answer copied it directly, underscoring the need for careful AI integration.</em></p>
 <p id="akerblom2015">
 Åkerblom, Beatrice, and Tobias Wrigstad. 2015. “Measuring
 Polymorphism in Python Programs.” <em>Proc. 11th
 Symposium on Dynamic Languages</em>, ahead of print, October. <a href="https://doi.org/10.1145/2816707.2816717">10.1145/2816707.2816717</a>.
  <em>Trace-based study of polymorphism in 36 OSS Python programs (7M+ call-sites); programs largely monomorphic; megamorphic call-sites rare but present; neither nominal nor structural typing can fully type entire programs.</em></p>
+<p id="alami2026">
+Alami, Adam, Elda Paja, and Abhishek Tiwari. 2026. <em>The Psychological
+Costs of Artificial Intelligence Adoption in Software Engineering</em>.
+<a href="https://arxiv.org/abs/2609.03456">https://arxiv.org/abs/2609.03456</a>.
+ <em>Case study (21 interviews) of a large software-services company a year into AI adoption; professionals report accountability anxiety, craft-identity disruption, meaning and satisfaction erosion, workload intensification, and uncertainty distress, which they manage, mitigate, or absorb rather than resolve.</em></p>
+<p id="alanazi2025b">
+Alanazi, Manal, Alice Li, Halima Samra, and Ben Soh. 2025.
+“Examining the Influence of AI on Python Programming Education: An
+Empirical Study and Analysis of Student Acceptance Through TAM3.”
+<em>Computers</em> 14 (10): 411. <a href="https://doi.org/10.3390/computers14100411">10.3390/computers14100411</a>.
+ <em>Solomon Four-Group SEM study (N = 300 female CS students) of PyChatAI adoption via TAM3; perceived usefulness (β = 0.446) and ease of use (β = 0.243) are the strongest predictors of intention to use, which drives actual usage (β = 0.406), with trust, facilitating conditions, and hedonic motivation as key indirect antecedents and little effect from social influence or cognitive factors.</em></p>
+<p id="alanazi2025a">
+Alanazi, Manal, Ben Soh, Halima Samra, and Alice Li. 2025.
+“PyChatAI: Enhancing Python Programming Skills—an Empirical Study
+of a Smart Learning System.” <em>Computers</em> 14 (5): 158. <a href="https://doi.org/10.3390/computers14050158">10.3390/computers14050158</a>.
+ <em>Solomon Four-Group evaluation of PyChatAI, a bilingual AI chatbot supporting novice Python programmers; found significant gains across all programming skills, especially theoretical understanding, code writing, and debugging.</em></p>
 <p id="albert2020">
 Albert, Jim, and Jingchen Hu. 2020. <em>Bayesian Computing in the
 Undergraduate Statistics Curriculum</em>. February 22. <a href="https://doi.org/10.48550/arXiv.2002.09716">10.48550/arXiv.2002.09716</a>.
@@ -295,6 +338,12 @@ Going Past the Errors and Omissions in Software Repositories.”
 <em>2009 IEEE 31st Conference on Software Engineering</em>, ahead of
 print. <a href="https://doi.org/10.1109/icse.2009.5070530">10.1109/icse.2009.5070530</a>.
  <em>Field study of bug fixing coordination (case study + survey); bug histories strongly depend on social/organizational knowledge not captured by repository mining; identifies common coordination patterns and tool design implications.</em></p>
+<p id="araujo2026">
+Araújo, Allysson Allex, Tatiane Ornelas, Danilo Ribeiro, Kiev Gama, and
+Marcos Kalinowski. 2026. “How Do Senior Software Engineers Learn
+Soft Skills? A Narrative Study Based on Social Cognitive Theory.”
+<em>Empirical Software Engineering</em> 32 (76). <a href="https://doi.org/10.1007/s10664-026-11001-3">10.1007/s10664-026-11001-3</a>.
+ <em>Narrative interview study (28 senior engineers) analyzed through social cognitive theory; soft skills are learned mostly through situated practice such as mentoring, conflict management, and leadership transitions shaped by turning points, not formal training.</em></p>
 <p id="armaly2016">
 Armaly, Ameer, and Collin McMillan. 2016. “An Empirical Study of
 Blindness and Program Comprehension.” <em>Proc. 38th Conference
@@ -306,6 +355,12 @@ Malhotra. 2023. “Persona-Based Assessment of Software Engineering
 Student Research Projects: An Experience Report.” <em>arXiv</em>,
 ahead of print. <a href="https://doi.org/10.48550/ARXIV.2302.05618">10.48550/ARXIV.2302.05618</a>.
  <em>Portfolio assessment for SE final-year research projects using student personas, frequent formative feedback, and delayed summative grading; reports continuous improvement findings and value of holistic rubrics over product-only evaluation.</em></p>
+<p id="arriel2026">
+Arriel, Johny, Theo Canuto, Júlia Azevedo, et al. 2026.
+“Understanding Developer Well-Being: Measuring Mental Health and
+Productivity in Software Teams.” <em>Empirical Software
+Engineering</em> 31 (6). <a href="https://doi.org/10.1007/s10664-026-10830-6">10.1007/s10664-026-10830-6</a>.
+ <em>Mapping study and metrics catalog of 12 developer mental-health and productivity metrics; a survey/interviews (47 developers) found developers value the catalog but resist evaluative workplace uses.</em></p>
 <p id="arya2024">
 Arya, Deeksha M., Jin L. C. Guo, and Martin P. Robillard. 2024. <em>The
 Software Documentor Mindset</em>. December 12. <a href="https://doi.org/10.48550/arXiv.2412.09422">10.48550/arXiv.2412.09422</a>.
@@ -340,6 +395,12 @@ Ayoola, Bimpe, Miikka Kuutila, Rina R. Wehbe, and Paul Ralph. 2024.
 <em>User Personas Improve Social Sustainability by Encouraging Software
 Developers to Deprioritize Antisocial Features</em>. December 14. <a href="https://doi.org/10.48550/arXiv.2412.10672">10.48550/arXiv.2412.10672</a>.
  <em>RCT (n=79 CS undergrads) testing persona models and stakeholder maps for social sustainability in feature prioritization; persona models significantly reduced priority assigned to antisocial features; stakeholder map had no significant effect.</em></p>
+<p id="azaiz2024">
+Azaiz, Imen, Natalie Kiesler, and Sven Strickroth. 2024.
+“Feedback-Generation for Programming Exercises with GPT-4.”
+<em>Proceedings of the 2024 on Innovation and Technology in Computer
+Science Education v. 1</em>, July, 31–37. <a href="https://doi.org/10.1145/3649217.3653594">10.1145/3649217.3653594</a>.
+ <em>Qualitative analysis of GPT-4 Turbo feedback on 55 authentic student programming submissions; finds notable gains over GPT-3.5 (more structured, consistent, accurate fault localization) but notes inconsistencies such as declaring a submission correct while flagging an error.</em></p>
 <p id="ba2024">
 Ba, Jinsheng, and Manuel Rigger. 2024. “CERT: Finding Performance
 Issues in Database Systems Through the Lens of Cardinality
@@ -390,6 +451,10 @@ Older Software Developers.” <em>IEEE Software</em> 37 (November).
 Baltes, Sebastian, and Paul Ralph. 2024. <em>Teaching Literature
 Reviewing for Software Engineering Research</em>. <a href="https://arxiv.org/abs/2406.08369">https://arxiv.org/abs/2406.08369</a>.
  <em>Chapter guiding teachers in introducing graduate students to literature reviews; covers review types, selection criteria, conduct guidelines, and quality evaluation.</em></p>
+<p id="baltes2026">
+Baltes, Sebastian, and Christoph Treude. 2026. <em>Toward Evidence-Based
+Agentic Software Engineering</em>. <a href="https://arxiv.org/abs/2610.35348">https://arxiv.org/abs/2610.35348</a>.
+ <em>Annotates 325 agentic-coding experiments across 146 papers (2025-2026); only 15 report the exact harness version, so model and harness effects are confounded, and derives requirements for a community reference harness.</em></p>
 <p id="baltes2022">
 Baltes, Sebastian, Christoph Treude, and Martin P. Robillard. 2022.
 “Contextual Documentation Referencing on Stack Overflow.”
@@ -406,6 +471,10 @@ Large Scale Study of Long-Time Contributor Prediction for GitHub
 Projects.” <em>IEEE Transactions on Software Engineering</em> 47
 (June). <a href="https://doi.org/10.1109/tse.2019.2918536">10.1109/tse.2019.2918536</a>.
  <em>Predicts newcomer-to-long-term-contributor (LTC) transition in 917 OSS projects (75K contributors); random forest achieves AUC&gt;0.75; follower count is top predictor; programming language and peer commit activity also important.</em></p>
+<p id="barba2026a">
+Barba, Lorena A. 2026. <em>Reproducibility in the Age of Agentic AI:
+Context Engineering at the Timescale of a Codebase</em>. <a href="https://arxiv.org/abs/2609.11728">https://arxiv.org/abs/2609.11728</a>.
+ <em>Position paper arguing that reproducible-research practices are context engineering for AI coding agents, which lower the cost of maintaining tests, commit histories, repository structure, instructions, and decision records while researchers stay responsible for verification.</em></p>
 <p id="barba2026">
 Barba, Lorena A., and Laura Stegner. 2026. <em>The Conversational Exam:
 A Scalable Assessment Design for the AI Era</em>. <a href="https://arxiv.org/abs/2601.10691">https://arxiv.org/abs/2601.10691</a>.
@@ -526,6 +595,14 @@ Co-Evolution of ML Pipelines and Source Code - Empirical Study of DVC
 Projects.” <em>2021 IEEE Conference on Software Analysis,
 Evolution and Reengineering (SANER)</em>, ahead of print, March. <a href="https://doi.org/10.1109/saner50967.2021.00046">10.1109/saner50967.2021.00046</a>.
  <em>Empirical study of DVC usage in 391 GitHub ML projects; DVC files frequently changed (&gt;half changed at least every 10% of project lifetime); tightly coupled with source/test code; pipeline complexity trends non-constant.</em></p>
+<p id="barth2026">
+Barth, Maximilian Georg, Sverrir Thorgeirsson, Khashayar Etemadi, Juho
+Leinonen, Carlos Cotrini, and Zhendong Su. 2026. “Steering AI
+Tutors Through System Prompts: A Crossover Study on Self-Regulated
+Learning and Cognitive Engagement Scaffolds in CS1.”
+<em>Proceedings of the 2026 ACM Conference on International Computing
+Education Research Vol. 1</em>, August, 104–18. <a href="https://doi.org/10.1145/3765964.3811656">10.1145/3765964.3811656</a>.
+ <em>A preregistered, three-armed crossover study across six weeks of real CS1 coursework comparing a baseline AI tutor against two tutors whose system prompts embed Zimmerman's self-regulated-learning cycle and Chi's ICAP engagement framework. On all four preregistered confirmatory outcomes there was no significant difference between conditions; exploratory analyses found the scaffolded tutors produced more time-on-task, longer messages, and more constructive log contributions. The headline result is a null finding on the primary outcomes.</em></p>
 <p id="barzilay2011">
 Barzilay, Ohad. 2011. “Example Embedding.” <em>Proc.
 Symposium on New Ideas, New Paradigms, and Reflections on Programming
@@ -683,6 +760,14 @@ Ben-Ari, Mordechai, Roman Bednarik, Ronit Ben-Bassat Levy, et al. 2011.
 Jeliot Experience.” <em>Journal of Visual Languages &amp;
 Computing</em> 22 (October). <a href="https://doi.org/10.1016/j.jvlc.2011.04.004">10.1016/j.jvlc.2011.04.004</a>.
  <em>Survey of a decade of pedagogical research on the Jeliot program animation system summarizes improvements in learning, attention effects, and teacher acceptance.</em></p>
+<p id="benario2025">
+Benario, Jamie Gorson, Jenn Marroquin, Monica M. Chan, Ernest D. V.
+Holmes, and Daniel Mejia. 2025. “Unlocking Potential with
+Generative AI Instruction: Investigating Mid-Level Software Development
+Student Perceptions, Behavior, and Adoption.” <em>Proceedings of
+the 56th ACM Technical Symposium on Computer Science Education v.
+1</em>, February, 395–401. <a href="https://doi.org/10.1145/3641554.3701859">10.1145/3641554.3701859</a>.
+ <em>Study of formal instruction on generative AI tools in a mid-level software development course across 16 Minority Serving Institutions; 89% had used AI tools without instruction before, and after instruction students mostly used them to explain concepts while reporting they understand their code and stay critical of AI output.</em></p>
 <p id="beniamini2017">
 Beniamini, Gal, Sarah Gingichashvili, Alon Klein Orbach, and Dror G.
 Feitelson. 2017. “Meaningful Identifier Names: The Case of
@@ -710,6 +795,11 @@ Berezin, Casey-Tyler, Luis U. Aguilera, Sonja Billerbeck, et al. 2023.
 “Ten Simple Rules for Managing Laboratory Information.”
 <em>PLOS Computational Biology</em> 19 (December). <a href="https://doi.org/10.1371/journal.pcbi.1011652">10.1371/journal.pcbi.1011652</a>.
  <em>10 simple rules for using laboratory information management systems (LIMS) to manage experimental metadata, computational processes, and reagent inventories for scientific research.</em></p>
+<p id="berg2022">
+Berg, Justin M. 2022. “One-Hit Wonders Versus Hit Makers:
+Sustaining Success in Creative Industries.” <em>Administrative
+Science Quarterly</em> 67 (3): 630–73. <a href="https://doi.org/10.1177/00018392221083650">10.1177/00018392221083650</a>.
+ <em>Archival study of 3+ million songs by 69,050 artists (1959--2010) proposing a path-dependence theory: relatively creative early portfolios raise the odds of sustained success but lower the odds of an initial hit.</em></p>
 <p id="bernardo2023">
 Bernardo, João Helis, Daniel Alencar da Costa, Uirá Kulesza, and
 Christoph Treude. 2023. “The Impact of a Continuous Integration
@@ -874,6 +964,12 @@ Radvansky. 2011. “Note Taking, Review, Memory, and
 Comprehension.” <em>The American Journal of Psychology</em> 124
 (April). <a href="https://doi.org/10.5406/amerjpsyc.124.1.0063">10.5406/amerjpsyc.124.1.0063</a>.
  <em>Note-taking study (text and video lecture); note-taking improves performance at the situation model (deep understanding) level; active engagement most beneficial at deeper comprehension levels.</em></p>
+<p id="borg2026">
+Borg, Markus, Dave Hewett, Nadim Hagatulah, et al. 2026. “Echoes
+of AI: Investigating the Downstream Effects of AI Assistants on Software
+Maintainability.” <em>Empirical Software Engineering</em> 31 (6).
+<a href="https://doi.org/10.1007/s10664-026-10889-1">10.1007/s10664-026-10889-1</a>.
+ <em>Preregistered two-phase experiment (151 participants, 95% professional) on whether AI-assisted code affects maintainability; Phase 2 found no significant differences in later evolution time or quality, corroborating Phase 1's 30.7% median time reduction with AI but revealing no systematic maintainability harm.</em></p>
 <p id="borg2022">
 Borg, Markus, Leif Jonsson, Emelie Engström, Béla Bartalos, and Attila
 Szabó. 2022. “Adopting Automated Bug Assignment in Practice: A
@@ -960,6 +1056,10 @@ Britton, Emily, Natalie Simper, Andrew Leger, and Jenn Stephenson. 2015.
 to Evaluate Individual Teamwork Skills.” <em>Assessment &amp;
 Evaluation in Higher Education</em> 42 (November). <a href="https://doi.org/10.1080/02602938.2015.1116497">10.1080/02602938.2015.1116497</a>.
  <em>Develops Team-Q rubric for assessing individual teamwork skills in undergrad courses; high internal consistency and inter-rater reliability; preliminary evidence that teamwork skills improve when taught and assessed.</em></p>
+<p id="brizzio2026">
+Brizzio, Matias, Armen Sulejmani, Iván Alfonso, et al. 2026.
+<em>Comparing Low-Code, Agentic, and Hybrid Software Development</em>.
+ <em>Compares pure low-code, pure agentic, and hybrid low-code-plus-agentic development (BESSER with Claude Code and OpenCode); preliminary results suggest combining deterministic low-code generation with agentic coding improves automation and predictability.</em></p>
 <p id="brophy1983">
 Brophy, Jere E. 1983. “Research on the Self-Fulfilling Prophecy
 and Teacher Expectations.” <em>Journal of Educational
@@ -1391,6 +1491,13 @@ Chong, Jan, and Tom Hurlbutt. 2007. “The Social Dynamics of Pair
 Programming.” <em>29th Conference on Software Engineering
 (ICSE’07)</em>, ahead of print, May. <a href="https://doi.org/10.1109/icse.2007.87">10.1109/icse.2007.87</a>.
  <em>Ethnographic study of professional pair programmers finds driver/navigator roles are not maintained; pairs move together at same abstraction level; expertise distribution and keyboard control shape interaction.</em></p>
+<p id="chou2026">
+Chou, Yi-Hung, Boyuan Jiang, Vidit Jain, Yiyang Min, April Yi Wang, and
+James A. Jones. 2026. “Following Breadcrumbs in Code: What
+Accidentally Committed Ad-Hoc Logs Reveal about Developer
+Comprehension.” <em>Empirical Software Engineering</em> 32 (74).
+<a href="https://doi.org/10.1007/s10664-026-10988-z">10.1007/s10664-026-10988-z</a>.
+ <em>Mines accidentally committed ad-hoc logs and live programming sessions across Java, JavaScript, and Python; ad-hoc logs cluster in harder-to-reason-about regions and higher-complexity functions, revealing language-specific debugging patterns.</em></p>
 <p id="choudhuri2026b">
 Choudhuri, Rudrajit, Carmen Badea, Christian Bird, Jenna Butler, Rob
 DeLine, and Brian Houck. 2026. <em>AI Where It Matters: Where, Why, and
@@ -1502,7 +1609,7 @@ Android.” <em>Empirical Software Engineering</em> 22 (August). <a href="https:
 Cohen, Jason. 2010. “Modern Code Review.” In <em>Making
 Software: What Really Works, and Why We Believe It</em>, edited by Andy
 Oram and Greg Wilson. O’Reilly.
- <em>No summary available.</em></p>
+ <em>Book-chapter survey of modern code review practice; argues that done properly code review finds bugs faster than testing, and reviews evidence on efficient practices such as limiting review session length to combat fatigue.</em></p>
 <p id="cohen2025">
 Cohen, Sam, and Ravi Chugh. 2025. “Code Style Sheets: CSS for
 Code.” <em>Proceedings of the ACM on Programming Languages</em> 9
@@ -1528,7 +1635,7 @@ Human-Computer Interaction Conference</em>, ahead of print, October. <a href="ht
 Collins, Allan, John S. Brown, and Ann Holum. 1991. “Cognitive
 Apprenticeship: Making Thinking Visible.” <em>American
 Educator</em> 6 (11): 38–46. <a href="http://www.21learn.org/arch/articles/brown_seely.html">http://www.21learn.org/arch/articles/brown_seely.html</a>.
- <em>No summary available.</em></p>
+ <em>Classic essay introducing 'cognitive apprenticeship', an instructional model adapting traditional apprenticeship (modeling, scaffolding, fading, coaching) to make expert thinking visible when teaching cognitive skills such as reading, writing, and mathematics.</em></p>
 <p id="comellas2023">
 Comellas, Ester, Jean-Paul Pelteret, and Wolfgang Bangerth. 2023.
 “I’m Stuck! How to Efficiently Debug Computational Solid Mechanics
@@ -1667,7 +1774,7 @@ Cutrupi, Claudia Maria, Letizia Jaccheri, and Alexander Serebrenik.
 2026. “Gender Diversity Interventions in Software Engineering: A
 Comprehensive Review of Existing Practices.” <em>Computer Science
 Review</em> 59 (February): 100812. <a href="https://doi.org/10.1016/j.cosrev.2025.100812">10.1016/j.cosrev.2025.100812</a>.
- <em>No summary available.</em></p>
+ <em>Systematic literature review of 33 studies on gender-diversity interventions in software engineering; finds few interventions aimed at retaining women, little investment in work-environment satisfaction, scarce industry outreach, and only one with long-term activities.</em></p>
 <p id="cutts2018">
 Cutts, Quintin, Elizabeth Patitsas, Elizabeth Cole, et al. 2018.
 “Early Developmental Activities and Computing Proficiency.”
@@ -1722,6 +1829,18 @@ Smith. 2021. “Do You Really Code? Designing and Evaluating
 Screening Questions for Online Surveys with Programmers.”
 <em>arXiv</em>, ahead of print. <a href="https://doi.org/10.48550/ARXIV.2103.04429">10.48550/ARXIV.2103.04429</a>.
  <em>Develops screener questions for recruiting programmers on crowdsourcing platforms; 42% of Clickworkers claiming programming skill failed screening; validated in adversarial setting.</em></p>
+<p id="dargan2025">
+Dargan, Hope, Adam Gilbert-Diamond, Adam J. Hartz, and Robert C. Miller.
+2025. “"Why Is My Code Slow?" Efficiency Bugs in Student
+Code.” <em>Proceedings of the 56th ACM Technical Symposium on
+Computer Science Education (SIGCSE TS 2025)</em>. <a href="https://doi.org/10.1145/3641554.3701939">10.1145/3641554.3701939</a>.
+ <em>Content analysis of 250 slow CS2 submissions yields a taxonomy of 750+ efficiency bugs in three categories (superfluous computation, suboptimal data structure design, suboptimal algorithm design) across 12 subcategories, to inform course design.</em></p>
+<p id="dargan2026">
+Dargan, Hope, Adam J. Hartz, and Robert C. Miller. 2026. “HyProf:
+A Profiler for Programming Students That Offers Hypotheses about
+Performance Bugs.” <em>Proceedings of the 57th ACM Technical
+Symposium on Computer Science Education (SIGCSE TS 2026)</em>. <a href="https://doi.org/10.1145/3770762.3772564">10.1145/3770762.3772564</a>.
+ <em>Presents HyProf, a student-facing Python profiler that visualizes where time is spent and generates hypotheses about slow functions; in a 400-student course, 75% of respondents used it to find or fix a performance bug.</em></p>
 <p id="darlinghammond2019">
 Darling-Hammond, Linda, Lisa Flook, Channa Cook-Harvey, Brigid Barron,
 and David Osher. 2019. “Implications for Educational Practice of
@@ -1739,6 +1858,9 @@ Das, Sanjiv, Andrii Ieroshenko, Piyush Jain, David Qiu, Michael Chin,
 and Brian Granger. 2026. <em>Project Life Cycles in Open-Source
 Software</em>. <a href="https://arxiv.org/abs/2605.12738">https://arxiv.org/abs/2605.12738</a>.
  <em>Models OSS developer engagement using product lifecycle and endogenous growth theory with differential equations; calibrates well across projects; estimates lifetime developer engagement and production value.</em></p>
+<p id="dasgupta2026">
+Dasgupta, Partha, and Simon Levin. 2026. <em>Wellbeing as Wealth</em>.
+ <em>Economics essay arguing that national wealth must include natural capital alongside produced and human capital; underpricing natural capital has driven per-capita wealth declines in many countries.</em></p>
 <p id="dasgupta2015">
 Dasgupta, Sayamindu, Shane M. Clements, Abdulrahman Y. Idlbi, Chris
 Willis-Ford, and Mitchel Resnick. 2015. “Extending Scratch: New
@@ -2070,6 +2192,11 @@ Dumanis, Sonya B., Kristen Ratan, Souad McIntosh, et al. 2023.
 Funding Initiative.” <em>PLOS Computational Biology</em> 19 (12):
 e1011626. <a href="https://doi.org/10.1371/journal.pcbi.1011626">10.1371/journal.pcbi.1011626</a>.
  <em>2022 OSTP memo requires open access and data sharing for federally funded research; calls for collective action among funders and institutions to align on open science policies and reduce adoption friction.</em></p>
+<p id="dunn2026">
+Dunn, Casey W., Darrin T. Schultz, and Jacob M. Musser. 2026.
+“Designing Reproducible Large-Language-Model-Assisted Scientific
+Analyses.” <em>Patterns</em>, ahead of print. <a href="https://doi.org/10.1016/j.patter.2026.101644">10.1016/j.patter.2026.101644</a>.
+ <em>Tutorial framing LLM reproducibility around whether the model sits on or off the data path of a published analysis; derives six recommendations for preserving data, code, and runtime when LLMs participate.</em></p>
 <p id="duran2020">
 Duran, Rodrigo, Lassi Haaranen, and Arto Hellas. 2020. “Gender
 Differences in Introductory Programming.” <em>Proc. 51st ACM
@@ -2184,13 +2311,13 @@ Comprehensive Annotated Dataset of Locked GitHub Issue Threads.”
 <em>Proc. 21st Conference on Mining Software Repositories</em>, MSR ’24,
 April, 515–19. <a href="https://doi.org/10.1145/3643991.3644887">10.1145/3643991.3644887</a>.
  <em>Annotated dataset of 404 locked GitHub issue threads and 5,961 comments from 213 OSS projects; most prevalent incivility types: bitter frustration, impatience, mocking; most common consequence: discontinued discussion.</em></p>
-<p id="ehsani2025">
+<p id="ehsani2026">
 Ehsani, Ramtin, Sakshi Pathak, Esteban Parra, Sonia Haiduc, and Preetha
-Chatterjee. 2025. “What Characteristics Make ChatGPT Effective for
+Chatterjee. 2026. “What Characteristics Make ChatGPT Effective for
 Software Issue Resolution? An Empirical Study of Task, Project, and
 Conversational Signals in GitHub Issues.” <em>Empirical Software
-Engineering</em> 31 (1). <a href="https://doi.org/10.1007/s10664-025-10745-8">10.1007/s10664-025-10745-8</a>.
- <em>Analysis of 686 developer-ChatGPT conversations in GitHub issues; only 62% helpful; helpful conversations shorter, more readable, with higher semantic alignment; ChatGPT effective for code generation and API recommendations but struggles with code explanations and complex system issues.</em></p>
+Engineering</em> 31: 1–36. <a href="https://doi.org/10.1007/s10664-025-10745-8">10.1007/s10664-025-10745-8</a>.
+ <em>Empirical study of 686 developer--ChatGPT conversations in GitHub issues; only 62% were helpful, and effectiveness varied by task type, project, and conversation characteristics.</em></p>
 <p id="eichberg2015">
 Eichberg, Michael, Ben Hermann, Mira Mezini, and Leonid Glanz. 2015.
 “Hidden Truths in Dead Software Paths.” <em>Proc. 2015 10th
@@ -2492,7 +2619,7 @@ Study of Novice Debuggers.” <em>Computer Science Education</em>
 <p id="guzdial2016">
 <em>Five Principles for Programming Languages for Learners</em>. 2016.
 Communications of the ACM Blog; ACM.
- <em>No summary available.</em></p>
+ <em>Blog post proposing principles for programming languages used in schools (connect to what learners know, keep cognitive load low, be honest/authentic), arguing industry-standard languages are poorly suited to novices and 'pop computing' stays superficial.</em></p>
 <p id="florath2023">
 Florath, Andreas. 2023. “LLM Interactive Optimization of Open
 Source Python Libraries - Case Studies and Generalization.”
@@ -2776,6 +2903,14 @@ Gao, Zheng, Christian Bird, and Earl T. Barr. 2017. “To Type or
 Not to Type: Quantifying Detectable Bugs in JavaScript.” <em>2017
 39th Conference on Software Engineering (ICSE)</em>, May. <a href="https://doi.org/10.1109/icse.2017.75">10.1109/icse.2017.75</a>.
  <em>Flow 0.30 and TypeScript 2.0 each detect 15% of public JavaScript bugs via manual type annotation; understates effectiveness since public bugs survived review; conservative baseline for static type system evaluation.</em></p>
+<p id="gardella2026">
+Gardella, Nicholas, James Prather, Juho Leinonen, Paul Denny, Raymond
+Pettit, and Sara L. Riggs. 2026. “Fast and Forgettable: A
+Controlled Study of Novices’ Performance, Learning, Workload, and
+Emotion in AI-Assisted and Human Pair Programming Paradigms.”
+<em>Proceedings of the ACM Conference on International Computing
+Education Research Vol. 1 (ICER 2026 Vol. 1)</em>, August, 361–76. <a href="https://doi.org/10.1145/3765964.3811664">10.1145/3765964.3811664</a>.
+ <em>Controlled within-subjects study (N = 22) comparing AI-assisted and human pair programming; AI pairs performed better initially but lost more of their advantage after a one-week retention interval.</em></p>
 <p id="gaucher2011">
 Gaucher, Danielle, Justin Friesen, and Aaron C. Kay. 2011.
 “Evidence That Gendered Wording in Job Advertisements Exists and
@@ -2788,6 +2923,16 @@ Errors in Access Control Models: A Case Study in
 PHP.” <em>2013 35th Conference on Software
 Engineering (ICSE)</em>, ahead of print, May. <a href="https://doi.org/10.1109/icse.2013.6606670">10.1109/icse.2013.6606670</a>.
  <em>Static analysis + information retrieval detects semantic smells/errors in access control models where privileges are unrelated to protected actions; found 31 smells and 2 confirmed errors in case study.</em></p>
+<p id="vangeest2026">
+Geest, Geert van, Valeria Di Cola, Monique Zahn, et al. 2026.
+<em>Characterization of Heterogeneous Bioinformatics Training Needs in
+the AI Era</em>. <a href="https://doi.org/10.64898/2026.10.22.761024">10.64898/2026.10.22.761024</a>.
+ <em>Network-based clustering of a bioinformatics training-needs survey (n=260) identifies four learner profiles, showing aggregate analysis masks heterogeneity in training needs.</em></p>
+<p id="geng2026">
+Geng, Francis, Anshul Shah, Mia Chen, et al. 2026. <em>Mapping the
+Emerging Curriculum for AI-Assisted Software Engineering via Syllabus
+Analysis</em>. arXiv preprint arXiv:2608.05898. <a href="https://arxiv.org/abs/2608.05898">https://arxiv.org/abs/2608.05898</a>.
+ <em>Qualitative syllabus analysis of 23 AI-assisted software engineering courses, characterizing learning objectives, assessments, topics, and AI tools to map the emerging curriculum.</em></p>
 <p id="georgiou2022">
 Georgiou, Stefanos, Maria Kechagia, Federica Sarro, and Ying Zou. 2022.
 <em>Artifact for Green AI: Do Deep Learning Frameworks Have Different
@@ -2974,7 +3119,7 @@ Conference on Mining Software Repositories</em>, ICSE ’14, May. <a href="https
 <p id="goyal2026">
 Goyal, Shailender, Akhila Matathammal, and Karthik Vaidhyanathan. 2026.
 <em>EnCoDe: Energy Estimation of Source Code at Design-Time</em>. <a href="https://arxiv.org/abs/2605.00504">https://arxiv.org/abs/2605.00504</a>.
- <em>EnCoDe methodology for design-time energy estimation of Python code blocks achieves R²=0.75 for regression and 80.6% accuracy for identifying energy hotspots without execution.</em></p>
+ <em>EnCoDe methodology for design-time energy estimation of Python code blocks achieves R^2=0.75 for regression and 80.6% accuracy for identifying energy hotspots without execution.</em></p>
 <p id="grabinger2023">
 Grabinger, Lisa, Florian Hauser, and Jürgen Mottok. 2023. “On the
 Perception of Graph Layouts.” <em>Journal of Software: Evolution
@@ -3008,6 +3153,10 @@ Transactions on Software Engineering and Methodology</em> 35 (6): 1–38.
 Gray, Charles T. 2019. <em>Code::proof: Prepare for Most Weather
 Conditions</em>. October 14. <a href="https://doi.org/10.48550/arXiv.1910.06964">10.48550/arXiv.1910.06964</a>.
  <em>Toolchain walkthrough provides opinionated documentation of scientific workflows; presents reproducible research compendium with unit tests as code::proof of confidence in computational algorithms.</em></p>
+<p id="gray2026">
+Gray, Gavin, Shriram Krishnamurthi, and Will Crichton. 2026. <em>A
+Design Space Exploration of Async/Await</em>. <a href="https://arxiv.org/abs/2608.20677">https://arxiv.org/abs/2608.20677</a>.
+ <em>Design-space exploration of async/await across languages, articulating nine dimensions; shows no two languages agree on all design decisions, so similar-looking programs can diverge in behavior.</em></p>
 <p id="gray2007">
 Gray, Simon, Caroline St. Clair, Richard James, and Jerry Mead. 2007.
 “Suggestions for Graduated Exposure to Programming Concepts Using
@@ -3226,7 +3375,7 @@ Biology</em> 13 (October). <a href="https://doi.org/10.1371/journal.pcbi.1005715
 Guzdial, Mark. 2010. “Why Is It so Hard to Learn to
 Program?” In <em>Making Software: What Really Works, and Why We
 Believe It</em>, edited by Andy Oram and Greg Wilson. O’Reilly.
- <em>No summary available.</em></p>
+ <em>Book chapter asking why programming is hard to learn; cites roughly 30% CS1 failure/withdrawal rates and classic studies like the Rainfall Problem (only 14% of intro students solved it), arguing we still lack good ways to measure programming knowledge.</em></p>
 <p id="guzdial2013">
 Guzdial, Mark. 2013. “Exploring Hypotheses about Media
 Computation.” <em>Proc. Ninth Annual International ACM Conference
@@ -3239,6 +3388,12 @@ Srivastava. 2019. “Successful Integration of Data Science in
 Undergraduate Biostatistics Courses Using Cognitive Load Theory.”
 <em>CBE-Life Sciences Education</em> 18 (December). <a href="https://doi.org/10.1187/cbe.19-02-0041">10.1187/cbe.19-02-0041</a>.
  <em>CLT-designed R programming assignments for biostatistics outperform example scripts: students report higher ability, more motivation, less frustration, and more likely to list R as a CV skill.</em></p>
+<p id="gyevnar2026">
+Gyevnár, Bálint, Atoosa Kasirzadeh, and Nihar B. Shah. 2026.
+<em>Distributed Denial of Science: How Indirect Data Poisoning of AI
+Systems Can Industrialize Scientific Fraud</em>. arXiv preprint
+arXiv:2607.10712. <a href="https://arxiv.org/abs/2607.10712">https://arxiv.org/abs/2607.10712</a>.
+ <em>Introduces ``indirect data poisoning'' in which adversaries corrupt open datasets to manipulate AI research agents; poisoning succeeded in 49.56% of 450 runs, but provenance auditing reduced success to zero.</em></p>
 <p id="haaranen2017">
 Haaranen, Lassi. 2017. “Programming as a Performance.”
 <em>Proc. 2017 ACM Conference on Innovation and Technology in Computer
@@ -3255,6 +3410,11 @@ et al. 2016. “A Multilab Preregistered Replication of the
 Ego-Depletion Effect.” <em>Perspectives on Psychological
 Science</em> 11 (July). <a href="https://doi.org/10.1177/1745691616652873">10.1177/1745691616652873</a>.
  <em>Registered Replication Report (23 labs, N=2141) finds ego depletion effect near zero (d=0.04, CI includes zero); challenges the strength/resource depletion model of self-control.</em></p>
+<p id="haindl2024">
+Haindl, Philipp, and Gerald Weinberger. 2024. “Does ChatGPT Help
+Novice Programmers Write Better Code? Results from Static Code
+Analysis.” <em>IEEE Access</em> 12: 114146–56. <a href="https://doi.org/10.1109/access.2024.3445432">10.1109/access.2024.3445432</a>.
+ <em>Static-analysis comparison (16 control vs 22 ChatGPT-assisted novices) of Java coding-convention exercises; the ChatGPT group produced fewer rule violations and lower cyclomatic/cognitive complexity, though the small sample calls for further research.</em></p>
 <p id="hajari2023">
 Hajari, Fahimeh, Samaneh Malmir, Ehsan Mirsaeedi, and Peter C. Rigby.
 2023. <em>Factoring Expertise, Workload, and Turnover into Code Review
@@ -3529,6 +3689,10 @@ Her, Sohyoung, Mathieu D Jacob, Sharon Wang, Songyi Xu, and David CF
 Sealey. 2018. <em>Non-Academic Employability of Life Science PhDs: The
 Importance of Training Beyond the Bench</em>. December. <a href="https://doi.org/10.1101/485268">10.1101/485268</a>.
  <em>Survey of life science PhD/postdoc alumni in non-academic sectors: experiential learning activities have highest perceived career impact; many trainees face barriers to engaging in high-impact career development.</em></p>
+<p id="herbold2026">
+Herbold, Steffen. 2026. <em>What Should a Software Team Spend on Agents?
+Simulation-Based Cost Optimization of Mixed AI-Human Teams</em>. <a href="https://arxiv.org/abs/2610.20394">https://arxiv.org/abs/2610.20394</a>.
+ <em>Simulation study (Monte Carlo plus evolutionary search over 432 scenarios) of mixed human-agent teams; escaped bugs dominate cost, agent capability matters more than token price, and high-capability agents make teams cheaper than human-only.</em></p>
 <p id="herbold2020">
 Herbold, Steffen, Alexander Trautsch, and Benjamin Ledel. 2020.
 “Large-Scale Manual Validation of Bugfixing Changes.”
@@ -3606,12 +3770,12 @@ on Programming Languages</em> 4 (June). <a href="https://doi.org/10.1145/3386321
 <p id="hicks2022">
 Hicks, C. 2022. <em>"It’s Like Coding in the Dark": The Need for
 Learning Cultures Within Coding Teams</em>.
- <em>No summary available.</em></p>
+ <em>Qualitative study (25 developers) finding a tension where the invisible work of understanding code goes unrewarded; introduces 'Learning Debt' and recommends developmental feedback separate from evaluation, psychological safety, and making documentation count.</em></p>
 <p id="hicks2024a">
 Hicks, C. 2024. <em>Psychological Affordances Can Provide a Missing
 Explanatory Layer for Why Interventions to Improve Developer Experience
 Take Hold or Fail</em>. The Developer Success Lab at Flow.
- <em>No summary available.</em></p>
+ <em>Position paper arguing 'psychological affordances' (the social-psychological opportunities a work context affords or forecloses) explain why developer-experience interventions succeed or fail; tool-centric improvements are incomplete without this layer.</em></p>
 <p id="hicks2024b">
 Hicks, Catherine, and Ana Hevesi. 2024. <em>A Cumulative Culture Theory
 for Developer Problem-Solving</em>. <a href="https://doi.org/10.31234/osf.io/tfjyw">10.31234/osf.io/tfjyw</a>.
@@ -3620,7 +3784,7 @@ for Developer Problem-Solving</em>. <a href="https://doi.org/10.31234/osf.io/tfj
 Hicks, C., C. Lee, and M. Ramsey. 2023. <em>Developer Thriving: The Four
 Factors That Drive Software Productivity Across Industries</em>. The
 Developer Success Lab at Flow.
- <em>No summary available.</em></p>
+ <em>Research report (three studies, 1282 developers) introducing the Developer Thriving framework of four factors (learning culture, agency, motivation, belonging) and a Visibility and Value measure; both significantly predicted productivity, and team-level metrics use boosted thriving.</em></p>
 <p id="hicks2019">
 Hicks, Stephanie C., and Roger D. Peng. 2019. <em>Elements and
 Principles for Characterizing Variation Between Data Analyses</em>.
@@ -3664,6 +3828,13 @@ Analysis: Do Topics Extracted from Requirements Make Sense to Managers
 and Developers?” <em>2012 28th IEEE Conference on Software
 Maintenance (ICSM)</em>, September, 243–52. <a href="https://doi.org/10.1109/icsm.2012.6405278">10.1109/icsm.2012.6405278</a>.
  <em>LDA topic modeling of Microsoft requirements documents traces high-level topics to version control commits; practitioner validation shows topics often match developer and manager perception of effort.</em></p>
+<p id="hinge2026">
+Hinge, Julie Skoven, Micha Moskovic, Axel Naumann, Noemi Calace, and
+Andrzej Wąsowski. 2026. “How to Value Open Source Contributions?
+An Institutional Perspective from CERN.” <em>Proceedings of the
+34th ACM International Conference on the Foundations of Software
+Engineering</em> (New York, NY, USA), FSE companion ’26, 655–65. <a href="https://doi.org/10.1145/3803437.3805238">10.1145/3803437.3805238</a>.
+ <em>Methodology combining Software Heritage data, usage metrics, dependency analysis, and interviews to assess institutional OSS contributions; applied to CERN, identifying 6M+ commits to 50,000+ projects and offering a reusable framework.</em></p>
 <p id="hochstein2008b">
 Hochstein, L., and V. R. Basili. 2008. “The ASC-Alliance Projects:
 A Case Study of Large-Scale Parallel Scientific Code
@@ -3775,6 +3946,11 @@ Inference of Environment Dependencies for Python Code Snippets.”
 <em>2019 41st Conference on Software Engineering (ICSE)</em>, ahead of
 print, May. <a href="https://doi.org/10.1109/icse.2019.00047">10.1109/icse.2019.00047</a>.
  <em>DockerizeMe infers Python snippet dependencies using offline PyPI knowledge and graph-based inference; resolves import errors in 892 of ~3,000 previously failing GitHub gists.</em></p>
+<p id="houck2026">
+Houck, Brian, Travis Lowdermilk, Cody Beyer, Steven Clarke, and Ben
+Hanrahan. 2026. <em>The SPACE of AI: Real-World Lessons on AI’s Impact
+on Developers</em>.
+ <em>Developer-survey study combining quantitative and qualitative data and applying the SPACE framework to AI tools; argues coding speed alone misses AI's broader effects on satisfaction, collaboration, and performance.</em></p>
 <p id="hovey2020">
 Hovey, Christopher Lynnly, and Lecia Barker. 2020. “Faculty
 Adoption of CS Education Innovations: Exploring Continued Use.”
@@ -3805,6 +3981,11 @@ Seltzer. 2020. “Improving Data Scientist Efficiency with
 Provenance.” <em>Proc. ACM/IEEE 42nd Conference on Software
 Engineering</em>, ahead of print, June. <a href="https://doi.org/10.1145/3377811.3380366">10.1145/3377811.3380366</a>.
  <em>ProvBuild tracks script provenance to isolate which blocks need re-running after edits; reduces cognitive load and runtime during iterative debugging of data analysis workflows.</em></p>
+<p id="peng2026">
+Hu, Ruida, Ajitha Rajan, Chao Peng, Tegawendé F. Bissyandé, Jacques
+Klein, and Cuiyun Gao. 2026. <em>Can LLMs Test Terminal User
+Interfaces?</em> arXiv preprint arXiv:2608.03743. <a href="https://arxiv.org/abs/2608.03743">https://arxiv.org/abs/2608.03743</a>.
+ <em>Survey of 197 TUI applications and a headless benchmark comparing four frontier LLMs with random exploration; no model dominates, and line coverage poorly predicts crash discovery.</em></p>
 <p id="hu2019">
 Hu, Yang, Umair Z. Ahmed, Sergey Mechtaev, Ben Leong, and Abhik
 Roychoudhury. 2019. “Re-Factoring Based Program Repair Applied to
@@ -3881,6 +4062,13 @@ Schlaikjer, and Moritz Hardt. 2021. “Algorithmic Amplification of
 Politics on Twitter.” <em>Proc. National Academy of Sciences</em>
 119 (December). <a href="https://doi.org/10.1073/pnas.2025334119">10.1073/pnas.2025334119</a>.
  <em>Randomized experiment on ~2M Twitter accounts shows political right is algorithmically amplified over left in 6 of 7 countries; no evidence of extra amplification for far-wing groups.</em></p>
+<p id="hutchison2026">
+Hutchison, Jessica, Ian Tyler Applebaum, Kenneth Angelikas, et al. 2026.
+“To Tab or Not to Tab: Measuring Critical Engagement in AI Code
+Completion Tools Using Behavioral Signals and Attention Checks.”
+<em>Proceedings of the 31st ACM Conference on Innovation and Technology
+in Computer Science Education v. 1</em>, July, 217–23. <a href="https://doi.org/10.1145/3803400.3809394">10.1145/3803400.3809394</a>.
+ <em>Introduces Clover, an instrumented code-completion tool that logs fine-grained interaction data and inserts attention checks to measure how reflectively students engage with AI suggestions. The authors develop a taxonomy of behavioral metrics and report that higher tab-accept rates correlate with worse attention-check performance, while longer dwell time correlates with better performance.</em></p>
 <p id="hyrynsalmi2024">
 Hyrynsalmi, Sonja M., Sebastian Baltes, Chris Brown, et al. 2024.
 <em>Bridging Gaps, Building Futures: Advancing Software Developer
@@ -3893,6 +4081,11 @@ Management in Machine Learning: State-of-Research and
 State-of-Practice.” <em>ACM Computing Surveys</em> 55 (7): 1–35.
 <a href="https://doi.org/10.1145/3543847">10.1145/3543847</a>.
  <em>Feature survey of 30 ML asset management tools finds state-of-practice tools support collaboration and workflow execution while research tools focus on reproducibility; identifies async collaboration and reusability as gaps.</em></p>
+<p id="ignatovich2025">
+Ignatovich, Aleksandra. 2025. “How Academics Organize
+LaTeX Projects — and Whether Structure Should Be
+Standardized.” Master’s thesis, University of Twente.
+ <em>Interview study (N = 29) of how academics organize LaTeX projects, finding converging informal conventions that could form a ``Book of Common Pragmatics'' framework.</em></p>
 <p id="ihantola2010">
 Ihantola, Petri, Tuukka Ahoniemi, Ville Karavirta, and Otto Seppälä.
 2010. “Review of Recent Systems for Automatic Assessment of
@@ -4073,6 +4266,12 @@ Jupyter Notebook Maintenance Tooling by Identifying and Extracting
 Notebook Structures.” <em>2022 IEEE Conference on Software
 Maintenance and Evolution (ICSME)</em>, October. <a href="https://doi.org/10.1109/icsme55016.2022.00047">10.1109/icsme55016.2022.00047</a>.
  <em>Lightweight structure extraction for computational notebooks identifies logical sections to support navigation, maintenance, and tooling despite common problems of disordered execution.</em></p>
+<p id="jiao2026">
+Jiao, Yuling, and Qiuli Wang. 2026. “Large Language Models for
+Formative Feedback in Writing Instruction: A Systematic Review of
+Classroom Interventions, Feedback Quality, and Student Outcomes.”
+<em>Frontiers in Education</em> 11. <a href="https://doi.org/10.3389/feduc.2026.1834085">10.3389/feduc.2026.1834085</a>.
+ <em>PRISMA systematic review of 34 studies (Nov 2022-Feb 2026) on LLM formative feedback in writing instruction; LLM feedback supports productivity, accuracy, and revision but human feedback remains stronger for higher-order issues, so hybrid models appear most promising.</em></p>
 <p id="jillepalli2025">
 Jillepalli, Ananth. 2025. “Effects of Neoliberalism on Computing
 Education Research and Practice.” <em>ACM Transactions on
@@ -4094,6 +4293,12 @@ Jin, Xianhao, and Francisco Servant. 2021. <em>What Helped, and What Did
 Not? An Evaluation of the Strategies to Improve Continuous
 Integration</em>. February 12. <a href="https://doi.org/10.48550/arXiv.2102.06666">10.48550/arXiv.2102.06666</a>.
  <em>Exhaustive comparison of 10 CI optimization techniques across 14 variants and 100 projects shows selection/prioritization trade-offs differ on 10 cost and feedback-time metrics; provides design recommendations.</em></p>
+<p id="jing2024">
+Jing, Yuhui, Haoming Wang, Xiaojiao Chen, and Chengliang Wang. 2024.
+“What Factors Will Affect the Effectiveness of Using ChatGPT to
+Solve Programming Problems? A Quasi-Experimental Study.”
+<em>Humanities and Social Sciences Communications</em> 11 (1). <a href="https://doi.org/10.1057/s41599-024-02751-w">10.1057/s41599-024-02751-w</a>.
+ <em>Quasi-experimental study of factors affecting ChatGPT's effectiveness in solving Python programming problems; AI literacy and programming-language knowledge significantly affect effectiveness while usage intention does not, though intention improves after use.</em></p>
 <p id="job2024">
 Job, Ricardo, and Andre Hora. 2024. “How and Why Developers
 Implement OS-Specific Tests.” <em>Empirical Software
@@ -4164,6 +4369,15 @@ Jørgensen, Magne. 2013. “Myths and over-Simplifications in
 Software Engineering.” <em>Lecture Notes on Software
 Engineering</em>, ahead of print. <a href="https://doi.org/10.7763/lnse.2013.v1.2">10.7763/lnse.2013.v1.2</a>.
  <em>Confirmation bias causes developers who favor agile methods to interpret neutral data as confirming their belief; checklist provided to support evidence-based evaluation of software engineering claims.</em></p>
+<p id="joshi2026">
+Joshi, Ruchika, Adinawa Adjagbodjou, and Michal Luria. 2026. <em>Dark
+Patterns in AI Chatbots: A Taxonomy to Inform Better Design</em>. <a href="https://cdt.org/insights/dark-patterns-in-ai-chatbots-a-taxonomy-to-inform-better-design">https://cdt.org/insights/dark-patterns-in-ai-chatbots-a-taxonomy-to-inform-better-design</a>.
+ <em>Center for Democracy &amp; Technology report proposing a taxonomy of dark patterns in AI chatbots, drawing on policy and design research to inform better design.</em></p>
+<p id="jost2024">
+Jošt, Gregor, Viktor Taneski, and Sašo Karakatič. 2024. “The
+Impact of Large Language Models on Programming Education and Student
+Learning Outcomes.” <em>Applied Sciences</em> 14 (10): 4115. <a href="https://doi.org/10.3390/app14104115">10.3390/app14104115</a>.
+ <em>Ten-week experiment (32 undergrads) on informal LLM use in React-based software development; found a significant negative correlation between LLM reliance for critical tasks like code generation and debugging and final grades, while seeking explanations was less harmful.</em></p>
 <p id="jovanovic2022">
 Jovanovic, Ana, and Allison Sullivan. 2022. “Towards Automated
 Input Generation for Sketching Alloy Models.” <em>Proc. 10th
@@ -4283,6 +4497,13 @@ and Andrea Janes. 2020. “Big Code != Big Vocabulary.”
 <em>Proc. ACM/IEEE 42nd Conference on Software Engineering</em>, ahead
 of print, June. <a href="https://doi.org/10.1145/3377811.3380342">10.1145/3377811.3380342</a>.
  <em>Open-vocabulary NLM for code scales to 13,362 projects by handling identifier proliferation; outperforms state-of-the-art on Java, C, and Python corpora.</em></p>
+<p id="karas2026">
+Karas, Zachary, Danielle Page, Maya Maciel-Seidman, Zohreh Sharafi, and
+Yu Huang. 2026. “The Influence of Environmental Odors on Student
+Programmers During Code Comprehension and Code Writing.” <em>ACM
+Trans. Softw. Eng. Methodol.</em> (New York, NY, USA), ahead of print,
+June. <a href="https://doi.org/10.1145/3822406">10.1145/3822406</a>.
+ <em>Eye-tracking study (30 student programmers) of environmental odor on code tasks; pleasant lemon odor sped code comprehension (~25.9% faster than fish) while both pleasant and unpleasant odors increased visual effort during code writing, suggesting no odor may be best for writing.</em></p>
 <p id="karpicke2008">
 Karpicke, Jeffrey D., and Henry L. Roediger. 2008. “The Critical
 Importance of Retrieval for Learning.” <em>Science</em> 319
@@ -4333,7 +4554,7 @@ Kawamata, Taisuke, Yoshitatsu Matsuda, Takayuki Sekiya, and Kazunori
 Yamaguchi. 2021. “Analysis of Computer Science Textbooks by Topic
 Modeling and Dynamic Time Warping.” <em>2021 IEEE International
 Conference on Engineering, Technology &amp;Amp; Education (TALE)</em>,
-865–70. <a href="https://doi.org/10.1109/tale52509.2021.9678834">10.1109/tale52509.2021.9678834</a>.
+December, 865–70. <a href="https://doi.org/10.1109/tale52509.2021.9678834">10.1109/tale52509.2021.9678834</a>.
  <em>LDA analysis of CS textbooks with dynamic time warping sequence clustering finds textbook structure is explained by 5-6 topics, with DTW classifying CS knowledge areas better than LDA alone.</em></p>
 <p id="kay2010">
 Kay, Matthew, and Michael Terry. 2010. “Communicating Software
@@ -4341,6 +4562,13 @@ Agreement Content Using Narrative Pictograms.” <em>CHI ’10
 Extended Abstracts on Human Factors in Computing Systems</em>, ahead of
 print, April. <a href="https://doi.org/10.1145/1753846.1753856">10.1145/1753846.1753856</a>.
  <em>Narrative pictograms convey software data-collection policies without written language; ISO 9186-1 evaluation confirms comprehension of the diagrammatic composition rules.</em></p>
+<p id="kazemitabaar2024">
+Kazemitabaar, Majeed, Runlong Ye, Xiaoning Wang, et al. 2024.
+“CodeAid: Evaluating a Classroom Deployment of an LLM-Based
+Programming Assistant That Balances Student and Educator Needs.”
+<em>Proceedings of the CHI Conference on Human Factors in Computing
+Systems</em>, CHI’24, May, 1–20. <a href="https://doi.org/10.1145/3613904.3642773">10.1145/3613904.3642773</a>.
+ <em>Classroom deployment of CodeAid, an LLM programming assistant that avoids revealing code solutions, with 700 students over 12 weeks; thematic analysis of 8,000 usages yields four design considerations around exploiting AI benefits, promoting cognitive engagement, avoiding direct answers, and maintaining transparency.</em></p>
 <p id="kazerouni2017b">
 Kazerouni, Ayaan M., Stephen H. Edwards, T. Simin Hall, and Clifford A.
 Shaffer. 2017. “DevEventTracker: Tracking Development
@@ -4395,6 +4623,15 @@ Keppens, Jeroen, and David Hay. 2008. “Concept Map Assessment for
 Teaching Computer Programming.” <em>Computer Science
 Education</em> 18 (March). <a href="https://doi.org/10.1080/08993400701864880">10.1080/08993400701864880</a>.
  <em>Literature review of automated and manual concept map analysis methods; no consensus on best approach, providing a critical comparison to guide practitioners choosing methods for a given application.</em></p>
+<p id="kernighan1981">
+Kernighan, Brian W. 1981. <em>Why Pascal Is Not My Favorite Programming
+Language</em>. No. 100. Bell Laboratories.
+ <em>Classic critique of Pascal for serious systems programming, arguing its type system and other design choices make it unsuitable for large real programs despite its popularity in teaching.</em></p>
+<p id="kerr2026">
+Kerr, Grace, Aarushi Parasrampuria, Faith Culas, and Kelly Blincoe.
+2026. <em>Cognitive Inclusivity in AI Coding Assistants: Evidence from
+GitHub Copilot</em>. <a href="https://arxiv.org/abs/2610.41192">https://arxiv.org/abs/2610.41192</a>.
+ <em>Laboratory study (20 students) using GitHub Copilot across cognitive styles, analyzed via the GenderMag framework; identifies five inclusivity issues in how Copilot explains, validates, teaches, and shapes problem-solving.</em></p>
 <p id="keuning2017">
 Keuning, Hieke, Bastiaan Heeren, and Johan Jeuring. 2017. “Code
 Quality Issues in Student Programs.” <em>Proc. 2017 ACM
@@ -4526,6 +4763,12 @@ Kirschner, Paul A., John Sweller, Femke Kirschner, and Jimmy Zambrano R.
 Theory.” <em>International Journal of Computer-Supported
 Collaborative Learning</em> 13 (April). <a href="https://doi.org/10.1007/s11412-018-9277-y">10.1007/s11412-018-9277-y</a>.
  <em>Cognitive load theory extended to collaborative learning via collective working memory concept; transactive costs of collaboration require specific design principles to improve efficiency.</em></p>
+<p id="klein2004">
+Klein, Gary, David D. Woods, Jeffrey M. Bradshaw, Robert R. Hoffman, and
+Paul J. Feltovich. 2004. “Ten Challenges for Making Automation a
+"Team Player" in Joint Human-Agent Activity.” <em>IEEE
+Intelligent Systems</em>.
+ <em>Proposes ten challenges for making automation a team player in joint human-agent activity, grounded in human-centered computing principles of common ground, mutual predictability, and directability.</em></p>
 <p id="klotins2021">
 Klotins, Eriks, Michael Unterkalmsteiner, Panagiota Chatzipetrou, et al.
 2021. “A Progression Model of Software Engineering Goals,
@@ -4685,12 +4928,32 @@ Comprehension of Domain-Specific and General-Purpose Languages:
 Comparison Using a Family of Experiments.” <em>Empirical Software
 Engineering</em> 17 (3): 276–304. <a href="https://doi.org/10.1007/s10664-011-9172-x">10.1007/s10664-011-9172-x</a>.
  <em>Family of three empirical studies confirms developers are more accurate and efficient at program comprehension with DSLs than with equivalent APIs in general-purpose languages.</em></p>
+<p id="kosar2024">
+Kosar, Tomaž, Dragana Ostojić, Yu David Liu, and Marjan Mernik. 2024.
+“Computer Science Education in ChatGPT Era: Experiences from an
+Experiment in a Programming Course for Novice Programmers.”
+<em>Mathematics</em> 12 (5): 629. <a href="https://doi.org/10.3390/math12050629">10.3390/math12050629</a>.
+ <em>Controlled experiment (182 first-year OOP students) comparing ChatGPT users and non-users; found no statistically significant differences in performance, assignment grades, or midterm exams, suggesting ChatGPT is safe for novices with appropriate adjustments.</em></p>
 <p id="kotti2023">
 Kotti, Zoe, Georgios Gousios, and Diomidis Spinellis. 2023.
 “Impact of Software Engineering Research in Practice: A Patent and
 Author Survey Analysis.” <em>IEEE Transactions on Software
 Engineering</em> 49 (April). <a href="https://doi.org/10.1109/tse.2022.3208210">10.1109/tse.2022.3208210</a>.
  <em>Analysis of 4,354 SE patents and survey of 475 paper authors shows SE research impacts practice via tools, processes, and methods; practitioner-oriented venues show higher impact than researcher-oriented ones.</em></p>
+<p id="koutcheme2024">
+Koutcheme, Charles, Nicola Dainese, Sami Sarsa, Arto Hellas, Juho
+Leinonen, and Paul Denny. 2024. “Open Source Language Models Can
+Provide Feedback: Evaluating LLMs’ Ability to Help Students Using
+GPT-4-as-a-Judge.” <em>Proceedings of the 2024 on Innovation and
+Technology in Computer Science Education v. 1</em>, July, 52–58. <a href="https://doi.org/10.1145/3649217.3653612">10.1145/3649217.3653612</a>.
+ <em>Automated analysis (using GPT-4 as judge) of feedback quality from open-source LLMs on an introductory programming dataset; GPT-4 moderately agrees with human raters but is positively biased, and some open models rival proprietary LLMs, supporting responsible educational use.</em></p>
+<p id="koutcheme2026">
+Koutcheme, Charles, Juliette Woodrow, and Chris Piech. 2026.
+“Aligning Small Language Models for Programming Feedback: Towards
+Scalable Coding Support in a Massive Global Course.”
+<em>Proceedings of the 57th ACM Technical Symposium on Computer Science
+Education v. 1</em>, February, 610–16. <a href="https://doi.org/10.1145/3770762.3772539">10.1145/3770762.3772539</a>.
+ <em>Evaluates whether a fine-tuned 3B-parameter small language model can approach larger models (Llama-3.1-8B, GPT-4.1) at generating diagnostic programming feedback, deploying it in a large online course and rating outputs with 53 human teaching assistants plus an LLM-as-judge. Training is reported to shrink the quality gap from over 80 to roughly 10 percentage points, with fewer hallucinated errors.</em></p>
 <p id="krajcarz2022">
 Krajcarz, Magdalena, Maciej T. Krajcarz, Mateusz Baca, et al. 2022.
 “The History of the Domestic Cat in Central Europe.”
@@ -4896,6 +5159,10 @@ Lazonder, Ard W., and Hans van der Meij. 1993. “The Minimal
 Manual: Is Less Really More?” <em>International Journal of
 Man-Machine Studies</em> 39 (5): 729–52. <a href="https://doi.org/10.1006/imms.1993.1081">10.1006/imms.1993.1081</a>.
  <em>Replication of Carroll et al.'s minimal manual study with 64 Dutch students confirms minimalist users learn faster and better, with prior computer experience affecting retention and transfer but not interacting with manual type.</em></p>
+<p id="leachkrouse2026">
+Leach-Krouse, Graham. 2026. <em>Carnap Ten Years Later: Lessons Learned
+and Next Steps</em>. <a href="https://arxiv.org/abs/2607.07722">https://arxiv.org/abs/2607.07722</a>.
+ <em>Experience report on a decade of the Carnap proof assistant (45,000+ students) plus a bottom-up redesign combining the mm0-zig verifier kernel for metamath zero and the Aufbau Bytecode Compiler for interactive web proof authoring.</em></p>
 <p id="leake2017">
 Leake, Mackenzie, and Colleen M. Lewis. 2017. “Recommendations for
 Designing CS Resource Sharing Sites for All Teachers.” <em>Proc.
@@ -4976,6 +5243,13 @@ Meirelles. 2023. “A Theory of Organizational Structures for
 Development and Infrastructure Professionals.” <em>IEEE
 Transactions on Software Engineering</em> 49 (April). <a href="https://doi.org/10.1109/tse.2022.3199169">10.1109/tse.2022.3199169</a>.
  <em>68-interview grounded theory study identifies four DevOps organizational structures (segregated, collaborative, API-mediated, single department) with conditions, trade-offs, and contingencies for each.</em></p>
+<p id="lekshminarayanan2026">
+Lekshmi-Narayanan, Arun-Balajiee, Gillian Gold, Jordan Barria-Pineda,
+Quinn K. Wolter, Peter Brusilovsky, and Paulo Carvalho. 2026.
+<em>Decomposing the Doer Effect in Programming Practice: Code Writing
+Stands Out Among Active Practice</em>. arXiv preprint arXiv:2608.02541.
+<a href="https://arxiv.org/abs/2608.02541">https://arxiv.org/abs/2608.02541</a>.
+ <em>Log-data analysis (334 students, 11 semesters) decomposing the doer effect; code writing was most strongly associated with learning gains, while other active practice types showed no comparable association.</em></p>
 <p id="lemieux2023">
 Lemieux, Mackenzie Emily, Rebecca Zhang, and Francesca Tripodi. 2023.
 “"Too Soon" to Count? How Gender and Race Cloud Notability
@@ -5032,7 +5306,7 @@ Programmers.” <em>Proc. ACM/IEEE 44th Conference on Software
 Engineering: Software Engineering Education and Training</em>, May,
 69–81. <a href="https://doi.org/10.1145/3510456.3514147">10.1145/3510456.3514147</a>.
  <em>40-programmer study of Stack Overflow debugging shows both general and Python-specific expertise improve search efficacy; display rank and links-checked-per-query correlate with success across expertise levels.</em></p>
-<p id="li2025">
+<p id="li2025a">
 Li, Boyuan, Chengwei Liu, Lingling Fan, Sen Chen, Zhenlin Zhang, and
 Zheli Liu. 2025. <em>Open Source, Hidden Costs: A Systematic Literature
 Review on OSS License Management</em>. <a href="https://arxiv.org/abs/2507.05270">https://arxiv.org/abs/2507.05270</a>.
@@ -5049,6 +5323,13 @@ Characteristic Study on Failures of Production Distributed Data-Parallel
 Programs.” <em>2013 35th Conference on Software Engineering
 (ICSE)</em>, May, 963–72. <a href="https://doi.org/10.1109/icse.2013.6606646">10.1109/icse.2013.6606646</a>.
  <em>Study of 200 SCOPE failures in Microsoft Bing shows 84.5% stem from data defects rather than logic bugs; 93% of fixes don't change processing logic, pointing to data validation as the key intervention.</em></p>
+<p id="li2025b">
+Li, Siran, Jiangyue Liu, and Qianyan Dong. 2025. “Generative
+Artificial Intelligence-Supported Programming Education: Effects on
+Learning Performance, Self-Efficacy and Processes.”
+<em>Australasian Journal of Educational Technology</em>, ahead of print,
+May. <a href="https://doi.org/10.14742/ajet.9932">10.14742/ajet.9932</a>.
+ <em>Quasi-experiment on GenAI-supported programming learning using process mining; GenAI enhances performance and self-efficacy but impairs long-term knowledge transfer, over-reliance and cognitive outsourcing impede acquisition, and high performers show greater epistemic agency.</em></p>
 <p id="li2024">
 Li, Xuetao, Yuxia Zhang, Cailean Osborne, Minghui Zhou, Zhi Jin, and Hui
 Liu. 2024. <em>Systematic Literature Review of Commercial Participation
@@ -5158,6 +5439,14 @@ Liu, Eric S., Dylan A. Lukes, and William G. Griswold. 2023.
 “Refactoring in Computational Notebooks.” <em>ACM
 Transactions on Software Engineering and Methodology</em> 32 (April). <a href="https://doi.org/10.1145/3576036">10.1145/3576036</a>.
  <em>Study of 200 public Jupyter notebooks with meaningful commit histories shows authors refactor frequently and incrementally; computing-background authors differ in refactoring style but not frequency.</em></p>
+<p id="liu2024">
+Liu, Suqing, Zezhu Yu, Feiran Huang, Yousef Bulbulia, Andreas Bergen,
+and Michael Liut. 2024. “Can Small Language Models with
+Retrieval-Augmented Generation Replace Large Language Models When
+Learning Computer Science?” <em>Proceedings of the 2024 on
+Innovation and Technology in Computer Science Education v. 1</em>, July,
+388–93. <a href="https://doi.org/10.1145/3649217.3653554">10.1145/3649217.3653554</a>.
+ <em>Compares a locally-stored Small Language Model (neural-chat-7b-v3) with RAG against gpt-3.5-turbo and gpt-4-32k using real CS1 conversations (269 students, 1,988 questions); finds the SLM with RAG performs similarly or better, supporting privacy-preserving classroom use.</em></p>
 <p id="lo2015">
 Lo, David, Nachiappan Nagappan, and Thomas Zimmermann. 2015. “How
 Practitioners Perceive the Relevance of Software Engineering
@@ -5247,13 +5536,21 @@ Promote Collaboration in Block-Based Environments.” <em>Proc.
 51st ACM Technical Symposium on Computer Science Education</em>,
 February, 832–38. <a href="https://doi.org/10.1145/3328778.3366943">10.1145/3328778.3366943</a>.
  <em>Pilot study (25 pairs, K-12) of Netsblox collaborative programming modes including Partner Puzzles (blocks split between partners); students preferred Partner Puzzle mode; recommendations for assignment design.</em></p>
+<p id="ma2024a">
+Ma, Boxuan, Li Chen, and Shin’ichi Konomi. 2024. “Enhancing
+Programming Education with ChatGPT: A Case Study on Student Perceptions
+and Interactions in a Python Course.” In <em>Artificial
+Intelligence in Education. Posters and Late Breaking Results, Workshops
+and Tutorials, Industry and Innovation Tracks, Practitioners, Doctoral
+Consortium and Blue Sky</em>. Springer Nature Switzerland. <a href="https://doi.org/10.1007/978-3-031-64315-6_9">10.1007/978-3-031-64315-6_9</a>.
+ <em>HypoCompass, an LLM-powered teachable-agent system in which novices play teaching assistants and hypothesize causes of code errors while LLMs handle code completion; a 19-student pre/post study found an 11.7% debugging score gain and 13.6% faster completion, a 15% rise in self-rated debugging confidence, and LLM-generated practice materials produced 4.67x faster than by human TAs at 90% quality.</em></p>
 <p id="ma2025">
 Ma, Qianou, Weirui Peng, Chenyang Yang, Hua Shen, Ken Koedinger, and
 Tongshuang Wu. 2025. “What Should We Engineer in Prompts? Training
 Humans in Requirement-Driven LLM Use.” <em>ACM Transactions on
 Computer-Human Interaction</em> 32 (4): 1–27. <a href="https://doi.org/10.1145/3731756">10.1145/3731756</a>.
  <em>Randomized experiment with 30 novices finds Requirement-Oriented Prompt Engineering (ROPE) training achieves 20% gains vs. 1% for conventional prompt engineering training.</em></p>
-<p id="ma2024">
+<p id="ma2024b">
 Ma, Qianou, Hua Shen, Kenneth Koedinger, and Sherry Tongshuang Wu. 2024.
 “How to Teach Programming in the AI Era? Using LLMs as a Teachable
 Agent for Debugging.” <em>Lecture Notes in Computer Science</em>,
@@ -5352,6 +5649,11 @@ Malik, Mashkoor, Alexandre C. G. Schimel, Giuseppe Masetti, et al. 2019.
 Processing Software Inter-Comparison Project.”
 <em>Geosciences</em> 9 (December). <a href="https://doi.org/10.3390/geosciences9120516">10.3390/geosciences9120516</a>.
  <em>Cross-software comparison of seafloor backscatter processing reveals &gt;5 dB differences appear before angular correction; calls for collaborative transparency standards between software developers and users.</em></p>
+<p id="malka2026">
+Malka, Julien, Stefano Zacchiroli, and Théo Zimmermann. 2026. “A
+Decade of Software Reproducibility in the Nix Package Ecosystem.”
+<em>Empirical Software Engineering</em>.
+ <em>Decade-long study of the nixpkgs ecosystem (1,321,000 package builds) finds near-universal rebuildability and steadily improving bitwise reproducibility (up to 93% in 2024), with dates in builds a common cause of unreproducibility.</em></p>
 <p id="malloy2018">
 Malloy, Brian A., and James F. Power. 2018. “An Empirical Analysis
 of the Transition from Python 2 to Python 3.” <em>Empirical
@@ -5510,6 +5812,10 @@ Mattmann, Chris A., Joshua Garcia, Ivo Krka, Daniel Popescu, and Nenad
 Medvidovic. 2015. “Revisiting the Anatomy and Physiology of the
 Grid.” <em>Journal of Grid Computing</em> 13 (January). <a href="https://doi.org/10.1007/s10723-015-9324-0">10.1007/s10723-015-9324-0</a>.
  <em>Analysis of 18 grid computing systems shows every one violates the original published DSSA; a significantly refined DSSA better matches actual systems and enables clearer grid-vs-non-grid classification.</em></p>
+<p id="mattukat2026">
+Mattukat, Alex R., and Horst Lichter. 2026. <em>A Catalog of User
+Authentication Patterns</em>. <a href="https://arxiv.org/abs/2608.26955">https://arxiv.org/abs/2608.26955</a>.
+ <em>Presents a catalog of 14 user-authentication security patterns, classified by authentication factors and the role each pattern fulfills, to support engineers in designing secure systems.</em></p>
 <p id="may2019">
 May, Anna, Johannes Wachs, and Anikó Hannák. 2019. “Gender
 Differences in Participation and Reward on Stack Overflow.”
@@ -5755,7 +6061,7 @@ Miller, Barton P., Mengxiao Zhang, and Elisa R. Heymann. 2022.
 One?” <em>IEEE Transactions on Software Engineering</em> 48
 (June). <a href="https://doi.org/10.1109/tse.2020.3047766">10.1109/tse.2020.3047766</a>.
  <em>Updated basic fuzz testing of Unix utilities finds 9-15% crash/hang rates depending on OS; classic pointer, array, and return-code failures persist; Rust utilities show no reliability improvement over C counterparts.</em></p>
-<p id="miller2025">
+<p id="miller2025a">
 Miller, Courtney, Rudrajit Choudhuri, Mara Ulloa, et al. 2025.
 <em>"Maybe We Need Some More Examples:" Individual and Team Drivers of
 Developer GenAI Tool Use</em>. <a href="https://arxiv.org/abs/2507.21280">https://arxiv.org/abs/2507.21280</a>.
@@ -5767,6 +6073,25 @@ Understanding Toxicity in Open Source Discussions.”
 <em>Proceedings of the 44th International Conference on Software
 Engineering</em>, ICSE ’22, May, 710–22. <a href="https://doi.org/10.1145/3510003.3510111">10.1145/3510003.3510111</a>.
  <em>Qualitative analysis of 100 toxic GitHub issue discussions; prevalent forms: entitled/demanding users and insults from technical disagreements; project members also authors of toxicity; different patterns from Reddit/Wikipedia toxicity.</em></p>
+<p id="miller2026">
+Miller, Courtney, Hao He, Weigen Chen, et al. 2026. <em>Designing
+Abandabot: When Does Open Source Dependency Abandonment Matter?</em>
+ <em>Need-finding interviews (22 maintainers) plus a 124-participant evaluation of an LLM-based classifier predicting when an abandoned dependency is impactful; theory-based explanations proved useful.</em></p>
+<p id="miller2025b">
+Miller, Courtney, Mahmoud Jahanshahi, Audris Mockus, Bogdan Vasilescu,
+and Christian Kästner. 2025. “Understanding the Response to
+Open-Source Dependency Abandonment in the Npm Ecosystem.”
+<em>2025 IEEE/ACM 47th International Conference on Software Engineering
+(ICSE)</em>, 2355–67. <a href="https://doi.org/10.1109/ICSE55347.2025.00004">10.1109/ICSE55347.2025.00004</a>.
+ <em>Large-scale quantitative analysis of widely-used npm packages; abandonment is common, exposed projects often do not respond, responses correlate with other dependency practices, and removal is faster when end-of-life status is explicit.</em></p>
+<p id="miller2023">
+Miller, Courtney, Christian Kästner, and Bogdan Vasilescu. 2023.
+“"We Feel Like We’re Winging It:" a Study on Navigating
+Open-Source Dependency Abandonment.” <em>Proceedings of the 31st
+ACM Joint European Software Engineering Conference and Symposium on the
+Foundations of Software Engineering</em> (New York, NY, USA), ESEC/FSE
+2023, 1281–93. <a href="https://doi.org/10.1145/3611643.3616293">10.1145/3611643.3616293</a>.
+ <em>Interview study (33 developers) on open-source dependency abandonment; developers cope via multiple strategies but feel unsupported and left to trial-and-error, abandonment carries hidden costs despite appearing free, and the volunteer's dilemma limits community help.</em></p>
 <p id="miller2014">
 Miller, Craig S. 2014. “Metonymy and Reference-Point Errors in
 Novice Programming.” <em>Computer Science Education</em> 24
@@ -5954,6 +6279,12 @@ Mueller, Pam A., and Daniel M. Oppenheimer. 2014. “The Pen Is
 Mightier Than the Keyboard.” <em>Psychological Science</em> 25
 (April). <a href="https://doi.org/10.1177/0956797614524581">10.1177/0956797614524581</a>.
  <em>Three studies show laptop note-takers transcribe verbatim and perform worse on conceptual questions; longhand forces reframing which produces deeper processing and better learning outcomes.</em></p>
+<p id="mugnier2025">
+Mugnier, Eric, Yuanyuan Zhou, Ranjit Jhala, and Michael Coblenz. 2025.
+“On the Impact of Formal Verification on Software
+Development.” <em>Proceedings of the ACM on Programming
+Languages</em> 9 (OOPSLA2). <a href="https://doi.org/10.1145/3763181">10.1145/3763181</a>.
+ <em>Interviews 14 experienced Dafny users and applies grounded theory; auto-active verification automates low-level proof details but imposes effort when automation fails, limiting real-world adoption.</em></p>
 <p id="muhammad2019">
 Muhammad, Hisham, Lucas C. Villa Real, and Michael Homer. 2019.
 “Taxonomy of Package Management in Programming Languages and
@@ -6038,6 +6369,11 @@ Nagappan, Nachiappan, Brendan Murphy, and Victor Basili. 2008.
 Empirical Case Study.” <em>Proc. 13th International Conference on
 Software Engineering - ICSE ’08</em>, ICSE ’08, 521. <a href="https://doi.org/10.1145/1368088.1368160">10.1145/1368088.1368160</a>.
  <em>Organizational complexity metrics for Windows Vista predict failure-proneness with higher precision/recall than traditional metrics (churn, complexity, coverage, dependencies, pre-release bugs).</em></p>
+<p id="nagy2026">
+Nagy, Robin P. 2026. “Going the Distance: Bridging the Gap Between
+Research and Practice.” <em>Learning and Instruction</em> 106:
+102450. <a href="https://doi.org/10.1016/j.learninstruc.2026.102450">10.1016/j.learninstruc.2026.102450</a>.
+ <em>Practitioner commentary arguing that bridging the research--practice gap requires acknowledging teacher agency, differentiating recommendations by teacher profile, and situating findings in existing evidence.</em></p>
 <p id="nakajo1991">
 Nakajo, T., and H. Kume. 1991. “A Case History Analysis of
 Software Error Cause-Effect Relationships.” <em>IEEE Transactions
@@ -6091,7 +6427,7 @@ Research Journal</em> 40 (January). <a href="https://doi.org/10.3102/00028312040
 <p id="naur1985">
 Naur, Peter. 1985. “Programming as Theory Building.”
 <em>Microprocessing and Microprogramming</em> 15 (5): 253–61. <a href="https://doi.org/10.1016/0165-6074(85)90032-8">10.1016/0165-6074(85)90032-8</a>.
- <em>No summary available.</em></p>
+ <em>Influential essay arguing programming is fundamentally building a 'theory' of the problem domain rather than merely producing a program; program quality and maintainability depend on that theory, which is lost when its programmers depart.</em></p>
 <p id="ndukwe2023">
 Ndukwe, Ifeanyi G., Sherlock A. Licorish, Amjed Tahir, and Stephen G.
 MacDonell. 2023. “How Have Views on Software Quality Differed over
@@ -6156,6 +6492,13 @@ Engineering</em> 24 (November). <a href="https://doi.org/10.1007/s10664-018-9664
 Nierstrasz, Oscar, and Tudor Gîrba. 2024. <em>Moldable Development
 Patterns</em>. September 27. <a href="https://doi.org/10.48550/arXiv.2409.18811">10.48550/arXiv.2409.18811</a>.
  <em>Moldable development makes systems explainable by building cheap custom tools that turn the software into a live explorable domain model; patterns from open-source and industrial experience guide adoption.</em></p>
+<p id="nietocardenas2026">
+Nieto-Cardenas, Juliana, Erin Joy Kramer, Peter Kurto, Ethan Dickey, and
+Andres Bejarano. 2026. “Owlgorithm: Supporting Self-Regulated
+Learning in Competitive Programming Through LLM-Driven
+Reflection.” <em>Proceedings of the 57th ACM Technical Symposium
+on Computer Science Education (SIGCSE TS 2026)</em>. <a href="https://doi.org/10.1145/3770762.3772662">10.1145/3770762.3772662</a>.
+ <em>Presents Owlgorithm, a GPT-4o platform that generates context-aware reflective questions for competitive-programming students; assessment of ratings and TA feedback shows promise for novices but flags accuracy and usability limits.</em></p>
 <p id="nikula2007">
 Nikula, Uolevi, Jorma Sajaniemi, Matti Tedre, and Stuart Wray. 2007.
 “Python and Roles of Variables in Introductory Programming:
@@ -6229,6 +6572,14 @@ Novak, Joseph D., and Alberto J. Cañas. 2008. <em>The Theory Underlying
 Concept Maps and How to Construct Them</em>. Institute for Human;
 Machine Cognition (IHMC).
  <em>Defines concept maps as graphical tools for organizing knowledge through labeled relationships between concepts, explaining their structure and distinguishing concepts from propositions.</em></p>
+<p id="noviello2026">
+Noviello, Yuri, Naaz Sibia, Anastasiia Birillo, Thomas Overklift Vaupel
+Klein, Michael Liut, and Gosia Migut. 2026. “AI-Generated Traces
+for Novice Programmers: Learning Effects and Learner Differences in a
+Multi-Institutional Study.” <em>Proceedings of the 31st ACM
+Conference on Innovation and Technology in Computer Science Education v.
+1</em>, July, 135–41. <a href="https://doi.org/10.1145/3803400.3809346">10.1145/3803400.3809346</a>.
+ <em>A two-institution CS1 study (Python N = 961; Java N = 151) comparing AI-generated "Generated Animated Traces" (analogy-based narrated animations of program execution) against textual explanations. Outcome measures span immediate learning, engagement, and end-of-course exam performance. GATs showed only selective, context-dependent, short-term immediate-learning benefits, with effects moderated by learner engagement profiles.</em></p>
 <p id="nust2020">
 Nüst, Daniel, Vanessa Sochat, Ben Marwick, et al. 2020. “Ten
 Simple Rules for Writing Dockerfiles for Reproducible Data
@@ -6249,7 +6600,7 @@ Learned from Creating One of the World’s Most Popular MOOCs.”
 Oakley, Barbara, Richard M. Felder, Rebecca Brent, and Imad Elhajj.
 2004. “Turning Student Groups into Effective Teams.”
 <em>Journal of Student Centered Learning</em> 2 (1): 9–34.
- <em>No summary available.</em></p>
+ <em>Instructor's guide to turning student groups into effective teams, covering team formation, helping teams function, and using peer ratings to adjust grades for individual performance, with forms and handouts.</em></p>
 <p id="oberauer2016">
 Oberauer, Klaus, Simon Farrell, Christopher Jarrold, and Stephan
 Lewandowsky. 2016. “What Limits Working Memory Capacity?”
@@ -6292,6 +6643,12 @@ Metrics of Developer Productivity: A Study on Team Leaders
 Perceptions.” <em>Empirical Software Engineering</em> 25 (April).
 <a href="https://doi.org/10.1007/s10664-020-09820-z">10.1007/s10664-020-09820-z</a>.
  <em>Multi-case study of two organizations finds code-based metrics correlate better with team leaders' productivity perceptions than commit-based metrics, and leaders have positive impressions of code-based metrics.</em></p>
+<p id="deoliveira2026">
+Oliveira, Isadora de, Arthur Lisboa Corgozinho, Henrique Rocha, and
+Marco Tulio Valente. 2026. “Property-Based Testing in Python:
+Empirical Insights.” <em>Empirical Software Engineering</em> 32
+(30). <a href="https://doi.org/10.1007/s10664-026-10953-w">10.1007/s10664-026-10953-w</a>.
+ <em>Three studies on property-based testing in Python; test-oracle properties dominate, PBTs are concise and rely heavily on built-in strategies, and Ghostwriter can fully automate only about 18% of real PBTs.</em></p>
 <p id="oliveira2025">
 Oliveira, Jonhnanthan, Rohit Gheyi, Márcio Ribeiro, and Alessandro
 Garcia. 2025. <em>Bugs in the Shadows: Static Detection of Faulty Python
@@ -6333,6 +6690,13 @@ and Minghui Zhou. 2024. <em>Characterising Open Source Co-Opetition in
 Company-Hosted Open Source Software Projects: The Cases of PyTorch,
 TensorFlow, and Transformers</em>. October 23. <a href="https://doi.org/10.48550/arXiv.2410.18241">10.48550/arXiv.2410.18241</a>.
  <em>Mixed-methods analysis of 3 company-hosted AI OSS projects (PyTorch, TensorFlow, Transformers); similar 80/20 host/external commit ratios but different collaboration structures; identifies strategic/non-strategic/contractual collaborations; single-vendor governance creates power imbalance.</em></p>
+<p id="osorio2026">
+Osorio, Valeria Ramirez, Ido Ben Haim, Ahmed Ashraf, et al. 2026.
+“Investigating the Impact of Student Usage of Generative AI Tools
+in Computing Courses.” <em>Proceedings of the 31st ACM Conference
+on Innovation and Technology in Computer Science Education v. 1</em>,
+July, 266–72. <a href="https://doi.org/10.1145/3803400.3809310">10.1145/3803400.3809310</a>.
+ <em>A replication-and-extension study across four computing courses relating self-reported GenAI use (for assignments and for studying) to assignment performance and final grades. Students who used GenAI on assignments performed equal or better on those assignments but earned lower final grades; studying with GenAI showed no clear midterm difference. The pattern reproduces a prior study's finding of a performance-help versus course-outcome-harm split.</em></p>
 <p id="ouf2025">
 Ouf, Mohamed, Haoyu Li, Michael Zhang, and Mariam Guizani. 2025.
 <em>Reverse Engineering User Stories from Code Using Large Language
@@ -6365,6 +6729,25 @@ Relationship Between Exception Handling Practices and Post-Release
 Defects.” <em>Proc. 15th Conference on Mining Software
 Repositories</em>, ahead of print, May. <a href="https://doi.org/10.1145/3196398.3196435">10.1145/3196398.3196435</a>.
  <em>Exception flow characteristics significantly predict post-release defects in Java; several exception handling anti-patterns also have significant explanatory power; studied across 3 Java/C# projects.</em></p>
+<p id="padurean2026b">
+Pădurean, Victor-Alexandru, Alkis Gotovos, Ahana Ghosh, et al. 2026.
+“Interleaving Natural Language Prompting with Code Editing for
+Solving Programming Tasks with Generative AI Models.”
+<em>Proceedings of the 31st ACM Conference on Innovation and Technology
+in Computer Science Education v. 1</em>, July, 273–79. <a href="https://doi.org/10.1145/3803400.3809312">10.1145/3803400.3809312</a>.
+ <em>Large-scale study (355 students, 13,305 interactions) of interleaving prompting and code editing; students prompt for initial solutions then use short edit-run loops, editing rises with task complexity, and higher performers rely less on edits.</em></p>
+<p id="padurean2026c">
+Pădurean, Victor-Alexandru, Kaitlin Riegel, Gweneth Barbre, et al. 2026.
+“Understanding Student Perceptions, Mistakes, and Debugging
+Approaches When Solving Natural Language Programming Tasks.”
+<em>Proceedings of the ACM Conference on International Computing
+Education Research Vol. 1 (ICER 2026 Vol. 1)</em>, August, 145–60. <a href="https://doi.org/10.1145/3765964.3811639">10.1145/3765964.3811639</a>.
+ <em>Study of 900+ students solving Prompt Problems in a CS1 course; common mistakes centered on omitting key details, and recovery focused on clarifying intent rather than tracing code.</em></p>
+<p id="padurean2026a">
+Pădurean, Victor-Alexandru, Kaitlin Riegel, Alkis Gotovos, et al. 2026.
+<em>When AI Is Wrong on Purpose: How Students Respond to Buggy GenAI
+Code</em>. <a href="https://arxiv.org/abs/2607.05068">https://arxiv.org/abs/2607.05068</a>.
+ <em>Analysis of 2,636 sessions from 917 students responding to buggy GenAI code; deliberately injected bugs led to direct code edits and higher next-attempt success, while prompt-related failures led to prompt refinement, together supporting a review-and-repair pedagogy.</em></p>
 <p id="pagano2011">
 Pagano, Dennis, and Walid Maalej. 2011. “How Do Developers Blog?:
 An Exploratory Study.” <em>Proc. 8th Working Conference on Mining
@@ -6397,6 +6780,13 @@ Pan, Kai, Sunghun Kim, and E. James Whitehead. 2008. “Toward an
 Understanding of Bug Fix Patterns.” <em>Empirical Software
 Engineering</em> 14 (August). <a href="https://doi.org/10.1007/s10664-008-9077-5">10.1007/s10664-008-9077-5</a>.
  <em>Extracts 27 bug fix patterns from seven Java open-source projects; MC-DAP (14.9-25.5%) and IF-CC (5.6-18.6%) are most common, with consistent frequencies across projects suggesting broad bug-injection mechanisms.</em></p>
+<p id="pankiewicz2024">
+Pankiewicz, Maciej, and Ryan S. Baker. 2024. “Navigating Compiler
+Errors with AI Assistance - a Study of GPT Hints in an Introductory
+Programming Course.” <em>Proceedings of the 2024 on Innovation
+and Technology in Computer Science Education v. 1</em>, ITiCSE’24, July,
+94–100. <a href="https://doi.org/10.1145/3649217.3653608">10.1145/3649217.3653608</a>.
+ <em>Study of GPT-4 hints for compiler errors in an introductory programming course; students rated hints highly and reported more focus and less confusion/frustration, and after hints were disabled the experimental group outperformed the control on five of six error types.</em></p>
 <p id="panko2016">
 Panko, Ray. 2016. <em>What We Don’t Know about Spreadsheet Errors Today:
 The Facts, Why We Don’t Believe Them, and What We Need to Do</em>. <a href="https://arxiv.org/abs/1602.02601">https://arxiv.org/abs/1602.02601</a>.
@@ -6485,7 +6875,7 @@ Parsons, Dale, and Patricia Haden. 2006. “Parson’s Programming
 Puzzles: A Fun and Effective Learning Tool for First Programming
 Courses.” <em>Proc. 8th Australasian Conference on Computing
 Education - Volume 52</em>, 157–63.
- <em>No summary available.</em></p>
+ <em>Introduces Parsons problems, drag-and-drop programming puzzles where students arrange shuffled lines of a complete solution into the correct order; reports them as a fun, effective tool for first programming courses.</em></p>
 <p id="parsons2015">
 Parsons, Seth A., Audra K. Parker, Kristien Zenkov, et al. 2015.
 “Exploring the Use of Video Coding in Literacy and English Teacher
@@ -6567,7 +6957,7 @@ The Case of Continuous Integration</em>. October 21. <a href="https://doi.org/10
 Perkel, Jeffrey M. 2018. “Why Jupyter Is Data Scientists’
 Computational Notebook of Choice.” <em>Nature</em> 563 (October).
 <a href="https://doi.org/10.1038/d41586-018-07196-1">10.1038/d41586-018-07196-1</a>.
- <em>No summary available.</em></p>
+ <em>Nature feature on Jupyter's rise (2.5M+ public notebooks by 2018) as data scientists' computational notebook of choice, covering multi-language kernels, cloud tools like JupyterHub and Binder, and criticisms around reproducibility and out-of-order execution.</em></p>
 <p id="pertseva2024">
 Pertseva, Elizaveta, Melinda Chang, Ulia Zaman, and Michael Coblenz.
 2024. “A Theory of Scientific Programming Efficacy.”
@@ -6602,6 +6992,14 @@ Pfleeger, Shari Lawrence, and Barbara Ann Kitchenham. 2025.
 “Evidence-Based Software Engineering Guidelines Revisited.”
 <em>IEEE Transactions on Software Engineering</em> 51 (3): 814–19. <a href="https://doi.org/10.1109/tse.2025.3526730">10.1109/tse.2025.3526730</a>.
  <em>Revisits 2002 empirical SE research guidelines; finds they still hold for bespoke software but need updating for AI-based products, new development practices, and regulatory pressures.</em></p>
+<p id="phung2026">
+Phung, Tung, Heeryung Choi, Mengyan Wu, Christopher Brooks, Sumit
+Gulwani, and Adish Singla. 2026. “Closing the Loop: An
+Instructor-in-the-Loop AI Assistance System for Supporting Student
+Help-Seeking in Programming Education.” <em>Proceedings of the
+57th ACM Technical Symposium on Computer Science Education (SIGCSE TS
+2026)</em>. <a href="https://doi.org/10.1145/3770762.3772612">10.1145/3770762.3772612</a>.
+ <em>Hybrid instructor-in-the-loop help system for programming courses; of 673 AI hints, 22% were rated unhelpful, but only 11% were escalated, and instructor review found AI feedback incorrect or insufficient roughly half the time.</em></p>
 <p id="piantadosi2020">
 Piantadosi, Valentina, Fabiana Fierro, Simone Scalabrino, Alexander
 Serebrenik, and Rocco Oliveto. 2020. <em>How Does Code Readability
@@ -6639,6 +7037,11 @@ Pinto, Manuela Fernández, and Daniel Fernández Pinto. 2023.
 “Epistemic Diversity and Industrial Selection Bias.”
 <em>Synthese</em> 201 (May). <a href="https://doi.org/10.1007/s11229-023-04158-7">10.1007/s11229-023-04158-7</a>.
  <em>RL model shows industry can exploit epistemically diverse scientific communities to shift consensus without corrupting individual scientists; random funding allocation effectively counteracts industrial selection bias.</em></p>
+<p id="pittala2026">
+Pittala, Trinath Sai Subhash Reddy. 2026. <em>The Import Tax: A
+Longitudinal Measurement of Startup Cost in the Python Ecosystem</em>.
+<a href="https://arxiv.org/abs/2609.02753">https://arxiv.org/abs/2609.02753</a>.
+ <em>Longitudinal measurement (63,431 samples) of Python import cost across 500 packages and six CPython versions; cost is heavily skewed, grows fastest in a heavy tail, and global lazy imports break 8 of 414 top packages.</em></p>
 <p id="pizard2021">
 Pizard, Sebastián, Fernando Acerenza, Ximena Otegui, Silvana Moreno,
 Diego Vallespir, and Barbara Kitchenham. 2021. “Training Students
@@ -6786,6 +7189,20 @@ Chu-Hsuan Kuo. 2020. “Relating Natural Language Aptitude to
 Individual Differences in Learning Programming Languages.”
 <em>Scientific Reports</em> 10 (March). <a href="https://doi.org/10.1038/s41598-020-60661-8">10.1038/s41598-020-60661-8</a>.
  <em>Python learning outcomes predicted by language aptitude (17% variance), fluid reasoning/working memory (34%), EEG power (10%), and numeracy (2%); language aptitude is more predictive than math ability.</em></p>
+<p id="prather2026a">
+Prather, James, Stephen MacNeil, Andrew Luxton-Reilly, et al. 2026.
+“Scaffolding Autocomplete: Improving Guidance for Learners Using
+Generative Code Suggestions.” <em>Proceedings of the ACM
+Conference on International Computing Education Research Vol. 1 (ICER
+2026 Vol. 1)</em>, August, 89–103. <a href="https://doi.org/10.1145/3765964.3811654">10.1145/3765964.3811654</a>.
+ <em>Comparison of scaffolded programming exercises offering one versus three GenAI suggestions; multiple suggestions slowed students and prompted critical thinking, while single suggestions felt more industry-aligned.</em></p>
+<p id="prather2026b">
+Prather, James, Lauren Margulieux, Yekaterina Kharitonova, et al. 2026.
+“A Validated Scale Measuring Student Self-Efficacy for Programming
+with Generative AI.” <em>Proceedings of the ACM Conference on
+International Computing Education Research Vol. 1 (ICER 2026 Vol.
+1)</em>, August, 59–72. <a href="https://doi.org/10.1145/3765964.3811645">10.1145/3765964.3811645</a>.
+ <em>Development and initial validation of a five-item scale measuring student self-efficacy for programming with GenAI, complementing the pre-GenAI Steinhorst instrument.</em></p>
 <p id="prather2019">
 Prather, James, Raymond Pettit, Brett A. Becker, et al. 2019.
 “First Things First.” <em>Proc. 50th ACM Technical
@@ -6796,13 +7213,21 @@ Symposium on Computer Science Education</em>, ahead of print, February.
 Prather, James, Raymond Pettit, Kayla Holcomb McMurry, et al. 2017.
 “On Novices’ Interaction with Compiler Error Messages: A Human
 Factors Approach.” <em>Proceedings of the 2017 ACM Conference on
-International Computing Education Research</em>, ICER ’17, 74–82. <a href="https://doi.org/10.1145/3105726.3106169">10.1145/3105726.3106169</a>.
+International Computing Education Research</em>, ICER ’17, August,
+74–82. <a href="https://doi.org/10.1145/3105726.3106169">10.1145/3105726.3106169</a>.
  <em>Mixed-methods study finds students read enhanced compiler error messages and make effective changes after encountering them, but quantitative learning outcomes don't show substantial improvement over control.</em></p>
-<p id="prather2024">
+<p id="prather2024a">
 Prather, James, Brent N. Reeves, Paul Denny, et al. 2024. <em>Breaking
 the Programming Language Barrier: Multilingual Prompting to Empower
 Non-Native English Learners</em>. December 17. <a href="https://doi.org/10.48550/arXiv.2412.12800">10.48550/arXiv.2412.12800</a>.
  <em>First study of non-native English speakers using GenAI tools in their native language (Arabic, Chinese, Portuguese) to generate code; students succeed but struggle with programming terminology in their native languages.</em></p>
+<p id="prather2024b">
+Prather, James, Brent N. Reeves, Juho Leinonen, et al. 2024. “The
+Widening Gap: The Benefits and Harms of Generative AI for Novice
+Programmers.” <em>Proceedings of the 2024 ACM Conference on
+International Computing Education Research - Volume 1</em>, August,
+469–86. <a href="https://doi.org/10.1145/3632620.3671116">10.1145/3632620.3671116</a>.
+ <em>Replication-plus-GenAI study (21 lab sessions with observation, interview, eye tracking) of novice programming; GenAI widened a divide: non-struggling students used it to accelerate, while struggling students had metacognitive difficulties compounded and finished with an illusion of competence.</em></p>
 <p id="prechelt2000">
 Prechelt, L. 2000. “An Empirical Comparison of Seven Programming
 Languages.” <em>Computer</em> 33 (10): 23–29. <a href="https://doi.org/10.1109/2.876288">10.1109/2.876288</a>.
@@ -6865,6 +7290,10 @@ Puebla, Iratxe, Giorgio A. Ascoli, Jeffrey Blume, et al. 2024.
 in Hiring, Promotion, and Tenure.” <em>PLOS Computational
 Biology</em> 20 (August). <a href="https://doi.org/10.1371/journal.pcbi.1012296">10.1371/journal.pcbi.1012296</a>.
  <em>Argues universities must embed open science practices in hiring, tenure, and promotion; provides guidelines to help committees assess data and software contributions as genuine scholarship.</em></p>
+<p id="pulo2026">
+Pulo, Kevin. 2026. <em>Beyond Text Editing: Algebraic Manipulation of
+Source Code</em>. arXiv preprint arXiv:2607.18742. <a href="https://arxiv.org/abs/2607.18742">https://arxiv.org/abs/2607.18742</a>.
+ <em>Proposes ``source code algebra''---editing code via composable algebraic operations rather than text edits---with a feasibility probe suggesting higher success and 1--2 orders of magnitude fewer tokens for LLM agents.</em></p>
 <p id="qamar2022">
 Qamar, Khushbakht Ali, Emre Sülün, and Eray Tüzün. 2022. “Taxonomy
 of Bug Tracking Process Smells: Perceptions of Practitioners and an
@@ -6990,6 +7419,13 @@ and Julian Dolby. 2020. “Python 3 Types in the Wild: A Tale of Two
 Type Systems.” <em>Proc. 16th ACM SIGPLAN International Symposium
 on Dynamic Languages</em>, ahead of print, November. <a href="https://doi.org/10.1145/3426422.3426981">10.1145/3426422.3426981</a>.
  <em>Analyzes Python 3 type annotation usage on GitHub; type-annotated code rarely passes MyPy or PyType; the two tools embody distinct type systems and flag different errors; adoption of static typing remains low.</em></p>
+<p id="ramachandra2026">
+Ramachandra, Aryan, Suhani Chaudhary, Justin Tran, Riti Desai, Ashley
+Pang, and Mariam Salloum. 2026. “Detecting AI-Generated Code in
+Introductory Programming Courses.” <em>Proceedings of the 57th
+ACM Technical Symposium on Computer Science Education v.1</em>,
+February, 894–900. <a href="https://doi.org/10.1145/3770762.3772522">10.1145/3770762.3772522</a>.
+ <em>Develops an ML tool (Random Forest, XGBoost) to detect AI-generated code in CS1 courses, trained on thousands of student C++ submissions plus curated AI solutions; the best model exceeds 98% precision/recall and stays robust to noisy training data.</em></p>
 <p id="ramos2024">
 Ramos, Daniel, Claudia Mamede, Kush Jain, Paulo Canelas, Catarina
 Gamboa, and Claire Le Goues. 2024. <em>Are Large Language Models
@@ -7084,6 +7520,13 @@ Reimann, Lars, and Günter Kniesel-Wünsche. 2023. <em>An Alternative to
 Cells for Selective Execution of Data Science Pipelines</em>. February
 28. <a href="https://doi.org/10.48550/arXiv.2302.14556">10.48550/arXiv.2302.14556</a>.
  <em>Proposes replacing notebook cells with variable-centric context menus driven by data-flow analysis; separates pipeline code from exploratory code; automates dependency management and partial re-execution.</em></p>
+<p id="reimer2026">
+Reimer, Yolanda, Christopher Hundhausen, Ananth A. Jillepalli, and
+Olusola Adesope. 2026. “A Pedagogy for Assessing Individual
+Contributions to Team-Based Software Projects.” <em>Proceedings
+of the 57th ACM Technical Symposium on Computer Science Education
+(SIGCSE TS 2026)</em>. <a href="https://doi.org/10.1145/3770762.3772609">10.1145/3770762.3772609</a>.
+ <em>Position paper proposing a pedagogy with a framework of ABET-aligned performance indicators for assessing individual contributions to team-based capstone projects.</em></p>
 <p id="reisner1977">
 Reisner, P. 1977. “Use of Psychological Experimentation as an Aid
 to Development of a Query Language.” <em>IEEE Transactions on
@@ -7259,6 +7702,12 @@ Engineering: A Case Study Based on a Systematic Literature Review of the
 Use of the SZZ Algorithm.” <em>Information and Software
 Technology</em> 99 (July). <a href="https://doi.org/10.1016/j.infsof.2018.03.009">10.1016/j.infsof.2018.03.009</a>.
  <em>Systematic review of 187 papers using the SZZ bug-origin algorithm; reproducibility is rarely achieved; credibility-undermining factors are common; provides guidelines for researchers and reviewers.</em></p>
+<p id="rogelberg2026">
+Rogelberg, Steven, Liana M. Kreamer, and Jon Gray. 2026. “Thirty
+Years of Meeting Science: Lessons Learned and the Road Ahead.”
+<em>Annual Review of Organizational Psychology and Organizational
+Behavior</em> 13: 415–42. <a href="https://doi.org/10.1146/annurev-orgpsych-031925-091223">10.1146/annurev-orgpsych-031925-091223</a>.
+ <em>Review of three decades of meeting science, organized into five areas (meetings as stressors, communication, employee voice, leadership and power, and culture) with a forward research agenda.</em></p>
 <p id="rohrer2015">
 Rohrer, Doug, Robert F. Dedrick, and Sandra Stershic. 2015.
 “Interleaved Practice Improves Mathematics Learning.”
@@ -7357,6 +7806,17 @@ Harnke, and Nichole E. Carlson. 2018. “A Large-Scale Analysis of
 Bioinformatics Code on GitHub.” <em>PLOS ONE</em> 13 (10):
 e0205898. <a href="https://doi.org/10.1371/journal.pone.0205898">10.1371/journal.pone.0205898</a>.
  <em>First large-scale analysis of 1,720 bioinformatics GitHub repos; active development and static typing correlate with high-profile tools; female contributor share drops for senior roles; post-publication code updates correlate with impact.</em></p>
+<p id="ruvimova2022">
+Ruvimova, Anastasia, Alexander Lill, Jan Gugler, et al. 2022. “An
+Exploratory Study of Productivity Perceptions in Software Teams.”
+<em>Proceedings of the 44th International Conference on Software
+Engineering (ICSE 2022)</em>. <a href="https://doi.org/10.1145/3510003.3510081">10.1145/3510003.3510081</a>.
+ <em>Study of 624 daily surveys and 2,899 self-reports across five software teams; developers operate in fluid team constructs, and perceived individual productivity most strongly predicts perceived team productivity.</em></p>
+<p id="ryan2026">
+Ryan, Ita, Utz Roedig, and Klaas-Jan Stol. 2026. “Weak Programmers
+Need Not Apply, LLMs Welcome! Survey Screening in the AI Era.”
+<em>Proc. ICSE 2026</em>. <a href="https://doi.org/10.1145/3744916.3787789">10.1145/3744916.3787789</a>.
+ <em>This study finds that common screening questions used to verify software developers in online surveys often exclude genuine participants while remaining vulnerable to bots, survey farms, and large language models, and recommends improving recruitment strategies rather than relying on screening questions, particularly for compensated surveys.</em></p>
 <p id="rybarczyk2019">
 Rybarczyk, Ryan, and Lingma Acheson. 2019. “Interactive Peer-Led
 Code Reviews in CS2 Curricula.” <em>Proc. 50th ACM Technical
@@ -7367,6 +7827,10 @@ Symposium on Computer Science Education</em>, ahead of print, February.
 Saarimäki, Nyyti, Donghwan Shin, and Domenico Bianculli. 2024.
 <em>Taxonomy of Software Log Smells</em>. December 12. <a href="https://doi.org/10.48550/arXiv.2412.09284">10.48550/arXiv.2412.09284</a>.
  <em>Taxonomy of 9 log smells from literature survey of 51 articles; maps smells to existing repair tools; highlights lack of tools for several smell categories; logging issues affect both implementation and resulting log files.</em></p>
+<p id="saavedra2025">
+Saavedra, Nuno, Alexandra Mendes, and João F. Ferreira. 2025.
+<em>Environmental Impact of CI/CD Pipelines</em>. <a href="https://arxiv.org/abs/2510.26413">https://arxiv.org/abs/2510.26413</a>.
+ <em>This study estimates the carbon and water footprints of GitHub Actions using data from over 2.2 million workflow runs across 18,000+ open-source repositories, revealing a substantial environmental impact and recommending strategies such as optimizing runner locations, reducing unnecessary workflow executions, and minimizing repository size to improve sustainability.</em></p>
 <p id="saavedra2024">
 Saavedra, Nuno, André Silva, and Martin Monperrus. 2024.
 “GitBug-Actions: Building Reproducible Bug-Fix Benchmarks with
@@ -7468,7 +7932,7 @@ Sarsa, Sami, Paul Denny, Arto Hellas, and Juho Leinonen. 2022.
 “Automatic Generation of Programming Exercises and Code
 Explanations Using Large Language Models.” <em>Proceedings of the
 2022 ACM Conference on International Computing Education Research -
-Volume 1</em>, ICER 2022, 27–43. <a href="https://doi.org/10.1145/3501385.3543957">10.1145/3501385.3543957</a>.
+Volume 1</em>, ICER 2022, August, 27–43. <a href="https://doi.org/10.1145/3501385.3543957">10.1145/3501385.3543957</a>.
  <em>Assessment finds OpenAI Codex generates mostly novel and sensible programming exercises and code explanations, with keyword-driven control over concepts and themes, though some oversight is needed.</em></p>
 <p id="dalsasso2016">
 Sasso, Tommaso Dal, Andrea Mocci, and Michele Lanza. 2016. “What
@@ -7582,6 +8046,17 @@ Schwab, M., N. Karrenbach, and J. Claerbout. 2000. “Making
 Scientific Computations Reproducible.” <em>Computing in Science
 &amp; Engineering</em> 2. <a href="https://doi.org/10.1109/5992.881708">10.1109/5992.881708</a>.
  <em>ReDoc filing system allows authors to package computational results so readers can reproduce them using standardized rules and commands without recreating the analysis from scratch.</em></p>
+<p id="schwartz2026">
+Schwartz, Reva, and Gabriella Waters. 2026. <em>Real-World AI
+Evaluation: How FRAME Generates Systematic Evidence to Resolve the
+Decision-Maker’s Dilemma</em>. <a href="https://arxiv.org/abs/2603.13294">https://arxiv.org/abs/2603.13294</a>.
+ <em>Introduces FRAME, which combines large-scale trials of AI systems with structured observation of their use, outcomes, and mechanisms via a Testing Sandbox and Metrics Hub to turn AI-in-use heterogeneity into measurable signal.</em></p>
+<p id="schwartz2027">
+Schwartz, Reva, Carina Westling, Morgan Briggs, et al. 2027.
+“CIRCLE: A Framework for Evaluating AI from a Real-World
+Lens.” <em>Proceedings of the Intelligent Systems Conference
+(IntelliSys) 2026</em>. <a href="https://doi.org/10.1007/978-3-032-32732-1_41">10.1007/978-3-032-32732-1_41</a>.
+ <em>Proposes CIRCLE, a six-stage lifecycle framework that translates stakeholder priorities into measurable signals to bridge the gap between model-centric metrics and real-world AI outcomes.</em></p>
 <p id="schweinsberg2021">
 Schweinsberg, Martin, Michael Feldman, Nicola Staub, et al. 2021.
 “Same Data, Different Conclusions: Radical Dispersion in Empirical
@@ -7674,10 +8149,20 @@ Giving Major Satisfaction: Why Fairness Matters for Software
 Practitioners.” <em>ACM Transactions on Software Engineering and
 Methodology</em>, ahead of print, July. <a href="https://doi.org/10.1145/3757060">10.1145/3757060</a>.
  <em>Survey of 108 software practitioners; all four fairness dimensions (distributive, procedural, interpersonal, informational) predict job satisfaction; interpersonal fairness has greatest impact; effects are stronger for women and underrepresented groups.</em></p>
+<p id="shah2025">
+Shah, Aarsh, Cleyton Magalhaes, Kiev Gama, and Ronnie de Souza Santos.
+2025. <em>Tether: A Personalized Support Assistant for Software
+Engineers with ADHD</em>. <a href="https://arxiv.org/abs/2509.01946">https://arxiv.org/abs/2509.01946</a>.
+ <em>This paper presents Tether, an LLM-powered desktop assistant that provides adaptive, context-aware support for software engineers with ADHD, demonstrating the potential of neurodiversity-aware tools to improve focus and workflow while identifying the need for future user evaluations.</em></p>
 <p id="shah2013">
 Shah, Nihar B., Joseph K. Bradley, Abhay Parekh, and Kannan Ramchandran.
 2013. “A Case for Ordinal Peer-Evaluation in MOOCs.” <a href="https://api.semanticscholar.org/CorpusID:15055072">https://api.semanticscholar.org/CorpusID:15055072</a>.
  <em>Proposes pairwise comparison peer evaluation for MOOCs as more robust to evaluator inexpertise than conventional cardinal scoring approaches.</em></p>
+<p id="shakil2026">
+Shakil, Asma, Claus Brabrand, and Paul Denny. 2026. “Code,
+Commits, and Complexity in the GenAI Era: A Longitudinal Study of
+Team-Based Capstone Projects.” <a href="https://doi.org/10.1145/3857222.3860095">10.1145/3857222.3860095</a>.
+ <em>Ten-semester analysis of 260 capstone team repositories (2021-2025) finds end-of-semester codebases roughly triple post-ChatGPT, with rising cyclomatic complexity and error-handling but flat comment density.</em></p>
 <p id="shan2023">
 Shan, Shawn, Jenna Cryan, Emily Wenger, Haitao Zheng, Rana Hanocka, and
 Ben Y. Zhao. 2023. <em>Glaze: Protecting Artists from Style Mimicry by
@@ -7688,6 +8173,12 @@ Shanahan, Hugh, Nancy Hoebelheinrich, and Angus Whyte. 2021.
 “Progress Toward a Comprehensive Teaching Approach to the FAIR
 Data Principles.” <em>Patterns</em> 2 (October). <a href="https://doi.org/10.1016/j.patter.2021.100324">10.1016/j.patter.2021.100324</a>.
  <em>Evaluates FAIR data training frameworks (FAIR4S); analyzes coverage by target audience; argues for linking resources to FAIR frameworks, using community metadata schemes, and building an instructor community of practice.</em></p>
+<p id="shandell2026">
+Shandell, Marissa S., Courtney E. Elliott, and Adam M. Grant. 2026.
+“Worship Me at the Office Altar: Why Narcissistic Leaders Resist
+Remote Work.” <em>Organizational Behavior and Human Decision
+Processes</em> 195 (July): 104496. <a href="https://doi.org/10.1016/j.obhdp.2026.104496">10.1016/j.obhdp.2026.104496</a>.
+ <em>Three studies (archival, survey, experiment) showing narcissistic leaders resist remote work because it threatens power and status motivations; findings hold after controlling for trust, the Big Five, and Dark Triad traits.</em></p>
 <p id="shankar2022">
 Shankar, Shreya, Rolando Garcia, Joseph M. Hellerstein, and Aditya G.
 Parameswaran. 2022. <em>Operationalizing Machine Learning: An Interview
@@ -7741,6 +8232,13 @@ Software Designers Use Them: A Sampler.” <em>Proc. 1st
 International Workshop on Designing Software</em>, ahead of print,
 April. <a href="https://doi.org/10.1145/3643660.3643941">10.1145/3643660.3643941</a>.
  <em>Surveys how software designers use 'design spaces' to structure alternatives; identifies roles including capturing domain knowledge, analyzing trade-offs, and supporting systematic design decisions; design spaces serve as lenses to reduce possibility space.</em></p>
+<p id="sheese2024">
+Sheese, Brad, Mark Liffiton, Jaromir Savelka, and Paul Denny. 2024.
+“Patterns of Student Help-Seeking When Using a Large Language
+Model-Powered Programming Assistant.” <em>Proceedings of the 26th
+Australasian Computing Education Conference</em>, ACE’24, January,
+49–57. <a href="https://doi.org/10.1145/3636243.3636249">10.1145/3636243.3636249</a>.
+ <em>12-week deployment of a solution-hiding LLM programming assistant (n=52, 2,500+ queries); most queries sought immediate assignment help rather than conceptual deepening, students gave minimal information, and more successful students used the tool more often.</em></p>
 <p id="shell2017">
 Shell, Duane F., Leen-Kiat Soh, Abraham E. Flanigan, Markeya S.
 Peteranetz, and Elizabeth Ingraham. 2017. “Improving Students’
@@ -7749,6 +8247,10 @@ Creativity Exercises That Integrate Computational and Creative
 Thinking.” <em>Proc. 2017 ACM SIGCSE Technical Symposium on
 Computer Science Education</em>, ahead of print, March. <a href="https://doi.org/10.1145/3017680.3017718">10.1145/3017680.3017718</a>.
  <em>Computational Creativity Exercises (CCEs) integrated into CS courses from freshman to senior level; dosage effect: each additional CCE correlates with higher grades and CT test scores; effect is independent of motivation and prior achievement.</em></p>
+<p id="shen2026">
+Shen, Judy Hanwen, and Alex Tamkin. 2026. <em>How AI Impacts Skill
+Formation</em>. <a href="https://arxiv.org/abs/2601.20245">https://arxiv.org/abs/2601.20245</a>.
+ <em>Randomized experiments show AI use impairs conceptual understanding, code reading, and debugging without average efficiency gains; three of six identified interaction patterns preserve learning outcomes.</em></p>
 <p id="shi2025">
 Shi, Kensen, Deniz Altınbüken, Saswat Anand, et al. 2025. “Natural
 Language Outlines for Code: Literate Programming in the LLM Era.”
@@ -7756,6 +8258,14 @@ Language Outlines for Code: Literate Programming in the LLM Era.”
 Foundations of Software Engineering</em>, FSE companion ’25, June,
 150–61. <a href="https://doi.org/10.1145/3696630.3728541">10.1145/3696630.3728541</a>.
  <em>NL outlines partition code into prose summaries enabling bidirectional sync between code and natural language; LLMs can generate high-quality outlines; use cases include code review, navigation, maintenance, and malware detection.</em></p>
+<p id="shihab2025">
+Shihab, Md Istiak Hossain, Christopher Hundhausen, Ahsun Tariq, Summit
+Haque, Yunhan Qiao, and Brian Wise Mulanda. 2025. “The Effects of
+GitHub Copilot on Computing Students’ Programming Effectiveness,
+Efficiency, and Processes in Brownfield Coding Tasks.”
+<em>Proceedings of the 2025 ACM Conference on International Computing
+Education Research v.1</em>, August, 407–20. <a href="https://doi.org/10.1145/3702652.3744219">10.1145/3702652.3744219</a>.
+ <em>Controlled experiment (10 undergrads) on GitHub Copilot in brownfield tasks; students finished 34.9% faster with 50% more progress, spent less time writing code and searching, but voiced concerns about not understanding Copilot's suggestions.</em></p>
 <p id="shimada2022">
 Shimada, Naomichi, Tao Xiao, Hideaki Hata, Christoph Treude, and Kenichi
 Matsumoto. 2022. “GitHub Sponsors.” <em>Proc. 44th
@@ -7820,6 +8330,12 @@ Rogelberg, and John E. Kello. 2017. “Faking It for the Higher-Ups:
 Status and Surface Acting in Workplace Meetings.” <em>Group &amp;
 Organization Management</em> 43 (January). <a href="https://doi.org/10.1177/1059601116687703">10.1177/1059601116687703</a>.
  <em>Study of surface acting in workplace meetings; surface acting increases with higher-status attendees and reduces perceived psychological safety and meeting effectiveness; job level moderates the relationship.</em></p>
+<p id="siddik2026">
+Siddik, Md Saeed, Hao Li, and Cor-Paul Bezemer. 2026. “A
+Systematic Literature Review of Software Engineering Research on Jupyter
+Notebook.” <em>Journal of Systems and Software</em> 235 (May):
+112758. <a href="https://doi.org/10.1016/j.jss.2025.112758">10.1016/j.jss.2025.112758</a>.
+ <em>This systematic literature review of 146 studies on Jupyter notebooks reveals growing software engineering research interest but identifies significant gaps in notebook-specific practices—particularly testing, refactoring, documentation, and research artifact reusability—highlighting key opportunities for future work.</em></p>
 <p id="sillito2008">
 Sillito, J., G. C. Murphy, and K. De Volder. 2008. “Asking and
 Answering Questions During a Programming Change Task.” <em>IEEE
@@ -7952,6 +8468,12 @@ Smirnov, Ivan, Camelia Oprea, and Markus Strohmaier. 2023. “Toxic
 Comments Are Associated with Reduced Activity of Volunteer Editors on
 Wikipedia.” <em>PNAS Nexus</em> 2 (December). <a href="https://doi.org/10.1093/pnasnexus/pgad385">10.1093/pnasnexus/pgad385</a>.
  <em>Analysis of 57M Wikipedia talk-page comments shows toxic speech reduces editor activity by 0.5-2 active days per user in the short term and significantly increases risk of editors leaving the project permanently.</em></p>
+<p id="smit2013">
+Smit, Michael, Bradley Simmons, and Marin Litoiu. 2013.
+“Distributed, Application-Level Monitoring for Heterogeneous
+Clouds Using Stream Processing.” <em>Future Generation Computer
+Systems</em> 29 (October). <a href="https://doi.org/10.1016/j.future.2013.01.009">10.1016/j.future.2013.01.009</a>.
+ <em>Proposes Cloud SQL, a structured query language for federated multi-cloud systems, plus a methodology for organizing provider information so developers can query cloud data by semantic understanding and reduce multi-cloud development costs.</em></p>
 <p id="smith2009">
 Smith, M. K., W. B. Wood, W. K. Adams, et al. 2009. “Why Peer
 Discussion Improves Student Performance on in-Class Concept
@@ -8043,6 +8565,10 @@ Relational Database System from Scratch.” <em>Proc. 47th ACM
 Technical Symposium on Computing Science Education</em>, ahead of print,
 February. <a href="https://doi.org/10.1145/2839509.2844638">10.1145/2839509.2844638</a>.
  <em>chidb project has students implement a full RDBMS in C (B-trees, database machine, SQL compiler targeting relational algebra); used in 5 iterations of an advanced undergraduate databases course; freely available online.</em></p>
+<p id="sousa2026">
+Sousa, Leandro, and Filipe Correia. 2026. <em>Patterns for Designing
+CI/CD Workflows</em>. <a href="https://arxiv.org/abs/2611.17276">https://arxiv.org/abs/2611.17276</a>.
+ <em>Presents patterns (e.g., Fail Fast, Single-Responsibility Steps) for designing CI/CD workflows, each with context, problem, forces, solution, and consequences.</em></p>
 <p id="desouza2017">
 Souza, Draylson Micael de, Michael Kolling, and Ellen Francine Barbosa.
 2017. “Most Common Fixes Students Use to Improve the Correctness
@@ -8167,6 +8693,11 @@ Stark, Philip B., and Richard Freishtat. 2014. “An Evaluation of
 Course Evaluations.” <em>ScienceOpen Research</em>, ahead of
 print, September. <a href="https://doi.org/10.14293/s2199-1006.1.sor-edu.aofrqa.v1">10.14293/s2199-1006.1.sor-edu.aofrqa.v1</a>.
  <em>Argues student teaching evaluation averages are poor measures of teaching effectiveness; score distributions and response rates matter; categorical averages are statistically meaningless; calls for richer evidence in tenure decisions.</em></p>
+<p id="starr2026">
+Starr, Arty, Keith Mann, and Margaret-Anne Storey. 2026. <em>Theory of
+Developer Momentum: The Developer’s Experience of Progress and the Craft
+of Maintaining Motion</em>. <a href="https://arxiv.org/abs/2610.24935">https://arxiv.org/abs/2610.24935</a>.
+ <em>Constructivist grounded-theory study (12 developers plus 8 feedback interviews) introducing a Theory of Developer Momentum that disentangles flow, momentum, and motivation to explain progress in software work.</em></p>
 <p id="stavrova2018">
 Stavrova, Olga, and Daniel Ehlebracht. 2018. “The Cynical Genius
 Illusion: Exploring and Debunking Lay Beliefs about Cynicism and
@@ -8225,7 +8756,7 @@ Internet.” <em>American Political Science Review</em> 118
 <p id="stellman2006">
 Stellman, Andrew, and Jennifer Greene. 2006. <em>How to Keep Your Boss
 from Sinking Your Project</em>. First. O’Reilly.
- <em>No summary available.</em></p>
+ <em>Short O'Reilly guide offering five guidelines for managing upward (set expectations early, choose a process deliberately, keep the manager involved, make course corrections, and stay true to strategy) to help programmers protect projects from bad management.</em></p>
 <p id="stockard2018">
 Stockard, Jean, Timothy W. Wood, Cristy Coughlin, and Caitlin Rasplica
 Khoury. 2018. “The Effectiveness of Direct Instruction Curricula:
@@ -8251,6 +8782,10 @@ Conference on Software Engineering</em>, ICSE11, May, 81–90. <a href="https://
 Storer, Tim. 2017. “Bridging the Chasm.” <em>ACM Computing
 Surveys</em> 50 (August). <a href="https://doi.org/10.1145/3084225">10.1145/3084225</a>.
  <em>Reviews the gap between software engineering and scientific programming; examines case studies of reliability failures; argues both SE practice and scientific research methods must evolve to address this gap.</em></p>
+<p id="storey2026">
+Storey, Margaret-Anne. 2026. <em>Cognitive Tours: Making Understanding a
+Deliverable in AI-Assisted Development</em>. <a href="https://arxiv.org/abs/2611.08456">https://arxiv.org/abs/2611.08456</a>.
+ <em>Presents Cognitive Tours, a web tool for curated paths linking user needs, design decisions, code, tests, and open questions to mitigate cognitive and intent debt in AI-assisted development.</em></p>
 <p id="storey2024">
 Storey, Margaret-Anne, Rashina Hoda, Alessandra Maciel Paz Milani, and
 Maria Teresa Baldassarre. 2024. <em>Guidelines for Using Mixed Methods
@@ -8273,6 +8808,10 @@ Elizabeth Vu. 2022. “Ten Simple Rules for Funding Scientific Open
 Source Software.” <em>PLOS Computational Biology</em> 18
 (November). <a href="https://doi.org/10.1371/journal.pcbi.1010627">10.1371/journal.pcbi.1010627</a>.
  <em>Ten rules for funders and institutions investing in scientific OSS; covers scholarly credit, labor, governance, maintenance, and inclusive community-building across disciplines.</em></p>
+<p id="stratis2026">
+Stratis, Kyle. 2026. <em>AI Agents with MCP: Model Context Protocol for
+Building Clients, Services, and End-to-End Agents</em>. O’Reilly Media.
+ <em>O'Reilly book (early release) on the Model Context Protocol for building AI-agent clients, services, and end-to-end agents.</em></p>
 <p id="straubinger2025">
 Straubinger, Philipp, Tim Greller, and Gordon Fraser. 2025.
 <em>Sojourner Under Sabotage: A Serious Testing and Debugging Game</em>.
@@ -8300,6 +8839,10 @@ Strode, Diane, Torgeir Dingsøyr, and Yngve Lindsjorn. 2022. “A
 Teamwork Effectiveness Model for Agile Software Development.”
 <em>Empirical Software Engineering</em> 27 (March). <a href="https://doi.org/10.1007/s10664-021-10115-0">10.1007/s10664-021-10115-0</a>.
  <em>Agile Teamwork Effectiveness Model (ATEM) from focus groups, case studies, and literature; five components (shared leadership, team orientation, redundancy, adaptability, peer feedback) coordinated by shared mental models, communication, and mutual trust.</em></p>
+<p id="stromberg2026">
+Strömberg, David, Victor Lei, and Yanhui Wu. 2026. <em>The Generative AI
+Learning Penalty: Evidence from Chinese Secondary Education</em>. <a href="https://doi.org/10.2139/ssrn.6868618">10.2139/ssrn.6868618</a>.
+ <em>Difference-in-differences study of 26,811 Chinese students finding AI adoption raised homework scores and cut completion time but lowered exam and entrance-exam scores, concentrated among likely homework outsourcers.</em></p>
 <p id="stroulia2011">
 Stroulia, Eleni, Ken Bauer, Michelle Craig, Karen Reid, and Greg Wilson.
 2011. “Teaching Distributed Software Engineering with UCOSP: The
@@ -8351,6 +8894,13 @@ Analysis of Issue Templates Usage in Large-Scale Projects on
 GitHub.” <em>ACM Transactions on Software Engineering and
 Methodology</em> 33 (June). <a href="https://doi.org/10.1145/3643673">10.1145/3643673</a>.
  <em>Analysis of 350 GitHub issue templates and 1.9M issues in 100 projects; templates reduce median resolution time from 381 to 103 days and comment count; YAML templates further reduce reopenings and discussion.</em></p>
+<p id="sun2024c">
+Sun, Dan, Azzeddine Boudouaia, Chengcong Zhu, and Yan Li. 2024.
+“Would ChatGPT-Facilitated Programming Mode Impact College
+Students’ Programming Behaviors, Performances, and Perceptions? An
+Empirical Study.” <em>International Journal of Educational
+Technology in Higher Education</em> 21 (1). <a href="https://doi.org/10.1186/s41239-024-00446-5">10.1186/s41239-024-00446-5</a>.
+ <em>Quasi-experiment (82 students) on ChatGPT-facilitated vs self-directed programming; ChatGPT increased debugging and copy-paste behaviors and improved performance (though not significantly vs control), and significantly shifted students' perceptions of ChatGPT.</em></p>
 <p id="sun2024b">
 Sun, Jiayi, Aarya Patil, Youhai Li, Jin L. C. Guo, and Shurui Zhou.
 2024. <em>How to Sustain a Scientific Open-Source Software Ecosystem:
@@ -8509,6 +9059,11 @@ Taschuk, Morgan, and Greg Wilson. 2017. “Ten Simple Rules for
 Making Research Software More Robust.” <em>PLOS Computational
 Biology</em> 13 (April). <a href="https://doi.org/10.1371/journal.pcbi.1005412">10.1371/journal.pcbi.1005412</a>.
  <em>Ten rules for making research software robust enough to run outside the original developer's environment.</em></p>
+<p id="tavantzis2026">
+Tavantzis, Theocharis, Bianca Trinkenreich, Michaela Greiler, et al.
+2026. <em>Cognitive Debt in the GenAI Era: Listening to Practitioners’
+Voices on the Loss of Understanding</em>. <a href="https://arxiv.org/abs/2610.37888">https://arxiv.org/abs/2610.37888</a>.
+ <em>Grey-literature review of 76 sources on cognitive debt; practitioners report consequences like harder maintenance and fragmented knowledge, and propose prevention, detection, and mitigation practices.</em></p>
 <p id="taylor2018">
 Taylor, Cynthia, Jaime Spacco, David P. Bunde, Andrew Petersen, Soohyun
 Nam Liao, and Leo Porter. 2018. “A Multi-Institution Exploration
@@ -8643,7 +9198,12 @@ Software Engineering (ICSE)</em>, May. <a href="https://doi.org/10.1109/icse.201
 <p id="guzdial2015">
 <em>Top 10 Myths about Teaching Computer Science</em>. 2015.
 Communications of the ACM Blog; ACM.
- <em>No summary available.</em></p>
+ <em>Blog post debunking ten myths about teaching computer science with evidence, including that women's underrepresentation is unique to CS, that female faculty are the fix, and that lecturing and learning styles are effective.</em></p>
+<p id="torkamaan2026">
+Torkamaan, Helma, Masoud Mansoury, Yanan Xin, et al. 2026. <em>Between
+Obligations and Evidence: A Participatory Study of Translating the EU AI
+Act into Technical Requirements</em>. <a href="https://arxiv.org/abs/2611.18439">https://arxiv.org/abs/2611.18439</a>.
+ <em>Participatory workshop (32 participants) on translating the EU AI Act into technical requirements; identifies tensions between measurable system properties, human oversight, and the validity of compliance evidence across contexts.</em></p>
 <p id="tormey2019">
 Tormey, Roland, Cécile Hardebolle, and Siara Isaac. 2019. “The
 Teaching Toolkit: Design of a One-Day Pedagogical Workshop for
@@ -8667,6 +9227,13 @@ James D. Herbsleb. 2014. “Community Code Engagements.”
 <em>Proc. 18th Conference on Supporting Group Work</em>, ahead of print,
 November. <a href="https://doi.org/10.1145/2660398.2660420">10.1145/2660398.2660420</a>.
  <em>Qualitative study of GSoC vs. hackathons; GSoC creates strong ties via mentoring and yields stable features; hackathons reveal community priorities, create weak ties, and typically produce prototypes; contrasting practices suit different community goals.</em></p>
+<p id="tran2026">
+Tran, Karena, Ge Gao, Angela Lombard, Tyler Yu, Haoning Jiang, and
+Thomas Y. Yeh. 2026. “Pacing for Mastery: Optimizing LLM
+Interactions for Learning.” <em>Proceedings of the 57th ACM
+Technical Symposium on Computer Science Education v. 1</em>, February,
+1068–74. <a href="https://doi.org/10.1145/3770762.3772501">10.1145/3770762.3772501</a>.
+ <em>A classroom experiment deploying three AI assistants that vary in interaction pace (Fast, Medium, and Slow/Socratic) in an introductory CS course. The slow Socratic assistant significantly improved learning, especially for students with less prior knowledge; the fast assistant's initial benefit for advanced students faded on retention; the medium assistant showed no significant improvement.</em></p>
 <p id="trang2021">
 Trang, Simon, and Welf H. Weiger. 2021. “The Perils of
 Gamification: Does Engaging with Gamified Services Increase Users’
@@ -8695,6 +9262,10 @@ System Process</em>, ahead of print, July. <a href="https://doi.org/10.1145/3084
 Treude, Christoph. 2024. <em>Qualitative Data Analysis in Software
 Engineering: Techniques and Teaching Insights</em>. June 12. <a href="https://doi.org/10.48550/arXiv.2406.08228">10.48550/arXiv.2406.08228</a>.
  <em>Guide to qualitative coding for SE artifacts (comments, commits, issues); covers iterative coding, codebook design, and quality assurance principles (credibility, transferability, dependability, confirmability); shares best practices for rigorous qualitative SE research.</em></p>
+<p id="treude2026">
+Treude, Christoph, and Sebastian Baltes. 2026. <em>What Will Replace
+Pull Requests? Rethinking Software Collaboration for AI Agents</em>. <a href="https://arxiv.org/abs/2610.34933">https://arxiv.org/abs/2610.34933</a>.
+ <em>Reviews 50 gray-literature documents on alternatives to pull requests; most responses retain PRs in some form, with review and rationale moving into agent conversations, and restriction most often adopted.</em></p>
 <p id="treude2023">
 Treude, Christoph, and Hideaki Hata. 2023. <em>She Elicits Requirements
 and He Tests: Software Engineering Gender Bias in Large Language
@@ -9016,6 +9587,12 @@ Filtering Spreadsheet Data Using Examples.” <em>Proc. 2016 ACM
 SIGPLAN Conference on Object-Oriented Programming, Systems, Languages,
 and Applications</em>, SPLASH ’16, October, 195–213. <a href="https://doi.org/10.1145/2983990.2984030">10.1145/2983990.2984030</a>.
  <em>FIDEX system learns data filtering expressions (for spreadsheet tasks) from positive and negative string examples; addresses end-user data filtering needs efficiently from small example sets.</em></p>
+<p id="wang2026">
+Wang, Yingying, Masih Beigi Rizi, Fatemeh Khashei, and Julia Rubin.
+2026. “From Specifications to Implementation in the Gen-AI Era:
+Lessons from a Project-Based Software Engineering Course.”
+<em>Proc. ACM Softw. Eng.</em> (New York, NY, USA) 3 (FSE). <a href="https://doi.org/10.1145/3797092">10.1145/3797092</a>.
+ <em>Reports a project-based SE course plus an exploratory study on AI assistants (Copilot, Cursor); students used AI across all stages, but found no correlation between AI reliance and grades, concluding requirements, design, testing, and review skills matter more than ever.</em></p>
 <p id="wang2025a">
 Wang, Yiran, Willem Meijer, José Antonio Hernández López, Ulf Nilsson,
 and Dániel Varró. 2025. <em>Why Do Machine Learning Notebooks Crash? An
@@ -9109,6 +9686,10 @@ Weisberg, Deena Skolnick, and Joshua Goodstein. 2009. “What
 Belongs in a Fictional World?” <em>Journal of Cognition and
 Culture</em> 9 (1-2): 69–78. <a href="https://doi.org/10.1163/156853709x414647">10.1163/156853709x414647</a>.
  <em>Experiment (N=52) on how readers import real-world facts into fictional worlds; import depends on narrative distance from reality and centrality of the fact; readers make nuanced, causally-informed inferences when constructing fictional worlds.</em></p>
+<p id="weiss2026">
+Weiss, Tim, and Nevena Radoynovska. 2026. “Criminal Deception in
+Silicon Valley.” <em>Organization Science</em>, 1–28. <a href="https://doi.org/10.1287/orsc.2024.19981">10.1287/orsc.2024.19981</a>.
+ <em>Qualitative analysis of court data from Silicon Valley fraud cases (2000--2023) theorizing ``fa\c{c}ading''---constructing, performing, and protecting illusory appearances to mask underperformance.</em></p>
 <p id="welter2025">
 Welter, Alisa, Niklas Schneider, Tobias Dick, et al. 2025. “An
 Empirical Study of Knowledge Transfer in AI Pair Programming.”
@@ -9205,6 +9786,11 @@ Wilkinson, Sean R., Greg Eisenhauer, Anuj J. Kapadia, et al. 2022.
 IEEE 18th Conference on e-Science (e-Science)</em>, ahead of print,
 October. <a href="https://doi.org/10.1109/escience55777.2022.00090">10.1109/escience55777.2022.00090</a>.
  <em>Case studies of FAIR principle failures in scientific workflows; findable but non-reusable data and workflows are common; describes concrete problems encountered and how they were overcome to motivate fully FAIR workflow systems.</em></p>
+<p id="williams2026">
+Williams, Hannah, Timothy Kluthe, and Andreas Stefik. 2026. <em>Does
+Learning Statistics Have to Be so Difficult? Evidence from a Randomized
+Controlled Trial</em>. <a href="https://doi.org/10.1145/3831705">10.1145/3831705</a>.
+ <em>Randomized controlled trial (293 participants) comparing standard R-based statistics teaching with a plain-language 'say what you do' approach; the redesigned approach reduced anxiety and difficulty while improving confidence and correctness.</em></p>
 <p id="williams2023">
 Williams, Jason J., Rochelle E. Tractenberg, Bérénice Batut, et al.
 2023. <em>Optimizing Short-Format Training: An International Consensus
@@ -9356,6 +9942,11 @@ System Software.” <em>Proc. 2015 10th Joint Meeting on
 Foundations of Software Engineering</em>, ESEC/FSE’15, August, 307–19.
 <a href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
  <em>Study of real-world config settings shows users need far fewer parameters than provided; guidelines could remove 51.9% of parameters in one system with little impact on users.</em></p>
+<p id="xu2026">
+Xu, Zhipeng, Jiahao Lu, Yining Zheng, Yuxin Wang, and Xipeng Qiu. 2026.
+<em>SWE-Bench Science: Can Coding Agents Resolve Engineering Tasks in
+Science?</em> arXiv preprint arXiv:2608.19799. <a href="https://arxiv.org/abs/2608.19799">https://arxiv.org/abs/2608.19799</a>.
+ <em>Introduces SWE-bench Science, a 119-task benchmark across 20 scientific domains; the best agent achieves pass@1 below 50%, and analysis identifies four recurring failure mechanisms.</em></p>
 <p id="yadav2016">
 Yadav, Aman, Sarah Gretter, Susanne Hambrusch, and Phil Sands. 2016.
 “Expanding Computer Science Education in Schools: Understanding
@@ -9379,7 +9970,7 @@ Yang, Hung-chih, Ali Dasdan, Ruey-Lung Hsiao, and D. Stott Parker. 2007.
 Clusters.” <em>Proc. 2007 ACM SIGMOD International Conference on
 Management of Data</em>, SIGMOD/PODS07, June, 1029–40. <a href="https://doi.org/10.1145/1247480.1247602">10.1145/1247480.1247602</a>.
  <em>MapReduce programming model enables scalable parallel data processing on commodity clusters via simple map and reduce interface; supports real-world tasks like search engine data processing.</em></p>
-<p id="yang2024">
+<p id="yang2024a">
 Yang, Junran, Andrew McNutt, and Leilani Battle. 2024. <em>Considering
 Visualization Example Galleries</em>. July 30. <a href="https://doi.org/10.48550/arXiv.2407.20571">10.48550/arXiv.2407.20571</a>.
  <em>Interviews with gallery creators and users reveal galleries serve marketing, testing, and documentation roles; trade-offs between richness and ease of use complicate curation; tool assistance is underexplored.</em></p>
@@ -9388,6 +9979,25 @@ Yang, Patricia J., Jonathan Pham, Jerome Choo, and David L. Hu. 2014.
 “Duration of Urination Does Not Change with Body Size.”
 <em>Proc. National Academy of Sciences</em> 111 (June). <a href="https://doi.org/10.1073/pnas.1402289111">10.1073/pnas.1402289111</a>.
  <em>Mammals above 3 kg urinate in ~21 seconds regardless of size; longer urethras in larger animals increase flow speed, making the urethra a scaling device across 3,600x volume range.</em></p>
+<p id="yang2026">
+Yang, Qingyun, Zejun Zhang, Dapeng Yan, et al. 2026. <em>Understanding
+Python Linters Through a Comprehensive and Systematic Empirical
+Study</em>. <a href="https://arxiv.org/abs/2610.35485">https://arxiv.org/abs/2610.35485</a>.
+ <em>Large-scale empirical study of five Python linters (Ruff, Pylint, Flake8, Mypy, Black) across rules, speed, configuration, and preferences; Ruff is fastest and Ruff plus Pylint cover over 80% of rules.</em></p>
+<p id="yang2024b">
+Yang, Stephanie, Hanzhang Zhao, Yudian Xu, Karen Brennan, and Bertrand
+Schneider. 2024. “Debugging with an AI Tutor: Investigating Novice
+Help-Seeking Behaviors and Perceived Learning.” <em>Proceedings
+of the 2024 ACM Conference on International Computing Education Research
+- Volume 1</em>, August, 84–94. <a href="https://doi.org/10.1145/3632620.3671092">10.1145/3632620.3671092</a>.
+ <em>Mixed-methods study of a pedagogically-designed LLM chatbot for debugging (20 students, interviews + think-aloud); students showed varying help-seeking and engagement, appreciated the chatbot's content but not as a primary source for learning debugging, and distinguished non-ideal from learning-oriented usage.</em></p>
+<p id="yang2025">
+Yang, Tzu-Chi, Yi-Chuan Hsu, and Jiun-Yu Wu. 2025. “The
+Effectiveness of ChatGPT in Assisting High School Students in
+Programming Learning: Evidence from a Quasi-Experimental
+Research.” <em>Interactive Learning Environments</em> 33 (6):
+3726–43. <a href="https://doi.org/10.1080/10494820.2025.2450659">10.1080/10494820.2025.2450659</a>.
+ <em>Quasi-experiment (153 high school students) on ChatGPT in programming; MANCOVA/ANCOVA found ChatGPT users reported lower flow, self-efficacy, and achievement than conventional methods, and interviews showed it fell short of expectations, motivating the guidance-practice-transformation mode.</em></p>
 <p id="yang2022">
 Yang, Wenhua, Chong Zhang, Minxue Pan, Chang Xu, Yu Zhou, and Zhiqiu
 Huang. 2022. “Do Developers Really Know How to Use Git Commands? A
@@ -9408,6 +10018,12 @@ Ye, He, Zimin Chen, and Claire Le Goues. 2023. <em>PreciseBugCollector:
 Extensible, Executable and Precise Bug-Fix Collection</em>. September
 12. <a href="https://doi.org/10.48550/arXiv.2309.06229">10.48550/arXiv.2309.06229</a>.
  <em>PreciseBugCollector combines bug tracking (NVD, OSS-Fuzz) and bug injection to build a 1M+ bug dataset from 2,968 projects; project-specific bugs align with domain knowledge and coding style.</em></p>
+<p id="ye2025">
+Ye, Xindong, Wenyu Zhang, Yuxin Zhou, Xiaozhi Li, and Qiang Zhou. 2025.
+“Improving Students’ Programming Performance: An Integrated Mind
+Mapping and Generative AI Chatbot Learning Approach.”
+<em>Humanities and Social Sciences Communications</em> 12 (1). <a href="https://doi.org/10.1057/s41599-025-04846-4">10.1057/s41599-025-04846-4</a>.
+ <em>Quasi-experiment (111 seventh graders) integrating mind mapping with GenAI chatbots; both progressive and self-constructed mind-map groups significantly outperformed the control chatbot group in programming performance and computational thinking, with progressive mind maps most effective.</em></p>
 <p id="yeager2011">
 Yeager, David S., and Gregory M. Walton. 2011.
 “Social-Psychological Interventions in Education.”
@@ -9441,6 +10057,13 @@ Bairavasundaram. 2011. “How Do Fixes Become Bugs?”
 <em>Proc. 19th ACM SIGSOFT Symposium and the 13th European Conference on
 Foundations of Software Engineering</em>, ESEC/FSE’11, September. <a href="https://doi.org/10.1145/2025113.2025121">10.1145/2025113.2025121</a>.
  <em>Bug-fixing patches themselves introduce errors; buggy patches worsen damage to users and erode vendor reputation, highlighting that the fix process is itself a source of new defects.</em></p>
+<p id="yong2026">
+Yong, Quinton, Miguel A. Nacenta, and Anthony Estey. 2026.
+“Characterization and Effects of CS2 Learning with GenAI,
+Visualization, and Human Support.” <em>Proceedings of the 2026
+ACM Conference on International Computing Education Research Vol.
+1</em>, August, 389–406. <a href="https://doi.org/10.1145/3765964.3811663">10.1145/3765964.3811663</a>.
+ <em>A mixed-methods, within-subjects comparison (N = 12) of three learning supports in a second-year algorithms course: generative AI, algorithm visualization, and human live tutoring. Across three 90-minute sessions the study collected gaze and interaction data plus a post-session conceptual test. GenAI raised self-efficacy more than live tutoring yet produced the lowest learning outcomes, while live tutoring produced the highest.</em></p>
 <p id="young2021">
 Young, Jean-Gabriel, Amanda Casari, Katie McLaughlin, Milo Z. Trujillo,
 Laurent Hebert-Dufresne, and James P. Bagrow. 2021. “Which
@@ -9448,6 +10071,14 @@ Contributions Count? Analysis of Attribution in Open Source.”
 <em>2021 18th Conference on Mining Software Repositories (MSR)</em>,
 ahead of print, May. <a href="https://doi.org/10.1109/msr52588.2021.00036">10.1109/msr52588.2021.00036</a>.
  <em>All Contributors model makes non-code contributions (ideas, community, finance) visible; community acknowledgment models produce broader pictures of collaboration than commit-based metrics alone.</em></p>
+<p id="yu2026">
+Yu, Jiaen, Ylesia Wu, Gabriel Cha, Ayush Shah, and Sam Lau. 2026.
+“Improving LLM-Generated Educational Content: A Case Study on
+Prototyping, Prompt Engineering, and Evaluating a Tool for Generating
+Programming Problems for Data Science.” <em>Proceedings of the
+57th ACM Technical Symposium on Computer Science Education (SIGCSE TS
+2026)</em>. <a href="https://doi.org/10.1145/3770762.3772619">10.1145/3770762.3772619</a>.
+ <em>Experience report on ContentGen, an open-source tool generating programming problems for data science; detailed instructions plus an auto-generated summary of recent material substantially improve question quality across three metrics.</em></p>
 <p id="yuan2014">
 Yuan, Ding, Yu Luo, Xin Zhuang, et al. 2014. “Simple Testing Can
 Prevent Most Critical Failures: An Analysis of Production Failures in
@@ -9523,7 +10154,12 @@ Earth.” <em>Solid Earth</em> 13 (March). <a href="https://doi.org/10.5194/se-1
 Zerouali, Ahmed, Tom Mens, and Coen De Roover. 2021. “On the Usage
 of JavaScript, Python and Ruby Packages in Docker Hub Images.”
 <em>Science of Computer Programming</em> 207 (July). <a href="https://doi.org/10.1016/j.scico.2021.102653">10.1016/j.scico.2021.102653</a>.
- <em>Study of 3,000 Docker Hub images shows widespread outdated and vulnerable JS/Python/Ruby packages; Python images are less outdated; NodeJS images have significant duplicate package bloat.</em></p>
+ <em>Two-step study of dormant npm packages; finds significant risks from dormancy (outdated dependencies, unpatched vulnerabilities, eroded trust), with some packages eventually updated but others neglected, highlighting proactive maintenance and community involvement.</em></p>
+<p id="zerouali2025">
+Zerouali, Ahmed, Valeria Pontillo, and Coen De Roover. 2025. “A
+Comprehensive Study of the Lifecycle of Dormant Npm Packages.”
+<em>Empirical Software Engineering</em> 31. <a href="https://doi.org/10.1007/s10664-025-10753-8">10.1007/s10664-025-10753-8</a>.
+ <em>Quantitative and qualitative study of dormant npm packages; dormancy accumulates technical debt, outdated dependencies, and unpatched vulnerabilities, and while some packages revive with patch/minor releases many do not fully recover, with 81.2% of dependents staying loyal but nearly one in five eventually abandoning the dependency.</em></p>
 <p id="zhang2022a">
 Zhang, Haiyin, Luís Cruz, and Arie van Deursen. 2022. “Code Smells
 for Machine Learning Applications.” <em>Proc. 1st Conference on
@@ -9717,3 +10353,4 @@ Calling.” <em>Proc. ACM Hum.-Comput. Interact.</em> 3 (CSCW). <a href="https:/
 al. 2017. “Ten Simple Rules for Responsible Big Data
 Research.” <em>PLOS Computational Biology</em> 13 (March). <a href="https://doi.org/10.1371/journal.pcbi.1005399">10.1371/journal.pcbi.1005399</a>.
  <em>Big data research raises urgent ethical questions as tools expand into sensitive human behavior, health, and social domains; mining medical records, social media, and sensors warrants ethical scrutiny.</em></p>
+</div>

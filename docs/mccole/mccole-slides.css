@@ -7,7 +7,7 @@
 :root {
   --r-background-color: #fff;
   --r-main-font: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --r-main-font-size: 32px;
+  --r-main-font-size: 25.6px;
   --r-main-color: #343a40;
   --r-block-margin: 20px;
   --r-heading-font: var(--r-main-font);
@@ -61,7 +61,7 @@
 }
 
 .reveal h1 { font-size: 2.0em; }
-.reveal h2 { font-size: 1.75em; font-weight: 600; }
+.reveal h2 { font-size: 1.75em; font-weight: 600; margin-top: 0; }
 .reveal h3 { font-size: 1.5em; font-weight: 600; }
 .reveal h4 { font-size: 1em; }
 
@@ -126,7 +126,7 @@
   width: 90%;
   margin: var(--r-block-margin) auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.8em;
   font-family: var(--r-code-font);
   line-height: 1.2em;
 }
@@ -141,7 +141,7 @@
 .reveal blockquote {
   display: block;
   position: relative;
-  width: 70%;
+  width: 85%;
   margin: var(--r-block-margin) auto;
   font-style: italic;
 }
@@ -165,6 +165,42 @@
   max-height: 95%;
 }
 
+/* Flex grid (12-column) */
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.col-1 { flex-basis: 8.33%; }
+.col-2 { flex-basis: 16.66%; }
+.col-3 { flex-basis: 25%; }
+.col-4 { flex-basis: 33.33%; }
+.col-5 { flex-basis: 41.66%; }
+.col-6 { flex-basis: 50%; }
+.col-7 { flex-basis: 58.33%; }
+.col-8 { flex-basis: 66.66%; }
+.col-9 { flex-basis: 75%; }
+.col-10 { flex-basis: 83.33%; }
+.col-11 { flex-basis: 91.66%; }
+.col-12 { flex-basis: 100%; }
+
 .smaller {
   font-size: 50%;
+}
+/* Content */
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

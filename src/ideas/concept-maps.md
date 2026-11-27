@@ -9,54 +9,54 @@ Mental models used in introductory data science lessons.
 
 ### dplyr
 
-<a href="@root/files/concept-maps/en/dplyr.svg"><img src="@root/files/concept-maps/en/dplyr.svg" alt="dplyr" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/dplyr.svg"><img src="@root/files/concept-maps/en/dplyr.svg" alt="dplyr"/></a>
 
-<a href="@root/files/concept-maps/es/dplyr.svg"><img src="@root/files/concept-maps/es/dplyr.svg" alt="dplyr" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/dplyr.svg"><img src="@root/files/concept-maps/es/dplyr.svg" alt="dplyr"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### select
 
-<a href="@root/files/concept-maps/en/select.svg"><img src="@root/files/concept-maps/en/select.svg" alt="dplyr select" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/select.svg"><img src="@root/files/concept-maps/en/select.svg" alt="dplyr select"/></a>
 
-<a href="@root/files/concept-maps/es/select.svg"><img src="@root/files/concept-maps/es/select.svg" alt="dplyr select" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/select.svg"><img src="@root/files/concept-maps/es/select.svg" alt="dplyr select"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### filter
 
-<a href="@root/files/concept-maps/en/filter.svg"><img src="@root/files/concept-maps/en/filter.svg" alt="dplyr filter" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/filter.svg"><img src="@root/files/concept-maps/en/filter.svg" alt="dplyr filter"/></a>
 
-<a href="@root/files/concept-maps/es/filter.svg"><img src="@root/files/concept-maps/es/filter.svg" alt="dplyr filter" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/filter.svg"><img src="@root/files/concept-maps/es/filter.svg" alt="dplyr filter"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### mutate
 
-<a href="@root/files/concept-maps/en/mutate.svg"><img src="@root/files/concept-maps/en/mutate.svg" alt="dplyr mutate" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/mutate.svg"><img src="@root/files/concept-maps/en/mutate.svg" alt="dplyr mutate"/></a>
 
-<a href="@root/files/concept-maps/es/mutate.svg"><img src="@root/files/concept-maps/es/mutate.svg" alt="dplyr mutate" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/mutate.svg"><img src="@root/files/concept-maps/es/mutate.svg" alt="dplyr mutate"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### group_by and summarize
 
-<a href="@root/files/concept-maps/en/group_by-summarize.svg"><img src="@root/files/concept-maps/en/group_by-summarize.svg" alt="dplyr group_by and summarize" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/group_by-summarize.svg"><img src="@root/files/concept-maps/en/group_by-summarize.svg" alt="dplyr group_by and summarize"/></a>
 
-<a href="@root/files/concept-maps/es/group_by-summarize.svg"><img src="@root/files/concept-maps/es/group_by-summarize.svg" alt="dplyr group_by and summarize" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/group_by-summarize.svg"><img src="@root/files/concept-maps/es/group_by-summarize.svg" alt="dplyr group_by and summarize"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### data types
 
-<a href="@root/files/concept-maps/en/data-types.svg"><img src="@root/files/concept-maps/en/data-types.svg" alt="data types" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/data-types.svg"><img src="@root/files/concept-maps/en/data-types.svg" alt="data types"/></a>
 
-<a href="@root/files/concept-maps/es/data-types.svg"><img src="@root/files/concept-maps/es/data-types.svg" alt="data types" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/data-types.svg"><img src="@root/files/concept-maps/es/data-types.svg" alt="data types"/></a>
 
 [Meghan Sposato][sposato-meghan],
 [Brendan Cullen][cullen-brendan],
@@ -64,27 +64,27 @@ Monica Alonso
 
 ### pivoting
 
-<a href="@root/files/concept-maps/en/pivoting.svg"><img src="@root/files/concept-maps/en/pivoting.svg" alt="pivoting" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/pivoting.svg"><img src="@root/files/concept-maps/en/pivoting.svg" alt="pivoting"/></a>
 
-<a href="@root/files/concept-maps/es/pivoting.svg"><img src="@root/files/concept-maps/es/pivoting.svg" alt="pivoting" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/pivoting.svg"><img src="@root/files/concept-maps/es/pivoting.svg" alt="pivoting"/></a>
 
 Florian Schmoll,
 Monica Alonso
 
 ### separate - extract - unite
 
-<a href="@root/files/concept-maps/en/separate-extract-unite.svg"><img src="@root/files/concept-maps/en/separate-extract-unite.svg" alt="separate - extract - unite" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/separate-extract-unite.svg"><img src="@root/files/concept-maps/en/separate-extract-unite.svg" alt="separate - extract - unite"/></a>
 
-<a href="@root/files/concept-maps/es/separate-extract-unite.svg"><img src="@root/files/concept-maps/es/separate-extract-unite.svg" alt="separate - extract - unite" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/separate-extract-unite.svg"><img src="@root/files/concept-maps/es/separate-extract-unite.svg" alt="separate - extract - unite"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### factors
 
-<a href="@root/files/concept-maps/en/factors.svg"><img src="@root/files/concept-maps/en/factors.svg" alt="factors" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/factors.svg"><img src="@root/files/concept-maps/en/factors.svg" alt="factors"/></a>
 
-<a href="@root/files/concept-maps/es/factors.svg"><img src="@root/files/concept-maps/es/factors.svg" alt="factors" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/factors.svg"><img src="@root/files/concept-maps/es/factors.svg" alt="factors"/></a>
 
 [Ildiko Czeller][czeller-ildiko],
 [Graham Parsons][parsons-graham],
@@ -92,9 +92,9 @@ Monica Alonso
 
 ### R Markdown
 
-<a href="@root/files/concept-maps/en/rmarkdown.svg"><img src="@root/files/concept-maps/en/rmarkdown.svg" alt="R Markdown" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/rmarkdown.svg"><img src="@root/files/concept-maps/en/rmarkdown.svg" alt="R Markdown"/></a>
 
-<a href="@root/files/concept-maps/es/rmarkdown.svg"><img src="@root/files/concept-maps/es/rmarkdown.svg" alt="R Markdown" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/rmarkdown.svg"><img src="@root/files/concept-maps/es/rmarkdown.svg" alt="R Markdown"/></a>
 
 [Gabriela Sandoval][sandoval-gabriela],
 [Florencia D'Andrea][dandrea-florencia],
@@ -103,93 +103,93 @@ Monica Alonso
 
 ### regular expressions
 
-<a href="@root/files/concept-maps/en/regular-expressions.svg"><img src="@root/files/concept-maps/en/regular-expressions.svg" alt="regular expressions" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/regular-expressions.svg"><img src="@root/files/concept-maps/en/regular-expressions.svg" alt="regular expressions"/></a>
 
-<a href="@root/files/concept-maps/es/regular-expressions.svg"><img src="@root/files/concept-maps/es/regular-expressions.svg" alt="regular expressions" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/regular-expressions.svg"><img src="@root/files/concept-maps/es/regular-expressions.svg" alt="regular expressions"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
 
 ### pipe operator
 
-<a href="@root/files/concept-maps/en/pipe-operator.svg"><img src="@root/files/concept-maps/en/pipe-operator.svg" alt="pipe operator" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/pipe-operator.svg"><img src="@root/files/concept-maps/en/pipe-operator.svg" alt="pipe operator"/></a>
 
-<a href="@root/files/concept-maps/es/pipe-operator.svg"><img src="@root/files/concept-maps/es/pipe-operator.svg" alt="pipe operator" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/pipe-operator.svg"><img src="@root/files/concept-maps/es/pipe-operator.svg" alt="pipe operator"/></a>
 
 [Jeroen Janssens][janssens-jeroen],
 Monica Alonso
 
 ### clustering
 
-<a href="@root/files/concept-maps/en/clustering.svg"><img src="@root/files/concept-maps/en/clustering.svg" alt="clustering" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/clustering.svg"><img src="@root/files/concept-maps/en/clustering.svg" alt="clustering"/></a>
 
 [Uli Niemann][niemann-uli]
 
 ### data syndication
 
-<a href="@root/files/concept-maps/en/data-syndication.svg"><img src="@root/files/concept-maps/en/data-syndication.svg" alt="data syndication" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/data-syndication.svg"><img src="@root/files/concept-maps/en/data-syndication.svg" alt="data syndication"/></a>
 
 [Greg Wilson][wilson-greg]
 
 ### Make
 
-<a href="@root/files/concept-maps/en/make.svg"><img src="@root/files/concept-maps/en/make.svg" alt="Make" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/make.svg"><img src="@root/files/concept-maps/en/make.svg" alt="Make"/></a>
 
 [Greg Wilson][wilson-greg]
 
 ### functions
 
-<a href="@root/files/concept-maps/en/functions.svg"><img src="@root/files/concept-maps/en/functions.svg" alt="functions" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/functions.svg"><img src="@root/files/concept-maps/en/functions.svg" alt="functions"/></a>
 
 [Greg Wilson][wilson-greg]
 
 ### program configuration
 
-<a href="@root/files/concept-maps/en/program-configuration.svg"><img src="@root/files/concept-maps/en/program-configuration.svg" alt="program configuration" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/program-configuration.svg"><img src="@root/files/concept-maps/en/program-configuration.svg" alt="program configuration"/></a>
 
 [Greg Wilson][wilson-greg]
 
 ### column names
 
-<a href="@root/files/concept-maps/en/column-names.svg"><img src="@root/files/concept-maps/en/column-names.svg" alt="column names" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/column-names.svg"><img src="@root/files/concept-maps/en/column-names.svg" alt="column names"/></a>
 
 [Emily Riederer][riederer-emily] (originally in [this blog post](https://emilyriederer.netlify.app/post/column-name-contracts/))
 
 ### learnr tutorial
 
-<a href="@root/files/concept-maps/en/learnr-tutorial.svg"><img src="@root/files/concept-maps/en/learnr-tutorial.svg" alt="learnr tutorial" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/learnr-tutorial.svg"><img src="@root/files/concept-maps/en/learnr-tutorial.svg" alt="learnr tutorial"/></a>
 
-<a href="@root/files/concept-maps/es/learnr-tutorial.svg"><img src="@root/files/concept-maps/es/learnr-tutorial.svg" alt="learnr tutorial" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/learnr-tutorial.svg"><img src="@root/files/concept-maps/es/learnr-tutorial.svg" alt="learnr tutorial"/></a>
 
 [Yanina Bellini Saibene][bellini-saibene-yanina]
 
 ### column-wise operations
 
-<a href="@root/files/concept-maps/en/columnwise-operations.svg"><img src="@root/files/concept-maps/en/columnwise-operations.svg" alt="learnr tutorial" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/columnwise-operations.svg"><img src="@root/files/concept-maps/en/columnwise-operations.svg" alt="learnr tutorial"/></a>
 
 [Brendan Cullen][cullen-brendan]
 
 ### across
 
-<a href="@root/files/concept-maps/en/across.svg"><img src="@root/files/concept-maps/en/across.svg" alt="across" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/across.svg"><img src="@root/files/concept-maps/en/across.svg" alt="across"/></a>
 
 [Emma Vestesson][vestesson-emma]
 
 ### Boolean
 
-<a href="@root/files/concept-maps/en/boolean.svg"><img src="@root/files/concept-maps/en/boolean.svg" alt="across" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/boolean.svg"><img src="@root/files/concept-maps/en/boolean.svg" alt="across"/></a>
 
 [Greg Wilson][wilson-greg]
 
 ### values and variables
 
-<a href="@root/files/concept-maps/en/values-variables.svg"><img src="@root/files/concept-maps/en/values-variables.svg" alt="across" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/values-variables.svg"><img src="@root/files/concept-maps/en/values-variables.svg" alt="across"/></a>
 
 [Greg Wilson][wilson-greg]
 
 ### neural networks
 
-<a href="@root/files/concept-maps/en/neural-networks.svg"><img src="@root/files/concept-maps/en/neural-networks.svg" alt="across" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/neural-networks.svg"><img src="@root/files/concept-maps/en/neural-networks.svg" alt="across"/></a>
 
 [Omayma Said][said-omayma],
 [Greg Wilson][wilson-greg]
@@ -200,9 +200,9 @@ Monica Alonso
 
 *This one is still unsatisfactory: please [contact us](mailto:greg.wilson@rstudio.com) with suggestions or submit a pull request to this repository.*
 
-<a href="@root/files/concept-maps/en/visualization.svg"><img src="@root/files/concept-maps/en/visualization.svg" alt="visualization" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/visualization.svg"><img src="@root/files/concept-maps/en/visualization.svg" alt="visualization"/></a>
 
-<a href="@root/files/concept-maps/es/visualization.svg"><img src="@root/files/concept-maps/es/visualization.svg" alt="visualization" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/es/visualization.svg"><img src="@root/files/concept-maps/es/visualization.svg" alt="visualization"/></a>
 
 Monica Alonso,
 [Greg Wilson][wilson-greg]
@@ -211,7 +211,7 @@ Monica Alonso,
 
 *This one is still unsatisfactory: please [contact us](mailto:greg.wilson@rstudio.com) with suggestions or submit a pull request to this repository.*
 
-<a href="@root/files/concept-maps/en/join.svg"><img src="@root/files/concept-maps/en/join.svg" alt="join" style="border: 1px solid #000080; padding: 4px;" /></a>
+<a href="@root/files/concept-maps/en/join.svg"><img src="@root/files/concept-maps/en/join.svg" alt="join"/></a>
 
 [Garrick Aden-Buie][aden-buie-garrick],
 [Greg Wilson][wilson-greg]

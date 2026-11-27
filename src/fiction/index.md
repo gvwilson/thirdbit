@@ -6,10 +6,10 @@ title: Fiction
 <h2>Short Fiction</h2>
 
 <div class="row">
-  <div class="col-3">
+  <div class="col-6">
     <div class="card">
       <h3><a href="@root/fiction/fall-behind/">And Should I Fall Behind</a></h3>
-      <p><img class="image" src="@root/files/fiction/on-spec-winter-2021.jpg" alt="And Should I Fall Behind"></p>
+      <p><img src="@root/files/fiction/on-spec-winter-2021.jpg" alt="And Should I Fall Behind" width="50%"></p>
       <p><em>On Spec</em>, Winter 2021</p>
       <p>
         The older brother (who would always think of himself that way)
@@ -20,10 +20,10 @@ title: Fiction
       </p>
     </div>
   </div>
-  <div class="col-3">
+  <div class="col-6">
     <div class="card">
       <h3><a href="@root/fiction/still-short/">Still</a></h3>
-      <p><img class="image" src="@root/files/fiction/on-spec-summer-2010.png" alt="On Spec Summer 2010"></p>
+      <p><img src="@root/files/fiction/on-spec-summer-2010.png" alt="On Spec Summer 2010" width="50%"></p>
       <p><em>On Spec</em>, Summer 2010</p>
       <p>
         "I didn't fall," she whispered.
@@ -32,10 +32,12 @@ title: Fiction
       </p>
     </div>
   </div>
-  <div class="col-3">
+</div>
+<div class="row">
+  <div class="col-6">
     <div class="card">
       <h3><a href="@root/fiction/controlled-release/">Controlled Release</a></h3>
-      <p><img class="image" src="@root/files/fiction/on-spec-winter-2007.jpg" alt="On Spec Winter 2007"></p>
+      <p><img src="@root/files/fiction/on-spec-winter-2007.jpg" alt="On Spec Winter 2007" width="50%"></p>
       <p><em>On Spec</em>, Winter 2007</p>
       <p>
         There it is in your gut: that feeling again.
@@ -44,10 +46,10 @@ title: Fiction
       </p>
     </div>
   </div>
-  <div class="col-3">
+  <div class="col-6">
     <div class="card">
       <h3><a href="@root/fiction/but-with-a-whimper/">…But With a Whimper</a></h3>
-      <p><img class="image" src="@root/files/fiction/on-spec-fall-2007.jpg" alt="On Spec Fall 2007"></p>
+      <p><img src="@root/files/fiction/on-spec-fall-2007.jpg" alt="On Spec Fall 2007" width="50%"></p>
       <p><em>On Spec</em>, Fall 2007</p>
       <p>
         The young man shook his head.
@@ -64,7 +66,7 @@ title: Fiction
   <div class="col-6">
     <div class="card">
       <h3>Three Sensible Adventures</h3>
-      <p><img class="image" src="@root/files/fiction/3sa.jpg" alt="Three Sensible Adventures"></p>
+      <p><img src="@root/files/fiction/3sa.jpg" alt="Three Sensible Adventures" width="80%"></p>
       <p>
         I wrote these stories for my niece Allison's eighth birthday;
         they were published by Annick Press in 1999.
@@ -74,7 +76,7 @@ title: Fiction
   <div class="col-6">
     <div class="card">
       <h3>Bottle of Light</h3>
-      <p><img class="image" src="@root/files/fiction/bottle-of-light.jpg" alt="Bottle of Light"></p>
+      <p><img src="@root/files/fiction/bottle-of-light.jpg" alt="Bottle of Light" width="80%"></p>
       <p>
         Published by Scholastic Canada in 2008
         as part of their Grade 5 Guided Reading series.
@@ -88,7 +90,7 @@ title: Fiction
   <div class="col-6">
     <div class="card">
       <h3>Keeya's Numbers</h3>
-      <p><img class="image" src="@root/fiction/keeyas-numbers/keeyas-numbers.png" alt="Keeya's Numbers"></p>
+      <p><img src="@root/fiction/keeyas-numbers/keeyas-numbers.png" alt="Keeya's Numbers" width="80%"></p>
       <p>
         Once upon a time a little girl was born.
         This is the story of the numbers that were born with her–where they came from,
@@ -108,7 +110,7 @@ title: Fiction
   <div class="col-6">
     <div class="card">
       <h3>And Then</h3>
-      <p><img class="image" src="@root/fiction/and-then/and-then.png" alt="And Then…"></p>
+      <p><img src="@root/fiction/and-then/and-then.png" alt="And Then…" width="80%"></p>
       <p>
         In the beginning there was a great Big Bang, so powerful that
         the whole universe is still expanding.  This is the story of

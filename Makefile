@@ -1,5 +1,17 @@
 .DEFAULT: commands
 
+SLIDES_SRC = $(wildcard src/talks/*/index.qmd)
+SLIDES_DST = $(patsubst src/%.qmd,docs/%.html,$(SLIDES_SRC))
+SLIDES_FLAGS = \
+  -f markdown \
+  -t revealjs \
+  -s \
+  -V theme=simple \
+  -V slideNumber=true \
+  --css=../../mccole/mccole-slides.css \
+  --mathjax \
+  --syntax-highlighting=tango
+
 ## commands: show available commands
 commands:
 	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g' | column -t -s ':'
@@ -8,6 +20,19 @@ commands:
 site:
 	python bin/reading-list.py reading.csv src/reading-list.md
 	ark build
+	@$(MAKE) slides
+
+## slides: build the talk slide decks with pandoc (reveal.js)
+slides: $(SLIDES_DST)
+
+docs/%.html: src/%.qmd
+	@mkdir -p $(@D)
+	pandoc $< $(SLIDES_FLAGS) -o $@
+	@sed -i '' '/simple\.css/d' $@
+
+## overflow: check slides for overflow
+overflow:
+	~/overflow/bin/slides-overflow.js -q $(SLIDES_DST)
 
 ## serve: build site and run server
 serve:

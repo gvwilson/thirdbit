@@ -1,25 +1,33 @@
 /* Definitions */
 :root {
     --len-dropdown: 200px;
-    --len-half: 0.5rem;
+    --len-half: 5px;
     --len-line-height: 1.4; /* instead of standard 1.2 */
-    --len-one: 1rem;
-    --len-one-half: 1.5rem;
-    --len-two: 2rem;
-    --len-page: 960px; /* 60rem at 16px base; kept in px since Chota uses 62.5% html base */
-    --len-quarter: 0.25rem;
+    --len-one: 10px;
+    --len-one-half: 15px;
+    --len-two: 20px;
+    --len-page: 960px;
+    --len-quarter: 2.5px;
     --len-thick-double: 8px;
     --len-thick: 4px;
     --len-thin: 1px;
     --size-code: 0.9em;
-    --font-size: 1.8rem; /* 18px; larger than chota's default 16px */
+    --font-size: 18px;
+    --bg-color: #ffffff;
+    --bg-secondary-color: #f3f3f6;
+    --color-primary: #14854f;
+    --color-lightGrey: #d2d6dd;
+    --color-grey: #747681;
+    --color-darkGrey: #3f4144;
+    --font-color: #333333;
+    --font-family-sans: -apple-system, "BlinkMacSystemFont", "Avenir", "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Lock heading sizes in rem so they don't scale with body font-size */
-h1 { font-size: 3.2rem; }
-h2 { font-size: 2.8rem; }
-h3 { font-size: 2.4rem; }
-h4 { font-size: 2rem; }
+h1 { font-size: 32px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
 
 /* Body overrides */
 body {
@@ -138,7 +146,7 @@ img.img-90 {
 .dropdown > button {
     background: none;
     border: none;
-    padding: 1rem 2rem; /* match Chota's .nav a padding */
+    padding: 10px 20px; /* match Chota's .nav a padding */
     font: inherit;
     color: inherit;
     cursor: pointer;
@@ -177,7 +185,7 @@ ul.dropdown-content {
 pre {
     background-color: var(--bg-secondary-color);
     padding: var(--len-half);
-    padding-left: 1rem;
+    padding-left: 10px;
     overflow-x: auto;
 }
 
@@ -192,7 +200,7 @@ pre[data-lang]::before {
     content: attr(data-lang);
     display: block;
     font-family: var(--font-family-sans);
-    font-size: 0.75rem;
+    font-size: 7.5px;
     color: var(--color-grey);
     margin-bottom: var(--len-quarter);
     text-transform: uppercase;
@@ -204,11 +212,12 @@ table {
     width: auto;
     min-width: 50%;
     margin: 0 auto var(--len-half);
+    border-collapse: collapse;
 }
 
 td, th {
     border: solid var(--len-thin) var(--color-lightGrey);
-    padding: 1.2rem 0.8rem;
+    padding: 12px 8px;
     vertical-align: top;
 }
 
@@ -234,7 +243,7 @@ ul {
 div.callout,
 div.syllabus {
     border-left: 3px solid var(--color-primary);
-    padding: 1rem;
+    padding: 10px;
     background-color: var(--bg-secondary-color);
     border-radius: 4px;
     margin-bottom: 1em;
@@ -292,3 +301,39 @@ details.explanation[open] > summary {
         padding-right: var(--len-one);
     }
 }
+
+/* Navigation (from chota) */
+.nav {
+    align-items: stretch;
+    display: flex;
+}
+.nav-left, .nav-right {
+    display: flex;
+    flex: 1;
+}
+.nav-left { justify-content: flex-start; }
+.nav-right { justify-content: flex-end; }
+.nav .brand, .nav a {
+    align-items: center;
+    color: var(--color-darkGrey);
+    display: flex;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.nav .brand {
+    font-size: 1.75em;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+/* Cards (from chota) */
+.card {
+    background: var(--bg-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px var(--color-grey);
+    padding: 10px 20px;
+    margin: 5px 0;
+}
+.card p:last-child { margin: 0; }
+.card header > * { margin-bottom: 10px; margin-top: 0; }
+

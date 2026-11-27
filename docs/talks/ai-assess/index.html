@@ -1,677 +1,891 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-  <link rel="stylesheet" href="../../files/tango.css">
-  <link rel="stylesheet" href="../../files/slides.css">
-  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']]
-      }
-    };
-  </script>
-  <script
-    type="text/javascript"
-    id="MathJax-script"
-    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="dcterms.date" content="2026-11-06">
   <title>Assessing AI</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 </head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-  <body>
-    <textarea id="source">
+<section id="title-slide">
+  <h1 class="title">Assessing AI</h1>
+  <p class="subtitle">how to tell if AI coding tools are working without
+fooling yourself</p>
+  <p class="date">2026-11-06</p>
+</section>
 
+<section id="what-this-talk-is-about" class="slide level2">
+<h2>What This Talk Is About</h2>
+<ul>
+<li><p>In 2023, GitHub announced that its AI tools made developers 55%
+faster [Peng2023]</p></li>
+<li><p>That number appeared in every executive presentation for a
+year</p></li>
+<li><p>How would you know whether to believe it?</p></li>
+<li><p>This talk is about:</p>
+<ul>
+<li><p>How we get the answer wrong</p></li>
+<li><p>How we can get it right</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="why-should-you-listen-to-me" class="slide level2">
+<h2>Why Should You Listen to Me?</h2>
+<ul>
+<li><p>Forty years writing software and teaching programming</p></li>
+<li><p>Used to run a project trying to connect software engineering
+researchers and practitioners</p></li>
+<li><p>I am not going to tell you AI-assisted coding doesn’t
+work</p></li>
+<li><p>I am going to tell you how to find out whether it works <em>for
+you</em></p>
+<ul>
+<li>Singular and plural</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-real-question" class="slide level2">
+<h2>The Real Question</h2>
+<ul>
+<li><p>“Is AI helping my team?” sounds simple</p></li>
+<li><p>It hides three questions:</p>
+<ul>
+<li><p>Helping with <em>what</em>?</p></li>
+<li><p>Measured <em>how</em>?</p></li>
+<li><p>Compared to <em>what</em>?</p></li>
+</ul></li>
+<li><p>These are not pedantic questions</p></li>
+<li><p>The answer you get depends entirely on how you operationalize
+them</p></li>
+</ul>
+</section>
+<section id="this-is-hard" class="slide level2">
+<h2>This Is Hard</h2>
+<ul>
+<li><p>[Sadowski2019] is an entire book devoted to “this is
+difficult”</p></li>
+<li><p>Software output is not homogeneous</p>
+<ul>
+<li>A ten-line bugfix may be worth more than a thousand-line
+feature</li>
+</ul></li>
+<li><p>Much of software work is invisible</p>
+<ul>
+<li>Developers spend only about a quarter of their day writing code
+[Meyer2017]</li>
+</ul></li>
+</ul>
+</section>
+<section id="for-example" class="slide level2">
+<h2>For Example</h2>
+<ul>
+<li><p>Prechelt had 73 professional developers solve the same task
+[Prechelt2000]</p></li>
+<li><p>Completion times ranged from 0.6 to 63 hours (a 105X
+spread)</p></li>
+<li><p>Controlling for programming language: 17X</p></li>
+<li><p>With a careful definition of “more productive”: 5X</p></li>
+<li><p>The answer depends on exactly what question you ask</p></li>
+</ul>
+</section>
+<section id="how-we-get-it-wrong" class="slide level2">
+<h2>How We Get It Wrong</h2>
+<ul>
+<li><p>Four recurring mistakes sit underneath the hype</p>
+<ul>
+<li><p>Measuring the easy thing</p></li>
+<li><p>Measuring too small</p></li>
+<li><p>Comparing to nothing</p></li>
+<li><p>Asking people how they feel</p></li>
+</ul></li>
+<li><p>Each is a way of mistaking <em>outputs</em> and
+<em>outcomes</em></p></li>
+</ul>
+</section>
+<section id="wrong-1-measure-the-easy-thing" class="slide level2">
+<h2>Wrong #1: Measure the Easy Thing</h2>
+<ul>
+<li><p>A <em>proxy metric</em> stands in for something harder to measure
+directly</p></li>
+<li><p>Lines of code: a 40% increase per developer measures verbosity,
+not value [Sadowski2019]</p></li>
+<li><p>Commit and PR counts: developers make more, smaller commits when
+commits are tracked [McKinsey2023]</p></li>
+<li><p>Adoption rate: measures whether the tool is installed, not
+whether it helps</p></li>
+<li><p>Acceptance rate: measures whether code looked plausible enough to
+press Tab [Bakal2025]</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p><em>Goodhart’s Law</em>: when a measure becomes a target, it
+ceases to be a good measure [Goodhart1984]</p></li>
+<li><p>Activity is not output, and output is not value</p></li>
+</ul>
+</div>
+</section>
+<section id="wrong-2-measure-too-small" class="slide level2">
+<h2>Wrong #2: Measure Too Small</h2>
+<ul>
+<li><p>Timing a 90-minute greenfield task tells you about a 90-minute
+greenfield task</p></li>
+<li><p>Real work: unfamiliar codebases, ambiguous tickets, coordinating
+with colleagues</p></li>
+<li><p>Individual speed is not system throughput</p>
+<ul>
+<li>If review is the bottleneck, more code makes cycle time worse
+[Forsgren2021]</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Code generation speed gets measured because it’s the easy
+part</p></li>
+<li><p>The hard part doesn’t: review time, debugging confidently-wrong
+suggestions, security debt [Pearce2022]</p></li>
+<li><p>Five major LLMs evaluated in 2025: none produced web code meeting
+industry security standards [Dora2025]</p></li>
+</ul>
+</div>
+</section>
+<section id="wrong-3-compare-to-nothing" class="slide level2">
+<h2>Wrong #3: Compare to Nothing</h2>
+<ul>
+<li><p>Before/after with no control group cannot separate the AI from
+the twelve new engineers, the refactored CI, and the new cloud
+provider</p></li>
+<li><p>Comparing AI to “nothing” uses a baseline that does not exist in
+practice</p>
+<ul>
+<li>Developers without LLMs use documentation, colleagues, and their own
+thinking</li>
+</ul></li>
+<li><p>The question is whether AI beats the alternatives developers
+already have</p></li>
+</ul>
+</section>
+<section id="wrong-4-ask-people" class="slide level2">
+<h2>Wrong #4: Ask People</h2>
+<ul>
+<li><p>“87% of developers report feeling more productive with AI tools”
+[Liang2024]</p>
+<ul>
+<li><p><em>Novelty effect</em>: new tools feel faster because they are
+new — and that fades</p></li>
+<li><p><em>Hawthorne effect</em>: people work differently when they know
+they are being watched</p></li>
+<li><p><em>Social desirability bias</em>: respondents say what they
+think management wants to hear</p></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Volunteers vs. non-volunteers: <em>early adopters</em> are more
+motivated and more likely to be high performers</p>
+<ul>
+<li>A two-year study found Copilot users were more active than non-users
+even before the tool was introduced [Stray2026]</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="who-does-this" class="slide level2">
+<h2>Who Does This?</h2>
+<ul>
+<li><p><em>Empirical Software Engineering</em> studies how software is
+actually built</p>
+<ul>
+<li><p>The field has existed since the 1960s</p></li>
+<li><p>Draws on psychology, sociology, economics, and statistics as well
+as computer science</p></li>
+</ul></li>
+<li><p>Bad news: most studies don’t address questions practitioners care
+about [Begel2014]</p></li>
+<li><p>Good news: “most” isn’t “all”</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Bad news: you don’t have ESE researchers in house</p></li>
+<li><p>Good news: you (probably) have someone just as good</p></li>
+</ul>
+</div>
+</section>
+<section id="already-in-house" class="slide level2">
+<h2>Already In House</h2>
+<ul>
+<li><p>You don’t have to invent an AI assessment program from
+scratch</p></li>
+<li><p>UX researchers already have the right intellectual tools</p>
+<ul>
+<li><p>They do rigorous <em>qualitative</em> research: interviews,
+think-aloud sessions, and thematic analysis [Braun2006,
+Goodman2012]</p></li>
+<li><p>They do rigorous <em>quantitative</em> research: usability
+metrics and the statistics to interpret them [Tullis2013,
+Sauro2016]</p></li>
+</ul></li>
+<li><p>They are already trained to ask “does this actually help people
+do their work?”</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>So turn to your UX research team to create the assessment
+program</p></li>
+<li><p>The rest of this talk is a tour of their toolkit</p></li>
+</ul>
+</div>
+</section>
+<section id="where-to-start" class="slide level2">
+<h2>Where to Start</h2>
+<ul>
+<li><p><em>Goal-Question-Metric</em> provides a structured path from
+intent to measurement [Basili1994]</p></li>
+<li><p>Define the goal: what object, what property, from whose
+viewpoint, in what context</p></li>
+<li><p>Generate the questions whose answers would tell you whether the
+goal was achieved</p></li>
+<li><p>Then pick the metric that answers each question</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Does the metric actually measure what you care about?</p></li>
+<li><p>If possible, get someone <em>outside</em> your organization to
+challenge you on this</p></li>
+</ul>
+</div>
+</section>
+<section id="a-checklist-for-any-study" class="slide level2">
+<h2>A Checklist for Any Study</h2>
+<ul>
+<li><p><em>Conclusion validity</em>: was the sample large enough? are
+effect sizes reported?</p></li>
+<li><p><em>Internal validity</em>: was there a control group? random
+assignment? novelty and learning ruled out?</p></li>
+<li><p><em>Construct validity</em>: does the measurement actually
+capture the claim?</p></li>
+<li><p><em>External validity</em>: are the subjects representative of
+the population you care about?</p></li>
+</ul>
+</section>
+<section id="getting-started" class="slide level2">
+<h2>Getting Started</h2>
+<ul>
+<li><p>Use <em>qualitative methods</em> when you do not yet know what to
+measure</p></li>
+<li><p>They answer “what is happening?” and “why?” rather than “how
+much?”</p></li>
+<li><p>E.g., a study of 410 developers revealed where AI helps and where
+it gets in the way [Liang2024]</p>
+<ul>
+<li>Invisible to any study that only measures task completion times</li>
+</ul></li>
+</ul>
+</section>
+<section id="interviews" class="slide level2">
+<h2>Interviews</h2>
+<ul>
+<li><p>Do interviews before creating surveys</p></li>
+<li><p><em>Semi-structured interviews</em> have a guide but allow
+follow-up</p>
+<ul>
+<li>Consistent enough to compare, flexible enough to surprise</li>
+</ul></li>
+<li><p><em>Open questions</em> invite narrative; <em>closed
+questions</em> invite classification</p></li>
+<li><p>Avoid leading questions: “Don’t you find it faster?” assumes the
+answer</p></li>
+<li><p>Pilot with 3–5 people before distributing it</p>
+<ul>
+<li>And make the changes</li>
+</ul></li>
+</ul>
+</section>
+<section id="thematic-analysis" class="slide level2">
+<h2>Thematic Analysis</h2>
+<ul>
+<li><p><em>Open coding</em>: read through the data and tag segments with
+descriptive labels</p></li>
+<li><p><em>Gerund coding</em>: “avoiding AI for security tasks” rather
+than “AI distrust”</p>
+<ul>
+<li>This preserves what participants are actually doing</li>
+</ul></li>
+<li><p>A theme is a claim you could write as a sentence, not a bucket
+for related quotes</p></li>
+<li><p>Stop collecting data when new interviews stop introducing new
+codes [Braun2019]</p></li>
+</ul>
+</section>
+<section id="controlled-experiments" class="slide level2">
+<h2>Controlled Experiments</h2>
+<ul>
+<li><p>Manipulate one variable and measure its effect while holding
+others constant</p></li>
+<li><p>Randomization assigns participants to conditions randomly,
+distributing unknown confounders</p>
+<ul>
+<li>This is the mechanism that makes causal claims defensible</li>
+</ul></li>
+<li><p>Full <em>blinding</em> is rarely possible in software
+engineering</p>
+<ul>
+<li>The developers know if they’re using AI</li>
+</ul></li>
+</ul>
+</section>
+<section id="pitfalls" class="slide level2">
+<h2>Pitfalls</h2>
+<ul>
+<li><p><em>HARKing</em>: hypothesizing after the results are known</p>
+<ul>
+<li>I.e., writing the paper as if the pattern you found after analysis
+was predicted in advance</li>
+</ul></li>
+<li><p><em>p-hacking</em>: running twenty analyses and reporting only
+the one with p &lt; 0.05</p>
+<ul>
+<li>With 20 independent tests, you expect one false positive by
+chance</li>
+</ul></li>
+<li><p><em>Pre-registration</em> commits hypotheses before data
+collection, making both problems visible</p></li>
+<li><p>If authors will not share data, there is a decent chance of
+errors in the work [Wicherts2011]</p></li>
+</ul>
+</section>
+<section id="observational-studies" class="slide level2">
+<h2>Observational Studies</h2>
+<ul>
+<li><p>Measure the world as it is: real behavior, large datasets, no
+ethical problem withholding an intervention</p></li>
+<li><p>Disadvantage: you can’t establish causation because confounders
+cannot be ruled out</p></li>
+<li><p>GitHub data is not a representative sample of software
+development</p>
+<ul>
+<li>Survivorship bias and “looking where the light is”</li>
+</ul></li>
+<li><p>Projects with more tests also tend to have more experienced
+developers</p>
+<ul>
+<li>So you cannot attribute lower defect rates to testing alone</li>
+</ul></li>
+</ul>
+</section>
+<section id="do-it-cheaply-first" class="slide level2">
+<h2>Do It Cheaply First</h2>
+<ul>
+<li><p>A small, informal study produces better evidence than a meeting
+[Hall2019]</p></li>
+<li><p>Five sessions are enough to find most problems in a specific
+workflow [Nielsen1993]</p>
+<ul>
+<li><p>Enough for “we observed developers getting stuck here”</p></li>
+<li><p>Not enough for “X% of developers have this problem” or “AI causes
+more bugs”</p></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p><em>Formative evaluation</em> improves a thing; <em>summative
+evaluation</em> decides whether to deploy it</p></li>
+<li><p>Mislabeling formative evidence as summative kills
+credibility</p></li>
+</ul>
+</div>
+</section>
+<section id="think-aloud-and-rite" class="slide level2">
+<h2>Think-Aloud and RITE</h2>
+<ul>
+<li><p><em>Think-aloud</em>: “say out loud whatever you are thinking”
+while doing a concrete task</p>
+<ul>
+<li>“Given this pull request, use the assistant to summarize the
+changes”</li>
+</ul></li>
+<li><p>Observe hesitation, backtracking, and expectations that turn out
+wrong</p></li>
+<li><p>Do not help when they get stuck: you will not be there in
+production</p></li>
+<li><p>RITE (Rapid Iterative Testing and Evaluation): fix the worst
+problem you observed before the next session [Medlock2002]</p></li>
+</ul>
+</section>
+<section id="please" class="slide level2">
+<h2>Please</h2>
+<ul>
+<li><p>Ask for evidence before adopting</p>
+<ul>
+<li><p>What study supports the claim?</p></li>
+<li><p>Is it applicable to your context?</p></li>
+<li><p>Can you see the raw data?</p></li>
+</ul></li>
+<li><p>When an executive cites a productivity statistic, ask:</p>
+<ul>
+<li><p>Who funded the study?</p></li>
+<li><p>What task was studied?</p></li>
+<li><p>Was there was a control group?</p></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Please document and share your organization’s experience</li>
+</ul>
+</div>
+</section>
+<section id="signs-of-maturity" class="slide level2">
+<h2>Signs of Maturity</h2>
+<ol type="1">
+<li><p>“How am I going to be measured in my annual performance
+review?”</p></li>
+<li><p>“What do we keep when token costs go up 20X?”</p></li>
+<li><p>“How much should I spend on insurance, and for what?”</p></li>
+</ol>
+</section>
+<section id="next-steps" class="slide level2">
+<h2>Next Steps</h2>
+<ol type="1">
+<li><p>Go and look at Bram: <a href="https://judell.github.io/bram/"
+class="uri">https://judell.github.io/bram/</a></p></li>
+<li><p>Hire a bunch of undergrads and study <em>them</em></p>
+<ul>
+<li>And share your findings</li>
+</ul></li>
+<li><p>Hire a law student to put together a half-day workshop on the
+history of liability</p></li>
+</ol>
+<div class="fragment">
 <div class="center">
-  <h1>Assessing AI</h1>
-  <p><em>how to tell if AI coding tools are working without fooling yourself</em></p>
-  <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <h2>Greg Wilson</h2>
-  <p>2026-11-06</p>
-  <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
+<em>I’d be very happy to help…</em>
 </div>
-
----
-
-
-## What This Talk Is About
-
--   In 2023, GitHub announced that its AI tools made developers 55% faster [Peng2023]
-
--   That number appeared in every executive presentation for a year
-
--   How would you know whether to believe it?
-
--   This talk is about:
-
-    -   How we get the answer wrong
-
-    -   How we can get it right
-
----
-
-## Why Should You Listen to Me?
-
--   Forty years writing software and teaching programming
-
--   Used to run a project trying to connect software engineering researchers and practitioners
-
--   I am not going to tell you AI-assisted coding doesn't work
-
--   I am going to tell you how to find out whether it works *for you*
-
-    -   Singular and plural
-
----
-
-## The Real Question
-
--   "Is AI helping my team?" sounds simple
-
--   It hides three questions:
-
-    -   Helping with *what*?
-
-    -   Measured *how*?
-
-    -   Compared to *what*?
-
--   These are not pedantic questions
-
--   The answer you get depends entirely on how you operationalize them
-
----
-
-## This Is Hard
-
--   [Sadowski2019] is an entire book devoted to "this is difficult"
-
--   Software output is not homogeneous
-
-    -   A ten-line bugfix may be worth more than a thousand-line feature
-
--   Much of software work is invisible
-
-    -   Developers spend only about a quarter of their day writing code [Meyer2017]
-
----
-
-## For Example
-
--   Prechelt had 73 professional developers solve the same task [Prechelt2000]
-
--   Completion times ranged from 0.6 to 63 hours (a 105X spread)
-
--   Controlling for programming language: 17X
-
--   With a careful definition of "more productive": 5X
-
--   The answer depends on exactly what question you ask
-
----
-
-## How We Get It Wrong
-
--   Four recurring mistakes sit underneath the hype
-
-    -   Measuring the easy thing
-
-    -   Measuring too small
-
-    -   Comparing to nothing
-
-    -   Asking people how they feel
-
--   Each is a way of mistaking *outputs* and *outcomes*
-
----
-
-## Wrong #1: Measure the Easy Thing
-
--   A *proxy metric* stands in for something harder to measure directly
-
--   Lines of code: a 40% increase per developer measures verbosity, not value [Sadowski2019]
-
--   Commit and PR counts: developers make more, smaller commits when commits are tracked [McKinsey2023]
-
--   Adoption rate: measures whether the tool is installed, not whether it helps
-
--   Acceptance rate: measures whether code looked plausible enough to press Tab [Bakal2025]
-
---
-
--   *Goodhart's Law*: when a measure becomes a target, it ceases to be a good measure [Goodhart1984]
-
--   Activity is not output, and output is not value
-
----
-
-## Wrong #2: Measure Too Small
-
--   Timing a 90-minute greenfield task tells you about a 90-minute greenfield task
-
--   Real work: unfamiliar codebases, ambiguous tickets, coordinating with colleagues
-
--   Individual speed is not system throughput
-
-    -   If review is the bottleneck, more code makes cycle time worse [Forsgren2021]
-
---
-
--   Code generation speed gets measured because it's the easy part
-
--   The hard part doesn't: review time, debugging confidently-wrong suggestions, security debt [Pearce2022]
-
--   Five major LLMs evaluated in 2025: none produced web code meeting industry security standards [Dora2025]
-
----
-
-## Wrong #3: Compare to Nothing
-
--   Before/after with no control group cannot separate the AI from
-    the twelve new engineers, the refactored CI, and the new cloud provider
-
--   Comparing AI to "nothing" uses a baseline that does not exist in practice
-
-    -   Developers without LLMs use documentation, colleagues, and their own thinking
-
--   The question is whether AI beats the alternatives developers already have
-
----
-
-## Wrong #4: Ask People
-
--   "87% of developers report feeling more productive with AI tools" [Liang2024]
-
-    -   *Novelty effect*: new tools feel faster because they are new — and that fades
-
-    -   *Hawthorne effect*: people work differently when they know they are being watched
-
-    -   *Social desirability bias*: respondents say what they think management wants to hear
-
---
-
--   Volunteers vs. non-volunteers:
-    *early adopters* are more motivated and more likely to be high performers
-
-    -   A two-year study found Copilot users were more active than non-users
-        even before the tool was introduced [Stray2026]
-
----
-
-## Who Does This?
-
--   *Empirical Software Engineering* studies how software is actually built
-
-    -   The field has existed since the 1960s
-
-    -   Draws on psychology, sociology, economics, and statistics as well as computer science
-
--   Bad news: most studies don't address questions practitioners care about [Begel2014]
-
--   Good news: "most" isn't "all"
-
---
-
--   Bad news: you don't have ESE researchers in house
-
--   Good news: you (probably) have someone just as good
-
----
-
-## Already In House
-
--   You don't have to invent an AI assessment program from scratch
-
--   UX researchers already have the right intellectual tools
-
-    -   They do rigorous *qualitative* research: interviews, think-aloud
-        sessions, and thematic analysis [Braun2006, Goodman2012]
-
-    -   They do rigorous *quantitative* research: usability metrics and
-        the statistics to interpret them [Tullis2013, Sauro2016]
-
--   They are already trained to ask "does this actually help people do their work?"
-
---
-
--   So turn to your UX research team to create the assessment program
-
--   The rest of this talk is a tour of their toolkit
-
----
-
-## Where to Start
-
--   *Goal-Question-Metric* provides a structured path from intent to measurement [Basili1994]
-
--   Define the goal: what object, what property, from whose viewpoint, in what context
-
--   Generate the questions whose answers would tell you whether the goal was achieved
-
--   Then pick the metric that answers each question
-
---
-
--   Does the metric actually measure what you care about?
-
--   If possible, get someone *outside* your organization to challenge you on this
-
----
-
-## A Checklist for Any Study
-
--   *Conclusion validity*: was the sample large enough? are effect sizes reported?
-
--   *Internal validity*: was there a control group? random assignment? novelty and learning ruled out?
-
--   *Construct validity*: does the measurement actually capture the claim?
-
--   *External validity*: are the subjects representative of the population you care about?
-
----
-
-## Getting Started
-
--   Use *qualitative methods* when you do not yet know what to measure
-
--   They answer "what is happening?" and "why?" rather than "how much?"
-
--   E.g., a study of 410 developers revealed where AI helps and where it gets in the way [Liang2024]
-
-    -   Invisible to any study that only measures task completion times
-
----
-
-## Interviews
-
--   Do interviews before creating surveys
-
--   *Semi-structured interviews* have a guide but allow follow-up
-
-    -   Consistent enough to compare, flexible enough to surprise
-
--   *Open questions* invite narrative; *closed questions* invite classification
-
--   Avoid leading questions: "Don't you find it faster?" assumes the answer
-
--   Pilot with 3–5 people before distributing it
-
-    -   And make the changes
-
----
-
-## Thematic Analysis
-
--   *Open coding*: read through the data and tag segments with descriptive labels
-
--   *Gerund coding*: "avoiding AI for security tasks" rather than "AI distrust"
-
-    -   This preserves what participants are actually doing
-
--   A theme is a claim you could write as a sentence, not a bucket for related quotes
-
--   Stop collecting data when new interviews stop introducing new codes [Braun2019]
-
----
-
-## Controlled Experiments
-
--   Manipulate one variable and measure its effect while holding others constant
-
--   Randomization assigns participants to conditions randomly, distributing unknown confounders
-
-    -   This is the mechanism that makes causal claims defensible
-
--   Full *blinding* is rarely possible in software engineering
-
-    -   The developers know if they're using AI
-
----
-
-## Pitfalls
-
--   *HARKing*: hypothesizing after the results are known
-
-    -   I.e., writing the paper as if the pattern you found after analysis was predicted in advance
-
--   *p-hacking*: running twenty analyses and reporting only the one with p < 0.05
-
-    -   With 20 independent tests, you expect one false positive by chance
-
--   *Pre-registration* commits hypotheses before data collection, making both problems visible
-
--   If authors will not share data, there is a decent chance of errors in the work [Wicherts2011]
-
----
-
-## Observational Studies
-
--   Measure the world as it is: real behavior, large datasets, no ethical problem withholding an intervention
-
--   Disadvantage: you can't establish causation because confounders cannot be ruled out
-
--   GitHub data is not a representative sample of software development
-
-    -   Survivorship bias and "looking where the light is"
-
--   Projects with more tests also tend to have more experienced developers
-
-    -   So you cannot attribute lower defect rates to testing alone
-
----
-
-## Do It Cheaply First
-
--   A small, informal study produces better evidence than a meeting [Hall2019]
-
--   Five sessions are enough to find most problems in a specific workflow [Nielsen1993]
-
-    -   Enough for "we observed developers getting stuck here"
-
-    -   Not enough for "X% of developers have this problem" or "AI causes more bugs"
-
---
-
--   *Formative evaluation* improves a thing; *summative evaluation* decides whether to deploy it
-
--   Mislabeling formative evidence as summative kills credibility
-
----
-
-## Think-Aloud and RITE
-
--   *Think-aloud*: "say out loud whatever you are thinking" while doing a concrete task
-
-    -   "Given this pull request, use the assistant to summarize the changes"
-
--   Observe hesitation, backtracking, and expectations that turn out wrong
-
--   Do not help when they get stuck: you will not be there in production
-
--   RITE (Rapid Iterative Testing and Evaluation):
-    fix the worst problem you observed before the next session [Medlock2002]
-
----
-
-## Please
-
--   Ask for evidence before adopting
-
-    -   What study supports the claim?
-
-    -   Is it applicable to your context?
-
-    -   Can you see the raw data?
-
--   When an executive cites a productivity statistic, ask:
-
-    -   Who funded the study?
-
-    -   What task was studied?
-
-    -   Was there was a control group?
-
---
-
--   Please document and share your organization's experience
-
----
-
-## Signs of Maturity
-
-1.  "How am I going to be measured in my annual performance review?"
-
-2.  "What do we keep when token costs go up 20X?"
-
-3.  "How much should I spend on insurance, and for what?"
-
----
-
-## Next Steps
-
-1.  Go and look at Bram: <https://judell.github.io/bram/>
-
-2.  Hire a bunch of undergrads and study *them*
-
-    -   And share your findings
-
-3.  Hire a law student to put together a half-day workshop on the history of liability
-
---
-
-<div class="center"><em>I'd be very happy to help…</em></div>
-
----
-
-## Conclusion
-
--   These mistakes are not unique to AI research
-
--   The same problems appear in studies of agile, TDD, and other practices
-
--   The fix is to apply what the human sciences already know
-
--   So give the job to your UX researchers
-
-    -   They already practice the rigorous qualitative and quantitative methods described here
-
----
-
-<div>
-  <div class="center">
-  <h2>Thank You</h2>
-  </div>
-  <div class="row">
-  <div class="col-6">
-  <p><img src="../../files/cv/gvwilson-gage-2019.png" width="80%"></p>
-  </div>
-  <div class="col-6">
-  <p><a href="http://third-bit.com">Greg Wilson</a></p>
-  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/ai-assess/">http://third-bit.com/talks/ai-assess/</a></p>
-  </div>
-  </div>
-  <div class="center">
-  <p><em>start where you are &middot; use what you have &middot; help who you can</em></p>
-  </div>
 </div>
-
----
-
-## References
-
-<p id="Bakal2025">[Bakal2025]
-Gal Bakal, Ali Dasdan, Yaniv Katz, Michael Kaufman, and Guy Levin:
-"<a href="https://arxiv.org/abs/2501.13282">Experience with GitHub Copilot for Developer Productivity at Zoominfo</a>".
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li><p>These mistakes are not unique to AI research</p></li>
+<li><p>The same problems appear in studies of agile, TDD, and other
+practices</p></li>
+<li><p>The fix is to apply what the human sciences already know</p></li>
+<li><p>So give the job to your UX researchers</p>
+<ul>
+<li>They already practice the rigorous qualitative and quantitative
+methods described here</li>
+</ul></li>
+</ul>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank You</h2>
+<div class="row">
+<div class="col-6">
+<p>
+<img src="../../files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="300px">
+</p>
+</div>
+<div class="col-6">
+<p>
+<a href="http://third-bit.com">Greg Wilson</a>
+</p>
+<p>
+<a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a>
+</p>
+<p>
+<a href="http://third-bit.com/talks/ai-assess/">http://third-bit.com/talks/ai-assess/</a>
+</p>
+</div>
+</div>
+<div class="center">
+<p>
+<em>start where you are · use what you have · help who you can</em>
+</p>
+</div>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<p id="Bakal2025">
+[Bakal2025] Gal Bakal, Ali Dasdan, Yaniv Katz, Michael Kaufman, and Guy
+Levin: “<a href="https://arxiv.org/abs/2501.13282">Experience with
+GitHub Copilot for Developer Productivity at Zoominfo</a>”.
 arXiv:2501.13282, 2025.
 </p>
-
-<p id="Basili1994">[Basili1994]
-Victor R. Basili, Gianluigi Caldiera, and H. Dieter Rombach:
-"The Goal Question Metric Approach".
-<em>Encyclopedia of Software Engineering</em>, 1994,
+<p id="Basili1994">
+[Basili1994] Victor R. Basili, Gianluigi Caldiera, and H. Dieter
+Rombach: “The Goal Question Metric Approach”. <em>Encyclopedia of
+Software Engineering</em>, 1994,
 <a class="isbn" href="https://isbnsearch.org/9780471540021">978-0471540021</a>.
 </p>
-
-<p id="Begel2014">[Begel2014]
-Andrew Begel and Nachiappan Nagappan:
-"<a href="https://doi.org/10.1145/2568225.2568233">Analyze This! 145 Questions for Data Scientists in Software Engineering</a>".
-<em>Proc. ICSE'14</em>, 2014,
+<p id="Begel2014">
+[Begel2014] Andrew Begel and Nachiappan Nagappan:
+“<a href="https://doi.org/10.1145/2568225.2568233">Analyze This! 145
+Questions for Data Scientists in Software Engineering</a>”. <em>Proc.
+ICSE’14</em>, 2014,
 <a class="doi" href="https://doi.org/10.1145/2568225.2568233">10.1145/2568225.2568233</a>.
 </p>
-
-<p id="Braun2006">[Braun2006]
-Virginia Braun and Victoria Clarke:
-"<a href="https://doi.org/10.1191/1478088706qp063oa">Using thematic analysis in psychology</a>".
-<em>Qualitative Research in Psychology</em>, 3(2), 2006,
+<p id="Braun2006">
+[Braun2006] Virginia Braun and Victoria Clarke:
+“<a href="https://doi.org/10.1191/1478088706qp063oa">Using thematic
+analysis in psychology</a>”. <em>Qualitative Research in
+Psychology</em>, 3(2), 2006,
 <a class="doi" href="https://doi.org/10.1191/1478088706qp063oa">10.1191/1478088706qp063oa</a>.
 </p>
-
----
-
-## References
-
-<p id="Braun2019">[Braun2019]
-Virginia Braun and Victoria Clarke:
-"<a href="https://doi.org/10.1080/2159676X.2019.1628806">Reflecting on Reflexive Thematic Analysis</a>".
-<em>Qualitative Research in Sport, Exercise and Health</em>, 11(4), 2019,
+</section>
+<section id="references-1" class="slide level2">
+<h2>References</h2>
+<p id="Braun2019">
+[Braun2019] Virginia Braun and Victoria Clarke:
+“<a href="https://doi.org/10.1080/2159676X.2019.1628806">Reflecting on
+Reflexive Thematic Analysis</a>”. <em>Qualitative Research in Sport,
+Exercise and Health</em>, 11(4), 2019,
 <a class="doi" href="https://doi.org/10.1080/2159676X.2019.1628806">10.1080/2159676X.2019.1628806</a>.
 </p>
-
-<p id="Dora2025">[Dora2025]
-Swaroop Dora, Deven Lunkad, Naziya Aslam, S. Venkatesan, and Sandeep Kumar Shukla:
-"<a href="https://arxiv.org/abs/2504.20612">The Hidden Risks of LLM-Generated Web Application Code: A Security-Centric Evaluation of Code Generation Capabilities in Large Language Models</a>".
-arXiv:2504.20612, 2025.
+<p id="Dora2025">
+[Dora2025] Swaroop Dora, Deven Lunkad, Naziya Aslam, S. Venkatesan, and
+Sandeep Kumar Shukla: “<a href="https://arxiv.org/abs/2504.20612">The
+Hidden Risks of LLM-Generated Web Application Code: A Security-Centric
+Evaluation of Code Generation Capabilities in Large Language
+Models</a>”. arXiv:2504.20612, 2025.
 </p>
-
-<p id="Forsgren2018">[Forsgren2018]
-Nicole Forsgren, Jez Humble, and Gene Kim:
-<em>Accelerate: The Science of Lean Software and DevOps</em>.
-IT Revolution Press, 2018,
+<p id="Forsgren2018">
+[Forsgren2018] Nicole Forsgren, Jez Humble, and Gene Kim:
+<em>Accelerate: The Science of Lean Software and DevOps</em>. IT
+Revolution Press, 2018,
 <a class="isbn" href="https://isbnsearch.org/9781942788331">978-1942788331</a>.
 </p>
-
-<p id="Forsgren2021">[Forsgren2021]
-Nicole Forsgren, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, and Jenna Butler:
-"<a href="https://doi.org/10.1145/3454122.3454124">The SPACE of Developer Productivity</a>".
-<em>ACM Queue</em>, 19(1), 2021,
+<p id="Forsgren2021">
+[Forsgren2021] Nicole Forsgren, Margaret-Anne Storey, Chandra Maddila,
+Thomas Zimmermann, Brian Houck, and Jenna Butler:
+“<a href="https://doi.org/10.1145/3454122.3454124">The SPACE of
+Developer Productivity</a>”. <em>ACM Queue</em>, 19(1), 2021,
 <a class="doi" href="https://doi.org/10.1145/3454122.3454124">10.1145/3454122.3454124</a>.
 </p>
-
----
-
-## References
-
-<p id="Goodhart1984">[Goodhart1984]
-Charles Goodhart:
-"Problems of Monetary Management: The U.K. Experience".
-<em>Inflation, Depression, and Economic Policy in the West</em>, 1984.
+</section>
+<section id="references-2" class="slide level2">
+<h2>References</h2>
+<p id="Goodhart1984">
+[Goodhart1984] Charles Goodhart: “Problems of Monetary Management: The
+U.K. Experience”. <em>Inflation, Depression, and Economic Policy in the
+West</em>, 1984.
 </p>
-
-<p id="Goodman2012">[Goodman2012]
-Elizabeth Goodman, Mike Kuniavsky, and Andrea Moed:
-<em>Observing the User Experience: A Practitioner's Guide to User Research</em> (2nd edition).
-Morgan Kaufmann, 2012,
+<p id="Goodman2012">
+[Goodman2012] Elizabeth Goodman, Mike Kuniavsky, and Andrea Moed:
+<em>Observing the User Experience: A Practitioner’s Guide to User
+Research</em> (2nd edition). Morgan Kaufmann, 2012,
 <a class="isbn" href="https://isbnsearch.org/9780123848697">978-0123848697</a>.
 </p>
-
-<p id="Hall2019">[Hall2019]
-Erika Hall:
-<em>Just Enough Research</em>.
-A Book Apart, 2019,
+<p id="Hall2019">
+[Hall2019] Erika Hall: <em>Just Enough Research</em>. A Book Apart,
+2019,
 <a class="isbn" href="https://isbnsearch.org/9781952616082">978-1952616082</a>.
 </p>
-
-<p id="Liang2024">[Liang2024]
-Jenny T. Liang, Chenyang Yang, and Brad A. Myers:
-"<a href="https://doi.org/10.1145/3597503.3608128">A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges</a>".
-<em>Proc. ICSE'24</em>, 2024,
+<p id="Liang2024">
+[Liang2024] Jenny T. Liang, Chenyang Yang, and Brad A. Myers:
+“<a href="https://doi.org/10.1145/3597503.3608128">A Large-Scale Survey
+on the Usability of AI Programming Assistants: Successes and
+Challenges</a>”. <em>Proc. ICSE’24</em>, 2024,
 <a class="doi" href="https://doi.org/10.1145/3597503.3608128">10.1145/3597503.3608128</a>.
 </p>
-
----
-
-## References
-
-<p id="McKinsey2023">[McKinsey2023]
-Nora Elsayed, Tarek Elhounsri, and Sven Blumberg:
-"<a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity">Yes, You Can Measure Software Developer Productivity</a>".
-McKinsey & Company, 2023.
+</section>
+<section id="references-3" class="slide level2">
+<h2>References</h2>
+<p id="McKinsey2023">
+[McKinsey2023] Nora Elsayed, Tarek Elhounsri, and Sven Blumberg:
+“<a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity">Yes,
+You Can Measure Software Developer Productivity</a>”. McKinsey &amp;
+Company, 2023.
 </p>
-
-<p id="Medlock2002">[Medlock2002]
-Michael C. Medlock, Dennis Wixon, Mark Terrano, Ramon Ruflair, and Darrell Vaughan:
-"Using the RITE Method to Improve Products: A Definition and a Case Study".
-<em>Proc. Usability Professionals Association Conference</em>, 2002.
+<p id="Medlock2002">
+[Medlock2002] Michael C. Medlock, Dennis Wixon, Mark Terrano, Ramon
+Ruflair, and Darrell Vaughan: “Using the RITE Method to Improve
+Products: A Definition and a Case Study”. <em>Proc. Usability
+Professionals Association Conference</em>, 2002.
 </p>
-
-<p id="Meyer2017">[Meyer2017]
-André N. Meyer, Laura E. Barton, Gail C. Murphy, Thomas Zimmermann, and Thomas Fritz:
-"<a href="https://doi.org/10.1109/tse.2017.2656886">The Work Life of Developers: Activities, Switches and Perceived Productivity</a>".
+<p id="Meyer2017">
+[Meyer2017] André N. Meyer, Laura E. Barton, Gail C. Murphy, Thomas
+Zimmermann, and Thomas Fritz:
+“<a href="https://doi.org/10.1109/tse.2017.2656886">The Work Life of
+Developers: Activities, Switches and Perceived Productivity</a>”.
 <em>IEEE Trans. Software Engineering</em>, 43(12), 2017,
 <a class="doi" href="https://doi.org/10.1109/tse.2017.2656886">10.1109/tse.2017.2656886</a>.
 </p>
-
-<p id="Nielsen1993">[Nielsen1993]
-Jakob Nielsen and Thomas K. Landauer:
-"<a href="https://doi.org/10.1145/169059.169166">A Mathematical Model of the Finding of Usability Problems</a>".
-<em>Proc. INTERACT'93 and CHI'93</em>, 1993,
+<p id="Nielsen1993">
+[Nielsen1993] Jakob Nielsen and Thomas K. Landauer:
+“<a href="https://doi.org/10.1145/169059.169166">A Mathematical Model of
+the Finding of Usability Problems</a>”. <em>Proc. INTERACT’93 and
+CHI’93</em>, 1993,
 <a class="doi" href="https://doi.org/10.1145/169059.169166">10.1145/169059.169166</a>.
 </p>
-
----
-
-## References
-
-<p id="Pearce2022">[Pearce2022]
-Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri:
-"<a href="https://doi.org/10.1109/SP46214.2022.9833571">Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions</a>".
-<em>Proc. S&P'22</em>, 2022,
+</section>
+<section id="references-4" class="slide level2">
+<h2>References</h2>
+<p id="Pearce2022">
+[Pearce2022] Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan
+Dolan-Gavitt, and Ramesh Karri:
+“<a href="https://doi.org/10.1109/SP46214.2022.9833571">Asleep at the
+Keyboard? Assessing the Security of GitHub Copilot’s Code
+Contributions</a>”. <em>Proc. S&amp;P’22</em>, 2022,
 <a class="doi" href="https://doi.org/10.1109/SP46214.2022.9833571">10.1109/SP46214.2022.9833571</a>.
 </p>
-
-<p id="Peng2023">[Peng2023]
-Sida Peng, Eirini Kalliamvakou, Peter Cihon, and Mert Demirer:
-"<a href="https://doi.org/10.48550/arXiv.2302.06590">The Impact of AI on Developer Productivity: Evidence from GitHub Copilot</a>".
+<p id="Peng2023">
+[Peng2023] Sida Peng, Eirini Kalliamvakou, Peter Cihon, and Mert
+Demirer: “<a href="https://doi.org/10.48550/arXiv.2302.06590">The Impact
+of AI on Developer Productivity: Evidence from GitHub Copilot</a>”.
 arXiv:2302.06590, 2023,
 <a class="doi" href="https://doi.org/10.48550/arXiv.2302.06590">10.48550/arXiv.2302.06590</a>.
 </p>
-
-<p id="Prechelt2000">[Prechelt2000]
-Lutz Prechelt:
-"<a href="https://doi.org/10.1109/2.876288">An Empirical Comparison of Seven Programming Languages</a>".
-<em>IEEE Computer</em>, 33(10), 2000,
+<p id="Prechelt2000">
+[Prechelt2000] Lutz Prechelt:
+“<a href="https://doi.org/10.1109/2.876288">An Empirical Comparison of
+Seven Programming Languages</a>”. <em>IEEE Computer</em>, 33(10), 2000,
 <a class="doi" href="https://doi.org/10.1109/2.876288">10.1109/2.876288</a>.
 </p>
-
-<p id="Sadowski2019">[Sadowski2019]
-Caitlin Sadowski and Thomas Zimmermann (eds.):
-<em>Rethinking Productivity in Software Engineering</em>.
-Apress, 2019,
+<p id="Sadowski2019">
+[Sadowski2019] Caitlin Sadowski and Thomas Zimmermann (eds.):
+<em>Rethinking Productivity in Software Engineering</em>. Apress, 2019,
 <a class="isbn" href="https://isbnsearch.org/9781484242216">978-1484242216</a>.
 </p>
-
-<p id="Sauro2016">[Sauro2016]
-Jeff Sauro and James R. Lewis:
-<em>Quantifying the User Experience: Practical Statistics for User Research</em> (2nd edition).
+<p id="Sauro2016">
+[Sauro2016] Jeff Sauro and James R. Lewis: <em>Quantifying the User
+Experience: Practical Statistics for User Research</em> (2nd edition).
 Morgan Kaufmann, 2016,
 <a class="isbn" href="https://isbnsearch.org/9780128023082">978-0128023082</a>.
 </p>
-
----
-
-## References
-
-<p id="Stray2026">[Stray2026]
-Viktoria Stray, Elias Goldmann Brandtzæg, Viggo Tellefsen Wivestad, Astri Barbala, and Nils Brede Moe:
-"<a href="https://doi.org/10.24251/hicss.2026.880">Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study</a>".
-<em>Proc. HICSS'26</em>, 2026,
+</section>
+<section id="references-5" class="slide level2">
+<h2>References</h2>
+<p id="Stray2026">
+[Stray2026] Viktoria Stray, Elias Goldmann Brandtzæg, Viggo Tellefsen
+Wivestad, Astri Barbala, and Nils Brede Moe:
+“<a href="https://doi.org/10.24251/hicss.2026.880">Developer
+Productivity With and Without GitHub Copilot: A Longitudinal
+Mixed-Methods Case Study</a>”. <em>Proc. HICSS’26</em>, 2026,
 <a class="doi" href="https://doi.org/10.24251/hicss.2026.880">10.24251/hicss.2026.880</a>.
 </p>
-
-<p id="Tullis2013">[Tullis2013]
-Thomas S. Tullis and William Albert:
-<em>Measuring the User Experience: Collecting, Analyzing, and Presenting Usability Metrics</em> (2nd edition).
-Morgan Kaufmann, 2013,
+<p id="Tullis2013">
+[Tullis2013] Thomas S. Tullis and William Albert: <em>Measuring the User
+Experience: Collecting, Analyzing, and Presenting Usability Metrics</em>
+(2nd edition). Morgan Kaufmann, 2013,
 <a class="isbn" href="https://isbnsearch.org/9780124157811">978-0124157811</a>.
 </p>
-
-<p id="Wicherts2011">[Wicherts2011]
-J.M. Wicherts, M. Bakker, and D. Molenaar:
-"<a href="https://doi.org/10.1371/journal.pone.0026828">Willingness to Share Research Data Is Related to the Strength of the Evidence and the Quality of Reporting of Statistical Results</a>".
-<em>PLoS ONE</em>, 6(11), 2011,
+<p id="Wicherts2011">
+[Wicherts2011] J.M. Wicherts, M. Bakker, and D. Molenaar:
+“<a href="https://doi.org/10.1371/journal.pone.0026828">Willingness to
+Share Research Data Is Related to the Strength of the Evidence and the
+Quality of Reporting of Statistical Results</a>”. <em>PLoS ONE</em>,
+6(11), 2011,
 <a class="doi" href="https://doi.org/10.1371/journal.pone.0026828">10.1371/journal.pone.0026828</a>.
 </p>
+</section>
+    </div>
+  </div>
 
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
 
-    </textarea>
-    <script src="../../files/remark-latest.min.js"></script>
-    <script>
-      var slideshow = remark.create()
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
     </script>
-  </body>
+    </body>
 </html>

@@ -1,0 +1,653 @@
+---
+title: "Cocaine and Conway's Law"
+subtitle: "what young software engineers need to learn and how we should teach it"
+template: slides
+date: "2026-10-06"
+---
+
+## Outline
+
+-   Software has changed everything
+-   Often for the worse
+    -   Rising inequality
+    -   Radicalization
+    -   Ubiquitous surveillance
+-   And now there's AI to worry about
+-   Most discussion by technologists is *shallow*
+    -   Andreessen's "Techno-Optimist Manifesto" was embarrassing
+-   If we want better answers, we need to:
+    1.  Develop a better threat model
+    2.  Be humble enough to learn from others
+    3.  *Get students to care*
+
+
+## Three Traditions
+
+-   Tedre & Sutinen: ["Three Traditions of Computing"](https://doi.org/10.1080/08993400802332332) (2008)
+
+<table class="centered" style="font-size: 75%">
+<tr>
+  <th valign="top"></th>
+  <th valign="top">Mathematical</th>
+  <th valign="top">Engineering</th>
+  <th valign="top">Scientific</th>
+</tr>
+<tr>
+  <th valign="top">Assumptions</th>
+  <td valign="top">Programs (algorithms) are abstract objects, they are correct or incorrect, as well as more or less efficient</td>
+  <td valign="top">Programs (processes) affect the world, they are more or less effective and reliable</td>
+  <td valign="top">Programs can model information processes, models are more or less accurate</td>
+</tr>
+<tr>
+  <th valign="top">Aims</th>
+  <td valign="top">Coherent theoretical structures and systems</td>
+  <td valign="top">Investigating and explaining phenomena, solving problems</td>
+  <td valign="top">Constructing useful, efficient, and reliable systems; solving problems</td>
+</tr>
+<tr>
+  <th valign="top">Strengths</th>
+  <td valign="top">Rigorous, results are certain, utilized in other traditions</td>
+  <td valign="top">Combines deduction and induction, cumulative</td>
+  <td valign="top">Able to work under great uncertainty, flexible, progress is tangible</td>
+</tr>
+<tr>
+  <th valign="top">Weaknesses</th>
+  <td valign="top">Incommensurability of results, uncertainty about what counts as proper science</td>
+  <td valign="top">Limited to axiomatic systems</td>
+  <td valign="top">Rarely follows rigid, preordained procedures; poor generalizability</td>
+</tr>
+<tr>
+  <th valign="top">Methods</th>
+  <td valign="top">Empirical, inductive, and deductive</td>
+  <td valign="top">Analytic, deductive (and inductive)</td>
+  <td valign="top">Empirical, constructive</td>
+</tr>
+</table>
+
+
+## A Fourth Tradition
+
+-   Programming as if people mattered
+
+<table class="centered" style="font-size: 75%">
+<tr>
+  <th valign="top"></th>
+  <th valign="top">…</th>
+  <th valign="top">Humanist tradition</th>
+</tr>
+<tr>
+  <th valign="top">Assumptions</th>
+  <td class="center" valign="top">…</td>
+  <td valign="top">Programs are built by people working in particular social settings to serve personal and organizational needs shaped by those settings.</td>
+</tr>
+<tr>
+  <th valign="top">Aims</th>
+  <td class="center" valign="top">…</td>
+  <td valign="top">Explanations of why software is built the way it is by the people who build it.</td>
+</tr>
+<tr>
+  <th valign="top">Strengths</th>
+  <td class="center" valign="top">…</td>
+  <td valign="top">Explains which problems (and which problem solvers) are considered "valid".</td>
+</tr>
+<tr>
+  <th valign="top">Weaknesses</th>
+  <td class="center" valign="top">…</td>
+  <td valign="top">Poor generalizability; often viewed as "story telling" by people unfamiliar with social science methods.</td>
+</tr>
+<tr>
+  <th valign="top">Methods</th>
+  <td class="center" valign="top">…</td>
+  <td valign="top">Empirical and qualitative.</td>
+</tr>
+</table>
+
+
+## Examples
+
+-   Petre: ["UML in Practice"](https://dl.acm.org/doi/10.5555/2486788.2486883) (2013)
+    -   Careful analysis of interviews to determine why people *don't* use UML
+-   Steinmacher et al: ["Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"](https://doi.org/10.1145/2675133.2675215) (2015)
+    1.  How easy it is to get set up to make a contribution
+    1.  How easy it is to find a task to start with
+    1.  How warmly first contribution is received
+-   Sedano et al: ["Software Development Waste"](http://dx.doi.org/10.1109/icse.2017.20) (2017)
+    -   Nine types of waste in software projects, none of which are software issues
+-   Hicks: ["It's Like Coding in the Dark"](https://www.catharsisinsight.com/reports) (2022)
+    -   Programmers don't learn because they're afraid to reveal ignorance
+
+
+## A Better Threat Model
+
+-   [Therac-25 incident](https://en.wikipedia.org/wiki/Therac-25) and
+    [Ariane 5 flight V88](https://en.wikipedia.org/wiki/Ariane_flight_V88)
+    -   Direct cause-and-effect relationships
+    -   But incidents are rare and feel remote
+
+. . .
+
+-   *Cognitive pollution* is a better model
+    -   [Tetraethyl lead](https://en.wikipedia.org/wiki/Tetraethyllead)
+        and [asbestos](https://en.wikipedia.org/wiki/Asbestos)
+    -   Tobacco vs. pesticides
+    -   Oxycodone and [Purdue Pharma](https://en.wikipedia.org/wiki/Purdue_Pharma)
+    -   The [fossil fuels lobby](https://en.wikipedia.org/wiki/Fossil_fuels_lobby)'s campaign
+        to promote [climate change denial](https://en.wikipedia.org/wiki/Climate_change_denial)
+
+. . .
+
+-   Meta's role in the [Rohingya genocide](https://en.wikipedia.org/wiki/Rohingya_genocide)
+    -   "…the military used dozens of seemingly unrelated Facebook pages to spread hate speech…before the 2017 attacks."
+
+
+## So How Do We Reach This Guy?
+
+> Jay is 21, white, straight, and male.
+> He went into programming because he enjoys solving puzzles,
+> and daydreams about being the next Mark Zuckerberg.
+> He would deny being racist, homophobic, or misogynist,
+> but makes disparaging jokes about "cancel culture" and "DEI hires" to fit in with his peers.
+> His favorite phrase in arguments is, "Well, actually…"
+
+. . .
+
+-   Jay knows little or nothing about the humanities and social sciences
+-   Most material assumes concepts he has never heard of…
+    -   …which makes him feel stupid…
+    -   …which makes him tune out
+
+
+## Facts Aren't Enough
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/steinlubrano-politics.jpg" alt="Stein Lubrano: Don't Talk About Politics" width="200px">
+</div>
+<div class="col-8">
+Sarah Stein Lubrano: <em><a href="https://isbnsearch.org/isbn/9781399413923">Don't Talk About Politics: How to Change 21st Century Minds</a></em> (2002)
+<ul>
+<li>People choose beliefs based on group membership rather than vice versa</li>
+<li>Changing their minds therefore has a high social cost</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+> People want data, but believe stories.
+
+
+## Will Management Books Save Us?
+
+-   Drasner: *[Engineering Management for the Rest of Us](https://isbnsearch.org/isbn/9798986769318)* (2022)
+-   Fournier: *[The Manager's Path](https://isbnsearch.org/isbn/9781491973899)* (2017)
+-   Hughes Johnson: *[Scaling People](https://isbnsearch.org/isbn/9781953953216)* (2023)
+-   Huston: *[The Engineering Leader](https://isbnsearch.org/isbn/9781098154066)* (2024)
+-   Larson: *[Staff Engineer](https://isbnsearch.org/isbn/9781736417911)* (2021)
+-   Lau: *[The Effective Engineer](https://isbnsearch.org/isbn/9780996128100)* (2015)
+-   Orosz: *[The Software Engineer's Guidebook](https://isbnsearch.org/isbn/9789083381824)* (2023)
+-   Reilly: *[The Staff Engineer's Path](https://isbnsearch.org/isbn/9781098118730)* (2022)
+-   Skelton & Pais: *[Team Topologies](https://isbnsearch.org/isbn/9781942788812)* (2019)
+-   Stanier: *[Become an Effective Software Engineering Manager](https://isbnsearch.org/isbn/9781680507249)* (2020)
+-   Swerdlow: *[Tech Leadership](https://isbnsearch.org/isbn/9798988984917)* (2023)
+-   Taze: *[Engineers Survival Guide](https://isbnsearch.org/isbn/9798985349900)* (2021)
+
+
+## Disappointing Gaps
+
+-   Employees' rights: nothing
+-   Co-operatives, practices, and other models: nope
+-   Workplace discrimination: less than 8 pages between 12 books
+    -   But all about how to handle it *as a manager*
+-   Why there *isn't* licensure or professional liability: nope
+
+. . .
+
+> None of the courses on entrepreneurship or the business of software that I looked at
+> covered these topics either.
+
+
+## Why Don't We Talk About This?
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/douglas-purity.jpg" alt="Douglas: Purity and Danger" width="200px">
+</div>
+<div class="col-8">
+Mary Douglas: <em><a href="https://isbnsearch.org/isbn/9780415289955">Purity and Danger: An Analysis of Concepts of Pollution and Taboo</a></em> (2002)
+<ul>
+<li>Every group places some things out of bounds as a way of identifying who's in and who's out</li>
+<li>Racial slurs I used as a young man are now taboo…</li>
+<li>…while public discussion of sexuality is now accepted</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+-   People in "hard" disciplines tend to look down on the "soft" ones
+    -   Until they become managers…
+-   But these insights can help us build better software *and* a better society
+
+
+## Speaking of Taboo
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/cole-sex.jpg" alt="Cole: How Sex Changed the Internet" width="200px">
+</div>
+<div class="col-8">
+Samantha Cole: <em><a href="https://isbnsearch.org/isbn/9781523520145">How Sex Changed the Internet (and the Internet Changed Sex)</a></em> (2022)
+<ul>
+<li>This is going to drive a lot of the regulation around AI</li>
+<li>So we ought to be talking about it</li>
+</ul>
+</div>
+</div>
+
+
+## "Politics" Should't be a Dirty Word
+
+-   A reviewer said "politics doesn't belong in software engineering courses"
+-   But *not* talking about these things, while talking about venture capital and IPOs, is a "political" decision
+-   Most of the people who use the word "politics" as an insult would struggle to define it correctly
+-   "Decision-making in groups in the absence of agreement on goals"
+
+. . .
+
+> Several of the books we're about to discuss don't align with my personal beliefs,
+> but are still examples of deep thinking and deserve to be taken seriously.
+
+
+## Looking Elsewhere
+
+-   Béranger: *[Medical Information Systems Ethics](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119178224)*
+-   Goltz & Dowdesell: *[Real World AI Ethics for Data Scientists](https://isbnsearch.org/isbn/9781032275055)* (2023)
+-   Kizza: *[Ethical and Secure Computing](https://isbnsearch.org/isbn/9783031319051)* (2023)
+-   Schlossberger: *[Ethical Engineering: A Practical Guide with Case Studies](https://isbnsearch.org/isbn/9781032151120)* (2023)
+-   Steen: *[Ethics for People Who Work in Tech](https://isbnsearch.org/isbn/9780367542436)* (2022)
+
+. . .
+
+> It doesn't matter what you say if no one is awake to hear it.
+
+
+## It Can Be Interesting
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/levitt-freakonomics.jpg" alt="Levitt and Dubner: Freakonomics" width="200px">
+</div>
+<div class="col-8">
+Steven Levitt & Stephen Dubner: <em><a href="https://isbnsearch.org/isbn/9780061234002">Freakonomics</a></em> (2006)
+<ul>
+<li>"The profit motive is the only valid way to analyze individual behavior"</li>
+<li>…which is provably wrong, but their writing is engaging</li>
+<li>Guys like Jay are suckers for simple answers to hard questions that fit their preconceived ideas…</li>
+<li>…especially when they've never heard the alternatives</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+-   Possibly the most effective piece of propaganda in the last thirty years
+-   Can we do this, but for good?
+
+
+## More Relevant to Big Tech
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/wainwright-narconomics.jpg" alt="Wainwright: Narconomics" width="200px">
+</div>
+<div class="col-8">
+Tom Wainright: <em><a href="https://isbnsearch.org/isbn/9781610397704">Narconomics: How to Run a Drug Cartel</a></em> (2017)
+<ul>
+<li>What does capitalism look like in its purest form?</li>
+<li>Turns out that marketing, HR, and dispute resolution are challenging</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+-   Big tech companies sell deliberately addictive products…
+-   …treat the law as a business expense…
+-   …and are frequently run by narcissists
+
+
+## Recognize Fraud
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/davies-lying.jpg" alt="Davies: Lying for Money" width="200px">
+</div>
+<div class="col-8">
+Dan Davies: <em><a href="https://isbnsearch.org/isbn/9781982114947">Lying for Money: How Legendary Frauds Reveal the Workings of the World</a></em> (2022)
+<ul>
+<li>You will understand some tech companies' business models better once you can recognize common types of fraud</li>
+</ul>
+</div>
+</div>
+
+
+## Organizational Knowledge
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/baetjer-capital.jpg" alt="Baetjer: Software as Capital" width="200px">
+</div>
+<div class="col-8">
+Howard Baetjer Jr.: <em><a href="https://isbnsearch.org/isbn/9780818677793">Software as Capital: An Economic Perspective on Software Engineering</a></em> (1997)
+<ul>
+<li>No single person knows how to make a car (or Linux)</li>
+<li>Tools for thinking about the value of institutional knowledge and how we preserve it</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+> [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) and sociotechnical congruence
+> should be part of every software engineer's education.
+
+
+## Speaking of Conway's Law
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/bellotti-fire.jpg" alt="Bellotti: Kill It With Fire" width="200px">
+</div>
+<div class="col-8">
+Marianne Bellotti: <em><a href="https://isbnsearch.org/isbn/9781718501188">Kill It With Fire: Manage Aging Computer Systems (and Future Proof Modern Ones)</a></em> (2021)
+<ul>
+<li>Cannot modernize legacy software without changing the social structures that produced them…</li>
+<li><em>…and are now supported by them</em></li>
+</ul>
+</div>
+</div>
+
+. . .
+
+-   "If you want to know what parts of the project are suffering the most, pay attention to what the team is having meetings about."
+-   And many other insights
+
+
+## Central vs. Distributed Control
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/scott-seeing.jpg" alt="Scott: Seeing Like a State" width="200px">
+</div>
+<div class="col-8">
+James C. Scott: <em><a href="https://isbnsearch.org/isbn/9780300078152">Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</a></em>
+<ul>
+<li>Large organizations always prefer legibility over productivity</li>
+<li>Because the former gives the center some degree of control</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+> "Do it however you want" also has a price.
+
+
+## Another Example
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/phillips-walmart.jpg" alt="Phillips and Rozworski: The People's Republic of Walmart" width="200px">
+</div>
+<div class="col-8">
+Leigh Phillips & Michal Rozworski: <em><a href="https://isbnsearch.org/isbn/9781786635167">The People's Republic of Walmart</a></em> (2019)
+<ul>
+<li>Most of the world's economic activity occurs within large companies like Walmart and Amazon</li>
+<li>Which all use Soviet-style central planning</li>
+<li>Did the USSR just not have the right IT?</li>
+<li>Have big companies just managed to outsource the failure?</li>
+<li>Or is there some deeper difference?</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+> Give programmers the intellectual tools they need to ask these questions
+> and distinguish credible answers from ones that are merely plausible.
+
+
+## Decision Making
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/raymond-bazaar.jpg" alt="Raymond: The Cathedral and the Bazaar" width="200px">
+</div>
+<div class="col-8">
+Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
+<ul>
+<li>A compelling but misleading myth about the social organization of open source</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+-   Freeman: <a href="https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness">"The Tyranny of Structurelessness"</a> (1972)
+    -   Every social group has a power structure
+    -   Only question is whether it is explicit and accountable or implicit and unaccountable
+
+
+## Fairness and Productivity
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/wilkinson-level.jpg" alt="Wilkinson and Pickett: The Spirit Level" width="200px">
+</div>
+<div class="col-8">
+Richard Wilkinson & Kate Pickett: <em><a href="https://isbnsearch.org/isbn/9781608193417">The Spirit Level</a></em> (2011)
+<ul>
+<li>Greater equality improves outcomes for everyone</li>
+<li>If the game is fair, it's worth playing</li>
+<li>If it isn't, people don't play because they're either sure to win or to lose</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+> If you can convince the lowest white man he's better than the best colored man,
+> he won't notice you're picking his pocket.
+> Hell, give him somebody to look down on and he'll empty his pockets for you.
+> <br>
+> — Lyndon B. Johnson
+
+
+## Where Does Property Come From?
+
+<div class="row">
+<div class="col-2">
+<img src="../../files/books/linklater-owning.jpg" alt="Linklater: Owning the Earth" width="100px">
+</div>
+<div class="col-10">
+Andro Linklater: <em><a href="https://isbnsearch.org/isbn/9781620402917">Owning the Earth: The Transforming History of Land Ownership</a></em> (2015)
+<br>
+The idea that individuals can own land is younger than most people realize;
+its emergence holds lessons for today's debates over intellectual property.
+</div>
+</div>
+
+<div class="row">
+<div class="col-2">
+<img src="../../files/books/bracha-ideas.jpg" alt="Bracha: Owning Ideas" width="100px">
+</div>
+<div class="col-10">
+Oren Bracha: <em><a href="https://isbnsearch.org/isbn/9781108790697">Owning Ideas: The Intellectual Origins of American Intellectual Property, 1790–1909</a></em> (2019)
+<br>
+The idea of "intangible property" is also fairly new;
+understanding why and how it was invented is essential to understanding debates about training data for AI.
+</div>
+</div>
+
+<div class="row">
+<div class="col-2">
+<img src="../../files/books/igo-privacy.jpg" alt="Igo: The Known Citizen" width="100px">
+</div>
+<div class="col-10">
+Sarah E. Igo: <em><a href="https://isbnsearch.org/isbn/9780674244795">The Known Citizen: A History of Privacy in Modern America</a></em> (2020)
+<br>
+The right to privacy is the youngest and least evolved of the three.
+</div>
+</div>
+
+
+## Professional Responsibility
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/singer-accidents.jpg" alt="Singer: There Are No Accidents" width="200px">
+</div>
+<div class="col-8">
+Jessie Singer: <em><a href="https://isbnsearch.org/isbn/9781982129682">There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price</a></em> (2023)
+<ul>
+<li>Contrasts "blame the individual" with "blame the system"</li>
+<li>Shows that companies push the latter to absolve themselves of responsibility</li>
+</ul>
+</div>
+</div>
+
+. . .
+
+> Licensure and security make more sense when thought about this way.
+
+
+## How Corporations Fail
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/palazzo-pattern.jpg" alt="Palazzo and Hoffrage: The Dark Pattern" width="200px">
+</div>
+<div class="col-8">
+Guido Palazzo and Ulrich Hoffrage: <em><a href="https://isbnsearch.org/isbn/9781541705302">The Dark Pattern: The Hidden Dynamics of Corporate Scandals</a></em> (2025)
+<ul>
+<li>There are patterns in the dynamics of corporate scandals</li>
+<li>If we teach them, can we prevent them?</li>
+</ul>
+</div>
+</div>
+
+<br>
+
+<table>
+<tr>
+<td style="border: none; padding-right: 2rem;">
+rigid ideology
+<br>
+toxic leadership
+<br>
+manipulative language
+</td>
+<td style="border: none; padding-right: 2rem;">
+corrupting goals
+<br>
+destructive incentives
+<br>
+ambiguous rules
+</td>
+<td style="border: none; padding-right: 2rem;">
+perceived unfairness
+<br>
+dangerous groups
+<br>
+slippery slope
+</td>
+</table>
+
+
+## Closer to Home
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/lang-cheating.jpg" alt="Lang: Cheating Lessons" width="200px">
+</div>
+<div class="col-8">
+James M. Lang: <em><a href="https://isbnsearch.org/isbn/9780674724631">Cheating Lessons: Learning from Academic Dishonesty</a></em> (2023)
+<ul>
+<li>Personalize discussion of motivation and misaligned incentives</li>
+<li>See if students can apply what they've learned</li>
+</ul>
+</div>
+</div>
+
+
+## The Point Is To Change It
+
+<div class="row">
+<div class="col-4">
+<img src="../../files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="200px">
+</div>
+<div class="col-8">
+Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels: Lessons From Movements That Won</a></em> (2024)
+<ul>
+<li>Social reform only happens when economic pressure is applied</li>
+<li>"Protests make headlines, but boycotts change laws"</li>
+</ul>
+</div>
+</div>
+
+
+## Why This Matters
+
+-   This is the worst job market for junior programmers *ever*
+-   People whose hopes have failed look for someone to blame
+-   If we don't explain how the world works,
+    someone much less pleasant will do so
+
+. . .
+
+> It is 2035.
+> Most men under 20 have learned what they "know" about what women like
+> from AI chatbots trained on porn and tuned to maximize engagement.
+> The people who have earned billions from these systems
+> cannot legally be held accountable for their users' actions.
+>
+> How does that make you feel?
+
+
+## Conclusion (?)
+
+-   My generation squandered the best world we've ever had
+
+
+. . .
+
+-   But better *is* possible
+
+
+. . .
+
+-   The best we can do now is help you learn things that we chose to ignore
+
+
+. . .
+
+-   And it's fun (if you skip the boring bits)
+
+
+## Thank You
+
+<div class="row">
+<div class="col-6">
+<p><img src="../../files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="300px"></p>
+</div>
+<div class="col-6">
+<p><a href="http://third-bit.com">Greg Wilson</a></p>
+<p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+<p><a href="http://third-bit.com/talks/sdgc/">http://third-bit.com/talks/sdgc/</a></p>
+</div>
+</div>
+
+<div class="center">
+<p><em>start where you are &middot; use what you have &middot; help who you can</em></p>
+</div>

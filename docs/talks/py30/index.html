@@ -1,210 +1,492 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-  <link rel="stylesheet" href="../../files/tango.css">
-  <link rel="stylesheet" href="../../files/slides.css">
-  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']]
-      }
-    };
-  </script>
-  <script
-    type="text/javascript"
-    id="MathJax-script"
-    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="dcterms.date" content="2026-02-19">
   <title>Thirty Years of Python</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #204a87; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #204a87; font-weight: bold; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 </head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-  <body>
-    <textarea id="source">
+<section id="title-slide">
+  <h1 class="title">Thirty Years of Python</h1>
+  <p class="date">2026-02-19</p>
+</section>
 
-<div class="center">
-  <h1>Thirty Years of Python</h1>
-  
-  <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <h2>Greg Wilson</h2>
-  <p>2026-02-19</p>
-  <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
+<section id="why-should-you-listen-to-me" class="slide level2">
+<h2>Why Should You Listen to Me?</h2>
+<ul>
+<li>Fellow of the Python Software Foundation
+<ul>
+<li>I wrote the PEP for sets</li>
+</ul></li>
+<li>I’ve been using Python for 30 years
+<ul>
+<li>Teaching it for 28 of those</li>
+<li>Including writing a few books</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Much better at teaching than graphic design</li>
+</ul>
 </div>
-
----
-
-
-## Why Should You Listen to Me?
-
--   Fellow of the Python Software Foundation
-    -   I wrote the PEP for sets
--   I've been using Python for 30 years
-    -   Teaching it for 28 of those
-    -   Including writing a few books
-
-
---
-
--   Much better at teaching than graphic design
-
----
-
-## Are Some Languages Better?
-
-Stefik2013: "An Empirical Investigation into Programming Language Syntax"
-
--   Measured how easily novices could read:
-    -   Perl
-    -   Quorum: the language their team is building
-    -   Randomo: syntax "designed" by rolling D&D dice
-
---
-
--   Perl is as hard for novices to learn as a language with a randomly-designed syntax
-
----
-
-## Are Some Languages Better?
-
--   Second study
-    -   More subjects
-    -   Multiple assessment strategies
--   Languages in the C family are as hard for novices to learn to read as a randomly-designed language
--   Ruby and Python are easier
--   <a href="https://quorumlanguage.com/">Quorum</a> is easier still
-
----
-
-## Show Me the Data
-
--   Gao2017: Strong typing catches about 15% of bugs
-
+</section>
+<section id="are-some-languages-better" class="slide level2">
+<h2>Are Some Languages Better?</h2>
+<p>Stefik2013: “An Empirical Investigation into Programming Language
+Syntax”</p>
+<ul>
+<li>Measured how easily novices could read:
+<ul>
+<li>Perl</li>
+<li>Quorum: the language their team is building</li>
+<li>Randomo: syntax “designed” by rolling D&amp;D dice</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Perl is as hard for novices to learn as a language with a
+randomly-designed syntax</li>
+</ul>
+</div>
+</section>
+<section id="are-some-languages-better-1" class="slide level2">
+<h2>Are Some Languages Better?</h2>
+<ul>
+<li>Second study
+<ul>
+<li>More subjects</li>
+<li>Multiple assessment strategies</li>
+</ul></li>
+<li>Languages in the C family are as hard for novices to learn to read
+as a randomly-designed language</li>
+<li>Ruby and Python are easier</li>
+<li><a href="https://quorumlanguage.com/">Quorum</a> is easier
+still</li>
+</ul>
+</section>
+<section id="show-me-the-data" class="slide level2">
+<h2>Show Me the Data</h2>
+<ul>
+<li>Gao2017: Strong typing catches about 15% of bugs</li>
+</ul>
 <div class="row">
-  <div class="col-12 center">
-    <img src="typescript-features.png" alt="Typescript feature adoption" width="90%">
-    <br>
-    From Scarsbrook2023
+<div class="col-12 center">
+<pre><code>&lt;img src=&quot;../../files/talks/greatest-hits/typescript-features.png&quot; alt=&quot;Typescript feature adoption&quot; width=&quot;90%&quot;&gt;
+&lt;br&gt;
+From Scarsbrook2023</code></pre>
+</div>
+</div>
+</section>
+<section id="in-the-beginning" class="slide level2">
+<h2>In the Beginning…</h2>
+<ul>
+<li>…there was Perl</li>
+<li>Every page of the O’Reilly Pocket Guide included at least one use of
+“except”, “unless”, or “however”</li>
+<li>Hm: there’s this new language called Python</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Indentation? Really? Bleh</li>
+</ul>
+</div>
+</section>
+<section id="it-was-more-teachable" class="slide level2">
+<h2>It Was More Teachable</h2>
+<ul>
+<li>Ran classes at Los Alamos National Laboratory and elsewhere
+<ul>
+<li>Scientists turned programmers</li>
+</ul></li>
+<li>More learnable than Bash, Perl, C++, or Java
+<ul>
+<li>And cheaper than MATLAB</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>I should say “appeared to be more learnable”</li>
+</ul>
+</div>
+</section>
+<section id="the-golden-age" class="slide level2">
+<h2>The Golden Age</h2>
+<ul>
+<li>Python 2 was better than its predecessors</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Raise your hand if you’re old enough to remember this:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    line <span class="op">=</span> reader.readline()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> line:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    …process the line…</span></code></pre></div>
+</div>
+</section>
+<section id="the-golden-age-1" class="slide level2">
+<h2>The Golden Age</h2>
+<ul>
+<li>Python 2 was also better than its successors</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Type hints</li>
+<li><code>yield</code> <em>and</em>
+<code>async</code>/<code>await</code></li>
+<li><code>match</code></li>
+<li>Meta-your-name-goes-here</li>
+<li>Walrus operator</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>If I wanted to write Java, I’d write Java</li>
+</ul>
+</div>
+</section>
+<section id="old-man-shakes-fist-at-clouds" class="slide level2">
+<h2>Old Man Shakes Fist At Clouds</h2>
+<ul>
+<li>The problem is <em>learnability</em></li>
+<li>“You don’t have to teach [X] to beginners”</li>
+<li>But they’re going to see it in examples
+<ul>
+<li>And be told to use it by LLMs</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><a href="https://www.lua.org/">Lua</a> proves that boundless growth
+is not inevitable</li>
+<li><a href="https://www.projectoberon.net/">Project Oberon</a> proved
+that it’s not necessary</li>
+</ul>
+</div>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li>I write Python code five or six days a week
+<ul>
+<li>Even though I’m unemployed :-)</li>
+</ul></li>
+<li>Every feature that’s there is there for a good reason</li>
+<li>But the cumulative effect has (in my opinion) been harmful</li>
+<li>Or maybe just changed the audience</li>
+</ul>
+<div class="fragment">
+<ol type="1">
+<li>Do you know which parts of your software your users are actually
+using?</li>
+<li>Does your project have a complexity budget?</li>
+</ol>
+</div>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank You</h2>
+<div class="row">
+<div class="col-6">
+<p>
+<img src="../../files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="300px">
+</p>
+</div>
+<div class="col-6">
+<p>
+<a href="http://third-bit.com">Greg Wilson</a>
+</p>
+<p>
+<a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a>
+</p>
+<p>
+<a href="http://third-bit.com/talks/py30/">http://third-bit.com/talks/py30/</a>
+</p>
+</div>
+</div>
+<div class="center">
+<p>
+<em>start where you are · use what you have · help who you can</em>
+</p>
+</div>
+</section>
+    </div>
   </div>
-</div>
 
----
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
 
-## In the Beginning…
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
--   …there was Perl
--   Every page of the O'Reilly Pocket Guide included at least one use of "except", "unless", or "however"
--   Hm: there's this new language called Python
+  <script>
 
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
 
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
 
---
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
 
--   Indentation? Really? Bleh
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
 
----
+        // Display a presentation progress bar
+        progress: true,
 
-## It Was More Teachable
+        // Display the page number of the current slide
+        slideNumber: true,
 
--   Ran classes at Los Alamos National Laboratory and elsewhere
-    -   Scientists turned programmers
--   More learnable than Bash, Perl, C++, or Java
-    -   And cheaper than MATLAB
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
 
---
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
 
--   I should say "appeared to be more learnable"
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
 
----
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
 
-## The Golden Age
+        // Push each slide change to the browser history
+        history: false,
 
--   Python 2 was better than its predecessors
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
 
---
+        // Enable the slide overview mode
+        overview: true,
 
--   Raise your hand if you're old enough to remember this:
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
 
-```python
-while True:
-    line = reader.readline()
-    if not line:
-        break
-    …process the line…
-```
+        // Vertical centering of slides
+        center: true,
 
----
+        // Enables touch navigation on devices with touch input
+        touch: true,
 
-## The Golden Age
+        // Loop the presentation
+        loop: false,
 
--   Python 2 was also better than its successors
+        // Change the presentation direction to be RTL
+        rtl: false,
 
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
 
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
 
---
+        // Turns fragments on and off globally
+        fragments: true,
 
--   Type hints
--   `yield` *and* `async`/`await`
--   `match`
--   Meta-your-name-goes-here
--   Walrus operator
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
 
---
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
 
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
 
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
 
--   If I wanted to write Java, I'd write Java
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
 
----
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
 
-## Old Man Shakes Fist At Clouds
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
 
--   The problem is *learnability*
--   "You don't have to teach [X] to beginners"
--   But they're going to see it in examples
-    -   And be told to use it by LLMs
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
 
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
 
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
 
---
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
 
--   [Lua](https://www.lua.org/) proves that boundless growth is not inevitable
--   [Project Oberon](https://www.projectoberon.net/) proved that it's not necessary
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
 
----
+        // The display mode that will be used to show slides
+        display: 'block',
 
-## Conclusion
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
 
--   I write Python code five or six days a week
-    -   Even though I'm unemployed :-)
--   Every feature that's there is there for a good reason
--   But the cumulative effect has (in my opinion) been harmful
--   Or maybe just changed the audience
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
 
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
 
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
 
---
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
 
-1.  Do you know which parts of your software your users are actually using?
-2.  Does your project have a complexity budget?
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
 
----
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
 
-<div align="center">
-  <h2>Thank You</h2>
-  <p><img src="../../files/cv/gvwilson-gage-2019.png" width="40%"></p>
-  <p><a href="http://third-bit.com">Greg Wilson</a></p>
-  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/py30/">http://third-bit.com/talks/py30/</a></p>
-</div>
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
-    </textarea>
-    <script src="../../files/remark-latest.min.js"></script>
-    <script>
-      var slideshow = remark.create()
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
     </script>
-  </body>
+    </body>
 </html>

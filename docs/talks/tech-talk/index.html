@@ -1,299 +1,532 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-  <link rel="stylesheet" href="../../files/tango.css">
-  <link rel="stylesheet" href="../../files/slides.css">
-  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']]
-      }
-    };
-  </script>
-  <script
-    type="text/javascript"
-    id="MathJax-script"
-    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <title>Giving a Tech Talk That Doesn't Suck</title>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="dcterms.date" content="2025-07-20">
+  <title>Giving a Tech Talk That Doesn’t Suck</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 </head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-  <body>
-    <textarea id="source">
+<section id="title-slide">
+  <h1 class="title">Giving a Tech Talk That Doesn’t Suck</h1>
+  <p class="date">2025-07-20</p>
+</section>
 
+<section id="why-should-you-listen-to-me" class="slide level2">
+<h2>Why Should You Listen to Me?</h2>
+<ul>
+<li>Author or editor of sixteen technical books (and two for
+children)</li>
+<li>Award-winning teacher (roughly 3000 hours of lecturing)</li>
+<li>I’ve made mistakes so you don’t have to</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Lectured to the wrong class (once)</li>
+<li>Fallen off stage while lecturing (twice)</li>
+<li>Fallen asleep in one of my own lectures</li>
+<li>And then there’s <a href="https://youtu.be/-ApVt04rB4U"
+class="uri">https://youtu.be/-ApVt04rB4U</a></li>
+</ul>
 <div class="center">
-  <h1>Giving a Tech Talk That Doesn't Suck</h1>
-  
-  <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <h2>Greg Wilson</h2>
-  <p>2025-07-20</p>
-  <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
+<p><img src="../../files/talks/tech-talk/poor-teaching.png" alt="video of poor teaching"></p>
 </div>
-
----
-
-
-## Why Should You Listen to Me?
-
--   Author or editor of sixteen technical books (and two for children)
--   Award-winning teacher (roughly 3000 hours of lecturing)
--   I've made mistakes so you don't have to
-
-
---
-
--   Lectured to the wrong class (once)
--   Fallen off stage while lecturing (twice)
--   Fallen asleep in one of my own lectures
--   And then there's <https://youtu.be/-ApVt04rB4U>
-
+</div>
+</section>
+<section id="who-are-you-speaking-to" class="slide level2">
+<h2>Who Are You Speaking To?</h2>
+<ul>
+<li>Write down who you’re speaking to</li>
+<li>Otherwise you’ll wind up speaking to yourself</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p><strong>Organizational Change for Open Science</strong></p>
+<ul>
+<li>Sabina, 28, has a master’s degree in animal physiology and now works
+as a data analyst for a mid-sized pharmaceutical company.</li>
+<li>Sabina takes open access publishing and open source software for
+granted, but has never been involved in politics or advocacy beyond
+signing a few online petitions.</li>
+<li>Sabina’s company doesn’t have a policy on contributing to open
+source projects, but her department head grumbles about “all this
+diversity stuff” distracting people from “real work”.</li>
+<li>Sabina doesn’t mind public speaking, but finds face-to-face conflict
+very stressful.</li>
+</ul>
+</blockquote>
+</div>
+</section>
+<section id="what-does-your-talk-change" class="slide level2">
+<h2>What Does Your Talk Change?</h2>
+<ul>
+<li>Also write down what change you want to cause in your audience</li>
+<li>Not “what will they know?” but “what will they do?”
+<ul>
+<li>Work backward from the latter to the former</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p><strong>Organizational Change for Open Science</strong></p>
+<p>This workshop gives Sabina a vocabulary for organizational change so
+that she can think and talk about it more clearly, while the exercises
+help her figure out what changes she wants and how to achieve them.</p>
+</blockquote>
+</div>
+</section>
+<section id="what-story-should-you-tell" class="slide level2">
+<h2>What Story Should You Tell?</h2>
+<ol type="1">
+<li>Retrace your own learning journey (challenge/response)</li>
+<li>Solve a problem (detective story)</li>
+<li>How to (like this talk)</li>
+<li>Build toward epiphany
+<ul>
+<li>But bottom-up is hard (delayed gratification)</li>
+</ul></li>
+<li>A catalog of curiosities</li>
+</ol>
+<div class="fragment">
+<blockquote>
+<p>Which of the five patterns above does this talk follow?</p>
+</blockquote>
+</div>
+</section>
+<section id="is-it-a-story" class="slide level2">
+<h2>Is It a Story?</h2>
+<ul>
+<li>“And then” is weak</li>
+<li>“But” and “therefore” are strong</li>
+</ul>
+</section>
+<section id="what-are-you-going-to-ask" class="slide level2">
+<h2>What Are You Going to Ask?</h2>
+<ul>
+<li>Most people design talks in terms of what they want to
+<em>say</em></li>
+<li>Equally useful to think of what you’re going to <em>ask</em>
+<ul>
+<li>During the talk</li>
+<li>At the end</li>
+</ul></li>
+<li><em>Reverse instructional design</em>
+<ul>
+<li>Helps keep the audience engaged</li>
+<li>Lets you check for understanding</li>
+<li>Helps you trim unneeded material</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">How often have you sat through a talk where
+everyone in the audience already knew what the speaker was
+presenting?</li>
+<li class="fragment">Did you notice when the speaker hit material that
+you <em>didn’t</em> already know?</li>
+</ol>
+</div>
+</section>
+<section id="how-do-you-choose-what-to-say" class="slide level2">
+<h2>How Do You Choose What To Say?</h2>
+<ul>
+<li>Rough notes (as plain text) first
+<ul>
+<li>Too many people spend too much time optimizing things they then
+throw away</li>
+</ul></li>
+<li>I’m very fond of <em>concept maps</em> as well</li>
+</ul>
+<div class="fragment">
 <div class="center">
-  <img src="../../files/talks/tech-talk/poor-teaching.png" alt="video of poor teaching">
+<p><img src="../../sdxpy/test/concept_map.svg" alt="concept map of unit testing"></p>
 </div>
-
-
----
-
-## Who Are You Speaking To?
-
--   Write down who you're speaking to
--   Otherwise you'll wind up speaking to yourself
-
-
---
-
-> **Organizational Change for Open Science**
->
-> -   Sabina, 28, has a master's degree in animal physiology
->     and now works as a data analyst for a mid-sized pharmaceutical company.
-> -   Sabina takes open access publishing and open source software for granted,
->     but has never been involved in politics or advocacy beyond signing a few online petitions.
-> -   Sabina's company doesn't have a policy on contributing to open source projects,
->     but her department head grumbles about "all this diversity stuff" distracting people from "real work".
-> -   Sabina doesn't mind public speaking,
->     but finds face-to-face conflict very stressful.
-
----
-
-## What Does Your Talk Change?
-
--   Also write down what change you want to cause in your audience
--   Not "what will they know?" but "what will they do?"
-    -   Work backward from the latter to the former
-
-
---
-
-> **Organizational Change for Open Science**
->
-> This workshop gives Sabina a vocabulary for organizational change
-> so that she can think and talk about it more clearly,
-> while the exercises help her figure out what changes she wants
-> and how to achieve them.
-
-
----
-
-## What Story Should You Tell?
-
-1.  Retrace your own learning journey (challenge/response)
-2.  Solve a problem (detective story)
-3.  How to (like this talk)
-4.  Build toward epiphany
-    -   But bottom-up is hard (delayed gratification)
-5.  A catalog of curiosities
-
-
---
-
-> Which of the five patterns above does this talk follow?
-
----
-
-## Is It a Story?
-
--   "And then" is weak
--   "But" and "therefore" are strong
-
----
-
-## What Are You Going to Ask?
-
--   Most people design talks in terms of what they want to *say*
--   Equally useful to think of what you're going to *ask*
-    -   During the talk
-    -   At the end
--   *Reverse instructional design*
-    -   Helps keep the audience engaged
-    -   Lets you check for understanding
-    -   Helps you trim unneeded material
-
-
---
-
-> 1.  How often have you sat through a talk
->     where everyone in the audience
->     already knew what the speaker was presenting?
-> 2.  Did you notice when the speaker hit material
->     that you *didn't* already know?
-
----
-
-## How Do You Choose What To Say?
-
--   Rough notes (as plain text) first
-    -   Too many people spend too much time optimizing things they then throw away
--   I'm very fond of *concept maps* as well
-
-
---
-
+</div>
+</section>
+<section id="when-are-you-done" class="slide level2">
+<h2>When Are You Done?</h2>
+<ul>
+<li>“Lessons are never finished: they are just delivered.”</li>
+<li>Practice <em>out loud</em>
+<ul>
+<li>Doing everything you plan to do (e.g., live coding)</li>
+</ul></li>
+<li>Get feedback from a friend
+<ul>
+<li>Unless you’re comfortable seeing/hearing yourself</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>No lesson survives first contact with its audience.</p>
+<p>— Robert Wilson</p>
+</blockquote>
+</div>
+</section>
+<section id="how-do-you-deliver-the-talk" class="slide level2">
+<h2>How Do You Deliver the Talk?</h2>
+<ul>
+<li>Amplify yourself
+<ul>
+<li>If you are naturally outgoing, be exuberant</li>
+<li>If you are naturally thoughtful, be laid back</li>
+<li>I’m a terrible graphic designer, so I deliberately stick to
+mostly-text slides</li>
+</ul></li>
+<li>Everyone talks faster in front of an audience (adrenaline)</li>
+<li>Adjust to the size of the room
+<ul>
+<li>Acoustic cafe vs. stadium rock</li>
+</ul></li>
+<li>A glass of water can save your career (or your marriage)</li>
+</ul>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">What two adjectives would people who know you well
+use to describe you?</li>
+<li class="fragment">How can you use these on stage?</li>
+</ol>
+</div>
+</section>
+<section id="what-shouldnt-you-do" class="slide level2">
+<h2>What <em>Shouldn’t</em> You Do?</h2>
+<ol type="1">
+<li>Talk to your laptop</li>
+<li>Read your slides aloud</li>
+<li>Spend more than two sentences on who you are</li>
+<li>Put more than seven things on any slide</li>
+<li>Talk to just one person in the front row</li>
+<li>Lose track of time</li>
+<li>Lose control of your audience</li>
+</ol>
+</section>
+<section id="how-do-you-fail-gracefully" class="slide level2">
+<h2>How Do You Fail Gracefully?</h2>
+<ul>
+<li>No network access</li>
+<li>“Installing update…”</li>
+<li>Under/over-estimated your audience
+<ul>
+<li>Or worse, their interest</li>
+</ul></li>
+<li>“That guy”</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Show up early to test things</li>
+<li>Give the next speaker time and space to do this</li>
+</ul>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">How do you handle someone who really wishes he was
+giving the talk instead of you?</li>
+<li class="fragment">What do you do if your demo just doesn’t work?</li>
+</ol>
+</div>
+</section>
+<section id="where-do-you-start" class="slide level2">
+<h2>Where Do You Start?</h2>
+<ul>
+<li>A little-known or counter-intuitive fact (also called a
+<em>hook</em>)</li>
+<li>A story of personal failure
+<ul>
+<li>A sympathetic audience is more likely to listen</li>
+</ul></li>
+<li>An audience poll
+<ul>
+<li>Follow up with questions to specific people</li>
+<li>Specifically, those who are still talking</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-do-you-finish" class="slide level2">
+<h2>How Do You Finish?</h2>
+<ul>
+<li>A call to action (“submit your pull requests here!”)</li>
+<li>A pointer to further / deeper resources</li>
+<li>A memorable story (poignant, funny, or angry)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Plan to end a few minutes early</li>
+</ul>
+</div>
+</section>
+<section id="what-tools-can-you-use" class="slide level2">
+<h2>What Tools Can You Use?</h2>
+<ul>
+<li>Search engines are your friend
+<ul>
+<li>You are probably not the first person to talk about this</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Accessibility auditing tools
+<ul>
+<li>Everything that helps people with challenges helps everyone
+else</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Record yourself
+<ul>
+<li>If athletes and musicians can do it, so can you</li>
+<li>The discomfort fades…eventually</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Use genAI to review, <em>not</em> to create
+<ul>
+<li>Good at spotting contradictions and omissions</li>
+<li>Which inevitably creep in as you revise</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank You</h2>
+<div class="row">
+<div class="col-6">
+<p>
+<img src="../../files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="300px">
+</p>
+</div>
+<div class="col-6">
+<p>
+<a href="http://third-bit.com">Greg Wilson</a>
+</p>
+<p>
+<a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a>
+</p>
+<p>
+<a href="http://third-bit.com/talks/tech-talk/">http://third-bit.com/talks/tech-talk/</a>
+</p>
+</div>
+</div>
 <div class="center">
-  <img src="../../sdxpy/test/concept_map.svg" alt="concept map of unit testing">
+<p>
+<em>start where you are · use what you have · help who you can</em>
+</p>
 </div>
+</section>
+    </div>
+  </div>
 
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
 
----
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
 
-## When Are You Done?
+  <script>
 
--   "Lessons are never finished: they are just delivered."
--   Practice *out loud*
-    -   Doing everything you plan to do (e.g., live coding)
--   Get feedback from a friend
-    -   Unless you're comfortable seeing/hearing yourself
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
 
---
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
 
-> No lesson survives first contact with its audience.
->
-> — Robert Wilson
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
 
----
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
 
-## How Do You Deliver the Talk?
+        // Display a presentation progress bar
+        progress: true,
 
--   Amplify yourself
-    -   If you are naturally outgoing, be exuberant
-    -   If you are naturally thoughtful, be laid back
-    -   I'm a terrible graphic designer,
-        so I deliberately stick to mostly-text slides
--   Everyone talks faster in front of an audience (adrenaline)
--   Adjust to the size of the room
-    -   Acoustic cafe vs. stadium rock
--   A glass of water can save your career (or your marriage)
+        // Display the page number of the current slide
+        slideNumber: true,
 
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
 
---
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
 
-> 1.  What two adjectives would people who know you well use to describe you?
-> 2.  How can you use these on stage?
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
 
----
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
 
-## What *Shouldn't* You Do?
+        // Push each slide change to the browser history
+        history: false,
 
-1.  Talk to your laptop
-2.  Read your slides aloud
-3.  Spend more than two sentences on who you are
-4.  Put more than seven things on any slide
-5.  Talk to just one person in the front row
-6.  Lose track of time
-7.  Lose control of your audience
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
 
----
+        // Enable the slide overview mode
+        overview: true,
 
-## How Do You Fail Gracefully?
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
 
--   No network access
--   "Installing update…"
--   Under/over-estimated your audience
-    -   Or worse, their interest
--   "That guy"
+        // Vertical centering of slides
+        center: true,
 
+        // Enables touch navigation on devices with touch input
+        touch: true,
 
---
+        // Loop the presentation
+        loop: false,
 
--   Show up early to test things
--   Give the next speaker time and space to do this
+        // Change the presentation direction to be RTL
+        rtl: false,
 
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
 
---
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
 
-> 1.  How do you handle someone who really wishes he was giving the talk instead of you?
-> 2.  What do you do if your demo just doesn't work?
+        // Turns fragments on and off globally
+        fragments: true,
 
----
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
 
-## Where Do You Start?
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
 
--   A little-known or counter-intuitive fact (also called a *hook*)
--   A story of personal failure
-    -   A sympathetic audience is more likely to listen
--   An audience poll
-    -   Follow up with questions to specific people
-    -   Specifically, those who are still talking
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
 
----
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
 
-## How Do You Finish?
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
 
--   A call to action ("submit your pull requests here!")
--   A pointer to further / deeper resources
--   A memorable story (poignant, funny, or angry)
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
 
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
 
---
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
 
--   Plan to end a few minutes early
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
 
----
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
 
-## What Tools Can You Use?
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
 
--   Search engines are your friend
-    -   You are probably not the first person to talk about this
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
 
+        // The display mode that will be used to show slides
+        display: 'block',
 
---
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
 
--   Accessibility auditing tools
-    -   Everything that helps people with challenges
-        helps everyone else
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
 
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
 
---
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
 
--   Record yourself
-    -   If athletes and musicians can do it, so can you
-    -   The discomfort fades…eventually
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
 
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
 
---
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
 
--   Use genAI to review, *not* to create
-    -   Good at spotting contradictions and omissions
-    -   Which inevitably creep in as you revise
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
 
----
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
-<div align="center">
-  <h2>Thank You</h2>
-  <p><img src="../../files/talks/gvwilson.png" width="40%"></p>
-  <p><a href="http://third-bit.com">Greg Wilson</a></p>
-  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/tech-talk/">http://third-bit.com/talks/tech-talk/</a></p>
-</div>
-
-
-    </textarea>
-    <script src="../../files/remark-latest.min.js"></script>
-    <script>
-      var slideshow = remark.create()
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
     </script>
-  </body>
+    </body>
 </html>

@@ -1,0 +1,176 @@
+---
+title: "Bibliography"
+template: page
+---
+<div class="bibliography">
+
+<p id="Brown2011">[Brown2011]
+Amy Brown and Greg Wilson (eds.):
+<em><a href="http://aosabook.org">The Architecture of Open Source Applications: Elegance, Evolution, and a Few Fearless Hacks</a></em>.
+Lulu, 2011, 978-1257638017.
+</p>
+
+<p id="Brown2012">[Brown2012]
+Amy Brown and Greg Wilson (eds.):
+<em><a href="http://aosabook.org">The Architecture of Open Source Applications: Structure, Scale, and a Few More Fearless Hacks</a></em>.
+Lulu, 2012, 978-0201103427.
+</p>
+
+<p id="Byck2005">[Byck2005]
+Pauli Byckling, Petri Gerdt, and Jorma Sajaniemi:
+"<a href="https://doi.org/10.1145/1094855.1094972">Roles of Variables in Object-Oriented Programming</a>".
+<em>2005 Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA'05)</em>, <a class="doi" href="https://doi.org/10.1145/1094855.1094972">10.1145/1094855.1094972</a>.
+</p>
+
+<p id="Cher2007">[Cher2007]
+Mauro Cherubini, Gina Venolia, Rob DeLine, and Amy J. Ko:
+"<a href="https://doi.org/10.1145/1240624.1240714">Let's Go to the Whiteboard: How and Why Software Developers Use Drawings</a>".
+<em>2007 Conference on Human Factors in Computing Systems (CHI'07)</em>, <a class="doi" href="https://doi.org/10.1145/1240624.1240714">10.1145/1240624.1240714</a>.
+</p>
+
+<p id="Feathers2004">[Feathers2004]
+Michael C. Feathers:
+<em>Working Effectively with Legacy Code</em>.
+Prentice-Hall, 2004, 978-0131177055.
+</p>
+
+<p id="Forsgren2018">[Forsgren2018]
+Nicole Forsgren, Jez Humble, and Gene Kim:
+<em>Accelerate: Building and Scaling High Performing Technology Organizations</em>.
+IT Revolution Press, 2018, 978-1942788331.
+</p>
+
+<p id="Fowler2018">[Fowler2018]
+Martin Fowler:
+<em>Refactoring</em> (2nd edition).
+Addison-Wesley Professional, 2018, 978-0134757599.
+</p>
+
+## Bibliography
+
+<p id="Fucci2016">[Fucci2016]
+Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo:
+"<a href="https://doi.org/10.1145/2961111.2962592">An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach</a>".
+<em>ESEM'16</em>, <a class="doi" href="https://doi.org/10.1145/2961111.2962592">10.1145/2961111.2962592</a>.
+</p>
+
+<p id="Gomez2019">[Gomez2019]
+L.E. Gomez and Patrick Bernet:
+"<a href="https://doi.org/10.1016/j.jnma.2019.01.006">Diversity improves performance and outcomes</a>".
+<em>Journal of the National Medical Association</em>, 111(4), 2019, <a class="doi" href="https://doi.org/10.1016/j.jnma.2019.01.006">10.1016/j.jnma.2019.01.006</a>.
+</p>
+
+<p id="Gompers2018">[Gompers2018]
+Paul Gompers and Silpa Kovvali:
+"The Other Diversity Dividend".
+<em>Harvard Business Review</em>, 96(4), 2018.
+</p>
+
+<p id="Hook2009">[Hook2009]
+D. Hook and D. Kelly:
+"Testing for trustworthiness in scientific software."
+<em>Proc. 2009 ICSE Workshop on Software Engineering for Computational Science and Engineering</em>,
+2009,
+<a class="doi" href="https://doi.org/10.1109/secse.2009.5069163">10.1109/secse.2009.5069163</a>.
+</p>
+
+<p id="Johnson2017">[Johnson2017]
+Jeff Johnson and Kate Finn:
+<em>Designing User Interfaces for an Aging Population: Towards Universal Design</em>.
+Morgan Kaufmann, 2017, 978-0128044674.
+</p>
+
+<p id="Kanewala2014">[Kanewala2014]
+U. Kanewala and JM Bieman: "Testing scientific software: A systematic literature review."
+<em>Information and Software Technology</em>. 56(10), 2014, <a class="doi" href="https://doi.org/10.1016/j.infsof.2014.05.006">10.1016/j.infsof.2014.05.006</a>.
+</p>
+
+<p id="Kerievsky2004">[Kerievsky2004]
+Joshua Kerievsky:
+<em>Refactoring to Patterns</em>.
+Addison-Wesley Professional, 2004, 978-0321213358.
+</p>
+
+
+## Bibliography
+
+<p id="Kim2016">[Kim2016]
+Gene Kim, Patrick Debois, John Willis, and Jez Humble:
+<em>The DevOps Handbook</em>.
+IT Revolution Press, 2016, 978-1942788003.
+</p>
+
+<p id="Meyer1994">[Meyer1994]
+Bertrand Meyer:
+<em>Object-Oriented Software Construction</em>.
+Prentice-Hall, 1994, 978-0136290490.
+</p>
+
+<p id="Miller1956">[Miller1956]
+George A. Miller:
+"The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information".
+<em>Psychological Review</em>, 63(2), 1956, <a class="doi" href="https://doi.org/10.1037/h0043158">10.1037/h0043158</a>.
+</p>
+
+<p id="Parnas1986">[Parnas1986]
+David Lorge Parnas and Paul C. Clements:
+"A Rational Design Process: How and Why to Fake It".
+<em>IEEE Transactions on Software Engineering</em>, SE-12(2), 1986, <a class="doi" href="https://doi.org/10.1109/tse.1986.6312940">10.1109/tse.1986.6312940</a>.
+</p>
+
+<p id="Petre2013">[Petre2013]
+Marian Petre:
+"UML in practice".
+<em>Proc. ICSE'13</em>.
+</p>
+
+<p id="Scanlan1989">[Scanlan1989]
+David A. Scanlan:
+"Structured Flowcharts Outperform Pseudocode: An Experimental Comparison".
+<em>IEEE Software</em>, 6(5), 1989, <a class="doi" href="https://doi.org/10.1109/52.35587">10.1109/52.35587</a>.
+</p>
+
+<p id="Schon1984">[Schon1984]
+Donald A. Schon:
+<em>The Reflective Practitioner: How Professionals Think in Action</em>.
+Basic Books, 1984, 978-0465068784.
+</p>
+
+<p id="Sholler2019">[Sholler2019]
+Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wilson:
+"Ten simple rules for helping newcomers become contributors to open projects".
+<em>PLOS Computational Biology</em>, 15(9), 2019, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1007296">10.1371/journal.pcbi.1007296</a>.
+</p>
+
+
+<!--# class=bibliography -->
+
+## Bibliography
+
+<p id="Smalls2021">[Smalls2021]
+Danielle Smalls and Greg Wilson: "Ten quick tips for staying safe online."
+<em>PLoS Computational Biology</em>, 17(3), 2021, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1008563">10.1371/journal.pcbi.1008563</a>.
+</p>
+
+<p id="Taschuk2017">[Taschuk2017]
+Morgan Taschuk and Greg Wilson:
+"Ten simple rules for making research software more robust."
+<em>PLoS Computational Biology</em>, 13(4), 2017, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1005412">10.1371/journal.pcbi.1005412</a>.
+</p>
+
+<p id="Tichy2010">[Tichy2010]
+Walter Tichy:
+"The Evidence for Design Patterns".
+In 
+Andy Oram and Greg Wilson (eds.):
+<em>Making Software.</em>
+O'Reilly, 2010, 978-0596808327.
+</p>
+
+<p id="Wickham2017">[Wickham2017]
+Hadley Wickham and Garrett Grolemund:
+<em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>.
+O'Reilly, 2017, 978-1491910399.
+</p>
+
+</div>
