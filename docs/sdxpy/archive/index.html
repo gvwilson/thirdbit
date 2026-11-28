@@ -1,122 +1,43 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>A File Archiver</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>A File Archiver</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a class="active" href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>A File Archiver</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#archive-files" id="toc-archive-files"><span class="header-section-number">10.1</span> Saving Files</a></li>
+<li><a href="#archive-test" id="toc-archive-test"><span class="header-section-number">10.2</span> Testing</a></li>
+<li><a href="#archive-track" id="toc-archive-track"><span class="header-section-number">10.3</span> Tracking Backups</a></li>
+<li><a href="#archive-refactor" id="toc-archive-refactor"><span class="header-section-number">10.4</span> Refactoring</a></li>
+<li><a href="#archive-summary" id="toc-archive-summary"><span class="header-section-number">10.5</span> Summary</a></li>
+<li><a href="#archive-exercises" id="toc-archive-exercises"><span class="header-section-number">10.6</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">A File Archiver</h1>
+<div class="syllabus">
 <ul>
 <li>Version control tools use hashing to uniquely identify each saved file.</li>
 <li>Each snapshot of a set of files is recorded in a manifest.</li>
@@ -125,501 +46,267 @@
 <li>Use a base class to specify what a component must be able to do and derive child classes to implement those operations.</li>
 </ul>
 </div>
-<p>We've written almost a thousand lines of Python so far.
-We could recreate it if we had to,
-but we'd rather not have to.
-We'd also like to be able to see what we've changed
-and to collaborate with other people.</p>
-<p>A <a class="gl-ref" href="../glossary/#version_control_system">version control system</a>
-like <span class="ix-ref" data-ix-key="Git" id="ix-archive-1">Git</span>
-solves all of these problems at once.
-It keeps track of changes to files
-so that we can see what we've changed,
-recover old versions,
-and merge our changes with those made by other people.</p>
-<p>The core of a modern version control tool
-is a way to archive files that:</p>
-<ol>
-<li>
-<p>records which versions of which files existed at the same time,
-    so that we can go back to a consistent previous state,
-    and</p>
-</li>
-<li>
-<p>stores any particular version of a file only once,
-    so that we don't waste disk space.</p>
-</li>
+<p>We’ve written almost a thousand lines of Python so far. We could recreate it if we had to, but we’d rather not have to. We’d also like to be able to see what we’ve changed and to collaborate with other people.</p>
+<p>A <a href="../glossary/index.html#version_control_system">version control system</a> like Git solves all of these problems at once. It keeps track of changes to files so that we can see what we’ve changed, recover old versions, and merge our changes with those made by other people.</p>
+<p>The core of a modern version control tool is a way to archive files that:</p>
+<ol type="1">
+<li><p>records which versions of which files existed at the same time, so that we can go back to a consistent previous state, and</p></li>
+<li><p>stores any particular version of a file only once, so that we don’t waste disk space.</p></li>
 </ol>
-<p>This chapter builds a tool that does both tasks.
-It won't create and merge branches;
-if you would like to see how that works,
-please see <span class="ix-ref" data-ix-key="Cook, Mary Rose" id="ix-archive-2">Mary Rose Cook's</span> <a href="http://gitlet.maryrosecook.com/">Gitlet</a>
-or <span class="ix-ref" data-ix-key="Polge, Thibault" id="ix-archive-3">Thibault Polge's</span> <a href="https://wyag.thb.lt/">Write yourself a Git</a>.</p>
-<h2 id="archive-files">Saving Files</h2>
-<p>Many files only change occasionally after they're created, or not at all.
-It would be wasteful for a version control system to make copies
-each time the user saved a snapshot of a project,
-so instead we will copy each unique file to something like <code>abcd1234.bck</code>,
-where <code>abcd1234</code> is the hash of the file's contents (<a class="xref" href="../dup/">Chapter 3</a>).
-We will then record the filenames and hash keys in each snapshot:
-The hash keys tell us which unique files existed at the time of the snapshot,
-while the filenames tell us what the file's contents were named when the snapshot was made.
-To restore a particular snapshot,
-we will copy the <code>.bck</code> files back to their original locations
-(<a class="fig-ref" href="#f:archive-storage">Figure 1</a>).</p>
-<figure id="f:archive-storage">
-<img alt="Backup file storage" src="storage.svg"/>
-<figcaption>Figure 1: Organization of backup file storage.</figcaption>
-</figure>
-<p>The first step is to find all the files in or below a given directory
-that we need to save.
-As described in <a class="xref" href="../glob/">Chapter 4</a>,
-Python's <a href="https://docs.python.org/3/library/glob.html"><code>glob</code></a> module can do this for us.
-Let's use this to create a table of files and hashes:</p>
-<div data-inc="hash_all.py" data-mark="func"><span aria-label="Source: archive/hash_all.py" class="inc-path" role="img" tabindex="0" title="archive/hash_all.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">HASH_LEN</span> <span class="o">=</span> <span class="mi">16</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">hash_all</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="s2">"**/*.*"</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="n">root</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">full_name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_name</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-            <span class="n">hash_code</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="n">HASH_LEN</span><span class="p">]</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">hash_code</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
+<p>This chapter builds a tool that does both tasks. It won’t create and merge branches; if you would like to see how that works, please see Mary Rose Cook's <a href="http://gitlet.maryrosecook.com/">Gitlet</a> or Thibault Polge's <a href="https://wyag.thb.lt/">Write yourself a Git</a>.</p>
+<h2 data-number="10.1" id="archive-files"><span class="header-section-number">10.1</span> Saving Files</h2>
+<p>Many files only change occasionally after they’re created, or not at all. It would be wasteful for a version control system to make copies each time the user saved a snapshot of a project, so instead we will copy each unique file to something like <code>abcd1234.bck</code>, where <code>abcd1234</code> is the hash of the file’s contents (<a href="../dup/index.html" class="quarto-xref"><span>Chapter 3</span></a>). We will then record the filenames and hash keys in each snapshot: The hash keys tell us which unique files existed at the time of the snapshot, while the filenames tell us what the file’s contents were named when the snapshot was made. To restore a particular snapshot, we will copy the <code>.bck</code> files back to their original locations (<a href="#fig-archive-storage" class="quarto-xref">Figure&nbsp;<span>10.1</span></a>).</p>
+<div id="fig-archive-storage" class="quarto-float quarto-figure quarto-figure-center" alt="Diagram of how backup files are stored">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-archive-storage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="storage.svg" alt="Diagram of how backup files are stored">
 </div>
-<p>Notice that we're truncating the <span class="ix-ref" data-ix-key="hash code" id="ix-archive-4">hash code</span> of each file
-to just 16 <span class="ix-ref" data-ix-key="hexadecimal" id="ix-archive-5">hexadecimal</span> digits.
-This greatly increases the odds of <span class="ix-ref" data-ix-key="collision (in hashing)" id="ix-archive-6">collision</span>,
-so real version control systems don't do this,
-but it makes our program's output easier to show on screen.
-For example,
-if our test directory looks like this:</p>
-<div data-inc="sample_dir.out"><span aria-label="Source: archive/sample_dir.out" class="inc-path" role="img" tabindex="0" title="archive/sample_dir.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>sample_dir
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-archive-storage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Organization of backup file storage.
+</figcaption>
+</figure>
+</div>
+<p>The first step is to find all the files in or below a given directory that we need to save. As described in <a href="../glob/index.html" class="quarto-xref"><span>Chapter 4</span></a>, Python’s <a href="https://docs.python.org/3/library/glob.html"><code>glob</code></a> module can do this for us. Let’s use this to create a table of files and hashes:</p>
+<div class="sourceCode" id="cb1" data-file="archive/hash_all.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>HASH_LEN <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hash_all(root):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> glob(<span class="st">"**/*.*"</span>, root_dir<span class="op">=</span>root, recursive<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        full_name <span class="op">=</span> Path(root, name)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(full_name, <span class="st">"rb"</span>) <span class="im">as</span> reader:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> reader.read()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            hash_code <span class="op">=</span> sha256(data).hexdigest()[:HASH_LEN]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            result.append((name, hash_code))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code></pre></div>
+<p>Notice that we’re truncating the hash code of each file to just 16 hexadecimal digits. This greatly increases the odds of collision, so real version control systems don’t do this, but it makes our program’s output easier to show on screen. For example, if our test directory looks like this:</p>
+<pre data-file="archive/sample_dir.out"><code>sample_dir
 |-- a.txt
 |-- b.txt
 `-- sub_dir
     `-- c.txt
-
-1 directory, 3 files
-</code></pre></div>
-</div>
-<p>then our program's output is:</p>
-<div data-inc="hash_all.sh"><span aria-label="Source: archive/hash_all.sh" class="inc-path" role="img" tabindex="0" title="archive/hash_all.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>python<span class="w"> </span>hash_all.py<span class="w"> </span>sample_dir
-</code></pre></div>
-</div>
-<div data-inc="hash_all.out"><span aria-label="Source: archive/hash_all.out" class="inc-path" role="img" tabindex="0" title="archive/hash_all.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>filename,hash
+1 directory, 3 files</code></pre>
+<p>then our program’s output is:</p>
+<div class="sourceCode" id="cb3" data-file="archive/hash_all.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> hash_all.py sample_dir</span></code></pre></div>
+<pre data-file="archive/hash_all.out"><code>filename,hash
 b.txt,3cf9a1a81f6bdeaf
 a.txt,17e682f060b5f8e4
-sub_dir/c.txt,5695d82a086b6779
-</code></pre></div>
+sub_dir/c.txt,5695d82a086b6779</code></pre>
+<h2 data-number="10.2" id="archive-test"><span class="header-section-number">10.2</span> Testing</h2>
+<p>Before we go any further we need to figure out how we’re going to test our code. The obvious approach is to create directories and sub-directories containing some files we can use as fixtures. However, we are going to change or delete those files as we back things up and restore them. To make sure early tests don’t contaminate later ones, we would have to recreate those files and directories after each test.</p>
+<p>As discussed in <a href="../protocols/index.html" class="quarto-xref"><span>Chapter 9</span></a>, a better approach is to use a mock object instead of the real filesystem. The <a href="https://pytest-pyfakefs.readthedocs.io/"><code>pyfakefs</code></a> module replaces key functions like <code>open</code> with functions that behave the same way but act on “files” stored in memory (<a href="#fig-archive-mock-fs" class="quarto-xref">Figure&nbsp;<span>10.2</span></a>). Using it prevents our tests from accidentally disturbing the filesystem; it also makes tests much faster since in-memory operations are thousands of times faster than ones that touch the disk.</p>
+<div id="fig-archive-mock-fs" class="quarto-float quarto-figure quarto-figure-center" alt="Mock filesystem used to ease testing">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-archive-mock-fs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mock_fs.svg" alt="Mock filesystem used to ease testing">
 </div>
-<h2 id="archive-test">Testing</h2>
-<p>Before we go any further
-we need to figure out how we're going to test our code.
-The obvious approach is to create directories and sub-directories
-containing some files we can use as <span class="ix-ref" data-ix-key="fixture" id="ix-archive-7">fixtures</span>.
-However,
-we are going to change or delete those files
-as we back things up and restore them.
-To make sure early tests don't contaminate later ones,
-we would have to recreate those files and directories after each test.</p>
-<p>As discussed in <a class="xref" href="../protocols/">Chapter 9</a>,
-a better approach is to use a <span class="ix-ref" data-ix-key="mock object" id="ix-archive-8">mock object</span>
-instead of the real filesystem.
-The <a href="https://pytest-pyfakefs.readthedocs.io/"><code>pyfakefs</code></a> module replaces key functions like <code>open</code>
-with functions that behave the same way
-but act on "files" stored in memory
-(<a class="fig-ref" href="#f:archive-mock-fs">Figure 2</a>).
-Using it prevents our tests from accidentally disturbing the filesystem;
-it also makes tests much faster
-since in-memory operations are thousands of times faster than ones that touch the disk.</p>
-<figure id="f:archive-mock-fs">
-<img alt="Mock filesystem" src="mock_fs.svg"/>
-<figcaption>Figure 2: Using a mock filesystem to simplify testing.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-archive-mock-fs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: Using a mock filesystem to simplify testing.
+</figcaption>
 </figure>
-<p>If we <code>import pyfakefs</code>,
-we automatically get a fixture called <code>fs</code>
-that we can use to create files.
-We tell <a href="https://docs.pytest.org/">pytest</a> we want to use this fixture
-by passing it as an argument to our testing function:</p>
-<div data-inc="test_mock_fs.py"><span aria-label="Source: archive/test_mock_fs.py" class="inc-path" role="img" tabindex="0" title="archive/test_mock_fs.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_simple_example</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
-    <span class="n">sentence</span> <span class="o">=</span> <span class="s2">"This file contains one sentence."</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"alpha.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"alpha.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"alpha.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="o">==</span> <span class="n">sentence</span>
-</code></pre></div>
 </div>
-<p>We can use <code>fs</code> to create more complicated fixtures of our own
-with multiple directories and files:</p>
-<div data-inc="test_mock_tree.py"><span aria-label="Source: archive/test_mock_tree.py" class="inc-path" role="img" tabindex="0" title="archive/test_mock_tree.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">our_fs</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"aaa"</span><span class="p">)</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"b.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"bbb"</span><span class="p">)</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"sub_dir/c.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"ccc"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_nested_example</span><span class="p">(</span><span class="n">our_fs</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"b.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"sub_dir/c.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_deletion_example</span><span class="p">(</span><span class="n">our_fs</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-    <span class="n">Path</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-</code></pre></div>
-</div>
+<p>If we <code>import pyfakefs</code>, we automatically get a fixture called <code>fs</code> that we can use to create files. We tell <a href="https://docs.pytest.org/">pytest</a> we want to use this fixture by passing it as an argument to our testing function:</p>
+<div class="sourceCode" id="cb5" data-file="archive/test_mock_fs.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_simple_example(fs):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    sentence <span class="op">=</span> <span class="st">"This file contains one sentence."</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">"alpha.txt"</span>, <span class="st">"w"</span>) <span class="im">as</span> writer:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        writer.write(sentence)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(<span class="st">"alpha.txt"</span>).exists()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">"alpha.txt"</span>, <span class="st">"r"</span>) <span class="im">as</span> reader:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> reader.read() <span class="op">==</span> sentence</span></code></pre></div>
+<p>We can use <code>fs</code> to create more complicated fixtures of our own with multiple directories and files:</p>
+<div class="sourceCode" id="cb6" data-file="archive/test_mock_tree.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_fs(fs):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    fs.create_file(<span class="st">"a.txt"</span>, contents<span class="op">=</span><span class="st">"aaa"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    fs.create_file(<span class="st">"b.txt"</span>, contents<span class="op">=</span><span class="st">"bbb"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    fs.create_file(<span class="st">"sub_dir/c.txt"</span>, contents<span class="op">=</span><span class="st">"ccc"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nested_example(our_fs):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(<span class="st">"a.txt"</span>).exists()</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(<span class="st">"b.txt"</span>).exists()</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(<span class="st">"sub_dir/c.txt"</span>).exists()</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_deletion_example(our_fs):</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(<span class="st">"a.txt"</span>).exists()</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    Path(<span class="st">"a.txt"</span>).unlink()</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="kw">not</span> Path(<span class="st">"a.txt"</span>).exists()</span></code></pre></div>
 <p>and then test that <code>hash_all</code> finds all the files:</p>
-<div data-inc="test_hash_all.py" data-omit="change"><span aria-label="Source: archive/test_hash_all.py" class="inc-path" role="img" tabindex="0" title="archive/test_hash_all.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">hash_all</span><span class="w"> </span><span class="kn">import</span> <span class="n">hash_all</span><span class="p">,</span> <span class="n">HASH_LEN</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">our_fs</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"aaa"</span><span class="p">)</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"b.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"bbb"</span><span class="p">)</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"sub_dir/c.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"ccc"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_hashing</span><span class="p">(</span><span class="n">our_fs</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">hash_all</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
-    <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a.txt"</span><span class="p">,</span> <span class="s2">"b.txt"</span><span class="p">,</span> <span class="s2">"sub_dir/c.txt"</span><span class="p">}</span>
-    <span class="k">assert</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">result</span><span class="p">}</span> <span class="o">==</span> <span class="n">expected</span>
-    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">HASH_LEN</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># ...8 lines not shown...</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb7" data-file="archive/test_hash_all.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hash_all <span class="im">import</span> hash_all, HASH_LEN</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_fs(fs):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    fs.create_file(<span class="st">"a.txt"</span>, contents<span class="op">=</span><span class="st">"aaa"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    fs.create_file(<span class="st">"b.txt"</span>, contents<span class="op">=</span><span class="st">"bbb"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    fs.create_file(<span class="st">"sub_dir/c.txt"</span>, contents<span class="op">=</span><span class="st">"ccc"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_hashing(our_fs):</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> hash_all(<span class="st">"."</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    expected <span class="op">=</span> {<span class="st">"a.txt"</span>, <span class="st">"b.txt"</span>, <span class="st">"sub_dir/c.txt"</span>}</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> {r[<span class="dv">0</span>] <span class="cf">for</span> r <span class="kw">in</span> result} <span class="op">==</span> expected</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">all</span>(<span class="bu">len</span>(r[<span class="dv">1</span>]) <span class="op">==</span> HASH_LEN <span class="cf">for</span> r <span class="kw">in</span> result)</span></code></pre></div>
 <p>and that hashes change when files change:</p>
-<div data-inc="test_hash_all.py" data-mark="change"><span aria-label="Source: archive/test_hash_all.py" class="inc-path" role="img" tabindex="0" title="archive/test_hash_all.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_change</span><span class="p">(</span><span class="n">our_fs</span><span class="p">):</span>
-    <span class="n">original</span> <span class="o">=</span> <span class="n">hash_all</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
-    <span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">original</span> <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"a.txt"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"a.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"this is new content for a.txt"</span><span class="p">)</span>
-    <span class="n">changed</span> <span class="o">=</span> <span class="n">hash_all</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
-    <span class="n">changed</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">changed</span> <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"a.txt"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="n">original</span> <span class="o">!=</span> <span class="n">changed</span>
-</code></pre></div>
+<div class="sourceCode" id="cb8" data-file="archive/test_hash_all.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_change(our_fs):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    original <span class="op">=</span> hash_all(<span class="st">"."</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    original <span class="op">=</span> [entry <span class="cf">for</span> entry <span class="kw">in</span> original <span class="cf">if</span> entry[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"a.txt"</span>][<span class="dv">0</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">"a.txt"</span>, <span class="st">"w"</span>) <span class="im">as</span> writer:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        writer.write(<span class="st">"this is new content for a.txt"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    changed <span class="op">=</span> hash_all(<span class="st">"."</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    changed <span class="op">=</span> [entry <span class="cf">for</span> entry <span class="kw">in</span> changed <span class="cf">if</span> entry[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"a.txt"</span>][<span class="dv">0</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> original <span class="op">!=</span> changed</span></code></pre></div>
+<h2 data-number="10.3" id="archive-track"><span class="header-section-number">10.3</span> Tracking Backups</h2>
+<p>The second part of our backup tool keeps track of which files have and haven’t been backed up already. It stores backups in a directory that contains files like <code>abcd1234.bck</code> (the hash followed by <code>.bck</code>) and creates a <a href="../glossary/index.html#manifest">manifest</a> that describes the content of each snapshot. A real system would support remote storage as well so that losing one hard drive wouldn’t mean losing all our work, so we need to design our system with multiple back ends in mind.</p>
+<p>For now, we will store manifests in CSV files named <code>ssssssssss.csv</code>, where <code>ssssssssss</code> is the <a href="../glossary/index.html#utc">UTC</a> <a href="../glossary/index.html#timestamp">timestamp</a> of the backup’s creation.</p>
+<div>
+<blockquote>
+<p><strong>Time of Check/Time of Use</strong></p>
+<p>Our naming convention for manifests will fail if we try to create two or more backups in the same second. This might seem unlikely, but many faults and security holes are the result of programmers assuming things weren’t going to happen.</p>
+<p>We could try to avoid this problem by using a two-part naming scheme <code>ssssssss-a.csv</code>, <code>ssssssss-b.csv</code>, and so on, but this leads to a <a href="../glossary/index.html#race_condition">race condition</a> called <a href="../glossary/index.html#toctou">time of check/time of use</a>. If two users run the backup tool at the same time, they will both see that there isn’t a file (yet) with the current timestamp, so they will both try to create the first one. Ensuring that multi-file updates are <a href="../glossary/index.html#atomic_operation">atomic operations</a> (i.e., that they always appear to be a single indivisible step) is a hard problem; <a href="../glossary/index.html#file_locking">file locking</a> is a common approach, but complete solutions are out of the scope of this book.</p>
+</blockquote>
 </div>
-<h2 id="archive-track">Tracking Backups</h2>
-<p>The second part of our backup tool
-keeps track of which files have and haven't been backed up already.
-It stores backups in a directory that contains files like <code>abcd1234.bck</code>
-(the hash followed by <code>.bck</code>)
-and creates a <a class="gl-ref" href="../glossary/#manifest">manifest</a>
-that describes the content of each snapshot.
-A real system would support remote storage as well
-so that losing one hard drive wouldn't mean losing all our work,
-so we need to design our system with multiple back ends in mind.</p>
-<p>For now,
-we will store manifests in <span class="ix-ref" data-ix-key="CSV" id="ix-archive-9">CSV</span> files named <code>ssssssssss.csv</code>,
-where <code>ssssssssss</code> is the <a class="gl-ref" href="../glossary/#utc">UTC</a> <a class="gl-ref" href="../glossary/#timestamp">timestamp</a>
-of the backup's creation.</p>
-<div class="callout">
-<h3>Time of Check/Time of Use</h3>
-<p>Our naming convention for manifests will fail
-if we try to create two or more backups in the same second.
-This might seem unlikely,
-but many faults and security holes
-are the result of programmers assuming things weren't going to happen.</p>
-<p>We could try to avoid this problem by using a two-part naming scheme <code>ssssssss-a.csv</code>,
-<code>ssssssss-b.csv</code>, and so on,
-but this leads to a <a class="gl-ref" href="../glossary/#race_condition">race condition</a>
-called <a class="gl-ref" href="../glossary/#toctou">time of check/time of use</a>.
-If two users run the backup tool at the same time,
-they will both see that there isn't a file (yet) with the current timestamp,
-so they will both try to create the first one.
-Ensuring that multi-file updates are <a class="gl-ref" href="../glossary/#atomic_operation">atomic operations</a>
-(i.e., that they always appear to be a single indivisible step)
-is a hard problem;
-<a class="gl-ref" href="../glossary/#file_locking">file locking</a> is a common approach,
-but complete solutions are out of the scope of this book.</p>
+<p>This function creates a backup—or rather, it will once we fill in all the functions it depends on:</p>
+<div class="sourceCode" id="cb9" data-file="archive/backup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> backup(source_dir, backup_dir):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    manifest <span class="op">=</span> hash_all(source_dir)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    timestamp <span class="op">=</span> current_time()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    write_manifest(backup_dir, timestamp, manifest)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    copy_files(source_dir, backup_dir, manifest)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> manifest</span></code></pre></div>
+<p>Writing a high-level function first and then filling in the things it needs is called <a href="../glossary/index.html#successive_refinement">successive refinement</a> or <a href="../glossary/index.html#top_down_design">top-down design</a>. In practice, nobody designs code and then implements the design without changes unless they have solved closely-related problems before <span class="citation" data-cites="Petre2016">(<a href="../bibliography/index.html#ref-Petre2016" role="doc-biblioref">Petre and Hoek 2016</a>)</span>. Instead, good programmers jump back and forth between higher and lower levels of design, adjusting their overall strategy as work on low-level details reveals problems or opportunities they hadn’t foreseen.</p>
+<p>When writing the manifest, we check that the backup directory exists, create it if it does not, and then save the manifest as CSV:</p>
+<div class="sourceCode" id="cb10" data-file="archive/backup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> write_manifest(backup_dir, timestamp, manifest):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    backup_dir <span class="op">=</span> Path(backup_dir)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> backup_dir.exists():</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        backup_dir.mkdir()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    manifest_file <span class="op">=</span> Path(backup_dir, <span class="ss">f"</span><span class="sc">{</span>timestamp<span class="sc">}</span><span class="ss">.csv"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(manifest_file, <span class="st">"w"</span>) <span class="im">as</span> raw:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        writer <span class="op">=</span> csv.writer(raw)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        writer.writerow([<span class="st">"filename"</span>, <span class="st">"hash"</span>])</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        writer.writerows(manifest)</span></code></pre></div>
+<p>We then copy those files that <em>haven’t</em> already been saved:</p>
+<div class="sourceCode" id="cb11" data-file="archive/backup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> copy_files(source_dir, backup_dir, manifest):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (filename, hash_code) <span class="kw">in</span> manifest:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        source_path <span class="op">=</span> Path(source_dir, filename)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        backup_path <span class="op">=</span> Path(backup_dir, <span class="ss">f"</span><span class="sc">{</span>hash_code<span class="sc">}</span><span class="ss">.bck"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> backup_path.exists():</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            shutil.copy(source_path, backup_path)</span></code></pre></div>
+<p>We have introduced several more race conditions here: for example, if two people are creating backups at the same time, they could both discover that the backup directory doesn’t exist and then both try to create it. Whoever does so first will succeed, but whoever comes second will fail. We will look at ways to fix this in the exercises as well.</p>
+<div>
+<blockquote>
+<p><strong>What Time Is It?</strong></p>
+<p>Our <code>backup</code> function relies on a <a href="../glossary/index.html#helper_function">helper function</a> called <code>current_time</code> that does nothing but call <code>time.time</code> from Python's standard library:</p>
+<div class="sourceCode" id="cb12" data-file="archive/backup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> current_time():</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>time<span class="sc">.</span>time()<span class="sc">}</span><span class="ss">"</span>.split(<span class="st">"."</span>)[<span class="dv">0</span>]</span></code></pre></div>
+<p>We could call <code>time.time</code> directly, but wrapping it up like this makes it easier to replace with a mock for testing.</p>
+</blockquote>
 </div>
-<p>This function creates a backup—or rather,
-it will once we fill in all the functions it depends on:</p>
-<div data-inc="backup.py" data-mark="backup"><span aria-label="Source: archive/backup.py" class="inc-path" role="img" tabindex="0" title="archive/backup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">backup</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">backup_dir</span><span class="p">):</span>
-    <span class="n">manifest</span> <span class="o">=</span> <span class="n">hash_all</span><span class="p">(</span><span class="n">source_dir</span><span class="p">)</span>
-    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">current_time</span><span class="p">()</span>
-    <span class="n">write_manifest</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">manifest</span><span class="p">)</span>
-    <span class="n">copy_files</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">backup_dir</span><span class="p">,</span> <span class="n">manifest</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">manifest</span>
-</code></pre></div>
-</div>
-<p>Writing a high-level function first
-and then filling in the things it needs
-is called <a class="gl-ref" href="../glossary/#successive_refinement">successive refinement</a>
-or <a class="gl-ref" href="../glossary/#top_down_design">top-down design</a>.
-In practice,
-nobody designs code and then implements the design without changes
-unless they have solved closely-related problems before [<a class="bib-ref" href="../bibliography/#Petre2016">Petre2016</a>].
-Instead,
-good programmers jump back and forth between higher and lower levels of design,
-adjusting their overall strategy as work on low-level details
-reveals problems or opportunities they hadn't foreseen.</p>
-<p>When writing the manifest,
-we check that the backup directory exists,
-create it if it does not,
-and then save the manifest as CSV:</p>
-<div data-inc="backup.py" data-mark="write"><span aria-label="Source: archive/backup.py" class="inc-path" role="img" tabindex="0" title="archive/backup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">write_manifest</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">manifest</span><span class="p">):</span>
-    <span class="n">backup_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">backup_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-        <span class="n">backup_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
-    <span class="n">manifest_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.csv"</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">manifest_file</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">raw</span><span class="p">:</span>
-        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"filename"</span><span class="p">,</span> <span class="s2">"hash"</span><span class="p">])</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">manifest</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>We then copy those files that <em>haven't</em> already been saved:</p>
-<div data-inc="backup.py" data-mark="copy"><span aria-label="Source: archive/backup.py" class="inc-path" role="img" tabindex="0" title="archive/backup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">copy_files</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">backup_dir</span><span class="p">,</span> <span class="n">manifest</span><span class="p">):</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">hash_code</span><span class="p">)</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">:</span>
-        <span class="n">source_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        <span class="n">backup_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">hash_code</span><span class="si">}</span><span class="s2">.bck"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">backup_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="n">backup_path</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>We have introduced several more race conditions here:
-for example,
-if two people are creating backups at the same time,
-they could both discover that the backup directory doesn't exist
-and then both try to create it.
-Whoever does so first will succeed,
-but whoever comes second will fail.
-We will look at ways to fix this in the exercises as well.</p>
-<div class="callout">
-<h3>What Time Is It?</h3>
-<p>Our <code>backup</code> function relies on a <a class="gl-ref" href="../glossary/#helper_function">helper function</a>
-called <code>current_time</code>
-that does nothing but call <code>time.time</code> from
-<span class="ix-ref" data-ix-key="Python standard library" id="ix-archive-10">Python's standard library</span>:</p>
-<div data-inc="backup.py" data-mark="time"><span aria-label="Source: archive/backup.py" class="inc-path" role="img" tabindex="0" title="archive/backup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">current_time</span><span class="p">():</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<p>We could call <code>time.time</code> directly,
-but wrapping it up like this makes it easier to replace with a mock for testing.</p>
-</div>
-<p>Let's do one test with real files:</p>
-<div data-inc="test_backup_manual.sh"><span aria-label="Source: archive/test_backup_manual.sh" class="inc-path" role="img" tabindex="0" title="archive/test_backup_manual.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nv">BACKUPS</span><span class="o">=</span>/tmp/backups
-rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$BACKUPS</span>
-python<span class="w"> </span>backup.py<span class="w"> </span>sample_dir<span class="w"> </span><span class="nv">$BACKUPS</span>
-tree<span class="w"> </span>--charset<span class="w"> </span>ascii<span class="w"> </span><span class="nv">$BACKUPS</span>
-</code></pre></div>
-</div>
-<div data-inc="test_backup_manual.out"><span aria-label="Source: archive/test_backup_manual.out" class="inc-path" role="img" tabindex="0" title="archive/test_backup_manual.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>/tmp/backups
+<p>Let’s do one test with real files:</p>
+<div class="sourceCode" id="cb13" data-file="archive/test_backup_manual.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">BACKUPS</span><span class="op">=</span>/tmp/backups</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> <span class="va">$BACKUPS</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> backup.py sample_dir <span class="va">$BACKUPS</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span> <span class="at">--charset</span> ascii <span class="va">$BACKUPS</span></span></code></pre></div>
+<pre data-file="archive/test_backup_manual.out"><code>/tmp/backups
 |-- 1695482691.csv
 |-- 17e682f060b5f8e4.bck
 |-- 3cf9a1a81f6bdeaf.bck
 `-- 5695d82a086b6779.bck
-
-0 directories, 4 files
-</code></pre></div>
-</div>
-<p>The rest of our tests use a fake filesystem
-and a mock replacement for the <code>current_time</code> function
-(so that we know what the manifest file will be called).
-The setup is:</p>
-<div data-inc="test_backup.py" data-mark="setup"><span aria-label="Source: archive/test_backup.py" class="inc-path" role="img" tabindex="0" title="archive/test_backup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">FILES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a.txt"</span><span class="p">:</span> <span class="s2">"aaa"</span><span class="p">,</span> <span class="s2">"b.txt"</span><span class="p">:</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"sub_dir/c.txt"</span><span class="p">:</span> <span class="s2">"ccc"</span><span class="p">}</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">our_fs</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">contents</span> <span class="ow">in</span> <span class="n">FILES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="n">contents</span><span class="p">)</span>
-</code></pre></div>
-</div>
+0 directories, 4 files</code></pre>
+<p>The rest of our tests use a fake filesystem and a mock replacement for the <code>current_time</code> function (so that we know what the manifest file will be called). The setup is:</p>
+<div class="sourceCode" id="cb15" data-file="archive/test_backup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>FILES <span class="op">=</span> {<span class="st">"a.txt"</span>: <span class="st">"aaa"</span>, <span class="st">"b.txt"</span>: <span class="st">"bbb"</span>, <span class="st">"sub_dir/c.txt"</span>: <span class="st">"ccc"</span>}</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_fs(fs):</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, contents <span class="kw">in</span> FILES.items():</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        fs.create_file(name, contents<span class="op">=</span>contents)</span></code></pre></div>
 <p>and an example of a single test is:</p>
-<div data-inc="test_backup.py" data-mark="test"><span aria-label="Source: archive/test_backup.py" class="inc-path" role="img" tabindex="0" title="archive/test_backup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_nested_example</span><span class="p">(</span><span class="n">our_fs</span><span class="p">):</span>
-    <span class="n">timestamp</span> <span class="o">=</span> <span class="mi">1234</span>
-    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"backup.current_time"</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">timestamp</span><span class="p">):</span>
-        <span class="n">manifest</span> <span class="o">=</span> <span class="n">backup</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="s2">"/backup"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/backup"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">hash_code</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/backup"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">hash_code</span><span class="si">}</span><span class="s2">.bck"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-</code></pre></div>
+<div class="sourceCode" id="cb16" data-file="archive/test_backup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nested_example(our_fs):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    timestamp <span class="op">=</span> <span class="dv">1234</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> patch(<span class="st">"backup.current_time"</span>, return_value<span class="op">=</span>timestamp):</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        manifest <span class="op">=</span> backup(<span class="st">"."</span>, <span class="st">"/backup"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(<span class="st">"/backup"</span>, <span class="ss">f"</span><span class="sc">{</span>timestamp<span class="sc">}</span><span class="ss">.csv"</span>).exists()</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename, hash_code <span class="kw">in</span> manifest:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> Path(<span class="st">"/backup"</span>, <span class="ss">f"</span><span class="sc">{</span>hash_code<span class="sc">}</span><span class="ss">.bck"</span>).exists()</span></code></pre></div>
+<h2 data-number="10.4" id="archive-refactor"><span class="header-section-number">10.4</span> Refactoring</h2>
+<p>Now that we have a better idea of what we’re doing, we can refactor to create a <a href="../glossary/index.html#base_class">base class</a> that prescribes the general steps in creating a backup:</p>
+<div class="sourceCode" id="cb17" data-file="archive/backup_oop.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Archive:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, source_dir):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._source_dir <span class="op">=</span> source_dir</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> backup(<span class="va">self</span>):</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        manifest <span class="op">=</span> hash_all(<span class="va">self</span>._source_dir)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_manifest(manifest)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._copy_files(manifest)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> manifest</span></code></pre></div>
+<p>We can then derive a child class to archive things locally and fill in its methods by re-using code from the functions we have just written. Once we’ve done this, we can create the specific archiver we want with a single line:</p>
+<div class="sourceCode" id="cb18" data-file="archive/backup_oop.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    archiver <span class="op">=</span> ArchiveLocal(source_dir, backup_dir)</span></code></pre></div>
+<p>Doing this makes life easier when we want to write archivers that behave the same way but work differently. For example, we could create an archiver that <a href="../glossary/index.html#file_compression">compresses</a> the files it archives by deriving a new class from <code>ArchiveLocal</code> and writing a new <code>_copy_files</code> method. More importantly, other code can use an archiver <em>without knowing what it’s doing</em>. For example, the function <code>analyze_and_save</code> reads some data, analyzes it, saves the results, and then creates an archive of those results. It doesn’t know whether the archive is compressing files or whether they’re being saved locally or remotely.</p>
+<div class="sourceCode" id="cb19" data-file="archive/backup_oop.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_and_save(options, archiver):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> read_data(options)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> analyze_data(data)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    save_everything(results)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    archiver.backup()</span></code></pre></div>
+<p>This example highlights one of the strengths of object-oriented programming: it allows old code to use new code without any changes.</p>
+<h2 data-number="10.5" id="archive-summary"><span class="header-section-number">10.5</span> Summary</h2>
+<p><a href="#fig-archive-concept-map" class="quarto-xref">Figure&nbsp;<span>10.3</span></a> summarizes the key ideas in this chapter, which are the foundation of most modern tools for doing backups and version control.</p>
+<div id="fig-archive-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of hash-based backups">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-archive-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="concept_map.svg" alt="Concept map of hash-based backups">
 </div>
-<h2 id="archive-refactor">Refactoring</h2>
-<p>Now that we have a better idea of what we're doing,
-we can <span class="ix-ref" data-ix-key="refactor" id="ix-archive-11">refactor</span> to create a <a class="gl-ref" href="../glossary/#base_class">base class</a>
-that prescribes the general steps in creating a backup:</p>
-<div data-inc="backup_oop.py" data-mark="base"><span aria-label="Source: archive/backup_oop.py" class="inc-path" role="img" tabindex="0" title="archive/backup_oop.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Archive</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_dir</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_source_dir</span> <span class="o">=</span> <span class="n">source_dir</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">backup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">manifest</span> <span class="o">=</span> <span class="n">hash_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_source_dir</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_manifest</span><span class="p">(</span><span class="n">manifest</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_copy_files</span><span class="p">(</span><span class="n">manifest</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">manifest</span>
-</code></pre></div>
-</div>
-<p>We can then derive a <span class="ix-ref" data-ix-key="child class" id="ix-archive-12">child class</span>
-to archive things locally
-and fill in its methods by re-using code from the functions
-we have just written.
-Once we've done this,
-we can create the specific archiver we want with a single line:</p>
-<div data-inc="backup_oop.py" data-mark="create"><span aria-label="Source: archive/backup_oop.py" class="inc-path" role="img" tabindex="0" title="archive/backup_oop.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="n">archiver</span> <span class="o">=</span> <span class="n">ArchiveLocal</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">backup_dir</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>Doing this makes life easier when we want to write archivers
-that behave the same way but work differently.
-For example,
-we could create an archiver that <a class="gl-ref" href="../glossary/#file_compression">compresses</a>
-the files it archives
-by deriving a new class from <code>ArchiveLocal</code>
-and writing a new <code>_copy_files</code> method.
-More importantly,
-other code can use an archiver <em>without knowing what it's doing</em>.
-For example,
-the function <code>analyze_and_save</code> reads some data,
-analyzes it,
-saves the results,
-and then creates an archive of those results.
-It doesn't know whether the archive is compressing files
-or whether they're being saved locally or remotely.</p>
-<div data-inc="backup_oop.py" data-mark="use"><span aria-label="Source: archive/backup_oop.py" class="inc-path" role="img" tabindex="0" title="archive/backup_oop.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">analyze_and_save</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">archiver</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">analyze_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">save_everything</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-    <span class="n">archiver</span><span class="o">.</span><span class="n">backup</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<p>This example highlights one of the strengths of <span class="ix-ref" data-ix-key="object-oriented programming" id="ix-archive-13">object-oriented programming</span>:
-it allows old code to use new code without any changes.</p>
-<h2 id="archive-summary">Summary</h2>
-<p><a class="fig-ref" href="#f:archive-concept-map">Figure 3</a> summarizes the key ideas in this chapter,
-which are the foundation of most modern tools for doing backups and version control.</p>
-<figure id="f:archive-concept-map">
-<img alt="Concept map of file backup" src="concept_map.svg"/>
-<figcaption>Figure 3: Concept map for hashing-based file backup.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-archive-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.3: Concept map for hashing-based file backup.
+</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="archive-exercises">Exercises</h2>
-<h3>Sequencing Backups</h3>
-<p>Modify the backup program so that manifests are numbered sequentially
-as <code>00000001.csv</code>, <code>00000002.csv</code>, and so on
-rather than being timestamped.
-Why doesn't this solve the time of check/time of use race condition mentioned earlier?</p>
-<h3>JSON Manifests</h3>
-<ol>
-<li>
-<p>Modify <code>backup.py</code> so that it can save <span class="ix-ref" data-ix-key="JSON" id="ix-archive-14">JSON</span> manifests as well as CSV manifests
-    based on a command-line flag.</p>
-</li>
-<li>
-<p>Write another program called <code>migrate.py</code> that converts a set of manifests
-    from CSV to JSON.
-    (The program's name comes from the term <a class="gl-ref" href="../glossary/#data_migration">data migration</a>.)</p>
-</li>
-<li>
-<p>Modify <code>backup.py</code> programs so that each manifest stores the user name of the person who created it
-    along with file hashes,
-    and then modify <code>migrate.py</code> to transform old files into the new format.</p>
-</li>
+</div>
+<h2 data-number="10.6" id="archive-exercises"><span class="header-section-number">10.6</span> Exercises</h2>
+<h3 data-number="10.6.1" id="sequencing-backups"><span class="header-section-number">10.6.1</span> Sequencing Backups</h3>
+<p>Modify the backup program so that manifests are numbered sequentially as <code>00000001.csv</code>, <code>00000002.csv</code>, and so on rather than being timestamped. Why doesn’t this solve the time of check/time of use race condition mentioned earlier?</p>
+<h3 data-number="10.6.2" id="json-manifests"><span class="header-section-number">10.6.2</span> JSON Manifests</h3>
+<ol type="1">
+<li><p>Modify <code>backup.py</code> so that it can save JSON manifests as well as CSV manifests based on a command-line flag.</p></li>
+<li><p>Write another program called <code>migrate.py</code> that converts a set of manifests from CSV to JSON. (The program’s name comes from the term <a href="../glossary/index.html#data_migration">data migration</a>.)</p></li>
+<li><p>Modify <code>backup.py</code> programs so that each manifest stores the user name of the person who created it along with file hashes, and then modify <code>migrate.py</code> to transform old files into the new format.</p></li>
 </ol>
-<h3>Mock Hashes</h3>
-<ol>
-<li>
-<p>Modify the file backup program
-    so that it uses a function called <code>ourHash</code> to hash files.</p>
-</li>
-<li>
-<p>Create a replacement that returns some predictable value,
-    such as the first few characters of the data.</p>
-</li>
-<li>
-<p>Rewrite the tests to use this function.
-    How did you modify the main program
-    so that the tests could control which hashing function is used?</p>
-</li>
+<h3 data-number="10.6.3" id="mock-hashes"><span class="header-section-number">10.6.3</span> Mock Hashes</h3>
+<ol type="1">
+<li><p>Modify the file backup program so that it uses a function called <code>ourHash</code> to hash files.</p></li>
+<li><p>Create a replacement that returns some predictable value, such as the first few characters of the data.</p></li>
+<li><p>Rewrite the tests to use this function. How did you modify the main program so that the tests could control which hashing function is used?</p></li>
 </ol>
-<h3>Comparing Manifests</h3>
+<h3 data-number="10.6.4" id="comparing-manifests"><span class="header-section-number">10.6.4</span> Comparing Manifests</h3>
 <p>Write a program <code>compare-manifests.py</code> that reads two manifest files and reports:</p>
 <ul>
-<li>
-<p>Which files have the same names but different hashes
-    (i.e., their contents have changed).</p>
-</li>
-<li>
-<p>Which files have the same hashes but different names
-    (i.e., they have been renamed).</p>
-</li>
-<li>
-<p>Which files are in the first hash
-    but neither their names nor their hashes are in the second
-    (i.e., they have been deleted).</p>
-</li>
-<li>
-<p>Which files are in the second hash
-    but neither their names nor their hashes are in the first
-    (i.e., they have been added).</p>
-</li>
+<li><p>Which files have the same names but different hashes (i.e., their contents have changed).</p></li>
+<li><p>Which files have the same hashes but different names (i.e., they have been renamed).</p></li>
+<li><p>Which files are in the first hash but neither their names nor their hashes are in the second (i.e., they have been deleted).</p></li>
+<li><p>Which files are in the second hash but neither their names nor their hashes are in the first (i.e., they have been added).</p></li>
 </ul>
-<h3>From One State to Another</h3>
-<ol>
-<li>
-<p>Write a program called <code>from_to.py</code> that takes a directory and a manifest file
-    as command-line arguments,
-    then adds, removes, and/or renames files in the directory
-    to restore the state described in the manifest.
-    The program should only perform file operations when it needs to,
-    e.g.,
-    it should not delete a file and re-add it if the contents have not changed.</p>
-</li>
-<li>
-<p>Write some tests for <code>from_to.py</code> using pytest and a mock filesystem.</p>
-</li>
+<h3 data-number="10.6.5" id="from-one-state-to-another"><span class="header-section-number">10.6.5</span> From One State to Another</h3>
+<ol type="1">
+<li><p>Write a program called <code>from_to.py</code> that takes a directory and a manifest file as command-line arguments, then adds, removes, and/or renames files in the directory to restore the state described in the manifest. The program should only perform file operations when it needs to, e.g., it should not delete a file and re-add it if the contents have not changed.</p></li>
+<li><p>Write some tests for <code>from_to.py</code> using pytest and a mock filesystem.</p></li>
 </ol>
-<h3>File History</h3>
-<ol>
-<li>
-<p>Write a program called <code>file_history.py</code>
-    that takes the name of a file as a command-line argument
-    and displays the history of that file
-    by tracing it back in time through the available manifests.</p>
-</li>
-<li>
-<p>Write tests for your program using pytest and a mock filesystem.</p>
-</li>
+<h3 data-number="10.6.6" id="file-history"><span class="header-section-number">10.6.6</span> File History</h3>
+<ol type="1">
+<li><p>Write a program called <code>file_history.py</code> that takes the name of a file as a command-line argument and displays the history of that file by tracing it back in time through the available manifests.</p></li>
+<li><p>Write tests for your program using pytest and a mock filesystem.</p></li>
 </ol>
-<h3>Pre-commit Hooks</h3>
-<p>Modify <code>backup.py</code> to load and run a function called <code>pre_commit</code> from a file called <code>pre_commit.py</code>
-stored in the root directory of the files being backed up.
-If <code>pre_commit</code> returns <code>True</code>, the backup proceeds;
-if it returns <code>False</code> or raises an exception,
-no backup is created.</p>
-</section>
+<h3 data-number="10.6.7" id="pre-commit-hooks"><span class="header-section-number">10.6.7</span> Pre-commit Hooks</h3>
+<p>Modify <code>backup.py</code> to load and run a function called <code>pre_commit</code> from a file called <code>pre_commit.py</code> stored in the root directory of the files being backed up. If <code>pre_commit</code> returns <code>True</code>, the backup proceeds; if it returns <code>False</code> or raises an exception, no backup is created.</p>
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Petre2016" class="csl-entry" role="listitem">
+Petre, Marian, and André van der Hoek. 2016. <em>Software Design Decoded: 66 Ways Experts Think</em>. MIT Press. ISBN 9780262035187.
+</div>
+</div>
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../protocols">Protocols</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../check">An HTML Validator</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../protocols/index.html">← Protocols</a>
+    <a class="pager-link next" href="../check/index.html">An HTML Validator →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

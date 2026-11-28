@@ -1,122 +1,42 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Transferring Files</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Transferring Files</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a class="active" href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Transferring Files</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#ftp-tcpip" id="toc-ftp-tcpip"><span class="header-section-number">21.1</span> Using TCP/IP</a></li>
+<li><a href="#ftp-chunk" id="toc-ftp-chunk"><span class="header-section-number">21.2</span> Chunking</a></li>
+<li><a href="#ftp-test" id="toc-ftp-test"><span class="header-section-number">21.3</span> Testing</a></li>
+<li><a href="#ftp-summary" id="toc-ftp-summary"><span class="header-section-number">21.4</span> Summary</a></li>
+<li><a href="#ftp-exercises" id="toc-ftp-exercises"><span class="header-section-number">21.5</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Transferring Files</h1>
+<div class="syllabus">
 <ul>
 <li>Every computer on a network has a unique IP address.</li>
 <li>The Domain Name System (DNS) translates human-readable names into IP addresses.</li>
@@ -125,457 +45,247 @@
 <li>To test programs that rely on the network, replace the network with a mock object that simulates message transmission and receipt.</li>
 </ul>
 </div>
-<p>The Internet is simpler than most people realize
-(as well as being more complex than anyone could possibly comprehend).
-Most systems still follow the rules they did 30 years ago;
-in particular,
-most web servers still handle the same kinds of messages in the same way.</p>
-<p>A typical web application is made up of <a class="gl-ref" href="../glossary/#client">clients</a>
-and <a class="gl-ref" href="../glossary/#server">servers</a>.
-A client program initiates communication by sending a message and waiting for a response;
-a server,
-on the other hand,
-waits for requests and then replies to them.
-There are typically many more clients than servers:
-for example,
-there may be hundreds or thousands of browsers
-fetching pages from this book's website right now,
-but there is only one server handling those requests.</p>
-<p>This chapter shows how to build a simple low-level network program
-to move files from one machine to another.
-<a class="xref" href="../http/">Chapter 22</a> will extend this to show
-how to build programs that communicate using HTTP.
-A central concern in both chapters is how to test such programs;
-while <em>who</em> sends <em>what</em> messages <em>when</em> changes from application to application,
-the testing techniques largely remain the same.</p>
-<h2 id="ftp-tcpip">Using TCP/IP</h2>
-<p>Almost every program on the web
-uses a family of communication standards called
-<a class="gl-ref" href="../glossary/#internet_protocol">Internet Protocol</a> (IP).
-The one that concerns us is the
-<a class="gl-ref" href="../glossary/#tcp">Transmission Control Protocol</a> (TCP/IP),
-which makes communication between computers look like reading and writing files.
-Programs using IP communicate through <a class="gl-ref" href="../glossary/#socket">sockets</a>
-(<a class="fig-ref" href="#f:ftp-sockets">Figure 1</a>).
-Each socket is one end of a point-to-point communication channel,
-just like a phone is one end of a phone call.
-A socket consists of an <a class="gl-ref" href="../glossary/#ip_address">IP address</a>
-that identifies a particular machine
-and a <a class="gl-ref" href="../glossary/#port">port</a> on that machine.</p>
-<figure id="f:ftp-sockets">
-<img alt="Sockets, IP addresses, and DNS" src="sockets.svg"/>
-<figcaption>Figure 1: How sockets, IP addresses, and DNS work together.</figcaption>
-</figure>
-<p>The IP address consists of four 8-bit numbers,
-which are usually written as <code>93.184.216.34</code>;
-the <a class="gl-ref" href="../glossary/#dns">Domain Name System</a> (DNS)
-matches these numbers to symbolic names like <code>example.com</code>
-that are easier for human beings to remember.
-A port is a number in the range 0-65535
-that uniquely identifies the socket on the host machine.
-(If an IP address is like a company's phone number,
-then a port number is like an extension.)
-Ports 0-1023 are reserved for well-known TCP/IP applications like web servers;
-custom applications should use the remaining ports
-(and should allow users to decide <em>which</em> port,
-since there's always the chance that two different people will pick 1234 or 6789).</p>
-<p>A basic socket client looks like this:</p>
-<div data-inc="client_all.py"><span aria-label="Source: ftp/client_all.py" class="inc-path" role="img" tabindex="0" title="ftp/client_all.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
-
-<span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="n">SERVER_ADDRESS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
-
-<span class="n">message</span> <span class="o">=</span> <span class="s2">"message text"</span>
-
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-<span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">SERVER_ADDRESS</span><span class="p">)</span>
-<span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"client sent </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-
-<span class="n">received</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">)</span>
-<span class="n">received_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">received</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"client received </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">received</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes: '</span><span class="si">{</span><span class="n">received_str</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-</code></pre></div>
+<p>The Internet is simpler than most people realize (as well as being more complex than anyone could possibly comprehend). Most systems still follow the rules they did 30 years ago; in particular, most web servers still handle the same kinds of messages in the same way.</p>
+<p>A typical web application is made up of <a href="../glossary/index.html#client">clients</a> and <a href="../glossary/index.html#server">servers</a>. A client program initiates communication by sending a message and waiting for a response; a server, on the other hand, waits for requests and then replies to them. There are typically many more clients than servers: for example, there may be hundreds or thousands of browsers fetching pages from this book’s website right now, but there is only one server handling those requests.</p>
+<p>This chapter shows how to build a simple low-level network program to move files from one machine to another. <a href="../http/index.html" class="quarto-xref"><span>Chapter 22</span></a> will extend this to show how to build programs that communicate using HTTP. A central concern in both chapters is how to test such programs; while <em>who</em> sends <em>what</em> messages <em>when</em> changes from application to application, the testing techniques largely remain the same.</p>
+<h2 data-number="21.1" id="ftp-tcpip"><span class="header-section-number">21.1</span> Using TCP/IP</h2>
+<p>Almost every program on the web uses a family of communication standards called <a href="../glossary/index.html#internet_protocol">Internet Protocol</a> (IP). The one that concerns us is the <a href="../glossary/index.html#tcp">Transmission Control Protocol</a> (TCP/IP), which makes communication between computers look like reading and writing files. Programs using IP communicate through <a href="../glossary/index.html#socket">sockets</a> (<a href="#fig-ftp-sockets" class="quarto-xref">Figure&nbsp;<span>21.1</span></a>). Each socket is one end of a point-to-point communication channel, just like a phone is one end of a phone call. A socket consists of an <a href="../glossary/index.html#ip_address">IP address</a> that identifies a particular machine and a <a href="../glossary/index.html#port">port</a> on that machine.</p>
+<div id="fig-ftp-sockets" class="quarto-float quarto-figure quarto-figure-center" alt="Sockets, IP, and DNS interacting">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ftp-sockets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sockets.svg" alt="Sockets, IP, and DNS interacting">
 </div>
-<p>We call it "basic" rather than "simple" because there's a lot going on here.
-From top to bottom:</p>
-<ol>
-<li>We import some modules and define two constants.
-    The first, <code>SERVER_ADDRESS</code>,
-    consists of a host identifier and a port.
-    (The string <code>"localhost"</code> means "the current machine".)
-    The second,
-    <code>CHUNK_SIZE</code>,
-    will determine the maximum number of bytes in the messages we send and receive.</li>
-<li>We use <code>socket.socket</code> to create a new socket.
-    The values <code>AF_INET</code> and <code>SOCK_STREAM</code> specify
-    the <span class="ix-ref" data-ix-key="protocol" id="ix-ftp-1">protocols</span> we're using;
-    we'll always use those in our examples,
-    so we won't go into detail about alternatives.</li>
-<li>We connect to the server,
-    send our message as a bunch of bytes with <code>sock.sendall</code>,
-    and print a message saying the data's been sent.</li>
-<li>We then read up to a kilobyte from the socket with <code>sock.recv</code>.
-    If we were expecting longer messages,
-    we'd keep reading from the socket until there was no more data.</li>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ftp-sockets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.1: How sockets, IP addresses, and DNS work together.
+</figcaption>
+</figure>
+</div>
+<p>The IP address consists of four 8-bit numbers, which are usually written as <code>93.184.216.34</code>; the <a href="../glossary/index.html#dns">Domain Name System</a> (DNS) matches these numbers to symbolic names like <code>example.com</code> that are easier for human beings to remember. A port is a number in the range 0-65535 that uniquely identifies the socket on the host machine. (If an IP address is like a company’s phone number, then a port number is like an extension.) Ports 0-1023 are reserved for well-known TCP/IP applications like web servers; custom applications should use the remaining ports (and should allow users to decide <em>which</em> port, since there’s always the chance that two different people will pick 1234 or 6789).</p>
+<p>A basic socket client looks like this:</p>
+<div class="sourceCode" id="cb1" data-file="ftp/client_all.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="op">=</span> <span class="dv">1024</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>SERVER_ADDRESS <span class="op">=</span> (<span class="st">"localhost"</span>, <span class="dv">8080</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"message text"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sock <span class="op">=</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sock.<span class="ex">connect</span>(SERVER_ADDRESS)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sock.sendall(<span class="bu">bytes</span>(message, <span class="st">"utf-8"</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"client sent </span><span class="sc">{</span><span class="bu">len</span>(message)<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>received <span class="op">=</span> sock.recv(CHUNK_SIZE)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>received_str <span class="op">=</span> <span class="bu">str</span>(received, <span class="st">"utf-8"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"client received </span><span class="sc">{</span><span class="bu">len</span>(received)<span class="sc">}</span><span class="ss"> bytes: '</span><span class="sc">{</span>received_str<span class="sc">}</span><span class="ss">'"</span>)</span></code></pre></div>
+<p>We call it “basic” rather than “simple” because there’s a lot going on here. From top to bottom:</p>
+<ol type="1">
+<li>We import some modules and define two constants. The first, <code>SERVER_ADDRESS</code>, consists of a host identifier and a port. (The string <code>"localhost"</code> means “the current machine”.) The second, <code>CHUNK_SIZE</code>, will determine the maximum number of bytes in the messages we send and receive.</li>
+<li>We use <code>socket.socket</code> to create a new socket. The values <code>AF_INET</code> and <code>SOCK_STREAM</code> specify the protocols we’re using; we’ll always use those in our examples, so we won’t go into detail about alternatives.</li>
+<li>We connect to the server, send our message as a bunch of bytes with <code>sock.sendall</code>, and print a message saying the data’s been sent.</li>
+<li>We then read up to a kilobyte from the socket with <code>sock.recv</code>. If we were expecting longer messages, we’d keep reading from the socket until there was no more data.</li>
 <li>Finally, we print another message.</li>
 </ol>
 <p>The corresponding server has just as much low-level detail:</p>
-<div data-inc="server_raw.py" data-omit="main"><span aria-label="Source: ftp/server_raw.py" class="inc-path" role="img" tabindex="0" title="ftp/server_raw.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
-
-<span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">():</span>
-    <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="s2">"localhost"</span><span class="p">),</span> <span class="mi">8080</span>
-    <span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
-    <span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
-
-    <span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">conn</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Connection from </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">),</span> <span class="s2">"utf-8"</span><span class="p">)</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"got request from </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-    <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c1"># ...2 lines not shown...</span>
-</code></pre></div>
+<div class="sourceCode" id="cb2" data-file="ftp/server_raw.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="op">=</span> <span class="dv">1024</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handler():</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    host, port <span class="op">=</span> socket.gethostbyname(<span class="st">"localhost"</span>), <span class="dv">8080</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    server_socket <span class="op">=</span> socket.socket()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    server_socket.bind((host, port))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    server_socket.listen(<span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    conn, address <span class="op">=</span> server_socket.accept()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Connection from </span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">str</span>(conn.recv(CHUNK_SIZE), <span class="st">"utf-8"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    msg <span class="op">=</span> <span class="ss">f"got request from </span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">len</span>(data)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(msg)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    conn.send(<span class="bu">bytes</span>(msg, <span class="st">"utf-8"</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    conn.close()</span></code></pre></div>
+<p>This code claims a socket, listens until it receives a single connection request, reads up to a kilobyte of data, prints a message, and replies to the client. <a href="#fig-ftp-interaction" class="quarto-xref">Figure&nbsp;<span>21.2</span></a> shows the order of operations and messages when we run the client and server in separate terminal windows.</p>
+<div id="fig-ftp-interaction" class="quarto-float quarto-figure quarto-figure-center" alt="Client-server message exchange sequence">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ftp-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="interaction.svg" alt="Client-server message exchange sequence">
 </div>
-<p>This code claims a socket,
-listens until it receives a single connection request,
-reads up to a kilobyte of data,
-prints a message,
-and replies to the client.
-<a class="fig-ref" href="#f:ftp-interaction">Figure 2</a> shows the order of operations and messages
-when we run the client and server in separate terminal windows.</p>
-<figure id="f:ftp-interaction">
-<img alt="Client-server interaction" src="interaction.svg"/>
-<figcaption>Figure 2: Steps and messages in client-server interaction.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ftp-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.2: Steps and messages in client-server interaction.
+</figcaption>
 </figure>
-<p>There's a <em>lot</em> going on here,
-so most people who have to program at this level
-use Python's <a href="https://docs.python.org/3/library/socketserver.html"><code>socketserver</code></a> module,
-which provides two things:
-a class called <code>TCPServer</code> that manages incoming connections
-and another class called <code>BaseRequestHandler</code>
-that does everything <em>except</em> process the incoming data.
-In order to do that,
-we derive a class of our own from <code>BaseRequestHandler</code>
-that provides a <code>handle</code> method
-(<a class="fig-ref" href="#f:ftp-inheritance">Figure 3</a>).
-Every time <code>TCPServer</code> gets a new connection,
-it creates a new object of our class
-and calls that object's <code>handle</code> method.</p>
-<figure id="f:ftp-inheritance">
-<img alt="Classes in a TCP server" src="inheritance.svg"/>
-<figcaption>Figure 3: Classes used in a basic TCP server.</figcaption>
+</div>
+<p>There’s a <em>lot</em> going on here, so most people who have to program at this level use Python’s <a href="https://docs.python.org/3/library/socketserver.html"><code>socketserver</code></a> module, which provides two things: a class called <code>TCPServer</code> that manages incoming connections and another class called <code>BaseRequestHandler</code> that does everything <em>except</em> process the incoming data. In order to do that, we derive a class of our own from <code>BaseRequestHandler</code> that provides a <code>handle</code> method (<a href="#fig-ftp-inheritance" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>). Every time <code>TCPServer</code> gets a new connection, it creates a new object of our class and calls that object’s <code>handle</code> method.</p>
+<div id="fig-ftp-inheritance" class="quarto-float quarto-figure quarto-figure-center" alt="Class hierarchy of a simple TCP server">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ftp-inheritance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="inheritance.svg" alt="Class hierarchy of a simple TCP server">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ftp-inheritance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.3: Classes used in a basic TCP server.
+</figcaption>
 </figure>
-<p>Using <code>TCPServer</code> and <code>BaseRequestHandler</code> as starting points,
-our server is:</p>
-<div data-inc="server_lib.py"><span aria-label="Source: ftp/server_lib.py" class="inc-path" role="img" tabindex="0" title="ftp/server_lib.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socketserver</span>
-
-<span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="n">SERVER_ADDRESS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">MyHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">)</span>
-        <span class="n">cli</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_address</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"got request from </span><span class="si">{</span><span class="n">cli</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">))</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">server</span> <span class="o">=</span> <span class="n">socketserver</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">(</span><span class="n">SERVER_ADDRESS</span><span class="p">,</span> <span class="n">MyHandler</span><span class="p">)</span>
-    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
-</code></pre></div>
 </div>
-<p>These two classes use a different design than what we've seen before.
-Instead of creating one class for programmers to extend,
-the <code>socketserver</code> module puts the low-level details in <code>TCPServer</code>,
-which can be used as-is,
-and asks users to create a plug-in class from <code>BaseRequestHandler</code>
-for the server to use.
-This approach isn't intrinsically better or worse than
-the "derive and override" approach we've seen before;
-they're just two more tools in a software designer's toolbox.</p>
-<h2 id="ftp-chunk">Chunking</h2>
-<p>Our latest server reads data exactly once
-using <code>self.request.recv(CHUNK_SIZE)</code>
-with <code>CHUNK_SIZE</code> set to 1024.
-If the client sends more than a kilobyte of data,
-our server will ignore it.
-This can result in <a class="gl-ref" href="../glossary/#deadlock">deadlock</a>:
-the server is trying to send a reply
-while the client is trying to send the rest of the message,
-and since neither is listening,
-neither can move forward.
-Increasing the size of the <span class="ix-ref" data-ix-key="buffer (in memory)" id="ix-ftp-2">memory buffer</span>
-used to store the incoming message
-won't make this problem go away:
-the client (or a malicious attacker) could always send more data
-than we have allowed for.</p>
-<p>Instead,
-we need to modify the server so that it keeps reading data
-until there is nothing left to read.
-Each time the <code>handle</code> method shown below goes around the loop,
-it tries to read another kilobyte.
-If it gets that much,
-it appends it to <code>data</code> and tries again.
-If it gets less than a kilobyte,
-we have reached the end of the transmission
-and can return the result:</p>
-<div data-inc="server_chunk.py" data-mark="class"><span aria-label="Source: ftp/server_chunk.py" class="inc-path" role="img" tabindex="0" title="ftp/server_chunk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FileHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"server about to start receiving"</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">latest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"...server received </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-            <span class="n">data</span> <span class="o">+=</span> <span class="n">latest</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">CHUNK_SIZE</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"...server breaking"</span><span class="p">)</span>
-                <span class="k">break</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"server finished received, about to reply"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<p>We can modify the client to send data in chunks as well,
-but we handle this a little differently.
-Each call to <code>conn.send</code> in the function below
-tries to send all of the remaining data.
-The value returned by the function call tells us
-how many bytes were actually sent.
-If that number gets us to the end of the data we're sending,
-the function can exit the loop.
-If not,
-it adds the number of bytes sent to <code>total</code>
-so that it knows where to start sending
-the next time around:</p>
-<div data-inc="client_chunk.py" data-mark="send"><span aria-label="Source: ftp/client_chunk.py" class="inc-path" role="img" tabindex="0" title="ftp/client_chunk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">send_file</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"client sending </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="n">sent</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">total</span><span class="p">:])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"...client sent </span><span class="si">{</span><span class="n">sent</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">sent</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">break</span>
-        <span class="n">total</span> <span class="o">+=</span> <span class="n">sent</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"...client total now </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">total</span>
-</code></pre></div>
-</div>
-<p>While we're here,
-we might as well write a function to create a socket:</p>
-<div data-inc="client_chunk.py" data-mark="make"><span aria-label="Source: ftp/client_chunk.py" class="inc-path" role="img" tabindex="0" title="ftp/client_chunk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_socket</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">conn</span>
-</code></pre></div>
-</div>
+<p>Using <code>TCPServer</code> and <code>BaseRequestHandler</code> as starting points, our server is:</p>
+<div class="sourceCode" id="cb3" data-file="ftp/server_lib.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socketserver</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="op">=</span> <span class="dv">1024</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>SERVER_ADDRESS <span class="op">=</span> (<span class="st">"localhost"</span>, <span class="dv">8080</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyHandler(socketserver.BaseRequestHandler):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> handle(<span class="va">self</span>):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> <span class="va">self</span>.request.recv(CHUNK_SIZE)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        cli <span class="op">=</span> <span class="va">self</span>.client_address[<span class="dv">0</span>]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        msg <span class="op">=</span> <span class="ss">f"got request from </span><span class="sc">{</span>cli<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">len</span>(data)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(msg)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.request.sendall(<span class="bu">bytes</span>(msg, <span class="st">"utf-8"</span>))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    server <span class="op">=</span> socketserver.TCPServer(SERVER_ADDRESS, MyHandler)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    server.serve_forever()</span></code></pre></div>
+<p>These two classes use a different design than what we’ve seen before. Instead of creating one class for programmers to extend, the <code>socketserver</code> module puts the low-level details in <code>TCPServer</code>, which can be used as-is, and asks users to create a plug-in class from <code>BaseRequestHandler</code> for the server to use. This approach isn’t intrinsically better or worse than the “derive and override” approach we’ve seen before; they’re just two more tools in a software designer’s toolbox.</p>
+<h2 data-number="21.2" id="ftp-chunk"><span class="header-section-number">21.2</span> Chunking</h2>
+<p>Our latest server reads data exactly once using <code>self.request.recv(CHUNK_SIZE)</code> with <code>CHUNK_SIZE</code> set to 1024. If the client sends more than a kilobyte of data, our server will ignore it. This can result in <a href="../glossary/index.html#deadlock">deadlock</a>: the server is trying to send a reply while the client is trying to send the rest of the message, and since neither is listening, neither can move forward. Increasing the size of the memory buffer used to store the incoming message won’t make this problem go away: the client (or a malicious attacker) could always send more data than we have allowed for.</p>
+<p>Instead, we need to modify the server so that it keeps reading data until there is nothing left to read. Each time the <code>handle</code> method shown below goes around the loop, it tries to read another kilobyte. If it gets that much, it appends it to <code>data</code> and tries again. If it gets less than a kilobyte, we have reached the end of the transmission and can return the result:</p>
+<div class="sourceCode" id="cb4" data-file="ftp/server_chunk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FileHandler(socketserver.BaseRequestHandler):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> handle(<span class="va">self</span>):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"server about to start receiving"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> <span class="bu">bytes</span>()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            latest <span class="op">=</span> <span class="va">self</span>.request.recv(CHUNK_SIZE)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"...server received </span><span class="sc">{</span><span class="bu">len</span>(latest)<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            data <span class="op">+=</span> latest</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(latest) <span class="op">&lt;</span> CHUNK_SIZE:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"...server breaking"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"server finished received, about to reply"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.request.sendall(<span class="bu">bytes</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(data)<span class="sc">}</span><span class="ss">"</span>, <span class="st">"utf-8"</span>))</span></code></pre></div>
+<p>We can modify the client to send data in chunks as well, but we handle this a little differently. Each call to <code>conn.send</code> in the function below tries to send all of the remaining data. The value returned by the function call tells us how many bytes were actually sent. If that number gets us to the end of the data we’re sending, the function can exit the loop. If not, it adds the number of bytes sent to <code>total</code> so that it knows where to start sending the next time around:</p>
+<div class="sourceCode" id="cb5" data-file="ftp/client_chunk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> send_file(conn, filename):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"rb"</span>) <span class="im">as</span> reader:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> reader.read()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"client sending </span><span class="sc">{</span><span class="bu">len</span>(data)<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> total <span class="op">&lt;</span> <span class="bu">len</span>(data):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        sent <span class="op">=</span> conn.send(data[total:])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"...client sent </span><span class="sc">{</span>sent<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> sent <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> sent</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"...client total now </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span></code></pre></div>
+<p>While we’re here, we might as well write a function to create a socket:</p>
+<div class="sourceCode" id="cb6" data-file="ftp/client_chunk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_socket(host, port):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    conn.<span class="ex">connect</span>((host, port))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> conn</span></code></pre></div>
 <p>and another to wait for the acknowledgment from the server:</p>
-<div data-inc="client_chunk.py" data-mark="receive"><span aria-label="Source: ftp/client_chunk.py" class="inc-path" role="img" tabindex="0" title="ftp/client_chunk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">receive_ack</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
-    <span class="n">received</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">received</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">))</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb7" data-file="ftp/client_chunk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> receive_ack(conn):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    received <span class="op">=</span> conn.recv(CHUNK_SIZE)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(<span class="bu">str</span>(received, <span class="st">"utf-8"</span>))</span></code></pre></div>
 <p>The main program is then:</p>
-<div data-inc="client_chunk.py" data-mark="main"><span aria-label="Source: ftp/client_chunk.py" class="inc-path" role="img" tabindex="0" title="ftp/client_chunk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">make_socket</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
-    <span class="n">bytes_sent</span> <span class="o">=</span> <span class="n">send_file</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"client main sent </span><span class="si">{</span><span class="n">bytes_sent</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-    <span class="n">bytes_received</span> <span class="o">=</span> <span class="n">receive_ack</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"client main received </span><span class="si">{</span><span class="n">bytes_received</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">bytes_sent</span> <span class="o">==</span> <span class="n">bytes_received</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>When we run the client and server,
-the client prints:</p>
-<div data-inc="client_chunk.out"><span aria-label="Source: ftp/client_chunk.out" class="inc-path" role="img" tabindex="0" title="ftp/client_chunk.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>client sending 1236 bytes
+<div class="sourceCode" id="cb8" data-file="ftp/client_chunk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main(host, port, filename):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> make_socket(host, port)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    bytes_sent <span class="op">=</span> send_file(conn, filename)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"client main sent </span><span class="sc">{</span>bytes_sent<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    bytes_received <span class="op">=</span> receive_ack(conn)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"client main received </span><span class="sc">{</span>bytes_received<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(bytes_sent <span class="op">==</span> bytes_received)</span></code></pre></div>
+<p>When we run the client and server, the client prints:</p>
+<pre data-file="ftp/client_chunk.out"><code>client sending 1236 bytes
 ...client sent 1236 bytes
 ...client total now 1236 bytes
 client main sent 1236 bytes
 client main received 1236 bytes
-True
-</code></pre></div>
-</div>
+True</code></pre>
 <p>and the server prints</p>
-<div data-inc="server_chunk.out"><span aria-label="Source: ftp/server_chunk.out" class="inc-path" role="img" tabindex="0" title="ftp/server_chunk.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>server about to start receiving
+<pre data-file="ftp/server_chunk.out"><code>server about to start receiving
 ...server received 1024 bytes
 ...server received 212 bytes
 ...server breaking
-server finished received, about to reply
-</code></pre></div>
-</div>
-<h2 id="ftp-test">Testing</h2>
-<p>Testing single-process command-line applications is hard enough.
-To test a client-server application like the one above,
-we have to start the server,
-wait for it to be ready,
-then run the client,
-and then shut down the server if it hasn't shut down by itself.
-It's easy to do this interactively,
-but automating it is difficult because
-there's no way to tell how long to wait before trying to talk to the server
-and no easy way to shut the server down.</p>
-<p>A partial solution is to use a <span class="ix-ref" data-ix-key="mock object" id="ix-ftp-3">mock object</span> (<a class="xref" href="../protocols/">Chapter 9</a>)
-in place of a real network connection
-so that we can test each part of the application independently.
-To start,
-let's <span class="ix-ref" data-ix-key="refactor" id="ix-ftp-4">refactor</span> our server's <code>handle</code> method
-so that it calls <code>self.debug</code> instead of printing directly:</p>
-<div data-inc="logging_handler.py" data-mark="class" data-omit="debug"><span aria-label="Source: ftp/logging_handler.py" class="inc-path" role="img" tabindex="0" title="ftp/logging_handler.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LoggingHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"server about to start receiving"</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">latest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">BLOCK_SIZE</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"...server received </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-            <span class="n">data</span> <span class="o">+=</span> <span class="n">latest</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">BLOCK_SIZE</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"...server breaking"</span><span class="p">)</span>
-                <span class="k">break</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"server finished received, about to reply"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">))</span>
-
-<span class="c1"># ...2 lines not shown...</span>
-</code></pre></div>
-</div>
+server finished received, about to reply</code></pre>
+<h2 data-number="21.3" id="ftp-test"><span class="header-section-number">21.3</span> Testing</h2>
+<p>Testing single-process command-line applications is hard enough. To test a client-server application like the one above, we have to start the server, wait for it to be ready, then run the client, and then shut down the server if it hasn’t shut down by itself. It’s easy to do this interactively, but automating it is difficult because there’s no way to tell how long to wait before trying to talk to the server and no easy way to shut the server down.</p>
+<p>A partial solution is to use a mock object (<a href="../protocols/index.html" class="quarto-xref"><span>Chapter 9</span></a>) in place of a real network connection so that we can test each part of the application independently. To start, let’s refactor our server’s <code>handle</code> method so that it calls <code>self.debug</code> instead of printing directly:</p>
+<div class="sourceCode" id="cb11" data-file="ftp/logging_handler.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LoggingHandler(socketserver.BaseRequestHandler):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> handle(<span class="va">self</span>):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.debug(<span class="st">"server about to start receiving"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> <span class="bu">bytes</span>()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            latest <span class="op">=</span> <span class="va">self</span>.request.recv(BLOCK_SIZE)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.debug(<span class="ss">f"...server received </span><span class="sc">{</span><span class="bu">len</span>(latest)<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            data <span class="op">+=</span> latest</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(latest) <span class="op">&lt;</span> BLOCK_SIZE:</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.debug(<span class="st">"...server breaking"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.debug(<span class="st">"server finished received, about to reply"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.request.sendall(<span class="bu">bytes</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(data)<span class="sc">}</span><span class="ss">"</span>, <span class="st">"utf-8"</span>))</span></code></pre></div>
 <p>The <code>debug</code> method takes any number of arguments and passes them to <code>print</code>:</p>
-<div data-inc="logging_handler.py" data-mark="debug"><span aria-label="Source: ftp/logging_handler.py" class="inc-path" role="img" tabindex="0" title="ftp/logging_handler.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>The <code>handle</code> method in this class relies on
-the <code>self.request</code> object created by the framework
-to send and receive data.
-We can create a testable server by deriving a class from <code>LoggingHandler</code>
-that inherits the <code>handle</code> method (which we want to test)
-but creates a mock <code>request</code> object
-and overrides the <code>debug</code> method so it doesn't print logging messages:</p>
-<div data-inc="test_server.py" data-mark="handler"><span aria-label="Source: ftp/test_server.py" class="inc-path" role="img" tabindex="0" title="ftp/test_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MockHandler</span><span class="p">(</span><span class="n">LoggingHandler</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">MockRequest</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="k">pass</span>
-</code></pre></div>
-</div>
-<p>Notice that we <em>don't</em> call the <span class="ix-ref" data-ix-key="constructor" id="ix-ftp-5">constructor</span> of <code>LoggingHandler</code>
-in the constructor of <code>MockHandler</code>.
-If we did,
-we would trigger a call to the constructor of <code>BaseRequestHandler</code>,
-which would then be upset because we haven't defined a host or a port.</p>
+<div class="sourceCode" id="cb12" data-file="ftp/logging_handler.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> debug(<span class="va">self</span>, <span class="op">*</span>args):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="op">*</span>args)</span></code></pre></div>
+<p>The <code>handle</code> method in this class relies on the <code>self.request</code> object created by the framework to send and receive data. We can create a testable server by deriving a class from <code>LoggingHandler</code> that inherits the <code>handle</code> method (which we want to test) but creates a mock <code>request</code> object and overrides the <code>debug</code> method so it doesn’t print logging messages:</p>
+<div class="sourceCode" id="cb13" data-file="ftp/test_server.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MockHandler(LoggingHandler):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, message):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.request <span class="op">=</span> MockRequest(message)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> debug(<span class="va">self</span>, <span class="op">*</span>args):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code></pre></div>
+<p>Notice that we <em>don’t</em> call the constructor of <code>LoggingHandler</code> in the constructor of <code>MockHandler</code>. If we did, we would trigger a call to the constructor of <code>BaseRequestHandler</code>, which would then be upset because we haven’t defined a host or a port.</p>
 <p>The class we use to create our mock <code>request</code> object needs three things:</p>
-<ol>
-<li>
-<p>A constructor that records the data we're going to pretend
-    to have received over a socket
-    and does whatever other setup is needed.</p>
-</li>
-<li>
-<p>A <code>recv</code> method with the same signature as the real object's <code>recv</code> method.</p>
-</li>
-<li>
-<p>A <code>sendall</code> method whose signature matches that of the real thing as well.</p>
-</li>
+<ol type="1">
+<li><p>A constructor that records the data we’re going to pretend to have received over a socket and does whatever other setup is needed.</p></li>
+<li><p>A <code>recv</code> method with the same signature as the real object’s <code>recv</code> method.</p></li>
+<li><p>A <code>sendall</code> method whose signature matches that of the real thing as well.</p></li>
 </ol>
 <p>The whole class is:</p>
-<div data-inc="test_server.py" data-mark="request"><span aria-label="Source: ftp/test_server.py" class="inc-path" role="img" tabindex="0" title="ftp/test_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MockRequest</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_message</span> <span class="o">=</span> <span class="n">message</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sent</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">recv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_bytes</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_message</span><span class="p">)</span>
-        <span class="n">top</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_message</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">+</span> <span class="n">BLOCK_SIZE</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_message</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">:</span><span class="n">top</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">top</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">sendall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outgoing</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">outgoing</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb14" data-file="ftp/test_server.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MockRequest:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, message):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._message <span class="op">=</span> message</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._position <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._sent <span class="op">=</span> []</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> recv(<span class="va">self</span>, max_bytes):</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="va">self</span>._position <span class="op">&lt;=</span> <span class="bu">len</span>(<span class="va">self</span>._message)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        top <span class="op">=</span> <span class="bu">min</span>(<span class="bu">len</span>(<span class="va">self</span>._message), <span class="va">self</span>._position <span class="op">+</span> BLOCK_SIZE)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> <span class="va">self</span>._message[<span class="va">self</span>._position:top]</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._position <span class="op">=</span> top</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sendall(<span class="va">self</span>, outgoing):</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._sent.append(outgoing)</span></code></pre></div>
 <p>With it, we can now write unit tests like this:</p>
-<div data-inc="test_server.py" data-mark="test"><span aria-label="Source: ftp/test_server.py" class="inc-path" role="img" tabindex="0" title="ftp/test_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_short</span><span class="p">():</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">"message"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)</span>
-    <span class="n">handler</span> <span class="o">=</span> <span class="n">MockHandler</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-    <span class="n">handler</span><span class="o">.</span><span class="n">handle</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">handler</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">_sent</span> <span class="o">==</span> <span class="p">[</span><span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)]</span>
-</code></pre></div>
+<div class="sourceCode" id="cb15" data-file="ftp/test_server.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_short():</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    msg <span class="op">=</span> <span class="bu">bytes</span>(<span class="st">"message"</span>, <span class="st">"utf-8"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    handler <span class="op">=</span> MockHandler(msg)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    handler.handle()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> handler.request._sent <span class="op">==</span> [<span class="bu">bytes</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(msg)<span class="sc">}</span><span class="ss">"</span>, <span class="st">"utf-8"</span>)]</span></code></pre></div>
+<p>The key to our approach is the notion of <a href="../glossary/index.html#test_fidelity">fidelity</a>: how close is what we test to what we use in production? In an ideal world they are exactly the same, but in cases like this it makes sense to sacrifice a little fidelity for testability’s sake.</p>
+<h2 data-number="21.4" id="ftp-summary"><span class="header-section-number">21.4</span> Summary</h2>
+<p><a href="#fig-ftp-concept-map" class="quarto-xref">Figure&nbsp;<span>21.4</span></a> summarizes the idea introduces in this chapter. While understanding how to send data over a network is important, knowing how to test programs that interact with the outside world is just as important.</p>
+<div id="fig-ftp-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of file transfer">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ftp-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="concept_map.svg" alt="Concept map of file transfer">
 </div>
-<p>The key to our approach is the notion of <a class="gl-ref" href="../glossary/#test_fidelity">fidelity</a>:
-how close is what we test to what we use in production?
-In an ideal world they are exactly the same,
-but in cases like this it makes sense to sacrifice a little fidelity for testability's sake.</p>
-<h2 id="ftp-summary">Summary</h2>
-<p><a class="fig-ref" href="#f:ftp-concept-map">Figure 4</a> summarizes the idea introduces in this chapter.
-While understanding how to send data over a network is important,
-knowing how to test programs that interact with the outside world
-is just as important.</p>
-<figure id="f:ftp-concept-map">
-<img alt="File transfer concept map" src="concept_map.svg"/>
-<figcaption>Figure 4: File transfer concept map.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ftp-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.4: File transfer concept map.
+</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="ftp-exercises">Exercises</h2>
-<h3>Chunk Sizes</h3>
-<p>What happens if the client tries to send zero bytes to the server?
-What happens if it sends exactly <code>CHUNK_SIZE</code> bytes or <code>CHUNK_SIZE+1</code> bytes?</p>
-<h3>Efficiency</h3>
-<p>Suppose a client sends $ N $ chunks of data to a server.
-The current implementation will copy the first chunk $ N-1 $ times,
-the second chunk $ N-2 $ times, and so on,
-so that the total copying work is $ O(N^2) $.
-Modify the server so that it collects chunks in a list
-and concatenates them at the end instead.</p>
-<h3>Saving and Listing Files</h3>
-<ol>
-<li>
-<p>Modify the <span class="ix-ref" data-ix-key="protocol" id="ix-ftp-6">protocol</span> used by this chapter's client and server
-    so that the client sends the file's name, a newline, and then the file's contents,
-    and the server saves the file under that name.</p>
-</li>
-<li>
-<p>Modify the protocol again so that the client can send the word <code>dir</code>
-    followed by a newline and no other data
-    and the server will send back a list of the files in its current working directory.</p>
-</li>
+</div>
+<h2 data-number="21.5" id="ftp-exercises"><span class="header-section-number">21.5</span> Exercises</h2>
+<h3 data-number="21.5.1" id="chunk-sizes"><span class="header-section-number">21.5.1</span> Chunk Sizes</h3>
+<p>What happens if the client tries to send zero bytes to the server? What happens if it sends exactly <code>CHUNK_SIZE</code> bytes or <code>CHUNK_SIZE+1</code> bytes?</p>
+<h3 data-number="21.5.2" id="efficiency"><span class="header-section-number">21.5.2</span> Efficiency</h3>
+<p>Suppose a client sends <span class="math inline">\(N\)</span> chunks of data to a server. The current implementation will copy the first chunk <span class="math inline">\(N-1\)</span> times, the second chunk <span class="math inline">\(N-2\)</span> times, and so on, so that the total copying work is <span class="math inline">\(O(N^2)\)</span>. Modify the server so that it collects chunks in a list and concatenates them at the end instead.</p>
+<h3 data-number="21.5.3" id="saving-and-listing-files"><span class="header-section-number">21.5.3</span> Saving and Listing Files</h3>
+<ol type="1">
+<li><p>Modify the protocol used by this chapter’s client and server so that the client sends the file’s name, a newline, and then the file’s contents, and the server saves the file under that name.</p></li>
+<li><p>Modify the protocol again so that the client can send the word <code>dir</code> followed by a newline and no other data and the server will send back a list of the files in its current working directory.</p></li>
 </ol>
-<h3>A Socket Client Class</h3>
-<p>Build a <code>socketclient</code> class that works like the <code>socketserver</code> class
-but sends data instead of handling requests.
-How useful is it in practice?</p>
-</section>
+<h3 data-number="21.5.4" id="a-socket-client-class"><span class="header-section-number">21.5.4</span> A Socket Client Class</h3>
+<p>Build a <code>socketclient</code> class that works like the <code>socketserver</code> class but sends data instead of handling requests. How useful is it in practice?</p>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../pack">A Package Manager</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../http">Serving Web Pages</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../pack/index.html">← A Package Manager</a>
+    <a class="pager-link next" href="../http/index.html">Serving Web Pages →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>SQL</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -53,7 +54,7 @@
 <p><a href="./databases.zip">download databases</a></p>
 <h2 data-number="18.1" id="sort-penguins-by-island-then-species"><span class="header-section-number">18.1</span> Sort penguins by island then species</h2>
 <p>Run this query and look at the first several rows. Is the output ordered by island first, or by species first?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the species, island, and sex of all penguins,</span></span>
+<div class="sourceCode" id="cb1" data-file="sql/sortcol.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the species, island, and sex of all penguins,</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- sorted alphabetically by island and then by species within each island.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, sex</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
@@ -68,7 +69,7 @@ Show explanation
 </details>
 <h2 data-number="18.2" id="retrieve-the-second-page-of-search-results"><span class="header-section-number">18.2</span> Retrieve the second page of search results</h2>
 <p>Run this query and note which rows are returned. Count from the beginning of the full table to check whether rows 11-15 are actually what you got.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Retrieve rows 11 through 15 from the penguins table (the third page of 5).</span></span>
+<div class="sourceCode" id="cb2" data-file="sql/offsetpage.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Retrieve rows 11 through 15 from the penguins table (the third page of 5).</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">5</span> offset <span class="dv">11</span>;</span></code></pre></div>
@@ -82,7 +83,7 @@ Show explanation
 </details>
 <h2 data-number="18.3" id="show-body-mass-in-kilograms"><span class="header-section-number">18.3</span> Show body mass in kilograms</h2>
 <p>Run this query and compare the <code>mass_kg</code> column to the <code>body_mass_g</code> column. Do the kilogram values look right for a penguin that weighs, say, 3750 g?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show body mass in kilograms for the first 10 penguins.</span></span>
+<div class="sourceCode" id="cb3" data-file="sql/intdivision.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show body mass in kilograms for the first 10 penguins.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, body_mass_g,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    body_mass_g <span class="op">/</span> <span class="dv">1000</span> <span class="kw">as</span> mass_kg</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
@@ -97,7 +98,7 @@ Show explanation
 </details>
 <h2 data-number="18.4" id="list-distinct-species-in-the-penguins-dataset"><span class="header-section-number">18.4</span> List distinct species in the penguins dataset</h2>
 <p>Run this query and count the rows returned. How many distinct species are in the dataset? Does the row count match that number?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List the distinct species found in the penguins dataset (one row per species).</span></span>
+<div class="sourceCode" id="cb4" data-file="sql/distinctcols.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List the distinct species found in the penguins dataset (one row per species).</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">distinct</span> species, sex</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins;</span></code></pre></div>
 <details>
@@ -110,7 +111,7 @@ Show explanation
 </details>
 <h2 data-number="18.5" id="find-penguins-with-no-recorded-sex"><span class="header-section-number">18.5</span> Find penguins with no recorded sex</h2>
 <p>Run this query. How many rows does it return? Are there penguins in the table whose sex was not recorded?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins whose sex was not recorded.</span></span>
+<div class="sourceCode" id="cb5" data-file="sql/nullequal.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins whose sex was not recorded.</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> sex <span class="op">=</span> <span class="kw">null</span>;</span></code></pre></div>
@@ -124,7 +125,7 @@ Show explanation
 </details>
 <h2 data-number="18.6" id="filter-for-records-in-two-different-categories"><span class="header-section-number">18.6</span> Filter for records in two different categories</h2>
 <p>Run this query. How many rows does it return? Choose a penguin you know is on Biscoe island from a previous query and check whether it appears here.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins from either Biscoe island or Dream island.</span></span>
+<div class="sourceCode" id="cb6" data-file="sql/impossibleand.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins from either Biscoe island or Dream island.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, sex</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> island <span class="op">=</span> <span class="st">'Biscoe'</span> <span class="kw">and</span> island <span class="op">=</span> <span class="st">'Dream'</span>;</span></code></pre></div>
@@ -138,7 +139,7 @@ Show explanation
 </details>
 <h2 data-number="18.7" id="find-all-female-penguins"><span class="header-section-number">18.7</span> Find all female penguins</h2>
 <p>Run this query and count the rows returned. Then run a query to find the distinct values stored in the <code>sex</code> column. Do any of them match the literal used in the <code>where</code> clause?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all female penguins.</span></span>
+<div class="sourceCode" id="cb7" data-file="sql/casevalue.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all female penguins.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> sex <span class="op">=</span> <span class="st">'female'</span>;</span></code></pre></div>
@@ -152,7 +153,7 @@ Show explanation
 </details>
 <h2 data-number="18.8" id="filter-on-a-calculated-column"><span class="header-section-number">18.8</span> Filter on a calculated column</h2>
 <p>Run this query. Does it raise an error or return wrong results? Add a second <code>select</code> that uses the full expression <code>body_mass_g / 1000.0</code> in the <code>where</code> clause and compare the two queries’ output.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins heavier than 4 kg, displaying mass in kilograms.</span></span>
+<div class="sourceCode" id="cb8" data-file="sql/wherealiased.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find all penguins heavier than 4 kg, displaying mass in kilograms.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, body_mass_g <span class="op">/</span> <span class="fl">1000.0</span> <span class="kw">as</span> mass_kg</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> mass_kg <span class="op">&gt;</span> <span class="fl">4.0</span>;</span></code></pre></div>
@@ -166,7 +167,7 @@ Show explanation
 </details>
 <h2 data-number="18.9" id="select-records-matching-one-of-two-conditions"><span class="header-section-number">18.9</span> Select records matching one of two conditions</h2>
 <p>Run this query. Which species and islands appear in the result? Is the output what you expected based on the comment describing the intent?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find penguins that are on Biscoe island and are either Adelie or Chinstrap.</span></span>
+<div class="sourceCode" id="cb9" data-file="sql/andorprecedence.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find penguins that are on Biscoe island and are either Adelie or Chinstrap.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> species <span class="op">=</span> <span class="st">'Adelie'</span> <span class="kw">or</span> species <span class="op">=</span> <span class="st">'Chinstrap'</span> <span class="kw">and</span> island <span class="op">=</span> <span class="st">'Biscoe'</span>;</span></code></pre></div>
@@ -180,7 +181,7 @@ Show explanation
 </details>
 <h2 data-number="18.10" id="show-average-body-mass-per-species"><span class="header-section-number">18.10</span> Show average body mass per species</h2>
 <p>Run this query and examine the <code>sex</code> column. Pick one species and check a few rows against the original data. Are the sex values consistent with what you expected for that species group?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the average body mass for each species along with the sex of each penguin.</span></span>
+<div class="sourceCode" id="cb10" data-file="sql/nonaggcol.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the average body mass for each species along with the sex of each penguin.</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, sex, <span class="fu">avg</span>(body_mass_g) <span class="kw">as</span> avg_mass</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> species;</span></code></pre></div>
@@ -194,7 +195,7 @@ Show explanation
 </details>
 <h2 data-number="18.11" id="keep-only-groups-above-a-minimum-size"><span class="header-section-number">18.11</span> Keep only groups above a minimum size</h2>
 <p>Run this query. Does it return a result or raise an error? Check whether moving the condition to a <code>having</code> clause after <code>group by</code> fixes the problem.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find species whose average body mass exceeds 4000 g.</span></span>
+<div class="sourceCode" id="cb11" data-file="sql/wherenothavin.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Find species whose average body mass exceeds 4000 g.</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, <span class="fu">avg</span>(body_mass_g) <span class="kw">as</span> avg_mass</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> <span class="fu">avg</span>(body_mass_g) <span class="op">&gt;</span> <span class="fl">4000.0</span></span>
@@ -209,7 +210,7 @@ Show explanation
 </details>
 <h2 data-number="18.12" id="show-the-five-heaviest-penguins"><span class="header-section-number">18.12</span> Show the five heaviest penguins</h2>
 <p>Run this query a few times and note which rows appear. Are they the five heaviest penguins, or does the result change?</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the five heaviest penguins.</span></span>
+<div class="sourceCode" id="cb12" data-file="sql/limitorder.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show the five heaviest penguins.</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, body_mass_g</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">5</span>;</span></code></pre></div>
@@ -223,7 +224,7 @@ Show explanation
 </details>
 <h2 data-number="18.13" id="count-the-penguin-rows"><span class="header-section-number">18.13</span> Count the penguin rows</h2>
 <p>Run this query. Then run a second query using <code>count(*)</code> and compare the two results. If the numbers differ, find the rows that account for the difference.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Report the total number of penguins in the dataset.</span></span>
+<div class="sourceCode" id="cb13" data-file="sql/countnull.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Report the total number of penguins in the dataset.</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="fu">count</span>(sex) <span class="kw">as</span> total_penguins</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins;</span></code></pre></div>
 <details>
@@ -236,7 +237,7 @@ Show explanation
 </details>
 <h2 data-number="18.14" id="compute-the-average-body-mass"><span class="header-section-number">18.14</span> Compute the average body mass</h2>
 <p>Run this query and note the result. Then run <code>select avg(body_mass_g) from penguins</code> and compare. Are the two values the same?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Calculate the average body mass of all penguins.</span></span>
+<div class="sourceCode" id="cb14" data-file="sql/avgmanual.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Calculate the average body mass of all penguins.</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="fu">sum</span>(body_mass_g) <span class="op">/</span> <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> avg_mass</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins;</span></code></pre></div>
 <details>
@@ -249,7 +250,7 @@ Show explanation
 </details>
 <h2 data-number="18.15" id="order-rows-that-contain-null-values"><span class="header-section-number">18.15</span> Order rows that contain null values</h2>
 <p>Run this query and look at the first few rows. Do the penguins with no recorded body mass appear where you expected?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List penguins ordered by body mass, lightest first.</span></span>
+<div class="sourceCode" id="cb15" data-file="sql/nullorder.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List penguins ordered by body mass, lightest first.</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> species, island, body_mass_g</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> penguins</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> body_mass_g;</span></code></pre></div>
@@ -263,7 +264,7 @@ Show explanation
 </details>
 <h2 data-number="18.16" id="list-every-person-and-their-total-credits"><span class="header-section-number">18.16</span> List every person and their total credits</h2>
 <p>Run this query and list the people in the result. Then run <code>select distinct person from work</code> and compare. Does every person from the <code>work</code> table appear in the query output?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List every person and the total credits they have earned.</span></span>
+<div class="sourceCode" id="cb16" data-file="sql/innerleft.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List every person and the total credits they have earned.</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- People who only did jobs not listed in the job table should appear with 0 credits.</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">work</span>.person, <span class="fu">sum</span>(job.credits) <span class="kw">as</span> total</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> <span class="kw">work</span> <span class="kw">inner</span> <span class="kw">join</span> job</span>
@@ -279,7 +280,7 @@ Show explanation
 </details>
 <h2 data-number="18.17" id="join-two-tables-to-combine-related-records"><span class="header-section-number">18.17</span> Join two tables to combine related records</h2>
 <p>Run this query. Count the rows returned. How many rows are in the <code>job</code> table? How many are in the <code>work</code> table? How do those numbers relate to the row count you observed?</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Match each job entry to the work records for that job.</span></span>
+<div class="sourceCode" id="cb17" data-file="sql/noonclause.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Match each job entry to the work records for that job.</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> job <span class="kw">join</span> <span class="kw">work</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">limit</span> <span class="dv">10</span>;</span></code></pre></div>
@@ -293,7 +294,7 @@ Show explanation
 </details>
 <h2 data-number="18.18" id="show-total-credits-per-person"><span class="header-section-number">18.18</span> Show total credits per person</h2>
 <p>Run this query and check the <code>total</code> column for each person. Which person has a null total? What jobs did that person do, according to the <code>work</code> table?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show total credits earned per person.</span></span>
+<div class="sourceCode" id="cb18" data-file="sql/coalescemiss.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Show total credits earned per person.</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- People who only did jobs not in the job table should show 0, not null.</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">work</span>.person, <span class="fu">sum</span>(job.credits) <span class="kw">as</span> total</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> <span class="kw">work</span> <span class="kw">left</span> <span class="kw">join</span> job</span>
@@ -310,7 +311,7 @@ Show explanation
 </details>
 <h2 data-number="18.19" id="list-each-person-and-their-survey-count"><span class="header-section-number">18.19</span> List each person and their survey count</h2>
 <p>Run this query. Does every person appear? Compare the <code>num_surveys</code> counts to what you get from <code>select count(*) from survey group by person_id</code>. Do the numbers match?</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List each person's full name and the number of surveys they have done.</span></span>
+<div class="sourceCode" id="cb19" data-file="sql/joinswapped.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- List each person's full name and the number of surveys they have done.</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    person.personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> person.family <span class="kw">as</span> full_name,</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> num_surveys</span>
@@ -328,7 +329,7 @@ Show explanation
 </details>
 <h2 data-number="18.20" id="list-each-person-and-their-supervisor"><span class="header-section-number">18.20</span> List each person and their supervisor</h2>
 <p>Run this query and look at a few rows. Use the <code>person</code> table to verify which people are supervisors and which are subordinates. Are the labels in the output correct?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- For each person, show their full name and their supervisor's full name.</span></span>
+<div class="sourceCode" id="cb20" data-file="sql/selfjoin.sql"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- For each person, show their full name and their supervisor's full name.</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    pa.personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> pa.family <span class="kw">as</span> person_name,</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    pb.personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> pb.family <span class="kw">as</span> supervisor_name</span>
@@ -351,6 +352,14 @@ Show explanation
     <a class="pager-link next" href="../testing/index.html">Testing →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

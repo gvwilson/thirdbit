@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Basic Python</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -47,7 +48,7 @@
 <h1 class="title">Basic Python</h1>
 <h2 data-number="2.1" id="build-sliding-windows-over-a-sequence"><span class="header-section-number">2.1</span> Build sliding windows over a sequence</h2>
 <p>Run this code with a small list (for example, five elements and a window size of three) and count the windows by hand. Does the number of windows the code returns match the number you counted?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sliding_windows(data, k):</span>
+<div class="sourceCode" id="cb1" data-file="basicpy/sliding.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sliding_windows(data, k):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return all sliding windows of size k over data."""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [data[i : i <span class="op">+</span> k] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(data) <span class="op">-</span> k)]</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
@@ -65,7 +66,7 @@ Show explanation
 </details>
 <h2 data-number="2.2" id="average-scores-from-a-text-file"><span class="header-section-number">2.2</span> Average scores from a text file</h2>
 <p>Run this script with the provided input file and examine the average it prints. Does the value look like a reasonable average of exam scores?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<div class="sourceCode" id="cb2" data-file="basicpy/catadd.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_scores(filename):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the average of numeric scores stored one per line."""</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
@@ -80,7 +81,7 @@ Show explanation
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> average_scores(<span class="st">"catadd.txt"</span>)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Average: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
-<pre><code>85
+<pre data-file="basicpy/catadd.txt"><code>85
 92
 78
 90
@@ -95,7 +96,7 @@ Show explanation
 </details>
 <h2 data-number="2.3" id="validate-a-user-registration-form"><span class="header-section-number">2.3</span> Validate a user registration form</h2>
 <p>Call the validation function with several passwords, including one you expect to be accepted. Does it accept any of them?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_password(password):</span>
+<div class="sourceCode" id="cb4" data-file="basicpy/andor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_password(password):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return True if password is at least 8 characters and contains a digit."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    has_length <span class="op">=</span> <span class="bu">len</span>(password) <span class="op">&gt;=</span> <span class="dv">8</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    has_digit <span class="op">=</span> <span class="bu">any</span>(c.isdigit() <span class="cf">for</span> c <span class="kw">in</span> password)</span>
@@ -123,7 +124,7 @@ Show explanation
 </details>
 <h2 data-number="2.4" id="convert-degreesminutesseconds-to-decimal-degrees"><span class="header-section-number">2.4</span> Convert degrees/minutes/seconds to decimal degrees</h2>
 <p>Call the conversion function with a coordinate you can verify by hand—for example, 1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function return the correct value?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dms_to_decimal(degrees, minutes, seconds):</span>
+<div class="sourceCode" id="cb5" data-file="basicpy/formula.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dms_to_decimal(degrees, minutes, seconds):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Convert degrees/minutes/seconds to decimal degrees."""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> degrees <span class="op">+</span> minutes <span class="op">/</span> <span class="dv">60</span> <span class="op">+</span> seconds <span class="op">/</span> <span class="dv">60</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
@@ -145,7 +146,7 @@ Show explanation
 </details>
 <h2 data-number="2.5" id="square-and-sort-a-list-of-numbers"><span class="header-section-number">2.5</span> Square and sort a list of numbers</h2>
 <p>Run this script and examine what it prints. Is the list what you expected?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> squared_sorted(numbers):</span>
+<div class="sourceCode" id="cb6" data-file="basicpy/sortnone.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> squared_sorted(numbers):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a sorted list of squares of the input numbers."""</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    squared <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> numbers]</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    squared <span class="op">=</span> squared.sort()</span>
@@ -163,7 +164,7 @@ Show explanation
 </details>
 <h2 data-number="2.6" id="count-runs-of-identical-lines-in-a-file"><span class="header-section-number">2.6</span> Count runs of identical lines in a file</h2>
 <p>Run this script with the provided input file and examine the run-length counts. Then trace through the loop by hand with a short example—track what the “previous line” variable holds at each step.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<div class="sourceCode" id="cb7" data-file="basicpy/indent.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_runs(filename):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a list of (value, count) pairs for runs of identical lines."""</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:</span>
@@ -187,7 +188,7 @@ Show explanation
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> value, count <span class="kw">in</span> count_runs(<span class="st">"indent.txt"</span>):</span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> x </span><span class="sc">{</span>value<span class="sc">!r}</span><span class="ss">"</span>)</span></code></pre></div>
-<pre><code>apple
+<pre data-file="basicpy/indent.txt"><code>apple
 apple
 apple
 banana
@@ -203,7 +204,7 @@ Show explanation
 </details>
 <h2 data-number="2.7" id="filter-negative-numbers-from-a-list"><span class="header-section-number">2.7</span> Filter negative numbers from a list</h2>
 <p>Call the function and print its return value. Is it what you expected?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_negatives(numbers):</span>
+<div class="sourceCode" id="cb9" data-file="basicpy/noreturn.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_negatives(numbers):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a new list containing only the non-negative values."""</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> numbers:</span>
@@ -224,7 +225,7 @@ Show explanation
 </details>
 <h2 data-number="2.8" id="count-word-frequencies-in-a-document"><span class="header-section-number">2.8</span> Count word frequencies in a document</h2>
 <p>Run this script with the provided input file. Read the full traceback carefully. Which line raises the error, and what does the error message tell you about what is missing?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<div class="sourceCode" id="cb10" data-file="basicpy/nokey.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_words(filename):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a dictionary mapping each word to its frequency."""</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    counts <span class="op">=</span> {}</span>
@@ -237,7 +238,7 @@ Show explanation
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    counts <span class="op">=</span> count_words(<span class="st">"nokey.txt"</span>)</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word, count <span class="kw">in</span> <span class="bu">sorted</span>(counts.items(), key<span class="op">=</span><span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>])[:<span class="dv">5</span>]:</span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
-<pre><code>to be or not to be that is the question
+<pre data-file="basicpy/nokey.txt"><code>to be or not to be that is the question
 whether tis nobler in the mind to suffer
 the slings and arrows of outrageous fortune
 or to take arms against a sea of troubles</code></pre>
@@ -251,7 +252,7 @@ Show explanation
 </details>
 <h2 data-number="2.9" id="match-user-ids-loaded-from-a-config-file"><span class="header-section-number">2.9</span> Match user IDs loaded from a config file</h2>
 <p>Run this script with a user ID taken directly from the JSON file. Does it grant access? Use <code>type()</code> to examine the types of the two values being compared.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<div class="sourceCode" id="cb12" data-file="basicpy/streq.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_allowed(user_id, allowed_file):</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return True if user_id appears in the allowed list in allowed_file."""</span></span>
@@ -262,9 +263,9 @@ Show explanation
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    user_id <span class="op">=</span> <span class="st">"42"</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> is_allowed(user_id, <span class="st">"streq.json"</span>)</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Access granted."</span> <span class="cf">if</span> result <span class="cf">else</span> <span class="st">"Access denied."</span>)</span></code></pre></div>
-<pre><code>{
-    "allowed_ids": [1, 42, 100, 256]
-}</code></pre>
+<div class="sourceCode" id="cb13" data-file="basicpy/streq.json"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"allowed_ids"</span><span class="fu">:</span> <span class="ot">[</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">42</span><span class="ot">,</span> <span class="dv">100</span><span class="ot">,</span> <span class="dv">256</span><span class="ot">]</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <details>
 <summary>
 Show explanation
@@ -275,7 +276,7 @@ Show explanation
 </details>
 <h2 data-number="2.10" id="compute-factorials-recursively"><span class="header-section-number">2.10</span> Compute factorials recursively</h2>
 <p>Call the function with the argument <code>0</code>. Does it return the correct result?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
+<div class="sourceCode" id="cb14" data-file="basicpy/recurse.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return n! for non-negative n."""</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
@@ -292,7 +293,7 @@ Show explanation
 </details>
 <h2 data-number="2.11" id="collect-results-with-a-helper-function"><span class="header-section-number">2.11</span> Collect results with a helper function</h2>
 <p>Call the function twice in a row with no arguments and compare the two return values. Are they the same?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> collect_items(new_items, result<span class="op">=</span>[]):</span>
+<div class="sourceCode" id="cb15" data-file="basicpy/mutable.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> collect_items(new_items, result<span class="op">=</span>[]):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Append new_items to result and return it."""</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> new_items:</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        result.append(item)</span>
@@ -313,7 +314,7 @@ Show explanation
 </details>
 <h2 data-number="2.12" id="compare-lines-read-from-a-file"><span class="header-section-number">2.12</span> Compare lines read from a file</h2>
 <p>Run this script with the provided input file. Use <code>repr()</code> on a field value that fails to match its expected string. Does the <code>repr()</code> output reveal anything that was not visible before?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<div class="sourceCode" id="cb16" data-file="basicpy/trailing.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_value(filename, target):</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the value for the matching region name in a pipe-delimited file."""</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:</span>
@@ -333,7 +334,7 @@ Show explanation
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">!r}</span><span class="ss">: not found"</span>)</span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">!r}</span><span class="ss">: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
-<pre><code>North |142
+<pre data-file="basicpy/trailing.txt"><code>North |142
 South|98
 East |201
 West|77</code></pre>
@@ -347,7 +348,7 @@ Show explanation
 </details>
 <h2 data-number="2.13" id="clean-up-user-submitted-text"><span class="header-section-number">2.13</span> Clean up user-submitted text</h2>
 <p>Call the function and print the message before and after the call. Has the message changed?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> censor(message, banned_words):</span>
+<div class="sourceCode" id="cb18" data-file="basicpy/strmeth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> censor(message, banned_words):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Replace each banned word in message with '***'."""</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word <span class="kw">in</span> banned_words:</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        message.replace(word, <span class="st">"***"</span>)</span>
@@ -368,7 +369,7 @@ Show explanation
 </details>
 <h2 data-number="2.14" id="remove-negative-numbers-from-a-list"><span class="header-section-number">2.14</span> Remove negative numbers from a list</h2>
 <p>Run this script and count how many items were removed. Is it the number you expected? Try with a list where every element should be removed.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remove_negatives(numbers):</span>
+<div class="sourceCode" id="cb19" data-file="basicpy/mutiter.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remove_negatives(numbers):</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Remove all negative numbers from the list in place and return it."""</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> numbers:</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
@@ -389,7 +390,7 @@ Show explanation
 </details>
 <h2 data-number="2.15" id="rank-files-by-version-number"><span class="header-section-number">2.15</span> Rank files by version number</h2>
 <p>Run the sort function and examine the output order. Where does <code>file10</code> appear relative to <code>file2</code>?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sorted_logs(filenames):</span>
+<div class="sourceCode" id="cb20" data-file="basicpy/lexisort.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sorted_logs(filenames):</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return filenames sorted by their embedded sequence number."""</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>(filenames)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
@@ -416,6 +417,14 @@ Show explanation
     <a class="pager-link next" href="../interpy/index.html">Intermediate Python →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

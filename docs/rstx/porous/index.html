@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Percolation in a Porous Medium</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -51,7 +74,7 @@
 <li>This is <a href="../glossary/index.html#site_percolation">site percolation</a> on a 2D square lattice with 4-neighbor (von Neumann) connectivity.</li>
 <li>“Percolation” means a connected path of open cells exists from any cell in the top row to any cell in the bottom row.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GRID_SIZE <span class="op">=</span> <span class="dv">20</span>  <span class="co"># side length of the square grid (cells)</span></span>
+<div class="sourceCode" id="cb1" data-file="porous/porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GRID_SIZE <span class="op">=</span> <span class="dv">20</span>  <span class="co"># side length of the square grid (cells)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>N_TRIALS <span class="op">=</span> <span class="dv">200</span>  <span class="co"># independent trials per probability value</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_PROBS <span class="op">=</span> <span class="dv">41</span>  <span class="co"># number of probability values from 0.0 to 1.0 inclusive</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>RNG_SEED <span class="op">=</span> <span class="dv">7493418</span></span>
@@ -59,7 +82,7 @@
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4-neighbor (von Neumann) connectivity.  From Stauffer &amp; Aharony,</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduction to Percolation Theory (2nd ed., 1994), Appendix B.</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>THRESHOLD_THEORY <span class="op">=</span> <span class="fl">0.5927</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_grid(p, rng):</span>
+<div class="sourceCode" id="cb2" data-file="porous/porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_grid(p, rng):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a GRID_SIZE x GRID_SIZE boolean array.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each cell is independently True (open) with probability p.</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
@@ -91,7 +114,7 @@ Wrong: the comparison <code>&lt; p</code> gives probability p directly, with no 
 <li><a href="../glossary/index.html#depth_first_search">Depth-first search</a> (DFS) explores as far as possible along each branch before backtracking.</li>
 <li>All open cells in row 0 are added to a stack as starting points; the search succeeds as soon as any visited cell reaches the last row.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> percolates(grid):</span>
+<div class="sourceCode" id="cb3" data-file="porous/porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> percolates(grid):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return True if an open path connects any top-row cell to any bottom-row cell.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses iterative depth-first search with 4-neighbor (von Neumann) connectivity.</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    All open cells in row 0 are added to the stack as starting points.</span></span>
@@ -158,7 +181,7 @@ Wrong: the check <code>r == nrows - 1</code> happens after popping; the order of
 <li>At low <span class="math inline">\(p\)</span>, almost no trial percolates; at high <span class="math inline">\(p\)</span>, almost every trial does.</li>
 <li>The transition from 0 to 1 sharpens as the grid size increases.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sweep():</span>
+<div class="sourceCode" id="cb4" data-file="porous/porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sweep():</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a DataFrame with the percolation fraction at each probability.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    For each p in a uniform grid from 0 to 1, runs N_TRIALS independent</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    experiments and records the fraction that percolate.  All trials share</span></span>
@@ -171,7 +194,7 @@ Wrong: the check <code>r == nrows - 1</code> happens after popping; the order of
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> probs</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"probability"</span>: probs, <span class="st">"fraction_percolating"</span>: fractions})</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_threshold(df):</span>
+<div class="sourceCode" id="cb5" data-file="porous/porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_threshold(df):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the smallest p where the percolation fraction first reaches 0.5.</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    On a finite grid the percolation transition is sharp but not a true step</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    function.  The crossing of 0.5 is a conventional and reproducible</span></span>
@@ -180,7 +203,7 @@ Wrong: the check <code>r == nrows - 1</code> happens after popping; the order of
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    above <span class="op">=</span> df.<span class="bu">filter</span>(pl.col(<span class="st">"fraction_percolating"</span>) <span class="op">&gt;=</span> <span class="fl">0.5</span>)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(above[<span class="st">"probability"</span>].<span class="bu">min</span>()) <span class="cf">if</span> <span class="kw">not</span> above.is_empty() <span class="cf">else</span> <span class="bu">float</span>(<span class="st">"nan"</span>)</span></code></pre></div>
 <h2 data-number="6.5" id="visualizing-the-results"><span class="header-section-number">6.5</span> Visualizing the Results</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(df):</span>
+<div class="sourceCode" id="cb6" data-file="porous/porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(df):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair line chart of percolation fraction vs. open probability."""</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
@@ -222,7 +245,7 @@ Figure&nbsp;6.1: Percolation fraction vs.&nbsp;open-cell probability p on a 20 x
 <li>On a <span class="math inline">\(20 \times 20\)</span> grid with 200 trials the finite-size correction and Monte Carlo variance together are within 0.07 of this value.</li>
 <li>A tolerance of 0.07 is tight enough to catch a wrong algorithm but loose enough to accommodate finite-size effects.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb7" data-file="porous/test_porous.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> porous <span class="im">import</span> (</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    RNG_SEED,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    THRESHOLD_THEORY,</span>
@@ -284,6 +307,14 @@ Figure&nbsp;6.1: Percolation fraction vs.&nbsp;open-cell probability p on a 20 x
     <a class="pager-link next" href="../archcluster/index.html">Spatial Clustering of Archaeological Sites →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

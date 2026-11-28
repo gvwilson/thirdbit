@@ -1,362 +1,189 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Bibliography</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bibliography</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <span class="topnav-item disabled">Contents</span>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Bibliography</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Aniche2022" class="csl-entry" role="listitem">
+Aniche, Maurício. 2022. <em>Effective Software Testing: A Developer’s
+Guide</em>. Manning. ISBN 9781633439931.
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
+<div id="ref-Armstrong2013" class="csl-entry" role="listitem">
+Armstrong, Tavish, ed. 2013. <em>The Performance of Open Source
+Applications</em>. Lulu. ISBN 9781304488787.
 </div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a class="active" href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
+<div id="ref-Bentley1982" class="csl-entry" role="listitem">
+Bentley, Jon Louis. 1982. <em>Writing Efficient Programs</em>.
+Prentice-Hall PTR. ISBN 9780139702440.
 </div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
+<div id="ref-Brand1995" class="csl-entry" role="listitem">
+Brand, Stewart. 1995. <em>How Buildings Learn: What Happens After
+They’re Built</em>. Penguin USA. ISBN 9780140139969.
 </div>
-</nav>
-<main id="main-content">
-<h1>Bibliography</h1>
-<h2>A</h2>
-<dl>
-<dt><span id="Aniche2022">Aniche2022</span></dt>
-<dd>Maurício Aniche:
-<em>Effective Software Testing: A developer's guide</em>.
-Manning,
-2022.
-ISBN 978-1633439931.</dd>
-<dt><span id="Armstrong2013">Armstrong2013</span></dt>
-<dd>Tavish Armstrong (ed.):
-<em>The Performance of Open Source Applications</em>.
-Lulu,
-2013.
-ISBN 978-1304488787.</dd>
-</dl>
-<h2>B</h2>
-<dl>
-<dt><span id="Bentley1982">Bentley1982</span></dt>
-<dd>Jon Louis Bentley:
-<em>Writing Efficient Programs</em>.
-Prentice-Hall PTR,
-1982.
-ISBN 978-0139702440.</dd>
-<dt><span id="Brand1995">Brand1995</span></dt>
-<dd>Stewart Brand:
-<em>How Buildings Learn: What Happens After They're Built</em>.
-Penguin USA,
-1995.
-ISBN 978-0140139969.</dd>
-<dt><span id="Brown2011">Brown2011</span></dt>
-<dd>Amy Brown, Greg Wilson (eds.):
-<em>The Architecture of Open Source Applications: Elegance, Evolution, and a Few Fearless Hacks</em>.
-Lulu,
-2011.
-ISBN 978-1257638017.</dd>
-<dt><span id="Brown2012">Brown2012</span></dt>
-<dd>Amy Brown, Greg Wilson (eds.):
-<em>The Architecture of Open Source Applications: Structure, Scale, and a Few More Fearless Hacks</em>.
-Lulu,
-2012.
-ISBN 978-0201103427.</dd>
-<dt><span id="Brown2016">Brown2016</span></dt>
-<dd>Amy Brown, Michael DiBernardo (eds.):
-<em>500 Lines or Less: Experienced Programmers Solve Interesting Problems</em>.
-Lulu,
-2016.
-ISBN 978-1329871274.</dd>
-</dl>
-<h2>F</h2>
-<dl>
-<dt><span id="Fowler2018">Fowler2018</span></dt>
-<dd>Martin Fowler:
-<em>Refactoring: Improving the Design of Existing Code</em>.
-Addison-Wesley Professional,
-2018.
-ISBN 978-0134757599.</dd>
-<dt><span id="Fucci2016">Fucci2016</span></dt>
-<dd>Davide Fucci et al.:
-"An external replication on the effects of test-driven development using a multi-site blind analysis approach".
-<em>Proc. ESEM'16</em>,
-2016.
-DOI 10.1145/2961111.2962592.</dd>
-</dl>
-<h2>G</h2>
-<dl>
-<dt><span id="Gamma1994">Gamma1994</span></dt>
-<dd>Erich Gamma et al.:
-<em>Design Patterns: Elements of Reusable Object-Oriented Software</em>.
-Addison-Wesley Professional,
-1994.
-ISBN 978-0201633610.</dd>
-<dt><span id="Goldberg1991">Goldberg1991</span></dt>
-<dd>David Goldberg:
-"What every computer scientist should know about floating-point arithmetic".
-<em>ACM Computing Surveys</em>, 23(1),
-1991.
-DOI 10.1145/103162.103163.</dd>
-</dl>
-<h2>H</h2>
-<dl>
-<dt><span id="Hermans2021">Hermans2021</span></dt>
-<dd>Felienne Hermans:
-<em>The Programmer's Brain: What Every Programmer Needs to Know About Cognition</em>.
-Manning,
-2021.
-ISBN 9781617298677.</dd>
-</dl>
-<h2>K</h2>
-<dl>
-<dt><span id="Kamin1990">Kamin1990</span></dt>
-<dd>Samuel N. Kamin:
-<em>Programming Languages: An Interpreter-Based Approach</em>.
-Addison-Wesley,
-1990.
-ISBN 978-0201068245.</dd>
-<dt><span id="Kerievsky2004">Kerievsky2004</span></dt>
-<dd>Joshua Kerievsky:
-<em>Refactoring to Patterns</em>.
-Addison-Wesley Professional,
-2004.
-ISBN 978-0321213358.</dd>
-<dt><span id="Kernighan1979">Kernighan1979</span></dt>
-<dd>Brian W. Kernighan, P. J. Plauger:
-<em>The Elements of Programming Style</em>.
-McGraw-Hill,
-1979.
-ISBN 978-0070342071.</dd>
-<dt><span id="Kernighan1981">Kernighan1981</span></dt>
-<dd>Brian W. Kernighan, P. J. Plauger:
-<em>Software Tools in Pascal</em>.
-Addison-Wesley Professional,
-1981.
-ISBN 978-0201103427.</dd>
-<dt><span id="Kernighan1983">Kernighan1983</span></dt>
-<dd>Brian W. Kernighan, Rob Pike:
-<em>The Unix Programming Environment</em>.
-Prentice-Hall,
-1983.
-ISBN 978-0139376818.</dd>
-<dt><span id="Kernighan1988">Kernighan1988</span></dt>
-<dd>Brian W. Kernighan, Dennis M. Ritchie:
-<em>The C Programming Language</em>.
-Prentice-Hall,
-1988.
-ISBN 978-0131103627.</dd>
-<dt><span id="Kohavi2020">Kohavi2020</span></dt>
-<dd>Ron Kohavi, Diane Tang, Ya Xu:
-<em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>.
-Cambridge University Press,
-2020.
-ISBN 978-1108724265.</dd>
-</dl>
-<h2>M</h2>
-<dl>
-<dt><span id="Meszaros2007">Meszaros2007</span></dt>
-<dd>Gerard Meszaros:
-<em>xUnit Test Patterns: Refactoring Test Code</em>.
-Addison-Wesley,
-2007.
-ISBN 978-0131495050.</dd>
-</dl>
-<h2>N</h2>
-<dl>
-<dt><span id="Nystrom2021">Nystrom2021</span></dt>
-<dd>Robert Nystrom:
-<em>Crafting Interpreters</em>.
-Genever Benning,
-2021.
-ISBN 978-0990582939.</dd>
-</dl>
-<h2>O</h2>
-<dl>
-<dt><span id="Oram2007">Oram2007</span></dt>
-<dd>Andy Oram, Greg Wilson (eds.):
-<em>Beautiful Code: Leading Programmers Explain How They Think</em>.
-O'Reilly,
-2007.
-ISBN 978-0596510046.</dd>
-</dl>
-<h2>P</h2>
-<dl>
-<dt><span id="Patterson2017">Patterson2017</span></dt>
-<dd>David A. Patterson, John L. Hennessy:
-<em>Computer Organization and Design: The Hardware/Software Interface</em>.
-Morgan Kaufmann,
-2017.
-ISBN 978-0128122754.</dd>
-<dt><span id="Petre2016">Petre2016</span></dt>
-<dd>Marian Petre, André van der Hoek:
-<em>Software Design Decoded: 66 Ways Experts Think</em>.
-MIT Press,
-2016.
-ISBN 978-0262035187.</dd>
-</dl>
-<h2>S</h2>
-<dl>
-<dt><span id="Schon1984">Schon1984</span></dt>
-<dd>Donald A. Schon:
-<em>The Reflective Practitioner: How Professionals Think in Action</em>.
-Basic Books,
-1984.
-ISBN 978-0465068784.</dd>
-</dl>
-<h2>T</h2>
-<dl>
-<dt><span id="Tichy2010">Tichy2010</span></dt>
-<dd>Walter Tichy:
-<em>The Evidence for Design Patterns</em>.
-In <em>Making Software: What Really Works, and Why We Believe It</em>,
-2010.
-ISBN 978-0596808327.</dd>
-</dl>
-<h2>W</h2>
-<dl>
-<dt><span id="Wilson2019">Wilson2019</span></dt>
-<dd>Greg Wilson:
-<em>Teaching Tech Together</em>.
-Chapman &amp; Hall/CRC Press,
-2019.
-ISBN 978-0367352974.</dd>
-<dt><span id="Wilson2022a">Wilson2022a</span></dt>
-<dd>Greg Wilson:
-<em>Software Design by Example: A Tool-Based Introduction with JavaScript</em>.
-CRC Press/Taylor &amp; Francis,
-2022.
-ISBN 978-1032399676.</dd>
-<dt><span id="Wilson2022b">Wilson2022b</span></dt>
-<dd>Greg Wilson:
-"Twelve quick tips for software design".
-<em>PLOS Computational Biology</em>, 18(2),
-2022.
-DOI 10.1371/journal.pcbi.1009809.</dd>
-<dt><span id="Wirth1976">Wirth1976</span></dt>
-<dd>Niklaus Wirth:
-<em>Algorithms + Data Structures = Programs</em>.
-Prentice-Hall,
-1976.
-ISBN 978-0-13-022418-7.</dd>
-</dl>
+<div id="ref-Brown2016" class="csl-entry" role="listitem">
+Brown, Amy, and Michael DiBernardo, eds. 2016. <em>500 Lines or Less:
+Experienced Programmers Solve Interesting Problems</em>. Lulu. ISBN
+9781329871274.
+</div>
+<div id="ref-Brown2011" class="csl-entry" role="listitem">
+Brown, Amy, and Greg Wilson, eds. 2011. <em>The Architecture of Open
+Source Applications: Elegance, Evolution, and a Few Fearless Hacks</em>.
+Lulu. ISBN 9781257638017.
+</div>
+<div id="ref-Brown2012" class="csl-entry" role="listitem">
+Brown, Amy, and Greg Wilson, eds. 2012. <em>The Architecture of Open
+Source Applications: Structure, Scale, and a Few More Fearless
+Hacks</em>. Lulu. ISBN 9780201103427.
+</div>
+<div id="ref-Dean2004" class="csl-entry" role="listitem">
+Dean, Jeffrey, and Sanjay Ghemawat. 2004. <span>“MapReduce: Simplified
+Data Processing on Large Clusters.”</span> <em>Proceedings of the 6th
+Symposium on Operating Systems Design and Implementation (OSDI
+’04)</em>.
+</div>
+<div id="ref-Fowler2018" class="csl-entry" role="listitem">
+Fowler, Martin. 2018. <em>Refactoring: Improving the Design of Existing
+Code</em>. Addison-Wesley Professional. ISBN 9780134757599.
+</div>
+<div id="ref-Fucci2016" class="csl-entry" role="listitem">
+<span class="nocase">Fucci, Davide et al.</span> 2016. <span>“An
+External Replication on the Effects of Test-Driven Development Using a
+Multi-Site Blind Analysis Approach.”</span> <em>Proceedings of the 10th
+ACM/IEEE International Symposium on Empirical Software Engineering and
+Measurement (ESEM)</em>. <a href="https://doi.org/10.1145/2961111.2962592">https://doi.org/10.1145/2961111.2962592</a>.
+</div>
+<div id="ref-Gamma1994" class="csl-entry" role="listitem">
+<span class="nocase">Gamma, Erich et al.</span> 1994. <em>Design
+Patterns: Elements of Reusable Object-Oriented Software</em>.
+Addison-Wesley Professional. ISBN 9780201633610.
+</div>
+<div id="ref-Goldberg1991" class="csl-entry" role="listitem">
+Goldberg, David. 1991. <span>“What Every Computer Scientist Should Know
+about Floating-Point Arithmetic.”</span> <em>ACM Computing Surveys</em>
+23 (1). <a href="https://doi.org/10.1145/103162.103163">https://doi.org/10.1145/103162.103163</a>.
+</div>
+<div id="ref-Hermans2021" class="csl-entry" role="listitem">
+Hermans, Felienne. 2021. <em>The Programmer’s Brain: What Every
+Programmer Needs to Know about Cognition</em>. Manning. ISBN
+9781617298677.
+</div>
+<div id="ref-Kamin1990" class="csl-entry" role="listitem">
+Kamin, Samuel N. 1990. <em>Programming Languages: An Interpreter-Based
+Approach</em>. Addison-Wesley. ISBN 9780201068245.
+</div>
+<div id="ref-Kerievsky2004" class="csl-entry" role="listitem">
+Kerievsky, Joshua. 2004. <em>Refactoring to Patterns</em>.
+Addison-Wesley Professional. ISBN 9780321213358.
+</div>
+<div id="ref-Kernighan1983" class="csl-entry" role="listitem">
+Kernighan, Brian W., and Rob Pike. 1983. <em>The Unix Programming
+Environment</em>. Prentice-Hall. ISBN 9780139376818.
+</div>
+<div id="ref-Kernighan1979" class="csl-entry" role="listitem">
+Kernighan, Brian W., and P. J. Plauger. 1979. <em>The Elements of
+Programming Style</em>. McGraw-Hill. ISBN 9780070342071.
+</div>
+<div id="ref-Kernighan1981" class="csl-entry" role="listitem">
+Kernighan, Brian W., and P. J. Plauger. 1981. <em>Software Tools in
+Pascal</em>. Addison-Wesley Professional. ISBN 9780201103427.
+</div>
+<div id="ref-Kernighan1988" class="csl-entry" role="listitem">
+Kernighan, Brian W., and Dennis M. Ritchie. 1988. <em>The c Programming
+Language</em>. Prentice-Hall. ISBN 9780131103627.
+</div>
+<div id="ref-Kohavi2020" class="csl-entry" role="listitem">
+Kohavi, Ron, Diane Tang, and Ya Xu. 2020. <em>Trustworthy Online
+Controlled Experiments: A Practical Guide to a/b Testing</em>. Cambridge
+University Press. ISBN 9781108724265.
+</div>
+<div id="ref-Meszaros2007" class="csl-entry" role="listitem">
+Meszaros, Gerard. 2007. <em>xUnit Test Patterns: Refactoring Test
+Code</em>. Addison-Wesley. ISBN 9780131495050.
+</div>
+<div id="ref-Nystrom2021" class="csl-entry" role="listitem">
+Nystrom, Robert. 2021. <em>Crafting Interpreters</em>. Genever Benning.
+ISBN 9780990582939.
+</div>
+<div id="ref-Oram2007" class="csl-entry" role="listitem">
+Oram, Andy, and Greg Wilson, eds. 2007. <em>Beautiful Code: Leading
+Programmers Explain How They Think</em>. O’Reilly. ISBN 9780596510046.
+</div>
+<div id="ref-Patterson2017" class="csl-entry" role="listitem">
+Patterson, David A., and John L. Hennessy. 2017. <em>Computer
+Organization and Design: The Hardware/Software Interface</em>. Morgan
+Kaufmann. ISBN 9780128122754.
+</div>
+<div id="ref-Petre2016" class="csl-entry" role="listitem">
+Petre, Marian, and André van der Hoek. 2016. <em>Software Design
+Decoded: 66 Ways Experts Think</em>. MIT Press. ISBN 9780262035187.
+</div>
+<div id="ref-Schon1984" class="csl-entry" role="listitem">
+Schon, Donald A. 1984. <em>The Reflective Practitioner: How
+Professionals Think in Action</em>. Basic Books. ISBN 9780465068784.
+</div>
+<div id="ref-Tichy2010" class="csl-entry" role="listitem">
+Tichy, Walter. 2010. <span>“The Evidence for Design Patterns.”</span> In
+<em>Making Software: What Really Works, and Why We Believe It</em>.
+O’Reilly. ISBN 9780596808327.
+</div>
+<div id="ref-Wilson2019" class="csl-entry" role="listitem">
+Wilson, Greg. 2019. <em>Teaching Tech Together</em>. Chapman &amp;
+Hall/CRC Press. ISBN 9780367352974.
+</div>
+<div id="ref-Wilson2022a" class="csl-entry" role="listitem">
+Wilson, Greg. 2022a. <em>Software Design by Example: A Tool-Based
+Introduction with JavaScript</em>. CRC Press/Taylor &amp; Francis. ISBN
+9781032399676.
+</div>
+<div id="ref-Wilson2022b" class="csl-entry" role="listitem">
+Wilson, Greg. 2022b. <span>“Twelve Quick Tips for Software
+Design.”</span> <em>PLOS Computational Biology</em> 18 (2). <a href="https://doi.org/10.1371/journal.pcbi.1009809">https://doi.org/10.1371/journal.pcbi.1009809</a>.
+</div>
+<div id="ref-Wirth1976" class="csl-entry" role="listitem">
+Wirth, Niklaus. 1976. <em>Algorithms + Data Structures = Programs</em>.
+Prentice-Hall. ISBN 9780130224187.
+</div>
+</div>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../contributing">Contributing</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../glossary">Glossary</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../contributing/index.html">← Contributing</a>
+    <a class="pager-link next" href="../glossary/index.html">Glossary →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Topic Modeling a Document Corpus</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -82,7 +105,7 @@ Wrong: ignoring word order (the bag-of-words assumption) is a modeling choice, n
 <li>Each row in the resulting DataFrame is one document with integer word-count columns.</li>
 <li><code>true_topic</code> records which topic generated each document and is used only in tests.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_corpus(</span>
+<div class="sourceCode" id="cb1" data-file="topics/generate_topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_corpus(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n_topics<span class="op">=</span>N_TOPICS,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    docs_per_topic<span class="op">=</span>DOCS_PER_TOPIC,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    vocab_size<span class="op">=</span>VOCAB_SIZE,</span>
@@ -124,7 +147,7 @@ Wrong: ignoring word order (the bag-of-words assumption) is a modeling choice, n
 <li>A term-frequency vector for document <span class="math inline">\(d\)</span> is the vector <span class="math inline">\(\mathbf{t}_d \in \mathbb{Z}_{\geq 0}^V\)</span> where <span class="math inline">\(V\)</span> is the vocabulary size and <span class="math inline">\(t_{dw}\)</span> counts how many times word <span class="math inline">\(w\)</span> appears in document <span class="math inline">\(d\)</span>.</li>
 <li>Extracting word-count columns from the DataFrame and converting to a NumPy matrix gives a two-dimensional array with shape <span class="math inline">\((\text{n_docs},\, V)\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_tf_matrix(df):</span>
+<div class="sourceCode" id="cb2" data-file="topics/topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_tf_matrix(df):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a (n_docs, vocab_size) NumPy array of raw term-frequency counts.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The first two columns of df are doc_id and true_topic; remaining columns</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    are word counts.  Returns the matrix and the list of word column names.</span></span>
@@ -142,7 +165,7 @@ Wrong: ignoring word order (the bag-of-words assumption) is a modeling choice, n
 <li>After normalization, two documents about the same topic are close to each other in Euclidean space even if one is three times longer than the other.</li>
 <li>This is analogous to comparing the shape of word use rather than its volume.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize_rows(matrix):</span>
+<div class="sourceCode" id="cb3" data-file="topics/topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize_rows(matrix):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a copy of matrix with each row divided by its L2 norm.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Documents with zero norm (all-zero rows) are left as zeros.</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Normalizing makes k-means compare the shape of word use rather than</span></span>
@@ -188,7 +211,7 @@ Wrong: <span class="math inline">\(\sqrt{8}\)</span> would be the L2 norm of <sp
 <ul>
 <li>The algorithm needs <span class="math inline">\(K\)</span> to be chosen before running it; topic modeling uses domain knowledge or model selection criteria to pick <span class="math inline">\(K\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kmeans(matrix, k, seed<span class="op">=</span>SEED, max_iter<span class="op">=</span>MAX_ITER):</span>
+<div class="sourceCode" id="cb4" data-file="topics/topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kmeans(matrix, k, seed<span class="op">=</span>SEED, max_iter<span class="op">=</span>MAX_ITER):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run k-means clustering and return (labels, centroids).</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Algorithm:</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">      1. Choose k distinct rows of matrix at random as initial centroids.</span></span>
@@ -231,7 +254,7 @@ Wrong: <span class="math inline">\(\sqrt{8}\)</span> would be the L2 norm of <sp
 <li>After k-means converges, the top words for each cluster are those with the highest value in the cluster’s centroid vector.</li>
 <li>A high centroid coordinate for word <span class="math inline">\(w\)</span> means that documents in the cluster tend to use word <span class="math inline">\(w\)</span> frequently, making it a good label for the cluster’s theme.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> top_words(centroids, word_cols, n_words<span class="op">=</span><span class="dv">5</span>):</span>
+<div class="sourceCode" id="cb5" data-file="topics/topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> top_words(centroids, word_cols, n_words<span class="op">=</span><span class="dv">5</span>):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a list of k lists, each with the top n_words for that cluster.</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The top words for a cluster are those with the highest value in the</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    centroid vector: high centroid coordinates mean those words appear most</span></span>
@@ -249,7 +272,7 @@ Wrong: <span class="math inline">\(\sqrt{8}\)</span> would be the L2 norm of <sp
 <li>For this synthetic corpus both approaches recover the three topics because all documents have similar Poisson-distributed lengths; in a corpus with very unequal document lengths, normalization matters more.</li>
 </ul>
 <h2 data-number="17.8" id="visualizing-cluster-centroids"><span class="header-section-number">17.8</span> Visualizing Cluster Centroids</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_clusters(labels, true_topics, centroids, word_cols, filename):</span>
+<div class="sourceCode" id="cb6" data-file="topics/topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_clusters(labels, true_topics, centroids, word_cols, filename):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a heatmap of centroid word weights, one row per cluster."""</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    n_clusters, vocab_size <span class="op">=</span> centroids.shape</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    rows <span class="op">=</span> []</span>
@@ -334,7 +357,7 @@ Wrong: the centroid is a mean over all cluster members, not a selection of one p
 <li>After running k-means with normalized TF on the synthetic corpus, every document in the same true-topic group must be assigned to the same cluster. The true-to-cluster mapping may be any permutation.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb7" data-file="topics/test_topics.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_topics <span class="im">import</span> make_corpus, N_TOPICS</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> topics <span class="im">import</span> make_tf_matrix, normalize_rows, kmeans, top_words</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_tf_matrix_shape():</span>
@@ -454,6 +477,14 @@ Dividing a vector by its Euclidean length <span class="math inline">\(\|\mathbf{
     <a class="pager-link next" href="../sdt/index.html">Signal Detection Theory Analysis →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

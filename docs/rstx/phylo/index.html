@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Phylogenetic Tree Reconstruction</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -72,7 +95,7 @@ Wrong: this would require N=6 leaves.
 <li>A <a href="../glossary/index.html#distance_matrix">distance matrix</a> <span class="math inline">\(D\)</span> stores the evolutionary distance between every pair of taxa</li>
 <li>Distances are estimated from aligned sequences: the fraction of positions that differ, corrected for multiple substitutions</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>TAXA <span class="op">=</span> [<span class="st">"Bat"</span>, <span class="st">"Chimp"</span>, <span class="st">"Human"</span>, <span class="st">"Gorilla"</span>]</span>
+<div class="sourceCode" id="cb1" data-file="phylo/phylo.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>TAXA <span class="op">=</span> [<span class="st">"Bat"</span>, <span class="st">"Chimp"</span>, <span class="st">"Human"</span>, <span class="st">"Gorilla"</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># True branch lengths from the reference tree used to generate distances.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The tree is: ((Bat:0.6, Chimp:0.8):1.2, (Human:0.4, Gorilla:0.5))</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairwise distances are sums of branches on the path between each pair.</span></span>
@@ -119,7 +142,7 @@ Wrong: this would require N=6 leaves.
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_distance_matrix(noise_scale<span class="op">=</span><span class="fl">0.0</span>, seed<span class="op">=</span>SEED):</span>
+<div class="sourceCode" id="cb2" data-file="phylo/phylo.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_distance_matrix(noise_scale<span class="op">=</span><span class="fl">0.0</span>, seed<span class="op">=</span>SEED):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (names, D) where D is the symmetric pairwise distance matrix.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    When noise_scale=0.0 (default) the distances are exact tree-additive values.</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    A non-zero noise_scale adds symmetric Gaussian noise so that the distances</span></span>
@@ -190,7 +213,7 @@ Wrong: whether a tree is rooted or unrooted is independent of the clock assumpti
 </dl>
 </div>
 <h2 data-number="12.5" id="displaying-the-tree"><span class="header-section-number">12.5</span> Displaying the Tree</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_tree(edges, taxa, filename):</span>
+<div class="sourceCode" id="cb3" data-file="phylo/phylo.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_tree(edges, taxa, filename):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a rooted tree diagram to `filename`.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Leaf nodes (members of `taxa`) are drawn in blue; internal nodes in grey.</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Edge labels show branch lengths rounded to two decimal places.</span></span>
@@ -259,7 +282,7 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
 <li>This test documents the robustness of UPGMA to modest measurement error</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb4" data-file="phylo/test_phylo.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> phylo <span class="im">import</span> TAXA, make_distance_matrix, upgma</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tolerance for floating-point comparisons in branch-length tests.</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># UPGMA computes only averages and halvings, so round-off is well below 1e-10.</span></span>
@@ -353,7 +376,7 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
 </ul></li>
 <li>Branch lengths are drawn independently from an exponential distribution with a specified mean</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_random_tree(</span>
+<div class="sourceCode" id="cb5" data-file="phylo/generate_tree.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_random_tree(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n_taxa, seed<span class="op">=</span>SEED, branch_mean<span class="op">=</span>DEFAULT_BRANCH_MEAN, noise_scale<span class="op">=</span><span class="fl">0.0</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (names, D, true_edges) for a random unrooted binary tree.</span></span>
@@ -409,7 +432,7 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
 </ul></li>
 <li>Two trees have the same topology if and only if their bipartition sets are identical</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb6" data-file="phylo/test_generate_tree.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_tree <span class="im">import</span> make_random_tree, bipartitions, MIN_TAXA</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> phylo <span class="im">import</span> neighbor_joining</span>
@@ -482,6 +505,14 @@ Figure&nbsp;12.1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey n
     <a class="pager-link next" href="../vitals/index.html">Anomaly Detection in Patient Vital Signs →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

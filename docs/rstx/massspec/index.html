@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Peak Detection in Mass Spectra</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -54,7 +77,7 @@
 <li><span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(h_k\)</span>, and <span class="math inline">\(\sigma_k\)</span> are the center, height, and width of peak <span class="math inline">\(k\)</span></li>
 <li>Intensities are clipped to zero because a negative ion count has no physical meaning</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MZ_MIN <span class="op">=</span> <span class="fl">100.0</span>  <span class="co"># lower end of m/z range (daltons)</span></span>
+<div class="sourceCode" id="cb1" data-file="massspec/generate_spectrum.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MZ_MIN <span class="op">=</span> <span class="fl">100.0</span>  <span class="co"># lower end of m/z range (daltons)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>MZ_MAX <span class="op">=</span> <span class="fl">600.0</span>  <span class="co"># upper end of m/z range (daltons)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_POINTS <span class="op">=</span> <span class="dv">500</span>  <span class="co"># number of evenly-spaced m/z values</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Each peak is (center_mz, height, sigma): three compounds at known masses.</span></span>
@@ -66,7 +89,7 @@
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">510.0</span>, <span class="fl">0.45</span>, <span class="fl">2.0</span>),  <span class="co"># compound D</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>DEFAULT_NOISE <span class="op">=</span> <span class="fl">0.05</span>  <span class="co"># Gaussian noise std dev relative to tallest peak</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_spectrum(</span>
+<div class="sourceCode" id="cb2" data-file="massspec/generate_spectrum.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_spectrum(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    peaks<span class="op">=</span>PEAKS,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>DEFAULT_NOISE,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    n_points<span class="op">=</span>N_POINTS,</span>
@@ -97,7 +120,7 @@
 <ul>
 <li>Smoothing attenuates noise without shifting peak positions as long as <span class="math inline">\(w\)</span> is small relative to the peak width</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> smooth(intensity, window<span class="op">=</span>SMOOTH_WINDOW):</span>
+<div class="sourceCode" id="cb3" data-file="massspec/massspec.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> smooth(intensity, window<span class="op">=</span>SMOOTH_WINDOW):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the moving-average of `intensity` over `window` points.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses np.convolve with mode='same', which zero-pads at both ends.</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The first and last floor(window/2) values are therefore attenuated;</span></span>
@@ -133,7 +156,7 @@ Wrong: smoothing reduces noise, not increases it.
 <li>A single broad peak can produce several adjacent local maxima after smoothing</li>
 <li><a href="../glossary/index.html#non_maximum_suppression">Non-maximum suppression</a> keeps only the tallest candidate within a window of <code>min_distance</code> index positions</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_peaks(mz, intensity, threshold<span class="op">=</span>THRESHOLD, min_distance<span class="op">=</span>MIN_DISTANCE):</span>
+<div class="sourceCode" id="cb4" data-file="massspec/massspec.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_peaks(mz, intensity, threshold<span class="op">=</span>THRESHOLD, min_distance<span class="op">=</span>MIN_DISTANCE):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the m/z positions of peaks in `intensity`.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    A candidate peak must satisfy two conditions:</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    1. Its smoothed intensity exceeds `threshold`.</span></span>
@@ -210,7 +233,7 @@ Figure&nbsp;14.1: Synthetic spectrum with four compounds. Grey: raw signal. Blue
 <ul>
 <li>The same detector, with the same threshold, applied to a spectrum that contains no signal at all produces false peaks</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise(</span>
+<div class="sourceCode" id="cb5" data-file="massspec/generate_spectrum.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>DEFAULT_NOISE,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    n_points<span class="op">=</span>N_POINTS,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    mz_min<span class="op">=</span>MZ_MIN,</span>
@@ -246,7 +269,7 @@ Figure&nbsp;14.2: Pure Gaussian noise (no signal) smoothed and searched with a t
 <li>Fewer than one point in 100,000 exceeds it by chance, making false positives negligible for a 500-point spectrum</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SMOOTH_WINDOW <span class="op">=</span> <span class="dv">5</span>  <span class="co"># number of points in the moving-average filter;</span></span>
+<div class="sourceCode" id="cb6" data-file="massspec/massspec.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SMOOTH_WINDOW <span class="op">=</span> <span class="dv">5</span>  <span class="co"># number of points in the moving-average filter;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wide enough to suppress point-to-point noise,</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># narrow enough not to blur nearby peaks</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>THRESHOLD <span class="op">=</span> <span class="fl">0.10</span>  <span class="co"># minimum smoothed intensity to be reported as a peak;</span></span>
@@ -307,7 +330,7 @@ The test constructs two well-separated Gaussians (10 Da apart, sigma = 2 Da) tha
 Running the detector on pure noise at a low threshold must return at least one false peak, confirming the expected false-positive behaviour. Running at the operating threshold must return none, confirming it is set high enough.
 </dd>
 </dl>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb7" data-file="massspec/test_massspec.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_spectrum <span class="im">import</span> make_spectrum, make_pure_noise, PEAKS, DEFAULT_NOISE</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> massspec <span class="im">import</span> smooth, detect_peaks, SMOOTH_WINDOW, THRESHOLD</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_smooth_constant():</span>
@@ -389,6 +412,14 @@ Running the detector on pure noise at a low threshold must return at least one f
     <a class="pager-link next" href="../cellseg/index.html">Cell Segmentation in Microscopy Images →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

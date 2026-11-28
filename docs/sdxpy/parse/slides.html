@@ -1,334 +1,415 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Parsing Text · Software Design by Example</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Parsing Text</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<div class="shower list" tabindex="-1">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Parsing Text</h1>
+</section>
+
+<section class="slide level2">
+
 <section class="slide">
+</section>
+<section id="the-problem" class="slide level2">
 <h2>The Problem</h2>
 <ul>
-<li>
-<p><code>"2023-*{pdf,txt}"</code> is easier to read and write
-    than <code>Lit("2023-", Any(Either("pdf", "txt")))</code></p>
-</li>
-<li>
-<p>How can we translate the former into the latter?</p>
-</li>
-<li>
-<p>Group characters into <a class="gl-ref" href="../glossary/#token">tokens</a></p>
-</li>
-<li>
-<p>Use tokens to create an <a class="gl-ref" href="../glossary/#abstract_syntax_tree">abstract syntax tree</a></p>
-</li>
+<li><p><code>"2023-*{pdf,txt}"</code> is easier to read and write than
+<code>Lit("2023-", Any(Either("pdf", "txt")))</code></p></li>
+<li><p>How can we translate the former into the latter?</p></li>
 </ul>
-<figure id="f:parse-pipeline">
-<img alt="Parsing pipeline" src="pipeline.svg"/>
-<figcaption>Figure 1: Stages in parsing pipeline.</figcaption>
-</figure>
+<ol type="1">
+<li><p>Group characters into [%g token “tokens” %]</p></li>
+<li><p>Use tokens to create an [%g abstract_syntax_tree “abstract syntax
+tree” %]</p></li>
+</ol>
+<p>[% figure slug=“parse-pipeline” img=“pipeline.svg” alt=“Parsing
+pipeline” caption=“Stages in parsing pipeline.” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="cases" class="slide level2">
 <h2>Cases</h2>
 <ul>
-<li>
-<p>Characters like <code>{</code> and <code>*</code> can be processed immediately</p>
-</li>
-<li>
-<p>But "regular" characters need to be accumulated</p>
+<li><p>Characters like <code>{</code> and <code>*</code> can be
+processed immediately</p></li>
+<li><p>But “regular” characters need to be accumulated</p>
 <ul>
-<li>
-<p><code>Lit("abc")</code> rather than <code>Lit("a", Lit("b", Lit("c")))</code></p>
-</li>
-<li>
-<p>When we encounter a special character or '}',
-    we close the current literal token</p>
-</li>
-</ul>
-</li>
-<li>
-<p>The <code>,</code> character closes a literal but doesn't produce a token</p>
-</li>
+<li><p><code>Lit("abc")</code> rather than
+<code>Lit("a", Lit("b", Lit("c")))</code></p></li>
+<li><p>When we encounter a special character or ‘}’, we close the
+current literal token</p></li>
+</ul></li>
+<li><p>The <code>,</code> character closes a literal but doesn’t produce
+a token</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="a-bit-more-design" class="slide level2">
 <h2>A Bit More Design</h2>
 <ul>
-<li>
-<p>The result is the final (flat) list of tokens</p>
-</li>
-<li>
-<p>We could pass around a list and append to it</p>
-</li>
-<li>
-<p>But we also need to know the characters in each <code>Literal</code>
-    and the options in each <code>Either</code></p>
-</li>
-<li>
-<p>So create a class rather than a function</p>
+<li><p>The result is the final (flat) list of tokens</p></li>
+<li><p>We could pass around a list and append to it</p></li>
+<li><p>But we also need to know the characters in each
+<code>Literal</code> and the options in each
+<code>Either</code></p></li>
+<li><p>So create a class rather than a function</p>
 <ul>
 <li>Easier than carrying state around explicitly</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="tokenizer" class="slide level2">
 <h2>Tokenizer</h2>
-<div data-inc="tokenizer.py" data-mark="tok"><span aria-label="Source: parse/tokenizer.py" class="inc-path" role="img" tabindex="0" title="parse/tokenizer.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">tok</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_setup</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">"*"</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="s2">"Any"</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">"{"</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="s2">"EitherStart"</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">","</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">"}"</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="s2">"EitherEnd"</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">CHARS</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="n">ch</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"what is '</span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">'?"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
-</code></pre></div>
-</div>
+<p>[%inc tokenizer.py mark=tok %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="tokenizer-1" class="slide level2">
 <h2>Tokenizer</h2>
 <ul>
-<li>
-<p>Call <code>self._setup()</code> at the start so that the tokenizer can be re-used</p>
-</li>
-<li>
-<p><em>Don't</em> call <code>self._add()</code> for regular characters</p>
+<li><p>Call <code>self._setup()</code> at the start so that the
+tokenizer can be re-used</p></li>
+<li><p><em>Don’t</em> call <code>self._add()</code> for regular
+characters</p>
 <ul>
-<li>
-<p>Add literals when we see special characters</p>
-</li>
-<li>
-<p>And after all the input has been parsed</p>
-</li>
-</ul>
-</li>
+<li><p>Add literals when we see special characters</p></li>
+<li><p>And after all the input has been parsed</p></li>
+</ul></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="adding-tokens" class="slide level2">
 <h2>Adding Tokens</h2>
-<div data-inc="tokenizer.py" data-mark="add"><span aria-label="Source: parse/tokenizer.py" class="inc-path" role="img" tabindex="0" title="parse/tokenizer.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thing</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">"Lit"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="s2">""</span>
-        <span class="k">if</span> <span class="n">thing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">thing</span><span class="p">])</span>
-</code></pre></div>
-</div>
+<p>[%inc tokenizer.py mark=add %]</p>
 <ul>
-<li><code>self._add(None)</code> means "add the literal but nothing else"</li>
+<li><code>self._add(None)</code> means “add the literal but nothing
+else”</li>
 </ul>
-<figure id="f:parse-tokenize">
-<img alt="Tokenizing" src="tokenize.svg"/>
-<figcaption>Figure 2: Steps in tokenizing a string.</figcaption>
-</figure>
+<p>[% figure slug=“parse-tokenize” img=“tokenize.svg” alt=“Tokenizing”
+caption=“Steps in tokenizing a string.” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="testing" class="slide level2">
 <h2>Testing</h2>
-<div data-inc="test_tokenizer.py" data-mark="tests"><span aria-label="Source: parse/test_tokenizer.py" class="inc-path" role="img" tabindex="0" title="parse/test_tokenizer.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_tok_empty_string</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">Tokenizer</span><span class="p">()</span><span class="o">.</span><span class="n">tok</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="o">==</span> <span class="p">[]</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_tok_any_either</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">Tokenizer</span><span class="p">()</span><span class="o">.</span><span class="n">tok</span><span class="p">(</span><span class="s2">"*{abc,def}"</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span>
-        <span class="p">[</span><span class="s2">"Any"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"EitherStart"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"Lit"</span><span class="p">,</span> <span class="s2">"abc"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"Lit"</span><span class="p">,</span> <span class="s2">"def"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"EitherEnd"</span><span class="p">],</span>
-    <span class="p">]</span>
-</code></pre></div>
-</div>
+<p>[%inc test_tokenizer.py mark=tests %]</p>
 <ul>
 <li>Each sub-list represents one token</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="parsing" class="slide level2">
 <h2>Parsing</h2>
-<div data-inc="parser.py" data-mark="parse"><span aria-label="Source: parse/parser.py" class="inc-path" role="img" tabindex="0" title="parse/parser.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">tokens</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">Null</span><span class="p">()</span>
-
-        <span class="n">front</span><span class="p">,</span> <span class="n">back</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="k">if</span> <span class="n">front</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Any"</span><span class="p">:</span> <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_Any</span>
-        <span class="k">elif</span> <span class="n">front</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"EitherStart"</span><span class="p">:</span> <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_EitherStart</span>
-        <span class="k">elif</span> <span class="n">front</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Lit"</span><span class="p">:</span> <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_Lit</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown token type </span><span class="si">{</span><span class="n">front</span><span class="si">}</span><span class="s2">"</span>
-
-        <span class="k">return</span> <span class="n">handler</span><span class="p">(</span><span class="n">front</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">back</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc parser.py mark=parse %]</p>
 <ul>
-<li>
-<p><code>front[0]</code> is the token's name, <code>front[1:]</code> is any other data</p>
-</li>
-<li>
-<p><code>back</code> is the remaining tokens</p>
-</li>
-<li>
-<p>Look for a <code>_parse_<em>thing</em></code> method to handle each token</p>
-</li>
+<li><p><code>front[0]</code> is the token’s name, <code>front[1:]</code>
+is any other data</p></li>
+<li><p><code>back</code> is the remaining tokens</p></li>
+<li><p>Look for a <code>_parse_<em>thing</em></code> method to handle
+each token</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="introspection-and-dispatch" class="slide level2">
 <h2>Introspection and Dispatch</h2>
 <ul>
-<li>
-<p><a class="gl-ref" href="../glossary/#introspection">Introspection</a>:
-    having a program look up a function or method inside itself
-    while it is running</p>
-</li>
-<li>
-<p><a class="gl-ref" href="../glossary/#dynamic_dispatch">Dynamic dispatch</a>:
-    using introspection to decide what to do next
-    rather than a long chain of <code>if</code> statements</p>
-</li>
-<li>
-<p>These are powerful techniques and we use them frequently</p>
-</li>
+<li><p>while it is running</p></li>
+<li><p>rather than a long chain of <code>if</code> statements</p></li>
+<li><p>These are powerful techniques and we use them frequently</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="fill-in-the-simple-stuff" class="slide level2">
 <h2>Fill in the Simple Stuff</h2>
-<div data-inc="parser.py" data-mark="simple"><span aria-label="Source: parse/parser.py" class="inc-path" role="img" tabindex="0" title="parse/parser.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_Any</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="p">,</span> <span class="n">back</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="n">back</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_Lit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="p">,</span> <span class="n">back</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Lit</span><span class="p">(</span><span class="n">rest</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="n">back</span><span class="p">))</span>
-</code></pre></div>
-</div>
+<p>[%inc parser.py mark=simple %]</p>
 <ul>
-<li>Hardest part is making sure to name them properly
-    so that <code>_parse</code> can find them</li>
+<li>Hardest part is making sure to name them properly so that
+<code>_parse</code> can find them</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="either-is-messy" class="slide level2">
 <h2><code>Either</code> is Messy</h2>
-<div data-inc="parser.py" data-mark="either"><span aria-label="Source: parse/parser.py" class="inc-path" role="img" tabindex="0" title="parse/parser.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_EitherStart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="p">,</span> <span class="n">back</span><span class="p">):</span>
-        <span class="k">if</span> <span class="p">(</span>
-            <span class="nb">len</span><span class="p">(</span><span class="n">back</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span>
-            <span class="ow">or</span> <span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"Lit"</span><span class="p">)</span>
-            <span class="ow">or</span> <span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"Lit"</span><span class="p">)</span>
-            <span class="ow">or</span> <span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"EitherEnd"</span><span class="p">)</span>
-        <span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"badly-formatted Either"</span><span class="p">)</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="n">Lit</span><span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">right</span> <span class="o">=</span> <span class="n">Lit</span><span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">Either</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">3</span><span class="p">:]))</span>
-</code></pre></div>
-</div>
+<p>[%inc parser.py mark=either %]</p>
 <ul>
-<li>Remember, we didn't save the commas</li>
-<li>It really should pull things from <code>back</code> until it hits <code>EitherEnd</code></li>
+<li>Remember, we didn’t save the commas</li>
+<li>It really should pull things from <code>back</code> until it hits
+<code>EitherEnd</code></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="a-better-implementation" class="slide level2">
 <h2>A Better Implementation</h2>
-<div data-inc="better_parser.py" data-mark="either"><span aria-label="Source: parse/better_parser.py" class="inc-path" role="img" tabindex="0" title="parse/better_parser.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_EitherStart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="p">,</span> <span class="n">back</span><span class="p">):</span>
-        <span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">while</span> <span class="n">back</span> <span class="ow">and</span> <span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Lit"</span><span class="p">):</span>
-            <span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
-            <span class="n">back</span> <span class="o">=</span> <span class="n">back</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">children</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"empty Either"</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">back</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"EitherEnd"</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"badly-formatted Either"</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">Either</span><span class="p">(</span><span class="n">children</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="n">back</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
-</code></pre></div>
-</div>
+<p>[%inc better_parser.py mark=either %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="testing-1" class="slide level2">
 <h2>Testing</h2>
-<div data-inc="test_parser.py" data-mark="sample"><span aria-label="Source: parse/test_parser.py" class="inc-path" role="img" tabindex="0" title="parse/test_parser.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_parse_either_two_lit</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">Parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">"{abc,def}"</span><span class="p">)</span> <span class="o">==</span> <span class="n">Either</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"def"</span><span class="p">)]</span>
-    <span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc test_parser.py mark=sample %]</p>
 <ul>
 <li>But this assumes we can compare <code>Match</code> objects</li>
 </ul>
 </section>
 <section class="slide">
-<h2>They're Just Methods</h2>
+</section>
+<section id="theyre-just-methods" class="slide level2">
+<h2>They’re Just Methods</h2>
 <ul>
-<li><code>a == b</code> is "just" <code>a.__eq__(b)</code></li>
-<li><a class="gl-ref" href="../glossary/#operator_overloading">Operator overloading</a>:
-    if our class has methods with the right names,
-    Python calls them to perform "built-in" operations</li>
-<li>Parent <code>Match</code> class does shared work<ul>
-<li>E.g., make sure objects have
-    the same <a class="gl-ref" href="../glossary/#concrete_class">concrete class</a></li>
-</ul>
-</li>
-<li>Child method (if any) does details<ul>
-<li>E.g., make sure two <code>Lit</code> objects are checking for the same text</li>
-</ul>
-</li>
+<li><code>a == b</code> is “just” <code>a.__eq__(b)</code></li>
+<li>Python calls them to perform “built-in” operations</li>
+<li>Parent <code>Match</code> class does shared work
+<ul>
+<li>E.g., make sure objects have the same [%g concrete_class “concrete
+class” %]</li>
+</ul></li>
+<li>Child method (if any) does details
+<ul>
+<li>E.g., make sure two <code>Lit</code> objects are checking for the
+same text</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="infrastructure" class="slide level2">
 <h2>Infrastructure</h2>
-<div data-inc="match.py" data-mark="equal"><span aria-label="Source: parse/match.py" class="inc-path" role="img" tabindex="0" title="parse/match.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Match</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="n">rest</span> <span class="k">if</span> <span class="n">rest</span> <span class="k">else</span> <span class="n">Null</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> 
-                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span> <span class="ow">and</span> 
-                <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">rest</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Lit</span><span class="p">(</span><span class="n">Match</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chars</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chars</span> <span class="o">=</span> <span class="n">chars</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">chars</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">chars</span>
-        <span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc match.py mark=equal %]</p>
 </section>
 <section class="slide">
-<h2>Summary</h2>
-<figure id="f:parse-concept-map">
-<img alt="Concept map of parsing" src="concept_map.svg"/>
-<figcaption>Figure 3: Concept map.</figcaption>
-</figure>
 </section>
-<div aria-live="polite" id="slide-counter"></div>
-</div>
-<script src="../_static/shower.js"></script>
-<script src="../_static/slides.js"></script>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>[% figure slug=“parse-concept-map” img=“concept_map.svg” alt=“Concept
+map of parsing” caption=“Concept map.” %]</p>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
+      });
+    </script>
+    </body>
 </html>

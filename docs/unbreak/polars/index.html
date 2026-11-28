@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Polars</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -42,7 +43,7 @@
 <h1 class="title">Polars</h1>
 <h2 data-number="16.1" id="add-a-computed-column-to-a-dataframe"><span class="header-section-number">16.1</span> Add a computed column to a DataFrame</h2>
 <p>Run the script and look at the columns in the result. How many columns does it have? How many columns did the original DataFrame have?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb1" data-file="polars/selectdrop.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>],</span>
@@ -62,7 +63,7 @@ Show explanation
 </details>
 <h2 data-number="16.2" id="filter-and-select-rows-from-a-dataset"><span class="header-section-number">16.2</span> Filter and select rows from a dataset</h2>
 <p>Run the script and look at what is printed. Is the output a table of data, or something else? What type does <code>type(result)</code> report?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb2" data-file="polars/nocollect.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>, <span class="st">"Dave"</span>],</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="dv">88</span>, <span class="dv">72</span>, <span class="dv">95</span>, <span class="dv">61</span>],</span>
@@ -84,7 +85,7 @@ Show explanation
 </details>
 <h2 data-number="16.3" id="find-rows-with-missing-scores"><span class="header-section-number">16.3</span> Find rows with missing scores</h2>
 <p>Run the script. How many rows does it print? How many rows contain a missing score?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb3" data-file="polars/nullequal.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>, <span class="st">"Dave"</span>],</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="dv">88</span>, <span class="va">None</span>, <span class="dv">95</span>, <span class="va">None</span>],</span>
@@ -102,7 +103,7 @@ Show explanation
 </details>
 <h2 data-number="16.4" id="convert-float-scores-to-integers"><span class="header-section-number">16.4</span> Convert float scores to integers</h2>
 <p>Run the script and compare the values in the <code>score</code> column to the expected rounded values printed below them. What happened to 88.7 and 95.6?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb4" data-file="polars/castsilent.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"score"</span>: [<span class="fl">88.7</span>, <span class="fl">72.3</span>, <span class="fl">95.6</span>, <span class="fl">61.9</span>],</span>
@@ -120,7 +121,7 @@ Show explanation
 </details>
 <h2 data-number="16.5" id="add-a-department-average-salary-to-each-employee-row"><span class="header-section-number">16.5</span> Add a department average salary to each employee row</h2>
 <p>Run the script. How many rows does the output have? How many rows did you expect?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb5" data-file="polars/overwindow.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>, <span class="st">"Dave"</span>, <span class="st">"Eve"</span>],</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dept"</span>: [<span class="st">"eng"</span>, <span class="st">"eng"</span>, <span class="st">"hr"</span>, <span class="st">"hr"</span>, <span class="st">"eng"</span>],</span>
@@ -139,7 +140,7 @@ Show explanation
 </details>
 <h2 data-number="16.6" id="join-orders-to-customer-records"><span class="header-section-number">16.6</span> Join orders to customer records</h2>
 <p>Run the script and compare the number of input orders to the number of rows in the result. Which order is missing, and why?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb6" data-file="polars/innerjoin.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"order_id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">99</span>],</span>
@@ -163,7 +164,7 @@ Show explanation
 </details>
 <h2 data-number="16.7" id="add-a-total-price-column-to-an-order-table"><span class="header-section-number">16.7</span> Add a total price column to an order table</h2>
 <p>Run the script and compare the column names and values to the original DataFrame. Which column was overwritten, and which column was supposed to be added?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb7" data-file="polars/aliasexpr.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"price"</span>: [<span class="fl">10.0</span>, <span class="fl">20.0</span>, <span class="fl">30.0</span>],</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"qty"</span>: [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>],</span>
@@ -180,7 +181,7 @@ Show explanation
 </details>
 <h2 data-number="16.8" id="parse-dates-from-a-csv-file"><span class="header-section-number">16.8</span> Parse dates from a CSV file</h2>
 <p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as April 3rd or March 4th? What date was intended?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb8" data-file="polars/strptime.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"event"</span>: [<span class="st">"conference"</span>, <span class="st">"deadline"</span>, <span class="st">"review"</span>],</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"date_str"</span>: [<span class="st">"03/04/2024"</span>, <span class="st">"07/08/2024"</span>, <span class="st">"11/12/2024"</span>],</span>
@@ -199,7 +200,7 @@ Show explanation
 </details>
 <h2 data-number="16.9" id="split-a-tags-column-into-one-row-per-tag"><span class="header-section-number">16.9</span> Split a tags column into one row per tag</h2>
 <p>Run the script and read the error message. What type does Polars report for the <code>tags</code> column?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb9" data-file="polars/explodestring.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>],</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tags"</span>: [<span class="st">"python,data,science"</span>, <span class="st">"web,api"</span>],</span>
@@ -216,7 +217,7 @@ Show explanation
 </details>
 <h2 data-number="16.10" id="compute-a-discounted-price-and-order-total-in-one-step"><span class="header-section-number">16.10</span> Compute a discounted price and order total in one step</h2>
 <p>Run the script and read the error message. Which column is reported as not found? Is that column present in the original DataFrame?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="sourceCode" id="cb10" data-file="polars/withcolumnsdep.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"price"</span>: [<span class="fl">100.0</span>, <span class="fl">200.0</span>, <span class="fl">300.0</span>],</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tax_rate"</span>: [<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>],</span>
@@ -242,6 +243,14 @@ Show explanation
     <a class="pager-link next" href="../shell/index.html">The Unix Shell →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

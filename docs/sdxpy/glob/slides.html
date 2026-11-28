@@ -1,494 +1,490 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Matching Patterns · Software Design by Example</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Matching Patterns</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<div class="shower list" tabindex="-1">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Matching Patterns</h1>
+</section>
+
+<section class="slide level2">
+
 <section class="slide">
+</section>
+<section id="the-problem" class="slide level2">
 <h2>The Problem</h2>
 <ul>
-<li>
-<p><code>glob.glob</code> finds files whose names match patterns</p>
-</li>
-<li>
-<p><code>2023-*.{pdf,txt}</code> matches <code>2023-01.txt</code> and <code>2023-final.pdf</code>
-    but not <code>draft-2023.docx</code></p>
-</li>
+<li><p><code>glob.glob</code> finds files whose names match
+patterns</p></li>
+<li><p><code>2023-*.{pdf,txt}</code> matches <code>2023-01.txt</code>
+and <code>2023-final.pdf</code> but not
+<code>draft-2023.docx</code></p></li>
 </ul>
-<figure id="f:glob-examples">
-<img alt="Matching examples" src="examples.svg"/>
-<figcaption>Figure 1: Examples of glob matching.</figcaption>
-</figure>
+<p>[% figure slug=“glob-examples” img=“examples.svg” alt=“Matching
+examples” caption=“Examples of glob matching.” %]</p>
 <ul>
 <li>How does this work?</li>
 </ul>
 </section>
 <section class="slide">
-<h2>Why "Globbing"?</h2>
+</section>
+<section id="why-globbing" class="slide level2">
+<h2>Why “Globbing”?</h2>
 <ul>
-<li>
-<p>Early versions of Unix had a tool called <code>glob</code></p>
-</li>
-<li>
-<p>People used pattern matching so often
-    that it was quickly built into the shell</p>
-</li>
+<li><p>Early versions of Unix had a tool called
+<code>glob</code></p></li>
+<li><p>People used pattern matching so often that it was quickly built
+into the shell</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="write-a-few-tests" class="slide level2">
 <h2>Write a Few Tests</h2>
-<table>
-<thead>
-<tr>
-<th scope="col">Pattern</th>
-<th scope="col">Text</th>
-<th scope="col">Match?</th>
-<th scope="col"></th>
-<th scope="col">Pattern</th>
-<th scope="col">Text</th>
-<th scope="col">Match?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>abc</td>
-<td>"abc"</td>
-<td>True</td>
-<td></td>
-<td>a*c</td>
-<td>"abc"</td>
-<td>True</td>
-</tr>
-<tr>
-<td>ab</td>
-<td>"abc"</td>
-<td>False</td>
-<td></td>
-<td>{a,b}</td>
-<td>"a"</td>
-<td>True</td>
-</tr>
-<tr>
-<td>abc</td>
-<td>"ab"</td>
-<td>False</td>
-<td></td>
-<td>{a,b}</td>
-<td>"c"</td>
-<td>False</td>
-</tr>
-<tr>
-<td>*</td>
-<td>""</td>
-<td>True</td>
-<td></td>
-<td>{a,b}</td>
-<td>"ab"</td>
-<td>False</td>
-</tr>
-<tr>
-<td>*</td>
-<td>"abc"</td>
-<td>True</td>
-<td></td>
-<td>*{x,y}</td>
-<td>"abcx"</td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
+<div class="line-block">Pattern | Text | Match? || Pattern | Text |
+Match? |<br />
+——- | ——– | —— || ——- | ——– | —— |<br />
+abc | “abc” | True || a*c | “abc” | True |<br />
+ab | “abc” | False || {a,b} | “a” | True |<br />
+abc | “ab” | False || {a,b} | “c” | False |<br />
+* | “” | True || {a,b} | “ab” | False |<br />
+* | “abc” | True || *{x,y} | “abcx” | True |</div>
 </section>
 <section class="slide">
-<h2>Objects vs. Functions</h2>
+</section>
+<section id="objects-vs.-functions" class="slide level2">
+<h2>Objects vs. Functions</h2>
 <ul>
-<li>
-<p>Create matchers for particular cases instead of one big function</p>
-</li>
-<li>
-<p>Some of those matchers need extra data</p>
+<li><p>Create matchers for particular cases instead of one big
+function</p></li>
+<li><p>Some of those matchers need extra data</p>
 <ul>
 <li>E.g., which literal characters to match</li>
-</ul>
-</li>
-<li>
-<p>So create objects</p>
-</li>
+</ul></li>
+<li><p>So create objects</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="design-patterns" class="slide level2">
 <h2>Design Patterns</h2>
 <ul>
-<li>
-<p>Use the <a class="gl-ref" href="../glossary/#chain_of_responsibility_pattern">Chain of Responsibility</a> pattern</p>
+<li><p>Use the [%g chain_of_responsibility_pattern “Chain of
+Responsibility” %] pattern</p>
 <ul>
-<li>
-<p>Each object matches if it can…</p>
-</li>
-<li>
-<p>…then asks something else to try to match the rest of the text</p>
-</li>
+<li><p>Each object matches if it can…</p></li>
+<li><p>…then asks something else to try to match the rest of the
+text</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<figure id="f:glob-chain">
-<img alt="Chain of Responsibility" src="chain.svg"/>
-<figcaption>Figure 2: Matching with Chain of Responsibility.</figcaption>
-</figure>
+<p>[% figure slug=“glob-chain” img=“chain.svg” alt=“Chain of
+Responsibility” caption=“Matching with Chain of Responsibility.” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="matching-a-literal-string" class="slide level2">
 <h2>Matching a Literal String</h2>
-<div data-inc="glob_lit.py"><span aria-label="Source: glob/glob_lit.py" class="inc-path" role="img" tabindex="0" title="glob/glob_lit.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Lit</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chars</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chars</span> <span class="o">=</span> <span class="n">chars</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="n">rest</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chars</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chars</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">end</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_lit.py %]</p>
 <ul>
 <li><code>chars</code> is the characters to be matched</li>
-<li><code>rest</code> is the rest of the chain (or <code>None</code>)</li>
-<li><code>start</code> is needed when this isn't the first matcher</li>
+<li><code>rest</code> is the rest of the chain (or
+<code>None</code>)</li>
+<li><code>start</code> is needed when this isn’t the first matcher</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="testing-the-matcher" class="slide level2">
 <h2>Testing the Matcher</h2>
-<div data-inc="test_glob_lit.py" data-mark="tests"><span aria-label="Source: glob/test_glob_lit.py" class="inc-path" role="img" tabindex="0" title="glob/test_glob_lit.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_literal_match_entire_string</span><span class="p">():</span>
-    <span class="c1"># /abc/ matches "abc"</span>
-    <span class="k">assert</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_literal_substring_alone_no_match</span><span class="p">():</span>
-    <span class="c1"># /ab/ doesn't match "abc"</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_literal_superstring_no_match</span><span class="p">():</span>
-    <span class="c1"># /abc/ doesn't match "ab"</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc test_glob_lit.py mark=tests %]</p>
 <ul>
-<li>Give tests long names to make failure reports immediately readable</li>
+<li>Give tests long names to make failure reports immediately
+readable</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="does-chaining-work" class="slide level2">
 <h2>Does Chaining Work?</h2>
 <ul>
-<li>
-<p>Try to find flaws in the design as early as possible</p>
-</li>
-<li>
-<p>So test chaining before writing more matchers</p>
-</li>
+<li><p>Try to find flaws in the design as early as possible</p></li>
+<li><p>So test chaining before writing more matchers</p></li>
 </ul>
-<div data-inc="test_glob_lit.py" data-mark="chain"><span aria-label="Source: glob/test_glob_lit.py" class="inc-path" role="img" tabindex="0" title="glob/test_glob_lit.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_literal_followed_by_literal_match</span><span class="p">():</span>
-    <span class="c1"># /a/+/b/ matches "ab"</span>
-    <span class="k">assert</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"b"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_literal_followed_by_literal_no_match</span><span class="p">():</span>
-    <span class="c1"># /a/+/b/ doesn't match "ac"</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"b"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"ac"</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc test_glob_lit.py mark=chain %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="test-driven-development" class="slide level2">
 <h2>Test-Driven Development</h2>
 <ul>
-<li>
-<p>Some people write tests <em>before</em> writing code to clarify the design</p>
+<li><p>Some people write tests <em>before</em> writing code to clarify
+the design</p>
 <ul>
 <li>And to ensure they actually write tests</li>
-</ul>
-</li>
-<li>
-<p>Research shows the order doesn't matter [<a class="bib-ref" href="../bibliography/#Fucci2016">Fucci2016</a>]</p>
-</li>
-<li>
-<p>What <em>does</em> is alternating between short bursts of coding and testing</p>
-</li>
+</ul></li>
+<li><p>Research shows the order doesn’t matter [%b Fucci2016 %]</p></li>
+<li><p>What <em>does</em> is alternating between short bursts of coding
+and testing</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="wildcards" class="slide level2">
 <h2>Wildcards</h2>
 <ul>
-<li>
-<p><code>*</code> can match zero or more characters</p>
-</li>
-<li>
-<p>If it's the last matcher, it always succeeds</p>
-</li>
-<li>
-<p>Otherwise try zero characters, one, two, etc. characters</p>
-</li>
+<li><p><code>*</code> can match zero or more characters</p></li>
+<li><p>If it’s the last matcher, it always succeeds</p></li>
+<li><p>Otherwise try zero characters, one, two, etc. characters</p></li>
 </ul>
-<div data-inc="glob_any.py"><span aria-label="Source: glob/glob_any.py" class="inc-path" role="img" tabindex="0" title="glob/glob_any.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Any</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="n">rest</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-                <span class="k">return</span> <span class="kc">True</span>
-        <span class="k">return</span> <span class="kc">False</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_any.py %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="and-we-test-it" class="slide level2">
 <h2>And We Test It</h2>
-<div data-inc="test_glob_any.py" data-mark="tests"><span aria-label="Source: glob/test_glob_any.py" class="inc-path" role="img" tabindex="0" title="glob/test_glob_any.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_any_matches_empty</span><span class="p">():</span>
-    <span class="c1"># /*/ matches ""</span>
-    <span class="k">assert</span> <span class="n">Any</span><span class="p">()</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_any_matches_entire_string</span><span class="p">():</span>
-    <span class="c1"># /*/ matches "abc"</span>
-    <span class="k">assert</span> <span class="n">Any</span><span class="p">()</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_any_matches_as_prefix</span><span class="p">():</span>
-    <span class="c1"># /*def/ matches "abcdef"</span>
-    <span class="k">assert</span> <span class="n">Any</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"def"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"abcdef"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_any_matches_as_suffix</span><span class="p">():</span>
-    <span class="c1"># /abc*/ matches "abcdef"</span>
-    <span class="k">assert</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="n">Any</span><span class="p">())</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"abcdef"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_any_matches_interior</span><span class="p">():</span>
-    <span class="c1"># /a*c/ matches "abc"</span>
-    <span class="k">assert</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">Any</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"c"</span><span class="p">)))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc test_glob_any.py mark=tests %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="matching-alternatives" class="slide level2">
 <h2>Matching Alternatives</h2>
-<div data-inc="glob_either.py"><span aria-label="Source: glob/glob_either.py" class="inc-path" role="img" tabindex="0" title="glob/glob_either.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Either</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="n">rest</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span> <span class="ow">or</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_either.py %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="and-we-test-it-1" class="slide level2">
 <h2>And We Test It</h2>
-<div data-inc="test_glob_either.py" data-mark="tests"><span aria-label="Source: glob/test_glob_either.py" class="inc-path" role="img" tabindex="0" title="glob/test_glob_either.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_either_two_literals_first</span><span class="p">():</span>
-    <span class="c1"># /{a,b}/ matches "a"</span>
-    <span class="k">assert</span> <span class="n">Either</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"b"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_either_two_literals_not_both</span><span class="p">():</span>
-    <span class="c1"># /{a,b}/ doesn't match "ab"</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Either</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"b"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc test_glob_either.py mark=tests %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="but-wait" class="slide level2">
 <h2>But Wait…</h2>
-<div data-inc="test_glob_problem.py" data-mark="keep"><span aria-label="Source: glob/test_glob_problem.py" class="inc-path" role="img" tabindex="0" title="glob/test_glob_problem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_either_followed_by_literal_match</span><span class="p">():</span>
-    <span class="c1"># /{a,b}c/ matches "ac"</span>
-    <span class="k">assert</span> <span class="n">Either</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"b"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"c"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"ac"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_either_followed_by_literal_no_match</span><span class="p">():</span>
-    <span class="c1"># /{a,b}c/ doesn't match "ax"</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Either</span><span class="p">(</span><span class="n">Lit</span><span class="p">(</span><span class="s2">"a"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"b"</span><span class="p">),</span> <span class="n">Lit</span><span class="p">(</span><span class="s2">"c"</span><span class="p">))</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"ax"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="test_glob_problem.out"><span aria-label="Source: glob/test_glob_problem.out" class="inc-path" role="img" tabindex="0" title="glob/test_glob_problem.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>======================= test session starts ========================
-
-test_glob_problem.py F.                                      [100%]
-
-===================== short test summary info ======================
-FAILED test_glob_problem.py::test_either_followed_by_literal_match
-=================== 1 failed, 1 passed in 0.00s ====================
-</code></pre></div>
-</div>
+<p>[%inc test_glob_problem.py mark=keep %] [%inc test_glob_problem.out
+%]</p>
 <ul>
-<li><code>Either</code> doesn't handle <code>rest</code> properly</li>
+<li><code>Either</code> doesn’t handle <code>rest</code> properly</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="rethinking" class="slide level2">
 <h2>Rethinking</h2>
 <ul>
-<li>We now have three matchers with the same interfaces<ul>
-<li><a class="gl-ref" href="../glossary/#refactor">Refactor</a> using
-    <a class="gl-ref" href="../glossary/#extract_parent_class_refactoring">Extract Parent Class</a></li>
+<li>We now have three matchers with the same interfaces
+<ul>
+<li>[%g refactor “Refactor” %] using [%g
+extract_parent_class_refactoring “Extract Parent Class” %]</li>
+</ul></li>
+<li>The test <code>if self.rest is None</code> appears several times
+<ul>
+<li>Use the [%g null_object_pattern “Null Object” %] pattern
+instead</li>
+</ul></li>
 </ul>
-</li>
-<li>The test <code>if self.rest is None</code> appears several times<ul>
-<li>Use the <a class="gl-ref" href="../glossary/#null_object_pattern">Null Object</a> pattern instead</li>
-</ul>
-</li>
-</ul>
-<figure id="f:glob-refactoring">
-<img alt="Refactoring matchers" src="refactoring.svg"/>
-<figcaption>Figure 3: Using the Extract Parent Class refactoring.</figcaption>
-</figure>
+<p>[% figure slug=“glob-refactoring” img=“refactoring.svg”
+alt=“Refactoring matchers” caption=“Using the Extract Parent Class
+refactoring.” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="the-parent-class" class="slide level2">
 <h2>The Parent Class</h2>
-<div data-inc="glob_null.py" data-mark="parent"><span aria-label="Source: glob/glob_null.py" class="inc-path" role="img" tabindex="0" title="glob/glob_null.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Match</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="n">rest</span> <span class="k">if</span> <span class="n">rest</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">Null</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_null.py mark=parent %]</p>
 <ul>
-<li>
-<p>Assume every child class has a <code>_match</code> method</p>
-</li>
-<li>
-<p>This method returns the location to continue searching</p>
-</li>
-<li>
-<p>So <code>Match.match</code> checks that we've reached the end of the text</p>
-</li>
+<li><p>Assume every child class has a <code>_match</code>
+method</p></li>
+<li><p>This method returns the location to continue searching</p></li>
+<li><p>So <code>Match.match</code> checks that we’ve reached the end of
+the text</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="the-null-object-class" class="slide level2">
 <h2>The Null Object Class</h2>
-<div data-inc="glob_null.py" data-mark="null"><span aria-label="Source: glob/glob_null.py" class="inc-path" role="img" tabindex="0" title="glob/glob_null.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Null</span><span class="p">(</span><span class="n">Match</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">start</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_null.py mark=null %]</p>
 <ul>
-<li>
-<p>Must be the last one in the chain</p>
-</li>
-<li>
-<p>Doesn't advance the match (i.e., does nothing)</p>
-</li>
-<li>
-<p>Every other class can now delegate to its <code>next</code>
-    without checking for <code>None</code></p>
-</li>
+<li><p>Must be the last one in the chain</p></li>
+<li><p>Doesn’t advance the match (i.e., does nothing)</p></li>
+<li><p>Every other class can now delegate to its <code>next</code>
+without checking for <code>None</code></p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="refactoring-literal-matcher" class="slide level2">
 <h2>Refactoring Literal Matcher</h2>
-<div data-inc="glob_null.py" data-mark="lit"><span aria-label="Source: glob/glob_null.py" class="inc-path" role="img" tabindex="0" title="glob/glob_null.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Lit</span><span class="p">(</span><span class="n">Match</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chars</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chars</span> <span class="o">=</span> <span class="n">chars</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chars</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chars</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_null.py mark=lit %]</p>
 <ul>
 <li>Ask parent class to do common initialization</li>
-<li>Return <code>None</code> for "no match" or whatever <code>self.rest</code> returns<ul>
-<li>If <code>rest</code> is <code>Null</code>,
-    result will be the index after this object's match</li>
-</ul>
-</li>
+<li>Return <code>None</code> for “no match” or whatever
+<code>self.rest</code> returns
+<ul>
+<li>If <code>rest</code> is <code>Null</code>, result will be the index
+after this object’s match</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="refactoring-wildcard" class="slide level2">
 <h2>Refactoring Wildcard</h2>
-<div data-inc="glob_null.py" data-mark="any"><span aria-label="Source: glob/glob_null.py" class="inc-path" role="img" tabindex="0" title="glob/glob_null.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Any</span><span class="p">(</span><span class="n">Match</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">end</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">end</span>
-        <span class="k">return</span> <span class="kc">None</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_null.py mark=any %]</p>
 <ul>
-<li>The exercises will ask, "Why <code>len(text) + 1</code>?"</li>
+<li>The exercises will ask, “Why <code>len(text) + 1</code>?”</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="refactoring-alternatives" class="slide level2">
 <h2>Refactoring Alternatives</h2>
-<div data-inc="glob_null.py" data-mark="either"><span aria-label="Source: glob/glob_null.py" class="inc-path" role="img" tabindex="0" title="glob/glob_null.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Either</span><span class="p">(</span><span class="n">Match</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">pat</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">]:</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="n">pat</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">end</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="n">end</span>
-        <span class="k">return</span> <span class="kc">None</span>
-</code></pre></div>
-</div>
+<p>[%inc glob_null.py mark=either %]</p>
 <ul>
-<li>
-<p>Looping over left and right options is simpler than
-    repeating code or writing a helper method</p>
-</li>
-<li>
-<p>Could easily be extended to any number of alternatives</p>
-</li>
+<li><p>Looping over left and right options is simpler than repeating
+code or writing a helper method</p></li>
+<li><p>Could easily be extended to any number of alternatives</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="testing" class="slide level2">
 <h2>Testing</h2>
 <ul>
-<li>None of the existing tests change<ul>
+<li>None of the existing tests change
+<ul>
 <li>None of the constructors changed</li>
 <li>Neither did the signature of <code>match</code></li>
-</ul>
-</li>
+</ul></li>
 <li>We should (should) add a couple of tests for <code>Null</code></li>
-<li>But basically we're done</li>
+<li>But basically we’re done</li>
 <li>And we can easily add matchers for other kinds of patterns</li>
 </ul>
 </section>
 <section class="slide">
-<h2>Summary</h2>
-<figure id="f:glob-concept-map">
-<img alt="Concept map of globbing" src="concept_map.svg"/>
-<figcaption>Figure 4: Concept map.</figcaption>
-</figure>
 </section>
-<div aria-live="polite" id="slide-counter"></div>
-</div>
-<script src="../_static/shower.js"></script>
-<script src="../_static/slides.js"></script>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>[% figure slug=“glob-concept-map” img=“concept_map.svg” alt=“Concept
+map of globbing” caption=“Concept map.” %]</p>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
+      });
+    </script>
+    </body>
 </html>

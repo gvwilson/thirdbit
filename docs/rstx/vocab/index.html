@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Vocabulary Richness in Historical Texts</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -90,7 +113,7 @@ Wrong: TTR is a purely statistical property of the token sequence and is indepen
 <li>Word frequencies in natural language follow Zipf’s law: the <span class="math inline">\(k\)</span>-th most common word appears with frequency proportional to <span class="math inline">\(1/k\)</span>.</li>
 <li>Sampling from this distribution with different vocabulary sizes reproduces the richness differences between authors with limited and extensive lexicons.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_corpus(</span>
+<div class="sourceCode" id="cb1" data-file="vocab/generate_vocab.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_corpus(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    authors<span class="op">=</span>AUTHORS,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    vocab_sizes<span class="op">=</span>VOCAB_SIZES,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    texts_per_author<span class="op">=</span>TEXTS_PER_AUTHOR,</span>
@@ -119,7 +142,7 @@ Wrong: TTR is a purely statistical property of the token sequence and is indepen
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            text_id <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame(records)</span></code></pre></div>
 <h2 data-number="4.4" id="computing-ttr-and-mattr"><span class="header-section-number">4.4</span> Computing TTR and MATTR</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> type_token_ratio(words):</span>
+<div class="sourceCode" id="cb2" data-file="vocab/vocab.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> type_token_ratio(words):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return unique words / total words (type-token ratio, TTR).</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    TTR falls as text length increases even when vocabulary richness is</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    constant, because longer texts inevitably repeat high-frequency words.</span></span>
@@ -146,7 +169,7 @@ Wrong: TTR is a purely statistical property of the token sequence and is indepen
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.mean(window_ttrs))</span></code></pre></div>
 <h2 data-number="4.5" id="aggregating-richness-scores"><span class="header-section-number">4.5</span> Aggregating Richness Scores</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_richness(df, window<span class="op">=</span>MATTR_WINDOW):</span>
+<div class="sourceCode" id="cb3" data-file="vocab/vocab.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_richness(df, window<span class="op">=</span>MATTR_WINDOW):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a DataFrame with TTR and MATTR for each text.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Input df must have columns text_id, author, word.</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Output has columns text_id, author, ttr, mattr.</span></span>
@@ -166,7 +189,7 @@ Wrong: TTR is a purely statistical property of the token sequence and is indepen
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame(rows)</span></code></pre></div>
 <h2 data-number="4.6" id="visualizing-results"><span class="header-section-number">4.6</span> Visualizing Results</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_richness(richness_df, filename):</span>
+<div class="sourceCode" id="cb4" data-file="vocab/vocab.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_richness(richness_df, filename):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a bar chart of MATTR per text, coloured by author."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> richness_df.with_columns(</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        pl.concat_str(</span>
@@ -220,7 +243,7 @@ Figure&nbsp;4.1: MATTR for each text in the synthetic corpus. Author A (vocabula
 <li>Author A (vocabulary 200), Author B (400), and Author C (800) are generated from increasingly large Zipfian vocabularies. Their mean MATTR values must increase in the same order.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<div class="sourceCode" id="cb5" data-file="vocab/test_vocab.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_vocab <span class="im">import</span> make_corpus</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vocab <span class="im">import</span> type_token_ratio, mattr, compute_richness</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -296,6 +319,14 @@ The fixed number of tokens in each local TTR window; must be short enough to kee
     <a class="pager-link next" href="../pollute/index.html">Pollutant Spread in a River Network →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

@@ -1,599 +1,334 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>A Simple Filesystem</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>A Simple Filesystem</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-<li><a class="active" href="../fs/">A Filesystem</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>A Simple Filesystem</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#fs-disk" id="toc-fs-disk"><span class="header-section-number">Y.1</span> A Disk of Bytes</a></li>
+<li><a href="#fs-super" id="toc-fs-super"><span class="header-section-number">Y.2</span> The Superblock</a></li>
+<li><a href="#fs-free" id="toc-fs-free"><span class="header-section-number">Y.3</span> Free Blocks</a></li>
+<li><a href="#fs-inode" id="toc-fs-inode"><span class="header-section-number">Y.4</span> Inodes and Files</a></li>
+<li><a href="#fs-dir" id="toc-fs-dir"><span class="header-section-number">Y.5</span> Directories</a></li>
+<li><a href="#fs-path" id="toc-fs-path"><span class="header-section-number">Y.6</span> Paths and Operations</a></li>
+<li><a href="#fs-test" id="toc-fs-test"><span class="header-section-number">Y.7</span> Testing</a></li>
+<li><a href="#fs-summary" id="toc-fs-summary"><span class="header-section-number">Y.8</span> Summary</a></li>
+<li><a href="#fs-exercises" id="toc-fs-exercises"><span class="header-section-number">Y.9</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">A Simple Filesystem</h1>
+<div class="syllabus">
 <ul>
 <li>A disk is just a sequence of bytes, but filesystems read and write it in fixed-size blocks.</li>
 <li>A superblock holds the metadata needed to interpret everything else on the disk.</li>
 <li>A bitmap records which blocks are in use and which are free.</li>
-<li>An inode stores a file's metadata and the numbers of the blocks holding its contents.</li>
+<li>An inode stores a file’s metadata and the numbers of the blocks holding its contents.</li>
 <li>A directory is a file whose contents map names to inode numbers.</li>
 <li>Paths are resolved by walking from the root directory down to the target entry.</li>
 </ul>
 </div>
-<p>Every program reads and writes files,
-but few of us ever stop to ask what happens in between.
-When we open a file and then read from it,
-some piece of software has to figure out where our data lives on a disk,
-find the bytes,
-and hand them back to us.
-This chapter builds a tiny filesystem
-to show how that piece of software works.</p>
-<p>We will not touch a real disk.
-Instead,
-we will use an in-memory array of bytes to <em>simulate</em> one.
-As <a class="xref" href="../binary/">Chapter 17</a> explains,
-bytes are just numbers,
-so a <code>bytearray</code> in Python is a perfectly good stand-in
-for the raw storage of a physical device.
-The ideas we build here—blocks, superblocks, inodes, directories—are
-the same ones used by real filesystems such as ext4 and NTFS.</p>
-<h2 id="fs-disk">A Disk of Bytes</h2>
-<p>A physical disk stores a long sequence of bytes,
-but reading and writing them one at a time would be painfully slow.
-Real filesystems therefore group bytes into <span class="ix-ref" data-ix-key="block" id="ix-fs-1">block</span>s of a fixed size
-and always read or write whole blocks at once.
-Our simulated disk does the same thing:</p>
-<div data-inc="disk.py" data-mark="class"><span aria-label="Source: fs/disk.py" class="inc-path" role="img" tabindex="0" title="fs/disk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Disk</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""A fixed-size array of bytes divided into fixed-size blocks."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">block_count</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span> <span class="o">=</span> <span class="n">block_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">block_count</span> <span class="o">=</span> <span class="n">block_count</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">block_size</span> <span class="o">*</span> <span class="n">block_count</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""The total number of bytes on the disk."""</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">read_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_number</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Return the contents of a block as a ``bytes`` object."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_block</span><span class="p">(</span><span class="n">block_number</span><span class="p">)</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">block_number</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span>
-        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">write_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_number</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Overwrite a block with ``data``, padding with zero bytes as needed."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_block</span><span class="p">(</span><span class="n">block_number</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"data does not fit in a single block"</span><span class="p">)</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">block_number</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span><span class="p">]</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x00</span><span class="s2">"</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">data</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_check_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_number</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">block_number</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_count</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"block number </span><span class="si">{</span><span class="n">block_number</span><span class="si">}</span><span class="s2"> out of range"</span><span class="p">)</span>
-</code></pre></div>
+<p>Every program reads and writes files, but few of us ever stop to ask what happens in between. When we open a file and then read from it, some piece of software has to figure out where our data lives on a disk, find the bytes, and hand them back to us. This chapter builds a tiny filesystem to show how that piece of software works.</p>
+<p>We will not touch a real disk. Instead, we will use an in-memory array of bytes to <em>simulate</em> one. As <a href="../binary/index.html" class="quarto-xref"><span>Chapter 17</span></a> explains, bytes are just numbers, so a <code>bytearray</code> in Python is a perfectly good stand-in for the raw storage of a physical device. The ideas we build here—blocks, superblocks, inodes, directories—are the same ones used by real filesystems such as ext4 and NTFS.</p>
+<h2 data-number="Y.1" id="fs-disk"><span class="header-section-number">Y.1</span> A Disk of Bytes</h2>
+<p>A physical disk stores a long sequence of bytes, but reading and writing them one at a time would be painfully slow. Real filesystems therefore group bytes into blocks of a fixed size and always read or write whole blocks at once. Our simulated disk does the same thing:</p>
+<div class="sourceCode" id="cb1" data-file="fs/disk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Disk:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A fixed-size array of bytes divided into fixed-size blocks."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, block_size, block_count):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.block_size <span class="op">=</span> block_size</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.block_count <span class="op">=</span> block_count</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data <span class="op">=</span> <span class="bu">bytearray</span>(block_size <span class="op">*</span> block_count)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> size(<span class="va">self</span>):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""The total number of bytes on the disk."""</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>._data)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> read_block(<span class="va">self</span>, block_number):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Return the contents of a block as a ``bytes`` object."""</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._check_block(block_number)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> block_number <span class="op">*</span> <span class="va">self</span>.block_size</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">bytes</span>(<span class="va">self</span>._data[start : start <span class="op">+</span> <span class="va">self</span>.block_size])</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> write_block(<span class="va">self</span>, block_number, data):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Overwrite a block with ``data``, padding with zero bytes as needed."""</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._check_block(block_number)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(data) <span class="op">&gt;</span> <span class="va">self</span>.block_size:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"data does not fit in a single block"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> block_number <span class="op">*</span> <span class="va">self</span>.block_size</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data[start : start <span class="op">+</span> <span class="va">self</span>.block_size] <span class="op">=</span> <span class="st">b"</span><span class="ch">\x00</span><span class="st">"</span> <span class="op">*</span> <span class="va">self</span>.block_size</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data[start : start <span class="op">+</span> <span class="bu">len</span>(data)] <span class="op">=</span> data</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _check_block(<span class="va">self</span>, block_number):</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> (<span class="dv">0</span> <span class="op">&lt;=</span> block_number <span class="op">&lt;</span> <span class="va">self</span>.block_count):</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"block number </span><span class="sc">{</span>block_number<span class="sc">}</span><span class="ss"> out of range"</span>)</span></code></pre></div>
+<p>A <code>Disk</code> is just a <code>bytearray</code> of <code>block_size * block_count</code> bytes. <code>read_block</code> returns one block’s worth of bytes, and <code>write_block</code> overwrites a block, padding with zero bytes if the data we supply is shorter than a block. The <code>_check_block</code> method ensures that block numbers are in the range <code>0</code> to <code>block_count - 1</code>.</p>
+<div>
+<blockquote>
+<p><strong>Why Fixed-Size Blocks?</strong></p>
+<p>Grouping bytes into blocks trades a little wasted space for simplicity and speed. If every block is the same size, we can find block <span class="math inline">\(N\)</span>by multiplying instead of searching: it always starts at byte<span class="math inline">\(N \times B\)</span>, where <span class="math inline">\(B\)</span>is the block size. The wasted space comes from files that don’t fill their last block, but the trade is almost always worthwhile.</p>
+</blockquote>
 </div>
-<p>A <code>Disk</code> is just a <code>bytearray</code> of <code>block_size * block_count</code> bytes.
-<code>read_block</code> returns one block's worth of bytes,
-and <code>write_block</code> overwrites a block,
-padding with zero bytes if the data we supply is shorter than a block.
-The <code>_check_block</code> method ensures that
-block numbers are in the range <code>0</code> to <code>block_count - 1</code>.</p>
-<div class="callout">
-<h3>Why Fixed-Size Blocks?</h3>
-<p>Grouping bytes into blocks trades a little wasted space for simplicity and speed.
-If every block is the same size,
-we can find block $N$ by multiplying instead of searching:
-it always starts at byte $N \times B$,
-where $B$ is the block size.
-The wasted space comes from files that don't fill their last block,
-but the trade is almost always worthwhile.</p>
-</div>
-<h2 id="fs-super">The Superblock</h2>
-<p>The first thing our filesystem needs is a way to recognize itself.
-If we are handed a <code>bytearray</code> full of bytes,
-how do we know whether it is one of <em>our</em> filesystems
-or just random garbage?
-The answer is to store some <a class="gl-ref" href="../glossary/#metadata">metadata</a> in the first block:</p>
-<div data-inc="filesystem.py" data-mark="constants"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">BLOCK_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">NUM_BLOCKS</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">DISK_SIZE</span> <span class="o">=</span> <span class="n">BLOCK_SIZE</span> <span class="o">*</span> <span class="n">NUM_BLOCKS</span>
-
-<span class="n">INODE_SIZE</span> <span class="o">=</span> <span class="n">BLOCK_SIZE</span>
-<span class="n">NUM_INODES</span> <span class="o">=</span> <span class="mi">16</span>
-
-<span class="n">SUPERBLOCK_BLOCK</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">INODE_TABLE_START</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">DATA_START</span> <span class="o">=</span> <span class="n">INODE_TABLE_START</span> <span class="o">+</span> <span class="n">NUM_INODES</span>
-
-<span class="n">MAX_FILE_BLOCKS</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">NAME_LEN</span> <span class="o">=</span> <span class="mi">12</span>
-
-<span class="n">MAGIC</span> <span class="o">=</span> <span class="mh">0x53504653</span>  <span class="c1"># the ASCII bytes "SPFS"</span>
-
-<span class="n">SUPERBLOCK</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s2">"&gt;IIII"</span><span class="p">)</span>
-<span class="n">INODE</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s2">"&gt;IIIIIIII"</span><span class="p">)</span>
-<span class="n">DIR_ENTRY</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s2">"&gt;12sI"</span><span class="p">)</span>
-
-<span class="n">KIND_FREE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">KIND_FILE</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">KIND_DIR</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="n">ROOT_INODE</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div>
-</div>
-<p>The constant <code>MAGIC</code> is a number chosen so that
-when it is packed into four bytes it spells <code>"SPFS"</code>.
-<code>struct.Struct</code> describes how to pack and unpack values;
-the format string <code>"&gt;IIII"</code> means "four unsigned 32-bit integers in big-endian order",
-a topic we first met in <a class="xref" href="../binary/">Chapter 17</a>.
-Our superblock therefore records:</p>
+<h2 data-number="Y.2" id="fs-super"><span class="header-section-number">Y.2</span> The Superblock</h2>
+<p>The first thing our filesystem needs is a way to recognize itself. If we are handed a <code>bytearray</code> full of bytes, how do we know whether it is one of <em>our</em> filesystems or just random garbage? The answer is to store some <a href="../glossary/index.html#metadata">metadata</a> in the first block:</p>
+<div class="sourceCode" id="cb2" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>BLOCK_SIZE <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>NUM_BLOCKS <span class="op">=</span> <span class="dv">64</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>DISK_SIZE <span class="op">=</span> BLOCK_SIZE <span class="op">*</span> NUM_BLOCKS</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>INODE_SIZE <span class="op">=</span> BLOCK_SIZE</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>NUM_INODES <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>SUPERBLOCK_BLOCK <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>INODE_TABLE_START <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>DATA_START <span class="op">=</span> INODE_TABLE_START <span class="op">+</span> NUM_INODES</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>MAX_FILE_BLOCKS <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>NAME_LEN <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>MAGIC <span class="op">=</span> <span class="bn">0x53504653</span>  <span class="co"># the ASCII bytes "SPFS"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>SUPERBLOCK <span class="op">=</span> struct.Struct(<span class="st">"&gt;IIII"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>INODE <span class="op">=</span> struct.Struct(<span class="st">"&gt;IIIIIIII"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>DIR_ENTRY <span class="op">=</span> struct.Struct(<span class="st">"&gt;12sI"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>KIND_FREE <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>KIND_FILE <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>KIND_DIR <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>ROOT_INODE <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<p>The constant <code>MAGIC</code> is a number chosen so that when it is packed into four bytes it spells <code>"SPFS"</code>. <code>struct.Struct</code> describes how to pack and unpack values; the format string <code>"&gt;IIII"</code> means “four unsigned 32-bit integers in big-endian order”, a topic we first met in <a href="../binary/index.html" class="quarto-xref"><span>Chapter 17</span></a>. Our superblock therefore records:</p>
 <ul>
-<li>
-<p>the magic number used to identify the filesystem;</p>
-</li>
-<li>
-<p>the block size and the number of blocks;</p>
-</li>
-<li>
-<p>the number of inodes (which we will meet shortly).</p>
-</li>
+<li><p>the magic number used to identify the filesystem;</p></li>
+<li><p>the block size and the number of blocks;</p></li>
+<li><p>the number of inodes (which we will meet shortly).</p></li>
 </ul>
-<p>The <code>format</code> method writes a fresh superblock
-and initializes everything else:</p>
-<div data-inc="filesystem.py" data-mark="format"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Initialize the disk to hold an empty filesystem."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bitmap</span><span class="p">[:]</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x00</span><span class="s2">"</span> <span class="o">*</span> <span class="n">NUM_BLOCKS</span>
-        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">SUPERBLOCK_BLOCK</span><span class="p">,</span> <span class="n">DATA_START</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">bitmap</span><span class="p">[</span><span class="n">block</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-        <span class="n">packed</span> <span class="o">=</span> <span class="n">SUPERBLOCK</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">MAGIC</span><span class="p">,</span> <span class="n">BLOCK_SIZE</span><span class="p">,</span> <span class="n">NUM_BLOCKS</span><span class="p">,</span> <span class="n">NUM_INODES</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">write_block</span><span class="p">(</span><span class="n">SUPERBLOCK_BLOCK</span><span class="p">,</span> <span class="n">packed</span><span class="p">)</span>
-
-        <span class="n">empty</span> <span class="o">=</span> <span class="n">INODE</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">KIND_FREE</span><span class="p">,</span> <span class="o">*</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">MAX_FILE_BLOCKS</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_INODES</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">write_block</span><span class="p">(</span><span class="n">INODE_TABLE_START</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">empty</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_inode</span><span class="p">(</span><span class="n">ROOT_INODE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">KIND_DIR</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">MAX_FILE_BLOCKS</span><span class="p">)</span>
-</code></pre></div>
+<p>The <code>format</code> method writes a fresh superblock and initializes everything else:</p>
+<div class="sourceCode" id="cb3" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">format</span>(<span class="va">self</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize the disk to hold an empty filesystem."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bitmap[:] <span class="op">=</span> <span class="st">b"</span><span class="ch">\x00</span><span class="st">"</span> <span class="op">*</span> NUM_BLOCKS</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> block <span class="kw">in</span> <span class="bu">range</span>(SUPERBLOCK_BLOCK, DATA_START):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.bitmap[block] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        packed <span class="op">=</span> SUPERBLOCK.pack(MAGIC, BLOCK_SIZE, NUM_BLOCKS, NUM_INODES)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.disk.write_block(SUPERBLOCK_BLOCK, packed)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        empty <span class="op">=</span> INODE.pack(<span class="dv">0</span>, KIND_FREE, <span class="op">*</span>([<span class="dv">0</span>] <span class="op">*</span> MAX_FILE_BLOCKS))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(NUM_INODES):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.disk.write_block(INODE_TABLE_START <span class="op">+</span> i, empty)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_inode(ROOT_INODE, <span class="dv">0</span>, KIND_DIR, [<span class="dv">0</span>] <span class="op">*</span> MAX_FILE_BLOCKS)</span></code></pre></div>
+<p>Formatting first clears the bitmap (which we discuss next) and marks the blocks that hold the superblock and the inode table as being in use. It then writes the superblock into block 0, fills every inode with zeros to mark it as free, and creates the root directory in inode 0.</p>
+<h2 data-number="Y.3" id="fs-free"><span class="header-section-number">Y.3</span> Free Blocks</h2>
+<p>A filesystem must remember which blocks are occupied and which are available. The simplest way to do this is a bitmap: an array with one entry per block that is <code>1</code> if the block is in use and <code>0</code> if it is free.</p>
+<div class="sourceCode" id="cb4" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _allocate_block(<span class="va">self</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> block <span class="kw">in</span> <span class="bu">range</span>(DATA_START, NUM_BLOCKS):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="va">self</span>.bitmap[block] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.bitmap[block] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> block</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">OSError</span>(<span class="st">"disk is full"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _free_block(<span class="va">self</span>, block):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bitmap[block] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _allocate_inode(<span class="va">self</span>, kind):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(NUM_INODES):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="va">self</span>._read_inode(i)[<span class="st">"kind"</span>] <span class="op">==</span> KIND_FREE:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>._write_inode(i, <span class="dv">0</span>, kind, [<span class="dv">0</span>] <span class="op">*</span> MAX_FILE_BLOCKS)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> i</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">OSError</span>(<span class="st">"no free inodes"</span>)</span></code></pre></div>
+<p><code>_allocate_block</code> scans the bitmap for the first free block. <code>_free_block</code> simply marks a block as free again. <code>_allocate_inode</code> does the same job for inodes: it finds an inode whose kind is <code>KIND_FREE</code> and initializes it.</p>
+<div>
+<blockquote>
+<p><strong>In Memory, Not on Disk</strong></p>
+<p>We keep the bitmap in a Python <code>bytearray</code> inside the <code>FileSystem</code> object. A real filesystem would store its bitmap in a reserved region of the disk so that it survives a restart. Turning our in-memory bitmap into an on-disk one is a good exercise.</p>
+</blockquote>
 </div>
-<p>Formatting first clears the <span class="ix-ref" data-ix-key="bitmap" id="ix-fs-2">bitmap</span> (which we discuss next)
-and marks the blocks that hold the superblock and the inode table as being in use.
-It then writes the superblock into block 0,
-fills every inode with zeros to mark it as free,
-and creates the root directory in inode 0.</p>
-<h2 id="fs-free">Free Blocks</h2>
-<p>A filesystem must remember which blocks are occupied and which are available.
-The simplest way to do this is a bitmap:
-an array with one entry per block
-that is <code>1</code> if the block is in use and <code>0</code> if it is free.</p>
-<div data-inc="filesystem.py" data-mark="allocate"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_allocate_block</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">DATA_START</span><span class="p">,</span> <span class="n">NUM_BLOCKS</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bitmap</span><span class="p">[</span><span class="n">block</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">bitmap</span><span class="p">[</span><span class="n">block</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="k">return</span> <span class="n">block</span>
-        <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">"disk is full"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_free_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bitmap</span><span class="p">[</span><span class="n">block</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_allocate_inode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_INODES</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_inode</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="s2">"kind"</span><span class="p">]</span> <span class="o">==</span> <span class="n">KIND_FREE</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_write_inode</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">MAX_FILE_BLOCKS</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">i</span>
-        <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">"no free inodes"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p><code>_allocate_block</code> scans the bitmap for the first free block.
-<code>_free_block</code> simply marks a block as free again.
-<code>_allocate_inode</code> does the same job for inodes:
-it finds an inode whose kind is <code>KIND_FREE</code>
-and initializes it.</p>
-<div class="callout">
-<h3>In Memory, Not on Disk</h3>
-<p>We keep the bitmap in a Python <code>bytearray</code> inside the <code>FileSystem</code> object.
-A real filesystem would store its bitmap in a reserved region of the disk
-so that it survives a restart.
-Turning our in-memory bitmap into an on-disk one is a good exercise.</p>
-</div>
-<h2 id="fs-inode">Inodes and Files</h2>
-<p>A file is more than its contents.
-It also has a size,
-a kind (file or directory),
-and—crucially—a list of the blocks that hold its data.
-We store this <a class="gl-ref" href="../glossary/#metadata">metadata</a> in a structure called an <span class="ix-ref" data-ix-key="inode" id="ix-fs-3">inode</span>:</p>
-<div data-inc="filesystem.py" data-mark="inode"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_read_inode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_inode</span><span class="p">(</span><span class="n">inode_number</span><span class="p">)</span>
-        <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">read_block</span><span class="p">(</span><span class="n">INODE_TABLE_START</span> <span class="o">+</span> <span class="n">inode_number</span><span class="p">)</span>
-        <span class="n">size</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="o">*</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">INODE</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"kind"</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span> <span class="s2">"blocks"</span><span class="p">:</span> <span class="n">blocks</span><span class="p">}</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_write_inode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">blocks</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_inode</span><span class="p">(</span><span class="n">inode_number</span><span class="p">)</span>
-        <span class="n">raw</span> <span class="o">=</span> <span class="n">INODE</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="o">*</span><span class="n">blocks</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">write_block</span><span class="p">(</span><span class="n">INODE_TABLE_START</span> <span class="o">+</span> <span class="n">inode_number</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_check_inode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">inode_number</span> <span class="o">&lt;</span> <span class="n">NUM_INODES</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"inode number </span><span class="si">{</span><span class="n">inode_number</span><span class="si">}</span><span class="s2"> out of range"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>Each inode is exactly <code>INODE_SIZE</code> bytes long,
-and because <code>INODE_SIZE</code> equals <code>BLOCK_SIZE</code>,
-one inode fits in one block.
-Inode $i$ therefore lives in block <code>INODE_TABLE_START + i</code>.
-The inode stores the file's size,
-its kind,
-and up to <code>MAX_FILE_BLOCKS</code> block numbers.</p>
-<p>Reading and writing a file's contents
-means following those block numbers:</p>
-<div data-inc="filesystem.py" data-mark="data"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_read_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">):</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_inode</span><span class="p">(</span><span class="n">inode_number</span><span class="p">)</span>
-        <span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">inode</span><span class="p">[</span><span class="s2">"blocks"</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">block</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">break</span>
-            <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">read_block</span><span class="p">(</span><span class="n">block</span><span class="p">))</span>
-        <span class="k">return</span> <span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chunks</span><span class="p">)[:</span> <span class="n">inode</span><span class="p">[</span><span class="s2">"size"</span><span class="p">]]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_write_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_inode</span><span class="p">(</span><span class="n">inode_number</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">inode</span><span class="p">[</span><span class="s2">"blocks"</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">block</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_free_block</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
-
-        <span class="n">blocks</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">offset</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">BLOCK_SIZE</span><span class="p">):</span>
-            <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allocate_block</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">write_block</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">offset</span> <span class="p">:</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">BLOCK_SIZE</span><span class="p">])</span>
-            <span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
-        <span class="n">blocks</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">MAX_FILE_BLOCKS</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">blocks</span><span class="p">))</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_inode</span><span class="p">(</span><span class="n">inode_number</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">inode</span><span class="p">[</span><span class="s2">"kind"</span><span class="p">],</span> <span class="n">blocks</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p><code>_read_data</code> reads each block listed in the inode,
-joins them together,
-and trims the result to the file's recorded size.
-<code>_write_data</code> does the reverse:
-it frees the file's old blocks,
-allocates fresh ones,
-and copies the data into them one block at a time.</p>
-<p>This indirection—storing <em>pointers to</em> data rather than the data itself—is
-the heart of how filesystems work.
-The inode is small and fixed in size,
-but the file it describes can be larger
-and scattered across the disk.</p>
-<h2 id="fs-dir">Directories</h2>
-<p>If a file is "a list of blocks",
-then a <span class="ix-ref" data-ix-key="directory" id="ix-fs-4">directory</span> is "a file whose contents are a list of names".
-Each directory entry maps a name to an inode number:</p>
-<div data-inc="filesystem.py" data-mark="dirent"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_pack_dir_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">):</span>
-        <span class="n">name_bytes</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name_bytes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">NAME_LEN</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"name too long: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">DIR_ENTRY</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">name_bytes</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_unpack_dir_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
-        <span class="n">name_bytes</span><span class="p">,</span> <span class="n">inode_number</span> <span class="o">=</span> <span class="n">DIR_ENTRY</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">name_bytes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">"</span><span class="se">\x00</span><span class="s2">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">inode_number</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_list_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode_number</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_data</span><span class="p">(</span><span class="n">inode_number</span><span class="p">)</span>
-        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">offset</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">DIR_ENTRY</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-            <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unpack_dir_entry</span><span class="p">(</span>
-                <span class="n">data</span><span class="p">[</span><span class="n">offset</span> <span class="p">:</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">DIR_ENTRY</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
-            <span class="p">)</span>
-            <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">child</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">entries</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_dir_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_inode</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">child_inode</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_data</span><span class="p">(</span><span class="n">dir_inode</span><span class="p">)</span>
-        <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pack_dir_entry</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">child_inode</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_data</span><span class="p">(</span><span class="n">dir_inode</span><span class="p">,</span> <span class="n">data</span> <span class="o">+</span> <span class="n">raw</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_dir_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_inode</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="n">kept</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_pack_dir_entry</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_dir</span><span class="p">(</span><span class="n">dir_inode</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">name</span>
-        <span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_data</span><span class="p">(</span><span class="n">dir_inode</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kept</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<p>A directory entry is 16 bytes:
-12 for the name (padded with zero bytes if it is shorter)
-and 4 for the inode number.
-<code>_list_dir</code> reads the directory's data
-and unpacks it into a list of <code>(name, inode)</code> pairs.
-<code>_dir_add</code> and <code>_dir_remove</code> add and remove entries
-by rewriting the directory's contents.</p>
-<p>Notice that we never check that a directory entry is "really" a directory:
-to the filesystem, a directory is just a file with a particular structure.
-This is a small example of a larger design idea
-that we first met in <a class="xref" href="../persist/">Chapter 16</a>:
-a program is just another kind of data.</p>
-<h2 id="fs-path">Paths and Operations</h2>
-<p>The last piece of the puzzle is turning a path like <code>/docs/hello.txt</code>
-into the file it names.
-We do this by walking from the root directory
-down through each component of the path:</p>
-<div data-inc="filesystem.py" data-mark="lookup"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"/"</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"absolute path required"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">path</span> <span class="o">==</span> <span class="s2">"/"</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the root directory cannot be split"</span><span class="p">)</span>
-        <span class="n">parent</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">parent</span> <span class="k">if</span> <span class="n">parent</span> <span class="o">!=</span> <span class="s2">""</span> <span class="k">else</span> <span class="s2">"/"</span><span class="p">),</span> <span class="n">name</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="n">current</span> <span class="o">=</span> <span class="n">ROOT_INODE</span>
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="p">]:</span>
-            <span class="n">child</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">entry_name</span><span class="p">,</span> <span class="n">child_inode</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_dir</span><span class="p">(</span><span class="n">current</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">entry_name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
-                    <span class="n">child</span> <span class="o">=</span> <span class="n">child_inode</span>
-                    <span class="k">break</span>
-            <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">None</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">child</span>
-        <span class="k">return</span> <span class="n">current</span>
-</code></pre></div>
-</div>
-<p><code>_lookup</code> starts at <code>ROOT_INODE</code> and, for each name in the path,
-looks it up in the current directory.
-If any component is missing, it returns <code>None</code>.
-<code>_split</code> separates a path into its parent directory and final name.</p>
-<p>The public methods are then straightforward compositions
-of the pieces we have already built:</p>
-<div data-inc="filesystem.py" data-mark="api"><span aria-label="Source: fs/filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="n">parent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">parent_inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allocate_inode</span><span class="p">(</span><span class="n">KIND_FILE</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dir_add</span><span class="p">(</span><span class="n">parent_inode</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">inode</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">inode</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="n">parent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">parent_inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allocate_inode</span><span class="p">(</span><span class="n">KIND_DIR</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dir_add</span><span class="p">(</span><span class="n">parent_inode</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">inode</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_data</span><span class="p">(</span><span class="n">inode</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_data</span><span class="p">(</span><span class="n">inode</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_dir</span><span class="p">(</span><span class="n">inode</span><span class="p">)]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="n">parent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">parent_inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-        <span class="n">inode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_inode</span><span class="p">(</span><span class="n">inode</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s2">"blocks"</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">block</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_free_block</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_write_inode</span><span class="p">(</span><span class="n">inode</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">KIND_FREE</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">MAX_FILE_BLOCKS</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dir_remove</span><span class="p">(</span><span class="n">parent_inode</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p><code>create</code> and <code>mkdir</code> allocate an inode and add an entry to the parent directory.
-<code>write</code> creates the file if it doesn't exist and then stores the data.
-<code>read</code>, <code>listdir</code>, and <code>remove</code> look up an inode and act on it.
-None of these methods is more than a few lines long
-because each one is standing on the shoulders of the ones below it.</p>
-<h2 id="fs-test">Testing</h2>
-<p>As in earlier chapters,
-we test our code with small examples rather than a real disk:</p>
-<div data-inc="test_disk.py" data-mark="sample"><span aria-label="Source: fs/test_disk.py" class="inc-path" role="img" tabindex="0" title="fs/test_disk.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_write_block_pads_with_zeros</span><span class="p">():</span>
-    <span class="n">disk</span> <span class="o">=</span> <span class="n">Disk</span><span class="p">(</span><span class="n">block_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">block_count</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">disk</span><span class="o">.</span><span class="n">write_block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"hello"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">disk</span><span class="o">.</span><span class="n">read_block</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">"hello"</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x00</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">11</span>
-</code></pre></div>
-</div>
+<h2 data-number="Y.4" id="fs-inode"><span class="header-section-number">Y.4</span> Inodes and Files</h2>
+<p>A file is more than its contents. It also has a size, a kind (file or directory), and—crucially—a list of the blocks that hold its data. We store this metadata in a structure called an inode:</p>
+<div class="sourceCode" id="cb5" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _read_inode(<span class="va">self</span>, inode_number):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._check_inode(inode_number)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        raw <span class="op">=</span> <span class="va">self</span>.disk.read_block(INODE_TABLE_START <span class="op">+</span> inode_number)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        size, kind, <span class="op">*</span>blocks <span class="op">=</span> INODE.unpack(raw)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">"size"</span>: size, <span class="st">"kind"</span>: kind, <span class="st">"blocks"</span>: blocks}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _write_inode(<span class="va">self</span>, inode_number, size, kind, blocks):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._check_inode(inode_number)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        raw <span class="op">=</span> INODE.pack(size, kind, <span class="op">*</span>blocks)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.disk.write_block(INODE_TABLE_START <span class="op">+</span> inode_number, raw)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _check_inode(<span class="va">self</span>, inode_number):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> (<span class="dv">0</span> <span class="op">&lt;=</span> inode_number <span class="op">&lt;</span> NUM_INODES):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"inode number </span><span class="sc">{</span>inode_number<span class="sc">}</span><span class="ss"> out of range"</span>)</span></code></pre></div>
+<p>Each inode is exactly <code>INODE_SIZE</code> bytes long, and because <code>INODE_SIZE</code> equals <code>BLOCK_SIZE</code>, one inode fits in one block. Inode<span class="math inline">\(i\)</span> therefore lives in block <code>INODE_TABLE_START + i</code>. The inode stores the file’s size, its kind, and up to <code>MAX_FILE_BLOCKS</code> block numbers.</p>
+<p>Reading and writing a file’s contents means following those block numbers:</p>
+<div class="sourceCode" id="cb6" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _read_data(<span class="va">self</span>, inode_number):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._read_inode(inode_number)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        chunks <span class="op">=</span> []</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> block <span class="kw">in</span> inode[<span class="st">"blocks"</span>]:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> block <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            chunks.append(<span class="va">self</span>.disk.read_block(block))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">b""</span>.join(chunks)[: inode[<span class="st">"size"</span>]]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _write_data(<span class="va">self</span>, inode_number, data):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._read_inode(inode_number)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> block <span class="kw">in</span> inode[<span class="st">"blocks"</span>]:</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> block <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>._free_block(block)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        blocks <span class="op">=</span> []</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> offset <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(data), BLOCK_SIZE):</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            block <span class="op">=</span> <span class="va">self</span>._allocate_block()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.disk.write_block(block, data[offset : offset <span class="op">+</span> BLOCK_SIZE])</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            blocks.append(block)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        blocks <span class="op">+=</span> [<span class="dv">0</span>] <span class="op">*</span> (MAX_FILE_BLOCKS <span class="op">-</span> <span class="bu">len</span>(blocks))</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_inode(inode_number, <span class="bu">len</span>(data), inode[<span class="st">"kind"</span>], blocks)</span></code></pre></div>
+<p><code>_read_data</code> reads each block listed in the inode, joins them together, and trims the result to the file’s recorded size. <code>_write_data</code> does the reverse: it frees the file’s old blocks, allocates fresh ones, and copies the data into them one block at a time.</p>
+<p>This indirection—storing <em>pointers to</em> data rather than the data itself—is the heart of how filesystems work. The inode is small and fixed in size, but the file it describes can be larger and scattered across the disk.</p>
+<h2 data-number="Y.5" id="fs-dir"><span class="header-section-number">Y.5</span> Directories</h2>
+<p>If a file is “a list of blocks”, then a directory is “a file whose contents are a list of names”. Each directory entry maps a name to an inode number:</p>
+<div class="sourceCode" id="cb7" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _pack_dir_entry(<span class="va">self</span>, name, inode_number):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        name_bytes <span class="op">=</span> name.encode(<span class="st">"utf-8"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(name_bytes) <span class="op">&gt;</span> NAME_LEN:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"name too long: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> DIR_ENTRY.pack(name_bytes, inode_number)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _unpack_dir_entry(<span class="va">self</span>, raw):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        name_bytes, inode_number <span class="op">=</span> DIR_ENTRY.unpack(raw)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        name <span class="op">=</span> name_bytes.split(<span class="st">b"</span><span class="ch">\x00</span><span class="st">"</span>)[<span class="dv">0</span>].decode(<span class="st">"utf-8"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> name, inode_number</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _list_dir(<span class="va">self</span>, inode_number):</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> <span class="va">self</span>._read_data(inode_number)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        entries <span class="op">=</span> []</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> offset <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(data), DIR_ENTRY.size):</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            name, child <span class="op">=</span> <span class="va">self</span>._unpack_dir_entry(</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                data[offset : offset <span class="op">+</span> DIR_ENTRY.size]</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>            entries.append((name, child))</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> entries</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _dir_add(<span class="va">self</span>, dir_inode, name, child_inode):</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> <span class="va">self</span>._read_data(dir_inode)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        raw <span class="op">=</span> <span class="va">self</span>._pack_dir_entry(name, child_inode)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_data(dir_inode, data <span class="op">+</span> raw)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _dir_remove(<span class="va">self</span>, dir_inode, name):</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        kept <span class="op">=</span> [</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._pack_dir_entry(n, child)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> (n, child) <span class="kw">in</span> <span class="va">self</span>._list_dir(dir_inode)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> n <span class="op">!=</span> name</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_data(dir_inode, <span class="st">b""</span>.join(kept))</span></code></pre></div>
+<p>A directory entry is 16 bytes: 12 for the name (padded with zero bytes if it is shorter) and 4 for the inode number. <code>_list_dir</code> reads the directory’s data and unpacks it into a list of <code>(name, inode)</code> pairs. <code>_dir_add</code> and <code>_dir_remove</code> add and remove entries by rewriting the directory’s contents.</p>
+<p>Notice that we never check that a directory entry is “really” a directory: to the filesystem, a directory is just a file with a particular structure. This is a small example of a larger design idea that we first met in <a href="../persist/index.html" class="quarto-xref"><span>Chapter 16</span></a>: a program is just another kind of data.</p>
+<h2 data-number="Y.6" id="fs-path"><span class="header-section-number">Y.6</span> Paths and Operations</h2>
+<p>The last piece of the puzzle is turning a path like <code>/docs/hello.txt</code> into the file it names. We do this by walking from the root directory down through each component of the path:</p>
+<div class="sourceCode" id="cb8" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _split(<span class="va">self</span>, path):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> path.startswith(<span class="st">"/"</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"absolute path required"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> path <span class="op">==</span> <span class="st">"/"</span>:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"the root directory cannot be split"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        parent, _, name <span class="op">=</span> path.rpartition(<span class="st">"/"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (parent <span class="cf">if</span> parent <span class="op">!=</span> <span class="st">""</span> <span class="cf">else</span> <span class="st">"/"</span>), name</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _lookup(<span class="va">self</span>, path):</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> ROOT_INODE</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> name <span class="kw">in</span> [p <span class="cf">for</span> p <span class="kw">in</span> path.split(<span class="st">"/"</span>) <span class="cf">if</span> p]:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            child <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> (entry_name, child_inode) <span class="kw">in</span> <span class="va">self</span>._list_dir(current):</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> entry_name <span class="op">==</span> name:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                    child <span class="op">=</span> child_inode</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">break</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> child <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            current <span class="op">=</span> child</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> current</span></code></pre></div>
+<p><code>_lookup</code> starts at <code>ROOT_INODE</code> and, for each name in the path, looks it up in the current directory. If any component is missing, it returns <code>None</code>. <code>_split</code> separates a path into its parent directory and final name.</p>
+<p>The public methods are then straightforward compositions of the pieces we have already built:</p>
+<div class="sourceCode" id="cb9" data-file="fs/filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create(<span class="va">self</span>, path):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        parent, name <span class="op">=</span> <span class="va">self</span>._split(path)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        parent_inode <span class="op">=</span> <span class="va">self</span>._lookup(parent)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._allocate_inode(KIND_FILE)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._dir_add(parent_inode, name, inode)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> inode</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> mkdir(<span class="va">self</span>, path):</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        parent, name <span class="op">=</span> <span class="va">self</span>._split(path)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        parent_inode <span class="op">=</span> <span class="va">self</span>._lookup(parent)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._allocate_inode(KIND_DIR)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._dir_add(parent_inode, name, inode)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> read(<span class="va">self</span>, path):</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._lookup(path)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> inode <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(path)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._read_data(inode)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> write(<span class="va">self</span>, path, data):</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._lookup(path)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> inode <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            inode <span class="op">=</span> <span class="va">self</span>.create(path)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_data(inode, data)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> listdir(<span class="va">self</span>, path):</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._lookup(path)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> inode <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(path)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [name <span class="cf">for</span> (name, child) <span class="kw">in</span> <span class="va">self</span>._list_dir(inode)]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> remove(<span class="va">self</span>, path):</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>        parent, name <span class="op">=</span> <span class="va">self</span>._split(path)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>        parent_inode <span class="op">=</span> <span class="va">self</span>._lookup(parent)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        inode <span class="op">=</span> <span class="va">self</span>._lookup(path)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> inode <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(path)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>        info <span class="op">=</span> <span class="va">self</span>._read_inode(inode)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> block <span class="kw">in</span> info[<span class="st">"blocks"</span>]:</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> block <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>._free_block(block)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._write_inode(inode, <span class="dv">0</span>, KIND_FREE, [<span class="dv">0</span>] <span class="op">*</span> MAX_FILE_BLOCKS)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._dir_remove(parent_inode, name)</span></code></pre></div>
+<p><code>create</code> and <code>mkdir</code> allocate an inode and add an entry to the parent directory. <code>write</code> creates the file if it doesn’t exist and then stores the data. <code>read</code>, <code>listdir</code>, and <code>remove</code> look up an inode and act on it. None of these methods is more than a few lines long because each one is standing on the shoulders of the ones below it.</p>
+<h2 data-number="Y.7" id="fs-test"><span class="header-section-number">Y.7</span> Testing</h2>
+<p>As in earlier chapters, we test our code with small examples rather than a real disk:</p>
+<div class="sourceCode" id="cb10" data-file="fs/test_disk.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_write_block_pads_with_zeros():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    disk <span class="op">=</span> Disk(block_size<span class="op">=</span><span class="dv">16</span>, block_count<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    disk.write_block(<span class="dv">0</span>, <span class="st">b"hello"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> disk.read_block(<span class="dv">0</span>) <span class="op">==</span> <span class="st">b"hello"</span> <span class="op">+</span> <span class="st">b"</span><span class="ch">\x00</span><span class="st">"</span> <span class="op">*</span> <span class="dv">11</span></span></code></pre></div>
 <p>and:</p>
-<div data-inc="test_filesystem.py" data-mark="make"><span aria-label="Source: fs/test_filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/test_filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_fs</span><span class="p">():</span>
-    <span class="n">fs</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="p">()</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">fs</span>
-</code></pre></div>
-</div>
-<div data-inc="test_filesystem.py" data-mark="sample"><span aria-label="Source: fs/test_filesystem.py" class="inc-path" role="img" tabindex="0" title="fs/test_filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_create_and_read_file</span><span class="p">():</span>
-    <span class="n">fs</span> <span class="o">=</span> <span class="n">make_fs</span><span class="p">()</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"/hello.txt"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"Hello, world!"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">fs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"/hello.txt"</span><span class="p">)</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">"Hello, world!"</span>
-</code></pre></div>
-</div>
-<p>The tests create a filesystem in memory,
-format it,
-and then check that files can be created, read, overwritten, and removed.
-Because our "disk" is just a <code>bytearray</code>,
-each test runs in a few microseconds
-and needs no cleanup afterward.</p>
-<h2 id="fs-summary">Summary</h2>
-<p>Filesystems look complicated,
-but they are built from a small number of simple ideas stacked on top of each other.
-A disk is a sequence of bytes grouped into blocks.
-A superblock records how to interpret those blocks.
-A bitmap tracks which blocks are free.
-Inodes hold a file's metadata and point to its data.
-Directories are files that map names to inodes.
-And paths are just walks from the root directory down to a particular entry.</p>
-<section aria-label="Exercises" class="exercises">
-<h2 id="fs-exercises">Exercises</h2>
-<h3>Delete a Directory</h3>
-<p>Modify <code>remove</code> so that it can delete a directory
-by recursively deleting everything inside it first.
-How do you prevent the user from accidentally deleting the root directory?</p>
-<h3>Persist the Bitmap</h3>
-<p>Store the block bitmap in a reserved block on the disk
-instead of keeping it in memory,
-and update <code>format</code> and the allocation methods to use it.</p>
-<h3>Longer Files</h3>
-<p>Our inodes support at most <code>MAX_FILE_BLOCKS</code> data blocks.
-Add a single <span class="ix-ref" data-ix-key="indirect block" id="ix-fs-5">indirect block</span>
-that stores the numbers of additional data blocks
-so that a file can grow much larger.</p>
-<h3>Variable-Length Names</h3>
-<p>Replace the fixed 12-byte name field in a directory entry
-with a length prefix and a variable-length name.
-What are the trade-offs between the two designs?</p>
-<h3>Hard Links</h3>
-<p>Add a <code>link</code> operation that creates a second name for an existing inode,
-and modify <code>remove</code> so that an inode is freed only when its last name is removed.
-What does this imply about where the file's size is stored?</p>
-<h3>Detect a Foreign Disk</h3>
-<p>Modify the constructor so that it refuses to work
-with a <code>Disk</code> whose magic number doesn't match.
-What should happen if the magic number is missing but the disk is otherwise valid?</p>
-</section>
+<div class="sourceCode" id="cb11" data-file="fs/test_filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_fs():</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileSystem()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    fs.<span class="bu">format</span>()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fs</span></code></pre></div>
+<div class="sourceCode" id="cb12" data-file="fs/test_filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_create_and_read_file():</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> make_fs()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    fs.write(<span class="st">"/hello.txt"</span>, <span class="st">b"Hello, world!"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> fs.read(<span class="st">"/hello.txt"</span>) <span class="op">==</span> <span class="st">b"Hello, world!"</span></span></code></pre></div>
+<p>The tests create a filesystem in memory, format it, and then check that files can be created, read, overwritten, and removed. Because our “disk” is just a <code>bytearray</code>, each test runs in a few microseconds and needs no cleanup afterward.</p>
+<h2 data-number="Y.8" id="fs-summary"><span class="header-section-number">Y.8</span> Summary</h2>
+<p>Filesystems look complicated, but they are built from a small number of simple ideas stacked on top of each other. A disk is a sequence of bytes grouped into blocks. A superblock records how to interpret those blocks. A bitmap tracks which blocks are free. Inodes hold a file’s metadata and point to its data. Directories are files that map names to inodes. And paths are just walks from the root directory down to a particular entry.</p>
+<h2 data-number="Y.9" id="fs-exercises"><span class="header-section-number">Y.9</span> Exercises</h2>
+<h3 data-number="Y.9.1" id="delete-a-directory"><span class="header-section-number">Y.9.1</span> Delete a Directory</h3>
+<p>Modify <code>remove</code> so that it can delete a directory by recursively deleting everything inside it first. How do you prevent the user from accidentally deleting the root directory?</p>
+<h3 data-number="Y.9.2" id="persist-the-bitmap"><span class="header-section-number">Y.9.2</span> Persist the Bitmap</h3>
+<p>Store the block bitmap in a reserved block on the disk instead of keeping it in memory, and update <code>format</code> and the allocation methods to use it.</p>
+<h3 data-number="Y.9.3" id="longer-files"><span class="header-section-number">Y.9.3</span> Longer Files</h3>
+<p>Our inodes support at most <code>MAX_FILE_BLOCKS</code> data blocks. Add a single indirect block that stores the numbers of additional data blocks so that a file can grow much larger.</p>
+<h3 data-number="Y.9.4" id="variable-length-names"><span class="header-section-number">Y.9.4</span> Variable-Length Names</h3>
+<p>Replace the fixed 12-byte name field in a directory entry with a length prefix and a variable-length name. What are the trade-offs between the two designs?</p>
+<h3 data-number="Y.9.5" id="hard-links"><span class="header-section-number">Y.9.5</span> Hard Links</h3>
+<p>Add a <code>link</code> operation that creates a second name for an existing inode, and modify <code>remove</code> so that an inode is freed only when its last name is removed. What does this imply about where the file’s size is stored?</p>
+<h3 data-number="Y.9.6" id="detect-a-foreign-disk"><span class="header-section-number">Y.9.6</span> Detect a Foreign Disk</h3>
+<p>Modify the constructor so that it refuses to work with a <code>Disk</code> whose magic number doesn’t match. What should happen if the magic number is missing but the disk is otherwise valid?</p>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../ntp">NTP</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../ntp/index.html">← Network Time Protocol (NTP)</a>
+    <a class="pager-link next" href="../slides/index.html">Slides →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

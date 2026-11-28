@@ -1,239 +1,130 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Binary Data</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Binary Data</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a class="active" href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Binary Data</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#binary-int" id="toc-binary-int"><span class="header-section-number">17.1</span> Integers</a></li>
+<li><a href="#binary-bitops" id="toc-binary-bitops"><span class="header-section-number">17.2</span> Bitwise Operations</a></li>
+<li><a href="#binary-text" id="toc-binary-text"><span class="header-section-number">17.3</span> Text</a></li>
+<li><a href="#binary-binary" id="toc-binary-binary"><span class="header-section-number">17.4</span> And Now, Persistence</a></li>
+<li><a href="#binary-summary" id="toc-binary-summary"><span class="header-section-number">17.5</span> Summary</a></li>
+<li><a href="#binary-exercises" id="toc-binary-exercises"><span class="header-section-number">17.6</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Binary Data</h1>
+<div class="syllabus">
 <ul>
-<li>Programs usually store integers using two's complement rather than sign and magnitude.</li>
+<li>Programs usually store integers using two’s complement rather than sign and magnitude.</li>
 <li>Characters are usually encoded as bytes using either ASCII, UTF-8, or UTF-32.</li>
 <li>Programs can use bitwise operators to manipulate the bits representing data directly.</li>
 <li>Low-level compiled languages usually store raw values, while high-level interpreted languages use boxed values.</li>
 <li>Sets of values can be packed into contiguous byte arrays for efficient transmission and storage.</li>
 </ul>
 </div>
-<p>Python and other high-level languages shield programmers from the low-level details
-of how computers actually store and manipulate data,
-but sooner or later someone has to worry about bits and bytes.
-This chapter explores how computers represent numbers and text
-and shows how to work with data at this level.</p>
-<h2 id="binary-int">Integers</h2>
-<p>Let's start by looking at how integers are stored.
-The natural way to do this with ones and zeroes uses base 2,
-so 1001 in binary is $ (1×8)+(0×4)+(0×2)+(1×1) $ or 9 base 10.
-We can handle negative numbers by reserving the top bit for the sign,
-so that 01001 is $ +9 $ and 11001 is $ -9 $.</p>
-<p>This representation has two drawbacks.
-The less important one is that it gives us two zeroes,
-one positive and one negative.
-The larger one is that
-the hardware needed to do arithmetic
-on this <a class="gl-ref" href="../glossary/#sign_magnitude">sign and magnitude</a> representation
-is more complicated than the hardware needed for another scheme
-called <a class="gl-ref" href="../glossary/#twos_complement">two's complement</a>.
-Instead of mirroring positive values,
-two's complement rolls over when going below zero like an odometer.
-For example,
-three-bit integers give us the values in <a class="tbl-ref" href="#t:binary-3bit">Table 1</a>.</p>
-<div data-caption="3-bit integer values using two's complement." id="t:binary-3bit">
-<table><caption>Table 1: 3-bit integer values using two's complement.</caption>
+<p>Python and other high-level languages shield programmers from the low-level details of how computers actually store and manipulate data, but sooner or later someone has to worry about bits and bytes. This chapter explores how computers represent numbers and text and shows how to work with data at this level.</p>
+<h2 data-number="17.1" id="binary-int"><span class="header-section-number">17.1</span> Integers</h2>
+<p>Let’s start by looking at how integers are stored. The natural way to do this with ones and zeroes uses base 2, so 1001 in binary is <span class="math inline">\((1×8)+(0×4)+(0×2)+(1×1)\)</span> or 9 base 10. We can handle negative numbers by reserving the top bit for the sign, so that 01001 is <span class="math inline">\(+9\)</span> and 11001 is <span class="math inline">\(-9\)</span>.</p>
+<p>This representation has two drawbacks. The less important one is that it gives us two zeroes, one positive and one negative. The larger one is that the hardware needed to do arithmetic on this <a href="../glossary/index.html#sign_magnitude">sign and magnitude</a> representation is more complicated than the hardware needed for another scheme called <a href="../glossary/index.html#twos_complement">two's complement</a>. Instead of mirroring positive values, two’s complement rolls over when going below zero like an odometer. For example, three-bit integers give us the values in <a href="#tbl-binary-3bit" class="quarto-xref">Table&nbsp;<span>17.1</span></a>.</p>
+<div id="tbl-binary-3bit" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-binary-3bit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.1: 3-bit integer values using two’s complement.
+</figcaption>
+<div aria-describedby="tbl-binary-3bit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
 <thead>
-<tr>
-<th scope="col">Base 10</th>
-<th scope="col">Base 2</th>
+<tr class="header">
+<th>Base 10</th>
+<th>Base 2</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>011</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>010</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td>001</td>
 </tr>
-<tr>
+<tr class="even">
 <td>0</td>
 <td>000</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-1</td>
 <td>111</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-2</td>
 <td>110</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-3</td>
 <td>101</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-4</td>
 <td>100</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>We can still tell whether a number is positive or negative
-by looking at the first bit:
-negative numbers have 1, positive numbers have 0.
-However,
-two's complement is asymmetric:
-since 0 counts as a positive number,
-numbers go from $ -4 $ to $ 3 $, or $ -16 $ to $ 15 $, and so on.
-As a result,
-even if <code>x</code> is a valid number,
-<code>-x</code> may not be.</p>
+</figure>
+</div>
+<p>We can still tell whether a number is positive or negative by looking at the first bit: negative numbers have 1, positive numbers have 0. However, two’s complement is asymmetric: since 0 counts as a positive number, numbers go from <span class="math inline">\(-4\)</span> to <span class="math inline">\(3\)</span>, or <span class="math inline">\(-16\)</span> to <span class="math inline">\(15\)</span>, and so on. As a result, even if <code>x</code> is a valid number, <code>-x</code> may not be.</p>
 <p>We can write binary numbers directly in Python using the <code>0b</code> prefix:</p>
-<div data-inc="binary_notation.py"><span aria-label="Source: binary/binary_notation.py" class="inc-path" role="img" tabindex="0" title="binary/binary_notation.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nb">print</span><span class="p">(</span><span class="mb">0b101101</span><span class="p">)</span>  <span class="c1"># (1 * 32) + (1 * 8) + (1 * 4) + 1</span>
-</code></pre></div>
-</div>
-<div data-inc="binary_notation.out"><span aria-label="Source: binary/binary_notation.out" class="inc-path" role="img" tabindex="0" title="binary/binary_notation.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>45
-</code></pre></div>
-</div>
-<p>As noted in <a class="xref" href="../dup/">Chapter 3</a>,
-programmers usually use <span class="ix-ref" data-ix-key="hexadecimal" id="ix-binary-1">hexadecimal</span> instead:
-the digits 0–9 have the usual meaning,
-and the letters A–F (or a–f) are used to represent the digits 10–15.
-We signal that we're using hexadecimal with a <code>0x</code> prefix,
-so <code>0xF7</code> is $ (15×16)+7 $ or 247 base 10.
-Each hexadecimal digit corresponds to four bits (<a class="tbl-ref" href="#t:binary-hex">Table 2</a>),
-so two hexadecimal digits are exactly one byte,
-which makes it easy to translate bits to digits and vice versa:
-for example,
-<code>0xF7</code> is <code>0b11110111</code>.</p>
-<div data-caption="Hexadecimal digits." id="t:binary-hex">
-<table><caption>Table 2: Hexadecimal digits.</caption>
+<div class="sourceCode" id="cb1" data-file="binary/binary_notation.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bn">0b101101</span>)  <span class="co"># (1 * 32) + (1 * 8) + (1 * 4) + 1</span></span></code></pre></div>
+<pre data-file="binary/binary_notation.out"><code>45</code></pre>
+<p>As noted in <a href="../dup/index.html" class="quarto-xref"><span>Chapter 3</span></a>, programmers usually use hexadecimal instead: the digits 0–9 have the usual meaning, and the letters A–F (or a–f) are used to represent the digits 10–15. We signal that we’re using hexadecimal with a <code>0x</code> prefix, so <code>0xF7</code> is <span class="math inline">\((15×16)+7\)</span> or 247 base 10. Each hexadecimal digit corresponds to four bits (<a href="#tbl-binary-hex" class="quarto-xref">Table&nbsp;<span>17.2</span></a>), so two hexadecimal digits are exactly one byte, which makes it easy to translate bits to digits and vice versa: for example, <code>0xF7</code> is <code>0b11110111</code>.</p>
+<div id="tbl-binary-hex" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-binary-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.2: Hexadecimal digits.
+</figcaption>
+<div aria-describedby="tbl-binary-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
 <thead>
-<tr>
-<th scope="col">Decimal</th>
-<th scope="col">Hexadecimal</th>
-<th scope="col">Bits</th>
-<th scope="col">Decimal</th>
-<th scope="col">Hexadecimal</th>
-<th scope="col">Bits</th>
+<tr class="header">
+<th>Decimal</th>
+<th>Hexadecimal</th>
+<th>Bits</th>
+<th>Decimal</th>
+<th>Hexadecimal</th>
+<th>Bits</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>0</td>
 <td>0000</td>
@@ -241,7 +132,7 @@ for example,
 <td>8</td>
 <td>1000</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>1</td>
 <td>0001</td>
@@ -249,7 +140,7 @@ for example,
 <td>9</td>
 <td>1001</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>2</td>
 <td>2</td>
 <td>0010</td>
@@ -257,7 +148,7 @@ for example,
 <td>A</td>
 <td>1010</td>
 </tr>
-<tr>
+<tr class="even">
 <td>3</td>
 <td>3</td>
 <td>0011</td>
@@ -265,7 +156,7 @@ for example,
 <td>B</td>
 <td>1011</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>4</td>
 <td>4</td>
 <td>0100</td>
@@ -273,7 +164,7 @@ for example,
 <td>C</td>
 <td>1100</td>
 </tr>
-<tr>
+<tr class="even">
 <td>5</td>
 <td>5</td>
 <td>0101</td>
@@ -281,7 +172,7 @@ for example,
 <td>D</td>
 <td>1101</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>6</td>
 <td>6</td>
 <td>0110</td>
@@ -289,7 +180,7 @@ for example,
 <td>E</td>
 <td>1110</td>
 </tr>
-<tr>
+<tr class="even">
 <td>7</td>
 <td>7</td>
 <td>0111</td>
@@ -300,66 +191,57 @@ for example,
 </tbody>
 </table>
 </div>
-<h2 id="binary-bitops">Bitwise Operations</h2>
-<p>Like most languages based on C,
-Python has <a class="gl-ref" href="../glossary/#bitwise_operation">bitwise operations</a>
-for working directly with 1's and 0's:
-<code>&amp;</code> (and),
-<code>|</code> (or),
-<code>^</code> (xor),
-<code>~</code> (not).
-<code>&amp;</code> yields a 1 only if both its inputs are 1's,
-while <code>|</code> yields 1 if either or both are 1.
-<code>^</code>, called <a class="gl-ref" href="../glossary/#exclusive_or">exclusive or</a> or "xor" (pronounced "ex-or"),
-produces 1 if the bits are different,
-i.e.,
-it produces 1 if either input bit is 1 but not both.
-Finally,
-<code>~</code> flips its argument: 1 becomes 0, and 0 becomes 1.
-When these operators are applied on multi-bit values
-they work on corresponding bits independently as shown in <a class="tbl-ref" href="#t:binary-ops">Table 3</a>.</p>
-<div data-caption="Bitwise operations." id="t:binary-ops">
-<table><caption>Table 3: Bitwise operations.</caption>
+</figure>
+</div>
+<h2 data-number="17.2" id="binary-bitops"><span class="header-section-number">17.2</span> Bitwise Operations</h2>
+<p>Like most languages based on C, Python has <a href="../glossary/index.html#bitwise_operation">bitwise operations</a> for working directly with 1’s and 0’s: <code>&amp;</code> (and), <code>|</code> (or), <code>^</code> (xor), <code>~</code> (not). <code>&amp;</code> yields a 1 only if both its inputs are 1’s, while <code>|</code> yields 1 if either or both are 1. <code>^</code>, called <a href="../glossary/index.html#exclusive_or">exclusive or</a> or “xor” (pronounced “ex-or”), produces 1 if the bits are different, i.e., it produces 1 if either input bit is 1 but not both. Finally, <code>~</code> flips its argument: 1 becomes 0, and 0 becomes 1. When these operators are applied on multi-bit values they work on corresponding bits independently as shown in <a href="#tbl-binary-ops" class="quarto-xref">Table&nbsp;<span>17.3</span></a>.</p>
+<div id="tbl-binary-ops" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-binary-ops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.3: Bitwise operations.
+</figcaption>
+<div aria-describedby="tbl-binary-ops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
 <thead>
-<tr>
-<th scope="col">Expression</th>
-<th scope="col">Bitwise</th>
-<th scope="col">Result (bits)</th>
-<th scope="col">Result (decimal)</th>
+<tr class="header">
+<th>Expression</th>
+<th>Bitwise</th>
+<th>Result (bits)</th>
+<th>Result (decimal)</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>12 &amp; 6</code></td>
 <td><code>1100 &amp; 0110</code></td>
 <td><code>0100</code></td>
 <td><code>4</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>12 | 6</code></td>
 <td><code>1100 | 0110</code></td>
 <td><code>1110</code></td>
 <td><code>14</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>12 ^ 6</code></td>
 <td><code>1100 ^ 0110</code></td>
 <td><code>1010</code></td>
 <td><code>10</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>~ 6</code></td>
 <td><code>~ 0110</code></td>
 <td><code>1001</code></td>
 <td><code>9</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>12 &lt;&lt; 2</code></td>
 <td><code>1100 &lt;&lt; 2</code></td>
 <td><code>110000</code></td>
 <td><code>48</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>12 &gt;&gt; 2</code></td>
 <td><code>1100 &gt;&gt; 2</code></td>
 <td><code>0011</code></td>
@@ -368,527 +250,233 @@ they work on corresponding bits independently as shown in <a class="tbl-ref" hre
 </tbody>
 </table>
 </div>
-<p>We can set individual bits to 0 or 1 with these operators.
-To set a particular bit to 1,
-create a value in which that bit is 1 and the rest are 0.
-When this is or'd with a value,
-the bit we set is guaranteed to come out 1;
-the other bits will be left as they are.
-Similarly,
-to  set a bit to zero,
-create a <a class="gl-ref" href="../glossary/#bit_mask">mask</a> in which that bit is 0 and the others are 1,
-then use <code>&amp;</code> to combine the two.
-To make things easier to read,
-programmers often set a single bit,
-negate it with <code>~</code>,
-and then use <code>&amp;</code>:</p>
-<div data-inc="bit_mask.py"><span aria-label="Source: binary/bit_mask.py" class="inc-path" role="img" tabindex="0" title="binary/bit_mask.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="mh">0x0100</span>    <span class="c1"># binary 1111 1110 1111 1111</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">val</span> <span class="o">&amp;</span> <span class="n">mask</span>  <span class="c1">#    clears this ^ bit</span>
-</code></pre></div>
+</figure>
 </div>
-<p>Finally,
-Python has <a class="gl-ref" href="../glossary/#bit_shift">bit shifting</a> operators
-that move bits left or right.
-Shifting the bits <code>0110</code> left by one place produces <code>1100</code>,
-while shifting it right by one place produces <code>0011</code>.
-In Python,
-this is written <code>x &lt;&lt; 1</code> or <code>x &gt;&gt; 1</code>.
-Just as shifting a decimal number left corresponds to multiplying by 10,
-shifting a binary number left is the same as multiplying it by 2.
-Similarly,
-shifting a number right corresponds to dividing by 2 and throwing away the remainder,
-so <code>17 &gt;&gt; 3</code> is 2.</p>
-<p>But what if the top bit of an integer changes from 1 to 0 or vice versa as a result of shifting?
-If we're using two's complement,
-then the bits <code>1111</code> represent the value $ -1 $;
-if we shift right we get <code>0111</code> which is $ 7 $.
-Similarly,
-if we shift <code>0111</code> to the left we get <code>1110</code> (assuming we fill in the bottom with 0),
-which is $ -6 $.</p>
-<p>Different languages deal with this problem in different ways.
-Python always fills with zeroes,
-while Java provides two versions of right shift:
-<code>&gt;&gt;</code> fills in the high end with zeroes,
-while <code>&gt;&gt;&gt;</code> copies in the topmost (sign) bit of the original value.
-C (and by extension C++) lets the underlying hardware decide,
-which means that if you want to be sure of getting a particular answer,
-you have to handle the top bit yourself.</p>
-<h2 id="binary-text">Text</h2>
-<p>The rules for storing text make integers look simple.
-By the early 1970s most programs used <a class="gl-ref" href="../glossary/#ascii">ASCII</a>,
-which represented unaccented Latin characters using the numbers from 32 to 127.
-(The numbers 0 to 31 were used for <a class="gl-ref" href="../glossary/#control_code">control codes</a>
-such as newline, carriage return, and bell.)
-Since computers use 8-bit bytes and the numbers 0–127 only need 7 bits,
-programmers were free to use the numbers 128–255 for other characters.
-Unfortunately,
-different programmers used them to represent different symbols:
-non-Latin characters,
-graphic characters like boxes,
-and so on.
-The chaos was eventually tamed by the <a class="gl-ref" href="../glossary/#ansi_encoding">ANSI standard</a>
-which (for example) defined the value 231 to mean the character "ç".</p>
-<p>A standard that specifies how characters are represented in memory
-is called a <a class="gl-ref" href="../glossary/#character_encoding">character encoding</a>,
-and the ANSI standard encoding only solved a small part of a large problem.
-It didn't include characters from Turkish, Devanagari, and many other alphabets,
-much less the thousands of characters used in some East Asian writing systems.
-One solution would have been to use 16 or even 32 bits per character,
-but:</p>
-<ol>
+<p>We can set individual bits to 0 or 1 with these operators. To set a particular bit to 1, create a value in which that bit is 1 and the rest are 0. When this is or’d with a value, the bit we set is guaranteed to come out 1; the other bits will be left as they are. Similarly, to set a bit to zero, create a <a href="../glossary/index.html#bit_mask">mask</a> in which that bit is 0 and the others are 1, then use <code>&amp;</code> to combine the two. To make things easier to read, programmers often set a single bit, negate it with <code>~</code>, and then use <code>&amp;</code>:</p>
+<div class="sourceCode" id="cb3" data-file="binary/bit_mask.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> <span class="op">~</span><span class="bn">0x0100</span>    <span class="co"># binary 1111 1110 1111 1111</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> val <span class="op">&amp;</span> mask  <span class="co">#    clears this ^ bit</span></span></code></pre></div>
+<p>Finally, Python has <a href="../glossary/index.html#bit_shift">bit shifting</a> operators that move bits left or right. Shifting the bits <code>0110</code> left by one place produces <code>1100</code>, while shifting it right by one place produces <code>0011</code>. In Python, this is written <code>x &lt;&lt; 1</code> or <code>x &gt;&gt; 1</code>. Just as shifting a decimal number left corresponds to multiplying by 10, shifting a binary number left is the same as multiplying it by 2. Similarly, shifting a number right corresponds to dividing by 2 and throwing away the remainder, so <code>17 &gt;&gt; 3</code> is 2.</p>
+<p>But what if the top bit of an integer changes from 1 to 0 or vice versa as a result of shifting? If we’re using two’s complement, then the bits <code>1111</code> represent the value <span class="math inline">\(-1\)</span>; if we shift right we get <code>0111</code> which is <span class="math inline">\(7\)</span>. Similarly, if we shift <code>0111</code> to the left we get <code>1110</code> (assuming we fill in the bottom with 0), which is <span class="math inline">\(-6\)</span>.</p>
+<p>Different languages deal with this problem in different ways. Python always fills with zeroes, while Java provides two versions of right shift: <code>&gt;&gt;</code> fills in the high end with zeroes, while <code>&gt;&gt;&gt;</code> copies in the topmost (sign) bit of the original value. C (and by extension C++) lets the underlying hardware decide, which means that if you want to be sure of getting a particular answer, you have to handle the top bit yourself.</p>
+<h2 data-number="17.3" id="binary-text"><span class="header-section-number">17.3</span> Text</h2>
+<p>The rules for storing text make integers look simple. By the early 1970s most programs used <a href="../glossary/index.html#ascii">ASCII</a>, which represented unaccented Latin characters using the numbers from 32 to 127. (The numbers 0 to 31 were used for <a href="../glossary/index.html#control_code">control codes</a> such as newline, carriage return, and bell.) Since computers use 8-bit bytes and the numbers 0–127 only need 7 bits, programmers were free to use the numbers 128–255 for other characters. Unfortunately, different programmers used them to represent different symbols: non-Latin characters, graphic characters like boxes, and so on. The chaos was eventually tamed by the <a href="../glossary/index.html#ansi_encoding">ANSI standard</a> which (for example) defined the value 231 to mean the character “ç”.</p>
+<p>A standard that specifies how characters are represented in memory is called a <a href="../glossary/index.html#character_encoding">character encoding</a>, and the ANSI standard encoding only solved a small part of a large problem. It didn’t include characters from Turkish, Devanagari, and many other alphabets, much less the thousands of characters used in some East Asian writing systems. One solution would have been to use 16 or even 32 bits per character, but:</p>
+<ol type="1">
 <li>existing text files using ANSI would have to be transcribed, and</li>
 <li>documents would be two or four times larger.</li>
 </ol>
-<p>The solution was a new two-part standard called <a class="gl-ref" href="../glossary/#unicode">Unicode</a>.
-The first part defined a <a class="gl-ref" href="../glossary/#code_point">code point</a> for every character:
-U+0065 for an upper-case Latin "A",
-U+2605 for a black star,
-and so on.
-(The <a href="https://www.unicode.org/">Unicode Consortium site</a> offers a complete list.)
-The second part defined ways to store these values in memory.
-The simplest of these is <a class="gl-ref" href="../glossary/#utf_32">UTF-32</a>,
-which stores every character as a 32-bit number.
-This scheme wastes a lot of memory if the text is written in a Western European language,
-since it uses four times as much storage as is absolutely necessary,
-but it's easy to process.</p>
-<p>The most popular encoding is <a class="gl-ref" href="../glossary/#utf_8">UTF-8</a>,
-which is <a class="gl-ref" href="../glossary/#variable_length_encoding">variable length</a>.
-Every code point from 0 to 127 is stored in a single byte whose high bit is 0,
-just as it was in the original ASCII standard.
-If the top bit in the byte is 1,
-on the other hand,
-the number of 1's after the high bit but before the first 0
-tells UTF-8 how many more bytes are used by that character's representation.
-For example,
-if the first byte of the character is <code>11101101</code> then:</p>
+<p>The solution was a new two-part standard called <a href="../glossary/index.html#unicode">Unicode</a>. The first part defined a <a href="../glossary/index.html#code_point">code point</a> for every character: U+0065 for an upper-case Latin “A”, U+2605 for a black star, and so on. (The <a href="https://www.unicode.org/">Unicode Consortium site</a> offers a complete list.) The second part defined ways to store these values in memory. The simplest of these is <a href="../glossary/index.html#utf_32">UTF-32</a>, which stores every character as a 32-bit number. This scheme wastes a lot of memory if the text is written in a Western European language, since it uses four times as much storage as is absolutely necessary, but it’s easy to process.</p>
+<p>The most popular encoding is <a href="../glossary/index.html#utf_8">UTF-8</a>, which is <a href="../glossary/index.html#variable_length_encoding">variable length</a>. Every code point from 0 to 127 is stored in a single byte whose high bit is 0, just as it was in the original ASCII standard. If the top bit in the byte is 1, on the other hand, the number of 1’s after the high bit but before the first 0 tells UTF-8 how many more bytes are used by that character’s representation. For example, if the first byte of the character is <code>11101101</code> then:</p>
 <ul>
 <li>the first 1 signals that this is a multi-byte character;</li>
-<li>the next two 1's signal the character includes bits
-    from the following two bytes as well;</li>
-<li>the 0 separates the byte count from the first few bits used in the character;
-    and</li>
+<li>the next two 1’s signal the character includes bits from the following two bytes as well;</li>
+<li>the 0 separates the byte count from the first few bits used in the character; and</li>
 <li>the final 1101 is the first four bits of the character.</li>
 </ul>
-<p>But that's not all:
-every byte that's a continuation of a character starts with the bits 10.
-(Such bytes are, unsurprisingly, called <a class="gl-ref" href="../glossary/#continuation_byte">continuation bytes</a>.)
-This rule means that if we look at any byte in a string
-we can immediately tell if it starts a character
-or continues a character.
-Thus,
-to represent the character whose code point is 1789:</p>
+<p>But that’s not all: every byte that’s a continuation of a character starts with the bits 10. (Such bytes are, unsurprisingly, called <a href="../glossary/index.html#continuation_byte">continuation bytes</a>.) This rule means that if we look at any byte in a string we can immediately tell if it starts a character or continues a character. Thus, to represent the character whose code point is 1789:</p>
 <ul>
 <li>We convert decimal 1789 to binary 11011111101.</li>
-<li>We count and realize that we'll need two bytes:
-    the first storing the high 5 bits of the character,
-    the second storing the low 6 bits.</li>
-<li>We encode the high 5 bits as 11011011:
-    "start of a character with one continuation byte
-    and 5 payload bits 11011".</li>
-<li>We encode the low 6 bits as 10111101:
-    "a continuation byte with 6 payload bits 111101".</li>
+<li>We count and realize that we’ll need two bytes: the first storing the high 5 bits of the character, the second storing the low 6 bits.</li>
+<li>We encode the high 5 bits as 11011011: “start of a character with one continuation byte and 5 payload bits 11011”.</li>
+<li>We encode the low 6 bits as 10111101: “a continuation byte with 6 payload bits 111101”.</li>
 </ul>
-<div class="callout">
-<h3>Internal vs. External</h3>
-<p>Since UTF-8 uses a varying number of bytes per character,
-the only way to get to a particular character in a string
-is to scan the string from the beginning,
-which means that indexing a string is $ O(N) $.
-However,
-when Python loads text into memory,
-it converts the variable-length encoding to a fixed-length encoding,
-with the same number of bytes per character.
-This allows it to jump directly to any character in the string in constant time,
-which a computer scientist would say is $ O(1) $.</p>
+<div>
+<blockquote>
+<p><strong>Internal vs.&nbsp;External</strong></p>
+<p>Since UTF-8 uses a varying number of bytes per character, the only way to get to a particular character in a string is to scan the string from the beginning, which means that indexing a string is <span class="math inline">\(O(N)\)</span>. However, when Python loads text into memory, it converts the variable-length encoding to a fixed-length encoding, with the same number of bytes per character. This allows it to jump directly to any character in the string in constant time, which a computer scientist would say is <span class="math inline">\(O(1)\)</span>.</p>
+</blockquote>
 </div>
-<h2 id="binary-binary">And Now, Persistence</h2>
-<p><a class="xref" href="../persist/">Chapter 16</a> showed how to store data as human-readable text.
-There are generally three reasons to store it in formats that people can't easily read:</p>
-<ol>
-<li>
-<p>Size.
-    The string <code>"10239472"</code> is 8 bytes long,
-    but the 32-bit integer it represents only needs 4 bytes in memory.
-    This doesn't matter for small data sets,
-    but it does for large ones,
-    and it definitely does when data has to move between disk and memory
-    or between different computers.</p>
-</li>
-<li>
-<p>Speed.
-    Adding the integers 34 and 56 is a single machine operation.
-    Adding the values represented by the strings <code>"34"</code> and <code>"56"</code> is dozens;
-    we'll explore this in the exercises.
-    Most programs that read and write text files
-    convert the values in those files into binary data
-    using something like the <code>int</code> or <code>float</code> functions,
-    but if we're going to process the data many times,
-    it makes sense to avoid paying the conversion cost over and over.</p>
-</li>
-<li>
-<p>Lack of anything better.
-    It's possible to represent images as ASCII art, but sound?
-    Or video?
-    It would be possible, but it would hardly be sensible.</p>
-</li>
+<h2 data-number="17.4" id="binary-binary"><span class="header-section-number">17.4</span> And Now, Persistence</h2>
+<p><a href="../persist/index.html" class="quarto-xref"><span>Chapter 16</span></a> showed how to store data as human-readable text. There are generally three reasons to store it in formats that people can’t easily read:</p>
+<ol type="1">
+<li><p>Size. The string <code>"10239472"</code> is 8 bytes long, but the 32-bit integer it represents only needs 4 bytes in memory. This doesn’t matter for small data sets, but it does for large ones, and it definitely does when data has to move between disk and memory or between different computers.</p></li>
+<li><p>Speed. Adding the integers 34 and 56 is a single machine operation. Adding the values represented by the strings <code>"34"</code> and <code>"56"</code> is dozens; we’ll explore this in the exercises. Most programs that read and write text files convert the values in those files into binary data using something like the <code>int</code> or <code>float</code> functions, but if we’re going to process the data many times, it makes sense to avoid paying the conversion cost over and over.</p></li>
+<li><p>Lack of anything better. It’s possible to represent images as ASCII art, but sound? Or video? It would be possible, but it would hardly be sensible.</p></li>
 </ol>
-<p>Finally,
-no matter how values are eventually stored,
-someone, somewhere, has to convert the signals from a digital thermometer to numbers.
-Those signals almost certainly arrive as a stream of 1's and 0's,
-and the bitwise operations shown above are almost certainly used to do the conversion.</p>
-<p>The first step toward saving and loading binary data
-is to write it and read it correctly.
-If we open a file for reading using <code>open("filename", "r")</code>
-then Python assumes we want to read character strings from the file.
-It therefore:</p>
+<p>Finally, no matter how values are eventually stored, someone, somewhere, has to convert the signals from a digital thermometer to numbers. Those signals almost certainly arrive as a stream of 1’s and 0’s, and the bitwise operations shown above are almost certainly used to do the conversion.</p>
+<p>The first step toward saving and loading binary data is to write it and read it correctly. If we open a file for reading using <code>open("filename", "r")</code> then Python assumes we want to read character strings from the file. It therefore:</p>
 <ul>
-<li>
-<p>asks the operating system for the default character encoding
-    (which is almost always UTF-8);</p>
-</li>
-<li>
-<p>uses this to convert bytes to characters;
-    and</p>
-</li>
-<li>
-<p>converts Windows end-of-line markers to the Unix standard if necessary.
-    For historical reasons,
-    Windows uses both a carriage return <code>"\r"</code> and a newline <code>"\n"</code> to mark the end of a line,
-    while Unix uses only the latter.
-    Python converts from Windows to Unix on the way in
-    and vice versa on the way out
-    so that programs (usually) don't have to worry about the difference.</p>
-</li>
+<li><p>asks the operating system for the default character encoding (which is almost always UTF-8);</p></li>
+<li><p>uses this to convert bytes to characters; and</p></li>
+<li><p>converts Windows end-of-line markers to the Unix standard if necessary. For historical reasons, Windows uses both a carriage return <code>"\r"</code> and a newline <code>"\n"</code> to mark the end of a line, while Unix uses only the latter. Python converts from Windows to Unix on the way in and vice versa on the way out so that programs (usually) don’t have to worry about the difference.</p></li>
 </ul>
-<p>These translations are handy when we're working with text,
-but they mess up binary data:
-we probably don't want the pixels in our PNG image translated in these ways.
-As mentioned in <a class="xref" href="../dup/">Chapter 3</a>,
-if we open a file in <span class="ix-ref" data-ix-key="binary mode" id="ix-binary-2">binary mode</span>
-using <code>open(filename, "rb")</code> with a lower-case 'b' after the 'r',
-Python gives us back the file's contents as a <code>bytes</code> object
-instead of as character strings.
-In this case we will almost always get data
-using <code>reader.read(N)</code> to read <code>N</code> bytes at a time
-rather than <code>for line in reader</code>
-because there aren't actually lines of text in the file.</p>
-<p>But what values should we actually store?
-C and Fortran manipulate "naked" values:
-programs use what the hardware provides directly.
-Python and other dynamic languages,
-on the other hand,
-put each value in a data structure
-that keeps track of its type along with a bit of extra administrative information
-(<a class="fig-ref" href="#f:binary-boxing">Figure 1</a>).
-Something stored this way is called a <a class="gl-ref" href="../glossary/#boxed_value">boxed value</a>,
-and this extra information is what allows the interpreter to do <span class="ix-ref" data-ix-key="introspection" id="ix-binary-3">introspection</span> at runtime.</p>
-<figure id="f:binary-boxing">
-<img alt="Boxed values" src="boxing.svg"/>
-<figcaption>Figure 1: Using boxed values to store metadata.</figcaption>
-</figure>
-<p>The same is true of collections.
-For example,
-Fortran stores all the values in an array side by side in memory
-(<a class="fig-ref" href="#f:binary-arrays">Figure 2</a>).
-Writing this to disk is easy:
-if the array starts at location L in memory and has N values,
-each of which is B bytes long,
-we just copy the bytes from $ L $ to $ L+NB-1 $ to the file.</p>
-<figure id="f:binary-arrays">
-<img alt="Storing arrays" src="arrays.svg"/>
-<figcaption>Figure 2: Low-level and high-level array storage.</figcaption>
-</figure>
-<p>A Python list,
-on the other hand,
-stores references to values rather than the values themselves.
-To put the values in a file,
-we can either write them one at a time
-or pack them into a contiguous block and write that.
-Similarly,
-when reading from a file,
-we can either grab the values one by one
-or read a larger block and then unpack it in memory.</p>
-<p>Packing data is a lot like formatting strings using Python's <code>str.format</code> method.
-The <a class="gl-ref" href="../glossary/#format_string">format string</a> specifies what types of data are being packed,
-how big they are (e.g., is this a 32-bit or 64-bit floating point number?),
-and how many values there are,
-which in turn exactly determines how much memory is required by the packed representation.</p>
-<p>Unpacking reverses this process.
-After reading data into memory,
-we can unpack it according to a format.
-The most important thing is that
-<em>we can unpack data any way we want</em>.
-We might pack an integer and then unpack it as four characters,
-since both are 32 bits long
-(<a class="fig-ref" href="#f:binary-packing-unpacking">Figure 3</a>).
-Or we might save two characters,
-an integer,
-and two more characters,
-then unpack it as a 64-bit floating point number.
-The bits are just bits:
-it's our responsibility to make sure we keep track of their meaning
-when they're down there on disk.</p>
-<figure id="f:binary-packing-unpacking">
-<img alt="Packing and unpacking values" src="packing_unpacking.svg"/>
-<figcaption>Figure 3: Packing and unpacking binary values.</figcaption>
-</figure>
-<p>Python's <a href="https://docs.python.org/3/library/struct.html"><code>struct</code></a> module packs and unpacks data for us.
-The function <code>pack(format, val_1, val_2, …)</code>
-takes a format string and a bunch of values as arguments
-and packs them into a <code>bytes</code> object.
-The inverse function,
-<code>unpack(format, string)</code>,
-takes some bytes and a format
-and returns a <span class="ix-ref" data-ix-key="tuple" id="ix-binary-4">tuple</span> containing the unpacked values.
-Here's an example:</p>
-<div data-inc="pack_unpack.py"><span aria-label="Source: binary/pack_unpack.py" class="inc-path" role="img" tabindex="0" title="binary/pack_unpack.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">struct</span>
-
-<span class="n">fmt</span> <span class="o">=</span> <span class="s2">"ii"</span>  <span class="c1"># two 32-bit integers</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">31</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">65</span>
-
-<span class="n">binary</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"binary representation:"</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">binary</span><span class="p">))</span>
-
-<span class="n">normal</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">binary</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"back to normal:"</span><span class="p">,</span> <span class="n">normal</span><span class="p">)</span>
-</code></pre></div>
+<p>These translations are handy when we’re working with text, but they mess up binary data: we probably don’t want the pixels in our PNG image translated in these ways. As mentioned in <a href="../dup/index.html" class="quarto-xref"><span>Chapter 3</span></a>, if we open a file in binary mode using <code>open(filename, "rb")</code> with a lower-case ‘b’ after the ‘r’, Python gives us back the file’s contents as a <code>bytes</code> object instead of as character strings. In this case we will almost always get data using <code>reader.read(N)</code> to read <code>N</code> bytes at a time rather than <code>for line in reader</code> because there aren’t actually lines of text in the file.</p>
+<p>But what values should we actually store? C and Fortran manipulate “naked” values: programs use what the hardware provides directly. Python and other dynamic languages, on the other hand, put each value in a data structure that keeps track of its type along with a bit of extra administrative information (<a href="#fig-binary-boxing" class="quarto-xref">Figure&nbsp;<span>17.1</span></a>). Something stored this way is called a <a href="../glossary/index.html#boxed_value">boxed value</a>, and this extra information is what allows the interpreter to do introspection at runtime.</p>
+<div id="fig-binary-boxing" class="quarto-float quarto-figure quarto-figure-center" alt="Boxed values carrying metadata">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binary-boxing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="boxing.svg" alt="Boxed values carrying metadata">
 </div>
-<div data-inc="pack_unpack.out"><span aria-label="Source: binary/pack_unpack.out" class="inc-path" role="img" tabindex="0" title="binary/pack_unpack.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>binary representation: b'\x1f\x00\x00\x00A\x00\x00\x00'
-back to normal: (31, 65)
-</code></pre></div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binary-boxing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: Using boxed values to store metadata.
+</figcaption>
+</figure>
 </div>
-<p>What is <code>\x1f</code> and why is it in our data?
-If Python finds a byte in a string that doesn't correspond to a printable character,
-it prints a 2-digit <a class="gl-ref" href="../glossary/#escape_sequence">escape sequence</a> in hexadecimal.
-Python is therefore telling us that
-our string contains the eight bytes
-<code>['\x1f', '\x00', '\x00', '\x00', 'A', '\x00', '\x00', '\x00']</code>.
-<code>1F</code> in hex is $ (1×16^1)+(15×16^0) $, or 31;
-<code>'A'</code> is our 65,
-because the ASCII code for an upper-case letter A is the decimal value 65.
-All the other bytes are zeroes (<code>"\x00"</code>)
-because each of our integers is 32 bits long
-and the significant digits only fill one byte's worth of each.</p>
-<div data-caption="`struct` package formats." id="t:binary-formats">
-<table><caption>Table 4: `struct` package formats.</caption>
+<p>The same is true of collections. For example, Fortran stores all the values in an array side by side in memory (<a href="#fig-binary-arrays" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>). Writing this to disk is easy: if the array starts at location L in memory and has N values, each of which is B bytes long, we just copy the bytes from <span class="math inline">\(L\)</span> to <span class="math inline">\(L+NB-1\)</span> to the file.</p>
+<div id="fig-binary-arrays" class="quarto-float quarto-figure quarto-figure-center" alt="Contrast of low- and high-level array layout">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binary-arrays-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="arrays.svg" alt="Contrast of low- and high-level array layout">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binary-arrays-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.2: Low-level and high-level array storage.
+</figcaption>
+</figure>
+</div>
+<p>A Python list, on the other hand, stores references to values rather than the values themselves. To put the values in a file, we can either write them one at a time or pack them into a contiguous block and write that. Similarly, when reading from a file, we can either grab the values one by one or read a larger block and then unpack it in memory.</p>
+<p>Packing data is a lot like formatting strings using Python’s <code>str.format</code> method. The <a href="../glossary/index.html#format_string">format string</a> specifies what types of data are being packed, how big they are (e.g., is this a 32-bit or 64-bit floating point number?), and how many values there are, which in turn exactly determines how much memory is required by the packed representation.</p>
+<p>Unpacking reverses this process. After reading data into memory, we can unpack it according to a format. The most important thing is that <em>we can unpack data any way we want</em>. We might pack an integer and then unpack it as four characters, since both are 32 bits long (<a href="#fig-binary-packing-unpacking" class="quarto-xref">Figure&nbsp;<span>17.3</span></a>). Or we might save two characters, an integer, and two more characters, then unpack it as a 64-bit floating point number. The bits are just bits: it’s our responsibility to make sure we keep track of their meaning when they’re down there on disk.</p>
+<div id="fig-binary-packing-unpacking" class="quarto-float quarto-figure quarto-figure-center" alt="Converting values to and from binary form">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binary-packing-unpacking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="packing_unpacking.svg" alt="Converting values to and from binary form">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binary-packing-unpacking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.3: Packing and unpacking binary values.
+</figcaption>
+</figure>
+</div>
+<p>Python’s <a href="https://docs.python.org/3/library/struct.html"><code>struct</code></a> module packs and unpacks data for us. The function <code>pack(format, val_1, val_2, …)</code> takes a format string and a bunch of values as arguments and packs them into a <code>bytes</code> object. The inverse function, <code>unpack(format, string)</code>, takes some bytes and a format and returns a tuple containing the unpacked values. Here’s an example:</p>
+<div class="sourceCode" id="cb4" data-file="binary/pack_unpack.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> struct</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fmt <span class="op">=</span> <span class="st">"ii"</span>  <span class="co"># two 32-bit integers</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">31</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">65</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>binary <span class="op">=</span> struct.pack(fmt, x, y)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"binary representation:"</span>, <span class="bu">repr</span>(binary))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>normal <span class="op">=</span> struct.unpack(fmt, binary)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"back to normal:"</span>, normal)</span></code></pre></div>
+<pre data-file="binary/pack_unpack.out"><code>binary representation: b'\x1f\x00\x00\x00A\x00\x00\x00'
+back to normal: (31, 65)</code></pre>
+<p>What is <code>\x1f</code> and why is it in our data? If Python finds a byte in a string that doesn’t correspond to a printable character, it prints a 2-digit <a href="../glossary/index.html#escape_sequence">escape sequence</a> in hexadecimal. Python is therefore telling us that our string contains the eight bytes <code>['\x1f', '\x00', '\x00', '\x00', 'A', '\x00', '\x00', '\x00']</code>. <code>1F</code> in hex is <span class="math inline">\((1×16^1)+(15×16^0)\)</span>, or 31; <code>'A'</code> is our 65, because the ASCII code for an upper-case letter A is the decimal value 65. All the other bytes are zeroes (<code>"\x00"</code>) because each of our integers is 32 bits long and the significant digits only fill one byte’s worth of each.</p>
+<div id="tbl-binary-formats" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-binary-formats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.4: <code>struct</code> package formats.
+</figcaption>
+<div aria-describedby="tbl-binary-formats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
 <thead>
-<tr>
-<th scope="col">Format</th>
-<th scope="col">Meaning</th>
+<tr class="header">
+<th>Format</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>"c"</code></td>
 <td>Single character (i.e., string of length 1)</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>"B"</code></td>
 <td>Unsigned 8-bit integer with all 8 bits used for value</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>"h"</code></td>
 <td>16-bit integer</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>"i"</code></td>
 <td>32-bit integer</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>"d"</code></td>
 <td>64-bit float</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>The <code>struct</code> module offers a lot of different formats,
-some of which are shown in <a class="tbl-ref" href="#t:binary-formats">Table 4</a>.
-Some of the formats, like <code>"c"</code> for a single character, are self-explanatory.
-The <code>"B"</code> format packs or unpacks the least significant 8 bits of an integer;
-the <code>"h"</code> format takes the least significant 16 bits and does likewise.
-They are needed because binary data formats often store only as much data as they need to,
-so we need a way to get 8- and 16-bit values out of files.
-(Many audio formats,
-for example,
-only store 16 bits per sample.)</p>
-<p>Any format can be preceded by a count,
-so the format <code>"3i"</code> means "three integers":</p>
-<div data-inc="pack_count.py"><span aria-label="Source: binary/pack_count.py" class="inc-path" role="img" tabindex="0" title="binary/pack_count.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">struct</span><span class="w"> </span><span class="kn">import</span> <span class="n">pack</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">pack</span><span class="p">(</span><span class="s2">"3i"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pack</span><span class="p">(</span><span class="s2">"5s"</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pack</span><span class="p">(</span><span class="s2">"5s"</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">"a longer string"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)))</span>
-</code></pre></div>
-</div>
-<div data-inc="pack_count.out"><span aria-label="Source: binary/pack_count.out" class="inc-path" role="img" tabindex="0" title="binary/pack_count.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>b'\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00'
-b'hello'
-b'a lon'
-</code></pre></div>
-</div>
-<p>We get the wrong answer in the last call
-because we only told Python to pack five characters.
-How can we tell it to pack all the data that's there regardless of length?</p>
-<p>The short answer is that we can't:
-we must specify how much we want packed.
-But that doesn't mean we can't handle variable-length strings;
-it just means that we have to construct the format on the fly
-using an expression like this:</p>
-<div data-inc="ex_dynamic_format.py"><span aria-label="Source: binary/ex_dynamic_format.py" class="inc-path" role="img" tabindex="0" title="binary/ex_dynamic_format.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nb">format</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="si">}</span><span class="s2">s"</span>
-</code></pre></div>
-</div>
-<p>If <code>str</code> contains the string <code>"example"</code>,
-the expression above will assign <code>"7s"</code> to <code>format</code>,
-which just happens to be exactly the right format to use to pack it
-<em>provided all the characters can be represented in a single byte each</em>.
-We will explore packing and unpacking strings with other characters in the exercises.</p>
-<p>Saving the format when we are writing solves half of the problem,
-but how do we know how much data to get when we're reading?
-For example, suppose we have the two strings "hello" and "Python".
-We can pack them like this:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">pack</span><span class="p">(</span><span class="s1">'5s6s'</span><span class="p">,</span> <span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'Python'</span><span class="p">)</span>
-</code></pre></div>
-<p>but how do we know how to unpack 5 characters then 6?
-The trick is to save the size along with the data.
-If we always use exactly the same number of bytes to store the size,
-we can read it back safely,
-then use it to figure out how big our string is:</p>
-<div data-inc="variable_packing.py" data-mark="pack"><span aria-label="Source: binary/variable_packing.py" class="inc-path" role="img" tabindex="0" title="binary/variable_packing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pack_string</span><span class="p">(</span><span class="n">as_string</span><span class="p">):</span>
-    <span class="n">as_bytes</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">as_string</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)</span>
-    <span class="n">header</span> <span class="o">=</span> <span class="n">pack</span><span class="p">(</span><span class="s2">"i"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">as_bytes</span><span class="p">))</span>
-    <span class="nb">format</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">as_bytes</span><span class="p">)</span><span class="si">}</span><span class="s2">s"</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">pack</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="n">as_bytes</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">header</span> <span class="o">+</span> <span class="n">body</span>
-</code></pre></div>
-</div>
-<div data-inc="variable_packing.py" data-mark="main"><span aria-label="Source: binary/variable_packing.py" class="inc-path" role="img" tabindex="0" title="binary/variable_packing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">pack_string</span><span class="p">(</span><span class="s2">"hello!"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<div data-inc="variable_packing.out"><span aria-label="Source: binary/variable_packing.out" class="inc-path" role="img" tabindex="0" title="binary/variable_packing.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>b'\x06\x00\x00\x00hello!'
-</code></pre></div>
-</div>
-<p>The unpacking function is analogous.
-We break the <a class="gl-ref" href="../glossary/#buffer_memory">memory buffer</a>
-into a <span class="ix-ref" data-ix-key="header" id="ix-binary-5">header</span> that's exactly four bytes long
-(i.e., the right size for an integer)
-and a body made up of whatever's left.
-We then unpack the header,
-whose format we know,
-to determine how many characters are in the string.
-Once we've got that,
-we use the trick shown earlier
-to construct the right format on the fly
-and then unpack the string and return it.</p>
-<div data-inc="variable_unpacking.py" data-mark="main"><span aria-label="Source: binary/variable_unpacking.py" class="inc-path" role="img" tabindex="0" title="binary/variable_unpacking.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">unpack_string</span><span class="p">(</span><span class="n">buffer</span><span class="p">):</span>
-   <span class="n">header</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
-   <span class="n">length</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"i"</span><span class="p">,</span> <span class="n">header</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-   <span class="nb">format</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">s"</span>
-   <span class="n">result</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="n">body</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-   <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)</span>
-
-<span class="n">buffer</span> <span class="o">=</span> <span class="n">pack_string</span><span class="p">(</span><span class="s2">"hello!"</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">unpack_string</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="variable_unpacking.out"><span aria-label="Source: binary/variable_unpacking.out" class="inc-path" role="img" tabindex="0" title="binary/variable_unpacking.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>hello!
-</code></pre></div>
-</div>
-<p>In practice,
-programmers use the <code>struct</code> module's <code>calcsize</code> function
-to figure out how large (in bytes) the data represented by a format is:</p>
-<div data-inc="calcsize.py"><span aria-label="Source: binary/calcsize.py" class="inc-path" role="img" tabindex="0" title="binary/calcsize.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">struct</span><span class="w"> </span><span class="kn">import</span> <span class="n">calcsize</span>
-
-<span class="k">for</span> <span class="nb">format</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"4s"</span><span class="p">,</span> <span class="s2">"3i4s5d"</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"format '</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">' needs </span><span class="si">{</span><span class="n">calcsize</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="calcsize.out"><span aria-label="Source: binary/calcsize.out" class="inc-path" role="img" tabindex="0" title="binary/calcsize.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>format '4s' needs 4 bytes
-format '3i4s5d' needs 56 bytes
-</code></pre></div>
-</div>
-<p>Binary data is to programming what chemistry is to biology:
-you don't want to spend any more time thinking at its level than you have to,
-but there's no substitute when you <em>do</em> have to.
-Please remember that libraries already exist to handle
-almost every binary format ever created
-and to read data from almost every instrument on the market.
-You shouldn't worry about 1's and 0's unless you really have to.</p>
-<h2 id="binary-summary">Summary</h2>
-<p><a class="fig-ref" href="#f:binary-concept-map">Figure 4</a> summarizes the ideas introduced in this chapter.
-Please see <a class="xref" href="../bonus/">Appendix G</a> for extra material related to floating-point numbers.</p>
-<figure id="f:binary-concept-map">
-<img alt="Concept map for binary data" src="concept_map.svg"/>
-<figcaption>Figure 4: Concepts for binary data.</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="binary-exercises">Exercises</h2>
-<h3>Adding Strings</h3>
-<p>Write a function that takes two strings of digits
-and adds them as if they were numbers
-<em>without</em> actually converting them to numbers.
-For example,
-<code>add_str("12", "5")</code> should produce the string <code>"17"</code>.</p>
-<h3>File Types</h3>
+</div>
+<p>The <code>struct</code> module offers a lot of different formats, some of which are shown in <a href="#tbl-binary-formats" class="quarto-xref">Table&nbsp;<span>17.4</span></a>. Some of the formats, like <code>"c"</code> for a single character, are self-explanatory. The <code>"B"</code> format packs or unpacks the least significant 8 bits of an integer; the <code>"h"</code> format takes the least significant 16 bits and does likewise. They are needed because binary data formats often store only as much data as they need to, so we need a way to get 8- and 16-bit values out of files. (Many audio formats, for example, only store 16 bits per sample.)</p>
+<p>Any format can be preceded by a count, so the format <code>"3i"</code> means “three integers”:</p>
+<div class="sourceCode" id="cb6" data-file="binary/pack_count.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> struct <span class="im">import</span> pack</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pack(<span class="st">"3i"</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pack(<span class="st">"5s"</span>, <span class="bu">bytes</span>(<span class="st">"hello"</span>, <span class="st">"utf-8"</span>)))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pack(<span class="st">"5s"</span>, <span class="bu">bytes</span>(<span class="st">"a longer string"</span>, <span class="st">"utf-8"</span>)))</span></code></pre></div>
+<pre data-file="binary/pack_count.out"><code>b'\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00'
+b'hello'
+b'a lon'</code></pre>
+<p>We get the wrong answer in the last call because we only told Python to pack five characters. How can we tell it to pack all the data that’s there regardless of length?</p>
+<p>The short answer is that we can’t: we must specify how much we want packed. But that doesn’t mean we can’t handle variable-length strings; it just means that we have to construct the format on the fly using an expression like this:</p>
+<div class="sourceCode" id="cb8" data-file="binary/ex_dynamic_format.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span> <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(<span class="bu">str</span>)<span class="sc">}</span><span class="ss">s"</span></span></code></pre></div>
+<p>If <code>str</code> contains the string <code>"example"</code>, the expression above will assign <code>"7s"</code> to <code>format</code>, which just happens to be exactly the right format to use to pack it <em>provided all the characters can be represented in a single byte each</em>. We will explore packing and unpacking strings with other characters in the exercises.</p>
+<p>Saving the format when we are writing solves half of the problem, but how do we know how much data to get when we’re reading? For example, suppose we have the two strings “hello” and “Python”. We can pack them like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pack(<span class="st">'5s6s'</span>, <span class="st">'hello'</span>, <span class="st">'Python'</span>)</span></code></pre></div>
+<p>but how do we know how to unpack 5 characters then 6? The trick is to save the size along with the data. If we always use exactly the same number of bytes to store the size, we can read it back safely, then use it to figure out how big our string is:</p>
+<div class="sourceCode" id="cb10" data-file="binary/variable_packing.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pack_string(as_string):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    as_bytes <span class="op">=</span> <span class="bu">bytes</span>(as_string, <span class="st">"utf-8"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> pack(<span class="st">"i"</span>, <span class="bu">len</span>(as_bytes))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span> <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(as_bytes)<span class="sc">}</span><span class="ss">s"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> pack(<span class="bu">format</span>, as_bytes)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> header <span class="op">+</span> body</span></code></pre></div>
+<div class="sourceCode" id="cb11" data-file="binary/variable_packing.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> pack_string(<span class="st">"hello!"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">repr</span>(result))</span></code></pre></div>
+<pre data-file="binary/variable_packing.out"><code>b'\x06\x00\x00\x00hello!'</code></pre>
+<p>The unpacking function is analogous. We break the <a href="../glossary/index.html#buffer_memory">memory buffer</a> into a header that’s exactly four bytes long (i.e., the right size for an integer) and a body made up of whatever’s left. We then unpack the header, whose format we know, to determine how many characters are in the string. Once we’ve got that, we use the trick shown earlier to construct the right format on the fly and then unpack the string and return it.</p>
+<div class="sourceCode" id="cb13" data-file="binary/variable_unpacking.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unpack_string(<span class="bu">buffer</span>):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   header, body <span class="op">=</span> <span class="bu">buffer</span>[:<span class="dv">4</span>], <span class="bu">buffer</span>[<span class="dv">4</span>:]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   length <span class="op">=</span> unpack(<span class="st">"i"</span>, header)[<span class="dv">0</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>   <span class="bu">format</span> <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>length<span class="sc">}</span><span class="ss">s"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>   result <span class="op">=</span> unpack(<span class="bu">format</span>, body)[<span class="dv">0</span>]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> <span class="bu">str</span>(result, <span class="st">"utf-8"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">buffer</span> <span class="op">=</span> pack_string(<span class="st">"hello!"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> unpack_string(<span class="bu">buffer</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+<pre data-file="binary/variable_unpacking.out"><code>hello!</code></pre>
+<p>In practice, programmers use the <code>struct</code> module’s <code>calcsize</code> function to figure out how large (in bytes) the data represented by a format is:</p>
+<div class="sourceCode" id="cb15" data-file="binary/calcsize.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> struct <span class="im">import</span> calcsize</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">format</span> <span class="kw">in</span> [<span class="st">"4s"</span>, <span class="st">"3i4s5d"</span>]:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"format '</span><span class="sc">{</span><span class="bu">format</span><span class="sc">}</span><span class="ss">' needs </span><span class="sc">{</span>calcsize(<span class="bu">format</span>)<span class="sc">}</span><span class="ss"> bytes"</span>)</span></code></pre></div>
+<pre data-file="binary/calcsize.out"><code>format '4s' needs 4 bytes
+format '3i4s5d' needs 56 bytes</code></pre>
+<p>Binary data is to programming what chemistry is to biology: you don’t want to spend any more time thinking at its level than you have to, but there’s no substitute when you <em>do</em> have to. Please remember that libraries already exist to handle almost every binary format ever created and to read data from almost every instrument on the market. You shouldn’t worry about 1’s and 0’s unless you really have to.</p>
+<h2 data-number="17.5" id="binary-summary"><span class="header-section-number">17.5</span> Summary</h2>
+<p><a href="#fig-binary-concept-map" class="quarto-xref">Figure&nbsp;<span>17.4</span></a> summarizes the ideas introduced in this chapter. Please see <a href="../bonus/index.html" class="quarto-xref"><span>Appendix G</span></a> for extra material related to floating-point numbers.</p>
+<div id="fig-binary-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of binary data">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binary-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="concept_map.svg" alt="Concept map of binary data">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binary-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.4: Concepts for binary data.
+</figcaption>
+</figure>
+</div>
+<h2 data-number="17.6" id="binary-exercises"><span class="header-section-number">17.6</span> Exercises</h2>
+<h3 data-number="17.6.1" id="adding-strings"><span class="header-section-number">17.6.1</span> Adding Strings</h3>
+<p>Write a function that takes two strings of digits and adds them as if they were numbers <em>without</em> actually converting them to numbers. For example, <code>add_str("12", "5")</code> should produce the string <code>"17"</code>.</p>
+<h3 data-number="17.6.2" id="file-types"><span class="header-section-number">17.6.2</span> File Types</h3>
 <p>The first eight bytes of a PNG image file always contain the following (base-10) values:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="mf">137</span><span class="w"> </span><span class="mf">80</span><span class="w"> </span><span class="mf">78</span><span class="w"> </span><span class="mf">71</span><span class="w"> </span><span class="mf">13</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">26</span><span class="w"> </span><span class="mf">10</span>
-</code></pre></div>
+<pre><code>137 80 78 71 13 10 26 10</code></pre>
 <p>Write a program that determines whether a file is a PNG image or not.</p>
-<h3>Converting Integers to Bits</h3>
-<p>Using Python's bitwise operators,
-write a function that returns the binary representation of a non-negative integer.
-Write another function that converts a string of 1's and 0's into an integer
-(treating it as unsigned).</p>
-<h3>Encoding and Decoding</h3>
-<ol>
-<li>
-<p>Write a function that takes a list of integers representing Unicode code points as input
-    and returns a list of single-byte integers with their UTF-8 encoding.</p>
-</li>
-<li>
-<p>Write the complementary function that turns a list of single-byte integers
-    into the corresponding code points
-    and reports an error if anything is incorrectly formatted.</p>
-</li>
+<h3 data-number="17.6.3" id="converting-integers-to-bits"><span class="header-section-number">17.6.3</span> Converting Integers to Bits</h3>
+<p>Using Python’s bitwise operators, write a function that returns the binary representation of a non-negative integer. Write another function that converts a string of 1’s and 0’s into an integer (treating it as unsigned).</p>
+<h3 data-number="17.6.4" id="encoding-and-decoding"><span class="header-section-number">17.6.4</span> Encoding and Decoding</h3>
+<ol type="1">
+<li><p>Write a function that takes a list of integers representing Unicode code points as input and returns a list of single-byte integers with their UTF-8 encoding.</p></li>
+<li><p>Write the complementary function that turns a list of single-byte integers into the corresponding code points and reports an error if anything is incorrectly formatted.</p></li>
 </ol>
-<h3>Storing Arrays</h3>
-<p>Python's <a href="https://docs.python.org/3/library/array.html"><code>array</code></a> module manages a block of basic values
-(characters, integers, or floating-point numbers).
-Write a function that takes a list as input,
-checks that all values in the list are of the same basic type,
-and if so,
-packs them into an array and then uses the <code>struct</code> module to pack that.</p>
-<h3>Performance</h3>
-<p>Getting a single value out of an array created with the <code>array</code> module takes time,
-since the value must be boxed before it can be used.
-Write some tests to see how much slower working with values in arrays is
-compared to working with values in lists.</p>
-</section>
+<h3 data-number="17.6.5" id="storing-arrays"><span class="header-section-number">17.6.5</span> Storing Arrays</h3>
+<p>Python’s <a href="https://docs.python.org/3/library/array.html"><code>array</code></a> module manages a block of basic values (characters, integers, or floating-point numbers). Write a function that takes a list as input, checks that all values in the list are of the same basic type, and if so, packs them into an array and then uses the <code>struct</code> module to pack that.</p>
+<h3 data-number="17.6.6" id="performance"><span class="header-section-number">17.6.6</span> Performance</h3>
+<p>Getting a single value out of an array created with the <code>array</code> module takes time, since the value must be boxed before it can be used. Write some tests to see how much slower working with values in arrays is compared to working with values in lists.</p>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../persist">Object Persistence</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../db">A Database</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../persist/index.html">← Object Persistence</a>
+    <a class="pager-link next" href="../db/index.html">A Database →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

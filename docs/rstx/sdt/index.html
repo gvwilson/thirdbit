@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Signal Detection Theory Analysis</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -103,7 +126,7 @@ Wrong: hits and false alarms have been swapped; hits come from signal trials and
 </dl>
 </div>
 <h2 data-number="18.2" id="computing-hit-rate-and-false-alarm-rate"><span class="header-section-number">18.2</span> Computing Hit Rate and False Alarm Rate</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confusion_rates(labels, decisions):</span>
+<div class="sourceCode" id="cb1" data-file="sdt/sdt.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confusion_rates(labels, decisions):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (hit_rate, false_alarm_rate) from binary label and decision arrays.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    labels    -- 1-D array of 1 (signal) or 0 (noise) for each trial</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    decisions -- 1-D array of 1 (responded yes) or 0 (responded no)</span></span>
@@ -154,7 +177,7 @@ Wrong: hits and false alarms have been swapped; hits come from signal trials and
 </ul></li>
 <li>A curve that bows toward the upper-left corner means that the observer can achieve high hit rates with low false alarm rates, i.e., better discrimination</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> roc_curve(scores, labels):</span>
+<div class="sourceCode" id="cb2" data-file="sdt/sdt.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> roc_curve(scores, labels):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (far, hr) arrays tracing the ROC curve from evidence scores.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    scores -- 1-D array of numeric evidence values, one per trial</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    labels -- 1-D array of 1 (signal) or 0 (noise) for each trial</span></span>
@@ -222,7 +245,7 @@ Intermediate hit rate and false alarm rate (moderate operating point).
 </ul></li>
 <li>As the number of threshold steps increases, the sum converges to the true area</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> auc(far, hr):</span>
+<div class="sourceCode" id="cb3" data-file="sdt/sdt.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> auc(far, hr):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the area under the ROC curve using the trapezoidal rule.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The trapezoidal rule approximates the area as a sum of trapezoids:</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">        AUC = sum_i  0.5 * (HR_i + HR_{i+1}) * |FAR_i - FAR_{i+1}|</span></span>
@@ -240,7 +263,7 @@ Intermediate hit rate and false alarm rate (moderate operating point).
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    heights <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (sorted_hr[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> sorted_hr[<span class="dv">1</span>:])</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.<span class="bu">sum</span>(widths <span class="op">*</span> heights))</span></code></pre></div>
 <h2 data-number="18.5" id="visualizing-the-roc-curve"><span class="header-section-number">18.5</span> Visualizing the ROC Curve</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_roc(roc_far, roc_hr, filename):</span>
+<div class="sourceCode" id="cb4" data-file="sdt/sdt.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_roc(roc_far, roc_hr, filename):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save an ROC curve plot as an SVG file."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    curve_data <span class="op">=</span> [{<span class="st">"far"</span>: <span class="bu">float</span>(f), <span class="st">"hr"</span>: <span class="bu">float</span>(h)} <span class="cf">for</span> f, h <span class="kw">in</span> <span class="bu">zip</span>(roc_far, roc_hr)]</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    diag_data <span class="op">=</span> [{<span class="st">"far"</span>: <span class="fl">0.0</span>, <span class="st">"hr"</span>: <span class="fl">0.0</span>}, {<span class="st">"far"</span>: <span class="fl">1.0</span>, <span class="st">"hr"</span>: <span class="fl">1.0</span>}]</span>
@@ -317,7 +340,7 @@ Figure&nbsp;18.1: ROC curve produced by sweeping over score thresholds (blue). T
 <li>The implementation sorts FAR internally, so reversing the input arrays gives the same result</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb5" data-file="sdt/test_sdt.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sdt <span class="im">import</span> confusion_rates, roc_curve, auc</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
@@ -459,6 +482,14 @@ A summary of ROC performance computed using the trapezoidal rule; AUC = 0.5 for 
     <a class="pager-link next" href="../interp/index.html">Spatial Interpolation of Climate Data →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

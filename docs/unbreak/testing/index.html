@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Testing</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -43,7 +44,7 @@
 <h1 class="title">Testing</h1>
 <h2 data-number="19.1" id="write-a-test-that-is-actually-discovered"><span class="header-section-number">19.1</span> Write a test that is actually discovered</h2>
 <p>Run <code>pytest test_discovery.py -v</code>. How many tests ran? Why does pytest report that no tests were collected?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(values):</span>
+<div class="sourceCode" id="cb1" data-file="testing/test_discovery.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(values):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_total():</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> total([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">==</span> <span class="dv">6</span></span>
@@ -58,7 +59,7 @@ Show explanation
 </details>
 <h2 data-number="19.2" id="test-that-a-doubling-function-returns-the-right-value"><span class="header-section-number">19.2</span> Test that a doubling function returns the right value</h2>
 <p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value does <code>double(4)</code> actually return? Check the pytest warning in the output.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(x):</span>
+<div class="sourceCode" id="cb2" data-file="testing/test_tupleassert.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(x):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> <span class="dv">3</span>  <span class="co"># deliberate wrong implementation</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_double():</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> double(<span class="dv">4</span>)</span>
@@ -74,7 +75,7 @@ Show explanation
 </details>
 <h2 data-number="19.3" id="test-that-a-result-contains-no-nan"><span class="header-section-number">19.3</span> Test that a result contains no NaN</h2>
 <p>Run <code>pytest test_nan.py -v</code>. Does the test pass? The result list contains a <code>NaN</code> — should it have failed?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(values):</span>
+<div class="sourceCode" id="cb3" data-file="testing/test_nan.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(values):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="bu">len</span>(values)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [v <span class="op">-</span> mean <span class="cf">for</span> v <span class="kw">in</span> values]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_has_no_nan():</span>
@@ -90,7 +91,7 @@ Show explanation
 </details>
 <h2 data-number="19.4" id="test-that-a-function-rejects-invalid-input"><span class="header-section-number">19.4</span> Test that a function rejects invalid input</h2>
 <p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception does <code>parse_count(None)</code> actually raise? Is that the exception the test intended to check?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<div class="sourceCode" id="cb4" data-file="testing/test_broadexc.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_count(value):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(value)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_parse_count_rejects_none():</span>
@@ -106,7 +107,7 @@ Show explanation
 </details>
 <h2 data-number="19.5" id="test-a-function-that-reads-from-a-temporary-file"><span class="header-section-number">19.5</span> Test a function that reads from a temporary file</h2>
 <p>Run <code>pytest test_noyield.py -v</code>. The test fails. After it fails, check whether the temp file still exists. Then change <code>return path</code> to <code>yield path</code> and add <code>os.remove(path)</code> after the yield. Run again and check the filesystem.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="sourceCode" id="cb5" data-file="testing/test_noyield.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tempfile</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
@@ -128,7 +129,7 @@ Show explanation
 </details>
 <h2 data-number="19.6" id="test-a-registry-that-stores-and-retrieves-entries"><span class="header-section-number">19.6</span> Test a registry that stores and retrieves entries</h2>
 <p>Run <code>pytest test_orderdep.py -v</code>. Both tests pass. Now run <code>pytest test_orderdep.py::test_lookup -v</code> to run only the second test. What happens?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>_registry <span class="op">=</span> {}</span>
+<div class="sourceCode" id="cb6" data-file="testing/test_orderdep.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>_registry <span class="op">=</span> {}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> register(name, value):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    _registry[name] <span class="op">=</span> value</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lookup(name):</span>
@@ -148,7 +149,7 @@ Show explanation
 </details>
 <h2 data-number="19.7" id="share-a-list-fixture-across-multiple-tests"><span class="header-section-number">19.7</span> Share a list fixture across multiple tests</h2>
 <p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order of the two tests and run again. Does the other test now fail?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<div class="sourceCode" id="cb7" data-file="testing/test_scopemut.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> user_list():</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []</span>
@@ -167,7 +168,7 @@ Show explanation
 </details>
 <h2 data-number="19.8" id="test-that-a-function-raises-an-error-on-bad-input"><span class="header-section-number">19.8</span> Test that a function raises an error on bad input</h2>
 <p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a <code>print("reached")</code> on the line after <code>result = parse_positive(0)</code>. Run again. Is the print executed?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<div class="sourceCode" id="cb8" data-file="testing/test_deadassert.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_positive(value):</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss"> is not positive"</span>)</span>
@@ -186,7 +187,7 @@ Show explanation
 </details>
 <h2 data-number="19.9" id="test-a-function-with-an-unreachable-assertion"><span class="header-section-number">19.9</span> Test a function with an unreachable assertion</h2>
 <p>Run <code>pytest test_unreachable.py -v</code>. Does the test pass? Does it actually exercise all three branches of <code>classify</code>?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify(n):</span>
+<div class="sourceCode" id="cb9" data-file="testing/test_unreachable.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify(n):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"negative"</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
@@ -207,7 +208,7 @@ Show explanation
 </details>
 <h2 data-number="19.10" id="test-that-the-right-error-message-is-raised"><span class="header-section-number">19.10</span> Test that the right error message is raised</h2>
 <p>Run <code>pytest test_raisematch.py -v</code>. Does the test pass? Which <code>ValueError</code> message did <code>parse_count("abc")</code> actually raise — the one the test intended?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<div class="sourceCode" id="cb10" data-file="testing/test_raisematch.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_count(value):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="kw">is</span> <span class="va">None</span>:</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"count cannot be None"</span>)</span>
@@ -227,7 +228,7 @@ Show explanation
 </details>
 <h2 data-number="19.11" id="test-a-function-that-writes-json-to-a-file"><span class="header-section-number">19.11</span> Test a function that writes JSON to a file</h2>
 <p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes, list the files in your working directory. What file was left behind?</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarize(values):</span>
+<div class="sourceCode" id="cb11" data-file="testing/test_tmpfile.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarize(values):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"count"</span>: <span class="bu">len</span>(values), <span class="st">"total"</span>: <span class="bu">sum</span>(values)}</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_summarize(tmp_path):</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
@@ -255,6 +256,14 @@ Show explanation
     <a class="pager-link next" href="../finale/index.html">Conclusion →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

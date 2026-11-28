@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Exoplanet Detection via Radial Velocity</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -62,7 +85,7 @@
 <ul>
 <li>Observation times are drawn uniformly at random across the time baseline to simulate a realistic (unevenly spaced) survey schedule</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed</span></span>
+<div class="sourceCode" id="cb1" data-file="radvel/generate_rv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PERIOD <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># orbital period (days)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>AMPLITUDE <span class="op">=</span> <span class="fl">50.0</span>  <span class="co"># radial-velocity semi-amplitude (m/s)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>PHASE <span class="op">=</span> <span class="fl">0.3</span>  <span class="co"># initial orbital phase (radians)</span></span>
@@ -70,7 +93,7 @@
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>NOISE_SCALE <span class="op">=</span> <span class="fl">10.0</span>  <span class="co"># per-observation measurement noise (m/s); 20% of AMPLITUDE</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>N_POINTS <span class="op">=</span> <span class="dv">50</span>  <span class="co"># number of observations</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>T_MAX <span class="op">=</span> <span class="fl">30.0</span>  <span class="co"># time baseline (days); spans 3 complete periods</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_rv_data(</span>
+<div class="sourceCode" id="cb2" data-file="radvel/generate_rv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_rv_data(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    period<span class="op">=</span>PERIOD,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    amplitude<span class="op">=</span>AMPLITUDE,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    phase<span class="op">=</span>PHASE,</span>
@@ -101,12 +124,12 @@
 <li>The period guess assumes roughly three cycles are visible in the baseline</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_rv(t, amplitude, period, phase, v_sys):</span>
+<div class="sourceCode" id="cb3" data-file="radvel/radvel.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_rv(t, amplitude, period, phase, v_sys):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Sinusoidal radial-velocity model for a single planet.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    v(t) = amplitude * sin(2π t / period + phase) + v_sys</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> amplitude <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> period <span class="op">+</span> phase) <span class="op">+</span> v_sys</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_sinusoid(t, rv):</span>
+<div class="sourceCode" id="cb4" data-file="radvel/radvel.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_sinusoid(t, rv):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit model_rv to the data and return (params, errors).</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    params = [amplitude, period, phase, v_sys]</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    errors = one-standard-deviation uncertainties from the covariance matrix</span></span>
@@ -175,7 +198,7 @@ Figure&nbsp;29.1: Fifty synthetic observations (noise 10 m/s) with the best-fit 
 <li>If the uncertainty on the fitted amplitude is comparable to or larger than the amplitude itself, the detection is not statistically significant</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise_rv(</span>
+<div class="sourceCode" id="cb5" data-file="radvel/generate_rv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pure_noise_rv(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    noise_scale<span class="op">=</span>NOISE_SCALE, n_points<span class="op">=</span>N_POINTS, t_max<span class="op">=</span>T_MAX, seed<span class="op">=</span>SEED</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (t, rv) containing only measurement noise, no planetary signal."""</span></span>
@@ -248,7 +271,7 @@ The measured fractional amplitude error with <code>seed=42</code> is ~2.5%. The 
 A fractional amplitude uncertainty above 0.5 means the fitted amplitude is not distinguishable from zero at the 2-sigma level. This must always hold for pure noise data. A failure would indicate the fit was accidentally converging to a spurious periodic signal in the noise.
 </dd>
 </dl>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb6" data-file="radvel/test_radvel.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_rv <span class="im">import</span> make_rv_data, make_pure_noise_rv, PERIOD, AMPLITUDE</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> radvel <span class="im">import</span> model_rv, fit_sinusoid</span>
@@ -338,6 +361,14 @@ A method for finding periodic signals in unevenly sampled time series without re
     <a class="pager-link next" href="../elasticity/index.html">Estimating Price Elasticity of Demand →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

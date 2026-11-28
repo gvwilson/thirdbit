@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Wealth Inequality in an Exchange Economy</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -80,7 +103,7 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 <li>Computing this directly requires <span class="math inline">\(O(n^2)\)</span> comparisons. Sorting the wealth array first reduces the cost to <span class="math inline">\(O(n \log n)\)</span>: after sorting so that <span class="math inline">\(w_{(1)} \leq w_{(2)} \leq \cdots \leq w_{(n)}\)</span>,</li>
 </ul>
 <p><span class="math display">\[G = \frac{2\sum_{i=1}^n i\,w_{(i)} - (n+1)\sum_i w_i}{n \sum_i w_i}\]</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini(wealth):</span>
+<div class="sourceCode" id="cb1" data-file="wealth/wealth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini(wealth):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Gini coefficient of a wealth distribution.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses the sorted-array formula:</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        G = (2 * sum(i * w_(i)) - (n+1) * sum(w)) / (n * sum(w))</span></span>
@@ -97,7 +120,7 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 <li>The simulation records the Gini coefficient after every exchange so we can watch inequality grow from zero.</li>
 <li>A key invariant: total wealth <span class="math inline">\(\sum_i w_i = N\)</span> is conserved exactly at every step because each transfer moves wealth without creating or destroying it.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_exchange(n_agents<span class="op">=</span>N_AGENTS, n_steps<span class="op">=</span>N_STEPS, seed<span class="op">=</span>SEED):</span>
+<div class="sourceCode" id="cb2" data-file="wealth/wealth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_exchange(n_agents<span class="op">=</span>N_AGENTS, n_steps<span class="op">=</span>N_STEPS, seed<span class="op">=</span>SEED):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run the random-exchange wealth model.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Agents start with equal wealth of 1.0 each.  At every step two distinct</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    agents are chosen uniformly at random; the poorer transfers a uniformly</span></span>
@@ -137,7 +160,7 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 <li>Perfect equality produces the 45-degree line <span class="math inline">\(y = x\)</span>. Any inequality bows the curve below that line.</li>
 <li>The Gini coefficient equals twice the area between the Lorenz curve and the equality line.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lorenz_curve(wealth):</span>
+<div class="sourceCode" id="cb3" data-file="wealth/wealth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lorenz_curve(wealth):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (population_fractions, wealth_fractions) arrays for the Lorenz curve.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Both arrays start at (0, 0) and end at (1, 1).  The area between the</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    curve and the 45-degree equality line equals G/2, where G is the Gini</span></span>
@@ -149,7 +172,7 @@ Wrong: A is the poorer agent and must transfer wealth to B.
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    pop_fracs <span class="op">=</span> np.arange(<span class="dv">0</span>, n <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> n</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    wealth_fracs <span class="op">=</span> np.concatenate([[<span class="fl">0.0</span>], cum_w <span class="op">/</span> cum_w[<span class="op">-</span><span class="dv">1</span>]])</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pop_fracs, wealth_fracs</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_lorenz_curve(wealth, filename):</span>
+<div class="sourceCode" id="cb4" data-file="wealth/wealth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_lorenz_curve(wealth, filename):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a Lorenz curve with the line of equality overlaid."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    pop_fracs, wealth_fracs <span class="op">=</span> lorenz_curve(wealth)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    df_lorenz <span class="op">=</span> pl.DataFrame({<span class="st">"population"</span>: pop_fracs, <span class="st">"wealth"</span>: wealth_fracs})</span>
@@ -203,7 +226,7 @@ Wrong: the Gini is twice the area between the Lorenz curve and the diagonal, not
 </dl>
 </div>
 <h2 data-number="16.5" id="gini-trajectory"><span class="header-section-number">16.5</span> Gini Trajectory</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_gini_trajectory(gini_history, filename):</span>
+<div class="sourceCode" id="cb5" data-file="wealth/wealth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_gini_trajectory(gini_history, filename):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a line chart of the Gini coefficient at each exchange step."""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pl.DataFrame(</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        {</span>
@@ -261,7 +284,7 @@ The sum of all agent wealths must equal <span class="math inline">\(N\)</span> t
 Starting from equal wealth (Gini = 0), the simulation must produce substantial inequality after 2000 steps. With seed 7493418 the final value is 0.88, well above the 0.3 threshold.
 </dd>
 </dl>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb6" data-file="wealth/test_wealth.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wealth <span class="im">import</span> gini, simulate_exchange, N_AGENTS</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_gini_equal_distribution():</span>
@@ -339,6 +362,14 @@ Random exchange rule in which the poorer agent transfers a random fraction of th
     <a class="pager-link next" href="../topics/index.html">Topic Modeling a Document Corpus →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

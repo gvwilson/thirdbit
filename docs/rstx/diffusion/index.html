@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>1D Diffusion Simulation</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -53,7 +76,7 @@
 <li>Represent concentration as a 1D NumPy array, one value per grid point</li>
 <li>Choose the number of points and the pulse width so the initial Gaussian is well-resolved</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial grid: 50 points give dx = 0.02, fine enough to resolve a Gaussian</span></span>
+<div class="sourceCode" id="cb1" data-file="diffusion/diffusion.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial grid: 50 points give dx = 0.02, fine enough to resolve a Gaussian</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pulse of width 0.05 (about 2.5 grid cells per standard deviation).</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>GRID_POINTS <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>LENGTH <span class="op">=</span> <span class="fl">1.0</span></span>
@@ -76,7 +99,7 @@
 <li><code>DT</code> is derived from the stability condition explained below</li>
 <li>The initial concentration is a Gaussian pulse centered in the domain:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_initial():</span>
+<div class="sourceCode" id="cb2" data-file="diffusion/diffusion.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_initial():</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return spatial grid and Gaussian initial concentration profile."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="dv">0</span>, LENGTH, GRID_POINTS)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> np.exp(<span class="op">-</span>((x <span class="op">-</span> PULSE_CENTER) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> PULSE_WIDTH<span class="op">**</span><span class="dv">2</span>))</span>
@@ -144,7 +167,7 @@ Wrong: the number of steps does not affect r — it only determines how long the
 <li>Before each update, we prepend a copy of <code>c[0]</code> and append a copy of <code>c[-1]</code>, which makes the gradient at each boundary zero</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> step(c):</span>
+<div class="sourceCode" id="cb3" data-file="diffusion/diffusion.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> step(c):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return concentration after one explicit finite-difference time step.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Prepend and append ghost cells equal to the boundary values to enforce</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    zero-flux boundary conditions: no material enters or leaves the domain.</span></span>
@@ -191,7 +214,7 @@ Wrong: without an explicit boundary condition the update formula has no informat
 <li>Advance the concentration array one step at a time, saving a snapshot every <code>SNAPSHOT_INTERVAL</code> steps</li>
 <li>Store snapshots in a Polars dataframe with columns <code>x</code>, <code>concentration</code>, and <code>time</code></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate():</span>
+<div class="sourceCode" id="cb4" data-file="diffusion/diffusion.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate():</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run the simulation and return concentration snapshots as a DataFrame."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    x, c <span class="op">=</span> make_initial()</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> _make_records(x, c, <span class="fl">0.0</span>)</span>
@@ -209,7 +232,7 @@ Wrong: without an explicit boundary condition the update formula has no informat
 <ul>
 <li>Plot each snapshot as a separate line, color-coded by time, to show how the pulse spreads</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(df):</span>
+<div class="sourceCode" id="cb5" data-file="diffusion/diffusion.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(df):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair line chart of concentration profiles over time."""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        alt.Chart(df)</span>
@@ -274,7 +297,7 @@ Figure&nbsp;22.1: Concentration profiles at five equally-spaced snapshots. The p
 <li>The tolerance of <span class="math inline">\(5\times 10^{-3}\)</span> is about 1.7 times the measured error. This is a modest safety margin: large enough to absorb minor floating-point variation between platforms, small enough that a factor-of-2 regression would still be caught.</li>
 <li>The factor 1.7 is empirical, not derived mathematically. Any tolerance between roughly <span class="math inline">\(4\times 10^{-3}\)</span> and <span class="math inline">\(10^{-2}\)</span> would be defensible here. What matters is that it is documented alongside the reasoning, so a future reader can judge whether a failing test signals a real problem or an overly tight bound.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb7" data-file="diffusion/test_diffusion.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> diffusion <span class="im">import</span> (</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    DIFFUSIVITY,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    DT,</span>
@@ -358,6 +381,14 @@ Figure&nbsp;22.1: Concentration profiles at five equally-spaced snapshots. The p
     <a class="pager-link next" href="../heatwall/index.html">Heat Conduction Through a Composite Wall →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

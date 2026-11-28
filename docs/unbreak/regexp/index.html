@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Regular Expressions</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -50,7 +51,7 @@
 <h1 class="title">Regular Expressions</h1>
 <h2 data-number="5.1" id="validate-phone-numbers-in-a-contact-list"><span class="header-section-number">5.1</span> Validate phone numbers in a contact list</h2>
 <p>This function is supposed to accept only strings that are phone numbers and reject everything else. Call it with <code>"call 555-867-5309 now"</code> and with <code>"555-867-53090000"</code>. Do both results match your expectations?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb1" data-file="regexp/phone.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">\d</span><span class="op">{3}</span><span class="vs">-</span><span class="dv">\d</span><span class="op">{3}</span><span class="vs">-</span><span class="dv">\d</span><span class="op">{4}</span><span class="vs">"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_phone(text):</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bool</span>(re.search(PATTERN, text))</span>
@@ -73,7 +74,7 @@ Show explanation
 </details>
 <h2 data-number="5.2" id="detect-timestamps-in-log-entries"><span class="header-section-number">5.2</span> Detect timestamps in log entries</h2>
 <p>This function is supposed to return <code>True</code> for any log line that contains a date. Call it with <code>"ERROR on 2024-01-15: disk full"</code>. Does it return the result you expect?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb2" data-file="regexp/access.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">\d</span><span class="op">{4}</span><span class="vs">-</span><span class="dv">\d</span><span class="op">{2}</span><span class="vs">-</span><span class="dv">\d</span><span class="op">{2}</span><span class="vs">"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> contains_date(line):</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bool</span>(re.match(PATTERN, line))</span>
@@ -96,7 +97,7 @@ Show explanation
 </details>
 <h2 data-number="5.3" id="count-action-items-in-source-code"><span class="header-section-number">5.3</span> Count action items in source code</h2>
 <p>Run this script and compare the count it prints to the number of action items you can see in the source string. Do the counts agree?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb3" data-file="regexp/comments.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"# TODO:"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_todos(source):</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, source)</span>
@@ -118,7 +119,7 @@ Show explanation
 </details>
 <h2 data-number="5.4" id="find-headings-in-a-document"><span class="header-section-number">5.4</span> Find headings in a document</h2>
 <p>Run this script and count the Markdown headings in the document string by hand. Does the function find all of them?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb4" data-file="regexp/headings.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">^</span><span class="vs">#</span><span class="op">{1,3}</span><span class="vs"> </span><span class="dv">.</span><span class="op">+</span><span class="vs">"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_headings(text):</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, text)</span>
@@ -137,7 +138,7 @@ Show explanation
 </details>
 <h2 data-number="5.5" id="find-error-messages-in-a-log-file"><span class="header-section-number">5.5</span> Find error messages in a log file</h2>
 <p>Run this script on the sample log string. The exception message spans more than one line. Does the function find it?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb5" data-file="regexp/logentry.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"EXCEPTION: </span><span class="kw">(</span><span class="dv">.</span><span class="op">+</span><span class="kw">)</span><span class="vs"> END"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_exceptions(log):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, log)</span>
@@ -156,7 +157,7 @@ Show explanation
 </details>
 <h2 data-number="5.6" id="recognize-column-names-in-a-csv-header"><span class="header-section-number">5.6</span> Recognize column names in a CSV header</h2>
 <p>Run this script and compare the list it prints to the column names in the header string. Which columns are missing from the output?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb6" data-file="regexp/columns.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>COLUMN_RE <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"name</span><span class="cf">|</span><span class="vs">email</span><span class="cf">|</span><span class="vs">phone"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_columns(header):</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [col <span class="cf">for</span> col <span class="kw">in</span> header.split(<span class="st">","</span>) <span class="cf">if</span> COLUMN_RE.search(col)]</span>
@@ -175,7 +176,7 @@ Show explanation
 </details>
 <h2 data-number="5.7" id="extract-prices-from-a-web-page"><span class="header-section-number">5.7</span> Extract prices from a web page</h2>
 <p>Run this script and count the <code>&lt;amount&gt;</code> tags in the HTML string by hand. Does the function return the same number of prices?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb7" data-file="regexp/prices.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"&lt;amount&gt;</span><span class="kw">(</span><span class="dv">.</span><span class="op">*</span><span class="kw">)</span><span class="vs">&lt;/amount&gt;"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_amounts(html):</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, html)</span>
@@ -194,7 +195,7 @@ Show explanation
 </details>
 <h2 data-number="5.8" id="filter-empty-attributes-from-an-html-element"><span class="header-section-number">5.8</span> Filter empty attributes from an HTML element</h2>
 <p>Run this script and inspect the list it returns. Should an empty <code>id</code> attribute be included in that list?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb8" data-file="regexp/attrs.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r'id="</span><span class="kw">(</span><span class="dv">\w</span><span class="op">*</span><span class="kw">)</span><span class="vs">"'</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_ids(html):</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, html)</span>
@@ -213,7 +214,7 @@ Show explanation
 </details>
 <h2 data-number="5.9" id="validate-postal-codes-in-an-address-database"><span class="header-section-number">5.9</span> Validate postal codes in an address database</h2>
 <p>Run this script and check which strings it identifies as ZIP codes. Examine the input and the output side by side.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb9" data-file="regexp/postal.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">\b\d</span><span class="op">{4}</span><span class="dv">\b</span><span class="vs">"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_zipcodes(text):</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, text)</span>
@@ -232,7 +233,7 @@ Show explanation
 </details>
 <h2 data-number="5.10" id="filter-server-addresses-from-a-configuration"><span class="header-section-number">5.10</span> Filter server addresses from a configuration</h2>
 <p>This function is supposed to accept only valid IP address strings. Call it with <code>"192X168X1X1"</code>. Does it reject that input?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb10" data-file="regexp/network.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">\d</span><span class="op">{1,3}</span><span class="dv">.\d</span><span class="op">{1,3}</span><span class="dv">.\d</span><span class="op">{1,3}</span><span class="dv">.\d</span><span class="op">{1,3}</span><span class="vs">"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_ip_address(text):</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bool</span>(re.fullmatch(PATTERN, text))</span>
@@ -255,7 +256,7 @@ Show explanation
 </details>
 <h2 data-number="5.11" id="remove-markup-from-user-submissions"><span class="header-section-number">5.11</span> Remove markup from user submissions</h2>
 <p>Run this script and look at what <code>strip_tags</code> returns. Does the HTML it receives end up as plain text?</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb11" data-file="regexp/htmlstrip.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"&lt;</span><span class="pp">[&lt;&gt;]</span><span class="op">+</span><span class="vs">&gt;"</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> strip_tags(html):</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.sub(PATTERN, <span class="st">""</span>, html)</span>
@@ -274,7 +275,7 @@ Show explanation
 </details>
 <h2 data-number="5.12" id="classify-links-by-protocol"><span class="header-section-number">5.12</span> Classify links by protocol</h2>
 <p>Run this script and check the scheme reported for the HTTPS URL. Does the label match the URL?</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb12" data-file="regexp/schemes.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"http</span><span class="cf">|</span><span class="vs">https"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_scheme(url):</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re.match(PATTERN, url)</span>
@@ -296,7 +297,7 @@ Show explanation
 </details>
 <h2 data-number="5.13" id="count-a-word-in-a-paragraph"><span class="header-section-number">5.13</span> Count a word in a paragraph</h2>
 <p>Run this script and count the standalone occurrences of <code>"log"</code> in the text by hand. Does the function return the same number?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb13" data-file="regexp/wordcount.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"log"</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_word(text, pattern):</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(re.findall(pattern, text))</span>
@@ -315,7 +316,7 @@ Show explanation
 </details>
 <h2 data-number="5.14" id="reformat-names-in-a-mailing-list"><span class="header-section-number">5.14</span> Reformat names in a mailing list</h2>
 <p>Run this script and check whether the output names are in “First Last” order. Are they?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb14" data-file="regexp/roster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="kw">(</span><span class="dv">\w</span><span class="op">+</span><span class="kw">)</span><span class="vs">,</span><span class="dv">\s</span><span class="op">*</span><span class="kw">(</span><span class="dv">\w</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reformat_name(name):</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.sub(PATTERN, <span class="vs">r"</span><span class="ch">\1</span><span class="vs"> </span><span class="ch">\2</span><span class="vs">"</span>, name)</span>
@@ -333,7 +334,7 @@ Show explanation
 </details>
 <h2 data-number="5.15" id="redact-sensitive-fields-in-a-report"><span class="header-section-number">5.15</span> Redact sensitive fields in a report</h2>
 <p>Run this script and inspect the <code>repr()</code> of the result. Are the sensitive labels preserved in the output as expected?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb15" data-file="regexp/redact.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="kw">(</span><span class="vs">SSN</span><span class="cf">|</span><span class="vs">DOB</span><span class="kw">)</span><span class="vs">:</span><span class="dv">\s</span><span class="op">*</span><span class="dv">\S</span><span class="op">+</span><span class="vs">"</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> redact(text):</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.sub(PATTERN, <span class="st">"</span><span class="ch">\1</span><span class="st">: [redacted]"</span>, text)</span>
@@ -352,7 +353,7 @@ Show explanation
 </details>
 <h2 data-number="5.16" id="list-settings-from-a-configuration-string"><span class="header-section-number">5.16</span> List settings from a configuration string</h2>
 <p>Run this script and look at the values it finds. What is missing from each item in the list?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb16" data-file="regexp/settings.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">\w</span><span class="op">+</span><span class="vs">=</span><span class="kw">(</span><span class="dv">\w</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> list_values(text):</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, text)</span>
@@ -371,7 +372,7 @@ Show explanation
 </details>
 <h2 data-number="5.17" id="pull-dates-from-a-report"><span class="header-section-number">5.17</span> Pull dates from a report</h2>
 <p>Run this script and examine what it prints. Are the values in the list complete dates, or something shorter?</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb17" data-file="regexp/years.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{4}</span><span class="kw">)</span><span class="vs">-</span><span class="dv">\d</span><span class="op">{2}</span><span class="vs">-</span><span class="dv">\d</span><span class="op">{2}</span><span class="vs">"</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_dates(text):</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.findall(PATTERN, text)</span>
@@ -390,7 +391,7 @@ Show explanation
 </details>
 <h2 data-number="5.18" id="check-password-strength"><span class="header-section-number">5.18</span> Check password strength</h2>
 <p>Run this script. Which passwords does it mark as strong? Are any of those passwords actually weak by the stated rules?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb18" data-file="regexp/strength.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="ex">(</span><span class="fu">?=</span><span class="dv">.</span><span class="op">*</span><span class="dv">\d</span><span class="ex">)</span><span class="pp">[A-Za-z</span><span class="dv">\d</span><span class="pp">]</span><span class="op">{8,}</span><span class="vs">"</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_strong(password):</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bool</span>(re.fullmatch(PATTERN, password))</span>
@@ -414,6 +415,14 @@ Show explanation
     <a class="pager-link next" href="../diot/index.html">Data, I/O, and Testing →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

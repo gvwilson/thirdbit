@@ -1,483 +1,470 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Undo and Redo · Software Design by Example</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Undo and Redo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<div class="shower list" tabindex="-1">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Undo and Redo</h1>
+</section>
+
+<section class="slide level2">
+
 <section class="slide">
+</section>
+<section id="the-problem" class="slide level2">
 <h2>The Problem</h2>
 <ul>
-<li>
-<p>Want to change files as well as viewing them</p>
-</li>
-<li>
-<p>So modify the file viewer of <a class="xref" href="../viewer/">Chapter 23</a> to allow editing</p>
-</li>
-<li>
-<p>And since people make mistakes when editing, implement undo</p>
-</li>
+<li><p>Want to change files as well as viewing them</p></li>
+<li><p>So modify the file viewer of [%x viewer %] to allow
+editing</p></li>
+<li><p>And since people make mistakes when editing, implement
+undo</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="starting-point" class="slide level2">
 <h2>Starting Point</h2>
 <ul>
-<li>
-<p><code>Window</code> can draw lines and report its size</p>
-</li>
-<li>
-<p><code>Buffer</code> stores lines of text,
-    keeps track of a viewport,
-    and transforms buffer coordinates to screen coordinates</p>
-</li>
-<li>
-<p><code>Cursor</code> knows its position in the buffer
-    and can move up, down, left, and right</p>
-</li>
-<li>
-<p><code>App</code> makes a window, a buffer, and a cursor,
-    then maps keys to actions</p>
-</li>
+<li><p><code>Window</code> can draw lines and report its size</p></li>
+<li><p><code>Buffer</code> stores lines of text, keeps track of a
+viewport, and transforms buffer coordinates to screen
+coordinates</p></li>
+<li><p><code>Cursor</code> knows its position in the buffer and can move
+up, down, left, and right</p></li>
+<li><p><code>App</code> makes a window, a buffer, and a cursor, then
+maps keys to actions</p></li>
 </ul>
-<figure id="f:undo-classes">
-<img alt="Classes in file viewer" src="classes.svg"/>
-<figcaption>Figure 1: Relationships between classes in file viewer</figcaption>
-</figure>
+<p>[% figure slug=“undo-classes” img=“classes.svg” alt=“Classes in file
+viewer” caption=“Relationships between classes in file viewer” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="a-headless-screen" class="slide level2">
 <h2>A Headless Screen</h2>
 <ul>
-<li>
-<p>Create a <a class="gl-ref" href="../glossary/#headless">headless</a> screen for testing</p>
-</li>
-<li>
-<p>Store current state of display in rectangular grid</p>
-</li>
-<li>
-<p>Take a list of keystrokes (for simulation)</p>
+<li><p>Create a [%g headless “headless” %] screen for testing</p></li>
+<li><p>Store current state of display in rectangular grid</p></li>
+<li><p>Take a list of keystrokes (for simulation)</p>
 <ul>
 <li>Would have made more sense for <code>App</code> to have a method
-    that gets keystrokes</li>
-</ul>
-</li>
+that gets keystrokes</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="a-headless-screen-1" class="slide level2">
 <h2>A Headless Screen</h2>
-<div data-inc="headless.py" data-mark="screen"><span aria-label="Source: undo/headless.py" class="inc-path" role="img" tabindex="0" title="undo/headless.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HeadlessScreen</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">keystrokes</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="n">keystrokes</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_i_key</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">erase</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">getkey</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_key</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">):</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s2">"CONTROL_X"</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_i_key</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_i_key</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">key</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">addstr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="n">ROW</span><span class="p">]</span>
-        <span class="k">assert</span> <span class="n">col</span> <span class="o">==</span> <span class="mi">0</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="n">COL</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_display</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):]</span>
-</code></pre></div>
-</div>
+<p>[%inc headless.py mark=screen %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="bad-but-necessary" class="slide level2">
 <h2>Bad But Necessary</h2>
 <ul>
-<li>Also need to define <code>HeadlessWindow</code> to take a size
-    and pass it to the screen</li>
+<li>Also need to define <code>HeadlessWindow</code> to take a size and
+pass it to the screen</li>
 </ul>
-<div data-inc="headless.py" data-mark="window"><span aria-label="Source: undo/headless.py" class="inc-path" role="img" tabindex="0" title="undo/headless.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HeadlessWindow</span><span class="p">(</span><span class="n">Window</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">screen</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc headless.py mark=window %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="logging" class="slide level2">
 <h2>Logging</h2>
 <ul>
 <li>Record keys, cursor position, and screen contents for testing</li>
 </ul>
-<div data-inc="headless.py" data-mark="app"><span aria-label="Source: undo/headless.py" class="inc-path" role="img" tabindex="0" title="undo/headless.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HeadlessApp</span><span class="p">(</span><span class="n">App</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_add_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_screen</span><span class="o">.</span><span class="n">display</span><span class="p">()))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_make_window</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_window</span> <span class="o">=</span> <span class="n">HeadlessWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_screen</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc headless.py mark=app %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="testing" class="slide level2">
 <h2>Testing</h2>
-<div data-inc="test_headless.py" data-mark="example"><span aria-label="Source: undo/test_headless.py" class="inc-path" role="img" tabindex="0" title="undo/test_headless.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_scroll_down</span><span class="p">():</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"abc"</span><span class="p">,</span> <span class="s2">"def"</span><span class="p">,</span> <span class="s2">"ghi"</span><span class="p">]</span>
-    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"KEY_DOWN"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
-    <span class="n">screen</span> <span class="o">=</span> <span class="n">HeadlessScreen</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">HeadlessApp</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
-    <span class="n">app</span><span class="p">(</span><span class="n">screen</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">get_log</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="s2">"CONTROL_X"</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">[</span><span class="s2">"de"</span><span class="p">,</span> <span class="s2">"gh"</span><span class="p">])</span>
-</code></pre></div>
-</div>
+<p>[%inc test_headless.py mark=example %]</p>
 <ul>
 <li>Last key is always <code>CONTROL_X</code> (exit)</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="insertion-and-deletion" class="slide level2">
 <h2>Insertion and Deletion</h2>
-<div data-inc="insert_delete.py" data-mark="buffer"><span aria-label="Source: undo/insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">InsertDeleteBuffer</span><span class="p">(</span><span class="n">Buffer</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">char</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nrow</span><span class="p">()</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">pos</span><span class="p">[</span><span class="n">COL</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncol</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">])</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">]]</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="n">pos</span><span class="p">[</span><span class="n">COL</span><span class="p">]]</span> <span class="o">+</span> <span class="n">char</span> <span class="o">+</span> <span class="n">line</span><span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="n">COL</span><span class="p">]:]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">]]</span> <span class="o">=</span> <span class="n">line</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nrow</span><span class="p">()</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">pos</span><span class="p">[</span><span class="n">COL</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncol</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">])</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">]]</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="n">pos</span><span class="p">[</span><span class="n">COL</span><span class="p">]]</span> <span class="o">+</span> <span class="n">line</span><span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="n">COL</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="n">ROW</span><span class="p">]]</span> <span class="o">=</span> <span class="n">line</span>
-</code></pre></div>
-</div>
+<p>[%inc insert_delete.py mark=buffer %]</p>
 <ul>
-<li>
-<p>Delete character <em>under</em> the cursor, not to the left</p>
-</li>
-<li>
-<p>A little defensive programming as well</p>
-</li>
+<li><p>Delete character <em>under</em> the cursor, not to the
+left</p></li>
+<li><p>A little defensive programming as well</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="application" class="slide level2">
 <h2>Application</h2>
-<div data-inc="insert_delete.py" data-mark="app"><span aria-label="Source: undo/insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">InsertDeleteApp</span><span class="p">(</span><span class="n">HeadlessApp</span><span class="p">):</span>
-    <span class="n">INSERTABLE</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_make_buffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">InsertDeleteBuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="insert_delete.py" data-mark="action"><span aria-label="Source: undo/insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_do_DELETE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_do_INSERT</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">(),</span> <span class="n">key</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc insert_delete.py mark=app %]</p>
+<p>[%inc insert_delete.py mark=action %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="application-1" class="slide level2">
 <h2>Application</h2>
-<div data-inc="insert_delete.py" data-mark="dispatch"><span aria-label="Source: undo/insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_get_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_screen</span><span class="o">.</span><span class="n">getkey</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">INSERTABLE</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">"INSERT"</span><span class="p">,</span> <span class="n">key</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">key</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_interact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">family</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_key</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">family</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"_do_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"_do_</span><span class="si">{</span><span class="n">family</span><span class="si">}</span><span class="s2">"</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)(</span><span class="n">key</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_add_log</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc insert_delete.py mark=dispatch %]</p>
 <ul>
-<li>Add <code>_get_key</code> to return family (generic) and key (specific)</li>
+<li>Add <code>_get_key</code> to return family (generic) and key
+(specific)</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="testing-1" class="slide level2">
 <h2>Testing</h2>
 <ul>
 <li>Write a function to make the fixture and run the test</li>
 </ul>
-<div data-inc="test_insert_delete.py" data-mark="fixture"><span aria-label="Source: undo/test_insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/test_insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_fixture</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
-    <span class="n">screen</span> <span class="o">=</span> <span class="n">HeadlessScreen</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">InsertDeleteApp</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
-    <span class="n">app</span><span class="p">(</span><span class="n">screen</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">app</span>
-</code></pre></div>
-</div>
+<p>[%inc test_insert_delete.py mark=fixture %]</p>
 <ul>
 <li>Tests are straightforward</li>
 </ul>
-<div data-inc="test_insert_delete.py" data-mark="example"><span aria-label="Source: undo/test_insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/test_insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_delete_middle</span><span class="p">():</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">make_fixture</span><span class="p">([</span><span class="s2">"KEY_RIGHT"</span><span class="p">,</span> <span class="s2">"DELETE"</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">[</span><span class="s2">"abc"</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">get_log</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="s2">"CONTROL_X"</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="s2">"ac_"</span><span class="p">])</span>
-</code></pre></div>
-</div>
+<p>[%inc test_insert_delete.py mark=example %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="edge-case" class="slide level2">
 <h2>Edge Case</h2>
 <ul>
-<li>Can't delete when in an empty screen</li>
+<li>Can’t delete when in an empty screen</li>
 </ul>
-<div data-inc="test_insert_delete.py" data-mark="empty"><span aria-label="Source: undo/test_insert_delete.py" class="inc-path" role="img" tabindex="0" title="undo/test_insert_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_delete_when_impossible</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">make_fixture</span><span class="p">([</span><span class="s2">"DELETE"</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="s2">""</span><span class="p">])</span>
-    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-        <span class="k">pass</span>
-</code></pre></div>
-</div>
+<p>[%inc test_insert_delete.py mark=empty %]</p>
 <ul>
 <li>Our focus is implementing undo, so leave this for an exercise</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="recording-history" class="slide level2">
 <h2>Recording History</h2>
 <ul>
-<li>
-<p>In order to undo things we have to:</p>
-<ol>
-<li>
-<p>keep track of <em>actions</em> and reverse them, or</p>
-</li>
-<li>
-<p>keep track of <em>state</em> and restore it</p>
-</li>
-</ol>
-</li>
-<li>
-<p>Recording actions requires less space but can be trickier to implement</p>
-</li>
-<li>
-<p>Have actions append entries to a log</p>
-</li>
+<li><p>In order to undo things we have to:</p>
+<ol type="1">
+<li><p>keep track of <em>actions</em> and reverse them, or</p></li>
+<li><p>keep track of <em>state</em> and restore it</p></li>
+</ol></li>
+<li><p>Recording actions requires less space but can be trickier to
+implement</p></li>
+<li><p>Have actions append entries to a log</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="the-simple-approach" class="slide level2">
 <h2>The Simple Approach</h2>
-<div data-inc="history.py" data-mark="app"><span aria-label="Source: undo/history.py" class="inc-path" role="img" tabindex="0" title="undo/history.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HistoryApp</span><span class="p">(</span><span class="n">InsertDeleteApp</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">keystrokes</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">keystrokes</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_history</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_history</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_do_DELETE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">()</span>
-        <span class="n">char</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">char</span><span class="p">((</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">"delete"</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">),</span> <span class="n">char</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
-</code></pre></div>
-</div>
+<p>[%inc history.py mark=app %]</p>
 <ul>
-<li>
-<p>What about undoing cursor movement?</p>
-</li>
-<li>
-<p>And do we write an interpreter for these log records?</p>
-</li>
+<li><p>What about undoing cursor movement?</p></li>
+<li><p>And do we write an interpreter for these log records?</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="verbs-as-nouns" class="slide level2">
 <h2>Verbs as Nouns</h2>
 <ul>
-<li>
-<p>Use the <a class="gl-ref" href="../glossary/#command_pattern">Command</a> design pattern</p>
-</li>
-<li>
-<p>Each action (verb) is an object (noun)
-    with methods to go forward and backward</p>
-</li>
-<li>
-<p>Every action is derived from an abstract base class</p>
-</li>
+<li><p>Use the [%g command_pattern “Command” %] design pattern</p></li>
+<li><p>Each action (verb) is an object (noun) with methods to go forward
+and backward</p></li>
+<li><p>Every action is derived from an abstract base class</p></li>
 </ul>
-<div data-inc="action.py" data-mark="Action"><span aria-label="Source: undo/action.py" class="inc-path" role="img" tabindex="0" title="undo/action.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Action</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span> <span class="o">=</span> <span class="n">app</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: do"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">undo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: undo"</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc action.py mark=Action %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="insertion" class="slide level2">
 <h2>Insertion</h2>
-<div data-inc="action.py" data-mark="Insert"><span aria-label="Source: undo/action.py" class="inc-path" role="img" tabindex="0" title="undo/action.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Insert</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">char</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="n">pos</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_char</span> <span class="o">=</span> <span class="n">char</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_char</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">undo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc action.py mark=Insert %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="deletion" class="slide level2">
 <h2>Deletion</h2>
-<div data-inc="action.py" data-mark="Delete"><span aria-label="Source: undo/action.py" class="inc-path" role="img" tabindex="0" title="undo/action.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Delete</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="n">pos</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_char</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">char</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">undo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_char</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc action.py mark=Delete %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="movement" class="slide level2">
 <h2>Movement</h2>
-<div data-inc="action.py" data-mark="Move"><span aria-label="Source: undo/action.py" class="inc-path" role="img" tabindex="0" title="undo/action.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Move</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">direction</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_direction</span> <span class="o">=</span> <span class="n">direction</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_new</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_direction</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">undo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_old</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc action.py mark=Move %]</p>
 <ul>
-<li>Give <code>Cursor</code> methods to move in a particular direction (by name)
-    and move to a particular location</li>
+<li>Give <code>Cursor</code> methods to move in a particular direction
+(by name) and move to a particular location</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="application-2" class="slide level2">
 <h2>Application</h2>
-<div data-inc="action.py" data-mark="interact"><span aria-label="Source: undo/action.py" class="inc-path" role="img" tabindex="0" title="undo/action.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_interact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">family</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_key</span><span class="p">()</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"_do_</span><span class="si">{</span><span class="n">family</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">family</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"_do_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-            <span class="k">return</span>
-        <span class="n">action</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)(</span><span class="n">key</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
-        <span class="n">action</span><span class="o">.</span><span class="n">do</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_add_log</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc action.py mark=interact %]</p>
 <ul>
-<li>
-<p>Create the action object</p>
-</li>
-<li>
-<p>Call its <code>.do</code> method</p>
-</li>
-<li>
-<p>Modify all action methods to take a key to simplify the code a little</p>
-</li>
+<li><p>Create the action object</p></li>
+<li><p>Call its <code>.do</code> method</p></li>
+<li><p>Modify all action methods to take a key to simplify the code a
+little</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="application-3" class="slide level2">
 <h2>Application</h2>
-<div data-inc="action.py" data-mark="actions"><span aria-label="Source: undo/action.py" class="inc-path" role="img" tabindex="0" title="undo/action.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_do_DELETE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_do_INSERT</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">pos</span><span class="p">(),</span> <span class="n">key</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_do_KEY_UP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"up"</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc action.py mark=actions %]</p>
 <ul>
-<li>
-<p>And it <em>almost</em> works!</p>
-</li>
-<li>
-<p>Our first implementation of <code>Undo</code> creates an infinite loop
-    because it puts itself on the undo stack
-    and then does the action on the top of the stack</p>
-</li>
+<li><p>And it <em>almost</em> works!</p></li>
+<li><p>Our first implementation of <code>Undo</code> creates an infinite
+loop because it puts itself on the undo stack and then does the action
+on the top of the stack</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="finally" class="slide level2">
 <h2>Finally</h2>
 <ul>
-<li>
-<p>Modify <code>Action</code> to have a <code>.save</code> method that returns <code>True</code></p>
-</li>
-<li>
-<p>Override in <code>Undo</code></p>
-</li>
+<li><p>Modify <code>Action</code> to have a <code>.save</code> method
+that returns <code>True</code></p></li>
+<li><p>Override in <code>Undo</code></p></li>
 </ul>
-<div data-inc="undoable.py" data-mark="Undo"><span aria-label="Source: undo/undoable.py" class="inc-path" role="img" tabindex="0" title="undo/undoable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Undo</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_history</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="n">action</span><span class="o">.</span><span class="n">undo</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Undo(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
-</code></pre></div>
-</div>
+<p>[%inc undoable.py mark=Undo %]</p>
 <ul>
-<li>Only add object to undo stack if <code>.save</code> is <code>True</code><ul>
-<li>Could define <code>Action.post_action</code>
-    to add the action to the undo stack</li>
-</ul>
-</li>
+<li>Only add object to undo stack if <code>.save</code> is
+<code>True</code>
+<ul>
+<li>Could define <code>Action.post_action</code> to add the action to
+the undo stack</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide">
-<h2>Summary</h2>
-<figure id="f:undo-concept-map">
-<img alt="Concept map of undo" src="concept_map.svg"/>
-<figcaption>Figure 2: Concept map.</figcaption>
-</figure>
 </section>
-<div aria-live="polite" id="slide-counter"></div>
-</div>
-<script src="../_static/shower.js"></script>
-<script src="../_static/slides.js"></script>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>[% figure slug=“undo-concept-map” img=“concept_map.svg” alt=“Concept
+map of undo” caption=“Concept map.” %]</p>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
+      });
+    </script>
+    </body>
 </html>

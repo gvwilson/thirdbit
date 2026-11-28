@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Spatial Clustering of Archaeological Sites</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -91,7 +114,7 @@ Wrong: in the synthetic data there are 20 noise points and 60 cluster sites, but
 </ul></li>
 <li>Count the number of sites in each cell; the result is a 2D integer array of shape <code>(grid_size, grid_size)</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_grid(coords, region_min, region_max, grid_size):</span>
+<div class="sourceCode" id="cb1" data-file="archcluster/archcluster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_grid(coords, region_min, region_max, grid_size):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Count sites per grid cell.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each coordinate is mapped to a cell index by floor division:</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        cell = int((value - region_min) / cell_width)</span></span>
@@ -121,7 +144,7 @@ Wrong: in the synthetic data there are 20 noise points and 60 cluster sites, but
 </ul></li>
 <li>The Boolean mask of hot cells is straightforward:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_hot_cells(grid, threshold):</span>
+<div class="sourceCode" id="cb2" data-file="archcluster/archcluster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_hot_cells(grid, threshold):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Boolean mask: True where count &gt;= threshold."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> grid <span class="op">&gt;=</span> threshold</span></code></pre></div>
 <ul>
@@ -155,7 +178,7 @@ Wrong: larger cells aggregate more sites; the tendency is to merge clusters, not
 <li>The same iterative DFS used in the <code>porous</code> lesson labels connected components</li>
 <li>Here it assigns cluster IDs instead of testing for top-to-bottom percolation</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_clusters(hot):</span>
+<div class="sourceCode" id="cb3" data-file="archcluster/archcluster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_clusters(hot):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""DFS connected components with 8-connectivity.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Visits every True cell in the boolean mask exactly once, assigning</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    consecutive integer labels starting at 0.  Cells where hot is False</span></span>
@@ -230,7 +253,7 @@ Wrong: raising the threshold removes cells from the hot set, so more sites end u
 <li>The site receives the cluster label of its cell</li>
 <li>Sites in background cells receive -1 (noise)</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> assign_labels(coords, cell_labels, region_min, region_max, grid_size):</span>
+<div class="sourceCode" id="cb4" data-file="archcluster/archcluster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> assign_labels(coords, cell_labels, region_min, region_max, grid_size):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map each site coordinate to its cluster label.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Applies the same floor-division formula used in build_grid to find which</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    cell each site belongs to, then returns the label for that cell.  Sites</span></span>
@@ -276,7 +299,7 @@ Wrong: the grid method assigns labels by cell membership, not by distance to clu
 <li>The centroid of a cluster is the mean easting and mean northing of all sites assigned to that cluster</li>
 <li>Centroids summarize each cluster’s geographic location and can be compared with known landscape features</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_centroids(coords, labels):</span>
+<div class="sourceCode" id="cb5" data-file="archcluster/archcluster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_centroids(coords, labels):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Mean x/y per cluster, excluding noise (label -1).</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a dict mapping each non-negative cluster label to a (easting,</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    northing) tuple.</span></span>
@@ -317,7 +340,7 @@ Running the full pipeline on the synthetic data must produce at least two cluste
 <code>cluster_centroids</code> must return exactly one entry for every unique non-negative label in the input, and the centroid coordinates must equal the mean of the corresponding sites.
 </dd>
 </dl>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb6" data-file="archcluster/test_archcluster.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_archcluster <span class="im">import</span> (</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    make_sites,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    REGION_MIN,</span>
@@ -451,6 +474,14 @@ The mean easting and northing of all sites assigned to a cluster; summarizes the
     <a class="pager-link next" href="../leastcost/index.html">Least-Cost Path Analysis for Trade Routes →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

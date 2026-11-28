@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Pairwise Sequence Alignment</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -90,7 +113,7 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 <li>Each gap character contributes a penalty</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MATCH_SCORE <span class="op">=</span> <span class="dv">2</span>      <span class="co"># reward for aligning identical characters</span></span>
+<div class="sourceCode" id="cb1" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MATCH_SCORE <span class="op">=</span> <span class="dv">2</span>      <span class="co"># reward for aligning identical characters</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>MISMATCH_PENALTY <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># penalty for aligning different characters</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>GAP_PENALTY <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>     <span class="co"># penalty per gap character inserted in either sequence</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example sequences for the lesson.</span></span>
@@ -120,10 +143,10 @@ Wrong: if both sequences are identical the edit distance is zero, regardless of 
 <li>There is no zero floor: unlike local alignment, global alignment must account for every character in both sequences, so negative scores are allowed</li>
 <li>The final score of the best global alignment is <span class="math inline">\(H[m, n]\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _nt_score(a, b):</span>
+<div class="sourceCode" id="cb2" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _nt_score(a, b):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return match score or mismatch penalty for two nucleotide characters."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> MATCH_SCORE <span class="cf">if</span> a <span class="op">==</span> b <span class="cf">else</span> MISMATCH_PENALTY</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_matrix(seq_a, seq_b):</span>
+<div class="sourceCode" id="cb3" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_matrix(seq_a, seq_b):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the Needleman-Wunsch scoring matrix for two sequences.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The matrix has shape (len(seq_a)+1, len(seq_b)+1).  Entry H[i, j] holds</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    the score of the best global alignment of seq_a[:i] with seq_b[:j].</span></span>
@@ -237,7 +260,7 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 </ul></li>
 <li>Reverse the collected characters at the end, since the traceback runs backwards</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> traceback(H, seq_a, seq_b):</span>
+<div class="sourceCode" id="cb4" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> traceback(H, seq_a, seq_b):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Trace back from the bottom-right cell to recover the global alignment.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (aligned_a, aligned_b, score) where '-' marks a gap.</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Global alignment always ends at H[m, n] and traces back to H[0, 0].</span></span>
@@ -266,7 +289,7 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            aligned_b.append(seq_b[j <span class="op">-</span> <span class="dv">1</span>])</span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            j <span class="op">-=</span> <span class="dv">1</span></span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span>.join(<span class="bu">reversed</span>(aligned_a)), <span class="st">""</span>.join(<span class="bu">reversed</span>(aligned_b)), score</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> align(seq_a, seq_b):</span>
+<div class="sourceCode" id="cb5" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> align(seq_a, seq_b):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the best global alignment of seq_a and seq_b as (aligned_a, aligned_b, score)."""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> fill_matrix(seq_a, seq_b)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> traceback(H, seq_a, seq_b)</span></code></pre></div>
@@ -314,7 +337,7 @@ Wrong: the relative penalties are set by <code>MISMATCH_PENALTY</code> and <code
 </table>
 </div>
 <h2 data-number="9.7" id="displaying-the-alignment"><span class="header-section-number">9.7</span> Displaying the Alignment</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_alignment(aligned_a, aligned_b):</span>
+<div class="sourceCode" id="cb6" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_alignment(aligned_a, aligned_b):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a three-line string representation of an alignment.</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The middle row marks matches with '|' and mismatches or gaps with ' '.</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
@@ -335,7 +358,7 @@ b: A-GT</code></pre>
 <li>Plotting <span class="math inline">\(H\)</span> as a heatmap shows where high-scoring regions form</li>
 <li>Bright cells cluster along diagonals where the sequences share runs of matching characters</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_matrix(H, seq_a, seq_b):</span>
+<div class="sourceCode" id="cb8" data-file="align/align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_matrix(H, seq_a, seq_b):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair heatmap of the scoring matrix."""</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    rows <span class="op">=</span> [</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        {</span>
@@ -407,7 +430,7 @@ Aligning a sequence with itself must match at every position with no gaps or mis
 When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALTY</code>, the optimal global alignment still pairs all characters (no gaps), since introducing a gap would not improve the score. Score = <span class="math inline">\(\text{len} \times \text{MISMATCH_PENALTY}\)</span>. Note the difference from Smith-Waterman, which would return an empty alignment with score 0.
 </dd>
 </dl>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> align <span class="im">import</span> (</span>
+<div class="sourceCode" id="cb9" data-file="align/test_align.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> align <span class="im">import</span> (</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    GAP_PENALTY,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    MATCH_SCORE,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    MISMATCH_PENALTY,</span>
@@ -488,6 +511,14 @@ When every character pair is a mismatch and <code>GAP_PENALTY == MISMATCH_PENALT
     <a class="pager-link next" href="../authorship/index.html">Authorship Attribution by N-gram Profiles →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

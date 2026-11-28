@@ -1,122 +1,45 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>A Database</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>A Database</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a class="active" href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>A Database</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#db-start" id="toc-db-start"><span class="header-section-number">18.1</span> Starting Point</a></li>
+<li><a href="#db-save" id="toc-db-save"><span class="header-section-number">18.2</span> Saving Records</a></li>
+<li><a href="#db-file" id="toc-db-file"><span class="header-section-number">18.3</span> A File-Backed Database</a></li>
+<li><a href="#db-block" id="toc-db-block"><span class="header-section-number">18.4</span> Playing with Blocks</a></li>
+<li><a href="#db-persist" id="toc-db-persist"><span class="header-section-number">18.5</span> Persisting Blocks</a></li>
+<li><a href="#db-cleanup" id="toc-db-cleanup"><span class="header-section-number">18.6</span> Cleaning Up</a></li>
+<li><a href="#db-summary" id="toc-db-summary"><span class="header-section-number">18.7</span> Summary</a></li>
+<li><a href="#db-exercises" id="toc-db-exercises"><span class="header-section-number">18.8</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">A Database</h1>
+<div class="syllabus">
 <ul>
 <li>Database stores records so that they can be accessed by key.</li>
 <li>Log-structured database appends new records to database and invalidates older versions of records.</li>
@@ -125,672 +48,403 @@
 <li>We can improve the efficiency of a database by saving records in blocks.</li>
 </ul>
 </div>
-<p>Persisting objects (<a class="xref" href="../persist/">Chapter 16</a>) lets us save and restore program state,
-but we often want to be able to look things up quickly
-without reloading all of our data.
-We would also like applications written in different languages
-to be able to get at our data,
-which might be easier if we choose a different storage format.</p>
-<p>This chapter therefore builds a very simple
-<a class="gl-ref" href="../glossary/#log_structured_db">log-structured database</a>.
-The phrase "log-structured" means that records a log of operations,
-i.e.,
-every new <span class="ix-ref" data-ix-key="record" id="ix-db-1">record</span> is appended to the end of the database.
-Programmers have invented many other ways to store large amounts of data,
-but this is one of the easiest to understand.</p>
-<h2 id="db-start">Starting Point</h2>
-<p>Our starting point is
-a simple <a class="gl-ref" href="../glossary/#key_value_store">key-value store</a>
-that lets us save records and look them up later.
-To use it,
-we have to provide a function that takes a record
-and returns its key.
-We store that function in the <code>Database</code> object for later use:</p>
-<div data-inc="interface_original.py"><span aria-label="Source: db/interface_original.py" class="inc-path" role="img" tabindex="0" title="db/interface_original.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Database</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key_func</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Initialize with function to get key."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_key_func</span> <span class="o">=</span> <span class="n">key_func</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Store the given record."""</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"add"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Return record associated with key or None."""</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"get"</span><span class="p">)</span>
-</code></pre></div>
+<p>Persisting objects (<a href="../persist/index.html" class="quarto-xref"><span>Chapter 16</span></a>) lets us save and restore program state, but we often want to be able to look things up quickly without reloading all of our data. We would also like applications written in different languages to be able to get at our data, which might be easier if we choose a different storage format.</p>
+<p>This chapter therefore builds a very simple <a href="../glossary/index.html#log_structured_db">log-structured database</a>. The phrase “log-structured” means that records a log of operations, i.e., every new record is appended to the end of the database. Programmers have invented many other ways to store large amounts of data, but this is one of the easiest to understand.</p>
+<h2 data-number="18.1" id="db-start"><span class="header-section-number">18.1</span> Starting Point</h2>
+<p>Our starting point is a simple <a href="../glossary/index.html#key_value_store">key-value store</a> that lets us save records and look them up later. To use it, we have to provide a function that takes a record and returns its key. We store that function in the <code>Database</code> object for later use:</p>
+<div class="sourceCode" id="cb1" data-file="db/interface_original.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Database:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key_func):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize with function to get key."""</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._key_func <span class="op">=</span> key_func</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Store the given record."""</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">NotImplementedError</span>(<span class="st">"add"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Return record associated with key or None."""</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">NotImplementedError</span>(<span class="st">"get"</span>)</span></code></pre></div>
+<p>If we want a dictionary that only stores things in memory, we can derive a class from <code>Database</code> that uses a dictionary with the values returned by the user’s key function for lookup (<a href="#fig-db-memory" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>):</p>
+<div class="sourceCode" id="cb2" data-file="db/just_dict_original.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> interface_original <span class="im">import</span> Database</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> JustDict(Database):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key_func):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(key_func)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data <span class="op">=</span> {}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        key <span class="op">=</span> <span class="va">self</span>._key_func(record)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data[key] <span class="op">=</span> record</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._data.get(key, <span class="va">None</span>)</span></code></pre></div>
+<div id="fig-db-memory" class="quarto-float quarto-figure quarto-figure-center" alt="In-memory dictionary acting as a database">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-db-memory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="memory.svg" alt="In-memory dictionary acting as a database">
 </div>
-<p>If we want a dictionary that only stores things in memory,
-we can derive a class from <code>Database</code>
-that uses a dictionary with the values returned by
-the user's key function for lookup
-(<a class="fig-ref" href="#f:db-memory">Figure 1</a>):</p>
-<div data-inc="just_dict_original.py"><span aria-label="Source: db/just_dict_original.py" class="inc-path" role="img" tabindex="0" title="db/just_dict_original.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">interface_original</span><span class="w"> </span><span class="kn">import</span> <span class="n">Database</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">JustDict</span><span class="p">(</span><span class="n">Database</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key_func</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">key_func</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_key_func</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<figure id="f:db-memory">
-<img alt="In-memory database" src="memory.svg"/>
-<figcaption>Figure 1: Storing a database as a single dictionary in memory.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-db-memory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.1: Storing a database as a single dictionary in memory.
+</figcaption>
 </figure>
-<p>This simple class is enough to let us start writing some tests.
-Let's create a class to store experimental records:</p>
-<div data-inc="record_original.py" data-omit="omit"><span aria-label="Source: db/record_original.py" class="inc-path" role="img" tabindex="0" title="db/record_original.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BasicRec</span><span class="p">:</span>
-    <span class="n">MAX_NAME_LEN</span> <span class="o">=</span> <span class="mi">6</span>     <span class="c1"># length of name in chars</span>
-    <span class="n">TIMESTAMP_LEN</span> <span class="o">=</span> <span class="mi">8</span>    <span class="c1"># length of timestamp in chars</span>
-    <span class="n">MAX_READING</span> <span class="o">=</span> <span class="mi">10</span>     <span class="c1"># maximum reading value</span>
-    <span class="n">MAX_READING_LEN</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># length of reading in chars</span>
-    <span class="n">MAX_READINGS_NUM</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># maximum number of readings</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">key</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">BasicRec</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">record</span><span class="o">.</span><span class="n">_name</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">readings</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MAX_NAME_LEN</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">readings</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MAX_READINGS_NUM</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">((</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MAX_READING</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">readings</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_timestamp</span> <span class="o">=</span> <span class="n">timestamp</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_readings</span> <span class="o">=</span> <span class="n">readings</span>
-
-<span class="c1"># ...9 lines not shown...</span>
-</code></pre></div>
 </div>
-<p>and use the <code>pytest.fixture</code> <span class="ix-ref" data-ix-key="decorator" id="ix-db-2">decorator</span> (<a class="xref" href="../protocols/">Chapter 9</a>)
-to create a database and two records:</p>
-<div data-inc="test_db_original.py" data-mark="fixture"><span aria-label="Source: db/test_db_original.py" class="inc-path" role="img" tabindex="0" title="db/test_db_original.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">db</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">JustDict</span><span class="p">(</span><span class="n">BasicExperiment</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">ex01</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">BasicExperiment</span><span class="p">(</span><span class="s2">"ex01"</span><span class="p">,</span> <span class="mi">12345</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">ex02</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">BasicExperiment</span><span class="p">(</span><span class="s2">"ex02"</span><span class="p">,</span> <span class="mi">67890</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</code></pre></div>
-</div>
+<p>This simple class is enough to let us start writing some tests. Let’s create a class to store experimental records:</p>
+<div class="sourceCode" id="cb3" data-file="db/record_original.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BasicRec:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    MAX_NAME_LEN <span class="op">=</span> <span class="dv">6</span>     <span class="co"># length of name in chars</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    TIMESTAMP_LEN <span class="op">=</span> <span class="dv">8</span>    <span class="co"># length of timestamp in chars</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    MAX_READING <span class="op">=</span> <span class="dv">10</span>     <span class="co"># maximum reading value</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    MAX_READING_LEN <span class="op">=</span> <span class="dv">2</span>  <span class="co"># length of reading in chars</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    MAX_READINGS_NUM <span class="op">=</span> <span class="dv">2</span> <span class="co"># maximum number of readings</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> key(record):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">isinstance</span>(record, BasicRec)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> record._name</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, timestamp, readings):</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;</span> <span class="bu">len</span>(name) <span class="op">&lt;=</span> <span class="va">self</span>.MAX_NAME_LEN</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;=</span> <span class="bu">len</span>(readings) <span class="op">&lt;=</span> <span class="va">self</span>.MAX_READINGS_NUM</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">all</span>((<span class="dv">0</span> <span class="op">&lt;=</span> r <span class="op">&lt;=</span> <span class="va">self</span>.MAX_READING) <span class="cf">for</span> r <span class="kw">in</span> readings)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> name</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._timestamp <span class="op">=</span> timestamp</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._readings <span class="op">=</span> readings</span></code></pre></div>
+<p>and use the <code>pytest.fixture</code> decorator (<a href="../protocols/index.html" class="quarto-xref"><span>Chapter 9</span></a>) to create a database and two records:</p>
+<div class="sourceCode" id="cb4" data-file="db/test_db_original.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> db():</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> JustDict(BasicExperiment.key)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ex01():</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> BasicExperiment(<span class="st">"ex01"</span>, <span class="dv">12345</span>, [<span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ex02():</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> BasicExperiment(<span class="st">"ex02"</span>, <span class="dv">67890</span>, [<span class="dv">3</span>, <span class="dv">4</span>])</span></code></pre></div>
 <p>Our first few tests are then:</p>
-<div data-inc="test_db_original.py" data-mark="test"><span aria-label="Source: db/test_db_original.py" class="inc-path" role="img" tabindex="0" title="db/test_db_original.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_construct</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">db</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_get_nothing_from_empty_db</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"something"</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_add_then_get</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">ex01</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ex01</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ex01"</span><span class="p">)</span> <span class="o">==</span> <span class="n">ex01</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_add_two_then_get_both</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">ex01</span><span class="p">,</span> <span class="n">ex02</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ex01</span><span class="p">)</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ex02</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ex01"</span><span class="p">)</span> <span class="o">==</span> <span class="n">ex01</span>
-    <span class="k">assert</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ex02"</span><span class="p">)</span> <span class="o">==</span> <span class="n">ex02</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_add_then_overwrite</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">ex01</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ex01</span><span class="p">)</span>
-    <span class="n">ex01</span><span class="o">.</span><span class="n">_timestamp</span> <span class="o">=</span> <span class="mi">67890</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ex01</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ex01"</span><span class="p">)</span> <span class="o">==</span> <span class="n">ex01</span>
-</code></pre></div>
-</div>
-<p>Our next step is to save the user's records in the database
-without tying the database to a particular type of record.
-The cleanest way to solve this problem is
-to require records to know how to convert themselves into something storable.
-Rather than passing a second function to the database's constructor,
-we will <span class="ix-ref" data-ix-key="refactor" id="ix-db-3">refactor</span> the database
-so that we pass in the object that represents the record class:</p>
-<div data-inc="interface.py"><span aria-label="Source: db/interface.py" class="inc-path" role="img" tabindex="0" title="db/interface.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Database</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_cls</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Initialize with data manipulation functions."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span> <span class="o">=</span> <span class="n">record_cls</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Store the given record."""</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"add"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Return record associated with key or None."""</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"get"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>We can now refactor our database
-to use a <span class="ix-ref" data-ix-key="static method" id="ix-db-4">static method</span> of the record class provided to its constructor
-when it needs a key:</p>
-<div data-inc="just_dict_refactored.py"><span aria-label="Source: db/just_dict_refactored.py" class="inc-path" role="img" tabindex="0" title="db/just_dict_refactored.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">Database</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">JustDictRefactored</span><span class="p">(</span><span class="n">Database</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_cls</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">record_cls</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<h2 id="db-save">Saving Records</h2>
-<p>The next step in building a usable database is to have it store records
-rather than just refer to the user's objects.
-Since we don't want the database tied to any particular kind of record,
-records must know how to pack and unpack themselves.
-We could have used the techniques of <a class="xref" href="../binary/">Chapter 17</a>,
-but to make our test and sample output a little more readable,
-we will pack numbers as strings
-with a <a class="gl-ref" href="../glossary/#null_byte">null byte</a> <code>\0</code> between each string:</p>
-<div data-inc="record.py" data-mark="pack"><span aria-label="Source: db/record.py" class="inc-path" role="img" tabindex="0" title="db/record.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">pack</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">Experiment</span><span class="p">)</span>
-        <span class="n">readings</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\0</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">record</span><span class="o">.</span><span class="n">_readings</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">_name</span><span class="si">}</span><span class="se">\0</span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">_timestamp</span><span class="si">}</span><span class="se">\0</span><span class="si">{</span><span class="n">readings</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Experiment</span><span class="o">.</span><span class="n">RECORD_LEN</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="s2">"</span><span class="se">\0</span><span class="s2">"</span> <span class="o">*</span> <span class="p">(</span><span class="n">Experiment</span><span class="o">.</span><span class="n">RECORD_LEN</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb5" data-file="db/test_db_original.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_construct(db):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> db</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_get_nothing_from_empty_db(db):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> db.get(<span class="st">"something"</span>) <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_add_then_get(db, ex01):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    db.add(ex01)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> db.get(<span class="st">"ex01"</span>) <span class="op">==</span> ex01</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_add_two_then_get_both(db, ex01, ex02):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    db.add(ex01)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    db.add(ex02)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> db.get(<span class="st">"ex01"</span>) <span class="op">==</span> ex01</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> db.get(<span class="st">"ex02"</span>) <span class="op">==</span> ex02</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_add_then_overwrite(db, ex01):</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    db.add(ex01)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    ex01._timestamp <span class="op">=</span> <span class="dv">67890</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    db.add(ex01)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> db.get(<span class="st">"ex01"</span>) <span class="op">==</span> ex01</span></code></pre></div>
+<p>Our next step is to save the user’s records in the database without tying the database to a particular type of record. The cleanest way to solve this problem is to require records to know how to convert themselves into something storable. Rather than passing a second function to the database’s constructor, we will refactor the database so that we pass in the object that represents the record class:</p>
+<div class="sourceCode" id="cb6" data-file="db/interface.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Database:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, record_cls):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize with data manipulation functions."""</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._record_cls <span class="op">=</span> record_cls</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Store the given record."""</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">NotImplementedError</span>(<span class="st">"add"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Return record associated with key or None."""</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">NotImplementedError</span>(<span class="st">"get"</span>)</span></code></pre></div>
+<p>We can now refactor our database to use a static method of the record class provided to its constructor when it needs a key:</p>
+<div class="sourceCode" id="cb7" data-file="db/just_dict_refactored.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> interface <span class="im">import</span> Database</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> JustDictRefactored(Database):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, record_cls):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(record_cls)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data <span class="op">=</span> {}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        key <span class="op">=</span> <span class="va">self</span>._record_cls.key(record)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data[key] <span class="op">=</span> record</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._data.get(key, <span class="va">None</span>)</span></code></pre></div>
+<h2 data-number="18.2" id="db-save"><span class="header-section-number">18.2</span> Saving Records</h2>
+<p>The next step in building a usable database is to have it store records rather than just refer to the user’s objects. Since we don’t want the database tied to any particular kind of record, records must know how to pack and unpack themselves. We could have used the techniques of <a href="../binary/index.html" class="quarto-xref"><span>Chapter 17</span></a>, but to make our test and sample output a little more readable, we will pack numbers as strings with a <a href="../glossary/index.html#null_byte">null byte</a> <code>\0</code> between each string:</p>
+<div class="sourceCode" id="cb8" data-file="db/record.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> pack(record):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">isinstance</span>(record, Experiment)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        readings <span class="op">=</span> <span class="st">"</span><span class="ch">\0</span><span class="st">"</span>.join(<span class="bu">str</span>(r) <span class="cf">for</span> r <span class="kw">in</span> record._readings)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>record<span class="sc">.</span>_name<span class="sc">}</span><span class="ch">\0</span><span class="sc">{</span>record<span class="sc">.</span>_timestamp<span class="sc">}</span><span class="ch">\0</span><span class="sc">{</span>readings<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(result) <span class="op">&lt;</span> Experiment.RECORD_LEN:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            result <span class="op">+=</span> <span class="st">"</span><span class="ch">\0</span><span class="st">"</span> <span class="op">*</span> (Experiment.RECORD_LEN <span class="op">-</span> <span class="bu">len</span>(result))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span></code></pre></div>
 <p>The corresponding method to unpack a stored record is:</p>
-<div data-inc="record.py" data-mark="unpack"><span aria-label="Source: db/record.py" class="inc-path" role="img" tabindex="0" title="db/record.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-        <span class="n">parts</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\0</span><span class="s2">"</span><span class="p">)</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">readings</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)]</span>
-        <span class="k">return</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">readings</span><span class="p">)</span>
-</code></pre></div>
+<div class="sourceCode" id="cb9" data-file="db/record.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> unpack(raw):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">isinstance</span>(raw, <span class="bu">str</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        parts <span class="op">=</span> raw.split(<span class="st">"</span><span class="ch">\0</span><span class="st">"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        name <span class="op">=</span> parts[<span class="dv">0</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        timestamp <span class="op">=</span> <span class="bu">int</span>(parts[<span class="dv">1</span>])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        readings <span class="op">=</span> [<span class="bu">int</span>(r) <span class="cf">for</span> r <span class="kw">in</span> parts[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(r)]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Experiment(name, timestamp, readings)</span></code></pre></div>
+<p>These records look like the example below (which uses <code>.</code> to show null bytes):</p>
+<div class="sourceCode" id="cb10" data-file="db/show_packed_records.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> record <span class="im">import</span> Experiment</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> Experiment(<span class="st">"abcdef"</span>, <span class="dv">12345</span>, [<span class="dv">6</span>, <span class="dv">7</span>])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Experiment.pack(ex).replace(<span class="st">'</span><span class="ch">\0</span><span class="st">'</span>, <span class="st">'.'</span>))</span></code></pre></div>
+<pre data-file="db/show_packed_records.out"><code>abcdef.12345.6.7.....</code></pre>
+<p>Notice that our packing and unpacking methods are static, i.e., they’re part of the class but don’t require an object to work. More importantly, they don’t handle strings that contain null bytes. This limitation wasn’t part of our original design, but is instead an accident of implementation. We will look at ways around it in the exercises.</p>
+<p>To finish off, we write methods to pack and unpack multiple records at once by joining and splitting single-record data:</p>
+<div class="sourceCode" id="cb12" data-file="db/record.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> pack_multi(records):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span>.join([Experiment.pack(r) <span class="cf">for</span> r <span class="kw">in</span> records])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> unpack_multi(raw):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        size <span class="op">=</span> Experiment.size()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        split <span class="op">=</span> [raw[i:i <span class="op">+</span> size] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(raw), size)]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [Experiment.unpack(s) <span class="cf">for</span> s <span class="kw">in</span> split]</span></code></pre></div>
+<p>and give our record class a static method that calculates the size of a single record:</p>
+<div class="sourceCode" id="cb13" data-file="db/record.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Experiment(BasicRec):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    RECORD_LEN <span class="op">=</span> BasicRec.MAX_NAME_LEN <span class="op">+</span> <span class="dv">1</span> <span class="op">\</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> BasicRec.TIMESTAMP_LEN <span class="op">+</span> <span class="dv">1</span> <span class="op">\</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> (BasicRec.MAX_READING_LEN <span class="op">*</span> BasicRec.MAX_READINGS_NUM) <span class="op">\</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> (BasicRec.MAX_READINGS_NUM <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> size():</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Experiment.RECORD_LEN</span></code></pre></div>
+<div>
+<blockquote>
+<p><strong>Tradeoffs</strong></p>
+<p>We’re assuming that every record is the same size. If we want to save records with variable-length fields such as strings, we can either set a maximum size and always save that much data or make our implementation more complicated (and probably slower) by saving each record’s size and then scanning records in the same way that we scanned the bytes making up Unicode characters in <a href="../binary/index.html" class="quarto-xref"><span>Chapter 17</span></a>. The first choice spends space (i.e., memory and disk) to save time; the second spends time to save space. As <span class="citation" data-cites="Bentley1982">(<a href="../bibliography/index.html#ref-Bentley1982" role="doc-biblioref">Bentley 1982</a>)</span> pointed out over 40 years ago, a lot of performance optimizations in programming come down to trading space for time or vice versa.</p>
+</blockquote>
 </div>
-<p>These records look like the example below
-(which uses <code>.</code> to show null bytes):</p>
-<div data-inc="show_packed_records.py"><span aria-label="Source: db/show_packed_records.py" class="inc-path" role="img" tabindex="0" title="db/show_packed_records.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">record</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
-
-<span class="n">ex</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span><span class="s2">"abcdef"</span><span class="p">,</span> <span class="mi">12345</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Experiment</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\0</span><span class="s1">'</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">))</span>
-</code></pre></div>
+<h2 data-number="18.3" id="db-file"><span class="header-section-number">18.3</span> A File-Backed Database</h2>
+<p>We now have what we need to extend our dictionary-based implementation to write records to a file and load them as needed:</p>
+<div class="sourceCode" id="cb14" data-file="db/file_backed.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FileBacked(Database):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, record_cls, filename):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(record_cls)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._filename <span class="op">=</span> Path(filename)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>._filename.exists():</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._filename.touch()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._load()</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        key <span class="op">=</span> <span class="va">self</span>._record_cls.key(record)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data[key] <span class="op">=</span> record</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._save()</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._data.get(key, <span class="va">None</span>)</span></code></pre></div>
+<p>This implementation stores everything in a single file, whose name must be provided to the database’s constructor (<a href="#fig-db-single-file" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>). If that file doesn’t exist when the database object is created, we use <code>Path.touch</code> to create an empty file; either way, we then load the entire database into memory. When we add a record, we save it in the dictionary and call a helper method <code>_save</code> to write the entire database back to the file. When we get a record, we simply get it from the in-memory dictionary.</p>
+<div id="fig-db-single-file" class="quarto-float quarto-figure quarto-figure-center" alt="Whole database written to one file">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-db-single-file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="single_file.svg" alt="Whole database written to one file">
 </div>
-<div data-inc="show_packed_records.out"><span aria-label="Source: db/show_packed_records.out" class="inc-path" role="img" tabindex="0" title="db/show_packed_records.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>abcdef.12345.6.7.....
-</code></pre></div>
-</div>
-<p>Notice that our packing and unpacking methods are static,
-i.e.,
-they're part of the class
-but don't require an object to work.
-More importantly,
-they don't handle strings that contain null bytes.
-This limitation wasn't part of our original design,
-but is instead an accident of implementation.
-We will look at ways around it in the exercises.</p>
-<p>To finish off,
-we write methods to pack and unpack multiple records at once
-by joining and splitting single-record data:</p>
-<div data-inc="record.py" data-mark="multi"><span aria-label="Source: db/record.py" class="inc-path" role="img" tabindex="0" title="db/record.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">pack_multi</span><span class="p">(</span><span class="n">records</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">Experiment</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span><span class="p">])</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">unpack_multi</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
-        <span class="n">size</span> <span class="o">=</span> <span class="n">Experiment</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-        <span class="n">split</span> <span class="o">=</span> <span class="p">[</span><span class="n">raw</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="p">),</span> <span class="n">size</span><span class="p">)]</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">Experiment</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">split</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<p>and give our record class a static method
-that calculates the size of a single record:</p>
-<div data-inc="record.py" data-mark="base"><span aria-label="Source: db/record.py" class="inc-path" role="img" tabindex="0" title="db/record.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Experiment</span><span class="p">(</span><span class="n">BasicRec</span><span class="p">):</span>
-    <span class="n">RECORD_LEN</span> <span class="o">=</span> <span class="n">BasicRec</span><span class="o">.</span><span class="n">MAX_NAME_LEN</span> <span class="o">+</span> <span class="mi">1</span> \
-        <span class="o">+</span> <span class="n">BasicRec</span><span class="o">.</span><span class="n">TIMESTAMP_LEN</span> <span class="o">+</span> <span class="mi">1</span> \
-        <span class="o">+</span> <span class="p">(</span><span class="n">BasicRec</span><span class="o">.</span><span class="n">MAX_READING_LEN</span> <span class="o">*</span> <span class="n">BasicRec</span><span class="o">.</span><span class="n">MAX_READINGS_NUM</span><span class="p">)</span> \
-        <span class="o">+</span> <span class="p">(</span><span class="n">BasicRec</span><span class="o">.</span><span class="n">MAX_READINGS_NUM</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">Experiment</span><span class="o">.</span><span class="n">RECORD_LEN</span>
-</code></pre></div>
-</div>
-<div class="callout">
-<h3>Tradeoffs</h3>
-<p>We're assuming that every record is the same size.
-If we want to save records with variable-length fields such as strings,
-we can either set a maximum size and always save that much data
-or make our implementation more complicated (and probably slower)
-by saving each record's size
-and then scanning records in the same way that
-we scanned the bytes making up <span class="ix-ref" data-ix-key="Unicode" id="ix-db-5">Unicode</span> characters in <a class="xref" href="../binary/">Chapter 17</a>.
-The first choice spends space (i.e., memory and disk) to save time;
-the second spends time to save space.
-As [<a class="bib-ref" href="../bibliography/#Bentley1982">Bentley1982</a>] pointed out over 40 years ago,
-a lot of performance optimizations in programming
-come down to trading space for time or vice versa.</p>
-</div>
-<h2 id="db-file">A File-Backed Database</h2>
-<p>We now have what we need to extend our dictionary-based implementation
-to write records to a file and load them as needed:</p>
-<div data-inc="file_backed.py" data-mark="core"><span aria-label="Source: db/file_backed.py" class="inc-path" role="img" tabindex="0" title="db/file_backed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FileBacked</span><span class="p">(</span><span class="n">Database</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">record_cls</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>This implementation stores everything in a single file,
-whose name must be provided to the database's constructor
-(<a class="fig-ref" href="#f:db-single-file">Figure 2</a>).
-If that file doesn't exist when the database object is created,
-we use <code>Path.touch</code> to create an empty file;
-either way,
-we then load the entire database into memory.
-When we add a record,
-we save it in the dictionary
-and call a <span class="ix-ref" data-ix-key="helper method" id="ix-db-6">helper method</span> <code>_save</code>
-to write the entire database back to the file.
-When we get a record,
-we simply get it from the in-memory dictionary.</p>
-<figure id="f:db-single-file">
-<img alt="Using a single file" src="single_file.svg"/>
-<figcaption>Figure 2: Saving the entire database in a single file.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-db-single-file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.2: Saving the entire database in a single file.
+</figcaption>
 </figure>
+</div>
 <p>The two helper methods we need to make this work are:</p>
-<div data-inc="file_backed.py" data-mark="helper"><span aria-label="Source: db/file_backed.py" class="inc-path" role="img" tabindex="0" title="db/file_backed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">packed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">pack_multi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">packed</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">records</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">unpack_multi</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">r</span><span class="p">):</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span><span class="p">}</span>
-</code></pre></div>
+<div class="sourceCode" id="cb15" data-file="db/file_backed.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _save(<span class="va">self</span>):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        packed <span class="op">=</span> <span class="va">self</span>._record_cls.pack_multi(<span class="va">self</span>._data.values())</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(<span class="va">self</span>._filename, <span class="st">"w"</span>) <span class="im">as</span> writer:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            writer.write(packed)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _load(<span class="va">self</span>):</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="va">self</span>._filename.exists()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(<span class="va">self</span>._filename, <span class="st">"r"</span>) <span class="im">as</span> reader:</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>            raw <span class="op">=</span> reader.read()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        records <span class="op">=</span> <span class="va">self</span>._record_cls.unpack_multi(raw)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._data <span class="op">=</span> {<span class="va">self</span>._record_cls.key(r): r <span class="cf">for</span> r <span class="kw">in</span> records}</span></code></pre></div>
+<p>It isn’t very efficient—we are loading the entire database the first time we want a single record, and saving the entire database every time we add a record—but we are getting closer to something we might actually use.</p>
+<h2 data-number="18.4" id="db-block"><span class="header-section-number">18.4</span> Playing with Blocks</h2>
+<p>How can we make our file-backed implementation more efficient? One option would be to save each record in a file of its own, in the same way that we saved each version of a file in <a href="../archive/index.html" class="quarto-xref"><span>Chapter 10</span></a>. However, this strategy won’t give us as much of a performance boost as we’d like. The reason is that computers do file I/O in <a href="../glossary/index.html#page">pages</a> that are typically 2 or 4 kilobytes in size. Even when we want to read a single byte, the operating system always reads a full page and then gives us just the byte we asked for.</p>
+<p>A more efficient strategy is to group records together in <a href="../glossary/index.html#block_memory">blocks of memory</a>, each of which is the same size as a page, and to create an index in memory to tell us which records are in which blocks. When we add a record, we only write its block to disk; similarly, when we need a record whose block isn’t already in memory, we only read that block.</p>
+<p>At this point we need to address an issue we should have tackled earlier. How do we handle updates to records? For example, suppose we already have a record with the ID 12345; what do we do when we get another record with the same ID? If we are storing the entire database in a single dictionary, the dictionary takes care of that for us, but if we are storing things in blocks, we will have multiple dictionaries.</p>
+<p>This is where the “log-structured” part of our design comes in. Whenever we add a record to the database, we append it to the current block or start another block if the current one is full (<a href="#fig-db-alloc" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>). We give each record a sequence number as we add it, and our overall index keeps track of the mapping from record IDs to sequence IDs. Since we know how many records there are in a block, we can quickly calculate which block contains the record with a particular sequence ID.</p>
+<div id="fig-db-alloc" class="quarto-float quarto-figure quarto-figure-center" alt="Records placed into storage blocks">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-db-alloc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="alloc.svg" alt="Records placed into storage blocks">
 </div>
-<p>It isn't very efficient—we are
-loading the entire database the first time we want a single record,
-and saving the entire database every time we add a record—but
-we are getting closer to something we might actually use.</p>
-<h2 id="db-block">Playing with Blocks</h2>
-<p>How can we make our file-backed implementation more efficient?
-One option would be to save each record in a file of its own,
-in the same way that we saved each version of a file in <a class="xref" href="../archive/">Chapter 10</a>.
-However,
-this strategy won't give us as much of a performance boost as we'd like.
-The reason is that computers do file I/O in <a class="gl-ref" href="../glossary/#page">pages</a>
-that are typically 2 or 4 kilobytes in size.
-Even when we want to read a single byte,
-the operating system always reads a full page
-and then gives us just the byte we asked for.</p>
-<p>A more efficient strategy is
-to group records together in <a class="gl-ref" href="../glossary/#block_memory">blocks of memory</a>,
-each of which is the same size as a page,
-and to create an <span class="ix-ref" data-ix-key="index (a database)" id="ix-db-7">index</span> in memory
-to tell us which records are in which blocks.
-When we add a record,
-we only write its block to disk;
-similarly,
-when we need a record whose block isn't already in memory,
-we only read that block.</p>
-<p>At this point we need to address an issue we should have tackled earlier.
-How do we handle updates to records?
-For example,
-suppose we already have a record with the ID 12345;
-what do we do when we get another record with the same ID?
-If we are storing the entire database in a single dictionary,
-the dictionary takes care of that for us,
-but if we are storing things in blocks,
-we will have multiple dictionaries.</p>
-<p>This is where the "log-structured" part of our design comes in.
-Whenever we add a record to the database,
-we append it to the current block
-or start another block if the current one is full
-(<a class="fig-ref" href="#f:db-alloc">Figure 3</a>).
-We give each record a sequence number as we add it,
-and our overall index keeps track of
-the mapping from record IDs to sequence IDs.
-Since we know how many records there are in a block,
-we can quickly calculate which block contains
-the record with a particular sequence ID.</p>
-<figure id="f:db-alloc">
-<img alt="Mapping records to blocks" src="alloc.svg"/>
-<figcaption>Figure 3: Mapping records to blocks.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-db-alloc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.3: Mapping records to blocks.
+</figcaption>
 </figure>
-<p>Let's create a new in-memory database
-using one dictionary for each block.
-The constructor creates <code>self._next</code>
-to store the sequence ID of the next record,
-<code>self._index</code> to map record IDs to sequence IDs,
-and a list <code>self._blocks</code> to store blocks:</p>
-<div data-inc="blocked.py" data-mark="class"><span aria-label="Source: db/blocked.py" class="inc-path" role="img" tabindex="0" title="db/blocked.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Blocked</span><span class="p">(</span><span class="n">Database</span><span class="p">):</span>
-    <span class="n">RECORDS_PER_BLOCK</span> <span class="o">=</span> <span class="mi">2</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">Blocked</span><span class="o">.</span><span class="n">RECORDS_PER_BLOCK</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_cls</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">record_cls</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">num_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">num_records</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">)</span>
-</code></pre></div>
 </div>
+<p>Let’s create a new in-memory database using one dictionary for each block. The constructor creates <code>self._next</code> to store the sequence ID of the next record, <code>self._index</code> to map record IDs to sequence IDs, and a list <code>self._blocks</code> to store blocks:</p>
+<div class="sourceCode" id="cb16" data-file="db/blocked.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Blocked(Database):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    RECORDS_PER_BLOCK <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> size():</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Blocked.RECORDS_PER_BLOCK</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, record_cls):</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(record_cls)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._next <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._index <span class="op">=</span> {}</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._blocks <span class="op">=</span> []</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> num_blocks(<span class="va">self</span>):</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>._blocks)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> num_records(<span class="va">self</span>):</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>._index)</span></code></pre></div>
 <p>To add a record, we:</p>
-<ol>
-<li>
-<p>get the sequence ID for the record;</p>
-</li>
-<li>
-<p>store the key-to-sequence mapping in the index;</p>
-</li>
-<li>
-<p>find or create the right block; and</p>
-</li>
-<li>
-<p>add the record.</p>
-</li>
+<ol type="1">
+<li><p>get the sequence ID for the record;</p></li>
+<li><p>store the key-to-sequence mapping in the index;</p></li>
+<li><p>find or create the right block; and</p></li>
+<li><p>add the record.</p></li>
 </ol>
-<div data-inc="blocked.py" data-mark="add"><span aria-label="Source: db/blocked.py" class="inc-path" role="img" tabindex="0" title="db/blocked.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="n">seq_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_seq_id</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq_id</span>
-        <span class="n">block_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block_id</span><span class="p">(</span><span class="n">seq_id</span><span class="p">)</span>
-        <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
-        <span class="n">block</span><span class="p">[</span><span class="n">seq_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span>
-</code></pre></div>
-</div>
-<p>To get a record given a record ID,
-we first ask if we even have that record.
-If we do,
-we:</p>
-<ol>
-<li>
-<p>find its current sequence ID;</p>
-</li>
-<li>
-<p>find the corresponding block; and</p>
-</li>
-<li>
-<p>get the record.</p>
-</li>
+<div class="sourceCode" id="cb17" data-file="db/blocked.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        key <span class="op">=</span> <span class="va">self</span>._record_cls.key(record)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        seq_id <span class="op">=</span> <span class="va">self</span>._next_seq_id()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._index[key] <span class="op">=</span> seq_id</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        block_id <span class="op">=</span> <span class="va">self</span>._get_block_id(seq_id)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        block <span class="op">=</span> <span class="va">self</span>._get_block(block_id)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        block[seq_id] <span class="op">=</span> record</span></code></pre></div>
+<p>To get a record given a record ID, we first ask if we even have that record. If we do, we:</p>
+<ol type="1">
+<li><p>find its current sequence ID;</p></li>
+<li><p>find the corresponding block; and</p></li>
+<li><p>get the record.</p></li>
 </ol>
-<div data-inc="blocked.py" data-mark="get"><span aria-label="Source: db/blocked.py" class="inc-path" role="img" tabindex="0" title="db/blocked.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
-        <span class="n">seq_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="n">block_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block_id</span><span class="p">(</span><span class="n">seq_id</span><span class="p">)</span>
-        <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">block</span><span class="p">[</span><span class="n">seq_id</span><span class="p">]</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb18" data-file="db/blocked.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> key <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>._index:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        seq_id <span class="op">=</span> <span class="va">self</span>._index[key]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        block_id <span class="op">=</span> <span class="va">self</span>._get_block_id(seq_id)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        block <span class="op">=</span> <span class="va">self</span>._get_block(block_id)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> block[seq_id]</span></code></pre></div>
 <p>The three helper methods that <code>add</code> and <code>get</code> rely on are:</p>
-<div data-inc="blocked.py" data-mark="helper"><span aria-label="Source: db/blocked.py" class="inc-path" role="img" tabindex="0" title="db/blocked.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_next_seq_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">seq_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">seq_id</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_block_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_id</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">seq_id</span> <span class="o">//</span> <span class="n">Blocked</span><span class="o">.</span><span class="n">RECORDS_PER_BLOCK</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">):</span>
-        <span class="k">while</span> <span class="n">block_id</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">({})</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">[</span><span class="n">block_id</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<h2 id="db-persist">Persisting Blocks</h2>
-<p>We now have working prototypes of the two parts of our design:
-saving data to file
-and dividing records into blocks.
-In order to combine them,
-we will inherit from our block-based implementation
-and extend the <code>add</code> and <code>get</code> methods to save and load data:</p>
-<div data-inc="blocked_file.py" data-mark="class"><span aria-label="Source: db/blocked_file.py" class="inc-path" role="img" tabindex="0" title="db/blocked_file.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BlockedFile</span><span class="p">(</span><span class="n">Blocked</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_cls</span><span class="p">,</span> <span class="n">db_dir</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">record_cls</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_db_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">db_dir</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_build_index</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb19" data-file="db/blocked.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _next_seq_id(<span class="va">self</span>):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        seq_id <span class="op">=</span> <span class="va">self</span>._next</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._next <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> seq_id</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _get_block_id(<span class="va">self</span>, seq_id):</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> seq_id <span class="op">//</span> Blocked.RECORDS_PER_BLOCK</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _get_block(<span class="va">self</span>, block_id):</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> block_id <span class="op">&gt;=</span> <span class="bu">len</span>(<span class="va">self</span>._blocks):</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._blocks.append({})</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._blocks[block_id]</span></code></pre></div>
+<h2 data-number="18.5" id="db-persist"><span class="header-section-number">18.5</span> Persisting Blocks</h2>
+<p>We now have working prototypes of the two parts of our design: saving data to file and dividing records into blocks. In order to combine them, we will inherit from our block-based implementation and extend the <code>add</code> and <code>get</code> methods to save and load data:</p>
+<div class="sourceCode" id="cb20" data-file="db/blocked_file.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BlockedFile(Blocked):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, record_cls, db_dir):</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(record_cls)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._db_dir <span class="op">=</span> Path(db_dir)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._build_index()</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, record):</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().add(record)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._save(record)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key):</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> key <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>._index:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._load(key)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">super</span>().get(key)</span></code></pre></div>
 <p>We will explain the call to <code>self._build_index()</code> in a few paragraphs.</p>
-<div class="callout">
-<h3>One at a Time</h3>
-<p>Exploring ideas one at a time and then combining them
-is a common tactic among experienced designers [<a class="bib-ref" href="../bibliography/#Petre2016">Petre2016</a>].
-Creating classes like the all-in-one-file database
-that we don't put into production
-may feel like a waste of time,
-but it usually saves us effort in the long run
-by reducing <span class="ix-ref" data-ix-key="cognitive load" id="ix-db-8">cognitive load</span>.</p>
+<div>
+<blockquote>
+<p><strong>One at a Time</strong></p>
+<p>Exploring ideas one at a time and then combining them is a common tactic among experienced designers <span class="citation" data-cites="Petre2016">(<a href="../bibliography/index.html#ref-Petre2016" role="doc-biblioref">Petre and Hoek 2016</a>)</span>. Creating classes like the all-in-one-file database that we don’t put into production may feel like a waste of time, but it usually saves us effort in the long run by reducing cognitive load.</p>
+</blockquote>
 </div>
-<p>Saving a block is mostly a matter of bookkeeping at this point.
-Given the record,
-we figure out which block it belongs in,
-save it,
-pack the block,
-and write the result to a file:</p>
-<div data-inc="blocked_file.py" data-mark="save"><span aria-label="Source: db/blocked_file.py" class="inc-path" role="img" tabindex="0" title="db/blocked_file.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="n">seq_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="n">block_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block_id</span><span class="p">(</span><span class="n">seq_id</span><span class="p">)</span>
-
-        <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
-        <span class="n">packed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">pack_multi</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-
-        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_filename</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">packed</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<p>Loading involves almost the same steps,
-but our implementation splits it into two pieces:</p>
-<div data-inc="blocked_file.py" data-mark="load"><span aria-label="Source: db/blocked_file.py" class="inc-path" role="img" tabindex="0" title="db/blocked_file.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="n">seq_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="n">block_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block_id</span><span class="p">(</span><span class="n">seq_id</span><span class="p">)</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_filename</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_load_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_load_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-        <span class="n">records</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">unpack_multi</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-        <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="n">block_id</span>
-        <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">records</span><span class="p">):</span>
-            <span class="n">block</span><span class="p">[</span><span class="n">base</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
-</code></pre></div>
-</div>
-<p>We put the code to load a single block in a method of its own
-because we need to initialize the in-memory index when restarting the database:</p>
-<div data-inc="blocked_file.py" data-mark="index"><span aria-label="Source: db/blocked_file.py" class="inc-path" role="img" tabindex="0" title="db/blocked_file.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_build_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">seq_id</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">block_id</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-                <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_db_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
-        <span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_load_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_block</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-                <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_cls</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq_id</span>
-                <span class="n">seq_id</span> <span class="o">+=</span> <span class="mi">1</span>
-</code></pre></div>
-</div>
-<p>An obvious extension to our design is to save the index
-in a separate file
-each time we add or modify a record.
-However,
-we should <span class="ix-ref" data-ix-key="profiler" id="ix-db-9">profile</span> this change before putting it into production
-to see if it actually improves performance (<a class="xref" href="../perf/">Chapter 15</a>),
-since many small writes might cost more than one large multi-file read.
-We would also have to do something
-to avoid creating a <span class="ix-ref" data-ix-key="race condition" id="ix-db-10">race condition</span>;
-as in <a class="xref" href="../archive/">Chapter 10</a>,
-operating on two files (one for the index and one for the block)
-could lead to harmful inconsistencies.</p>
-<h2 id="db-cleanup">Cleaning Up</h2>
-<p>The final step in our implementation is
-to clean up blocks that are no longer needed
-because we have a more recent version of every record they contain.
-Reclaiming unused space this way is another form of
-<a class="gl-ref" href="../glossary/#garbage_collection">garbage collection</a>.
-Python and most other modern languages do it automatically
-to recycle unused memory,
-but it's our responsibility to do it for the files our database creates.</p>
+<p>Saving a block is mostly a matter of bookkeeping at this point. Given the record, we figure out which block it belongs in, save it, pack the block, and write the result to a file:</p>
+<div class="sourceCode" id="cb21" data-file="db/blocked_file.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _save(<span class="va">self</span>, record):</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>        key <span class="op">=</span> <span class="va">self</span>._record_cls.key(record)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        seq_id <span class="op">=</span> <span class="va">self</span>._index[key]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        block_id <span class="op">=</span> <span class="va">self</span>._get_block_id(seq_id)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        block <span class="op">=</span> <span class="va">self</span>._get_block(block_id)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        packed <span class="op">=</span> <span class="va">self</span>._record_cls.pack_multi(block.values())</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> <span class="va">self</span>._get_filename(block_id)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"w"</span>) <span class="im">as</span> writer:</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            writer.write(<span class="st">''</span>.join(packed))</span></code></pre></div>
+<p>Loading involves almost the same steps, but our implementation splits it into two pieces:</p>
+<div class="sourceCode" id="cb22" data-file="db/blocked_file.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _load(<span class="va">self</span>, key):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>        seq_id <span class="op">=</span> <span class="va">self</span>._index[key]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        block_id <span class="op">=</span> <span class="va">self</span>._get_block_id(seq_id)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> <span class="va">self</span>._get_filename(block_id)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._load_block(block_id, filename)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _load_block(<span class="va">self</span>, block_id, filename):</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"r"</span>) <span class="im">as</span> reader:</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>            raw <span class="op">=</span> reader.read()</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        records <span class="op">=</span> <span class="va">self</span>._record_cls.unpack_multi(raw)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        base <span class="op">=</span> <span class="va">self</span>.size() <span class="op">*</span> block_id</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        block <span class="op">=</span> <span class="va">self</span>._get_block(block_id)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, r <span class="kw">in</span> <span class="bu">enumerate</span>(records):</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>            block[base <span class="op">+</span> i] <span class="op">=</span> r</span></code></pre></div>
+<p>We put the code to load a single block in a method of its own because we need to initialize the in-memory index when restarting the database:</p>
+<div class="sourceCode" id="cb23" data-file="db/blocked_file.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _build_index(<span class="va">self</span>):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        seq_id <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (block_id, filename) <span class="kw">in</span> <span class="bu">enumerate</span>(</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                <span class="bu">sorted</span>(<span class="va">self</span>._db_dir.iterdir())</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        ):</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._load_block(block_id, filename)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> record <span class="kw">in</span> <span class="va">self</span>._get_block(block_id).values():</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                key <span class="op">=</span> <span class="va">self</span>._record_cls.key(record)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>._index[key] <span class="op">=</span> seq_id</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                seq_id <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<p>An obvious extension to our design is to save the index in a separate file each time we add or modify a record. However, we should profile this change before putting it into production to see if it actually improves performance (<a href="../perf/index.html" class="quarto-xref"><span>Chapter 15</span></a>), since many small writes might cost more than one large multi-file read. We would also have to do something to avoid creating a race condition; as in <a href="../archive/index.html" class="quarto-xref"><span>Chapter 10</span></a>, operating on two files (one for the index and one for the block) could lead to harmful inconsistencies.</p>
+<h2 data-number="18.6" id="db-cleanup"><span class="header-section-number">18.6</span> Cleaning Up</h2>
+<p>The final step in our implementation is to clean up blocks that are no longer needed because we have a more recent version of every record they contain. Reclaiming unused space this way is another form of <a href="../glossary/index.html#garbage_collection">garbage collection</a>. Python and most other modern languages do it automatically to recycle unused memory, but it’s our responsibility to do it for the files our database creates.</p>
 <p>The steps in cleanup are:</p>
-<ol>
-<li>
-<p>Calculate a new sequence ID for each record.</p>
-</li>
-<li>
-<p>Figure out which blocks contain records that we need to retain.</p>
-</li>
-<li>
-<p>Generate new block IDs for those blocks
-    while also creating a set of IDs
-    of blocks we can delete because all of their records are out of date.</p>
-</li>
-<li>
-<p>Delete and rename blocks.</p>
-</li>
-<li>
-<p>Generate a new in-memory index.</p>
-</li>
+<ol type="1">
+<li><p>Calculate a new sequence ID for each record.</p></li>
+<li><p>Figure out which blocks contain records that we need to retain.</p></li>
+<li><p>Generate new block IDs for those blocks while also creating a set of IDs of blocks we can delete because all of their records are out of date.</p></li>
+<li><p>Delete and rename blocks.</p></li>
+<li><p>Generate a new in-memory index.</p></li>
 </ol>
 <p>The implementation of these steps is mostly a matter of bookkeeping:</p>
-<div data-inc="cleanup.py" data-mark="cleanup"><span aria-label="Source: db/cleanup.py" class="inc-path" role="img" tabindex="0" title="db/cleanup.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">new_seq</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">o</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-        <span class="p">}</span>
-        <span class="n">keep</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_block_id</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">new_seq</span><span class="p">}</span>
-
-        <span class="n">renaming</span> <span class="o">=</span> <span class="p">{</span><span class="n">o</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">keep</span><span class="p">)))}</span>
-        <span class="n">garbage_ids</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">renaming</span>
-        <span class="p">}</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_delete_blocks</span><span class="p">(</span><span class="n">garbage_ids</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_rename_blocks</span><span class="p">(</span><span class="n">renaming</span><span class="p">)</span>
-
-        <span class="n">new_index</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">k</span><span class="p">:</span> <span class="n">new_seq</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span>
-        <span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">new_index</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">)</span>
-</code></pre></div>
+<div class="sourceCode" id="cb24" data-file="db/cleanup.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _cleanup(<span class="va">self</span>):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>        new_seq <span class="op">=</span> {</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            o: i <span class="cf">for</span> i, o <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="va">self</span>._index.values())</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        keep <span class="op">=</span> {<span class="va">self</span>._get_block_id(o) <span class="cf">for</span> o <span class="kw">in</span> new_seq}</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        renaming <span class="op">=</span> {o: i <span class="cf">for</span> i, o <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">list</span>(<span class="bu">sorted</span>(keep)))}</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        garbage_ids <span class="op">=</span> {</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>            i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(<span class="va">self</span>._blocks))</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> renaming</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._delete_blocks(garbage_ids)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._rename_blocks(renaming)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        new_index <span class="op">=</span> {</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>            k: new_seq[<span class="va">self</span>._index[k]] <span class="cf">for</span> k <span class="kw">in</span> <span class="va">self</span>._index</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._index <span class="op">=</span> new_index</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._next <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>._index)</span></code></pre></div>
+<p>This method doesn’t <a href="../glossary/index.html#compact">compact</a> storage, i.e., it doesn’t move records around to get rid of stale blocks within records. Production-quality databases do this periodically in order to use the disk more efficiently; we will explore this idea in the exercises.</p>
+<h2 data-number="18.7" id="db-summary"><span class="header-section-number">18.7</span> Summary</h2>
+<p><a href="#fig-db-concept-map" class="quarto-xref">Figure&nbsp;<span>18.4</span></a> summarizes the key ideas introduced in this chapter. Most real databases use different data structures than ours, but must deal with the same challenges: making data access fast without ever losing data or allowing it to become inconsistent.</p>
+<div id="fig-db-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of log-structured storage">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-db-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="concept_map.svg" alt="Concept map of log-structured storage">
 </div>
-<p>This method doesn't <a class="gl-ref" href="../glossary/#compact">compact</a> storage,
-i.e.,
-it doesn't move records around
-to get rid of stale blocks within records.
-Production-quality databases do this periodically
-in order to use the disk more efficiently;
-we will explore this idea in the exercises.</p>
-<h2 id="db-summary">Summary</h2>
-<p><a class="fig-ref" href="#f:db-concept-map">Figure 4</a> summarizes the key ideas introduced in this chapter.
-Most real databases use different data structures than ours,
-but must deal with the same challenges:
-making data access fast without ever losing data or allowing it to become inconsistent.</p>
-<figure id="f:db-concept-map">
-<img alt="Concept map for database" src="concept_map.svg"/>
-<figcaption>Figure 4: Concept map for a log-structured database.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-db-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.4: Concept map for a log-structured database.
+</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="db-exercises">Exercises</h2>
-<h3>Packing Null Bytes</h3>
-<p>Modify the experimental record class so that records are packed as strings
-but can safely contain null bytes.</p>
-<h3>Packing in Binary</h3>
-<ol>
-<li>
-<p>Modify the experimental record class so that it packs itself in
-a fixed-size binary record.</p>
-</li>
-<li>
-<p>How does this change the file I/O operations in the database class?</p>
-</li>
-<li>
-<p>Should those operations be moved into the record class or not?</p>
-</li>
+</div>
+<h2 data-number="18.8" id="db-exercises"><span class="header-section-number">18.8</span> Exercises</h2>
+<h3 data-number="18.8.1" id="packing-null-bytes"><span class="header-section-number">18.8.1</span> Packing Null Bytes</h3>
+<p>Modify the experimental record class so that records are packed as strings but can safely contain null bytes.</p>
+<h3 data-number="18.8.2" id="packing-in-binary"><span class="header-section-number">18.8.2</span> Packing in Binary</h3>
+<ol type="1">
+<li><p>Modify the experimental record class so that it packs itself in a fixed-size binary record.</p></li>
+<li><p>How does this change the file I/O operations in the database class?</p></li>
+<li><p>Should those operations be moved into the record class or not?</p></li>
 </ol>
-<h3>Implement Compaction</h3>
-<p>Add a static method to the database that compacts blocks,
-i.e.,
-rewrites all of the blocks so that only live records are stored.</p>
-<h3>Save the Index Separately</h3>
-<ol>
-<li>
-<p>Modify the database so that it saves the entire index
-    in a single file.</p>
-</li>
-<li>
-<p>Design and run an experiment to determine
-    if this change improves performance or not.</p>
-</li>
+<h3 data-number="18.8.3" id="implement-compaction"><span class="header-section-number">18.8.3</span> Implement Compaction</h3>
+<p>Add a static method to the database that compacts blocks, i.e., rewrites all of the blocks so that only live records are stored.</p>
+<h3 data-number="18.8.4" id="save-the-index-separately"><span class="header-section-number">18.8.4</span> Save the Index Separately</h3>
+<ol type="1">
+<li><p>Modify the database so that it saves the entire index in a single file.</p></li>
+<li><p>Design and run an experiment to determine if this change improves performance or not.</p></li>
 </ol>
-</section>
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Bentley1982" class="csl-entry" role="listitem">
+Bentley, Jon Louis. 1982. <em>Writing Efficient Programs</em>. Prentice-Hall PTR. ISBN 9780139702440.
+</div>
+<div id="ref-Petre2016" class="csl-entry" role="listitem">
+Petre, Marian, and André van der Hoek. 2016. <em>Software Design Decoded: 66 Ways Experts Think</em>. MIT Press. ISBN 9780262035187.
+</div>
+</div>
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../binary">Binary Data</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../build">A Build Manager</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../binary/index.html">← Binary Data</a>
+    <a class="pager-link next" href="../build/index.html">A Build Manager →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

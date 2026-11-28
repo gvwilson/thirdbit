@@ -1,429 +1,426 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Protocols · Software Design by Example</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Protocols</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<div class="shower list" tabindex="-1">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Protocols</h1>
+</section>
+
+<section class="slide level2">
+
 <section class="slide">
+</section>
+<section id="the-problem" class="slide level2">
 <h2>The Problem</h2>
 <ul>
-<li>
-<p>Want to use some more advanced features of Python in coming examples</p>
-</li>
-<li>
-<p>Can now explain them in terms of what we've seen in previous lessons</p>
-</li>
+<li><p>Want to use some more advanced features of Python in coming
+examples</p></li>
+<li><p>Can now explain them in terms of what we’ve seen in previous
+lessons</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="mock-objects" class="slide level2">
 <h2>Mock Objects</h2>
-<div data-inc="mock_time.py"><span aria-label="Source: protocols/mock_time.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_time.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">elapsed</span><span class="p">(</span><span class="n">since</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">since</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">mock_time</span><span class="p">():</span>
-    <span class="k">return</span> <span class="mi">200</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_elapsed</span><span class="p">():</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">mock_time</span>
-    <span class="k">assert</span> <span class="n">elapsed</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">==</span> <span class="mi">150</span>
-</code></pre></div>
-</div>
+<p>[%inc mock_time.py %]</p>
 <ul>
-<li>
-<p>But this changes <code>time.time</code> for <em>everything</em></p>
-</li>
-<li>
-<p>Want a reliable way to restore the original</p>
-</li>
+<li><p>But this changes <code>time.time</code> for
+<em>everything</em></p></li>
+<li><p>Want a reliable way to restore the original</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="callable" class="slide level2">
 <h2>Callable</h2>
 <ul>
-<li>
-<p>If a function is just an object</p>
-</li>
-<li>
-<p>We can make an object that looks like a function</p>
-</li>
+<li><p>If a function is just an object</p></li>
+<li><p>We can make an object that looks like a function</p></li>
 </ul>
-<div data-inc="callable.py"><span aria-label="Source: protocols/callable.py" class="inc-path" role="img" tabindex="0" title="protocols/callable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Adder</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">arg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-
-<span class="n">add_3</span> <span class="o">=</span> <span class="n">Adder</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">add_3</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"add_3(8): </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="callable.out"><span aria-label="Source: protocols/callable.out" class="inc-path" role="img" tabindex="0" title="protocols/callable.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>add_3(8): 11
-</code></pre></div>
-</div>
+<p>[%inc callable.py %] [%inc callable.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="a-generic-replacer" class="slide level2">
 <h2>A Generic Replacer</h2>
-<div data-inc="mock_object.py" data-mark="fake"><span aria-label="Source: protocols/mock_object.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_object.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Fake</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">calls</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">calls</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">])</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-</code></pre></div>
-</div>
-<div data-inc="mock_object.py" data-mark="fakeit"><span aria-label="Source: protocols/mock_object.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_object.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fakeit</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
-    <span class="n">fake</span> <span class="o">=</span> <span class="n">Fake</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    <span class="nb">globals</span><span class="p">()[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake</span>
-    <span class="k">return</span> <span class="n">fake</span>
-</code></pre></div>
-</div>
+<p>[%inc mock_object.py mark=fake %]</p>
+<p>[%inc mock_object.py mark=fakeit %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="replacement-in-action" class="slide level2">
 <h2>Replacement in Action</h2>
-<div data-inc="mock_object.py" data-mark="test_real"><span aria-label="Source: protocols/mock_object.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_object.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">adder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_with_real_function</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-</code></pre></div>
-</div>
-<div data-inc="mock_object.py" data-mark="test_fixed"><span aria-label="Source: protocols/mock_object.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_object.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_with_fixed_return_value</span><span class="p">():</span>
-    <span class="n">fakeit</span><span class="p">(</span><span class="s2">"adder"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">99</span>
-</code></pre></div>
-</div>
+<p>[%inc mock_object.py mark=test_real %]</p>
+<p>[%inc mock_object.py mark=test_fixed %]</p>
 <ul>
 <li>Yes, we would usually do something more useful…</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="replacement-in-action-1" class="slide level2">
 <h2>Replacement in Action</h2>
-<figure id="f:protocols-timeline">
-<img alt="Timeline of mock operation" src="timeline.svg"/>
-<figcaption>Figure 1: Timeline of mock operation.</figcaption>
-</figure>
+<p>[% figure slug=“protocols-timeline” img=“timeline.svg” alt=“Timeline
+of mock operation” caption=“Timeline of mock operation.” %]</p>
 </section>
 <section class="slide">
-<h2>But Wait, There's More</h2>
+</section>
+<section id="but-wait-theres-more" class="slide level2">
+<h2>But Wait, There’s More</h2>
 <ul>
 <li>Record arguments</li>
 </ul>
-<div data-inc="mock_object.py" data-mark="test_record"><span aria-label="Source: protocols/mock_object.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_object.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_fake_records_calls</span><span class="p">():</span>
-    <span class="n">fake</span> <span class="o">=</span> <span class="n">fakeit</span><span class="p">(</span><span class="s2">"adder"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">99</span>
-    <span class="k">assert</span> <span class="n">adder</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">99</span>
-    <span class="k">assert</span> <span class="n">adder</span><span class="o">.</span><span class="n">calls</span> <span class="o">==</span> <span class="p">[[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">{}],</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">{}]]</span>
-</code></pre></div>
-</div>
+<p>[%inc mock_object.py mark=test_record %]</p>
 <ul>
 <li>Return a user-defined value</li>
 </ul>
-<div data-inc="mock_object.py" data-mark="test_calc"><span aria-label="Source: protocols/mock_object.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_object.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_fake_calculates_result</span><span class="p">():</span>
-    <span class="n">fakeit</span><span class="p">(</span><span class="s2">"adder"</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">23</span>
-</code></pre></div>
-</div>
+<p>[%inc mock_object.py mark=test_calc %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="protocols" class="slide level2">
 <h2>Protocols</h2>
 <ul>
-<li>
-<p>A <a class="gl-ref" href="../glossary/#protocol">protocol</a> specifies
-    how programs can tell Python to do specific things at specific moments</p>
+<li><p>A [%g protocol “protocol” %] specifies how programs can tell
+Python to do specific things at specific moments</p>
 <ul>
-<li>
-<p><code>__init__</code> to build objects</p>
-</li>
-<li>
-<p><code>__call__</code> to emulate function call</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Define <code>__enter__</code> and <code>__exit__</code> to create a <a class="gl-ref" href="../glossary/#context_manager">context manager</a>
-    that a <code>with</code> statement can use</p>
-</li>
+<li><p><code>__init__</code> to build objects</p></li>
+<li><p><code>__call__</code> to emulate function call</p></li>
+</ul></li>
+<li><p>Define <code>__enter__</code> and <code>__exit__</code> to create
+a [%g context_manager “context manager” %] that a <code>with</code>
+statement can use</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="operation" class="slide level2">
 <h2>Operation</h2>
-<div data-inc="ex_with.py"><span aria-label="Source: protocols/ex_with.py" class="inc-path" role="img" tabindex="0" title="protocols/ex_with.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">with</span> <span class="n">C</span><span class="p">(</span><span class="err">…</span><span class="n">args</span><span class="err">…</span><span class="p">)</span> <span class="k">as</span> <span class="n">name</span><span class="p">:</span>
-    <span class="err">…</span><span class="n">do</span> <span class="n">things</span><span class="err">…</span>
-</code></pre></div>
-</div>
-<ol>
-<li>Call <code>C</code>'s constructor to create an object.</li>
-<li>Call that object's <code>__enter__</code> method and assign the result to <code>name</code>.</li>
+<p>[%inc ex_with.py %]</p>
+<ol type="1">
+<li>Call <code>C</code>’s constructor to create an object.</li>
+<li>Call that object’s <code>__enter__</code> method and assign the
+result to <code>name</code>.</li>
 <li>Run the code inside the <code>with</code> block.</li>
-<li>
-<p>Call <code>name.__exit__()</code> when the block finishes.</p>
-</li>
-<li>
-<p><code>__enter__</code> doesn't need extra arguments</p>
-<ul>
-<li>Use the object's constructor</li>
-</ul>
-</li>
-<li>
-<p>Python calls <code>__exit__</code> with three values for error handling</p>
-</li>
+<li>Call <code>name.__exit__()</code> when the block finishes.</li>
 </ol>
+<ul>
+<li><p><code>__enter__</code> doesn’t need extra arguments</p>
+<ul>
+<li>Use the object’s constructor</li>
+</ul></li>
+<li><p>Python calls <code>__exit__</code> with three values for error
+handling</p></li>
+</ul>
 </section>
 <section class="slide">
+</section>
+<section id="mock-with-context" class="slide level2">
 <h2>Mock With Context</h2>
-<div data-inc="mock_context.py" data-mark="contextfake"><span aria-label="Source: protocols/mock_context.py" class="inc-path" role="img" tabindex="0" title="protocols/mock_context.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ContextFake</span><span class="p">(</span><span class="n">Fake</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">original</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">original</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
-        <span class="nb">globals</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
-        <span class="k">return</span> <span class="bp">self</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">exc_traceback</span><span class="p">):</span>
-        <span class="nb">globals</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">original</span>
-</code></pre></div>
-</div>
+<p>[%inc mock_context.py mark=contextfake %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="wrapping-functions" class="slide level2">
 <h2>Wrapping Functions</h2>
 <ul>
 <li>Try writing a function that wraps another function</li>
 </ul>
-<div data-inc="wrap_infinite.py"><span aria-label="Source: protocols/wrap_infinite.py" class="inc-path" role="img" tabindex="0" title="protocols/wrap_infinite.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"original: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">logging</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"before call"</span><span class="p">)</span>
-    <span class="n">original</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"after call"</span><span class="p">)</span>
-
-<span class="n">original</span> <span class="o">=</span> <span class="n">logging</span>
-<span class="n">original</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="wrap_infinite.out"><span aria-label="Source: protocols/wrap_infinite.out" class="inc-path" role="img" tabindex="0" title="protocols/wrap_infinite.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>before call
-before call
-before call
-</code></pre></div>
-</div>
+<p>[%inc wrap_infinite.py %] [%inc wrap_infinite.out %]</p>
 <ul>
-<li>Well, that didn't work</li>
+<li>Well, that didn’t work</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="capture-the-original" class="slide level2">
 <h2>Capture the Original</h2>
-<div data-inc="wrap_capture.py"><span aria-label="Source: protocols/wrap_capture.py" class="inc-path" role="img" tabindex="0" title="protocols/wrap_capture.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"original: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">logging</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_inner</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"before call"</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"after call"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">_inner</span>
-
-<span class="n">original</span> <span class="o">=</span> <span class="n">logging</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
-<span class="n">original</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="wrap_capture.out"><span aria-label="Source: protocols/wrap_capture.out" class="inc-path" role="img" tabindex="0" title="protocols/wrap_capture.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>before call
-original: example
-after call
-</code></pre></div>
-</div>
+<p>[%inc wrap_capture.py %] [%inc wrap_capture.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="parameters" class="slide level2">
 <h2>Parameters</h2>
-<div data-inc="wrap_param.py"><span aria-label="Source: protocols/wrap_param.py" class="inc-path" role="img" tabindex="0" title="protocols/wrap_param.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"original: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">logging</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_inner</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"++ </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"-- </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">_inner</span>
-
-<span class="n">original</span> <span class="o">=</span> <span class="n">logging</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="s2">"call"</span><span class="p">)</span>
-<span class="n">original</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="wrap_param.out"><span aria-label="Source: protocols/wrap_param.out" class="inc-path" role="img" tabindex="0" title="protocols/wrap_param.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>++ call
-original: example
--- call
-</code></pre></div>
-</div>
+<p>[%inc wrap_param.py %] [%inc wrap_param.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="decorators" class="slide level2">
 <h2>Decorators</h2>
-<div data-inc="decorator_simple.py"><span aria-label="Source: protocols/decorator_simple.py" class="inc-path" role="img" tabindex="0" title="protocols/decorator_simple.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wrap</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"before call"</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"after call"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">_inner</span>
-
-<span class="nd">@wrap</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"original: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">original</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="decorator_simple.out"><span aria-label="Source: protocols/decorator_simple.out" class="inc-path" role="img" tabindex="0" title="protocols/decorator_simple.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>before call
-original: example
-after call
-</code></pre></div>
-</div>
+<p>[%inc decorator_simple.py %] [%inc decorator_simple.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="decorator-parameters" class="slide level2">
 <h2>Decorator Parameters</h2>
-<div data-inc="decorator_param.py"><span aria-label="Source: protocols/decorator_param.py" class="inc-path" role="img" tabindex="0" title="protocols/decorator_param.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wrap</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>                  <span class="c1"># function returning a decorator</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_decorate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>          <span class="c1"># the decorator Python will apply</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">_inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>        <span class="c1"># the wrapped function</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"++ </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># 'label' is visible because</span>
-            <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>           <span class="c1"># …it's captured in the closure</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"-- </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># …of '_decorate'</span>
-        <span class="k">return</span> <span class="n">_inner</span>
-    <span class="k">return</span> <span class="n">_decorate</span>
-
-<span class="nd">@wrap</span><span class="p">(</span><span class="s2">"wrapping"</span><span class="p">)</span>                 <span class="c1"># call 'wrap' to get a decorator</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>            <span class="c1"># decorator applied here</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"original: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">original</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="decorator_param.out"><span aria-label="Source: protocols/decorator_param.out" class="inc-path" role="img" tabindex="0" title="protocols/decorator_param.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>++ wrapping
-original: example
--- wrapping
-</code></pre></div>
-</div>
+<p>[%inc decorator_param.py %] [%inc decorator_param.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="design-flaw" class="slide level2">
 <h2>Design Flaw</h2>
 <ul>
-<li>
-<p>A decorator must take exactly one argument,
-    so how do we pass other parameters to the decorator itself?</p>
-</li>
-<li>
-<p>Simple-to-learn answer would have been to treat function being decorated
-    like <code>self</code> in method definition and call</p>
-</li>
+<li><p>A decorator must take exactly one argument, so how do we pass
+other parameters to the decorator itself?</p></li>
+<li><p>Simple-to-learn answer would have been to treat function being
+decorated like <code>self</code> in method definition and call</p></li>
 </ul>
-<div data-inc="alternative_design.py"><span aria-label="Source: protocols/alternative_design.py" class="inc-path" role="img" tabindex="0" title="protocols/alternative_design.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_inner</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"entering </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">_inner</span>
-
-<span class="nd">@decorator</span><span class="p">(</span><span class="s2">"message"</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>           <span class="c1"># equivalent to</span>
-    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>         <span class="c1"># double = decorator(double, "message")</span>
-</code></pre></div>
-</div>
+<p>[%inc alternative_design.py %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="iteration" class="slide level2">
 <h2>Iteration</h2>
 <ul>
-<li>
-<p>Python calls <code>thing.__iter__</code> at the start of a <code>for</code> loop
-    to get an <a class="gl-ref" href="../glossary/#iterator">iterator</a></p>
-</li>
-<li>
-<p>Calls <code>iterator.__next__</code> repeatedly to get loop items</p>
-</li>
-<li>
-<p>Stops when the iterator raises <code>StopIteration</code></p>
-</li>
-<li>
-<p>(Almost) always create a separate object
-    so that we can run nested loops on the same target</p>
-</li>
+<li><p>Python calls <code>thing.__iter__</code> at the start of a
+<code>for</code> loop to get an [%g iterator “iterator” %]</p></li>
+<li><p>Calls <code>iterator.__next__</code> repeatedly to get loop
+items</p></li>
+<li><p>Stops when the iterator raises
+<code>StopIteration</code></p></li>
+<li><p>(Almost) always create a separate object so that we can run
+nested loops on the same target</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="loop-over-a-list-of-strings" class="slide level2">
 <h2>Loop Over a List of Strings</h2>
-<div data-inc="better_iterator.py" data-mark="buffer"><span aria-label="Source: protocols/better_iterator.py" class="inc-path" role="img" tabindex="0" title="protocols/better_iterator.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BetterIterator</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">BetterCursor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div data-inc="better_iterator.py" data-mark="cursor" data-omit="advance"><span aria-label="Source: protocols/better_iterator.py" class="inc-path" role="img" tabindex="0" title="protocols/better_iterator.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BetterCursor</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_row</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_col</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_advance</span><span class="p">()</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_row</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">StopIteration</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_col</span><span class="p">]</span>
-
-<span class="c1"># ...6 lines not shown...</span>
-</code></pre></div>
-</div>
+<p>[%inc better_iterator.py mark=buffer %]</p>
+<p>[%inc better_iterator.py mark=cursor omit=advance %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="iterator-in-action" class="slide level2">
 <h2>Iterator in Action</h2>
-<div data-inc="test_better_iterator.py" data-mark="example"><span aria-label="Source: protocols/test_better_iterator.py" class="inc-path" role="img" tabindex="0" title="protocols/test_better_iterator.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_naive_buffer_nested_loop</span><span class="p">():</span>
-    <span class="n">buffer</span> <span class="o">=</span> <span class="n">BetterIterator</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">buffer</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">inner</span> <span class="ow">in</span> <span class="n">buffer</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="n">inner</span>
-    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">"abab"</span>
-</code></pre></div>
-</div>
+<p>[%inc test_better_iterator.py mark=example %]</p>
 </section>
 <section class="slide">
-<h2>Summary</h2>
-<figure id="f:protocols-concept-map">
-<img alt="Concept map of reflection" src="concept_map.svg"/>
-<figcaption>Figure 2: Concept map.</figcaption>
-</figure>
 </section>
-<div aria-live="polite" id="slide-counter"></div>
-</div>
-<script src="../_static/shower.js"></script>
-<script src="../_static/slides.js"></script>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>[% figure slug=“protocols-concept-map” img=“concept_map.svg”
+alt=“Concept map of reflection” caption=“Concept map.” %]</p>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
+      });
+    </script>
+    </body>
 </html>

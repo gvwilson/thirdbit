@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>HTTP and APIs</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -42,7 +43,7 @@
 <h1 class="title">HTTP and APIs</h1>
 <h2 data-number="10.1" id="fetch-and-parse-data-from-an-api-endpoint"><span class="header-section-number">10.1</span> Fetch and parse data from an API endpoint</h2>
 <p>Run the script and read the error message. What type of error is raised, and which line causes it? Is the problem in the line that fails or somewhere earlier?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb1" data-file="web/nostatuscheck.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
@@ -71,7 +72,7 @@ Show explanation
 </details>
 <h2 data-number="10.2" id="submit-a-new-record-to-an-api-as-json"><span class="header-section-number">10.2</span> Submit a new record to an API as JSON</h2>
 <p>Run the script and read the output. What content type does the server report receiving? What content type did you intend to send?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb2" data-file="web/jsonparam.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
@@ -102,7 +103,7 @@ Show explanation
 </details>
 <h2 data-number="10.3" id="search-an-api-with-a-multi-word-query-parameter"><span class="header-section-number">10.3</span> Search an API with a multi-word query parameter</h2>
 <p>Run the script and read the output. How many query parameters did the server receive? How many did the code intend to send?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb3" data-file="web/urlparam.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
@@ -137,7 +138,7 @@ Show explanation
 </details>
 <h2 data-number="10.4" id="retrieve-all-records-from-a-paginated-api"><span class="header-section-number">10.4</span> Retrieve all records from a paginated API</h2>
 <p>Run the script and compare the number of records retrieved to the total available. What field in the response tells you that more data exists?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb4" data-file="web/nopaginate.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ALL_RECORDS <span class="op">=</span> [{<span class="st">"id"</span>: i, <span class="st">"value"</span>: i <span class="op">*</span> <span class="dv">10</span>} <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>)]</span>
@@ -175,7 +176,7 @@ Show explanation
 </details>
 <h2 data-number="10.5" id="fetch-data-from-a-potentially-slow-api-endpoint"><span class="header-section-number">10.5</span> Fetch data from a potentially slow API endpoint</h2>
 <p>Run the script. Does it return promptly? How long does it wait before producing output?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb5" data-file="web/notimeout.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated server delay in seconds</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>SERVER_DELAY <span class="op">=</span> <span class="dv">10</span></span>
@@ -203,7 +204,7 @@ Show explanation
 </details>
 <h2 data-number="10.6" id="create-a-new-resource-via-a-post-request"><span class="header-section-number">10.6</span> Create a new resource via a POST request</h2>
 <p>Run the script. What status code does the server return? What does the script print? Is the request actually successful?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb6" data-file="web/created.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
@@ -238,7 +239,7 @@ Show explanation
 </details>
 <h2 data-number="10.7" id="retry-a-request-after-hitting-a-rate-limit"><span class="header-section-number">10.7</span> Retry a request after hitting a rate limit</h2>
 <p>Run the script and look at the status code and headers on each attempt. What does the <code>Retry-After</code> header contain? Does the script wait before retrying?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb7" data-file="web/ratelimit.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>_request_count <span class="op">=</span> <span class="dv">0</span></span>
@@ -278,7 +279,7 @@ Show explanation
 </details>
 <h2 data-number="10.8" id="update-a-single-field-in-an-existing-api-resource"><span class="header-section-number">10.8</span> Update a single field in an existing API resource</h2>
 <p>Run the script and compare the resource state before and after the PUT request. Which fields changed, and which fields were you expecting to keep?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb8" data-file="web/putpatch.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Server-side resource state</span></span>
@@ -315,7 +316,7 @@ Show explanation
 </details>
 <h2 data-number="10.9" id="authenticate-with-an-api-using-a-secret-key"><span class="header-section-number">10.9</span> Authenticate with an API using a secret key</h2>
 <p>Run the script and read the output. In which part of the request does the API key appear? What would a server log entry look like?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb9" data-file="web/tokenurl.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> scope[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"http"</span></span>
@@ -345,7 +346,7 @@ Show explanation
 </details>
 <h2 data-number="10.10" id="submit-form-data-to-an-endpoint-that-redirects"><span class="header-section-number">10.10</span> Submit form data to an endpoint that redirects</h2>
 <p>Run the script and read the output. What HTTP method reached the final endpoint? What happened to the request body that was sent to <code>/submit</code>?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<div class="sourceCode" id="cb10" data-file="web/postredirect.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> app(scope, receive, send):</span>
@@ -392,6 +393,14 @@ Show explanation
     <a class="pager-link next" href="../htmx/index.html">HTMX →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

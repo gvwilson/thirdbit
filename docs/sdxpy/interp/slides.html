@@ -1,283 +1,409 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>An Interpreter · Software Design by Example</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>An Interpreter</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<div class="shower list" tabindex="-1">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">An Interpreter</h1>
+</section>
+
+<section class="slide level2">
+
 <section class="slide">
+</section>
+<section id="background" class="slide level2">
 <h2>Background</h2>
 <ul>
 <li>Programs are just data</li>
-<li>Compilers and interpreters are just programs<ul>
+<li>Compilers and interpreters are just programs
+<ul>
 <li>Compiler: generate instructions once in advance</li>
 <li>Interpreter: generate instructions on the fly</li>
 <li>Differences are increasingly blurry in practice</li>
-</ul>
-</li>
-<li>Most have a <a class="gl-ref" href="../glossary/#parser">parser</a> and a <a class="gl-ref" href="../glossary/#runtime">runtime</a></li>
-<li>Look at the latter in this lesson to see how programs actually run</li>
+</ul></li>
+<li>Most have a [%g parser “parser” %] and a [%g runtime “runtime”
+%]</li>
+<li>Look at the latter in this lesson to see how programs actually
+run</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="representing-expressions" class="slide level2">
 <h2>Representing Expressions</h2>
 <ul>
 <li>Represent simple arithmetic operations as lists</li>
 </ul>
-<div data-inc="add_example.py"><span aria-label="Source: interp/add_example.py" class="inc-path" role="img" tabindex="0" title="interp/add_example.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>            <span class="c1"># 1 + 2</span>
-<span class="p">[</span><span class="s2">"abs"</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">]</span>            <span class="c1"># abs(-3.5)</span>
-<span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"abs"</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="mi">9</span><span class="p">]</span>  <span class="c1"># abs(-5) + 9</span>
-</code></pre></div>
-</div>
+<p>[%inc add_example.py %]</p>
 <ul>
-<li>We use special <a class="gl-ref" href="../glossary/#infix_notation">infix notation</a> like <code>1+2</code> for historical reasons</li>
+<li>We use special [%g infix_notation “infix notation” %] like
+<code>1+2</code> for historical reasons</li>
 <li>Always putting the operation first makes processing easier</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="evaluating-expressions" class="slide level2">
 <h2>Evaluating Expressions</h2>
-<div data-inc="expr.py" data-mark="do_add"><span aria-label="Source: interp/expr.py" class="inc-path" role="img" tabindex="0" title="interp/expr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_add</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="n">left</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">right</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span>
-</code></pre></div>
-</div>
+<p>[%inc expr.py mark=do_add %]</p>
 <ul>
-<li><code>args</code> is everything <em>except</em> the name of the operation</li>
-<li>Use an as-yet-unwritten function <code>do</code> to evaluate the operands</li>
+<li><code>args</code> is everything <em>except</em> the name of the
+operation</li>
+<li>Use an as-yet-unwritten function <code>do</code> to evaluate the
+operands</li>
 <li>Then add their values</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="evaluating-expressions-1" class="slide level2">
 <h2>Evaluating Expressions</h2>
-<div data-inc="expr.py" data-mark="do_abs"><span aria-label="Source: interp/expr.py" class="inc-path" role="img" tabindex="0" title="interp/expr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_abs</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc expr.py mark=do_abs %]</p>
 <ul>
-<li>All the <code>do_</code> functions can be called interchangeably</li>
-<li>Like the unit test functions of <a class="xref" href="../test/">Chapter 6</a></li>
+<li>All the <code>do_</code> functions can be called
+interchangeably</li>
+<li>Like the unit test functions of [%x test %]</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="dispatching-operations" class="slide level2">
 <h2>Dispatching Operations</h2>
 <ul>
-<li>Write a function that <a class="gl-ref" href="../glossary/#dynamic_dispatch">dispatches</a> to actual operations</li>
+<li>Write a function that [%g dynamic_dispatch “dispatches” %] to actual
+operations</li>
 </ul>
-<div data-inc="expr.py" data-mark="do"><span aria-label="Source: interp/expr.py" class="inc-path" role="img" tabindex="0" title="interp/expr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
-    <span class="c1"># Integers evaluate to themselves.</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">expr</span>
-
-    <span class="c1"># Lists trigger function calls.</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"abs"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_abs</span><span class="p">(</span><span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"add"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_add</span><span class="p">(</span><span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown operation </span><span class="si">{</span><span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
-</code></pre></div>
-</div>
+<p>[%inc expr.py mark=do %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="dispatching-operations-1" class="slide level2">
 <h2>Dispatching Operations</h2>
-<figure id="f:interp-recursive-evaluation">
-<img alt="Recursive evaluation of an expression tree" src="recursive_evaluation.svg"/>
-<figcaption>Figure 1: Recursively evaluating an expression tree</figcaption>
-</figure>
+<p>[% figure slug=“interp-recursive-evaluation”
+img=“recursive_evaluation.svg” alt=“Recursive evaluation of an
+expression tree” caption=“Recursively evaluating an expression tree”
+%]</p>
 </section>
 <section class="slide">
+</section>
+<section id="an-example" class="slide level2">
 <h2>An Example</h2>
-<div data-inc="expr.tll"><span aria-label="Source: interp/expr.tll" class="inc-path" role="img" tabindex="0" title="interp/expr.tll">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>["add", ["abs", -3], 2]
-</code></pre></div>
-</div>
-<div data-inc="expr.sh"><span aria-label="Source: interp/expr.sh" class="inc-path" role="img" tabindex="0" title="interp/expr.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>python<span class="w"> </span>expr.py<span class="w"> </span>expr.tll
-</code></pre></div>
-</div>
-<div data-inc="expr.out"><span aria-label="Source: interp/expr.out" class="inc-path" role="img" tabindex="0" title="interp/expr.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>=&gt; 5
-</code></pre></div>
-</div>
+<p>[%inc expr.tll %] [%inc expr.sh %] [%inc expr.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="environments" class="slide level2">
 <h2>Environments</h2>
 <ul>
-<li>Store variables in a dictionary that's passed to every <code>do_</code> function<ul>
-<li>Like the dictionary returned by the <code>globals</code> function</li>
-<li>An <a class="gl-ref" href="../glossary/#environment">environment</a></li>
+<li>Store variables in a dictionary that’s passed to every
+<code>do_</code> function
+<ul>
+<li>Like the dictionary returned by the <code>globals</code>
+function</li>
+<li>An [%g environment “environment” %]</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div data-inc="vars.py" data-mark="do_abs"><span aria-label="Source: interp/vars.py" class="inc-path" role="img" tabindex="0" title="interp/vars.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_abs</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc vars.py mark=do_abs %]</p>
 </section>
 <section class="slide">
-<h2>Getting Variables' Values</h2>
+</section>
+<section id="getting-variables-values" class="slide level2">
+<h2>Getting Variables’ Values</h2>
 <ul>
-<li>Choices for getting variables' values:<ol>
+<li>Choices for getting variables’ values:
+<ol type="1">
 <li>Assume strings are variable names</li>
 <li>Define another function that we call explicitly</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<div data-inc="vars.py" data-mark="do_get"><span aria-label="Source: interp/vars.py" class="inc-path" role="img" tabindex="0" title="interp/vars.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown variable </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
-    <span class="k">return</span> <span class="n">env</span><span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-</code></pre></div>
-</div>
-<div data-inc="vars.py" data-mark="do_set"><span aria-label="Source: interp/vars.py" class="inc-path" role="img" tabindex="0" title="interp/vars.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_set</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">env</span><span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">return</span> <span class="n">value</span>
-</code></pre></div>
-</div>
+<p>[%inc vars.py mark=do_get %]</p>
+<p>[%inc vars.py mark=do_set %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="sequencing" class="slide level2">
 <h2>Sequencing</h2>
 <ul>
 <li>Need a way to set values before evaluating expressions</li>
 <li><code>["seq", ["set", "a", 1], ["add", ["get", "a"], 2]]</code></li>
 </ul>
-<div data-inc="vars.py" data-mark="do_seq"><span aria-label="Source: interp/vars.py" class="inc-path" role="img" tabindex="0" title="interp/vars.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_seq</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
-</div>
+<p>[%inc vars.py mark=do_seq %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="everything-is-an-expression" class="slide level2">
 <h2>Everything Is An Expression</h2>
 <ul>
-<li>Python distinguishes <a class="gl-ref" href="../glossary/#expression">expressions</a> that produce values
-    from <a class="gl-ref" href="../glossary/#statement">statements</a> that don't</li>
-<li>But it doesn't have to, and many languages don't</li>
+<li>Python distinguishes [%g expression “expressions” %] that produce
+values from [%g statement “statements” %] that don’t</li>
+<li>But it doesn’t have to, and many languages don’t</li>
 </ul>
-<div data-inc="ex_assign_expr.py"><span aria-label="Source: interp/ex_assign_expr.py" class="inc-path" role="img" tabindex="0" title="interp/ex_assign_expr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># not actually legal Python</span>
-<span class="n">result</span> <span class="o">=</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="o">-</span><span class="mi">1</span>
-</code></pre></div>
-</div>
+<p>[%inc ex_assign_expr.py %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="doubling" class="slide level2">
 <h2>Doubling</h2>
-<div data-inc="doubling.tll"><span aria-label="Source: interp/doubling.tll" class="inc-path" role="img" tabindex="0" title="interp/doubling.tll">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[
-    "seq",
-    ["set", "a", 1],
-    ["print", "initial", ["get", "a"]],
-    [
-        "repeat", 4,
-        [
-            "seq",
-            ["set", "a", ["add", ["get", "a"], ["get", "a"]]],
-	    ["if",
-		["leq", ["get", "a"], 10],
-		["print", "small", ["get", "a"]],
-		["print", "large", ["get", "a"]]
-	    ]
-        ]
-    ]
-]
-</code></pre></div>
-</div>
+<p>[%inc doubling.tll %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="doubling-1" class="slide level2">
 <h2>Doubling</h2>
-<div data-inc="doubling.out"><span aria-label="Source: interp/doubling.out" class="inc-path" role="img" tabindex="0" title="interp/doubling.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>initial 1
-small 2
-small 4
-small 8
-large 16
-=&gt; None
-</code></pre></div>
-</div>
+<p>[%inc doubling.out %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="this-is-tedious" class="slide level2">
 <h2>This Is Tedious</h2>
-<div data-inc="vars.py" data-mark="do"><span aria-label="Source: interp/vars.py" class="inc-path" role="img" tabindex="0" title="interp/vars.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">expr</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"abs"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_abs</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"add"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_add</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"get"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_get</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"seq"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_seq</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">if</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"set"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">do_set</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown operation </span><span class="si">{</span><span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
-</code></pre></div>
-</div>
+<p>[%inc vars.py mark=do %]</p>
 <ul>
 <li>But we know what to do</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="introspection" class="slide level2">
 <h2>Introspection</h2>
-<div data-inc="vars_reflect.py" data-mark="lookup"><span aria-label="Source: interp/vars_reflect.py" class="inc-path" role="img" tabindex="0" title="interp/vars_reflect.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">OPS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"do_"</span><span class="p">,</span> <span class="s2">""</span><span class="p">):</span> <span class="n">func</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"do_"</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
+<p>[%inc vars_reflect.py mark=lookup %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="how-good-is-our-design" class="slide level2">
 <h2>How Good Is Our Design?</h2>
 <ul>
-<li>One way to evaluate a design is to ask how <a class="gl-ref" href="../glossary/#extensibility">extensible</a> it is</li>
-<li>The answer for the interpreter is "pretty easily"</li>
-<li>The answer for our little language is "not at all"</li>
+<li>One way to evaluate a design is to ask how [%g extensibility
+“extensible” %] it is</li>
+<li>The answer for the interpreter is “pretty easily”</li>
+<li>The answer for our little language is “not at all”</li>
 <li>We need a way to define and call functions of our own</li>
-<li>We will tackle this in <a class="xref" href="../func/">Chapter 8</a></li>
+<li>We will tackle this in [%x func %]</li>
 </ul>
 </section>
 <section class="slide">
-<h2>Summary</h2>
-<figure id="f:interp-concept-map">
-<img alt="Concept map" src="concept_map.svg"/>
-<figcaption>Figure 2: Concept map.</figcaption>
-</figure>
 </section>
-<div aria-live="polite" id="slide-counter"></div>
-</div>
-<script src="../_static/shower.js"></script>
-<script src="../_static/slides.js"></script>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>[% figure slug=“interp-concept-map” img=“concept_map.svg”
+alt=“Concept map” caption=“Concept map.” %]</p>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
+      });
+    </script>
+    </body>
 </html>

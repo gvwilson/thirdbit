@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Tumor Classification by Logistic Regression</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -55,10 +78,10 @@
 <li>At <span class="math inline">\(z = 0\)</span> the model is completely uncertain: <span class="math inline">\(\sigma(0) = 0.5\)</span>.</li>
 <li>The predicted class is 1 when <span class="math inline">\(p \geq 0.5\)</span>, which is equivalent to <span class="math inline">\(z \geq 0\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z):</span>
+<div class="sourceCode" id="cb1" data-file="tumor/tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map any real number to (0, 1) via the logistic function 1 / (1 + exp(-z))."""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> np.exp(<span class="op">-</span>z))</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_proba(X, w, b):</span>
+<div class="sourceCode" id="cb2" data-file="tumor/tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_proba(X, w, b):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return predicted class-1 probability for each row of X.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Each probability is sigmoid(X @ w + b), the logistic regression output.</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
@@ -78,7 +101,7 @@
 <ul>
 <li>The update rule at each step is <span class="math inline">\(\mathbf{w} \leftarrow \mathbf{w} - \eta \partial L / \partial \mathbf{w}\)</span> where <span class="math inline">\(\eta\)</span> is the learning rate.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train(X, y, lr<span class="op">=</span><span class="fl">0.1</span>, n_iter<span class="op">=</span><span class="dv">2000</span>):</span>
+<div class="sourceCode" id="cb3" data-file="tumor/tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train(X, y, lr<span class="op">=</span><span class="fl">0.1</span>, n_iter<span class="op">=</span><span class="dv">2000</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit logistic regression by gradient descent on binary cross-entropy loss.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Binary cross-entropy:  L = -(1/n) sum [ y_i log(p_i) + (1-y_i) log(1-p_i) ]</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Gradients:</span></span>
@@ -121,7 +144,7 @@ Wrong: the learning rate is a separate scalar <code>lr</code>; <code>residual</c
 <li>Two isotropic Gaussian clusters in 2D simulate benign (centred at <span class="math inline">\([1.5, 1.5]\)</span>) and malignant (centred at <span class="math inline">\([3.5, 3.5]\)</span>) cell populations.</li>
 <li>The Euclidean distance between class means is <span class="math inline">\(\sqrt{8} \approx 2.83\)</span> standard deviations, making the classes well-separated but not trivially so.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
+<div class="sourceCode" id="cb4" data-file="tumor/generate_tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>N_PER_CLASS <span class="op">=</span> <span class="dv">150</span>  <span class="co"># samples per class</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Class 0 (benign): Gaussian cluster centred at BENIGN_MEAN.</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Class 1 (malignant): Gaussian cluster centred at MALIGNANT_MEAN.</span></span>
@@ -129,7 +152,7 @@ Wrong: the learning rate is a separate scalar <code>lr</code>; <code>residual</c
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>BENIGN_MEAN <span class="op">=</span> [<span class="fl">1.5</span>, <span class="fl">1.5</span>]</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>MALIGNANT_MEAN <span class="op">=</span> [<span class="fl">3.5</span>, <span class="fl">3.5</span>]</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>FEATURE_STD <span class="op">=</span> <span class="fl">0.6</span>  <span class="co"># within-class spread for each feature</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_tumor_data(</span>
+<div class="sourceCode" id="cb5" data-file="tumor/generate_tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_tumor_data(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n_per_class<span class="op">=</span>N_PER_CLASS,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    benign_mean<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    malignant_mean<span class="op">=</span><span class="va">None</span>,</span>
@@ -161,7 +184,7 @@ Wrong: the learning rate is a separate scalar <code>lr</code>; <code>residual</c
 <li>A <a href="../glossary/index.html#confusion_matrix">confusion matrix</a> tabulates the four combinations of actual and predicted class: true negatives (TN), false positives (FP), false negatives (FN), and true positives (TP).</li>
 <li>False negatives (malignant predicted as benign) are typically more harmful than false positives in cancer screening, which motivates choosing a threshold below 0.5 in practice.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confusion_matrix(y_true, y_pred):</span>
+<div class="sourceCode" id="cb6" data-file="tumor/tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confusion_matrix(y_true, y_pred):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a 2x2 confusion matrix [[TN, FP], [FN, TP]].</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Rows index actual class (0 = benign, 1 = malignant).</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Columns index predicted class (0 = benign, 1 = malignant).</span></span>
@@ -208,7 +231,7 @@ Wrong: the learning rate is a separate scalar <code>lr</code>; <code>residual</c
 </table>
 </div>
 <h2 data-number="27.6" id="visualizing-the-decision-boundary"><span class="header-section-number">27.6</span> Visualizing the Decision Boundary</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_boundary(X, y, w, b, filename):</span>
+<div class="sourceCode" id="cb7" data-file="tumor/tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_boundary(X, y, w, b, filename):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a scatter plot of the two classes with the logistic regression decision boundary.</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The boundary is the line w[0]*x1 + w[1]*x2 + b = 0, i.e.</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">        x2 = -(w[0]*x1 + b) / w[1]</span></span>
@@ -277,7 +300,7 @@ Figure&nbsp;27.1: Logistic regression applied to 300 synthetic tumour samples. T
 <li>Class means 3.3 standard deviations apart in each feature; 2000 iterations at learning rate 0.1. Accuracy above 95% is a conservative bound — the measured value is 97.7% on the full dataset. The safety factor of <span class="math inline">\(\approx 1.03\)</span> above the threshold accommodates random seeds that produce slightly less-separated draws.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb8" data-file="tumor/test_tumor.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_tumor <span class="im">import</span> make_tumor_data</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tumor <span class="im">import</span> sigmoid, predict_proba, predict, train, confusion_matrix, accuracy</span>
@@ -377,6 +400,14 @@ A <span class="math inline">\(2\times2\)</span> table of TN, FP, FN, TP counts; 
     <a class="pager-link next" href="../learning/index.html">Fitting a Learning Curve to Experimental Data →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

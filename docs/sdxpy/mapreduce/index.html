@@ -1,122 +1,48 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>MapReduce Framework</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MapReduce Framework</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a class="active" href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>MapReduce Framework</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#mapreduce-pattern" id="toc-mapreduce-pattern"><span class="header-section-number">L.1</span> The MapReduce Pattern</a></li>
+<li><a href="#mapreduce-wordcount" id="toc-mapreduce-wordcount"><span class="header-section-number">L.2</span> Word Count</a></li>
+<li><a href="#mapreduce-datastructures" id="toc-mapreduce-datastructures"><span class="header-section-number">L.3</span> Core Data Structures</a></li>
+<li><a href="#mapreduce-worker" id="toc-mapreduce-worker"><span class="header-section-number">L.4</span> Worker Implementation</a></li>
+<li><a href="#mapreduce-coordinator" id="toc-mapreduce-coordinator"><span class="header-section-number">L.5</span> MapReduce Coordinator</a></li>
+<li><a href="#mapreduce-combiner" id="toc-mapreduce-combiner"><span class="header-section-number">L.6</span> Combiner Functions</a></li>
+<li><a href="#mapreduce-speculative" id="toc-mapreduce-speculative"><span class="header-section-number">L.7</span> Handling Stragglers with Speculative Execution</a></li>
+<li><a href="#mapreduce-fault" id="toc-mapreduce-fault"><span class="header-section-number">L.8</span> Fault Tolerance Simulation</a></li>
+<li><a href="#mapreduce-real" id="toc-mapreduce-real"><span class="header-section-number">L.9</span> In the Real World</a></li>
+<li><a href="#mapreduce-hashing" id="toc-mapreduce-hashing"><span class="header-section-number">L.10</span> A Note on Hashing and Reproducibility</a></li>
+<li><a href="#mapreduce-exercises" id="toc-mapreduce-exercises"><span class="header-section-number">L.11</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">MapReduce Framework</h1>
+<div class="syllabus">
 <ul>
 <li>Describe the five phases of MapReduce (input split, map, shuffle, reduce, output) and explain what happens in each phase.</li>
 <li>Explain what a combiner does, when it is safe to use one, and why it reduces network traffic.</li>
@@ -125,776 +51,502 @@
 </ul>
 </div>
 <p><strong>In Development</strong></p>
-<p>[<a class="bib-ref" href="../bibliography/#Dean2004">Dean2004</a>] introduced the MapReduce framework,
-which allowed programmers to perform many different data processing tasks
-by using two abstractions called (as you might guess) map and reduce.
-<a href="https://hadoop.apache.org/">Hadoop</a>, <a href="https://spark.apache.org/">Apache Spark</a>, and other tools
-embody the same model,
-which is a good starting point for learning about distributed systems.</p>
-<h2 id="mapreduce-pattern">The MapReduce Pattern</h2>
-<p>MapReduce works by breaking computation into two phases.
-The <em>map</em> phase transforms input records independently,
-while the subsequent <em>reduce</em> phase combines results that have the same key.
-Between these phases the framework handles shuffling data across machines,
-sorting by key,
-and managing failures.
-Each MapReduce computation consists of:</p>
-<ol>
+<p><span class="citation" data-cites="Dean2004">(<a href="../bibliography/index.html#ref-Dean2004" role="doc-biblioref">Dean and Ghemawat 2004</a>)</span> introduced the MapReduce framework, which allowed programmers to perform many different data processing tasks by using two abstractions called (as you might guess) map and reduce. <a href="https://hadoop.apache.org/">Hadoop</a>, <a href="https://spark.apache.org/">Apache Spark</a>, and other tools embody the same model, which is a good starting point for learning about distributed systems.</p>
+<h2 data-number="L.1" id="mapreduce-pattern"><span class="header-section-number">L.1</span> The MapReduce Pattern</h2>
+<p>MapReduce works by breaking computation into two phases. The <em>map</em> phase transforms input records independently, while the subsequent <em>reduce</em> phase combines results that have the same key. Between these phases the framework handles shuffling data across machines, sorting by key, and managing failures. Each MapReduce computation consists of:</p>
+<ol type="1">
 <li>Input splitting: the input data is divided into chunks.</li>
 <li>Map phase: a user-supplied function is applied to each input record to produce key-value pairs.</li>
 <li>Shuffle: all values with the same key are grouped together and distributed to reducers.</li>
 <li>Reduce phase: the values associated with each key are processed to produce the final results.</li>
 <li>Output: the results are saved somewhere.</li>
 </ol>
-<p>In order for this to work,
-map operations must be independent,
-i.e.,
-there cannot be any shared state
-so that the operations can be done anywhere, in any order.
-Similarly,
-the reduce operations must be associative and commutative
-so that they can be applied in any order.
-These two constraints enable parallelism and fault tolerance.</p>
-<h2 id="mapreduce-wordcount">Word Count</h2>
-<p>Let's start by showing how MapReduce is used,
-and then show how it is implemented.
-The classic MapReduce example counts how often each word occurs in a document.</p>
-<div data-inc="ex_word_count.py"><span aria-label="Source: mapreduce/ex_word_count.py" class="inc-path" role="img" tabindex="0" title="mapreduce/ex_word_count.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Classic word count MapReduce example."""</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">Process</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_coordinator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceCoordinator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_worker</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceWorker</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dsdx</span><span class="w"> </span><span class="kn">import</span> <span class="n">dsdx</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">word_count_map</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Map function: emit (word, 1) for each word."""</span>
-    <span class="n">words</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">word_count_reduce</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Reduce function: sum all counts for a word."""</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">WordCountJob</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Process that runs the MapReduce job."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">:</span> <span class="n">MapReduceCoordinator</span><span class="p">,</span> <span class="n">input_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">num_splits</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span> <span class="o">=</span> <span class="n">coordinator</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_data</span> <span class="o">=</span> <span class="n">input_data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_splits</span> <span class="o">=</span> <span class="n">num_splits</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Run the job and display results."""</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_splits</span><span class="p">)</span>
-
-        <span class="c1"># Sort and display results</span>
-        <span class="n">results</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"=== Word Count Results ==="</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""Run word count example."""</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
-
-    <span class="c1"># Create coordinator</span>
-    <span class="n">coordinator</span> <span class="o">=</span> <span class="n">MapReduceCoordinator</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span> <span class="n">map_fn</span><span class="o">=</span><span class="n">word_count_map</span><span class="p">,</span> <span class="n">reduce_fn</span><span class="o">=</span><span class="n">word_count_reduce</span><span class="p">,</span> <span class="n">num_reducers</span><span class="o">=</span><span class="mi">3</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Create workers</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="n">worker</span> <span class="o">=</span> <span class="n">MapReduceWorker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">)</span>
-        <span class="n">coordinator</span><span class="o">.</span><span class="n">add_worker</span><span class="p">(</span><span class="n">worker</span><span class="p">)</span>
-
-    <span class="c1"># Input data: lines of text</span>
-    <span class="n">input_data</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">"the quick brown fox"</span><span class="p">,</span>
-        <span class="s2">"jumps over the lazy dog"</span><span class="p">,</span>
-        <span class="s2">"the dog was not amused"</span><span class="p">,</span>
-        <span class="s2">"the quick brown fox jumps again"</span><span class="p">,</span>
-        <span class="s2">"the lazy dog sleeps"</span><span class="p">,</span>
-    <span class="p">]</span>
-
-    <span class="c1"># Run job</span>
-    <span class="n">WordCountJob</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">,</span> <span class="n">input_data</span><span class="p">,</span> <span class="n">num_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">dsdx</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>As this example shows,
-the programmer writes two simple functions and runs a process to coordinate them.
-The framework handles distribution, parallelization, and aggregation.</p>
-<h2 id="mapreduce-datastructures">Core Data Structures</h2>
-<p>Let's start with some dataclasses to represent the data flowing through the framework.
-Input will be split into chunks for the map phase:</p>
-<div data-inc="mr_types.py" data-mark="map"><span aria-label="Source: mapreduce/mr_types.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_types.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">MapTask</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""A map task to be executed."""</span>
-
-    <span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
-</code></pre></div>
-</div>
+<p>In order for this to work, map operations must be independent, i.e., there cannot be any shared state so that the operations can be done anywhere, in any order. Similarly, the reduce operations must be associative and commutative so that they can be applied in any order. These two constraints enable parallelism and fault tolerance.</p>
+<h2 data-number="L.2" id="mapreduce-wordcount"><span class="header-section-number">L.2</span> Word Count</h2>
+<p>Let’s start by showing how MapReduce is used, and then show how it is implemented. The classic MapReduce example counts how often each word occurs in a document.</p>
+<div class="sourceCode" id="cb1" data-file="mapreduce/ex_word_count.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""Classic word count MapReduce example."""</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> asimpy <span class="im">import</span> Environment, Process</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_coordinator <span class="im">import</span> MapReduceCoordinator</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_worker <span class="im">import</span> MapReduceWorker</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dsdx <span class="im">import</span> dsdx</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> word_count_map(record: <span class="bu">str</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map function: emit (word, 1) for each word."""</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    words <span class="op">=</span> record.split()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> (word.lower(), <span class="dv">1</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> word_count_reduce(key: <span class="bu">str</span>, values: <span class="bu">list</span>[<span class="bu">int</span>]) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Reduce function: sum all counts for a word."""</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> WordCountJob(Process):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Process that runs the MapReduce job."""</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>, coordinator: MapReduceCoordinator, input_data: <span class="bu">list</span>[<span class="bu">str</span>], num_splits: <span class="bu">int</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.coordinator <span class="op">=</span> coordinator</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.input_data <span class="op">=</span> input_data</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_splits <span class="op">=</span> num_splits</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Run the job and display results."""</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.coordinator.run(<span class="va">self</span>.input_data, <span class="va">self</span>.num_splits)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Sort and display results</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        results.sort(key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"=== Word Count Results ==="</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> word, count <span class="kw">in</span> results:</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run word count example."""</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment()</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create coordinator</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    coordinator <span class="op">=</span> MapReduceCoordinator(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        env, map_fn<span class="op">=</span>word_count_map, reduce_fn<span class="op">=</span>word_count_reduce, num_reducers<span class="op">=</span><span class="dv">3</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create workers</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        worker <span class="op">=</span> MapReduceWorker(env, i, coordinator)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        coordinator.add_worker(worker)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Input data: lines of text</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    input_data <span class="op">=</span> [</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"the quick brown fox"</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"jumps over the lazy dog"</span>,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">"the dog was not amused"</span>,</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">"the quick brown fox jumps again"</span>,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">"the lazy dog sleeps"</span>,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run job</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    WordCountJob(env, coordinator, input_data, num_splits<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    env.run(until<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    dsdx(main)</span></code></pre></div>
+<p>As this example shows, the programmer writes two simple functions and runs a process to coordinate them. The framework handles distribution, parallelization, and aggregation.</p>
+<h2 data-number="L.3" id="mapreduce-datastructures"><span class="header-section-number">L.3</span> Core Data Structures</h2>
+<p>Let’s start with some dataclasses to represent the data flowing through the framework. Input will be split into chunks for the map phase:</p>
+<div class="sourceCode" id="cb2" data-file="mapreduce/mr_types.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MapTask:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A map task to be executed."""</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    task_id: <span class="bu">str</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    data: <span class="bu">list</span>[Any]</span></code></pre></div>
 <p>Intermediate data will be partitioned for reducers:</p>
-<div data-inc="mr_types.py" data-mark="intermediate"><span aria-label="Source: mapreduce/mr_types.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_types.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">IntermediateData</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Intermediate key-value pairs from map phase."""</span>
-
-    <span class="n">pairs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Add a key-value pair."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_partitions</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s2">"IntermediateData"</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">"""Partition by key hash."""</span>
-        <span class="n">partitions</span> <span class="o">=</span> <span class="p">[</span><span class="n">IntermediateData</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_partitions</span><span class="p">)]</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span><span class="p">:</span>
-            <span class="n">partition_id</span> <span class="o">=</span> <span class="n">_stable_hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_partitions</span>
-            <span class="n">partitions</span><span class="p">[</span><span class="n">partition_id</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">partitions</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">group_by_key</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">"""Group values by key."""</span>
-        <span class="n">grouped</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span><span class="p">:</span>
-            <span class="n">grouped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">grouped</span><span class="p">)</span>
-</code></pre></div>
+<div class="sourceCode" id="cb3" data-file="mapreduce/mr_types.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> IntermediateData:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Intermediate key-value pairs from map phase."""</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    pairs: <span class="bu">list</span>[<span class="bu">tuple</span>[Any, Any]] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">list</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, key: Any, value: Any):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Add a key-value pair."""</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pairs.append((key, value))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> partition(<span class="va">self</span>, num_partitions: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="st">"IntermediateData"</span>]:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Partition by key hash."""</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        partitions <span class="op">=</span> [IntermediateData() <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_partitions)]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key, value <span class="kw">in</span> <span class="va">self</span>.pairs:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            partition_id <span class="op">=</span> _stable_hash(key) <span class="op">%</span> num_partitions</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            partitions[partition_id].add(key, value)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> partitions</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group_by_key(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>[Any, <span class="bu">list</span>[Any]]:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Group values by key."""</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        grouped <span class="op">=</span> defaultdict(<span class="bu">list</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key, value <span class="kw">in</span> <span class="va">self</span>.pairs:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            grouped[key].append(value)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">dict</span>(grouped)</span></code></pre></div>
+<p>And finally, intermediate chunks will be reduced:</p>
+<div class="sourceCode" id="cb4" data-file="mapreduce/mr_types.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ReduceTask:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A reduce task to be executed."""</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    task_id: <span class="bu">str</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    partition_id: <span class="bu">int</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    keys: <span class="bu">list</span>[Any]  <span class="co"># Keys this reducer is responsible for</span></span></code></pre></div>
+<div>
+<blockquote>
+<p><strong>None</strong></p>
+<p>The initial implementation of MapReduce contained a subtle bug. Python’s built-in function <code>hash</code> generates a <a href="../glossary/index.html#hash-code">hash code</a> from a chunk of data. That value is partially randomized: it is the same within any run of a program, but may differ from one run to the next. This meant that different runs of our simulations sent different chunks of data to different places, which in turn meant that runs weren’t reproducible. To fix this, we introduced our own hashing function:</p>
+<div class="sourceCode" id="cb5" data-file="mapreduce/mr_types.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _stable_hash(key: Any) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Deterministic hash (not affected by PYTHONHASHSEED)."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(hashlib.md5(<span class="bu">str</span>(key).encode()).hexdigest(), <span class="dv">16</span>)</span></code></pre></div>
+</blockquote>
 </div>
-<p>And finally,
-intermediate chunks will be reduced:</p>
-<div data-inc="mr_types.py" data-mark="reduce"><span aria-label="Source: mapreduce/mr_types.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_types.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">ReduceTask</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""A reduce task to be executed."""</span>
-
-    <span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">partition_id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>  <span class="c1"># Keys this reducer is responsible for</span>
-</code></pre></div>
-</div>
-<div class="callout">
-<p>The initial implementation of MapReduce contained a subtle bug.
-Python's built-in function <code>hash</code> generates a <a class="gl-ref" href="../glossary/#hash-code">hash code</a>
-from a chunk of data.
-That value is partially randomized:
-it is the same within any run of a program,
-but may differ from one run to the next.
-This meant that different runs of our simulations
-sent different chunks of data to different places,
-which in turn meant that runs weren't reproducible.
-To fix this,
-we introduced our own hashing function:</p>
-<div data-inc="mr_types.py" data-mark="hash"><span aria-label="Source: mapreduce/mr_types.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_types.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_stable_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Deterministic hash (not affected by PYTHONHASHSEED)."""</span>
-
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
-</code></pre></div>
-</div>
-</div>
-<h2 id="mapreduce-worker">Worker Implementation</h2>
-<p>Worker processes execute both map and reduce tasks.
-Each has a unique worker ID,
-a queue of incoming tasks,
-and a reference to the overall work coordinator:</p>
-<div data-inc="mr_worker.py" data-mark="worker"><span aria-label="Source: mapreduce/mr_worker.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MapReduceWorker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Worker that executes map and reduce tasks."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">:</span> <span class="s2">"MapReduceCoordinator"</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span> <span class="o">=</span> <span class="n">worker_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span> <span class="o">=</span> <span class="n">coordinator</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># Statistics</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maps_executed</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reduces_executed</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="c1"># Simulate failure probability</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">failure_rate</span> <span class="o">=</span> <span class="mf">0.0</span>
-</code></pre></div>
-</div>
-<p>The code shown above also records a few simple statistics
-and can simulate failure with a specified probability;
-we will use this last propery when we look at fault tolerance.</p>
-<p>When a worker runs,
-it repeatedly gets a task from its queue and executes it.
-If there's a simulated failure,
-the worker reports that back to the coordinator instead:</p>
-<div data-inc="mr_worker.py" data-mark="run"><span aria-label="Source: mapreduce/mr_worker.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Main worker loop: fetch and execute tasks."""</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Get task from queue</span>
-            <span class="n">task</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-            <span class="c1"># Check for simulated failure</span>
-            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">failure_rate</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: FAILED during </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">report_failure</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="p">)</span>
-                <span class="k">continue</span>
-
-            <span class="c1"># Execute task</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">MapTask</span><span class="p">):</span>
-                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_map</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">ReduceTask</span><span class="p">):</span>
-                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_reduce</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>Each map task consists of one or more records.
-For simplicity's sake we assume each record needs the same processing time,
-so after waiting that long,
-the worker partitions the results
-and sends them back to the coordinator:</p>
-<div data-inc="mr_worker.py" data-mark="map"><span aria-label="Source: mapreduce/mr_worker.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">MapTask</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Execute a map task."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="n">task</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maps_executed</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
-            <span class="sa">f</span><span class="s2">"Starting </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> records"</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Simulate processing time</span>
-        <span class="n">processing_time</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="n">MAP_TIME</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">processing_time</span><span class="p">)</span>
-
-        <span class="c1"># Apply map function</span>
-        <span class="n">intermediate</span> <span class="o">=</span> <span class="n">IntermediateData</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">task</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">map_fn</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
-                <span class="n">intermediate</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-        <span class="c1"># Partition intermediate data</span>
-        <span class="n">partitions</span> <span class="o">=</span> <span class="n">intermediate</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">num_reducers</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
-            <span class="sa">f</span><span class="s2">"Completed </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">, produced </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">intermediate</span><span class="o">.</span><span class="n">pairs</span><span class="p">)</span><span class="si">}</span><span class="s2"> pairs"</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Send results to coordinator</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">map_completed</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">,</span> <span class="n">partitions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="kc">None</span>
-</code></pre></div>
-</div>
+<h2 data-number="L.4" id="mapreduce-worker"><span class="header-section-number">L.4</span> Worker Implementation</h2>
+<p>Worker processes execute both map and reduce tasks. Each has a unique worker ID, a queue of incoming tasks, and a reference to the overall work coordinator:</p>
+<div class="sourceCode" id="cb6" data-file="mapreduce/mr_worker.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MapReduceWorker(Process):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Worker that executes map and reduce tasks."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(<span class="va">self</span>, worker_id: <span class="bu">int</span>, coordinator: <span class="st">"MapReduceCoordinator"</span>):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.worker_id <span class="op">=</span> worker_id</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.coordinator <span class="op">=</span> coordinator</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.task_queue <span class="op">=</span> Queue(<span class="va">self</span>._env)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_task <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Statistics</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.maps_executed <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reduces_executed <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simulate failure probability</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.failure_rate <span class="op">=</span> <span class="fl">0.0</span></span></code></pre></div>
+<p>The code shown above also records a few simple statistics and can simulate failure with a specified probability; we will use this last property when we look at fault tolerance.</p>
+<p>When a worker runs, it repeatedly gets a task from its queue and executes it. If there’s a simulated failure, the worker reports that back to the coordinator instead:</p>
+<div class="sourceCode" id="cb7" data-file="mapreduce/mr_worker.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Main worker loop: fetch and execute tasks."""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Get task from queue</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            task <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.task_queue.get()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Check for simulated failure</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="va">self</span>.failure_rate:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Worker </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>worker_id<span class="sc">}</span><span class="ss">: FAILED during </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="va">self</span>.coordinator.report_failure(task, <span class="va">self</span>.worker_id)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Execute task</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">isinstance</span>(task, MapTask):</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="va">self</span>.execute_map(task)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">isinstance</span>(task, ReduceTask):</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="va">self</span>.execute_reduce(task)</span></code></pre></div>
+<p>Each map task consists of one or more records. For simplicity’s sake we assume each record needs the same processing time, so after waiting that long, the worker partitions the results and sends them back to the coordinator:</p>
+<div class="sourceCode" id="cb8" data-file="mapreduce/mr_worker.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> execute_map(<span class="va">self</span>, task: MapTask):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Execute a map task."""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_task <span class="op">=</span> task</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.maps_executed <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Worker </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>worker_id<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Starting </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss"> with </span><span class="sc">{</span><span class="bu">len</span>(task.data)<span class="sc">}</span><span class="ss"> records"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simulate processing time</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        processing_time <span class="op">=</span> <span class="bu">len</span>(task.data) <span class="op">*</span> MAP_TIME</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="va">self</span>.timeout(processing_time)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Apply map function</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        intermediate <span class="op">=</span> IntermediateData()</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> record <span class="kw">in</span> task.data:</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> key, value <span class="kw">in</span> <span class="va">self</span>.coordinator.map_fn(record):</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                intermediate.add(key, value)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Partition intermediate data</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        partitions <span class="op">=</span> intermediate.partition(<span class="va">self</span>.coordinator.num_reducers)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Worker </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>worker_id<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Completed </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">, produced </span><span class="sc">{</span><span class="bu">len</span>(intermediate.pairs)<span class="sc">}</span><span class="ss"> pairs"</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Send results to coordinator</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.coordinator.map_completed(task.task_id, partitions, <span class="va">self</span>.worker_id)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_task <span class="op">=</span> <span class="va">None</span></span></code></pre></div>
 <p>Reducing works the same way:</p>
-<div data-inc="mr_worker.py" data-mark="reduce"><span aria-label="Source: mapreduce/mr_worker.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">ReduceTask</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Execute a reduce task."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="n">task</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reduces_executed</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: Starting </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-        <span class="c1"># Fetch intermediate data for this partition</span>
-        <span class="n">intermediate_data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">get_intermediate_data</span><span class="p">(</span>
-            <span class="n">task</span><span class="o">.</span><span class="n">partition_id</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Group by key</span>
-        <span class="n">grouped</span> <span class="o">=</span> <span class="n">intermediate_data</span><span class="o">.</span><span class="n">group_by_key</span><span class="p">()</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: Processing </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">grouped</span><span class="p">)</span><span class="si">}</span><span class="s2"> keys"</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Simulate processing time</span>
-        <span class="n">processing_time</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grouped</span><span class="p">)</span> <span class="o">*</span> <span class="n">REDUCE_TIME</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">processing_time</span><span class="p">)</span>
-
-        <span class="c1"># Apply reduce function</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">grouped</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">reduce_fn</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
-            <span class="sa">f</span><span class="s2">"Completed </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">, produced </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> results"</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Send results to coordinator</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">reduce_completed</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="kc">None</span>
-</code></pre></div>
-</div>
-<h2 id="mapreduce-coordinator">MapReduce Coordinator</h2>
-<p>The coordinator manages the entire lifecycle:
-splitting input, dispatching tasks, collecting results, and handling failures by re-executing failed tasks.</p>
-<div data-inc="mr_coordinator.py"><span aria-label="Source: mapreduce/mr_coordinator.py" class="inc-path" role="img" tabindex="0" title="mapreduce/mr_coordinator.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""MapReduce coordinator that orchestrates computation."""</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Any</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_types</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapTask</span><span class="p">,</span> <span class="n">ReduceTask</span><span class="p">,</span> <span class="n">IntermediateData</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_worker</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceWorker</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">MapReduceCoordinator</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Coordinates MapReduce computation."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
-        <span class="n">map_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">reduce_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">num_reducers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">map_fn</span> <span class="o">=</span> <span class="n">map_fn</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reduce_fn</span> <span class="o">=</span> <span class="n">reduce_fn</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_reducers</span> <span class="o">=</span> <span class="n">num_reducers</span>
-
-        <span class="c1"># Workers</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">workers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">MapReduceWorker</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="c1"># Task tracking</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pending_map_tasks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">MapTask</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pending_reduce_tasks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ReduceTask</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">completed_map_tasks</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">completed_reduce_tasks</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">failed_tasks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="c1"># Intermediate data storage (indexed by partition)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_storage</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">IntermediateData</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">i</span><span class="p">:</span> <span class="n">IntermediateData</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_reducers</span><span class="p">)</span>
-        <span class="p">}</span>
-
-        <span class="c1"># Final results</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="c1"># Statistics</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">map_phase_complete</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reduce_phase_complete</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worker</span><span class="p">:</span> <span class="n">MapReduceWorker</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Register a worker."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">workers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">worker</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">num_splits</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Run MapReduce job on input data - returns a coroutine."""</span>
-
-        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_execute</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Starting MapReduce job"</span><span class="p">)</span>
-
-            <span class="c1"># Create map tasks from input splits</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_input</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">num_splits</span><span class="p">)):</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="n">MapTask</span><span class="p">(</span><span class="sa">f</span><span class="s2">"map_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">pending_map_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-            <span class="c1"># Dispatch map tasks</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_map_tasks</span><span class="p">()</span>
-
-            <span class="c1"># Wait for map phase to complete</span>
-            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_phase_complete</span><span class="p">:</span>
-                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Map phase complete, starting reduce phase"</span><span class="p">)</span>
-
-            <span class="c1"># Create reduce tasks</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_reducers</span><span class="p">):</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="n">ReduceTask</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reduce_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">pending_reduce_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-            <span class="c1"># Dispatch reduce tasks</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_reduce_tasks</span><span class="p">()</span>
-
-            <span class="c1"># Wait for reduce phase to complete</span>
-            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduce_phase_complete</span><span class="p">:</span>
-                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
-            <span class="n">elapsed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
-
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] MapReduce job complete in </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total results: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span>
-
-        <span class="k">return</span> <span class="n">_execute</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_split_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">num_splits</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">"""Split input data into roughly equal chunks."""</span>
-        <span class="n">splits</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">chunk_size</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="n">num_splits</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_splits</span><span class="p">):</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">chunk_size</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">chunk_size</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_splits</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="n">splits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span>
-
-        <span class="k">return</span> <span class="n">splits</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_dispatch_map_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Assign map tasks to workers."""</span>
-        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_map_tasks</span><span class="p">:</span>
-            <span class="c1"># Find available worker</span>
-            <span class="n">worker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_available_worker</span><span class="p">()</span>
-            <span class="k">await</span> <span class="n">worker</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_dispatch_reduce_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Assign reduce tasks to workers."""</span>
-        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_reduce_tasks</span><span class="p">:</span>
-            <span class="n">worker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_available_worker</span><span class="p">()</span>
-            <span class="k">await</span> <span class="n">worker</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_available_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MapReduceWorker</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Get next available worker (round-robin)."""</span>
-        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">workers</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">map_completed</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">partitions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">IntermediateData</span><span class="p">],</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Handle map task completion."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">completed_map_tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
-
-        <span class="c1"># Store intermediate data by partition</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">partition_data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">partitions</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">partition_data</span><span class="o">.</span><span class="n">pairs</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_storage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-        <span class="c1"># Check if all map tasks are done</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">completed_map_tasks</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pending_map_tasks</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">map_phase_complete</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">reduce_completed</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Handle reduce task completion."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">completed_reduce_tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-
-        <span class="c1"># Check if all reduce tasks are done</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">completed_reduce_tasks</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pending_reduce_tasks</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reduce_phase_complete</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">report_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Handle task failure."""</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Task </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> failed on worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">, will retry"</span>
-        <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">failed_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-        <span class="c1"># Reschedule task</span>
-        <span class="n">worker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_available_worker</span><span class="p">()</span>
-        <span class="k">await</span> <span class="n">worker</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_intermediate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IntermediateData</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Fetch intermediate data for a partition."""</span>
-        <span class="c1"># In real system, this would involve network transfer</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Simulate network delay</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_storage</span><span class="p">[</span><span class="n">partition_id</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<p>Note that <code>run()</code> returns a coroutine by returning the result of <code>_execute()</code>;
-this coroutine is awaited by the <code>Process</code> that the user writes.</p>
-<h2 id="mapreduce-combiner">Combiner Functions</h2>
-<p>A combiner is a local reduce that runs on each mapper's output before shuffling
-in order to reduce network traffic.
-Doing this can dramatically improve performance for operations like summation or counting.</p>
-<p>To see why, consider the word-count example with the input "the cat sat on the mat".
-Without a combiner, the mapper for this chunk emits six intermediate pairs:
-<code>("the", 1), ("cat", 1), ("sat", 1), ("on", 1), ("the", 1), ("mat", 1)</code>.
-All six travel over the network to the reducers.</p>
-<p>With a combiner that runs the same reduce function locally,
-the mapper first reduces these to <code>("the", 2), ("cat", 1), ("sat", 1), ("on", 1), ("mat", 1)</code>.
-Now only five pairs cross the network, and the saving grows with repetition:
-for a chunk of 10,000 words with a vocabulary of 500, the combiner might reduce 10,000 pairs
-to 500, a 20x reduction in network traffic.</p>
-<p>A combiner is only correct when the reduce function is commutative and associative
-(the same requirement as the reduce phase itself).
-Summation, counting, max, and min all qualify.
-Average does not—<code>average(average(1,2), 3)</code> ≠ <code>average(1,2,3)</code>—so a combiner cannot be used
-for averages without keeping both the sum and count separately.</p>
-<div data-inc="coordinator_with_combiner.py"><span aria-label="Source: mapreduce/coordinator_with_combiner.py" class="inc-path" role="img" tabindex="0" title="mapreduce/coordinator_with_combiner.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""MapReduce coordinator with combiner optimization."""</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_coordinator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceCoordinator</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">MapReduceCoordinatorWithCombiner</span><span class="p">(</span><span class="n">MapReduceCoordinator</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Coordinator with combiner support."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
-        <span class="n">map_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">reduce_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">combiner_fn</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">num_reducers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">map_fn</span><span class="p">,</span> <span class="n">reduce_fn</span><span class="p">,</span> <span class="n">num_reducers</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">combiner_fn</span> <span class="o">=</span> <span class="n">combiner_fn</span> <span class="ow">or</span> <span class="n">reduce_fn</span>
-</code></pre></div>
-</div>
-<h2 id="mapreduce-speculative">Handling Stragglers with Speculative Execution</h2>
-<p>Some workers may be stragglers due to hardware issues or resource contention.
-MapReduce can accommodate this by launching backup copies of slow tasks.
-The first copy to complete wins,
-while others are discarded.
-This is called <a class="gl-ref" href="../glossary/#speculative-execution">speculative execution</a>,
-and ensures that one slow worker doesn't delay the entire job.</p>
-<div data-inc="speculative_coordinator.py"><span aria-label="Source: mapreduce/speculative_coordinator.py" class="inc-path" role="img" tabindex="0" title="mapreduce/speculative_coordinator.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""MapReduce coordinator with speculative execution."""</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">Process</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_coordinator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceCoordinator</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">StragglerMonitor</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Monitor for slow tasks and launch speculative copies."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">:</span> <span class="s2">"SpeculativeCoordinator"</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span> <span class="o">=</span> <span class="n">coordinator</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Monitor for stragglers."""</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">map_phase_complete</span><span class="p">:</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">_check_for_stragglers</span><span class="p">()</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">SpeculativeCoordinator</span><span class="p">(</span><span class="n">MapReduceCoordinator</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Coordinator with speculative execution for stragglers."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
-        <span class="n">map_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">reduce_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">num_reducers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="n">speculative_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">map_fn</span><span class="p">,</span> <span class="n">reduce_fn</span><span class="p">,</span> <span class="n">num_reducers</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">speculative_threshold</span> <span class="o">=</span> <span class="n">speculative_threshold</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">task_start_times</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">speculative_tasks</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_dispatch_map_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Dispatch map tasks with speculative execution."""</span>
-        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_dispatch_map_tasks</span><span class="p">()</span>
-
-        <span class="c1"># Start monitoring for stragglers</span>
-        <span class="n">StragglerMonitor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_for_stragglers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Launch speculative tasks for stragglers."""</span>
-        <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
-
-        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_map_tasks</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">task_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">completed_map_tasks</span><span class="p">:</span>
-                <span class="k">continue</span>
-
-            <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">task_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_start_times</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">task_start_times</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span>
-                <span class="k">continue</span>
-
-            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_start_times</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span>
-
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">speculative_threshold</span>
-                <span class="ow">and</span> <span class="n">task</span><span class="o">.</span><span class="n">task_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">speculative_tasks</span>
-            <span class="p">):</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Launching speculative copy of </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">speculative_tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span>
-
-                <span class="c1"># Launch backup copy</span>
-                <span class="n">worker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_available_worker</span><span class="p">()</span>
-                <span class="k">await</span> <span class="n">worker</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<h2 id="mapreduce-fault">Fault Tolerance Simulation</h2>
-<p>A simple extension of speculative execution is <a class="gl-ref" href="../glossary/#fault-tolerance">fault tolerance</a>:
-the framework automatically retries failed tasks,
-ensuring that computation completes despite failures.</p>
-<div data-inc="ex_fault_tolerance.py"><span aria-label="Source: mapreduce/ex_fault_tolerance.py" class="inc-path" role="img" tabindex="0" title="mapreduce/ex_fault_tolerance.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Fault tolerance demonstration with worker failures."""</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">Process</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_coordinator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceCoordinator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mr_worker</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapReduceWorker</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dsdx</span><span class="w"> </span><span class="kn">import</span> <span class="n">dsdx</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">word_count_map</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Map function: emit (word, 1) for each word."""</span>
-    <span class="n">words</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">word_count_reduce</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Reduce function: sum all counts for a word."""</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">FaultToleranceJob</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Process that runs the MapReduce job and shows fault tolerance."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">:</span> <span class="n">MapReduceCoordinator</span><span class="p">,</span> <span class="n">input_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">num_splits</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span> <span class="o">=</span> <span class="n">coordinator</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_data</span> <span class="o">=</span> <span class="n">input_data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_splits</span> <span class="o">=</span> <span class="n">num_splits</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Run the job and display results."""</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_splits</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== Final Results ==="</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Failed tasks: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">failed_tasks</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""Demonstrate fault tolerance with worker failures."""</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
-
-    <span class="n">coordinator</span> <span class="o">=</span> <span class="n">MapReduceCoordinator</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span> <span class="n">map_fn</span><span class="o">=</span><span class="n">word_count_map</span><span class="p">,</span> <span class="n">reduce_fn</span><span class="o">=</span><span class="n">word_count_reduce</span><span class="p">,</span> <span class="n">num_reducers</span><span class="o">=</span><span class="mi">2</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Create workers with varying failure rates</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="n">worker</span> <span class="o">=</span> <span class="n">MapReduceWorker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">)</span>
-        <span class="n">worker</span><span class="o">.</span><span class="n">failure_rate</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="mf">0.0</span>  <span class="c1"># First two workers fail sometimes</span>
-        <span class="n">coordinator</span><span class="o">.</span><span class="n">add_worker</span><span class="p">(</span><span class="n">worker</span><span class="p">)</span>
-
-    <span class="n">input_data</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">"hello world hello"</span><span class="p">,</span>
-        <span class="s2">"goodbye world goodbye"</span><span class="p">,</span>
-        <span class="s2">"hello goodbye hello world"</span><span class="p">,</span>
-    <span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
-
-    <span class="c1"># Run job</span>
-    <span class="n">FaultToleranceJob</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">,</span> <span class="n">input_data</span><span class="p">,</span> <span class="n">num_splits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">dsdx</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<h2 id="mapreduce-real">In the Real World</h2>
-<p>MapReduce's limitations led to the next-generation systems described in the introduction.
-First, MapReduce writes intermediate data to disk between phases.
-This is expensive for iterative algorithms of the kind used in machine learning,
-and becomes more so when complex computation require multiple MapReduce jobs to be chained together.</p>
-<p>Second, MapReduce has no data sharing:
-there is no way to cache intermediate results in memory across jobs,
-which can lead to redundant computation.
-Finally, MapReduce is designed for batch processing:
-real-time stream processing requires a different approach.</p>
-<p>Even with these shortcomings,
-MapReduce demonstrates how to build scalable distributed computation through simple abstractions.
-The key principles are:</p>
-<ol>
+<div class="sourceCode" id="cb9" data-file="mapreduce/mr_worker.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> execute_reduce(<span class="va">self</span>, task: ReduceTask):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Execute a reduce task."""</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_task <span class="op">=</span> task</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reduces_executed <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Worker </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>worker_id<span class="sc">}</span><span class="ss">: Starting </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Fetch intermediate data for this partition</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        intermediate_data <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.coordinator.get_intermediate_data(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            task.partition_id</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Group by key</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        grouped <span class="op">=</span> intermediate_data.group_by_key()</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Worker </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>worker_id<span class="sc">}</span><span class="ss">: Processing </span><span class="sc">{</span><span class="bu">len</span>(grouped)<span class="sc">}</span><span class="ss"> keys"</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simulate processing time</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        processing_time <span class="op">=</span> <span class="bu">len</span>(grouped) <span class="op">*</span> REDUCE_TIME</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="va">self</span>.timeout(processing_time)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Apply reduce function</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> []</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key, values <span class="kw">in</span> grouped.items():</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> <span class="va">self</span>.coordinator.reduce_fn(key, values)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            results.append((key, result))</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Worker </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>worker_id<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Completed </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">, produced </span><span class="sc">{</span><span class="bu">len</span>(results)<span class="sc">}</span><span class="ss"> results"</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Send results to coordinator</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.coordinator.reduce_completed(task.task_id, results, <span class="va">self</span>.worker_id)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_task <span class="op">=</span> <span class="va">None</span></span></code></pre></div>
+<h2 data-number="L.5" id="mapreduce-coordinator"><span class="header-section-number">L.5</span> MapReduce Coordinator</h2>
+<p>The coordinator manages the entire lifecycle: splitting input, dispatching tasks, collecting results, and handling failures by re-executing failed tasks.</p>
+<div class="sourceCode" id="cb10" data-file="mapreduce/mr_coordinator.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""MapReduce coordinator that orchestrates computation."""</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> asimpy <span class="im">import</span> Environment</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Callable, Any</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_types <span class="im">import</span> MapTask, ReduceTask, IntermediateData</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_worker <span class="im">import</span> MapReduceWorker</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MapReduceCoordinator:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Coordinates MapReduce computation."""</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        env: Environment,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        map_fn: Callable,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        reduce_fn: Callable,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        num_reducers: <span class="bu">int</span> <span class="op">=</span> <span class="dv">3</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.env <span class="op">=</span> env</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.map_fn <span class="op">=</span> map_fn</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reduce_fn <span class="op">=</span> reduce_fn</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_reducers <span class="op">=</span> num_reducers</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Workers</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.workers: <span class="bu">list</span>[MapReduceWorker] <span class="op">=</span> []</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Task tracking</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pending_map_tasks: <span class="bu">list</span>[MapTask] <span class="op">=</span> []</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pending_reduce_tasks: <span class="bu">list</span>[ReduceTask] <span class="op">=</span> []</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.completed_map_tasks: <span class="bu">set</span> <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.completed_reduce_tasks: <span class="bu">set</span> <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.failed_tasks: <span class="bu">list</span>[Any] <span class="op">=</span> []</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Intermediate data storage (indexed by partition)</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.intermediate_storage: <span class="bu">dict</span>[<span class="bu">int</span>, IntermediateData] <span class="op">=</span> {</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>            i: IntermediateData() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_reducers)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Final results</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.results: <span class="bu">list</span>[<span class="bu">tuple</span>[Any, Any]] <span class="op">=</span> []</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Statistics</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.map_phase_complete <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reduce_phase_complete <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.start_time: <span class="bu">float</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.end_time: <span class="bu">float</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_worker(<span class="va">self</span>, worker: MapReduceWorker):</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Register a worker."""</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.workers.append(worker)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run(<span class="va">self</span>, input_data: <span class="bu">list</span>[Any], num_splits: <span class="bu">int</span>):</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Run MapReduce job on input data - returns a coroutine."""</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">async</span> <span class="kw">def</span> _execute():</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.start_time <span class="op">=</span> <span class="va">self</span>.env.now</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Starting MapReduce job"</span>)</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Create map tasks from input splits</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i, data <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="va">self</span>._split_input(input_data, num_splits)):</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>                task <span class="op">=</span> MapTask(<span class="ss">f"map_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, data)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.pending_map_tasks.append(task)</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Dispatch map tasks</span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>._dispatch_map_tasks()</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Wait for map phase to complete</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="kw">not</span> <span class="va">self</span>.map_phase_complete:</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="va">self</span>.env.timeout(<span class="fl">0.5</span>)</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Map phase complete, starting reduce phase"</span>)</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Create reduce tasks</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.num_reducers):</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>                task <span class="op">=</span> ReduceTask(<span class="ss">f"reduce_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, i, [])</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.pending_reduce_tasks.append(task)</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Dispatch reduce tasks</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>._dispatch_reduce_tasks()</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Wait for reduce phase to complete</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="kw">not</span> <span class="va">self</span>.reduce_phase_complete:</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="va">self</span>.env.timeout(<span class="fl">0.5</span>)</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.end_time <span class="op">=</span> <span class="va">self</span>.env.now</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>            elapsed <span class="op">=</span> <span class="va">self</span>.end_time <span class="op">-</span> <span class="va">self</span>.start_time</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] MapReduce job complete in </span><span class="sc">{</span>elapsed<span class="sc">:.1f}</span><span class="ss">s"</span>)</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Total results: </span><span class="sc">{</span><span class="bu">len</span>(<span class="va">self</span>.results)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.results</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> _execute()</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _split_input(<span class="va">self</span>, data: <span class="bu">list</span>[Any], num_splits: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">list</span>[Any]]:</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Split input data into roughly equal chunks."""</span></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>        splits <span class="op">=</span> []</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>        chunk_size <span class="op">=</span> <span class="bu">max</span>(<span class="dv">1</span>, <span class="bu">len</span>(data) <span class="op">//</span> num_splits)</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_splits):</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>            start <span class="op">=</span> i <span class="op">*</span> chunk_size</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>            end <span class="op">=</span> start <span class="op">+</span> chunk_size <span class="cf">if</span> i <span class="op">&lt;</span> num_splits <span class="op">-</span> <span class="dv">1</span> <span class="cf">else</span> <span class="bu">len</span>(data)</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>            splits.append(data[start:end])</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> splits</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> _dispatch_map_tasks(<span class="va">self</span>):</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Assign map tasks to workers."""</span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> task <span class="kw">in</span> <span class="va">self</span>.pending_map_tasks:</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Find available worker</span></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>            worker <span class="op">=</span> <span class="va">self</span>._get_available_worker()</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> worker.task_queue.put(task)</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> _dispatch_reduce_tasks(<span class="va">self</span>):</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Assign reduce tasks to workers."""</span></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> task <span class="kw">in</span> <span class="va">self</span>.pending_reduce_tasks:</span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>            worker <span class="op">=</span> <span class="va">self</span>._get_available_worker()</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> worker.task_queue.put(task)</span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _get_available_worker(<span class="va">self</span>) <span class="op">-&gt;</span> MapReduceWorker:</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Get next available worker (round-robin)."""</span></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random.choice(<span class="va">self</span>.workers)</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> map_completed(</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>, task_id: <span class="bu">str</span>, partitions: <span class="bu">list</span>[IntermediateData], worker_id: <span class="bu">int</span></span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Handle map task completion."""</span></span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.completed_map_tasks.add(task_id)</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Store intermediate data by partition</span></span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, partition_data <span class="kw">in</span> <span class="bu">enumerate</span>(partitions):</span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> key, value <span class="kw">in</span> partition_data.pairs:</span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.intermediate_storage[i].add(key, value)</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if all map tasks are done</span></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.completed_map_tasks) <span class="op">==</span> <span class="bu">len</span>(<span class="va">self</span>.pending_map_tasks):</span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.map_phase_complete <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> reduce_completed(</span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>, task_id: <span class="bu">str</span>, results: <span class="bu">list</span>[<span class="bu">tuple</span>[Any, Any]], worker_id: <span class="bu">int</span></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Handle reduce task completion."""</span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.completed_reduce_tasks.add(task_id)</span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.results.extend(results)</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if all reduce tasks are done</span></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.completed_reduce_tasks) <span class="op">==</span> <span class="bu">len</span>(<span class="va">self</span>.pending_reduce_tasks):</span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.reduce_phase_complete <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> report_failure(<span class="va">self</span>, task: Any, worker_id: <span class="bu">int</span>):</span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Handle task failure."""</span></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">.</span>now<span class="sc">:.1f}</span><span class="ss">] Task </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss"> failed on worker </span><span class="sc">{</span>worker_id<span class="sc">}</span><span class="ss">, will retry"</span></span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.failed_tasks.append(task)</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reschedule task</span></span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>        worker <span class="op">=</span> <span class="va">self</span>._get_available_worker()</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> worker.task_queue.put(task)</span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> get_intermediate_data(<span class="va">self</span>, partition_id: <span class="bu">int</span>) <span class="op">-&gt;</span> IntermediateData:</span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Fetch intermediate data for a partition."""</span></span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>        <span class="co"># In real system, this would involve network transfer</span></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="va">self</span>.env.timeout(<span class="fl">0.1</span>)  <span class="co"># Simulate network delay</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.intermediate_storage[partition_id]</span></code></pre></div>
+<p>Note that <code>run()</code> returns a coroutine by returning the result of <code>_execute()</code>; this coroutine is awaited by the <code>Process</code> that the user writes.</p>
+<h2 data-number="L.6" id="mapreduce-combiner"><span class="header-section-number">L.6</span> Combiner Functions</h2>
+<p>A combiner is a local reduce that runs on each mapper’s output before shuffling in order to reduce network traffic. Doing this can dramatically improve performance for operations like summation or counting.</p>
+<p>To see why, consider the word-count example with the input “the cat sat on the mat”. Without a combiner, the mapper for this chunk emits six intermediate pairs: <code>("the", 1), ("cat", 1), ("sat", 1), ("on", 1), ("the", 1), ("mat", 1)</code>. All six travel over the network to the reducers.</p>
+<p>With a combiner that runs the same reduce function locally, the mapper first reduces these to <code>("the", 2), ("cat", 1), ("sat", 1), ("on", 1), ("mat", 1)</code>. Now only five pairs cross the network, and the saving grows with repetition: for a chunk of 10,000 words with a vocabulary of 500, the combiner might reduce 10,000 pairs to 500, a 20x reduction in network traffic.</p>
+<p>A combiner is only correct when the reduce function is commutative and associative (the same requirement as the reduce phase itself). Summation, counting, max, and min all qualify. Average does not—<code>average(average(1,2), 3)</code> ≠ <code>average(1,2,3)</code>—so a combiner cannot be used for averages without keeping both the sum and count separately.</p>
+<div class="sourceCode" id="cb11" data-file="mapreduce/coordinator_with_combiner.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""MapReduce coordinator with combiner optimization."""</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> asimpy <span class="im">import</span> Environment</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Callable, Optional</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_coordinator <span class="im">import</span> MapReduceCoordinator</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MapReduceCoordinatorWithCombiner(MapReduceCoordinator):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Coordinator with combiner support."""</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        env: Environment,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        map_fn: Callable,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        reduce_fn: Callable,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        combiner_fn: Optional[Callable] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        num_reducers: <span class="bu">int</span> <span class="op">=</span> <span class="dv">3</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(env, map_fn, reduce_fn, num_reducers)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.combiner_fn <span class="op">=</span> combiner_fn <span class="kw">or</span> reduce_fn</span></code></pre></div>
+<h2 data-number="L.7" id="mapreduce-speculative"><span class="header-section-number">L.7</span> Handling Stragglers with Speculative Execution</h2>
+<p>Some workers may be stragglers due to hardware issues or resource contention. MapReduce can accommodate this by launching backup copies of slow tasks. The first copy to complete wins, while others are discarded. This is called <a href="../glossary/index.html#speculative-execution">speculative execution</a>, and ensures that one slow worker doesn’t delay the entire job.</p>
+<div class="sourceCode" id="cb12" data-file="mapreduce/speculative_coordinator.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""MapReduce coordinator with speculative execution."""</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> asimpy <span class="im">import</span> Environment, Process</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Callable, Dict</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_coordinator <span class="im">import</span> MapReduceCoordinator</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StragglerMonitor(Process):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Monitor for slow tasks and launch speculative copies."""</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(<span class="va">self</span>, coordinator: <span class="st">"SpeculativeCoordinator"</span>):</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.coordinator <span class="op">=</span> coordinator</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Monitor for stragglers."""</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="kw">not</span> <span class="va">self</span>.coordinator.map_phase_complete:</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="fl">1.0</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.coordinator._check_for_stragglers()</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SpeculativeCoordinator(MapReduceCoordinator):</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Coordinator with speculative execution for stragglers."""</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        env: Environment,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        map_fn: Callable,</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        reduce_fn: Callable,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        num_reducers: <span class="bu">int</span> <span class="op">=</span> <span class="dv">3</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        speculative_threshold: <span class="bu">float</span> <span class="op">=</span> <span class="fl">5.0</span>,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(env, map_fn, reduce_fn, num_reducers)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speculative_threshold <span class="op">=</span> speculative_threshold</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.task_start_times: Dict[<span class="bu">str</span>, <span class="bu">float</span>] <span class="op">=</span> {}</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speculative_tasks: <span class="bu">set</span> <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> _dispatch_map_tasks(<span class="va">self</span>):</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Dispatch map tasks with speculative execution."""</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="bu">super</span>()._dispatch_map_tasks()</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Start monitoring for stragglers</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        StragglerMonitor(<span class="va">self</span>.env, <span class="va">self</span>)</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> _check_for_stragglers(<span class="va">self</span>):</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Launch speculative tasks for stragglers."""</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        now <span class="op">=</span> <span class="va">self</span>.env.now</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> task <span class="kw">in</span> <span class="va">self</span>.pending_map_tasks:</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> task.task_id <span class="kw">in</span> <span class="va">self</span>.completed_map_tasks:</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> task.task_id <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.task_start_times:</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.task_start_times[task.task_id] <span class="op">=</span> now</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>            elapsed <span class="op">=</span> now <span class="op">-</span> <span class="va">self</span>.task_start_times[task.task_id]</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>                elapsed <span class="op">&gt;</span> <span class="va">self</span>.speculative_threshold</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>                <span class="kw">and</span> task.task_id <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.speculative_tasks</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>            ):</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"[</span><span class="sc">{</span>now<span class="sc">:.1f}</span><span class="ss">] Launching speculative copy of </span><span class="sc">{</span>task<span class="sc">.</span>task_id<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.speculative_tasks.add(task.task_id)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Launch backup copy</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>                worker <span class="op">=</span> <span class="va">self</span>._get_available_worker()</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> worker.task_queue.put(task)</span></code></pre></div>
+<h2 data-number="L.8" id="mapreduce-fault"><span class="header-section-number">L.8</span> Fault Tolerance Simulation</h2>
+<p>A simple extension of speculative execution is <a href="../glossary/index.html#fault-tolerance">fault tolerance</a>: the framework automatically retries failed tasks, ensuring that computation completes despite failures.</p>
+<div class="sourceCode" id="cb13" data-file="mapreduce/ex_fault_tolerance.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""Fault tolerance demonstration with worker failures."""</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> asimpy <span class="im">import</span> Environment, Process</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_coordinator <span class="im">import</span> MapReduceCoordinator</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mr_worker <span class="im">import</span> MapReduceWorker</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dsdx <span class="im">import</span> dsdx</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> word_count_map(record: <span class="bu">str</span>):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Map function: emit (word, 1) for each word."""</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    words <span class="op">=</span> record.split()</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> (word.lower(), <span class="dv">1</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> word_count_reduce(key: <span class="bu">str</span>, values: <span class="bu">list</span>[<span class="bu">int</span>]) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Reduce function: sum all counts for a word."""</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FaultToleranceJob(Process):</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Process that runs the MapReduce job and shows fault tolerance."""</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>, coordinator: MapReduceCoordinator, input_data: <span class="bu">list</span>[<span class="bu">str</span>], num_splits: <span class="bu">int</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.coordinator <span class="op">=</span> coordinator</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.input_data <span class="op">=</span> input_data</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_splits <span class="op">=</span> num_splits</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Run the job and display results."""</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.coordinator.run(<span class="va">self</span>.input_data, <span class="va">self</span>.num_splits)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Final Results ==="</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> word, count <span class="kw">in</span> <span class="bu">sorted</span>(results):</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Failed tasks: </span><span class="sc">{</span><span class="bu">len</span>(<span class="va">self</span>.coordinator.failed_tasks)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Demonstrate fault tolerance with worker failures."""</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment()</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    coordinator <span class="op">=</span> MapReduceCoordinator(</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>        env, map_fn<span class="op">=</span>word_count_map, reduce_fn<span class="op">=</span>word_count_reduce, num_reducers<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create workers with varying failure rates</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>        worker <span class="op">=</span> MapReduceWorker(env, i, coordinator)</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>        worker.failure_rate <span class="op">=</span> <span class="fl">0.2</span> <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="fl">0.0</span>  <span class="co"># First two workers fail sometimes</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>        coordinator.add_worker(worker)</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>    input_data <span class="op">=</span> [</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"hello world hello"</span>,</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"goodbye world goodbye"</span>,</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"hello goodbye hello world"</span>,</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    ] <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run job</span></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>    FaultToleranceJob(env, coordinator, input_data, num_splits<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>    env.run(until<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    dsdx(main)</span></code></pre></div>
+<h2 data-number="L.9" id="mapreduce-real"><span class="header-section-number">L.9</span> In the Real World</h2>
+<p>MapReduce’s limitations led to the next-generation systems described in the introduction. First, MapReduce writes intermediate data to disk between phases. This is expensive for iterative algorithms of the kind used in machine learning, and becomes more so when complex computation require multiple MapReduce jobs to be chained together.</p>
+<p>Second, MapReduce has no data sharing: there is no way to cache intermediate results in memory across jobs, which can lead to redundant computation. Finally, MapReduce is designed for batch processing: real-time stream processing requires a different approach.</p>
+<p>Even with these shortcomings, MapReduce demonstrates how to build scalable distributed computation through simple abstractions. The key principles are:</p>
+<ol type="1">
 <li>Partitioning: data is automatically partitioned and distributed.</li>
-<li>Independent processing: Map tasks don't communicate, and reduce tasks are independent.</li>
+<li>Independent processing: Map tasks don’t communicate, and reduce tasks are independent.</li>
 <li>Fault tolerance: Idempotent operations make it safe to re-execute tasks.</li>
 <li>Simplicity: Programmers write two functions, and the framework handles everything else.</li>
 </ol>
-<h2 id="mapreduce-hashing">A Note on Hashing and Reproducibility</h2>
-<p>The <code>IntermediateData.partition</code> method assigns each key to a reducer
-using a hash function.
-An earlier version of this code used Python's built-in <code>hash()</code>,
-which meant that the examples produced different output every time they were run
-even when <code>random.seed()</code> was called with the same value.
-The reason is that Python randomizes string hashing on startup:
-the environment variable <code>PYTHONHASHSEED</code> is set to a different random value
-each time the interpreter starts,
-so <code>hash("the")</code> returns a different integer in every process.
-This is a security measure to prevent hash collision attacks,
-but it means that <code>hash()</code> is not suitable for partitioning
-when reproducibility matters.
-The fix is to use <code>hashlib.md5</code> (or another deterministic hash function)
-to convert keys to integers.
-The result is not affected by <code>PYTHONHASHSEED</code>,
-so the examples produce the same output every time.</p>
-<section aria-label="Exercises" class="exercises">
-<h2 id="mapreduce-exercises">Exercises</h2>
-<ol>
-<li>
-<p>Run the word-count example twice without calling <code>random.seed()</code>.
-    Do the results change between runs?
-    Now add <code>random.seed(42)</code> before the simulation and run it again.
-    Are the results now reproducible?
-    Why or why not—is the hash function the only source of non-determinism?</p>
-</li>
-<li>
-<p>The combiner reduces network traffic by pre-aggregating mapper output.
-    Modify the word-count example to count how many key-value pairs the mapper produces
-    and how many it would produce after combining.
-    Use a corpus of 1000 words with a vocabulary of 50 distinct words
-    and measure the reduction factor.</p>
-</li>
-<li>
-<p>The current implementation retries failed tasks until they succeed.
-    What happens if a task always fails (e.g., because the input data is corrupt)?
-    Add a maximum retry count to the coordinator and have it report a permanent failure
-    after three attempts.
-    (Starter: add a <code>retry_count: dict</code> to <code>MRCoordinator.__init__</code> and increment it in the failure handler.)</p>
-</li>
-<li>
-<p>Speculative execution launches a backup copy of a slow task.
-    What happens if both the original and the backup succeed at almost the same time?
-    Trace through <code>speculative_coordinator.py</code> to find where duplicate results are handled.
-    Is there a window where the coordinator could accept both?</p>
-</li>
-<li>
-<p>MapReduce is described as unsuitable for iterative algorithms.
-    Sketch how you would compute PageRank (which requires iterating until convergence)
-    using multiple MapReduce jobs chained together.
-    How many jobs would be needed for 10 iterations?
-    What is the overhead compared to a system that keeps data in memory between iterations?</p>
-</li>
+<h2 data-number="L.10" id="mapreduce-hashing"><span class="header-section-number">L.10</span> A Note on Hashing and Reproducibility</h2>
+<p>The <code>IntermediateData.partition</code> method assigns each key to a reducer using a hash function. An earlier version of this code used Python’s built-in <code>hash()</code>, which meant that the examples produced different output every time they were run even when <code>random.seed()</code> was called with the same value. The reason is that Python randomizes string hashing on startup: the environment variable <code>PYTHONHASHSEED</code> is set to a different random value each time the interpreter starts, so <code>hash("the")</code> returns a different integer in every process. This is a security measure to prevent hash collision attacks, but it means that <code>hash()</code> is not suitable for partitioning when reproducibility matters. The fix is to use <code>hashlib.md5</code> (or another deterministic hash function) to convert keys to integers. The result is not affected by <code>PYTHONHASHSEED</code>, so the examples produce the same output every time.</p>
+<h2 data-number="L.11" id="mapreduce-exercises"><span class="header-section-number">L.11</span> Exercises</h2>
+<ol type="1">
+<li><p>Run the word-count example twice without calling <code>random.seed()</code>. Do the results change between runs? Now add <code>random.seed(42)</code> before the simulation and run it again. Are the results now reproducible? Why or why not—is the hash function the only source of non-determinism?</p></li>
+<li><p>The combiner reduces network traffic by pre-aggregating mapper output. Modify the word-count example to count how many key-value pairs the mapper produces and how many it would produce after combining. Use a corpus of 1000 words with a vocabulary of 50 distinct words and measure the reduction factor.</p></li>
+<li><p>The current implementation retries failed tasks until they succeed. What happens if a task always fails (e.g., because the input data is corrupt)? Add a maximum retry count to the coordinator and have it report a permanent failure after three attempts. (Starter: add a <code>retry_count: dict</code> to <code>MRCoordinator.__init__</code> and increment it in the failure handler.)</p></li>
+<li><p>Speculative execution launches a backup copy of a slow task. What happens if both the original and the backup succeed at almost the same time? Trace through <code>speculative_coordinator.py</code> to find where duplicate results are handled. Is there a window where the coordinator could accept both?</p></li>
+<li><p>MapReduce is described as unsuitable for iterative algorithms. Sketch how you would compute PageRank (which requires iterating until convergence) using multiple MapReduce jobs chained together. How many jobs would be needed for 10 iterations? What is the overhead compared to a system that keeps data in memory between iterations?</p></li>
 </ol>
-</section>
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Dean2004" class="csl-entry" role="listitem">
+Dean, Jeffrey, and Sanjay Ghemawat. 2004. <span>“MapReduce: Simplified Data Processing on Large Clusters.”</span> <em>Proceedings of the 6th Symposium on Operating Systems Design and Implementation (OSDI ’04)</em>.
+</div>
+</div>
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../concur">Concurrency</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../msgque">A Publish-Subscribe Message Queue</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../concur/index.html">← Concurrency</a>
+    <a class="pager-link next" href="../msgque/index.html">A Publish-Subscribe Message Queue →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

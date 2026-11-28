@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Predator-Prey Dynamics</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -70,7 +93,7 @@
 </ul></li>
 </ul>
 <h2 data-number="24.3" id="parameters-and-equilibrium"><span class="header-section-number">24.3</span> Parameters and Equilibrium</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate parameters (arbitrary units).</span></span>
+<div class="sourceCode" id="cb1" data-file="lotka/lotka.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate parameters (arbitrary units).</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PREY_BIRTH: per-capita prey growth rate in the absence of predators.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># PREDATION:  rate at which one predator removes prey (per predator per prey).</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># PRED_GROWTH: rate at which predators gain from eating prey (per predator per prey).</span></span>
@@ -131,7 +154,7 @@ Wrong: <code>PREY_BIRTH</code> = 1.0 is a rate parameter, not the equilibrium pr
 <li><code>solve_ivp</code> requires a function that takes time <span class="math inline">\(t\)</span> and state vector <span class="math inline">\(z = [x, y]\)</span> and returns <span class="math inline">\([dx/dt,\; dy/dt]\)</span></li>
 <li>The function must not modify <span class="math inline">\(z\)</span>; instead, it should return a new list</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rhs(t, z):</span>
+<div class="sourceCode" id="cb2" data-file="lotka/lotka.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rhs(t, z):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return [dx/dt, dy/dt] for the Lotka-Volterra equations.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    z[0] = x (prey population)</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    z[1] = y (predator population)</span></span>
@@ -175,7 +198,7 @@ Wrong: <code>PREY_BIRTH</code> = 1.0 is a rate parameter, not the equilibrium pr
 <li>Setting them to <span class="math inline">\(10^{-8}\)</span> and <span class="math inline">\(10^{-10}\)</span> gives solutions accurate to roughly eight significant figures.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve():</span>
+<div class="sourceCode" id="cb3" data-file="lotka/lotka.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve():</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Integrate the Lotka-Volterra equations and return results as a DataFrame."""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    t_eval <span class="op">=</span> np.linspace(<span class="dv">0</span>, T_MAX, N_EVAL)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(</span>
@@ -192,7 +215,7 @@ Wrong: <code>PREY_BIRTH</code> = 1.0 is a rate parameter, not the equilibrium pr
 <ul>
 <li>Two views of the solution complement each other.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_time_series(df):</span>
+<div class="sourceCode" id="cb4" data-file="lotka/lotka.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_time_series(df):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an Altair chart of prey and predator populations over time."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">long</span> <span class="op">=</span> df.unpivot(</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        index<span class="op">=</span><span class="st">"t"</span>,</span>
@@ -274,7 +297,7 @@ Volterra proved that the time mean of <span class="math inline">\(x(t)\)</span> 
 Linearising the LV equations around equilibrium gives small oscillations with period <span class="math inline">\(2\pi/\sqrt{ad}\)</span>. For finite-amplitude oscillations the true period is longer (the nonlinear correction is <span class="math inline">\(O(\text{amplitude}^2)\)</span>). With our initial conditions the measured period is ~5.30 versus the linearised estimate of ~5.13, a 3.3% deviation. A tolerance of 10% gives a safety factor of 3 over that measured deviation.
 </dd>
 </dl>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb5" data-file="lotka/test_lotka.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lotka <span class="im">import</span> (</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    PRED_EQ,</span>
@@ -330,6 +353,14 @@ Linearising the LV equations around equilibrium gives small oscillations with pe
     <a class="pager-link next" href="../sir/index.html">Fitting an SIR Epidemic Model →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

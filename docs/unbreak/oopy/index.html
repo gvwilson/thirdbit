@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Object-Oriented Python</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -60,7 +61,7 @@
 <p>Object-oriented Python looks straightforward until it doesn’t work. A handful of rules govern how Python handles attributes, inheritance, and special methods, and breaking any one of them silently produces wrong results or a confusing error. Run each example and read the traceback before looking at the explanation.</p>
 <h2 data-number="4.1" id="define-a-method-on-a-class"><span class="header-section-number">4.1</span> Define a method on a class</h2>
 <p>Create a <code>Rectangle</code> with width 4 and height 6 and call <code>area()</code>. Does it return 24?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
+<div class="sourceCode" id="cb1" data-file="oopy/no_self.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
@@ -78,7 +79,7 @@ Show explanation
 </details>
 <h2 data-number="4.2" id="get-a-value-back-from-a-method"><span class="header-section-number">4.2</span> Get a value back from a method</h2>
 <p>Create a <code>Greeter</code> and print the result of calling <code>greet</code>. Does the output say <code>"Hello, world!"</code>?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Greeter:</span>
+<div class="sourceCode" id="cb2" data-file="oopy/no_parens.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Greeter:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
@@ -95,7 +96,7 @@ Show explanation
 </details>
 <h2 data-number="4.3" id="make-__init__-set-up-an-object"><span class="header-section-number">4.3</span> Make <code>__init__</code> set up an object</h2>
 <p>Create a <code>Config</code> object and print its <code>debug</code> attribute. Does it print <code>True</code>?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
+<div class="sourceCode" id="cb3" data-file="oopy/init_return.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, debug):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.debug <span class="op">=</span> debug</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span></span>
@@ -111,7 +112,7 @@ Show explanation
 </details>
 <h2 data-number="4.4" id="spell-an-attribute-name-consistently"><span class="header-section-number">4.4</span> Spell an attribute name consistently</h2>
 <p>Create a <code>Student</code> and call <code>greet()</code>. Does it print the student’s name?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<div class="sourceCode" id="cb4" data-file="oopy/typo_attr.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nane <span class="op">=</span> name</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
@@ -128,7 +129,7 @@ Show explanation
 </details>
 <h2 data-number="4.5" id="access-the-computed-area-of-a-circle"><span class="header-section-number">4.5</span> Access the computed area of a circle</h2>
 <p>Create a <code>Circle</code> with radius 5 and print its area. Does it print a number close to 78.5?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<div class="sourceCode" id="cb5" data-file="oopy/prop_call.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Circle:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, radius):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radius <span class="op">=</span> radius</span>
@@ -147,7 +148,7 @@ Show explanation
 </details>
 <h2 data-number="4.6" id="add-a-vector-and-a-tuple-in-either-order"><span class="header-section-number">4.6</span> Add a vector and a tuple in either order</h2>
 <p>Create a <code>Vector(1, 2)</code> and add it to <code>(3, 4)</code> — and also add <code>(3, 4)</code> to the vector. Do both additions work?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vector:</span>
+<div class="sourceCode" id="cb6" data-file="oopy/radd.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vector:</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
@@ -169,7 +170,7 @@ Show explanation
 </details>
 <h2 data-number="4.7" id="check-whether-a-status-matches-a-target"><span class="header-section-number">4.7</span> Check whether a status matches a target</h2>
 <p>Create a <code>Status("ok")</code> and call <code>is_ok()</code>. Does it return <code>True</code>?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Status:</span>
+<div class="sourceCode" id="cb7" data-file="oopy/is_equals.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Status:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, code):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.code <span class="op">=</span> code</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> is_ok(<span class="va">self</span>):</span>
@@ -186,7 +187,7 @@ Show explanation
 </details>
 <h2 data-number="4.8" id="create-a-person-with-the-right-details"><span class="header-section-number">4.8</span> Create a person with the right details</h2>
 <p>Create a <code>Person</code> and call <code>introduce()</code>. Does the output contain the correct name and age?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person:</span>
+<div class="sourceCode" id="cb8" data-file="oopy/wrong_args.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, first, last, age):</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.first <span class="op">=</span> first</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.last <span class="op">=</span> last</span>
@@ -205,7 +206,7 @@ Show explanation
 </details>
 <h2 data-number="4.9" id="record-a-score-before-reporting-it"><span class="header-section-number">4.9</span> Record a score before reporting it</h2>
 <p>Create a <code>Scoreboard</code> for <code>"Alice"</code> and immediately call <code>report()</code>. Does it print a score?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Scoreboard:</span>
+<div class="sourceCode" id="cb9" data-file="oopy/late_attr.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Scoreboard:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, player):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.player <span class="op">=</span> player</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> record(<span class="va">self</span>, points):</span>
@@ -224,7 +225,7 @@ Show explanation
 </details>
 <h2 data-number="4.10" id="show-a-card-as-text"><span class="header-section-number">4.10</span> Show a card as text</h2>
 <p>Create a <code>Card</code> and print its <code>repr</code>. Does the output show the rank and suit?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Card:</span>
+<div class="sourceCode" id="cb10" data-file="oopy/repr_none.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Card:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, rank, suit):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rank <span class="op">=</span> rank</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.suit <span class="op">=</span> suit</span>
@@ -242,7 +243,7 @@ Show explanation
 </details>
 <h2 data-number="4.11" id="store-data-in-an-instance"><span class="header-section-number">4.11</span> Store data in an instance</h2>
 <p>Create a <code>Point</code> with <code>x=3</code> and <code>y=4</code> and call <code>distance()</code>. Does it return 5.0?</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<div class="sourceCode" id="cb11" data-file="oopy/init_attr.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> y</span>
@@ -260,7 +261,7 @@ Show explanation
 </details>
 <h2 data-number="4.12" id="copy-an-object-with-nested-data"><span class="header-section-number">4.12</span> Copy an object with nested data</h2>
 <p>Create a <code>Playlist</code> with a list of songs, make a copy with <code>copy.copy</code>, and add a song to the copy. Does the original’s song list stay unchanged?</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
+<div class="sourceCode" id="cb12" data-file="oopy/shallowcopy.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Playlist:</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, songs):</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.songs <span class="op">=</span> songs</span>
@@ -278,7 +279,7 @@ Show explanation
 </details>
 <h2 data-number="4.13" id="use-a-custom-context-manager"><span class="header-section-number">4.13</span> Use a custom context manager</h2>
 <p>Use a <code>Timer</code> inside a <code>with</code> block and then call <code>elapsed()</code> on the bound variable. Does it work?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<div class="sourceCode" id="cb13" data-file="oopy/contextmanager.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Timer:</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__enter__</span>(<span class="va">self</span>):</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.start <span class="op">=</span> time.time()</span>
@@ -299,7 +300,7 @@ Show explanation
 </details>
 <h2 data-number="4.14" id="instantiate-a-class-with-an-abstract-method"><span class="header-section-number">4.14</span> Instantiate a class with an abstract method</h2>
 <p>Create a <code>Dog</code> from an <code>Animal</code> base class that declares an abstract <code>speak</code> method. Does <code>Dog("Rex")</code> succeed?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
+<div class="sourceCode" id="cb14" data-file="oopy/abstractmethod.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal(ABC):</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
@@ -318,7 +319,7 @@ Show explanation
 </details>
 <h2 data-number="4.15" id="display-an-object-as-a-string"><span class="header-section-number">4.15</span> Display an object as a string</h2>
 <p>Create a <code>Temperature</code> of 100 degrees and print it. Does the output look like a sensible string?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Temperature:</span>
+<div class="sourceCode" id="cb15" data-file="oopy/str_type.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Temperature:</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, celsius):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.celsius <span class="op">=</span> celsius</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
@@ -335,7 +336,7 @@ Show explanation
 </details>
 <h2 data-number="4.16" id="count-how-many-widgets-exist"><span class="header-section-number">4.16</span> Count how many widgets exist</h2>
 <p>Create two <code>Widget</code> objects and call <code>Widget.how_many()</code>. Does it return 2?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Widget:</span>
+<div class="sourceCode" id="cb16" data-file="oopy/static_class.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Widget:</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        Widget.count <span class="op">+=</span> <span class="dv">1</span></span>
@@ -355,7 +356,7 @@ Show explanation
 </details>
 <h2 data-number="4.17" id="update-the-radius-of-a-circle"><span class="header-section-number">4.17</span> Update the radius of a circle</h2>
 <p>Create a <code>Circle</code> with radius 5, update the radius to 10, and print the area. Does the area reflect the new radius?</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<div class="sourceCode" id="cb17" data-file="oopy/property_setter.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Circle:</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, radius):</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._radius <span class="op">=</span> radius</span>
@@ -380,7 +381,7 @@ Show explanation
 </details>
 <h2 data-number="4.18" id="accept-any-animal-in-a-function"><span class="header-section-number">4.18</span> Accept any animal in a function</h2>
 <p>Call <code>make_sound</code> with a <code>Dog</code> object. Does it print <code>"Woof"</code>, or does it raise an error?</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
+<div class="sourceCode" id="cb19" data-file="oopy/isinstance_check.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"..."</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Dog(Animal):</span>
@@ -402,7 +403,7 @@ Show explanation
 </details>
 <h2 data-number="4.19" id="read-a-private-attribute-from-outside-a-class"><span class="header-section-number">4.19</span> Read a private attribute from outside a class</h2>
 <p>Create a <code>BankAccount</code>, deposit some money, and print the balance by accessing <code>account.__balance</code> directly. Does it print the correct total?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BankAccount:</span>
+<div class="sourceCode" id="cb20" data-file="oopy/name_mangling.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BankAccount:</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, balance):</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__balance <span class="op">=</span> balance  <span class="co"># stored as _BankAccount__balance</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> deposit(<span class="va">self</span>, amount):</span>
@@ -422,7 +423,7 @@ Show explanation
 </details>
 <h2 data-number="4.20" id="use-points-as-dictionary-keys"><span class="header-section-number">4.20</span> Use points as dictionary keys</h2>
 <p>Create two equal <code>Point</code> objects and check whether the second is in a set containing the first. Does <code>p2 in seen</code> return <code>True</code>?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<div class="sourceCode" id="cb21" data-file="oopy/eq_hash.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
@@ -444,7 +445,7 @@ Show explanation
 </details>
 <h2 data-number="4.21" id="check-whether-a-collection-is-empty"><span class="header-section-number">4.21</span> Check whether a collection is empty</h2>
 <p>Create an empty <code>Cart</code> and test it with <code>if cart:</code>. Does Python treat it as empty or as having items?</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cart:</span>
+<div class="sourceCode" id="cb23" data-file="oopy/truthiness.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cart:</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._items <span class="op">=</span> []</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, item):</span>
@@ -466,7 +467,7 @@ Show explanation
 </details>
 <h2 data-number="4.22" id="build-a-query-with-method-chaining"><span class="header-section-number">4.22</span> Build a query with method chaining</h2>
 <p>Build a <code>QueryBuilder</code>, chain <code>.filter()</code> and <code>.limit()</code>, and call <code>.build()</code>. Does it return a dictionary with both values?</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QueryBuilder:</span>
+<div class="sourceCode" id="cb24" data-file="oopy/method_chain.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QueryBuilder:</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.filters <span class="op">=</span> []</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.limit_val <span class="op">=</span> <span class="va">None</span></span>
@@ -489,7 +490,7 @@ Show explanation
 </details>
 <h2 data-number="4.23" id="add-a-prefix-to-log-messages"><span class="header-section-number">4.23</span> Add a prefix to log messages</h2>
 <p>Create an <code>AppLogger</code> and call <code>run()</code>. Does it print a log message, or does it raise an error?</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Logger:</span>
+<div class="sourceCode" id="cb25" data-file="oopy/attr_shadow.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Logger:</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> log(<span class="va">self</span>, message):</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"LOG: </span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AppLogger(Logger):</span>
@@ -509,7 +510,7 @@ Show explanation
 </details>
 <h2 data-number="4.24" id="get-the-number-of-items-in-a-dataset"><span class="header-section-number">4.24</span> Get the number of items in a dataset</h2>
 <p>Create a <code>DataSet</code> with three numbers and call <code>len()</code> on it. Does it return the integer 3?</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DataSet:</span>
+<div class="sourceCode" id="cb26" data-file="oopy/len_type.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DataSet:</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> data</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
@@ -526,7 +527,7 @@ Show explanation
 </details>
 <h2 data-number="4.25" id="add-a-third-coordinate-to-a-point"><span class="header-section-number">4.25</span> Add a third coordinate to a point</h2>
 <p>Create a <code>Point</code> with <code>x=3</code> and <code>y=4</code>, add <code>z=0</code>, and print all three coordinates. Does it work?</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<div class="sourceCode" id="cb27" data-file="oopy/slots_attr.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">__slots__</span> <span class="op">=</span> (<span class="st">"x"</span>, <span class="st">"y"</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -544,7 +545,7 @@ Show explanation
 </details>
 <h2 data-number="4.26" id="track-items-added-to-each-account"><span class="header-section-number">4.26</span> Track items added to each account</h2>
 <p>Create two <code>BankAccount</code> objects, add transactions to each, and print each account’s history. Does each account show only its own transactions?</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BankAccount:</span>
+<div class="sourceCode" id="cb28" data-file="oopy/sharemut.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BankAccount:</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    history <span class="op">=</span> []</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, owner):</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.owner <span class="op">=</span> owner</span>
@@ -570,7 +571,7 @@ Show explanation
 </details>
 <h2 data-number="4.27" id="initialize-a-subclass-with-its-parents-attributes"><span class="header-section-number">4.27</span> Initialize a subclass with its parent’s attributes</h2>
 <p>Create a <code>Dog</code> named <code>"Rex"</code> and call <code>speak()</code>. Does it print a sentence with both the name and the sound?</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
+<div class="sourceCode" id="cb29" data-file="oopy/super.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, sound):</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sound <span class="op">=</span> sound</span>
@@ -605,6 +606,14 @@ Show explanation
     <a class="pager-link next" href="../regexp/index.html">Regular Expressions →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

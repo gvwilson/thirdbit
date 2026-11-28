@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Data, I/O, and Testing</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -42,7 +43,7 @@
 <h1 class="title">Data, I/O, and Testing</h1>
 <h2 data-number="6.1" id="parse-records-with-quoted-fields"><span class="header-section-number">6.1</span> Parse records with quoted fields</h2>
 <p>Run the parser with the provided CSV file. Do all rows produce the correct number of fields? Pay particular attention to rows that contain commas.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<div class="sourceCode" id="cb1" data-file="diot/quotecsv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_scores(filename):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a list of (name, city, score) triples from a CSV file."""</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> []</span>
@@ -59,7 +60,7 @@
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> sys.argv[<span class="dv">1</span>] <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"quotecsv.csv"</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, city, score <span class="kw">in</span> parse_scores(filename):</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>city<span class="sc">}</span><span class="ss">): </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
-<pre><code>name,city,score
+<pre data-file="diot/quotecsv.csv"><code>name,city,score
 Alice,New York,95
 Bob,"Los Angeles, CA",87
 Carol,Chicago,92
@@ -74,7 +75,7 @@ Show explanation
 </details>
 <h2 data-number="6.2" id="benchmark-an-image-processing-function"><span class="header-section-number">6.2</span> Benchmark an image processing function</h2>
 <p>Run the benchmarking function several times and examine the elapsed time values. Do any of them look unusual?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<div class="sourceCode" id="cb3" data-file="diot/walltime.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> unittest.mock <span class="im">import</span> patch</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> measure(func):</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return (elapsed_seconds, return_value) for a call to func."""</span></span>
@@ -106,7 +107,7 @@ Show explanation
 </details>
 <h2 data-number="6.3" id="schedule-a-recurring-task-across-time-zones"><span class="header-section-number">6.3</span> Schedule a recurring task across time zones</h2>
 <p>Call the date arithmetic function with a date near a daylight saving transition. Compare the result from the naive datetime path with the result from the timezone-aware path.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta</span>
+<div class="sourceCode" id="cb4" data-file="diot/daylight.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_days(start_str, days):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the wall-clock time `days` days after start_str (YYYY-MM-DD HH:MM)."""</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> datetime.fromisoformat(start_str)</span>
@@ -148,7 +149,7 @@ Show explanation
 </details>
 <h2 data-number="6.4" id="scrape-prices-from-a-product-page"><span class="header-section-number">6.4</span> Scrape prices from a product page</h2>
 <p>Run the script with the provided HTML file and check whether it finds all the expected elements. What happens when an element is not found?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb5" data-file="diot/missparse.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_prices(html):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return all prices found in the HTML as a list of floats."""</span></span>
@@ -165,7 +166,7 @@ Show explanation
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Total:  $</span><span class="sc">{</span><span class="bu">sum</span>(prices)<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"No prices found."</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<div class="sourceCode" id="cb6" data-file="diot/missparse.html"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"product"</span><span class="dt">&gt;</span></span>
@@ -192,7 +193,7 @@ Show explanation
 </details>
 <h2 data-number="6.5" id="extract-email-addresses-from-a-text-file"><span class="header-section-number">6.5</span> Extract email addresses from a text file</h2>
 <p>Test the regular expression against a few valid email addresses and a few strings that look like email addresses but are not. Does it reject the invalid ones?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode" id="cb7" data-file="diot/overexp.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>EMAIL_PATTERN <span class="op">=</span> <span class="vs">r"</span><span class="dv">\w</span><span class="op">+</span><span class="vs">@</span><span class="dv">\w</span><span class="op">+</span><span class="vs">"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_emails(text):</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return all email addresses found in text."""</span></span>
@@ -221,7 +222,7 @@ Show explanation
 </details>
 <h2 data-number="6.6" id="write-a-test-for-a-data-validation-function"><span class="header-section-number">6.6</span> Write a test for a data validation function</h2>
 <p>Run the test suite. Does it pass? Now deliberately break the function the test is testing. Does the test still pass?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(numbers):</span>
+<div class="sourceCode" id="cb8" data-file="diot/noassert.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(numbers):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the mean of a non-empty list of numbers."""</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(numbers) <span class="op">/</span> (<span class="bu">len</span>(numbers) <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_average_single():</span>
@@ -249,7 +250,7 @@ Show explanation
 </details>
 <h2 data-number="6.7" id="test-a-function-that-modifies-a-global-registry"><span class="header-section-number">6.7</span> Test a function that modifies a global registry</h2>
 <p>Run each test on its own. Then run both together. Do you get the same results both ways?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Module-level registry — shared state that persists between tests</span></span>
+<div class="sourceCode" id="cb9" data-file="diot/shared.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Module-level registry — shared state that persists between tests</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>REGISTRY <span class="op">=</span> {}</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> register(name, value):</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    REGISTRY[name] <span class="op">=</span> value</span>
@@ -282,7 +283,7 @@ Show explanation
 </details>
 <h2 data-number="6.8" id="load-a-reference-data-file-in-a-test"><span class="header-section-number">6.8</span> Load a reference data file in a test</h2>
 <p>Run the script from a different working directory than the one where the script file is saved. Does it find its configuration file?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<div class="sourceCode" id="cb10" data-file="diot/abspath.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_config():</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Load configuration from the project config file."""</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    config_path <span class="op">=</span> <span class="st">"/Users/gvwilson/unbreak/diot/abspath.json"</span></span>
@@ -293,11 +294,11 @@ Show explanation
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"threshold:   </span><span class="sc">{</span>config[<span class="st">'threshold'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"max_retries: </span><span class="sc">{</span>config[<span class="st">'max_retries'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"output_dir:  </span><span class="sc">{</span>config[<span class="st">'output_dir'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
-<pre><code>{
-    "threshold": 0.5,
-    "max_retries": 3,
-    "output_dir": "results"
-}</code></pre>
+<div class="sourceCode" id="cb11" data-file="diot/abspath.json"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"threshold"</span><span class="fu">:</span> <span class="fl">0.5</span><span class="fu">,</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"max_retries"</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"output_dir"</span><span class="fu">:</span> <span class="st">"results"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <details>
 <summary>
 Show explanation
@@ -308,7 +309,7 @@ Show explanation
 </details>
 <h2 data-number="6.9" id="save-a-record-with-a-timestamp-to-a-file"><span class="header-section-number">6.9</span> Save a record with a timestamp to a file</h2>
 <p>Run the script and read the error message. Which value in the data structure cannot be serialized?</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<div class="sourceCode" id="cb12" data-file="diot/jsondate.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_report(title, value):</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Build a report dict including the current timestamp."""</span></span>
@@ -332,7 +333,7 @@ Show explanation
 </details>
 <h2 data-number="6.10" id="add-diagnostic-output-to-a-data-pipeline"><span class="header-section-number">6.10</span> Add diagnostic output to a data pipeline</h2>
 <p>Run the script and then look at the log file. Are the messages you expected to see present?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<div class="sourceCode" id="cb13" data-file="diot/loglevel.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    level<span class="op">=</span>logging.WARNING,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(levelname)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
@@ -369,6 +370,14 @@ Show explanation
     <a class="pager-link next" href="../perfcon/index.html">Performance, Concurrency, and System Interaction →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

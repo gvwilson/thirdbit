@@ -1,122 +1,41 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Network Time Protocol (NTP)</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Network Time Protocol (NTP)</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a class="active" href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Network Time Protocol (NTP)</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#ntp-impl" id="toc-ntp-impl"><span class="header-section-number">X.1</span> Implementation</a></li>
+<li><a href="#running-a-simulation" id="toc-running-a-simulation"><span class="header-section-number">X.2</span> Running a Simulation</a></li>
+<li><a href="#stratum-hierarchy" id="toc-stratum-hierarchy"><span class="header-section-number">X.3</span> Stratum Hierarchy</a></li>
+<li><a href="#ntp-exercises" id="toc-ntp-exercises"><span class="header-section-number">X.4</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Network Time Protocol (NTP)</h1>
+<div class="syllabus">
 <ul>
 <li>Derive the NTP offset and round-trip delay formulas from four timestamps and identify the symmetric-delay assumption they rely on.</li>
 <li>Explain why synchronization error accumulates across NTP strata and what limits how accurately a stratum-3 server can be synchronized.</li>
@@ -125,45 +44,38 @@
 </ul>
 </div>
 <p><strong>In Development</strong></p>
-<p>In order for computers to coordinate actions,
-they must agree on what time it is.
-<a class="gl-ref" href="../glossary/#ntp">Network Time Protocol</a> (NTP) enables this
-by giving computers a way to synchronize their clocks over a network with millisecond precision.
-NTP dates from 1985,
-but has survived largely unchanged because it works so well.</p>
-<p>The challenge of clock synchronization is that network communication takes time.
-If a server sends you "the current time is 12:00:00",
-by the time you receive that message,
-it's no longer 12:00:00,
-and the amount of delay depends on the state of the network.
-NTP solves this with an algorithm that measures both the clock offset
-(how far off your clock is) and the network delay.
-It uses four timestamps:</p>
-<table>
+<p>In order for computers to coordinate actions, they must agree on what time it is. <a href="../glossary/index.html#ntp">Network Time Protocol</a> (NTP) enables this by giving computers a way to synchronize their clocks over a network with millisecond precision. NTP dates from 1985, but has survived largely unchanged because it works so well.</p>
+<p>The challenge of clock synchronization is that network communication takes time. If a server sends you “the current time is 12:00:00”, by the time you receive that message, it’s no longer 12:00:00, and the amount of delay depends on the state of the network. NTP solves this with an algorithm that measures both the clock offset (how far off your clock is) and the network delay. It uses four timestamps:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 25%">
+<col style="width: 43%">
+</colgroup>
 <thead>
-<tr>
-<th scope="col">label</th>
-<th scope="col">name</th>
-<th scope="col">purpose</th>
+<tr class="header">
+<th>label</th>
+<th>name</th>
+<th>purpose</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>t1</td>
 <td>the client send time</td>
 <td>when the client sends the request</td>
 </tr>
-<tr>
+<tr class="even">
 <td>t2</td>
 <td>the server receive time</td>
 <td>when the server receives the request</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>t3</td>
 <td>the server transmit time</td>
 <td>when the server sends the response</td>
 </tr>
-<tr>
+<tr class="even">
 <td>t4</td>
 <td>the client receive time</td>
 <td>when the client receives the response</td>
@@ -171,268 +83,184 @@ It uses four timestamps:</p>
 </tbody>
 </table>
 <p>From these four timestamps, NTP calculates:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code>offset = ((t2 - t1) + (t3 - t4)) / 2
-delay = (t4 - t1) - (t3 - t2)
-</code></pre></div>
-<p>The offset tells you how to adjust your clock,
-while the delay tells you how reliable this measurement is
-(lower delays are more accurate).</p>
-<p>These formulas rest on an assumption that is worth stating explicitly:
-<strong>the network delay is symmetric</strong>, i.e., the time for the request to travel to the server
-equals the time for the response to travel back.
-Under this assumption, the client's transmission time is half the total round-trip time,
-so we split <code>(t4 - t1)</code> evenly between outbound and inbound.
-If the assumption holds and the server's processing time <code>(t3 - t2)</code> is negligible,
-then <code>(t2 - t1) ≈ (t4 - t3)</code> and the offset formula gives the true clock difference.</p>
-<p>In practice, network paths are often asymmetric—
-packets may take different routes in each direction.
-This asymmetry introduces an error bounded by half the difference in one-way delays.
-On a LAN with sub-millisecond RTT the error is tiny;
-on a satellite link with an asymmetric path it can be tens of milliseconds.
-NTP clients mitigate this by collecting multiple samples and discarding outliers,
-but they cannot eliminate the error entirely without hardware timestamping.</p>
-<p>NTP organizes time servers into levels called <a class="gl-ref" href="../glossary/#ntp-stratum">strata</a>:
-Stratum 0 is reference clocks such as atomic clocks and GPS receivers.
-Stratum 1 includes servers directly connected to stratum 0, which act as primary time servers.
-Stratum 2 is servers that connect with stratum 1 servers, and so on.
-This hierarchy prevents circular dependencies and allows the system to scale.
-End-user computers typically sync with stratum 2 or 3 servers.</p>
-<h2 id="ntp-impl">Implementation</h2>
+<pre><code>offset = ((t2 - t1) + (t3 - t4)) / 2
+delay = (t4 - t1) - (t3 - t2)</code></pre>
+<p>The offset tells you how to adjust your clock, while the delay tells you how reliable this measurement is (lower delays are more accurate).</p>
+<p>These formulas rest on an assumption that is worth stating explicitly: <strong>the network delay is symmetric</strong>, i.e., the time for the request to travel to the server equals the time for the response to travel back. Under this assumption, the client’s transmission time is half the total round-trip time, so we split <code>(t4 - t1)</code> evenly between outbound and inbound. If the assumption holds and the server’s processing time <code>(t3 - t2)</code> is negligible, then <code>(t2 - t1) ≈ (t4 - t3)</code> and the offset formula gives the true clock difference.</p>
+<p>In practice, network paths are often asymmetric— packets may take different routes in each direction. This asymmetry introduces an error bounded by half the difference in one-way delays. On a LAN with sub-millisecond RTT the error is tiny; on a satellite link with an asymmetric path it can be tens of milliseconds. NTP clients mitigate this by collecting multiple samples and discarding outliers, but they cannot eliminate the error entirely without hardware timestamping.</p>
+<p>NTP organizes time servers into levels called <a href="../glossary/index.html#ntp-stratum">strata</a>: Stratum 0 is reference clocks such as atomic clocks and GPS receivers. Stratum 1 includes servers directly connected to stratum 0, which act as primary time servers. Stratum 2 is servers that connect with stratum 1 servers, and so on. This hierarchy prevents circular dependencies and allows the system to scale. End-user computers typically sync with stratum 2 or 3 servers.</p>
+<h2 data-number="X.1" id="ntp-impl"><span class="header-section-number">X.1</span> Implementation</h2>
 <p>Our simulation starts with the NTP message structure:</p>
-<div data-inc="ntp_message.py" data-mark="ntpmessage"><span aria-label="Source: ntp/ntp_message.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_message.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">NTPMessage</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""A simplified NTP message packet."""</span>
-
-    <span class="c1"># Client timestamps</span>
-    <span class="n">t1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Client send time</span>
-    <span class="n">t2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Server receive time</span>
-    <span class="n">t3</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Server transmit time</span>
-    <span class="n">t4</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Client receive time</span>
-
-    <span class="c1"># Stratum level (distance from reference clock)</span>
-    <span class="n">stratum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Calculate clock offset using NTP algorithm.</span>
-
-<span class="sd">        offset = ((t2 - t1) + (t3 - t4)) / 2</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t3</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>
-        <span class="k">return</span> <span class="mf">0.0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_delay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Calculate round-trip delay.</span>
-
-<span class="sd">        delay = (t4 - t1) - (t3 - t2)</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t4</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t3</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">)</span>
-        <span class="k">return</span> <span class="mf">0.0</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb2" data-file="ntp/ntp_message.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NTPMessage:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A simplified NTP message packet."""</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Client timestamps</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    t1: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Client send time</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    t2: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Server receive time</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    t3: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Server transmit time</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    t4: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Client receive time</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stratum level (distance from reference clock)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    stratum: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_offset(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Calculate clock offset using NTP algorithm.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">        offset = ((t2 - t1) + (t3 - t4)) / 2</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.t1 <span class="kw">and</span> <span class="va">self</span>.t2 <span class="kw">and</span> <span class="va">self</span>.t3 <span class="kw">and</span> <span class="va">self</span>.t4:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> ((<span class="va">self</span>.t2 <span class="op">-</span> <span class="va">self</span>.t1) <span class="op">+</span> (<span class="va">self</span>.t3 <span class="op">-</span> <span class="va">self</span>.t4)) <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">0.0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_delay(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Calculate round-trip delay.</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">        delay = (t4 - t1) - (t3 - t2)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.t1 <span class="kw">and</span> <span class="va">self</span>.t2 <span class="kw">and</span> <span class="va">self</span>.t3 <span class="kw">and</span> <span class="va">self</span>.t4:</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> (<span class="va">self</span>.t4 <span class="op">-</span> <span class="va">self</span>.t1) <span class="op">-</span> (<span class="va">self</span>.t3 <span class="op">-</span> <span class="va">self</span>.t2)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">0.0</span></span></code></pre></div>
 <p>The message holds the four timestamps and includes methods to calculate offset and delay using the NTP formulas.</p>
-<p>The NTP server receives requests, records timestamps t2 and t3, and sends responses back to clients.
-In our simulation, the server's clock is accurate:
-it uses <code>self.now</code>, which is the simulation's true time.
-The <code>stratum</code> field indicates this server's level in the time hierarchy:</p>
-<div data-inc="ntp_server.py" data-mark="ntpserver"><span aria-label="Source: ntp/ntp_server.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NTPServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""An NTP time server that responds to client requests."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">stratum</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
-        <span class="n">network_delay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stratum</span> <span class="o">=</span> <span class="n">stratum</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span> <span class="o">=</span> <span class="n">request_queue</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span> <span class="o">=</span> <span class="n">network_delay</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">requests_served</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Process incoming NTP requests."""</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Wait for a request</span>
-            <span class="n">client_queue</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-            <span class="c1"># Record server receive time (t2)</span>
-            <span class="n">message</span><span class="o">.</span><span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span>
-
-            <span class="c1"># Simulate processing time</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
-
-            <span class="c1"># Record server transmit time (t3)</span>
-            <span class="n">message</span><span class="o">.</span><span class="n">t3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span>
-            <span class="n">message</span><span class="o">.</span><span class="n">stratum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stratum</span>
-
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (stratum </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stratum</span><span class="si">}</span><span class="s2">): "</span>
-                <span class="sa">f</span><span class="s2">"Responding to request (t2=</span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">t2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, t3=</span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">t3</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span>
-            <span class="p">)</span>
-
-            <span class="c1"># Send response back to client with network delay</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span><span class="p">)</span>
-            <span class="k">await</span> <span class="n">client_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">requests_served</span> <span class="o">+=</span> <span class="mi">1</span>
-</code></pre></div>
-</div>
-<p>The NTP client is more complex because it must adjust its own clock.
-The constructor stores the server queue,
-sync interval,
-simulated network delay,
-and an initial clock offset that represents how far off the client starts:</p>
-<div data-inc="ntp_client.py" data-mark="client_init"><span aria-label="Source: ntp/ntp_client.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NTPClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""An NTP client that synchronizes its clock with a server."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">server_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-        <span class="n">network_delay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
-        <span class="n">initial_offset</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">server_queue</span> <span class="o">=</span> <span class="n">server_queue</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span> <span class="o">=</span> <span class="n">sync_interval</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span> <span class="o">=</span> <span class="n">network_delay</span>
-
-        <span class="c1"># Client's local clock offset from true time</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clock_offset</span> <span class="o">=</span> <span class="n">initial_offset</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
-
-        <span class="c1"># Statistics</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">syncs_performed</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">offset_history</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_local_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Get current time according to client's local clock."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock_offset</span>
-</code></pre></div>
-</div>
+<p>The NTP server receives requests, records timestamps t2 and t3, and sends responses back to clients. In our simulation, the server’s clock is accurate: it uses <code>self.now</code>, which is the simulation’s true time. The <code>stratum</code> field indicates this server’s level in the time hierarchy:</p>
+<div class="sourceCode" id="cb3" data-file="ntp/ntp_server.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NTPServer(Process):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""An NTP time server that responds to client requests."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        name: <span class="bu">str</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        stratum: <span class="bu">int</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        request_queue: Queue,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        network_delay: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.stratum <span class="op">=</span> stratum</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.request_queue <span class="op">=</span> request_queue</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.network_delay <span class="op">=</span> network_delay</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.requests_served <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Process incoming NTP requests."""</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Wait for a request</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            client_queue, message <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.request_queue.get()</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Record server receive time (t2)</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            message.t2 <span class="op">=</span> <span class="va">self</span>.now</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Simulate processing time</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="fl">0.001</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Record server transmit time (t3)</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            message.t3 <span class="op">=</span> <span class="va">self</span>.now</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            message.stratum <span class="op">=</span> <span class="va">self</span>.stratum</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.3f}</span><span class="ss">] </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> (stratum </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>stratum<span class="sc">}</span><span class="ss">): "</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Responding to request (t2=</span><span class="sc">{</span>message<span class="sc">.</span>t2<span class="sc">:.3f}</span><span class="ss">, t3=</span><span class="sc">{</span>message<span class="sc">.</span>t3<span class="sc">:.3f}</span><span class="ss">)"</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Send response back to client with network delay</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="va">self</span>.network_delay)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> client_queue.put(message)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.requests_served <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<p>The NTP client is more complex because it must adjust its own clock. The constructor stores the server queue, sync interval, simulated network delay, and an initial clock offset that represents how far off the client starts:</p>
+<div class="sourceCode" id="cb4" data-file="ntp/ntp_client.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NTPClient(Process):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""An NTP client that synchronizes its clock with a server."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        name: <span class="bu">str</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        server_queue: Queue,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        sync_interval: <span class="bu">float</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        network_delay: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        initial_offset: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.0</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.server_queue <span class="op">=</span> server_queue</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sync_interval <span class="op">=</span> sync_interval</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.network_delay <span class="op">=</span> network_delay</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Client's local clock offset from true time</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.clock_offset <span class="op">=</span> initial_offset</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.response_queue <span class="op">=</span> Queue(<span class="va">self</span>._env)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Statistics</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.syncs_performed <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.offset_history <span class="op">=</span> []</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_local_time(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Get current time according to client's local clock."""</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.now <span class="op">+</span> <span class="va">self</span>.clock_offset</span></code></pre></div>
 <p>The <code>run</code> method simply waits for each sync interval before calling <code>_sync_with_server</code>:</p>
-<div data-inc="ntp_client.py" data-mark="client_run"><span aria-label="Source: ntp/ntp_client.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Periodically sync with NTP server."""</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Wait for sync interval</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
-
-            <span class="c1"># Perform NTP sync</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sync_with_server</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<p><code>_sync_with_server</code> executes one full NTP exchange.
-It records the send time t1,
-waits for the server's response containing t2 and t3,
-records the receive time t4,
-and then applies the calculated offset:</p>
-<div data-inc="ntp_client.py" data-mark="client_sync"><span aria-label="Source: ntp/ntp_client.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_sync_with_server</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Execute one NTP synchronization cycle."""</span>
-        <span class="c1"># Create request message with client send time (t1)</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">NTPMessage</span><span class="p">(</span><span class="n">t1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">())</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Sending sync request "</span>
-            <span class="sa">f</span><span class="s2">"(local_time=</span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">t1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, offset=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">clock_offset</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Send request with network delay</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span><span class="p">)</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">response_queue</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span>
-
-        <span class="c1"># Wait for response</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-        <span class="c1"># Record client receive time (t4)</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">t4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">()</span>
-
-        <span class="c1"># Calculate offset and delay</span>
-        <span class="n">offset</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">calculate_offset</span><span class="p">()</span>
-        <span class="n">delay</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">calculate_delay</span><span class="p">()</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Received response "</span>
-            <span class="sa">f</span><span class="s2">"(offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, delay=</span><span class="si">{</span><span class="n">delay</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Adjust clock by the calculated offset</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clock_offset</span> <span class="o">-=</span> <span class="n">offset</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">syncs_performed</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">offset_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">offset</span><span class="p">))</span>
-
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Clock adjusted, "</span>
-            <span class="sa">f</span><span class="s2">"new offset from true time: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">clock_offset</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
-        <span class="p">)</span>
-</code></pre></div>
-</div>
-<p>The client maintains a <code>clock_offset</code> representing how far its local clock differs from true time.
-When it syncs,
-it calculates the offset using the NTP algorithm and adjusts its clock accordingly.
-Notice that <code>get_local_time()</code> returns the client's view of time,
-which may differ from simulation time until synchronization occurs.</p>
-<h2>Running a Simulation</h2>
-<p>Let's see clock synchronization in action:</p>
-<div data-inc="ex_usage.py" data-mark="simulate"><span aria-label="Source: ntp/ex_usage.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_usage.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""Simulate NTP clock synchronization."""</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
-
-    <span class="c1"># Create server queue</span>
-    <span class="n">server_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-
-    <span class="c1"># Create NTP server (stratum 1 - connected to reference clock)</span>
-    <span class="n">server</span> <span class="o">=</span> <span class="n">NTPServer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"time.example.com"</span><span class="p">,</span> <span class="n">stratum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">request_queue</span><span class="o">=</span><span class="n">server_queue</span><span class="p">)</span>
-
-    <span class="c1"># Create clients with different initial clock offsets</span>
-    <span class="n">client1</span> <span class="o">=</span> <span class="n">NTPClient</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span>
-        <span class="s2">"client1.local"</span><span class="p">,</span>
-        <span class="n">server_queue</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
-        <span class="n">initial_offset</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>  <span class="c1"># 2.5 seconds fast</span>
-    <span class="p">)</span>
-
-    <span class="n">client2</span> <span class="o">=</span> <span class="n">NTPClient</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span>
-        <span class="s2">"client2.local"</span><span class="p">,</span>
-        <span class="n">server_queue</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
-        <span class="n">initial_offset</span><span class="o">=-</span><span class="mf">1.8</span><span class="p">,</span>  <span class="c1"># 1.8 seconds slow</span>
-    <span class="p">)</span>
-
-    <span class="n">client3</span> <span class="o">=</span> <span class="n">NTPClient</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span>
-        <span class="s2">"client3.local"</span><span class="p">,</span>
-        <span class="n">server_queue</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span>
-        <span class="n">initial_offset</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># 0.5 seconds fast</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Run simulation</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-
-    <span class="c1"># Print statistics</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== NTP Synchronization Statistics ==="</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Server requests served: </span><span class="si">{</span><span class="n">server</span><span class="o">.</span><span class="n">requests_served</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="p">[</span><span class="n">client1</span><span class="p">,</span> <span class="n">client2</span><span class="p">,</span> <span class="n">client3</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Syncs performed: </span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">syncs_performed</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Final clock offset: </span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">clock_offset</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">offset_history</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"  Average correction: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">offset_history</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">offset_history</span><span class="p">)</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span>
-            <span class="p">)</span>
-</code></pre></div>
-</div>
-<p>The output shows clients starting with different clock offsets—some fast, some slow—and
-gradually converging toward the true time as they sync with the server.
-After a few iterations, all clients are within milliseconds of true time.</p>
-<div data-inc="ex_usage.out"><span aria-label="Source: ntp/ex_usage.out" class="inc-path" role="img" tabindex="0" title="ntp/ex_usage.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[5.000] client1.local: Sending sync request (local_time=7.500, offset=2.500)
+<div class="sourceCode" id="cb5" data-file="ntp/ntp_client.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Periodically sync with NTP server."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Wait for sync interval</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="va">self</span>.sync_interval)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Perform NTP sync</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>._sync_with_server()</span></code></pre></div>
+<p><code>_sync_with_server</code> executes one full NTP exchange. It records the send time t1, waits for the server’s response containing t2 and t3, records the receive time t4, and then applies the calculated offset:</p>
+<div class="sourceCode" id="cb6" data-file="ntp/ntp_client.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> _sync_with_server(<span class="va">self</span>):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Execute one NTP synchronization cycle."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create request message with client send time (t1)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        message <span class="op">=</span> NTPMessage(t1<span class="op">=</span><span class="va">self</span>.get_local_time())</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.3f}</span><span class="ss">] </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">: Sending sync request "</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"(local_time=</span><span class="sc">{</span>message<span class="sc">.</span>t1<span class="sc">:.3f}</span><span class="ss">, offset=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>clock_offset<span class="sc">:.3f}</span><span class="ss">)"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Send request with network delay</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="va">self</span>.network_delay)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="va">self</span>.server_queue.put((<span class="va">self</span>.response_queue, message))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Wait for response</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.response_queue.get()</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Record client receive time (t4)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        response.t4 <span class="op">=</span> <span class="va">self</span>.get_local_time()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate offset and delay</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        offset <span class="op">=</span> response.calculate_offset()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        delay <span class="op">=</span> response.calculate_delay()</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.3f}</span><span class="ss">] </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">: Received response "</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"(offset=</span><span class="sc">{</span>offset<span class="sc">:.3f}</span><span class="ss">, delay=</span><span class="sc">{</span>delay<span class="sc">:.3f}</span><span class="ss">)"</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Adjust clock by the calculated offset</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.clock_offset <span class="op">-=</span> offset</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.syncs_performed <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.offset_history.append(<span class="bu">abs</span>(offset))</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.3f}</span><span class="ss">] </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">: Clock adjusted, "</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"new offset from true time: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>clock_offset<span class="sc">:.3f}</span><span class="ss">"</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+<p>The client maintains a <code>clock_offset</code> representing how far its local clock differs from true time. When it syncs, it calculates the offset using the NTP algorithm and adjusts its clock accordingly. Notice that <code>get_local_time()</code> returns the client’s view of time, which may differ from simulation time until synchronization occurs.</p>
+<h2 data-number="X.2" id="running-a-simulation"><span class="header-section-number">X.2</span> Running a Simulation</h2>
+<p>Let’s see clock synchronization in action:</p>
+<div class="sourceCode" id="cb7" data-file="ntp/ex_usage.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Simulate NTP clock synchronization."""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create server queue</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    server_queue <span class="op">=</span> Queue(env)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create NTP server (stratum 1 - connected to reference clock)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    server <span class="op">=</span> NTPServer(env, <span class="st">"time.example.com"</span>, stratum<span class="op">=</span><span class="dv">1</span>, request_queue<span class="op">=</span>server_queue)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create clients with different initial clock offsets</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    client1 <span class="op">=</span> NTPClient(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        env,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"client1.local"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        server_queue,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        sync_interval<span class="op">=</span><span class="fl">5.0</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        initial_offset<span class="op">=</span><span class="fl">2.5</span>,  <span class="co"># 2.5 seconds fast</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    client2 <span class="op">=</span> NTPClient(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        env,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"client2.local"</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        server_queue,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        sync_interval<span class="op">=</span><span class="fl">5.0</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        initial_offset<span class="op">=-</span><span class="fl">1.8</span>,  <span class="co"># 1.8 seconds slow</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    client3 <span class="op">=</span> NTPClient(</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        env,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"client3.local"</span>,</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        server_queue,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        sync_interval<span class="op">=</span><span class="fl">7.0</span>,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        initial_offset<span class="op">=</span><span class="fl">0.5</span>,  <span class="co"># 0.5 seconds fast</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run simulation</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    env.run(until<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print statistics</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== NTP Synchronization Statistics ==="</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Server requests served: </span><span class="sc">{</span>server<span class="sc">.</span>requests_served<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> client <span class="kw">in</span> [client1, client2, client3]:</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>client<span class="sc">.</span>name<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  Syncs performed: </span><span class="sc">{</span>client<span class="sc">.</span>syncs_performed<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  Final clock offset: </span><span class="sc">{</span>client<span class="sc">.</span>clock_offset<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> client.offset_history:</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"  Average correction: </span><span class="sc">{</span><span class="bu">sum</span>(client.offset_history) <span class="op">/</span> <span class="bu">len</span>(client.offset_history)<span class="sc">:.6f}</span><span class="ss">s"</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
+<p>The output shows clients starting with different clock offsets—some fast, some slow—and gradually converging toward the true time as they sync with the server. After a few iterations, all clients are within milliseconds of true time.</p>
+<pre data-file="ntp/ex_usage.out"><code>[5.000] client1.local: Sending sync request (local_time=7.500, offset=2.500)
 [5.000] client2.local: Sending sync request (local_time=3.200, offset=-1.800)
 [5.101] time.example.com (stratum 1): Responding to request (t2=5.100, t3=5.101)
 [5.201] client1.local: Received response (offset=-2.500, delay=0.200)
@@ -476,260 +304,168 @@ After a few iterations, all clients are within milliseconds of true time.</p>
 [21.503] time.example.com (stratum 1): Responding to request (t2=21.502, t3=21.503)
 [21.603] client3.local: Received response (offset=-2.000, delay=0.200)
 [21.603] client3.local: Clock adjusted, new offset from true time: 4.000
-
 === NTP Synchronization Statistics ===
 Server requests served: 11
-
 client1.local:
   Syncs performed: 4
   Final clock offset: 40.000000s
   Average correction: 9.375000s
-
 client2.local:
   Syncs performed: 4
   Final clock offset: -29.204000s
   Average correction: 6.851000s
-
 client3.local:
   Syncs performed: 3
   Final clock offset: 4.000000s
-  Average correction: 1.166667s
-</code></pre></div>
-</div>
-<h2>Stratum Hierarchy</h2>
-<p>In real NTP deployments, servers form a hierarchy.
-Let's simulate this with a server:</p>
-<div data-inc="ex_stratum.py" data-mark="stratumserver"><span aria-label="Source: ntp/ex_stratum.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_stratum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StratumServerProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Server process for a stratum N+1 NTP server."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">local_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
-        <span class="n">stratum</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">clock_state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
-        <span class="n">network_delay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">local_queue</span> <span class="o">=</span> <span class="n">local_queue</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stratum</span> <span class="o">=</span> <span class="n">stratum</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clock_state</span> <span class="o">=</span> <span class="n">clock_state</span>  <span class="c1"># Shared with client process</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span> <span class="o">=</span> <span class="n">network_delay</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_local_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Get current time according to local clock."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock_state</span><span class="p">[</span><span class="s2">"offset"</span><span class="p">]</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Serve requests from downstream clients."""</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">client_queue</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-            <span class="c1"># Record timestamps</span>
-            <span class="n">message</span><span class="o">.</span><span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">()</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
-            <span class="n">message</span><span class="o">.</span><span class="n">t3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">()</span>
-            <span class="n">message</span><span class="o">.</span><span class="n">stratum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stratum</span>
-
-            <span class="c1"># Send response</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span><span class="p">)</span>
-            <span class="k">await</span> <span class="n">client_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</code></pre></div>
-</div>
+  Average correction: 1.166667s</code></pre>
+<h2 data-number="X.3" id="stratum-hierarchy"><span class="header-section-number">X.3</span> Stratum Hierarchy</h2>
+<p>In real NTP deployments, servers form a hierarchy. Let’s simulate this with a server:</p>
+<div class="sourceCode" id="cb9" data-file="ntp/ex_stratum.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StratumServerProcess(Process):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Server process for a stratum N+1 NTP server."""</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        name: <span class="bu">str</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        local_queue: Queue,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        stratum: <span class="bu">int</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        clock_state: <span class="bu">dict</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        network_delay: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.local_queue <span class="op">=</span> local_queue</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.stratum <span class="op">=</span> stratum</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.clock_state <span class="op">=</span> clock_state  <span class="co"># Shared with client process</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.network_delay <span class="op">=</span> network_delay</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_local_time(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Get current time according to local clock."""</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.now <span class="op">+</span> <span class="va">self</span>.clock_state[<span class="st">"offset"</span>]</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Serve requests from downstream clients."""</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            client_queue, message <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.local_queue.get()</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Record timestamps</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            message.t2 <span class="op">=</span> <span class="va">self</span>.get_local_time()</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="fl">0.001</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>            message.t3 <span class="op">=</span> <span class="va">self</span>.get_local_time()</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>            message.stratum <span class="op">=</span> <span class="va">self</span>.stratum</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Send response</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="va">self</span>.network_delay)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> client_queue.put(message)</span></code></pre></div>
 <p>We also need a client for the stratum simulation:</p>
-<div data-inc="ex_stratum.py" data-mark="stratumclient"><span aria-label="Source: ntp/ex_stratum.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_stratum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StratumClientProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Client process for a stratum N+1 NTP server."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">upstream_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
-        <span class="n">stratum</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">clock_state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-        <span class="n">network_delay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">upstream_queue</span> <span class="o">=</span> <span class="n">upstream_queue</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stratum</span> <span class="o">=</span> <span class="n">stratum</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clock_state</span> <span class="o">=</span> <span class="n">clock_state</span>  <span class="c1"># Shared with server process</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span> <span class="o">=</span> <span class="n">sync_interval</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span> <span class="o">=</span> <span class="n">network_delay</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_local_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Get current time according to local clock."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock_state</span><span class="p">[</span><span class="s2">"offset"</span><span class="p">]</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Sync with upstream server."""</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
-
-            <span class="c1"># Send request to upstream</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="n">NTPMessage</span><span class="p">(</span><span class="n">t1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">())</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network_delay</span><span class="p">)</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">upstream_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">response_queue</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span>
-
-            <span class="c1"># Wait for response</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="n">response</span><span class="o">.</span><span class="n">t4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">()</span>
-
-            <span class="c1"># Adjust clock (updates shared state)</span>
-            <span class="n">offset</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">calculate_offset</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">clock_state</span><span class="p">[</span><span class="s2">"offset"</span><span class="p">]</span> <span class="o">-=</span> <span class="n">offset</span>
-
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (stratum </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stratum</span><span class="si">}</span><span class="s2">): "</span>
-                <span class="sa">f</span><span class="s2">"Synced with upstream, offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
-            <span class="p">)</span>
-</code></pre></div>
-</div>
-<p>A stratum N server needs to both sync with stratum N-1 (as a client)
-and serve stratum N+1 clients (as a server).
-We implement this with two separate processes that share clock state via a dictionary.
-The client process syncs with upstream and updates the shared clock offset.
-The server process reads from the shared clock offset when responding to downstream requests.</p>
-<div data-inc="ex_stratum.py" data-mark="hierarchy"><span aria-label="Source: ntp/ex_stratum.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_stratum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""Demonstrate NTP stratum hierarchy."""</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
-
-    <span class="c1"># Stratum 1: Primary time server</span>
-    <span class="n">s1_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-    <span class="n">stratum1</span> <span class="o">=</span> <span class="n">NTPServer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"stratum1.time.gov"</span><span class="p">,</span> <span class="n">stratum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">request_queue</span><span class="o">=</span><span class="n">s1_queue</span><span class="p">)</span>
-
-    <span class="c1"># Stratum 2: Secondary servers syncing with stratum 1</span>
-    <span class="c1"># Each stratum 2 server has both client and server processes</span>
-    <span class="n">s2a_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-    <span class="n">s2a_clock</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"offset"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>  <span class="c1"># Shared clock state</span>
-    <span class="n">StratumClientProcess</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span>
-        <span class="s2">"stratum2a.org"</span><span class="p">,</span>
-        <span class="n">s1_queue</span><span class="p">,</span>
-        <span class="n">stratum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="n">clock_state</span><span class="o">=</span><span class="n">s2a_clock</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">StratumServerProcess</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span> <span class="s2">"stratum2a.org"</span><span class="p">,</span> <span class="n">s2a_queue</span><span class="p">,</span> <span class="n">stratum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clock_state</span><span class="o">=</span><span class="n">s2a_clock</span>
-    <span class="p">)</span>
-
-    <span class="n">s2b_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-    <span class="n">s2b_clock</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"offset"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>  <span class="c1"># Shared clock state</span>
-    <span class="n">StratumClientProcess</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span>
-        <span class="s2">"stratum2b.org"</span><span class="p">,</span>
-        <span class="n">s1_queue</span><span class="p">,</span>
-        <span class="n">stratum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="n">clock_state</span><span class="o">=</span><span class="n">s2b_clock</span><span class="p">,</span>
-        <span class="n">sync_interval</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">StratumServerProcess</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span> <span class="s2">"stratum2b.org"</span><span class="p">,</span> <span class="n">s2b_queue</span><span class="p">,</span> <span class="n">stratum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clock_state</span><span class="o">=</span><span class="n">s2b_clock</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Stratum 3: End clients</span>
-    <span class="n">client_a</span> <span class="o">=</span> <span class="n">NTPClient</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span> <span class="s2">"client_a"</span><span class="p">,</span> <span class="n">s2a_queue</span><span class="p">,</span> <span class="n">sync_interval</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">initial_offset</span><span class="o">=</span><span class="mf">3.0</span>
-    <span class="p">)</span>
-
-    <span class="n">client_b</span> <span class="o">=</span> <span class="n">NTPClient</span><span class="p">(</span>
-        <span class="n">env</span><span class="p">,</span> <span class="s2">"client_b"</span><span class="p">,</span> <span class="n">s2b_queue</span><span class="p">,</span> <span class="n">sync_interval</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">initial_offset</span><span class="o">=-</span><span class="mf">2.0</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Run simulation</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== Stratum Hierarchy Results ==="</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stratum 1 server requests: </span><span class="si">{</span><span class="n">stratum1</span><span class="o">.</span><span class="n">requests_served</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Stratum 2a clock offset: </span><span class="si">{</span><span class="n">s2a_clock</span><span class="p">[</span><span class="s1">'offset'</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stratum 2b clock offset: </span><span class="si">{</span><span class="n">s2b_clock</span><span class="p">[</span><span class="s1">'offset'</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Client A final offset: </span><span class="si">{</span><span class="n">client_a</span><span class="o">.</span><span class="n">clock_offset</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Client B final offset: </span><span class="si">{</span><span class="n">client_b</span><span class="o">.</span><span class="n">clock_offset</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>In this simulation,
-stratum 1 servers sync with reference clocks (simulated as perfect time),
-stratum 2 servers sync with stratum 1,
-and end clients sync with stratum 2.
-Synchronization error accumulates as you go down the hierarchy,
-but it's still accurate enough for most purposes.
-A stratum 3 client might be accurate to within a few milliseconds,
-which is perfectly adequate for log timestamps or cache expiration.</p>
-<p>Why does error accumulate?
-At each stratum, the server applies the offset it calculated from its upstream.
-That calculation already has some error (because the upstream is not perfectly accurate
-and the network delay is not perfectly symmetric).
-When the downstream server syncs with this slightly-off clock,
-its own offset calculation adds another error on top.
-The errors are not simply additive—they depend on network jitter and path asymmetry—
-but in practice each additional stratum adds roughly 1–5 ms of error in a well-run network.
-Stratum 2 servers are accurate to around 1–10 ms; stratum 3 to around 5–20 ms.
-This is why NTP stops at stratum 15 and treats stratum 16 as "unsynchronized".</p>
-<section aria-label="Exercises" class="exercises">
-<h2 id="ntp-exercises">Exercises</h2>
-<ol>
-<li>
-<p>Run the basic simulation with network delay doubled.
-    How many sync cycles does each client need to converge within 0.01 of true time?
-    Now try halving the delay.
-    What does this tell you about the relationship between network latency and sync accuracy?</p>
-</li>
-<li>
-<p>The offset formula assumes symmetric delay.
-    Modify the client to use a one-way delay (simulating asymmetric routing)
-    by passing different outbound and inbound delays.
-    Specifically, set outbound delay to 0.1 and inbound delay to 0.5.
-    What offset does the client calculate?
-    What is the true offset?
-    By how much does asymmetry mislead the client?
-    (Starter: add <code>inbound_delay</code> and <code>outbound_delay</code> parameters to <code>NtpClient</code>.)</p>
-</li>
-<li>
-<p>A client that syncs once per interval will drift between syncs
-    because real hardware clocks are not perfectly accurate.
-    Add a <code>drift_rate</code> parameter to the client that adds a small error per time unit
-    (e.g., 0.001 per unit).
-    How does drift affect the client's accuracy between syncs?
-    What sync interval keeps the client within 0.05 of true time given drift 0.001?</p>
-</li>
-<li>
-<p>In the stratum hierarchy simulation, what happens if the stratum-1 server is restarted
-    with a large initial offset (say, +10)?
-    Trace through how the error propagates to stratum-2 and then to the end clients.
-    After how many sync cycles do the end clients recover?</p>
-</li>
-<li>
-<p>Real NTP clients query multiple servers and use a "best" algorithm
-    to reject outliers before computing the offset.
-    Simulate a misbehaving server that always returns an offset 5.0 higher than true time.
-    Add a second honest server.
-    Implement a simple two-server client that takes the offset from whichever server has the lower delay.
-    Does this correctly identify and ignore the misbehaving server?</p>
-</li>
+<div class="sourceCode" id="cb10" data-file="ntp/ex_stratum.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StratumClientProcess(Process):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Client process for a stratum N+1 NTP server."""</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        name: <span class="bu">str</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        upstream_queue: Queue,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        stratum: <span class="bu">int</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        clock_state: <span class="bu">dict</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        sync_interval: <span class="bu">float</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        network_delay: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.upstream_queue <span class="op">=</span> upstream_queue</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.stratum <span class="op">=</span> stratum</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.clock_state <span class="op">=</span> clock_state  <span class="co"># Shared with server process</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sync_interval <span class="op">=</span> sync_interval</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.network_delay <span class="op">=</span> network_delay</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.response_queue <span class="op">=</span> Queue(<span class="va">self</span>._env)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_local_time(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Get current time according to local clock."""</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.now <span class="op">+</span> <span class="va">self</span>.clock_state[<span class="st">"offset"</span>]</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Sync with upstream server."""</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="va">self</span>.sync_interval)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Send request to upstream</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>            message <span class="op">=</span> NTPMessage(t1<span class="op">=</span><span class="va">self</span>.get_local_time())</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.timeout(<span class="va">self</span>.network_delay)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">await</span> <span class="va">self</span>.upstream_queue.put((<span class="va">self</span>.response_queue, message))</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Wait for response</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>            response <span class="op">=</span> <span class="cf">await</span> <span class="va">self</span>.response_queue.get()</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>            response.t4 <span class="op">=</span> <span class="va">self</span>.get_local_time()</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Adjust clock (updates shared state)</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>            offset <span class="op">=</span> response.calculate_offset()</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.clock_state[<span class="st">"offset"</span>] <span class="op">-=</span> offset</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"[</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>now<span class="sc">:.3f}</span><span class="ss">] </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> (stratum </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>stratum<span class="sc">}</span><span class="ss">): "</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Synced with upstream, offset=</span><span class="sc">{</span>offset<span class="sc">:.3f}</span><span class="ss">"</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
+<p>A stratum N server needs to both sync with stratum N-1 (as a client) and serve stratum N+1 clients (as a server). We implement this with two separate processes that share clock state via a dictionary. The client process syncs with upstream and updates the shared clock offset. The server process reads from the shared clock offset when responding to downstream requests.</p>
+<div class="sourceCode" id="cb11" data-file="ntp/ex_stratum.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Demonstrate NTP stratum hierarchy."""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stratum 1: Primary time server</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    s1_queue <span class="op">=</span> Queue(env)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    stratum1 <span class="op">=</span> NTPServer(env, <span class="st">"stratum1.time.gov"</span>, stratum<span class="op">=</span><span class="dv">1</span>, request_queue<span class="op">=</span>s1_queue)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stratum 2: Secondary servers syncing with stratum 1</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Each stratum 2 server has both client and server processes</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    s2a_queue <span class="op">=</span> Queue(env)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    s2a_clock <span class="op">=</span> {<span class="st">"offset"</span>: <span class="fl">0.0</span>}  <span class="co"># Shared clock state</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    StratumClientProcess(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        env,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stratum2a.org"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        s1_queue,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        stratum<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        clock_state<span class="op">=</span>s2a_clock,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        sync_interval<span class="op">=</span><span class="fl">10.0</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    StratumServerProcess(</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        env, <span class="st">"stratum2a.org"</span>, s2a_queue, stratum<span class="op">=</span><span class="dv">2</span>, clock_state<span class="op">=</span>s2a_clock</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    s2b_queue <span class="op">=</span> Queue(env)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    s2b_clock <span class="op">=</span> {<span class="st">"offset"</span>: <span class="fl">0.0</span>}  <span class="co"># Shared clock state</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    StratumClientProcess(</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        env,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stratum2b.org"</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        s1_queue,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        stratum<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        clock_state<span class="op">=</span>s2b_clock,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>        sync_interval<span class="op">=</span><span class="fl">10.0</span>,</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    StratumServerProcess(</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>        env, <span class="st">"stratum2b.org"</span>, s2b_queue, stratum<span class="op">=</span><span class="dv">2</span>, clock_state<span class="op">=</span>s2b_clock</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stratum 3: End clients</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    client_a <span class="op">=</span> NTPClient(</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>        env, <span class="st">"client_a"</span>, s2a_queue, sync_interval<span class="op">=</span><span class="fl">5.0</span>, initial_offset<span class="op">=</span><span class="fl">3.0</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    client_b <span class="op">=</span> NTPClient(</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>        env, <span class="st">"client_b"</span>, s2b_queue, sync_interval<span class="op">=</span><span class="fl">5.0</span>, initial_offset<span class="op">=-</span><span class="fl">2.0</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run simulation</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    env.run(until<span class="op">=</span><span class="dv">35</span>)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Stratum Hierarchy Results ==="</span>)</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Stratum 1 server requests: </span><span class="sc">{</span>stratum1<span class="sc">.</span>requests_served<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Stratum 2a clock offset: </span><span class="sc">{</span>s2a_clock[<span class="st">'offset'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Stratum 2b clock offset: </span><span class="sc">{</span>s2b_clock[<span class="st">'offset'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Client A final offset: </span><span class="sc">{</span>client_a<span class="sc">.</span>clock_offset<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Client B final offset: </span><span class="sc">{</span>client_b<span class="sc">.</span>clock_offset<span class="sc">:.6f}</span><span class="ss">s"</span>)</span></code></pre></div>
+<p>In this simulation, stratum 1 servers sync with reference clocks (simulated as perfect time), stratum 2 servers sync with stratum 1, and end clients sync with stratum 2. Synchronization error accumulates as you go down the hierarchy, but it’s still accurate enough for most purposes. A stratum 3 client might be accurate to within a few milliseconds, which is perfectly adequate for log timestamps or cache expiration.</p>
+<p>Why does error accumulate? At each stratum, the server applies the offset it calculated from its upstream. That calculation already has some error (because the upstream is not perfectly accurate and the network delay is not perfectly symmetric). When the downstream server syncs with this slightly-off clock, its own offset calculation adds another error on top. The errors are not simply additive—they depend on network jitter and path asymmetry— but in practice each additional stratum adds roughly 1–5 ms of error in a well-run network. Stratum 2 servers are accurate to around 1–10 ms; stratum 3 to around 5–20 ms. This is why NTP stops at stratum 15 and treats stratum 16 as “unsynchronized”.</p>
+<h2 data-number="X.4" id="ntp-exercises"><span class="header-section-number">X.4</span> Exercises</h2>
+<ol type="1">
+<li><p>Run the basic simulation with network delay doubled. How many sync cycles does each client need to converge within 0.01 of true time? Now try halving the delay. What does this tell you about the relationship between network latency and sync accuracy?</p></li>
+<li><p>The offset formula assumes symmetric delay. Modify the client to use a one-way delay (simulating asymmetric routing) by passing different outbound and inbound delays. Specifically, set outbound delay to 0.1 and inbound delay to 0.5. What offset does the client calculate? What is the true offset? By how much does asymmetry mislead the client? (Starter: add <code>inbound_delay</code> and <code>outbound_delay</code> parameters to <code>NtpClient</code>.)</p></li>
+<li><p>A client that syncs once per interval will drift between syncs because real hardware clocks are not perfectly accurate. Add a <code>drift_rate</code> parameter to the client that adds a small error per time unit (e.g., 0.001 per unit). How does drift affect the client’s accuracy between syncs? What sync interval keeps the client within 0.05 of true time given drift 0.001?</p></li>
+<li><p>In the stratum hierarchy simulation, what happens if the stratum-1 server is restarted with a large initial offset (say, +10)? Trace through how the error propagates to stratum-2 and then to the end clients. After how many sync cycles do the end clients recover?</p></li>
+<li><p>Real NTP clients query multiple servers and use a “best” algorithm to reject outliers before computing the offset. Simulate a misbehaving server that always returns an offset 5.0 higher than true time. Add a second honest server. Implement a simple two-server client that takes the offset from whichever server has the lower delay. Does this correctly identify and ignore the misbehaving server?</p></li>
 </ol>
-</section>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../dns">DNS</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../dns/index.html">← Domain Name System (DNS)</a>
+    <a class="pager-link next" href="../fs/index.html">A Simple Filesystem →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

@@ -1,122 +1,43 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>A Build Manager</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>A Build Manager</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a class="active" href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>A Build Manager</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#build-concepts" id="toc-build-concepts"><span class="header-section-number">19.1</span> Concepts</a></li>
+<li><a href="#build-design" id="toc-build-design"><span class="header-section-number">19.2</span> Initial Design</a></li>
+<li><a href="#build-sort" id="toc-build-sort"><span class="header-section-number">19.3</span> Topological Sorting</a></li>
+<li><a href="#build-better" id="toc-build-better"><span class="header-section-number">19.4</span> A Better Design</a></li>
+<li><a href="#build-summary" id="toc-build-summary"><span class="header-section-number">19.5</span> Summary</a></li>
+<li><a href="#build-exercises" id="toc-build-exercises"><span class="header-section-number">19.6</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">A Build Manager</h1>
+<div class="syllabus">
 <ul>
 <li>Build managers track dependencies between files and update files that are stale.</li>
 <li>Every build rule has a target, some dependencies, and a recipe for updating the target.</li>
@@ -125,490 +46,287 @@
 <li>Pattern rules can use automatic variables to specify targets and dependencies in recipes.</li>
 </ul>
 </div>
-<p>Suppose that <code>plot.py</code> produces <code>result.svg</code> from <code>collated.csv</code>,
-that <code>collated.csv</code> is produced from <code>samples.csv</code> and <code>controls.csv</code> by <code>analyze.py</code>,
-and that <code>samples.csv</code> depends on <code>normalize.py</code> and <code>raw.csv</code>.
-If <code>raw.csv</code> changes we want to re-run all three programs;
-if <code>controls.csv</code> changes,
-on the other hand,
-we only need to re-run the analysis and plotting programs.
-If we try to manage this ourselves we will inevitably make mistakes.
-Instead,
-we should use a <a class="gl-ref" href="../glossary/#build_manager">build manager</a>
-to keep track of which files depend on which
-and what actions to take to create or update files.
-This chapter shows how a simple build manager works;
-along the way,
-it introduces some algorithms for working with graphs.</p>
-<h2 id="build-concepts">Concepts</h2>
-<p>The first build manager,
-<a href="https://www.gnu.org/software/make/">Make</a>,
-was written by a student intern at Bell Labs in the 1970s.
-Many others now exist (such as <a href="https://www.scons.org/">SCons</a> and <a href="https://snakemake.readthedocs.io/">Snakemake</a>),
-but they all perform the same basic operations.
-If a <a class="gl-ref" href="../glossary/#build_target">target</a> is <a class="gl-ref" href="../glossary/#build_stale">stale</a>
-with respect to any of its  <a class="gl-ref" href="../glossary/#dependency">dependencies</a>,
-the build manager runs a <a class="gl-ref" href="../glossary/#build_recipe">recipe</a> to refresh it.</p>
-<p>The build manager runs recipes in an order that respects dependencies,
-and it only runs each recipe once (if at all).
-In order for this to be possible,
-targets and dependencies must form a <a class="gl-ref" href="../glossary/#dag">directed acyclic graph</a>,
-i.e.,
-there cannot be a <a class="gl-ref" href="../glossary/#cycle">cycle</a> of links
-leading from a <span class="ix-ref" data-ix-key="node" id="ix-build-1">node</span> back to itself.
-The build manager constructs
-a <a class="gl-ref" href="../glossary/#topological_order">topological ordering</a> of that <span class="ix-ref" data-ix-key="graph" id="ix-build-2">graph</span>,
-i.e.,
-arranges nodes so that each one comes after everything it depends on
-and then builds what it needs to in that order
-(<a class="fig-ref" href="#f:build-dependencies">Figure 1</a>).</p>
-<figure id="f:build-dependencies">
-<img alt="Dependencies in a four-node graph" src="dependencies.svg"/>
-<figcaption>Figure 1: Dependencies and topological order.</figcaption>
+<p>Suppose that <code>plot.py</code> produces <code>result.svg</code> from <code>collated.csv</code>, that <code>collated.csv</code> is produced from <code>samples.csv</code> and <code>controls.csv</code> by <code>analyze.py</code>, and that <code>samples.csv</code> depends on <code>normalize.py</code> and <code>raw.csv</code>. If <code>raw.csv</code> changes we want to re-run all three programs; if <code>controls.csv</code> changes, on the other hand, we only need to re-run the analysis and plotting programs. If we try to manage this ourselves we will inevitably make mistakes. Instead, we should use a <a href="../glossary/index.html#build_manager">build manager</a> to keep track of which files depend on which and what actions to take to create or update files. This chapter shows how a simple build manager works; along the way, it introduces some algorithms for working with graphs.</p>
+<h2 data-number="19.1" id="build-concepts"><span class="header-section-number">19.1</span> Concepts</h2>
+<p>The first build manager, <a href="https://www.gnu.org/software/make/">Make</a>, was written by a student intern at Bell Labs in the 1970s. Many others now exist (such as <a href="https://www.scons.org/">SCons</a> and <a href="https://snakemake.readthedocs.io/">Snakemake</a>), but they all perform the same basic operations. If a <a href="../glossary/index.html#build_target">target</a> is <a href="../glossary/index.html#build_stale">stale</a> with respect to any of its <a href="../glossary/index.html#dependency">dependencies</a>, the build manager runs a <a href="../glossary/index.html#build_recipe">recipe</a> to refresh it.</p>
+<p>The build manager runs recipes in an order that respects dependencies, and it only runs each recipe once (if at all). In order for this to be possible, targets and dependencies must form a <a href="../glossary/index.html#dag">directed acyclic graph</a>, i.e., there cannot be a <a href="../glossary/index.html#cycle">cycle</a> of links leading from a node back to itself. The build manager constructs a <a href="../glossary/index.html#topological_order">topological ordering</a> of that graph, i.e., arranges nodes so that each one comes after everything it depends on and then builds what it needs to in that order (<a href="#fig-build-dependencies" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>).</p>
+<div id="fig-build-dependencies" class="quarto-float quarto-figure quarto-figure-center" alt="Dependency graph in topological order">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-build-dependencies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="dependencies.svg" alt="Dependency graph in topological order">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-dependencies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1: Dependencies and topological order.
+</figcaption>
 </figure>
-<div class="callout">
-<h3>A Bit of History</h3>
-<p>Make was created to manage programs in <a class="gl-ref" href="../glossary/#compiled_language">compiled languages</a>
-like <span class="ix-ref" data-ix-key="C" id="ix-build-3">C</span> and <span class="ix-ref" data-ix-key="Java" id="ix-build-4">Java</span>,
-which have to be translated into lower-level forms before they can run.
-There are usually two stages to the translation:
-compiling each source file into some intermediate form,
-and then <a class="gl-ref" href="../glossary/#link">linking</a> the compiled modules
-to each other and to libraries
-to create a runnable program.
-If a source file hasn't changed,
-we don't need to recompile it before linking.
-Skipping unnecessary work in this way can save a lot of time
-when we are working with programs that contain thousands or tens of thousands of files.</p>
 </div>
-<h2 id="build-design">Initial Design</h2>
-<p>Our first step is to decide how we are going to represent
-<a class="gl-ref" href="../glossary/#build_rule">build rules</a>.
-We could invent a special-purpose syntax to fit the problem,
-but as we said in <a class="xref" href="../parse/">Chapter 5</a>,
-the world has enough data formats.
-Instead,
-we will represent our recipes as <span class="ix-ref" data-ix-key="JSON" id="ix-build-5">JSON</span>.
-For example,
-this file describes two targets <code>A</code> and <code>B</code>
-and states that the former depends on the latter:</p>
-<div data-inc="double_linear_dep.json"><span aria-label="Source: build/double_linear_dep.json" class="inc-path" role="img" tabindex="0" title="build/double_linear_dep.json">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"A"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"depends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"B"</span><span class="p">],</span><span class="w"> </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build A"</span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"depends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build B"</span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<div>
+<blockquote>
+<p><strong>A Bit of History</strong></p>
+<p>Make was created to manage programs in <a href="../glossary/index.html#compiled_language">compiled languages</a> like C and Java, which have to be translated into lower-level forms before they can run. There are usually two stages to the translation: compiling each source file into some intermediate form, and then <a href="../glossary/index.html#link">linking</a> the compiled modules to each other and to libraries to create a runnable program. If a source file hasn’t changed, we don’t need to recompile it before linking. Skipping unnecessary work in this way can save a lot of time when we are working with programs that contain thousands or tens of thousands of files.</p>
+</blockquote>
 </div>
-<p>As in <a class="xref" href="../archive/">Chapter 10</a>,
-we will use <span class="ix-ref" data-ix-key="successive refinement" id="ix-build-6">successive refinement</span>
-to create our first build manager.
-Our <code>BuildBase</code> class takes a configuration file as a constructor argument,
-loads it,
-creates a topological ordering,
-and then refreshes each target in order.
-For now,
-"refreshing" means "prints the update rule";
-we will come back and make this more sophisticated later.</p>
-<div data-inc="build_simple.py" data-mark="main"><span aria-label="Source: build/build_simple.py" class="inc-path" role="img" tabindex="0" title="build/build_simple.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BuildBase</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="p">):</span>
-        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_configure</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
-        <span class="n">ordered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topo_sort</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ordered</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_refresh</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">config</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">"</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="s2">"rule"</span><span class="p">])</span>
-</code></pre></div>
+<h2 data-number="19.2" id="build-design"><span class="header-section-number">19.2</span> Initial Design</h2>
+<p>Our first step is to decide how we are going to represent <a href="../glossary/index.html#build_rule">build rules</a>. We could invent a special-purpose syntax to fit the problem, but as we said in <a href="../parse/index.html" class="quarto-xref"><span>Chapter 5</span></a>, the world has enough data formats. Instead, we will represent our recipes as JSON. For example, this file describes two targets <code>A</code> and <code>B</code> and states that the former depends on the latter:</p>
+<div class="sourceCode" id="cb1" data-file="build/double_linear_dep.json"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"A"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"depends"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"B"</span><span class="ot">]</span><span class="fu">,</span> <span class="dt">"rule"</span><span class="fu">:</span> <span class="st">"build A"</span><span class="fu">},</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"B"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"depends"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span> <span class="dt">"rule"</span><span class="fu">:</span> <span class="st">"build B"</span><span class="fu">}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>As in <a href="../archive/index.html" class="quarto-xref"><span>Chapter 10</span></a>, we will use successive refinement to create our first build manager. Our <code>BuildBase</code> class takes a configuration file as a constructor argument, loads it, creates a topological ordering, and then refreshes each target in order. For now, “refreshing” means “prints the update rule”; we will come back and make this more sophisticated later.</p>
+<div class="sourceCode" id="cb2" data-file="build/build_simple.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BuildBase:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> build(<span class="va">self</span>, config_file):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> <span class="va">self</span>._configure(config_file)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        ordered <span class="op">=</span> <span class="va">self</span>._topo_sort(config)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> node <span class="kw">in</span> ordered:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._refresh(config, node)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _refresh(<span class="va">self</span>, config, node):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> node <span class="kw">in</span> config, <span class="ss">f"Unknown node </span><span class="sc">{</span>node<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(config[node][<span class="st">"rule"</span>])</span></code></pre></div>
+<p>To load a configuration file, we read in the JSON, build a set of known targets, and then verify each rule using a helper method called <code>_check</code>:</p>
+<div class="sourceCode" id="cb3" data-file="build/build_simple.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _configure(<span class="va">self</span>, config_file):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(config_file, <span class="st">"r"</span>) <span class="im">as</span> reader:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            config <span class="op">=</span> json.load(reader)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            known <span class="op">=</span> <span class="bu">set</span>(config.keys())</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                n: <span class="va">self</span>._check(n, d, known)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> n, d <span class="kw">in</span> config.items()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            }</span></code></pre></div>
+<p>To check a rule, we make sure the dictionary that represents it has the required keys and that we have a rule for every dependency it mentions. We also transform the rule’s structure a bit to simplify later processing (<a href="#fig-build-diamond" class="quarto-xref">Figure&nbsp;<span>19.2</span></a>):</p>
+<div class="sourceCode" id="cb4" data-file="build/build_simple.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _check(<span class="va">self</span>, name, details, known):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"rule"</span> <span class="kw">in</span> details, <span class="ss">f"Missing rule for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"depends"</span> <span class="kw">in</span> details, <span class="ss">f"Missing depends for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        depends <span class="op">=</span> <span class="bu">set</span>(details[<span class="st">"depends"</span>])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> depends.issubset(known), <span class="op">\</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Unknown depends for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">"rule"</span>: details[<span class="st">"rule"</span>], <span class="st">"depends"</span>: depends}</span></code></pre></div>
+<div id="fig-build-diamond" class="quarto-float quarto-figure quarto-figure-center" alt="Diamond-shaped dependency graph">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-build-diamond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="diamond.svg" alt="Diamond-shaped dependency graph">
 </div>
-<p>To load a configuration file,
-we read in the JSON,
-build a set of known targets,
-and then verify each rule using a helper method called <code>_check</code>:</p>
-<div data-inc="build_simple.py" data-mark="config"><span aria-label="Source: build/build_simple.py" class="inc-path" role="img" tabindex="0" title="build/build_simple.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_configure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
-            <span class="n">known</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-            <span class="k">return</span> <span class="p">{</span>
-                <span class="n">n</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">known</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-            <span class="p">}</span>
-</code></pre></div>
-</div>
-<p>To check a rule,
-we make sure the dictionary that represents it has the required keys
-and that we have a rule for every dependency it mentions.
-We also transform the rule's structure a bit to simplify later processing
-(<a class="fig-ref" href="#f:build-diamond">Figure 2</a>):</p>
-<div data-inc="build_simple.py" data-mark="check"><span aria-label="Source: build/build_simple.py" class="inc-path" role="img" tabindex="0" title="build/build_simple.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">,</span> <span class="n">known</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="s2">"rule"</span> <span class="ow">in</span> <span class="n">details</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Missing rule for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">assert</span> <span class="s2">"depends"</span> <span class="ow">in</span> <span class="n">details</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Missing depends for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-        <span class="n">depends</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"depends"</span><span class="p">])</span>
-        <span class="k">assert</span> <span class="n">depends</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">known</span><span class="p">),</span> \
-            <span class="sa">f</span><span class="s2">"Unknown depends for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">"rule"</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s2">"rule"</span><span class="p">],</span> <span class="s2">"depends"</span><span class="p">:</span> <span class="n">depends</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<figure id="f:build-diamond">
-<img alt="Representing graph" src="diamond.svg"/>
-<figcaption>Figure 2: Representing dependency graph.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-diamond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.2: Representing dependency graph.
+</figcaption>
 </figure>
-<div class="callout">
-<h3>It's Not Extra Work</h3>
-<p>We have to implement the consistency checks for our build rules
-because JSON is a generic format
-that knows nothing about dependencies, rules, and required keys.
-There is a format called <a href="https://json-schema.org/">JSON Schema</a> for specifying these things
-and <a href="https://python-jsonschema.readthedocs.io/">a Python module</a> that implements its checks,
-but using it here would trade seven lines of code
-for 10 minutes of explanation.
-We will explore its use in the exercises,
-but the most important point is that
-whether we write code by hand
-or use a library with a bit of configuration,
-<em>someone</em> has to write these checks.</p>
 </div>
-<h2 id="build-sort">Topological Sorting</h2>
-<p>The next step is to figure out a safe order in which to build things.
-<a class="fig-ref" href="#f:build-topo-sort">Figure 3</a> shows how our algorithm works:</p>
-<ol>
-<li>
-<p>We find all the nodes in the dependency graph
-    that don't have any outstanding dependencies.</p>
-</li>
-<li>
-<p>We append those to the result
-    and then remove them from the dependencies of all the other nodes in the graph.</p>
-</li>
-<li>
-<p>If anything is still in the graph,
-    we go back to the first step.</p>
-</li>
-<li>
-<p>If at any point the graph isn't empty but nothing is available,
-    we have found a <a class="gl-ref" href="../glossary/#circular_dependency">circular dependency</a>,
-    so we report the problem and fail.</p>
-</li>
+<div>
+<blockquote>
+<p><strong>It’s Not Extra Work</strong></p>
+<p>We have to implement the consistency checks for our build rules because JSON is a generic format that knows nothing about dependencies, rules, and required keys. There is a format called <a href="https://json-schema.org/">JSON Schema</a> for specifying these things and <a href="https://python-jsonschema.readthedocs.io/">a Python module</a> that implements its checks, but using it here would trade seven lines of code for 10 minutes of explanation. We will explore its use in the exercises, but the most important point is that whether we write code by hand or use a library with a bit of configuration, <em>someone</em> has to write these checks.</p>
+</blockquote>
+</div>
+<h2 data-number="19.3" id="build-sort"><span class="header-section-number">19.3</span> Topological Sorting</h2>
+<p>The next step is to figure out a safe order in which to build things. <a href="#fig-build-topo-sort" class="quarto-xref">Figure&nbsp;<span>19.3</span></a> shows how our algorithm works:</p>
+<ol type="1">
+<li><p>We find all the nodes in the dependency graph that don’t have any outstanding dependencies.</p></li>
+<li><p>We append those to the result and then remove them from the dependencies of all the other nodes in the graph.</p></li>
+<li><p>If anything is still in the graph, we go back to the first step.</p></li>
+<li><p>If at any point the graph isn’t empty but nothing is available, we have found a <a href="../glossary/index.html#circular_dependency">circular dependency</a>, so we report the problem and fail.</p></li>
 </ol>
-<figure id="f:build-topo-sort">
-<img alt="Trace of topological sorting" src="topo_sort.svg"/>
-<figcaption>Figure 3: Topological Sort.</figcaption>
+<div id="fig-build-topo-sort" class="quarto-float quarto-figure quarto-figure-center" alt="Ordering tasks by their dependencies">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-build-topo-sort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="topo_sort.svg" alt="Ordering tasks by their dependencies">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-topo-sort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.3: Topological Sort.
+</figcaption>
 </figure>
+</div>
 <p>The code that implements this algorithm is:</p>
-<div data-inc="build_simple.py" data-mark="sort"><span aria-label="Source: build/build_simple.py" class="inc-path" role="img" tabindex="0" title="build/build_simple.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_topo_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-        <span class="n">graph</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">"depends"</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">config</span><span class="p">}</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">while</span> <span class="n">graph</span><span class="p">:</span>
-            <span class="n">available</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">graph</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">graph</span><span class="p">[</span><span class="n">n</span><span class="p">]}</span>
-            <span class="k">assert</span> <span class="n">available</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Circular graph </span><span class="si">{</span><span class="n">graph</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">available</span><span class="p">)</span>
-            <span class="n">graph</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">n</span><span class="p">:</span> <span class="n">graph</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">available</span>
-                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">graph</span>
-                <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">available</span>
-            <span class="p">}</span>
-        <span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
-</div>
-<p>With all of this in place,
-we can run our first test:</p>
-<div data-inc="double_linear_dep.json"><span aria-label="Source: build/double_linear_dep.json" class="inc-path" role="img" tabindex="0" title="build/double_linear_dep.json">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"A"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"depends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"B"</span><span class="p">],</span><span class="w"> </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build A"</span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"depends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build B"</span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div data-inc="double_linear_dep.out"><span aria-label="Source: build/double_linear_dep.out" class="inc-path" role="img" tabindex="0" title="build/double_linear_dep.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>build B
-build A
-</code></pre></div>
-</div>
-<h2 id="build-better">A Better Design</h2>
-<p>Our implementation works,
-but we can do better:</p>
-<ol>
-<li>
-<p>The configuration might not come directly from a JSON file—for example,
-    it might be embedded in a larger file or generated by another program—so
-    we should modify the constructor to take a configuration as input.</p>
-</li>
-<li>
-<p>Printing actions to the screen isn't very useful,
-    so we should collect them and return an ordered list of
-    the commands for the build manager.</p>
-</li>
-<li>
-<p><code>assert</code> isn't a friendly way to handle user errors;
-    we should raise <code>ValueError</code> (or a custom exception of our own)
-    to indicate a problem.</p>
-</li>
-<li>
-<p>Our topological sort isn't <a class="gl-ref" href="../glossary/#stable_sort">stable</a>,
-    i.e.,
-    there's no way to predict the order in which two "equal" nodes
-    will be added to the ordering.
-    We will explore the reason for this in the exercises,
-    but for now,
-    we should sort node names when appending to the <code>result</code> list
-    so that our tests can know what to check for.</p>
-</li>
-<li>
-<p>We might want to add other keys to rules,
-    so we should put that check in a separate method that we can override.</p>
-</li>
+<div class="sourceCode" id="cb5" data-file="build/build_simple.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _topo_sort(<span class="va">self</span>, config):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        graph <span class="op">=</span> {n: config[n][<span class="st">"depends"</span>] <span class="cf">for</span> n <span class="kw">in</span> config}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> []</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> graph:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            available <span class="op">=</span> {n <span class="cf">for</span> n <span class="kw">in</span> graph <span class="cf">if</span> <span class="kw">not</span> graph[n]}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">assert</span> available, <span class="ss">f"Circular graph </span><span class="sc">{</span>graph<span class="sc">.</span>keys()<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            result.extend(available)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            graph <span class="op">=</span> {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                n: graph[n] <span class="op">-</span> available</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> n <span class="kw">in</span> graph</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> available</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span></code></pre></div>
+<p>With all of this in place, we can run our first test:</p>
+<div class="sourceCode" id="cb6" data-file="build/double_linear_dep.json"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"A"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"depends"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"B"</span><span class="ot">]</span><span class="fu">,</span> <span class="dt">"rule"</span><span class="fu">:</span> <span class="st">"build A"</span><span class="fu">},</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"B"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"depends"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span> <span class="dt">"rule"</span><span class="fu">:</span> <span class="st">"build B"</span><span class="fu">}</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<pre data-file="build/double_linear_dep.out"><code>build B
+build A</code></pre>
+<h2 data-number="19.4" id="build-better"><span class="header-section-number">19.4</span> A Better Design</h2>
+<p>Our implementation works, but we can do better:</p>
+<ol type="1">
+<li><p>The configuration might not come directly from a JSON file—for example, it might be embedded in a larger file or generated by another program—so we should modify the constructor to take a configuration as input.</p></li>
+<li><p>Printing actions to the screen isn’t very useful, so we should collect them and return an ordered list of the commands for the build manager.</p></li>
+<li><p><code>assert</code> isn’t a friendly way to handle user errors; we should raise <code>ValueError</code> (or a custom exception of our own) to indicate a problem.</p></li>
+<li><p>Our topological sort isn’t <a href="../glossary/index.html#stable_sort">stable</a>, i.e., there’s no way to predict the order in which two “equal” nodes will be added to the ordering. We will explore the reason for this in the exercises, but for now, we should sort node names when appending to the <code>result</code> list so that our tests can know what to check for.</p></li>
+<li><p>We might want to add other keys to rules, so we should put that check in a separate method that we can override.</p></li>
 </ol>
 <p>The top level of our better build manager looks like this:</p>
-<div data-inc="build_better.py" data-mark="main"><span aria-label="Source: build/build_better.py" class="inc-path" role="img" tabindex="0" title="build/build_better.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BuildBetter</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-        <span class="n">ordered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topo_sort</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-        <span class="n">actions</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ordered</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_refresh</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">actions</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">actions</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">actions</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">config</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">"</span>
-        <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="s2">"rule"</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_must</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb8" data-file="build/build_better.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BuildBetter:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> build(<span class="va">self</span>, config):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> <span class="va">self</span>._configure(config)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        ordered <span class="op">=</span> <span class="va">self</span>._topo_sort(config)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        actions <span class="op">=</span> []</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> node <span class="kw">in</span> ordered:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._refresh(config, node, actions)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> actions</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _refresh(<span class="va">self</span>, config, node, actions):</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> node <span class="kw">in</span> config, <span class="ss">f"Unknown node </span><span class="sc">{</span>node<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        actions.append(config[node][<span class="st">"rule"</span>])</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _must(<span class="va">self</span>, condition, message):</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> condition:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(message)</span></code></pre></div>
 <p>The revised configuration code is:</p>
-<div data-inc="build_better.py" data-mark="config"><span aria-label="Source: build/build_better.py" class="inc-path" role="img" tabindex="0" title="build/build_better.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_configure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-        <span class="n">known</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="k">return</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">known</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">,</span> <span class="n">known</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_keys</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">)</span>
-        <span class="n">depends</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"depends"</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_must</span><span class="p">(</span>
-            <span class="n">depends</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">known</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Unknown depends for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-        <span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">result</span><span class="p">[</span><span class="s2">"depends"</span><span class="p">]</span> <span class="o">=</span> <span class="n">depends</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_check_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_must</span><span class="p">(</span><span class="s2">"rule"</span> <span class="ow">in</span> <span class="n">details</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Missing rule for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_must</span><span class="p">(</span>
-            <span class="s2">"depends"</span> <span class="ow">in</span> <span class="n">details</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Missing depends for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-        <span class="p">)</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb9" data-file="build/build_better.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _configure(<span class="va">self</span>, config):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        known <span class="op">=</span> <span class="bu">set</span>(config.keys())</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {n: <span class="va">self</span>._check(n, d, known)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> n, d <span class="kw">in</span> config.items()}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _check(<span class="va">self</span>, name, details, known):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._check_keys(name, details)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        depends <span class="op">=</span> <span class="bu">set</span>(details[<span class="st">"depends"</span>])</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._must(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            depends.issubset(known), <span class="ss">f"Unknown depends for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> details.copy()</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        result[<span class="st">"depends"</span>] <span class="op">=</span> depends</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _check_keys(<span class="va">self</span>, name, details):</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._must(<span class="st">"rule"</span> <span class="kw">in</span> details, <span class="ss">f"Missing rule for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._must(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"depends"</span> <span class="kw">in</span> details, <span class="ss">f"Missing depends for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
 <p>and the updated topological sorting method is</p>
-<div data-inc="build_better.py" data-mark="sort"><span aria-label="Source: build/build_better.py" class="inc-path" role="img" tabindex="0" title="build/build_better.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_topo_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-        <span class="n">graph</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">"depends"</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">config</span><span class="p">}</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">while</span> <span class="n">graph</span><span class="p">:</span>
-            <span class="n">available</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">graph</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">graph</span><span class="p">[</span><span class="n">n</span><span class="p">]}</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_must</span><span class="p">(</span>
-                <span class="n">available</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s2">"Circular graph </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-            <span class="p">)</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">available</span><span class="p">))</span>
-            <span class="n">graph</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">n</span><span class="p">:</span> <span class="n">graph</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">available</span>
-                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">graph</span>
-                <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">available</span>
-            <span class="p">}</span>
-        <span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
-</div>
+<div class="sourceCode" id="cb10" data-file="build/build_better.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _topo_sort(<span class="va">self</span>, config):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        graph <span class="op">=</span> {n: config[n][<span class="st">"depends"</span>] <span class="cf">for</span> n <span class="kw">in</span> config}</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> []</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> graph:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>            available <span class="op">=</span> {n <span class="cf">for</span> n <span class="kw">in</span> graph <span class="cf">if</span> <span class="kw">not</span> graph[n]}</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._must(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                available,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Circular graph </span><span class="sc">{</span><span class="bu">list</span>(graph.keys())<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>            result.extend(<span class="bu">sorted</span>(available))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>            graph <span class="op">=</span> {</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                n: graph[n] <span class="op">-</span> available</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> n <span class="kw">in</span> graph</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> available</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span></code></pre></div>
 <p>We can now test that the code detects circularities in the dependency graph:</p>
-<div data-inc="test_build_better.py" data-mark="test_circular"><span aria-label="Source: build/test_build_better.py" class="inc-path" role="img" tabindex="0" title="build/test_build_better.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_circular</span><span class="p">():</span>
-    <span class="n">action_A</span> <span class="o">=</span> <span class="s2">"build A"</span>
-    <span class="n">action_B</span> <span class="o">=</span> <span class="s2">"build B"</span>
-    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"A"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"B"</span><span class="p">],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_A</span><span class="p">},</span>
-        <span class="s2">"B"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_B</span><span class="p">},</span>
-    <span class="p">}</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">Builder</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"should have had exception"</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">pass</span>
-</code></pre></div>
+<div class="sourceCode" id="cb11" data-file="build/test_build_better.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_circular():</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    action_A <span class="op">=</span> <span class="st">"build A"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    action_B <span class="op">=</span> <span class="st">"build B"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A"</span>: {<span class="st">"depends"</span>: [<span class="st">"B"</span>], <span class="st">"rule"</span>: action_A},</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"B"</span>: {<span class="st">"depends"</span>: [<span class="st">"A"</span>], <span class="st">"rule"</span>: action_B},</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        Builder().build(config)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="va">False</span>, <span class="st">"should have had exception"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code></pre></div>
+<p>and that it builds what it’s supposed to:</p>
+<div class="sourceCode" id="cb12" data-file="build/test_build_better.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_no_dep():</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    action_A <span class="op">=</span> <span class="st">"build A"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    action_B <span class="op">=</span> <span class="st">"build B"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A"</span>: {<span class="st">"depends"</span>: [], <span class="st">"rule"</span>: action_A},</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"B"</span>: {<span class="st">"depends"</span>: [], <span class="st">"rule"</span>: action_B},</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Builder().build(config) <span class="op">==</span> [action_A, action_B]</span></code></pre></div>
+<p>We can also extend it. For example, suppose we only want to update targets that are older than their dependencies (which is, after all, the whole point of a build manager). If the targets are actual files we can check their timestamps, but for testing purposes we would like to specify pretended times in the configuration:</p>
+<div class="sourceCode" id="cb13" data-file="build/test_build_time.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_diamond_dep():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    action_A <span class="op">=</span> <span class="st">"build A"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    action_B <span class="op">=</span> <span class="st">"build B"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    action_C <span class="op">=</span> <span class="st">"build C"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    action_D <span class="op">=</span> <span class="st">"build D"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A"</span>: {<span class="st">"depends"</span>: [<span class="st">"B"</span>, <span class="st">"C"</span>], <span class="st">"rule"</span>: action_A, <span class="st">"time"</span>: <span class="dv">0</span>},</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"B"</span>: {<span class="st">"depends"</span>: [<span class="st">"D"</span>], <span class="st">"rule"</span>: action_B, <span class="st">"time"</span>: <span class="dv">0</span>},</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"C"</span>: {<span class="st">"depends"</span>: [<span class="st">"D"</span>], <span class="st">"rule"</span>: action_C, <span class="st">"time"</span>: <span class="dv">1</span>},</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"D"</span>: {<span class="st">"depends"</span>: [], <span class="st">"rule"</span>: action_D, <span class="st">"time"</span>: <span class="dv">1</span>},</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Builder().build(config) <span class="op">==</span> [action_B, action_A]</span></code></pre></div>
+<p>Starting from the class we have written so far, we need to override three methods:</p>
+<div class="sourceCode" id="cb14" data-file="build/build_time.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BuildTime(BuildBetter):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _check_keys(<span class="va">self</span>, name, details):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>()._check_keys(name, details)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._must(<span class="st">"time"</span> <span class="kw">in</span> details, <span class="ss">f"No time for </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _refresh(<span class="va">self</span>, config, node, actions):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> node <span class="kw">in</span> config, <span class="ss">f"Unknown node </span><span class="sc">{</span>node<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>._needs_update(config, node):</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>            actions.append(config[node][<span class="st">"rule"</span>])</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _needs_update(<span class="va">self</span>, config, node):</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">any</span>(</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            config[node][<span class="st">"time"</span>] <span class="op">&lt;</span> config[d][<span class="st">"time"</span>]</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> d <span class="kw">in</span> config[node][<span class="st">"depends"</span>]</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+<div>
+<blockquote>
+<p><strong>How We Actually Did It</strong></p>
+<p>Our final design uses the <a href="../glossary/index.html#template_method_pattern">Template Method</a> pattern: a method in a parent class defines the control flow, while child classes implement those operations. We didn’t know in advance exactly how to divide our code into methods; instead, as we were creating a class that loaded and used timestamps, we reorganized the parent class to create the <a href="../glossary/index.html#affordance">affordances</a> we needed. Software design almost always works this way: the first two or three times we try to extend something, we discover changes that would make those tasks easier. We should do less of this as time goes by: if we are still doing large-scale refactoring the tenth time we use something, we should rethink our entire design.</p>
+</blockquote>
 </div>
-<p>and that it builds what it's supposed to:</p>
-<div data-inc="test_build_better.py" data-mark="test_no_dep"><span aria-label="Source: build/test_build_better.py" class="inc-path" role="img" tabindex="0" title="build/test_build_better.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_no_dep</span><span class="p">():</span>
-    <span class="n">action_A</span> <span class="o">=</span> <span class="s2">"build A"</span>
-    <span class="n">action_B</span> <span class="o">=</span> <span class="s2">"build B"</span>
-    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"A"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_A</span><span class="p">},</span>
-        <span class="s2">"B"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_B</span><span class="p">},</span>
-    <span class="p">}</span>
-    <span class="k">assert</span> <span class="n">Builder</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="n">action_A</span><span class="p">,</span> <span class="n">action_B</span><span class="p">]</span>
-</code></pre></div>
+<h2 data-number="19.5" id="build-summary"><span class="header-section-number">19.5</span> Summary</h2>
+<p><a href="#fig-build-concept-map" class="quarto-xref">Figure&nbsp;<span>19.4</span></a> summarizes the ideas introduced in this chapter. Note that the small bubble labelled “graph algorithm” could be expanded to a shelf full of books.</p>
+<div id="fig-build-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of build topics">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-build-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="concept_map.svg" alt="Concept map of build topics">
 </div>
-<p>We can also extend it.
-For example,
-suppose we only want to update targets that are older than their dependencies
-(which is, after all, the whole point of a build manager).
-If the targets are actual files we can check their <span class="ix-ref" data-ix-key="timestamp" id="ix-build-7">timestamps</span>,
-but for testing purposes
-we would like to specify pretended times in the configuration:</p>
-<div data-inc="test_build_time.py" data-mark="tests"><span aria-label="Source: build/test_build_time.py" class="inc-path" role="img" tabindex="0" title="build/test_build_time.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_diamond_dep</span><span class="p">():</span>
-    <span class="n">action_A</span> <span class="o">=</span> <span class="s2">"build A"</span>
-    <span class="n">action_B</span> <span class="o">=</span> <span class="s2">"build B"</span>
-    <span class="n">action_C</span> <span class="o">=</span> <span class="s2">"build C"</span>
-    <span class="n">action_D</span> <span class="o">=</span> <span class="s2">"build D"</span>
-    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"A"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_A</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
-        <span class="s2">"B"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"D"</span><span class="p">],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_B</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
-        <span class="s2">"C"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"D"</span><span class="p">],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_C</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-        <span class="s2">"D"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"depends"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"rule"</span><span class="p">:</span> <span class="n">action_D</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-    <span class="p">}</span>
-    <span class="k">assert</span> <span class="n">Builder</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="n">action_B</span><span class="p">,</span> <span class="n">action_A</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<p>Starting from the class we have written so far,
-we need to override three methods:</p>
-<div data-inc="build_time.py" data-mark="class"><span aria-label="Source: build/build_time.py" class="inc-path" role="img" tabindex="0" title="build/build_time.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BuildTime</span><span class="p">(</span><span class="n">BuildBetter</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_check_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_check_keys</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_must</span><span class="p">(</span><span class="s2">"time"</span> <span class="ow">in</span> <span class="n">details</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"No time for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">actions</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">config</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unknown node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_needs_update</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-            <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="s2">"rule"</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_needs_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span>
-            <span class="n">config</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">config</span><span class="p">[</span><span class="n">d</span><span class="p">][</span><span class="s2">"time"</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="s2">"depends"</span><span class="p">]</span>
-        <span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="callout">
-<h3>How We Actually Did It</h3>
-<p>Our final design uses
-the <a class="gl-ref" href="../glossary/#template_method_pattern">Template Method</a> pattern:
-a method in a <span class="ix-ref" data-ix-key="parent class" id="ix-build-8">parent class</span> defines the <span class="ix-ref" data-ix-key="control flow" id="ix-build-9">control flow</span>,
-while <span class="ix-ref" data-ix-key="child class" id="ix-build-10">child classes</span> implement those operations.
-We didn't know in advance exactly
-how to divide our code into methods;
-instead,
-as we were creating a class that loaded and used timestamps,
-we reorganized the parent class
-to create the <a class="gl-ref" href="../glossary/#affordance">affordances</a> we needed.
-Software design almost always works this way:
-the first two or three times we try to extend something,
-we discover changes that would make those tasks easier.
-We should do less of this as time goes by:
-if we are still doing large-scale <span class="ix-ref" data-ix-key="refactor" id="ix-build-11">refactoring</span>
-the tenth time we use something,
-we should rethink our entire design.</p>
-</div>
-<h2 id="build-summary">Summary</h2>
-<p><a class="fig-ref" href="#f:build-concept-map">Figure 4</a> summarizes the ideas introduced in this chapter.
-Note that the small bubble labelled "graph algorithm" could be expanded
-to a shelf full of books.</p>
-<figure id="f:build-concept-map">
-<img alt="Concept map of build manager" src="concept_map.svg"/>
-<figcaption>Figure 4: Concept map.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.4: Concept map.
+</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="build-exercises">Exercises</h2>
-<h3>Stable Sorting</h3>
-<p>Recent versions of Python guarantee that
-the entries in a <code>dict</code> preserve the order in which they were added,
-but do not make any such guarantee for sets.
-Explain why this makes it hard to test things that use sets.</p>
-<h3>Checking Schema</h3>
-<p>Rewrite the configuration validator to use <a href="https://json-schema.org/">JSON Schema</a>
-via the associated <a href="https://python-jsonschema.readthedocs.io/">Python module</a>.</p>
-<h3>Handling Failure</h3>
-<ol>
-<li>
-<p>Modify the build manager so that a configuration file can specify
-    whether its rule should succeed or fail.
-    (This isn't particularly useful in real life,
-    but it helps with testing.)</p>
-</li>
-<li>
-<p>Modify it so that if a rule fails,
-    other buildable targets are still built
-    (but anything that depends directly or indirectly on the target whose rule failed
-    is <em>not</em> built).</p>
-</li>
-<li>
-<p>Write tests to check that this change works correctly.</p>
-</li>
+</div>
+<h2 data-number="19.6" id="build-exercises"><span class="header-section-number">19.6</span> Exercises</h2>
+<h3 data-number="19.6.1" id="stable-sorting"><span class="header-section-number">19.6.1</span> Stable Sorting</h3>
+<p>Recent versions of Python guarantee that the entries in a <code>dict</code> preserve the order in which they were added, but do not make any such guarantee for sets. Explain why this makes it hard to test things that use sets.</p>
+<h3 data-number="19.6.2" id="checking-schema"><span class="header-section-number">19.6.2</span> Checking Schema</h3>
+<p>Rewrite the configuration validator to use <a href="https://json-schema.org/">JSON Schema</a> via the associated <a href="https://python-jsonschema.readthedocs.io/">Python module</a>.</p>
+<h3 data-number="19.6.3" id="handling-failure"><span class="header-section-number">19.6.3</span> Handling Failure</h3>
+<ol type="1">
+<li><p>Modify the build manager so that a configuration file can specify whether its rule should succeed or fail. (This isn’t particularly useful in real life, but it helps with testing.)</p></li>
+<li><p>Modify it so that if a rule fails, other buildable targets are still built (but anything that depends directly or indirectly on the target whose rule failed is <em>not</em> built).</p></li>
+<li><p>Write tests to check that this change works correctly.</p></li>
 </ol>
-<h3>Merging Files</h3>
-<ol>
-<li>
-<p>Modify the build manager so that it can read multiple build files
-    and execute their combined rules.</p>
-</li>
-<li>
-<p>What does your solution do if two or more files specify rules
-    for the same target?</p>
-</li>
+<h3 data-number="19.6.4" id="merging-files"><span class="header-section-number">19.6.4</span> Merging Files</h3>
+<ol type="1">
+<li><p>Modify the build manager so that it can read multiple build files and execute their combined rules.</p></li>
+<li><p>What does your solution do if two or more files specify rules for the same target?</p></li>
 </ol>
-<h3>Using Hashes</h3>
-<ol>
-<li>
-<p>Write a program called <code>build_init.py</code> that calculates a hash
-    for every file mentioned in the build configuration
-    and stores the hash along with the file's name in <code>build_hash.json</code>.</p>
-</li>
-<li>
-<p>Modify the build manager to compare the current hashes of files
-    with those stored in <code>build_hash.json</code>
-    to determine what is out of date,
-    and to update <code>build_hash.json</code> each time it runs.</p>
-</li>
+<h3 data-number="19.6.5" id="using-hashes"><span class="header-section-number">19.6.5</span> Using Hashes</h3>
+<ol type="1">
+<li><p>Write a program called <code>build_init.py</code> that calculates a hash for every file mentioned in the build configuration and stores the hash along with the file’s name in <code>build_hash.json</code>.</p></li>
+<li><p>Modify the build manager to compare the current hashes of files with those stored in <code>build_hash.json</code> to determine what is out of date, and to update <code>build_hash.json</code> each time it runs.</p></li>
 </ol>
-<h3>Dry Run</h3>
-<p>A <a class="gl-ref" href="../glossary/#dry_run">dry run</a> of a build shows the rules that would be executed
-but doesn't actually execute them.
-Modify the build system in this chapter so that it can do dry runs.</p>
-<h3>Phony Targets</h3>
-<p>A <a class="gl-ref" href="../glossary/#phony_target">phony target</a> is one that doesn't correspond to a file.
-Developers often put phony targets in build files
-to give themselves an easy way to re-run tests,
-check code style,
-and so on.
-Modify the build system in this target so that
-users can mark targets as phony.</p>
-<h3>Multiple Build Files</h3>
-<ol>
-<li>
-<p>Modify the tool built in this chapter so that
-    one build file can import definitions and dependencies from another.</p>
-</li>
-<li>
-<p>How does your system prevent
-    <span class="ix-ref" data-ix-key="circular dependency" id="ix-build-12">circular dependencies</span>?</p>
-</li>
+<h3 data-number="19.6.6" id="dry-run"><span class="header-section-number">19.6.6</span> Dry Run</h3>
+<p>A <a href="../glossary/index.html#dry_run">dry run</a> of a build shows the rules that would be executed but doesn’t actually execute them. Modify the build system in this chapter so that it can do dry runs.</p>
+<h3 data-number="19.6.7" id="phony-targets"><span class="header-section-number">19.6.7</span> Phony Targets</h3>
+<p>A <a href="../glossary/index.html#phony_target">phony target</a> is one that doesn’t correspond to a file. Developers often put phony targets in build files to give themselves an easy way to re-run tests, check code style, and so on. Modify the build system in this target so that users can mark targets as phony.</p>
+<h3 data-number="19.6.8" id="multiple-build-files"><span class="header-section-number">19.6.8</span> Multiple Build Files</h3>
+<ol type="1">
+<li><p>Modify the tool built in this chapter so that one build file can import definitions and dependencies from another.</p></li>
+<li><p>How does your system prevent circular dependencies?</p></li>
 </ol>
-</section>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../db">A Database</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../pack">A Package Manager</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../db/index.html">← A Database</a>
+    <a class="pager-link next" href="../pack/index.html">A Package Manager →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

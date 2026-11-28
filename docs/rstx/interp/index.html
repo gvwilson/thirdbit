@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Spatial Interpolation of Climate Data</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -94,7 +117,7 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 </ul></li>
 <li>Using a noise-free reference separates interpolation error from measurement error when evaluating the method</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_stations(n_stations<span class="op">=</span>N_STATIONS, seed<span class="op">=</span>SEED):</span>
+<div class="sourceCode" id="cb1" data-file="interp/generate_interp.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_stations(n_stations<span class="op">=</span>N_STATIONS, seed<span class="op">=</span>SEED):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a Polars DataFrame of synthetic weather station observations.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Columns:</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        x     -- easting in [0, 1]</span></span>
@@ -116,7 +139,7 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 <li>All <span class="math inline">\((m \times n)\)</span> distances are computed at once by broadcasting: <code>diff = query_xy[:, newaxis, :] - station_xy[newaxis, :, :]</code> yields an <span class="math inline">\((m, n, 2)\)</span> array</li>
 <li>Summing squared differences along the last axis gives the <span class="math inline">\((m, n)\)</span> distance matrix in a single expression</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> idw(station_xy, station_values, query_xy, power<span class="op">=</span>IDW_POWER):</span>
+<div class="sourceCode" id="cb2" data-file="interp/interp.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> idw(station_xy, station_values, query_xy, power<span class="op">=</span>IDW_POWER):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Interpolate values at query points using inverse-distance weighting.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
@@ -136,7 +159,7 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    dists <span class="op">=</span> np.sqrt((diff<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">2</span>)) <span class="op">+</span> EPSILON</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">=</span> dists <span class="op">**</span> (<span class="op">-</span>power)</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (weights <span class="op">*</span> station_values).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> weights.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> interpolate_grid(station_xy, station_values, rows, cols, power<span class="op">=</span>IDW_POWER):</span>
+<div class="sourceCode" id="cb3" data-file="interp/interp.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> interpolate_grid(station_xy, station_values, rows, cols, power<span class="op">=</span>IDW_POWER):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return an IDW-interpolated field on a regular (rows x cols) grid.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Grid point (i, j) maps to coordinates (j / (cols-1), i / (rows-1)),</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    matching the coordinate system of make_true_grid in the generator.</span></span>
@@ -152,7 +175,7 @@ Wrong: an equal-weight average is not systematically biased, but it ignores spat
 <p>Compute the Euclidean distance from the query point to each station, adding epsilon to prevent division by zero. Compute inverse-distance weights: w_i = d_i^(-p). Form the weighted sum of station values. Divide by the total weight to obtain the normalized estimate.</p>
 </div>
 <h2 data-number="19.5" id="visualizing-the-interpolation"><span class="header-section-number">19.5</span> Visualizing the Interpolation</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_comparison(true_field, idw_field, station_xy, filename):</span>
+<div class="sourceCode" id="cb4" data-file="interp/interp.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_comparison(true_field, idw_field, station_xy, filename):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a side-by-side comparison of the true and interpolated fields."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    vmin <span class="op">=</span> <span class="bu">min</span>(true_field.<span class="bu">min</span>(), idw_field.<span class="bu">min</span>())</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    vmax <span class="op">=</span> <span class="bu">max</span>(true_field.<span class="bu">max</span>(), idw_field.<span class="bu">max</span>())</span>
@@ -232,7 +255,7 @@ A query point 0.2 units from station A and 0.8 units from station B must produce
 LOO-CV MAE must be below 0.3 on the synthetic data. the true field amplitude is 1.0, and 30 stations on this smooth field should achieve well under 30% relative error.
 </dd>
 </dl>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb5" data-file="interp/test_interp.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_interp <span class="im">import</span> (</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    make_stations,</span>
@@ -334,6 +357,14 @@ A model-evaluation procedure in which each observation is held out in turn, the 
     <a class="pager-link next" href="../agreement/index.html">Inter-Rater Agreement →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

@@ -1,122 +1,43 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Page Layout</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Page Layout</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a class="active" href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>Page Layout</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#layout-size" id="toc-layout-size"><span class="header-section-number">14.1</span> Sizing</a></li>
+<li><a href="#layout-position" id="toc-layout-position"><span class="header-section-number">14.2</span> Positioning</a></li>
+<li><a href="#layout-render" id="toc-layout-render"><span class="header-section-number">14.3</span> Rendering</a></li>
+<li><a href="#layout-fit" id="toc-layout-fit"><span class="header-section-number">14.4</span> Wrapping</a></li>
+<li><a href="#layout-summary" id="toc-layout-summary"><span class="header-section-number">14.5</span> Summary</a></li>
+<li><a href="#layout-exercises" id="toc-layout-exercises"><span class="header-section-number">14.6</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">Page Layout</h1>
+<div class="syllabus">
 <ul>
 <li>A layout engine places page elements based on their size and organization.</li>
 <li>Page elements are organized as a tree of basic blocks, rows, and columns.</li>
@@ -125,562 +46,345 @@
 <li>Use multiple inheritance and mixin classes to inject methods into classes.</li>
 </ul>
 </div>
-<p>You might be reading this as <span class="ix-ref" data-ix-key="HTML" id="ix-layout-1">HTML</span> in your browser,
-as an e-book,
-or on the printed page.
-In all three cases
-a <a class="gl-ref" href="../glossary/#layout_engine">layout engine</a> took some text and some layout instructions
-and decided where to put each character and image.
-To explore how they work,
-we will build a small layout engine
-based on <span class="ix-ref" data-ix-key="Brubeck, Matt" id="ix-layout-2">Matt Brubeck's</span> <a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">tutorial</a>
-and on <a href="https://pavpanchekha.com/">Pavel Panchekha</a> and <a href="https://twitter.com/chrishtr">Chris Harrelson's</a> book
-<a href="https://browser.engineering/"><em>Web Browser Engineering</em></a>.
-Since our focus is layout,
-we will create objects ourselves to represent <span class="ix-ref" data-ix-key="DOM" id="ix-layout-3">DOM</span> nodes
-rather than parsing HTML.</p>
-<h2 id="layout-size">Sizing</h2>
-<p>Let's start on <a class="gl-ref" href="../glossary/#easy_mode">easy mode</a>
-without margins, padding, line-wrapping, or other complications.
-Everything we can put on the screen is represented as a rectangular cell,
-and every cell is either a row, a column, or a <a class="gl-ref" href="../glossary/#block_page">block</a>.
-A block has a fixed width and height:</p>
-<div data-inc="easy_mode.py" data-mark="block"><span aria-label="Source: layout/easy_mode.py" class="inc-path" role="img" tabindex="0" title="layout/easy_mode.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Block</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
-</code></pre></div>
+<p>You might be reading this as HTML in your browser, as an e-book, or on the printed page. In all three cases a <a href="../glossary/index.html#layout_engine">layout engine</a> took some text and some layout instructions and decided where to put each character and image. To explore how they work, we will build a small layout engine based on Matt Brubeck's <a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">tutorial</a> and on <a href="https://pavpanchekha.com/">Pavel Panchekha</a> and <a href="https://twitter.com/chrishtr">Chris Harrelson’s</a> book <a href="https://browser.engineering/"><em>Web Browser Engineering</em></a>. Since our focus is layout, we will create objects ourselves to represent DOM nodes rather than parsing HTML.</p>
+<h2 data-number="14.1" id="layout-size"><span class="header-section-number">14.1</span> Sizing</h2>
+<p>Let’s start on <a href="../glossary/index.html#easy_mode">easy mode</a> without margins, padding, line-wrapping, or other complications. Everything we can put on the screen is represented as a rectangular cell, and every cell is either a row, a column, or a <a href="../glossary/index.html#block_page">block</a>. A block has a fixed width and height:</p>
+<div class="sourceCode" id="cb1" data-file="layout/easy_mode.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Block:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_width(<span class="va">self</span>):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.width</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_height(<span class="va">self</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.height</span></code></pre></div>
+<div>
+<blockquote>
+<p><strong>Upside Down</strong></p>
+<p>The coordinate systems for screens puts (0, 0) in the upper-left corner instead of the lower-left, so Y increases as we go down, rather than up (<a href="#fig-layout-coordinate-system" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>). This convention dates back to teletype terminals that printed on rolls of paper; as Mike Hoye has <a href="http://exple.tive.org/blarg/2020/11/26/punching-holes/">observed</a>, the past is all around us.</p>
+</blockquote>
 </div>
-<div class="callout">
-<h3>Upside Down</h3>
-<p>The <span class="ix-ref" data-ix-key="coordinate system" id="ix-layout-4">coordinate systems</span> for screens
-puts (0, 0) in the upper-left corner instead of the lower-left,
-so Y increases as we go down, rather than up
-(<a class="fig-ref" href="#f:layout-coordinate-system">Figure 1</a>).
-This convention dates back to teletype terminals that printed on rolls of paper;
-as <span class="ix-ref" data-ix-key="Hoye, Mike" id="ix-layout-5">Mike Hoye</span> has <a href="http://exple.tive.org/blarg/2020/11/26/punching-holes/">observed</a>,
-the past is all around us.</p>
+<div id="fig-layout-coordinate-system" class="quarto-float quarto-figure quarto-figure-center" alt="Screen coordinates with origin at top left">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-coordinate-system-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="coordinate_system.svg" alt="Screen coordinates with origin at top left">
 </div>
-<figure id="f:layout-coordinate-system">
-<img alt="Coordinate system" src="coordinate_system.svg"/>
-<figcaption>Figure 1: Coordinate system with (0, 0) in the upper-left corner.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-coordinate-system-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Coordinate system with (0, 0) in the upper-left corner.
+</figcaption>
 </figure>
-<p>A row arranges one or more cells horizontally;
-its width is the sum of the widths of its children,
-while its height is the height of its tallest <span class="ix-ref" data-ix-key="child" id="ix-layout-6">child</span>
-(<a class="fig-ref" href="#f:layout-sizing">Figure 2</a>):</p>
-<div data-inc="easy_mode.py" data-mark="row"><span aria-label="Source: layout/easy_mode.py" class="inc-path" role="img" tabindex="0" title="layout/easy_mode.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Row</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">],</span>
-            <span class="n">default</span><span class="o">=</span><span class="mi">0</span>
-        <span class="p">)</span>
-</code></pre></div>
 </div>
-<figure id="f:layout-sizing">
-<img alt="Calculating sizes of fixed blocks" src="sizing.svg"/>
-<figcaption>Figure 2: Calculating sizes of blocks with fixed width and height.</figcaption>
+<p>A row arranges one or more cells horizontally; its width is the sum of the widths of its children, while its height is the height of its tallest child (<a href="#fig-layout-sizing" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>):</p>
+<div class="sourceCode" id="cb2" data-file="layout/easy_mode.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Row:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>children):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.children <span class="op">=</span> <span class="bu">list</span>(children)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_width(<span class="va">self</span>):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>([c.get_width() <span class="cf">for</span> c <span class="kw">in</span> <span class="va">self</span>.children])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_height(<span class="va">self</span>):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">max</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            [c.get_height() <span class="cf">for</span> c <span class="kw">in</span> <span class="va">self</span>.children],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            default<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+<div id="fig-layout-sizing" class="quarto-float quarto-figure quarto-figure-center" alt="Sizing fixed-width and fixed-height blocks">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-sizing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sizing.svg" alt="Sizing fixed-width and fixed-height blocks">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-sizing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: Calculating sizes of blocks with fixed width and height.
+</figcaption>
 </figure>
-<p>Finally,
-a column arranges one or more cells vertically:
-its width is the width of its widest child
-and its height is the sum of the heights of its children.
-(Here and elsewhere,
-we use the abbreviation <code>col</code> when referring to columns.)</p>
-<div data-inc="easy_mode.py" data-mark="col"><span aria-label="Source: layout/easy_mode.py" class="inc-path" role="img" tabindex="0" title="layout/easy_mode.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Col</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">],</span>
-            <span class="n">default</span><span class="o">=</span><span class="mi">0</span>
-        <span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">])</span>
-</code></pre></div>
 </div>
-<p>Rows and columns nest inside one another:
-a row cannot span two or more columns,
-and a column cannot cross the boundary between two rows.
-We can therefore represent our document as a <span class="ix-ref" data-ix-key="tree" id="ix-layout-7">tree</span>
-and calculate the width and height of each cell every time we need it.
-This is simple but inefficient:
-we could calculate both width and height at the same time
-and <span class="ix-ref" data-ix-key="cache" id="ix-layout-8">cache</span> those values to avoid recalculation,
-but we called this "easy mode" for a reason.</p>
-<p>As simple as it is,
-this code could still contain errors (and did during development),
-so we write some tests to check that it works properly
-before trying to build anything more complicated.
-One such test is:</p>
-<div data-inc="test_easy_mode.py" data-mark="example"><span aria-label="Source: layout/test_easy_mode.py" class="inc-path" role="img" tabindex="0" title="layout/test_easy_mode.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_lays_out_a_grid_of_rows_of_columns</span><span class="p">():</span>
-    <span class="n">fixture</span> <span class="o">=</span> <span class="n">Col</span><span class="p">(</span>
-        <span class="n">Row</span><span class="p">(</span><span class="n">Block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Block</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
-        <span class="n">Row</span><span class="p">(</span><span class="n">Block</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">Col</span><span class="p">(</span><span class="n">Block</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">Block</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
-    <span class="p">)</span>
-    <span class="k">assert</span> <span class="n">fixture</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">==</span> <span class="mi">14</span>
-    <span class="k">assert</span> <span class="n">fixture</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span>
-</code></pre></div>
+<p>Finally, a column arranges one or more cells vertically: its width is the width of its widest child and its height is the sum of the heights of its children. (Here and elsewhere, we use the abbreviation <code>col</code> when referring to columns.)</p>
+<div class="sourceCode" id="cb3" data-file="layout/easy_mode.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Col:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>children):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.children <span class="op">=</span> <span class="bu">list</span>(children)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_width(<span class="va">self</span>):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">max</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            [c.get_width() <span class="cf">for</span> c <span class="kw">in</span> <span class="va">self</span>.children],</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            default<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_height(<span class="va">self</span>):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>([c.get_height() <span class="cf">for</span> c <span class="kw">in</span> <span class="va">self</span>.children])</span></code></pre></div>
+<p>Rows and columns nest inside one another: a row cannot span two or more columns, and a column cannot cross the boundary between two rows. We can therefore represent our document as a tree and calculate the width and height of each cell every time we need it. This is simple but inefficient: we could calculate both width and height at the same time and cache those values to avoid recalculation, but we called this “easy mode” for a reason.</p>
+<p>As simple as it is, this code could still contain errors (and did during development), so we write some tests to check that it works properly before trying to build anything more complicated. One such test is:</p>
+<div class="sourceCode" id="cb4" data-file="layout/test_easy_mode.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_lays_out_a_grid_of_rows_of_columns():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    fixture <span class="op">=</span> Col(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        Row(Block(<span class="dv">1</span>, <span class="dv">2</span>), Block(<span class="dv">3</span>, <span class="dv">4</span>)),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        Row(Block(<span class="dv">5</span>, <span class="dv">6</span>), Col(Block(<span class="dv">7</span>, <span class="dv">8</span>), Block(<span class="dv">9</span>, <span class="dv">10</span>)))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> fixture.get_width() <span class="op">==</span> <span class="dv">14</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> fixture.get_height() <span class="op">==</span> <span class="dv">22</span></span></code></pre></div>
+<h2 data-number="14.2" id="layout-position"><span class="header-section-number">14.2</span> Positioning</h2>
+<p>Once we know how big cells are, we can figure out where to put them. Suppose we start with the upper-left corner of the browser: upper because we lay out the page top-to-bottom and left because we are doing left-to-right layout. If the cell is a block, we place it there. If the cell is a row, on the other hand, we get its height and then calculate its lower edge as y1 = y0 + height. We then place the first child’s upper-left corner at (x0, y1-height0), the second child’s at (x0 + width0, y1-height0), and so on (<a href="#fig-layout-layout" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). Similarly, if the cell is a column, we place the first child at (x0, y0), the next at (x0, y0 + height0), and so on.</p>
+<div id="fig-layout-layout" class="quarto-float quarto-figure quarto-figure-center" alt="Arranging fixed-size blocks in rows and columns">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="layout.svg" alt="Arranging fixed-size blocks in rows and columns">
 </div>
-<h2 id="layout-position">Positioning</h2>
-<p>Once we know how big cells are,
-we can figure out where to put them.
-Suppose we start with the upper-left corner of the browser:
-upper because we lay out the page top-to-bottom
-and left because we are doing left-to-right layout.
-If the cell is a block, we place it there.
-If the cell is a row, on the other hand,
-we get its height
-and then calculate its lower edge as y1 = y0 + height.
-We then place the first child's upper-left corner at (x0, y1-height0),
-the second child's at (x0 + width0, y1-height0), and so on
-(<a class="fig-ref" href="#f:layout-layout">Figure 3</a>).
-Similarly,
-if the cell is a column,
-we place the first child at (x0, y0),
-the next at (x0, y0 + height0),
-and so on.</p>
-<figure id="f:layout-layout">
-<img alt="Laying out rows and columns" src="layout.svg"/>
-<figcaption>Figure 3: Laying out rows and columns of fixed-size blocks.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3: Laying out rows and columns of fixed-size blocks.
+</figcaption>
 </figure>
-<p>To save ourselves some work,
-we will derive the classes that know how to do layout
-from the classes we wrote before.
-Basic blocks are:</p>
-<div data-inc="placed.py" data-mark="block"><span aria-label="Source: layout/placed.py" class="inc-path" role="img" tabindex="0" title="layout/placed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PlacedBlock</span><span class="p">(</span><span class="n">Block</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">place</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">=</span> <span class="n">x0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">=</span> <span class="n">y0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span>
-            <span class="s2">"block"</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
-        <span class="p">]</span>
-</code></pre></div>
 </div>
-<p>The constructor and reporting method for the <code>PlacedCol</code> class looks much the same.
-Its placement method is:</p>
-<div data-inc="placed.py" data-mark="colplace"><span aria-label="Source: layout/placed.py" class="inc-path" role="img" tabindex="0" title="layout/placed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">place</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">=</span> <span class="n">x0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">=</span> <span class="n">y0</span>
-        <span class="n">y_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span>
-        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-            <span class="n">child</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y_current</span><span class="p">)</span>
-            <span class="n">y_current</span> <span class="o">+=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
-</code></pre></div>
-</div>
+<p>To save ourselves some work, we will derive the classes that know how to do layout from the classes we wrote before. Basic blocks are:</p>
+<div class="sourceCode" id="cb5" data-file="layout/placed.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PlacedBlock(Block):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(width, height)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x0 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y0 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> place(<span class="va">self</span>, x0, y0):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x0 <span class="op">=</span> x0</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y0 <span class="op">=</span> y0</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> report(<span class="va">self</span>):</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"block"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.x0, <span class="va">self</span>.y0,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.x0 <span class="op">+</span> <span class="va">self</span>.width, <span class="va">self</span>.y0 <span class="op">+</span> <span class="va">self</span>.height</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        ]</span></code></pre></div>
+<p>The constructor and reporting method for the <code>PlacedCol</code> class looks much the same. Its placement method is:</p>
+<div class="sourceCode" id="cb6" data-file="layout/placed.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> place(<span class="va">self</span>, x0, y0):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x0 <span class="op">=</span> x0</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y0 <span class="op">=</span> y0</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        y_current <span class="op">=</span> <span class="va">self</span>.y0</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> child <span class="kw">in</span> <span class="va">self</span>.children:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            child.place(x0, y_current)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            y_current <span class="op">+=</span> child.get_height()</span></code></pre></div>
 <p>while the placement method for rows is:</p>
-<div data-inc="placed.py" data-mark="rowplace"><span aria-label="Source: layout/placed.py" class="inc-path" role="img" tabindex="0" title="layout/placed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">place</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">=</span> <span class="n">x0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">=</span> <span class="n">y0</span>
-        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
-        <span class="n">x_current</span> <span class="o">=</span> <span class="n">x0</span>
-        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-            <span class="n">child_y</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">child</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
-            <span class="n">child</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x_current</span><span class="p">,</span> <span class="n">child_y</span><span class="p">)</span>
-            <span class="n">x_current</span> <span class="o">+=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
-</code></pre></div>
+<div class="sourceCode" id="cb7" data-file="layout/placed.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> place(<span class="va">self</span>, x0, y0):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x0 <span class="op">=</span> x0</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y0 <span class="op">=</span> y0</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        y1 <span class="op">=</span> <span class="va">self</span>.y0 <span class="op">+</span> <span class="va">self</span>.get_height()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        x_current <span class="op">=</span> x0</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> child <span class="kw">in</span> <span class="va">self</span>.children:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>            child_y <span class="op">=</span> y1 <span class="op">-</span> child.get_height()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            child.place(x_current, child_y)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            x_current <span class="op">+=</span> child.get_width()</span></code></pre></div>
+<p>Once again, we write and run some tests to check that everything is doing what it’s supposed to. One such test is:</p>
+<div class="sourceCode" id="cb8" data-file="layout/test_placed.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_places_a_column_of_two_blocks():</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    fixture <span class="op">=</span> Col(Block(<span class="dv">1</span>, <span class="dv">1</span>), Block(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    fixture.place(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> fixture.report() <span class="op">==</span> [</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"col"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">5</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"block"</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"block"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>],</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    ]</span></code></pre></div>
+<h2 data-number="14.3" id="layout-render"><span class="header-section-number">14.3</span> Rendering</h2>
+<p>We drew blocks on graph paper to figure out the expected answers for the tests shown above. We can do something similar in software by creating a “screen” of space characters and having each block draw itself in the right place. If we start at the root of the tree, children will overwrite the marks made by their parents, which will automatically produce the right appearance (<a href="#fig-layout-draw-over" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>). (A more sophisticated version of this called <a href="../glossary/index.html#z_buffering">z-buffering</a> used in 3D graphics keeps track of the visual depth of each pixel to draw objects correctly regardless of their order.)</p>
+<div id="fig-layout-draw-over" class="quarto-float quarto-figure quarto-figure-center" alt="Painting children over their parents">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-draw-over-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="draw_over.svg" alt="Painting children over their parents">
 </div>
-<p>Once again,
-we write and run some tests to check that everything is doing what it's supposed to.
-One such test is:</p>
-<div data-inc="test_placed.py" data-mark="col2"><span aria-label="Source: layout/test_placed.py" class="inc-path" role="img" tabindex="0" title="layout/test_placed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_places_a_column_of_two_blocks</span><span class="p">():</span>
-    <span class="n">fixture</span> <span class="o">=</span> <span class="n">Col</span><span class="p">(</span><span class="n">Block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Block</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="n">fixture</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">fixture</span><span class="o">.</span><span class="n">report</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span>
-        <span class="s2">"col"</span><span class="p">,</span>
-        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="p">[</span><span class="s2">"block"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"block"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="p">]</span>
-</code></pre></div>
-</div>
-<h2 id="layout-render">Rendering</h2>
-<p>We drew blocks on graph paper
-to figure out the expected answers for the tests shown above.
-We can do something similar in software by creating a "screen" of space characters
-and having each block draw itself in the right place.
-If we start at the <span class="ix-ref" data-ix-key="root" id="ix-layout-9">root</span> of the tree,
-children will overwrite the marks made by their parents,
-which will automatically produce the right appearance
-(<a class="fig-ref" href="#f:layout-draw-over">Figure 4</a>).
-(A more sophisticated version of this called <a class="gl-ref" href="../glossary/#z_buffering">z-buffering</a>
-used in 3D graphics
-keeps track of the visual depth of each pixel
-to draw objects correctly regardless of their order.)</p>
-<figure id="f:layout-draw-over">
-<img alt="Children drawing over their parents" src="draw_over.svg"/>
-<figcaption>Figure 4: Render blocks by drawing child nodes on top of parent nodes.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-draw-over-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.4: Render blocks by drawing child nodes on top of parent nodes.
+</figcaption>
 </figure>
-<p>Our "screen" is a list of lists of characters,
-with one inner list for each a row on the screen.
-(We use lists rather than strings
-so that we can overwrite characters in place.)</p>
-<div data-inc="render.py" data-mark="make_screen"><span aria-label="Source: layout/render.py" class="inc-path" role="img" tabindex="0" title="layout/render.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_screen</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-    <span class="n">screen</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
-        <span class="n">screen</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">" "</span><span class="p">]</span> <span class="o">*</span> <span class="n">width</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">screen</span>
-</code></pre></div>
 </div>
-<p>We will use successive lower-case characters to show each block,
-i.e.,
-the root block will draw itself using 'a',
-while its children will be 'b', 'c', and so on.</p>
-<div data-inc="render.py" data-mark="draw"><span aria-label="Source: layout/render.py" class="inc-path" role="img" tabindex="0" title="layout/render.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">fill</span> <span class="o">=</span> <span class="n">next_fill</span><span class="p">(</span><span class="n">fill</span><span class="p">)</span>
-    <span class="n">node</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">fill</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s2">"children"</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-            <span class="n">fill</span> <span class="o">=</span> <span class="n">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">fill</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fill</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">next_fill</span><span class="p">(</span><span class="n">fill</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s2">"a"</span> <span class="k">if</span> <span class="n">fill</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">fill</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
+<p>Our “screen” is a list of lists of characters, with one inner list for each a row on the screen. (We use lists rather than strings so that we can overwrite characters in place.)</p>
+<div class="sourceCode" id="cb9" data-file="layout/render.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_screen(width, height):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    screen <span class="op">=</span> []</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(height):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        screen.append([<span class="st">" "</span>] <span class="op">*</span> width)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> screen</span></code></pre></div>
+<p>We will use successive lower-case characters to show each block, i.e., the root block will draw itself using ‘a’, while its children will be ‘b’, ‘c’, and so on.</p>
+<div class="sourceCode" id="cb10" data-file="layout/render.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw(screen, node, fill<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    fill <span class="op">=</span> next_fill(fill)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    node.render(screen, fill)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">hasattr</span>(node, <span class="st">"children"</span>):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> child <span class="kw">in</span> node.children:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            fill <span class="op">=</span> draw(screen, child, fill)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fill</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> next_fill(fill):</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"a"</span> <span class="cf">if</span> fill <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> <span class="bu">chr</span>(<span class="bu">ord</span>(fill) <span class="op">+</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>To teach each kind of cell to render itself, we derive new classes from the ones we have and give each of those new classes a <code>render</code> method with the same signature. Since Python supports multiple inheritance, we can do this with a <a href="../glossary/index.html#mixin_class">mixin class</a> (<a href="#fig-layout-mixin" class="quarto-xref">Figure&nbsp;<span>14.5</span></a>). The <code>Renderable</code> mixin is:</p>
+<div class="sourceCode" id="cb11" data-file="layout/rendered.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Renderable:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> render(<span class="va">self</span>, screen, fill):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ix <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.get_width()):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> iy <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.get_height()):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                screen[<span class="va">self</span>.y0 <span class="op">+</span> iy][<span class="va">self</span>.x0 <span class="op">+</span> ix] <span class="op">=</span> fill</span></code></pre></div>
+<p>Using it, the new cell classes are simply:</p>
+<div class="sourceCode" id="cb12" data-file="layout/rendered.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RenderedBlock(PlacedBlock, Renderable):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RenderedCol(PlacedCol, Renderable):</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RenderedRow(PlacedRow, Renderable):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+<div id="fig-layout-mixin" class="quarto-float quarto-figure quarto-figure-center" alt="Mixin combined via multiple inheritance">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-mixin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mixin.svg" alt="Mixin combined via multiple inheritance">
 </div>
-<p>To teach each kind of cell to render itself,
-we derive new classes from the ones we have
-and give each of those new classes a <code>render</code> method with the same <span class="ix-ref" data-ix-key="signature" id="ix-layout-10">signature</span>.
-Since Python supports <span class="ix-ref" data-ix-key="multiple inheritance" id="ix-layout-11">multiple inheritance</span>,
-we can do this with a <a class="gl-ref" href="../glossary/#mixin_class">mixin class</a>
-(<a class="fig-ref" href="#f:layout-mixin">Figure 5</a>).
-The <code>Renderable</code> mixin is:</p>
-<div data-inc="rendered.py" data-mark="render"><span aria-label="Source: layout/rendered.py" class="inc-path" role="img" tabindex="0" title="layout/rendered.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Renderable</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">screen</span><span class="p">,</span> <span class="n">fill</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_width</span><span class="p">()):</span>
-            <span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_height</span><span class="p">()):</span>
-                <span class="n">screen</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">+</span> <span class="n">iy</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">fill</span>
-</code></pre></div>
-</div>
-<p>Using it,
-the new cell classes are simply:</p>
-<div data-inc="rendered.py" data-mark="derive"><span aria-label="Source: layout/rendered.py" class="inc-path" role="img" tabindex="0" title="layout/rendered.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RenderedBlock</span><span class="p">(</span><span class="n">PlacedBlock</span><span class="p">,</span> <span class="n">Renderable</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">RenderedCol</span><span class="p">(</span><span class="n">PlacedCol</span><span class="p">,</span> <span class="n">Renderable</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">RenderedRow</span><span class="p">(</span><span class="n">PlacedRow</span><span class="p">,</span> <span class="n">Renderable</span><span class="p">):</span>
-    <span class="k">pass</span>
-</code></pre></div>
-</div>
-<figure id="f:layout-mixin">
-<img alt="Adding methods with a mixin class" src="mixin.svg"/>
-<figcaption>Figure 5: Using multiple inheritance and a mixin class to add methods.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-mixin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.5: Using multiple inheritance and a mixin class to add methods.
+</figcaption>
 </figure>
-<div class="callout">
-<h3>(Not) The Right Way to Do It</h3>
-<p>If we were building a real layout engine,
-we would go back and create a class called <code>Cell</code> with this <code>render</code> method,
-then derive our <code>Block</code>, <code>Row</code>, and <code>Col</code> classes from that.
-In general,
-if two or more classes need to be able to do something,
-we should add the required method to their lowest common ancestor.
-We've chosen not to do that in this case both
-to show when and why mixin classes are sometimes useful,
-and so that we can build and test code incrementally.</p>
 </div>
-<p>Simple tests are a little easier to read using rendering,
-though we still had to draw things on paper
-to figure out what to expect:</p>
-<div data-inc="test_rendered.py" data-mark="col2"><span aria-label="Source: layout/test_rendered.py" class="inc-path" role="img" tabindex="0" title="layout/test_rendered.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_renders_a_column_of_two_blocks</span><span class="p">():</span>
-    <span class="n">fixture</span> <span class="o">=</span> <span class="n">Col</span><span class="p">(</span><span class="n">Block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Block</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="n">fixture</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">expected</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">"ba"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="n">render</span><span class="p">(</span><span class="n">fixture</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
-</code></pre></div>
+<div>
+<blockquote>
+<p><strong>(Not) The Right Way to Do It</strong></p>
+<p>If we were building a real layout engine, we would go back and create a class called <code>Cell</code> with this <code>render</code> method, then derive our <code>Block</code>, <code>Row</code>, and <code>Col</code> classes from that. In general, if two or more classes need to be able to do something, we should add the required method to their lowest common ancestor. We’ve chosen not to do that in this case both to show when and why mixin classes are sometimes useful, and so that we can build and test code incrementally.</p>
+</blockquote>
 </div>
-<p>The fact that our tests are difficult to understand
-is a sign that we should do more testing.
-It would be very easy for us to get a wrong result
-and convince ourselves that it was correct;
-this kind of <a class="gl-ref" href="../glossary/#confirmation_bias">confirmation bias</a>
-is very common in software development.</p>
-<h2 id="layout-fit">Wrapping</h2>
-<p>One of the biggest differences between a browser and a printed page
-is that the text in the browser wraps automatically as the window is resized.
-(The other, these days, is that the printed page doesn't spy on us,
-though someone is undoubtedly working on that.)</p>
-<p>The first step in adding wrapping to our layout engine
-is to fix the width of a row.
-If the total width of the children is greater than the row's width,
-the layout engine needs to wrap the children around.
-This assumes that columns can be made as tall as they need to be,
-i.e.,
-that we can grow vertically to make up for limited space horizontally.
-It also assumes that none of a row's children is wider than the width of the row
-so that each can fit in a row of its own if necessary.
-We will look at what happens when this isn't true in the exercises.</p>
-<p>Our layout engine manages wrapping by transforming the tree.
-The height and width of blocks are fixed,
-so they become themselves.
-Columns become themselves as well,
-but since they have children that might need to wrap,
-the class representing columns needs a new method:</p>
-<div data-inc="wrapped.py" data-mark="blockcol"><span aria-label="Source: layout/wrapped.py" class="inc-path" role="img" tabindex="0" title="layout/wrapped.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">WrappedBlock</span><span class="p">(</span><span class="n">PlacedBlock</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">WrappedCol</span><span class="p">(</span><span class="n">PlacedCol</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">PlacedCol</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">])</span>
-</code></pre></div>
+<p>Simple tests are a little easier to read using rendering, though we still had to draw things on paper to figure out what to expect:</p>
+<div class="sourceCode" id="cb13" data-file="layout/test_rendered.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_renders_a_column_of_two_blocks():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    fixture <span class="op">=</span> Col(Block(<span class="dv">1</span>, <span class="dv">1</span>), Block(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    fixture.place(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    expected <span class="op">=</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join([<span class="st">"ba"</span>, <span class="st">"cc"</span>, <span class="st">"cc"</span>, <span class="st">"cc"</span>, <span class="st">"cc"</span>])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> render(fixture) <span class="op">==</span> expected</span></code></pre></div>
+<p>The fact that our tests are difficult to understand is a sign that we should do more testing. It would be very easy for us to get a wrong result and convince ourselves that it was correct; this kind of <a href="../glossary/index.html#confirmation_bias">confirmation bias</a> is very common in software development.</p>
+<h2 data-number="14.4" id="layout-fit"><span class="header-section-number">14.4</span> Wrapping</h2>
+<p>One of the biggest differences between a browser and a printed page is that the text in the browser wraps automatically as the window is resized. (The other, these days, is that the printed page doesn’t spy on us, though someone is undoubtedly working on that.)</p>
+<p>The first step in adding wrapping to our layout engine is to fix the width of a row. If the total width of the children is greater than the row’s width, the layout engine needs to wrap the children around. This assumes that columns can be made as tall as they need to be, i.e., that we can grow vertically to make up for limited space horizontally. It also assumes that none of a row’s children is wider than the width of the row so that each can fit in a row of its own if necessary. We will look at what happens when this isn’t true in the exercises.</p>
+<p>Our layout engine manages wrapping by transforming the tree. The height and width of blocks are fixed, so they become themselves. Columns become themselves as well, but since they have children that might need to wrap, the class representing columns needs a new method:</p>
+<div class="sourceCode" id="cb14" data-file="layout/wrapped.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> WrappedBlock(PlacedBlock):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrap(<span class="va">self</span>):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> WrappedCol(PlacedCol):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrap(<span class="va">self</span>):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> PlacedCol(<span class="op">*</span>[c.wrap() <span class="cf">for</span> c <span class="kw">in</span> <span class="va">self</span>.children])</span></code></pre></div>
+<p>(The <code>*</code> in front of the list being passed to <code>PlacedCol</code> in the last line of the code above is another use of the spreading introduced in <a href="../oop/index.html" class="quarto-xref"><span>Chapter 2</span></a>.)</p>
+<p>Rows do all the hard work. Each original row is replaced with a new row that contains a single column with one or more rows, each of which is one “line” of wrapped cells (<a href="#fig-layout-wrap" class="quarto-xref">Figure&nbsp;<span>14.6</span></a>). This replacement is unnecessary when everything will fit on a single row, but it’s easiest to write the code that does it every time; we will look at making this more efficient in the exercises.</p>
+<div id="fig-layout-wrap" class="quarto-float quarto-figure quarto-figure-center" alt="Adding a row to wrap overflow">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-wrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wrap.svg" alt="Adding a row to wrap overflow">
 </div>
-<p>(The <code>*</code> in front of the list being passed to <code>PlacedCol</code>
-in the last line of the code above
-is another use of the <span class="ix-ref" data-ix-key="spreading" id="ix-layout-12">spreading</span> introduced in <a class="xref" href="../oop/">Chapter 2</a>.)</p>
-<p>Rows do all the hard work.
-Each original row is replaced with a new row
-that contains a single column with one or more rows,
-each of which is one "line" of wrapped cells
-(<a class="fig-ref" href="#f:layout-wrap">Figure 6</a>).
-This replacement is unnecessary when everything will fit on a single row,
-but it's easiest to write the code that does it every time;
-we will look at making this more efficient in the exercises.</p>
-<figure id="f:layout-wrap">
-<img alt="Wrapping rows" src="wrap.svg"/>
-<figcaption>Figure 6: Wrapping rows by introducing a new row and column.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-wrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.6: Wrapping rows by introducing a new row and column.
+</figcaption>
 </figure>
-<p>Our new wrappable row's constructor takes a fixed width followed by the children
-and returns that fixed width when asked for its size:</p>
-<div data-inc="wrapped.py" data-mark="row"><span aria-label="Source: layout/wrapped.py" class="inc-path" role="img" tabindex="0" title="layout/wrapped.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">WrappedRow</span><span class="p">(</span><span class="n">PlacedRow</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">width</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Need non-negative width"</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
-</code></pre></div>
 </div>
-<p>Wrapping puts the row's children into buckets,
-and then converts the buckets to a row of a column of rows:</p>
-<div data-inc="wrapped.py" data-mark="wrap"><span aria-label="Source: layout/wrapped.py" class="inc-path" role="img" tabindex="0" title="layout/wrapped.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">]</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bucket</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
-        <span class="n">new_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">PlacedRow</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span>
-        <span class="n">new_col</span> <span class="o">=</span> <span class="n">PlacedCol</span><span class="p">(</span><span class="o">*</span><span class="n">new_rows</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">PlacedRow</span><span class="p">(</span><span class="n">new_col</span><span class="p">)</span>
-</code></pre></div>
+<p>Our new wrappable row’s constructor takes a fixed width followed by the children and returns that fixed width when asked for its size:</p>
+<div class="sourceCode" id="cb15" data-file="layout/wrapped.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> WrappedRow(PlacedRow):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, <span class="op">*</span>children):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="op">*</span>children)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> width <span class="op">&gt;=</span> <span class="dv">0</span>, <span class="st">"Need non-negative width"</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_width(<span class="va">self</span>):</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.width</span></code></pre></div>
+<p>Wrapping puts the row’s children into buckets, and then converts the buckets to a row of a column of rows:</p>
+<div class="sourceCode" id="cb16" data-file="layout/wrapped.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrap(<span class="va">self</span>):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        children <span class="op">=</span> [c.wrap() <span class="cf">for</span> c <span class="kw">in</span> <span class="va">self</span>.children]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        rows <span class="op">=</span> <span class="va">self</span>._bucket(children)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        new_rows <span class="op">=</span> [PlacedRow(<span class="op">*</span>r) <span class="cf">for</span> r <span class="kw">in</span> rows]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        new_col <span class="op">=</span> PlacedCol(<span class="op">*</span>new_rows)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> PlacedRow(new_col)</span></code></pre></div>
+<p>To bucket the children, we add them one at a time to a temporary list. If adding another node would make the total width of the nodes in that list too large, we use that node to start a new temporary list:</p>
+<div class="sourceCode" id="cb17" data-file="layout/wrapped.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _bucket(<span class="va">self</span>, children):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> []</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        current_row <span class="op">=</span> []</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        current_x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> child <span class="kw">in</span> children:</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>            child_width <span class="op">=</span> child.get_width()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (current_x <span class="op">+</span> child_width) <span class="op">&lt;=</span> <span class="va">self</span>.width:</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                current_row.append(child)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                current_x <span class="op">+=</span> child_width</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>                result.append(current_row)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>                current_row <span class="op">=</span> [child]</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                current_x <span class="op">=</span> child_width</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        result.append(current_row)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span></code></pre></div>
+<p>Once again, we bring forward all the previous tests and write some new ones to test the functionality we’ve added:</p>
+<div class="sourceCode" id="cb18" data-file="layout/test_wrapped.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_wrap_a_row_of_two_blocks_that_do_not_fit_on_one_row():</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    fixture <span class="op">=</span> WrappedRow(<span class="dv">3</span>, WrappedBlock(<span class="dv">2</span>, <span class="dv">1</span>), WrappedBlock(<span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    wrapped <span class="op">=</span> fixture.wrap()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    wrapped.place(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> wrapped.report() <span class="op">==</span> [</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"row"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"col"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>            <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>            [<span class="st">"row"</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, [<span class="st">"block"</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>]],</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>            [<span class="st">"row"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, [<span class="st">"block"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]],</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    ]</span></code></pre></div>
+<p>We could have had columns handle resizing rather than rows, but we (probably) don’t need to make both resizeable. This is an example of <a href="../glossary/index.html#intrinsic_complexity">intrinsic complexity</a>: the problem really is this hard, so something has to deal with it somewhere. Programs often contain <a href="../glossary/index.html#accidental_complexity">accidental complexity</a> as well, which can be removed if people are willing to accept change. In practice, that often means that it sticks around longer than it should.</p>
+<div>
+<blockquote>
+<p><strong>The Liskov Substitution Principle</strong></p>
+<p>We are able to re-use tests as our code evolved because of the <a href="../glossary/index.html#liskov_substitution_principle">Liskov Substitution Principle</a>, which states that it should be possible to replace objects in a program with objects of derived classes without breaking anything. In order to satisfy this principle, new code must handle the same set of inputs as the old code, though it may be able to process more inputs as well. Conversely, its output must be a subset of what the old code produced so that whatever is downstream from it won’t be surprised. Thinking in these terms leads to the methodology called design by contract discussed in <a href="../oop/index.html" class="quarto-xref"><span>Chapter 2</span></a>.</p>
+</blockquote>
 </div>
-<p>To bucket the children,
-we add them one at a time to a temporary list.
-If adding another node would make the total width of the nodes in that list too large,
-we use that node to start a new temporary list:</p>
-<div data-inc="wrapped.py" data-mark="bucket"><span aria-label="Source: layout/wrapped.py" class="inc-path" role="img" tabindex="0" title="layout/wrapped.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_bucket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">children</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">current_row</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">current_x</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
-            <span class="n">child_width</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">current_x</span> <span class="o">+</span> <span class="n">child_width</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">:</span>
-                <span class="n">current_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-                <span class="n">current_x</span> <span class="o">+=</span> <span class="n">child_width</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_row</span><span class="p">)</span>
-                <span class="n">current_row</span> <span class="o">=</span> <span class="p">[</span><span class="n">child</span><span class="p">]</span>
-                <span class="n">current_x</span> <span class="o">=</span> <span class="n">child_width</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_row</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
+<h2 data-number="14.5" id="layout-summary"><span class="header-section-number">14.5</span> Summary</h2>
+<p><a href="#fig-layout-concept-map" class="quarto-xref">Figure&nbsp;<span>14.7</span></a> summarizes the ideas introduced in this chapter. Real page layout systems do far more than what we have described, but all of them implement some kind of negotiation between containers and content.</p>
+<div id="fig-layout-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of page layout">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-layout-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="concept_map.svg" alt="Concept map of page layout">
 </div>
-<p>Once again,
-we bring forward all the previous tests
-and write some new ones to test the functionality we've added:</p>
-<div data-inc="test_wrapped.py" data-mark="example"><span aria-label="Source: layout/test_wrapped.py" class="inc-path" role="img" tabindex="0" title="layout/test_wrapped.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_wrap_a_row_of_two_blocks_that_do_not_fit_on_one_row</span><span class="p">():</span>
-    <span class="n">fixture</span> <span class="o">=</span> <span class="n">WrappedRow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">WrappedBlock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">WrappedBlock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="n">wrapped</span> <span class="o">=</span> <span class="n">fixture</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span>
-    <span class="n">wrapped</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">wrapped</span><span class="o">.</span><span class="n">report</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span>
-        <span class="s2">"row"</span><span class="p">,</span>
-        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="p">[</span>
-            <span class="s2">"col"</span><span class="p">,</span>
-            <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="p">[</span><span class="s2">"row"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s2">"block"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
-            <span class="p">[</span><span class="s2">"row"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="s2">"block"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
-        <span class="p">],</span>
-    <span class="p">]</span>
-</code></pre></div>
-</div>
-<p>We could have had columns handle resizing rather than rows,
-but we (probably) don't need to make both resizeable.
-This is an example of <a class="gl-ref" href="../glossary/#intrinsic_complexity">intrinsic complexity</a>:
-the problem really is this hard,
-so something has to deal with it somewhere.
-Programs often contain <a class="gl-ref" href="../glossary/#accidental_complexity">accidental complexity</a>
-as well,
-which can be removed if people are willing to accept change.
-In practice,
-that often means that it sticks around longer than it should.</p>
-<div class="callout">
-<h3>The Liskov Substitution Principle</h3>
-<p>We are able to re-use tests as our code evolved
-because of the <a class="gl-ref" href="../glossary/#liskov_substitution_principle">Liskov Substitution Principle</a>,
-which states that
-it should be possible to replace objects in a program
-with objects of derived classes
-without breaking anything.
-In order to satisfy this principle,
-new code must handle the same set of inputs as the old code,
-though it may be able to process more inputs as well.
-Conversely,
-its output must be a subset of what the old code produced
-so that whatever is downstream from it won't be surprised.
-Thinking in these terms leads to the methodology called
-<span class="ix-ref" data-ix-key="design by contract" id="ix-layout-13">design by contract</span> discussed in <a class="xref" href="../oop/">Chapter 2</a>.</p>
-</div>
-<h2 id="layout-summary">Summary</h2>
-<p><a class="fig-ref" href="#f:layout-concept-map">Figure 7</a> summarizes the ideas introduced in this chapter.
-Real page layout systems do far more than what we have described,
-but all of them implement some kind of negotiation between containers and content.</p>
-<figure id="f:layout-concept-map">
-<img alt="Concept map for page layout" src="concept_map.svg"/>
-<figcaption>Figure 7: Page layout concept map.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layout-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.7: Page layout concept map.
+</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="layout-exercises">Exercises</h2>
-<h3>Refactoring</h3>
+</div>
+<h2 data-number="14.6" id="layout-exercises"><span class="header-section-number">14.6</span> Exercises</h2>
+<h3 data-number="14.6.1" id="refactoring"><span class="header-section-number">14.6.1</span> Refactoring</h3>
 <p>Refactor the classes used to represent blocks, rows, and columns so that:</p>
-<ol>
-<li>
-<p>They all derive from a common <span class="ix-ref" data-ix-key="parent class" id="ix-layout-14">parent class</span>.</p>
-</li>
-<li>
-<p>All common behavior is defined in that parent (if only with placeholder methods).</p>
-</li>
+<ol type="1">
+<li><p>They all derive from a common parent class.</p></li>
+<li><p>All common behavior is defined in that parent (if only with placeholder methods).</p></li>
 </ol>
-<h3>Removing Spreads</h3>
-<p>The code shown in this chapter makes heavy use of <span class="ix-ref" data-ix-key="varargs" id="ix-layout-15">varargs</span> and <span class="ix-ref" data-ix-key="spreading" id="ix-layout-16">spreading</span>,
-i.e.,
-uses <code>*</code> to spread the values of lists to match parameters
-and <code>*children</code> to capture multiple arguments.
-Rewrite the code to use lists instead.
-Do you find your rewritten code easier to understand?</p>
-<h3>Recycling</h3>
-<p>Modify the wrapping code so that new rows and columns are only created if needed.
-For example,
-if a row of width 10 contains a text node that is only 4 characters wide,
-a new row and column are <em>not</em> inserted.</p>
-<h3>Rendering a Clear Background</h3>
-<p>Modify the rendering code so that only the text in block nodes is shown,
-i.e.,
-so that the empty space in rows and columns is rendered as spaces.</p>
-<h3>Clipping Text</h3>
-<ol>
-<li>
-<p>Modify the wrapping and rendering so that
-    if a block of text is too wide for the available space,
-    the extra characters are clipped.
-    For example,
-    if a column of width 5 contains a line "unfittable",
-    only "unfit" appears.</p>
-</li>
-<li>
-<p>Extend your solution to break lines on spaces as needed
-    in order to avoid clipping.</p>
-</li>
+<h3 data-number="14.6.2" id="removing-spreads"><span class="header-section-number">14.6.2</span> Removing Spreads</h3>
+<p>The code shown in this chapter makes heavy use of varargs and spreading, i.e., uses <code>*</code> to spread the values of lists to match parameters and <code>*children</code> to capture multiple arguments. Rewrite the code to use lists instead. Do you find your rewritten code easier to understand?</p>
+<h3 data-number="14.6.3" id="recycling"><span class="header-section-number">14.6.3</span> Recycling</h3>
+<p>Modify the wrapping code so that new rows and columns are only created if needed. For example, if a row of width 10 contains a text node that is only 4 characters wide, a new row and column are <em>not</em> inserted.</p>
+<h3 data-number="14.6.4" id="rendering-a-clear-background"><span class="header-section-number">14.6.4</span> Rendering a Clear Background</h3>
+<p>Modify the rendering code so that only the text in block nodes is shown, i.e., so that the empty space in rows and columns is rendered as spaces.</p>
+<h3 data-number="14.6.5" id="clipping-text"><span class="header-section-number">14.6.5</span> Clipping Text</h3>
+<ol type="1">
+<li><p>Modify the wrapping and rendering so that if a block of text is too wide for the available space, the extra characters are clipped. For example, if a column of width 5 contains a line “unfittable”, only “unfit” appears.</p></li>
+<li><p>Extend your solution to break lines on spaces as needed in order to avoid clipping.</p></li>
 </ol>
-<h3>Bidirectional Rendering</h3>
-<p>Modify the existing software to do either left-to-right or right-to-left rendering
-upon request.</p>
-<h3>Equal Sizing</h3>
-<p>Modify the existing code to support elastic columns,
-i.e.,
-so that all of the columns in a row are automatically sized to have the same width.
-If the number of columns does not divide evenly into the width of the row,
-allocate the extra space as equally as possible from left to right.</p>
-<h3>Properties</h3>
-<p>Look at the documentation for Python's <a href="https://docs.python.org/3/library/functions.html#property"><code>@property</code></a> <span class="ix-ref" data-ix-key="decorator" id="ix-layout-17">decorator</span>
-and modify the block classes to replace the <code>get_width</code> and <code>get_height</code> methods
-with properties called <code>width</code> and <code>height</code>.</p>
-<h3>Drawing Borders</h3>
+<h3 data-number="14.6.6" id="bidirectional-rendering"><span class="header-section-number">14.6.6</span> Bidirectional Rendering</h3>
+<p>Modify the existing software to do either left-to-right or right-to-left rendering upon request.</p>
+<h3 data-number="14.6.7" id="equal-sizing"><span class="header-section-number">14.6.7</span> Equal Sizing</h3>
+<p>Modify the existing code to support elastic columns, i.e., so that all of the columns in a row are automatically sized to have the same width. If the number of columns does not divide evenly into the width of the row, allocate the extra space as equally as possible from left to right.</p>
+<h3 data-number="14.6.8" id="properties"><span class="header-section-number">14.6.8</span> Properties</h3>
+<p>Look at the documentation for Python’s <code>@property</code> decorator and modify the block classes to replace the <code>get_width</code> and <code>get_height</code> methods with properties called <code>width</code> and <code>height</code>.</p>
+<h3 data-number="14.6.9" id="drawing-borders"><span class="header-section-number">14.6.9</span> Drawing Borders</h3>
 <p>Modify the existing code so that elements are drawn with borders like this:</p>
-<div data-inc="ex_box.txt"><span aria-label="Source: layout/ex_box.txt" class="inc-path" role="img" tabindex="0" title="layout/ex_box.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>+----+
+<pre data-file="layout/ex_box.txt"><code>+----+
 |text|
-+----+
-</code></pre></div>
-</div>
-<h3>Padding Elements</h3>
++----+</code></pre>
+<h3 data-number="14.6.10" id="padding-elements"><span class="header-section-number">14.6.10</span> Padding Elements</h3>
 <p>Modify the existing code so that:</p>
-<ol>
-<li>
-<p>Authors can define a <code>padding</code> <span class="ix-ref" data-ix-key="attribute" id="ix-layout-18">attribute</span> for row and column elements.</p>
-</li>
-<li>
-<p>When the node is rendered, that many blank spaces are added on all four sides of the contents.</p>
-</li>
+<ol type="1">
+<li><p>Authors can define a <code>padding</code> attribute for row and column elements.</p></li>
+<li><p>When the node is rendered, that many blank spaces are added on all four sides of the contents.</p></li>
 </ol>
 <p>For example, string <code>"text"</code> with a padding of 1 would render as:</p>
-<div data-inc="ex_padding.txt"><span aria-label="Source: layout/ex_padding.txt" class="inc-path" role="img" tabindex="0" title="layout/ex_padding.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>+------+
+<pre data-file="layout/ex_padding.txt"><code>+------+
 |      |
 | text |
 |      |
-+------+
-</code></pre></div>
-</div>
++------+</code></pre>
 <p>where the lines show the outer border of the rendering.</p>
-<h3>Tables</h3>
+<h3 data-number="14.6.11" id="tables"><span class="header-section-number">14.6.11</span> Tables</h3>
 <p>Add another node type <code>Table</code> such that:</p>
-<ol>
-<li>
-<p>All the children of a table must be rows.</p>
-</li>
-<li>
-<p>Every row must contain exactly the same number of columns.</p>
-</li>
-<li>
-<p>When the table is rendered, every column has the same width in every row.</p>
-</li>
+<ol type="1">
+<li><p>All the children of a table must be rows.</p></li>
+<li><p>Every row must contain exactly the same number of columns.</p></li>
+<li><p>When the table is rendered, every column has the same width in every row.</p></li>
 </ol>
-</section>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../lint">A Code Linter</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../perf">Performance Profiling</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../lint/index.html">← A Code Linter</a>
+    <a class="pager-link next" href="../perf/index.html">Performance Profiling →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>

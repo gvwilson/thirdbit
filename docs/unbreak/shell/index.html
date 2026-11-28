@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>The Unix Shell</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
 
@@ -52,10 +53,10 @@
 <h1 class="title">The Unix Shell</h1>
 <h2 data-number="17.1" id="sort-a-list-of-numbers-from-smallest-to-largest"><span class="header-section-number">17.1</span> Sort a list of numbers from smallest to largest</h2>
 <p>Run this script and look at the order of the numbers it prints. Is the smallest number first? What order would you expect?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb1" data-file="shell/numericsort.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the numbers in numericsort.txt in ascending order.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> numericsort.txt</span></code></pre></div>
-<pre><code>10
+<pre data-file="shell/numericsort.txt"><code>10
 9
 2
 100
@@ -72,7 +73,7 @@ Show explanation
 </details>
 <h2 data-number="17.2" id="collect-a-summary-line-from-each-file-in-a-directory"><span class="header-section-number">17.2</span> Collect a summary line from each file in a directory</h2>
 <p>Run this script and then look at <code>summary.txt</code>. How many lines does it contain? How many did you expect?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb3" data-file="shell/overwrite.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect the first (header) line of each .dat file into summary.txt.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> overwrite_a.dat overwrite_b.dat overwrite_c.dat</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
@@ -88,7 +89,7 @@ Show explanation
 </details>
 <h2 data-number="17.3" id="copy-monthly-notes-files-to-an-archive-directory"><span class="header-section-number">17.3</span> Copy monthly notes files to an archive directory</h2>
 <p>Look at the list of <code>.txt</code> files in the directory. Which files does <code>*.txt</code> match? Are all of them files you want to copy?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb4" data-file="shell/wideglob.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the monthly notes files to the archive directory.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Monthly notes are notes_jan.txt and notes_feb.txt.</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># notes_archive.txt is the running archive and should NOT be copied.</span></span>
@@ -103,10 +104,10 @@ Show explanation
 </details>
 <h2 data-number="17.4" id="count-distinct-species-in-a-csv-file"><span class="header-section-number">17.4</span> Count distinct species in a CSV file</h2>
 <p>Run this script and check the count it reports. Then look at the species column in <code>species.csv</code>. How many distinct species are there, and does the count match?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb5" data-file="shell/uniqsorted.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of distinct species recorded in species.csv.</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f2</span> species.csv <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div>
-<pre><code>date,species,count
+<pre data-file="shell/species.csv"><code>date,species,count
 2024-03-01,sparrow,12
 2024-03-01,robin,5
 2024-03-02,sparrow,8
@@ -127,7 +128,7 @@ Show explanation
 </details>
 <h2 data-number="17.5" id="count-words-in-files-whose-names-contain-spaces"><span class="header-section-number">17.5</span> Count words in files whose names contain spaces</h2>
 <p>Run this script with a filename that contains a space (e.g., <code>"field notes.txt"</code>). Does it process the file correctly?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb7" data-file="shell/quotedvar.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the lines in each text file passed to this script.</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> <span class="st">"</span><span class="va">$@</span><span class="st">"</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
@@ -143,7 +144,7 @@ Show explanation
 </details>
 <h2 data-number="17.6" id="filter-lines-from-an-input-file-into-an-output-file"><span class="header-section-number">17.6</span> Filter lines from an input file into an output file</h2>
 <p>Run the script with a small input file and the name of an output file. Look at which file was created and which file was modified.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb8" data-file="shell/wrongarg.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage: wrongarg.sh input_file output_file</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the first 20 lines of input_file into output_file.</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 <span class="st">"</span><span class="va">$2</span><span class="st">"</span> <span class="op">&gt;</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span></code></pre></div>
@@ -157,10 +158,10 @@ Show explanation
 </details>
 <h2 data-number="17.7" id="print-the-most-recent-entries-from-a-log-file"><span class="header-section-number">17.7</span> Print the most recent entries from a log file</h2>
 <p>Run this script and note which rows are printed. Are they from the beginning or end of the file?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb9" data-file="shell/headtail.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the last 5 data rows of headtail.txt (excluding the header line).</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 5 headtail.txt</span></code></pre></div>
-<pre><code>experiment_id,temperature,pressure
+<pre data-file="shell/headtail.txt"><code>experiment_id,temperature,pressure
 E001,22.1,101.3
 E002,23.4,100.8
 E003,21.9,102.1
@@ -181,12 +182,12 @@ Show explanation
 </details>
 <h2 data-number="17.8" id="save-output-to-a-shared-directory-one-level-up"><span class="header-section-number">17.8</span> Save output to a shared directory one level up</h2>
 <p>Read the comment at the top of the script. Map out the expected directory structure on paper. How many levels up does <code>../..</code> go? Is that where <code>shared/</code> lives?</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb11" data-file="shell/dotdot.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this script from inside results/2024/.</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Save a sorted copy of measurements.txt to the shared/ directory,</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># which is one level above the current directory (i.e., results/shared/).</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-n</span> measurements.txt <span class="op">&gt;</span> ../../shared/sorted.txt</span></code></pre></div>
-<pre><code>depth_m,temp_c,salinity
+<pre data-file="shell/measurements.txt"><code>depth_m,temp_c,salinity
 0,18.4,35.1
 10,17.9,35.2
 20,17.1,35.4
@@ -203,11 +204,11 @@ Show explanation
 </details>
 <h2 data-number="17.9" id="count-the-records-in-a-data-file"><span class="header-section-number">17.9</span> Count the records in a data file</h2>
 <p>Run this script and look at the numbers it prints. Do they match the number of lines (records) in the file?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb13" data-file="shell/wcflag.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Report the number of observation records in wcflag.txt.</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Each line is one record.</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> wcflag.txt</span></code></pre></div>
-<pre><code>sparrow observed at grid B4
+<pre data-file="shell/wcflag.txt"><code>sparrow observed at grid B4
 robin observed at grid A2
 crow observed at grid C1
 sparrow observed at grid D3
@@ -224,7 +225,7 @@ Show explanation
 </details>
 <h2 data-number="17.10" id="find-all-csv-files-in-a-directory-tree"><span class="header-section-number">17.10</span> Find all CSV files in a directory tree</h2>
 <p>Run this script from a directory that contains at least one <code>.csv</code> file. What arguments does <code>find</code> actually receive? Use <code>echo</code> in place of <code>find</code> to check.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb15" data-file="shell/findglob.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all CSV files anywhere under the data/ directory.</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> data <span class="at">-name</span> <span class="pp">*</span>.csv</span></code></pre></div>
 <details>
@@ -237,10 +238,10 @@ Show explanation
 </details>
 <h2 data-number="17.11" id="extract-family-names-from-a-tab-separated-file"><span class="header-section-number">17.11</span> Extract family names from a tab-separated file</h2>
 <p>Run this script and examine the output. Does each output line contain just the family name, or does it contain the whole row?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb16" data-file="shell/cutdelim.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the family name (first column) from the tab-delimited roster.</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f1</span> cutdelim.txt</span></code></pre></div>
-<pre><code>Smith	Jane	Biology
+<pre data-file="shell/cutdelim.txt"><code>Smith	Jane	Biology
 Jones	Tom	Chemistry
 Garcia	Maria	Physics
 Chen	Wei	Biology
@@ -255,10 +256,10 @@ Show explanation
 </details>
 <h2 data-number="17.12" id="filter-error-lines-from-a-log-file"><span class="header-section-number">17.12</span> Filter error lines from a log file</h2>
 <p>Run this script and read the output. Do the lines shown contain the word you were searching for?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb18" data-file="shell/grepinvert.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print all lines in the log that contain the word "ERROR".</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"ERROR"</span> grepinvert.txt</span></code></pre></div>
-<pre><code>2024-03-01 08:02 INFO  server started
+<pre data-file="shell/grepinvert.txt"><code>2024-03-01 08:02 INFO  server started
 2024-03-01 08:15 ERROR disk usage above 90%
 2024-03-01 09:00 INFO  backup complete
 2024-03-01 09:47 ERROR connection timeout after 30s
@@ -275,7 +276,7 @@ Show explanation
 </details>
 <h2 data-number="17.13" id="count-the-lines-in-a-file-given-on-the-command-line"><span class="header-section-number">17.13</span> Count the lines in a file given on the command line</h2>
 <p>Run this script with no arguments. Does it print useful output, produce an error, or do something else? Use <code>Ctrl-C</code> to stop it if it appears to hang.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb20" data-file="shell/missingarg.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage: missingarg.sh filename</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the filename and its line count.</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"File: </span><span class="va">$1</span><span class="st">"</span></span>
@@ -290,19 +291,19 @@ Show explanation
 </details>
 <h2 data-number="17.14" id="concatenate-report-sections-in-the-correct-order"><span class="header-section-number">17.14</span> Concatenate report sections in the correct order</h2>
 <p>Run this script and read the resulting <code>report.txt</code>. Does the report begin with the introduction, or with a different section?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb21" data-file="shell/catorder.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assemble the three sections of the report in order: introduction, methods, results.</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> section3.txt section1.txt section2.txt <span class="op">&gt;</span> report.txt</span></code></pre></div>
-<pre><code>Introduction
+<pre data-file="shell/section1.txt"><code>Introduction
 ============
 This report summarises findings from the 2024 field season.
 Three sites were surveyed between January and March.</code></pre>
-<pre><code>Methods
+<pre data-file="shell/section2.txt"><code>Methods
 =======
 Samples were collected using standard protocols.
 Each site was visited on three consecutive days.
 Temperature and salinity were recorded at each visit.</code></pre>
-<pre><code>Results
+<pre data-file="shell/section3.txt"><code>Results
 =======
 Site A showed elevated salinity compared to baseline.
 Site B was within normal range on all measures.
@@ -317,7 +318,7 @@ Show explanation
 </details>
 <h2 data-number="17.15" id="append-a-summary-line-from-each-file-to-a-report"><span class="header-section-number">17.15</span> Append a summary line from each file to a report</h2>
 <p>Run this script once, then run it again. How many lines does <code>summary.txt</code> contain after the first run? After the second run?</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb25" data-file="shell/loopclobber.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect word counts for all .dat files into summary.txt.</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Running this script a second time should produce the same summary,</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># not a file with doubled entries.</span></span>
@@ -335,7 +336,7 @@ Show explanation
 </details>
 <h2 data-number="17.16" id="list-the-three-largest-files-in-a-directory"><span class="header-section-number">17.16</span> List the three largest files in a directory</h2>
 <p>Run this script in a directory that has files of different sizes. Compare the output to <code>ls -s | sort -rn | head -n 3</code>. Are the results the same?</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb26" data-file="shell/sortn.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># List the three largest files in the current directory by block size,</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># largest first.</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-s</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-r</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3</span></code></pre></div>
@@ -349,11 +350,11 @@ Show explanation
 </details>
 <h2 data-number="17.17" id="extract-ten-data-rows-from-a-csv-file"><span class="header-section-number">17.17</span> Extract ten data rows from a CSV file</h2>
 <p>Run this script and count the data rows in the output. Then count the data rows in the original file. Are they the same?</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb27" data-file="shell/headcount.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the header row plus the first 10 data rows from headcount.csv</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (11 lines total: 1 header + 10 data).</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 10 headcount.csv</span></code></pre></div>
-<pre><code>site,reading,value
+<pre data-file="shell/headcount.csv"><code>site,reading,value
 A,1,42.3
 A,2,38.9
 A,3,55.1
@@ -375,7 +376,7 @@ Show explanation
 </details>
 <h2 data-number="17.18" id="process-a-list-of-filenames-passed-as-script-arguments"><span class="header-section-number">17.18</span> Process a list of filenames passed as script arguments</h2>
 <p>Run this script with a filename that contains a space. Does it process the file, or does it report an error about a non-existent file?</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb29" data-file="shell/quotedall.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage: quotedall.sh file1 file2 ...</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the lines in each file passed as an argument.</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> <span class="va">$@</span></span>
@@ -392,7 +393,7 @@ Show explanation
 </details>
 <h2 data-number="17.19" id="count-log-files-in-a-directory-tree"><span class="header-section-number">17.19</span> Count log files in a directory tree</h2>
 <p>Create a directory whose name ends in <code>.log</code> (e.g., <code>mkdir debug.log</code>). Now run this script. Does the count include the directory?</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb30" data-file="shell/findtype.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Count all log files (and only log files) under the current directory.</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">"*.log"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div>
 <details>
@@ -405,7 +406,7 @@ Show explanation
 </details>
 <h2 data-number="17.20" id="copy-a-directory-to-a-backup-location"><span class="header-section-number">17.20</span> Copy a directory to a backup location</h2>
 <p>Run this script. Does it copy the directory, or does it produce an error message? What does the error message say?</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<div class="sourceCode" id="cb31" data-file="shell/cprecurse.sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Back up the entire results/ directory to backup/results/.</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> results/ backup/results/</span></code></pre></div>
 <details>
@@ -424,6 +425,14 @@ Show explanation
     <a class="pager-link next" href="../sql/index.html">SQL →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

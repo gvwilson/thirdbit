@@ -1,342 +1,224 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Performance Profiling · Software Design by Example</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Performance Profiling</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../mccole/mccole.css"/>
+  <link rel="stylesheet" href="../../mccole/mccole-slides.css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<div class="shower list" tabindex="-1">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Performance Profiling</h1>
+</section>
+
+<section class="slide level2">
+
 <section class="slide">
+</section>
+<section id="the-problem" class="slide level2">
 <h2>The Problem</h2>
 <ul>
-<li>
-<p>We can build dataframes several different ways</p>
-</li>
-<li>
-<p>Which will be most efficient?</p>
-</li>
-<li>
-<p>Find out by doing experiments</p>
-</li>
+<li><p>We can build dataframes several different ways</p></li>
+<li><p>Which will be most efficient?</p></li>
+<li><p>Find out by doing experiments</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="what-can-dataframes-do" class="slide level2">
 <h2>What Can Dataframes Do?</h2>
-<div data-inc="df_base.py"><span aria-label="Source: perf/df_base.py" class="inc-path" role="img" tabindex="0" title="perf/df_base.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DataFrame</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">ncol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Report the number of columns."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Report the number of rows."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">cols</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Return the set of column names."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">eq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Check equality with another dataframe."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Get a scalar value."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Select a named subset of columns."""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Select a subset of rows by testing values."""</span>
-</code></pre></div>
-</div>
+<p>[%inc df_base.py %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="row-wise-storage" class="slide level2">
 <h2>Row-wise Storage</h2>
 <ul>
 <li>A list of dictionaries</li>
 </ul>
-<figure id="f:perf-row-storage">
-<img alt="Row-wise storage" src="row_storage.svg"/>
-<figcaption>Figure 1: Row-wise storage of a dataframe</figcaption>
-</figure>
+<p>[% figure slug=“perf-row-storage” img=“row_storage.svg” alt=“Row-wise
+storage” caption=“Row-wise storage of a dataframe” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="column-wise-storage" class="slide level2">
 <h2>Column-wise Storage</h2>
 <ul>
 <li>A dictionary of lists</li>
 </ul>
-<figure id="f:perf-col-storage">
-<img alt="Column-wise storage" src="col_storage.svg"/>
-<figcaption>Figure 2: Column-wise storage of a dataframe</figcaption>
-</figure>
+<p>[% figure slug=“perf-col-storage” img=“col_storage.svg”
+alt=“Column-wise storage” caption=“Column-wise storage of a dataframe”
+%]</p>
 </section>
 <section class="slide">
+</section>
+<section id="row-wise-starting" class="slide level2">
 <h2>Row-wise: Starting</h2>
-<div data-inc="df_row.py" data-mark="top"><span aria-label="Source: perf/df_row.py" class="inc-path" role="img" tabindex="0" title="perf/df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">df_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">util</span><span class="w"> </span><span class="kn">import</span> <span class="n">dict_match</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">DfRow</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rows</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">dict_match</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">rows</span>
-</code></pre></div>
-</div>
-<div data-inc="util.py" data-mark="match"><span aria-label="Source: perf/util.py" class="inc-path" role="img" tabindex="0" title="perf/util.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dict_match</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">prototype</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="n">prototype</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">prototype</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc df_row.py mark=top %] [%inc util.py mark=match %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="row-wise-operations" class="slide level2">
 <h2>Row-wise Operations</h2>
-<div data-inc="df_row.py" data-mark="simple"><span aria-label="Source: perf/df_row.py" class="inc-path" role="img" tabindex="0" title="perf/df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">ncol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">cols</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span>
-</code></pre></div>
-</div>
+<p>[%inc df_row.py mark=simple %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="row-wise-equality" class="slide level2">
 <h2>Row-wise Equality</h2>
-<div data-inc="df_row.py" data-mark="equal"><span aria-label="Source: perf/df_row.py" class="inc-path" role="img" tabindex="0" title="perf/df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">eq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">)</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">cols</span><span class="p">():</span>
-                    <span class="k">return</span> <span class="kc">False</span>
-                <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span>
-</code></pre></div>
-</div>
+<p>[%inc df_row.py mark=equal %]</p>
 <ul>
-<li>Don't rely on implementation details of the other dataframe</li>
-<li>We might want to compare this dataframe with one that's stored a different way</li>
+<li>Don’t rely on implementation details of the other dataframe</li>
+<li>We might want to compare this dataframe with one that’s stored a
+different way</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="row-wise-selection" class="slide level2">
 <h2>Row-wise Selection</h2>
-<div data-inc="df_row.py" data-mark="select"><span aria-label="Source: perf/df_row.py" class="inc-path" role="img" tabindex="0" title="perf/df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">)</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="p">[{</span><span class="n">key</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">DfRow</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<figure id="f:perf-row-select">
-<img alt="Row-wise selection" src="row_select.svg"/>
-<figcaption>Figure 3: Row-wise selection</figcaption>
-</figure>
+<p>[%inc df_row.py mark=select %]</p>
+<p>[% figure slug=“perf-row-select” img=“row_select.svg” alt=“Row-wise
+selection” caption=“Row-wise selection” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="how-to-filter" class="slide level2">
 <h2>How to Filter?</h2>
 <ul>
-<li>
-<p>User provides <code>func(red, green)</code> returning <code>True</code> or <code>False</code></p>
-</li>
-<li>
-<p>Need to match column names with parameters</p>
-</li>
+<li><p>User provides <code>func(red, green)</code> returning
+<code>True</code> or <code>False</code></p></li>
+<li><p>Need to match column names with parameters</p></li>
 </ul>
-<div data-inc="test_df_row.py" data-mark="fixture"><span aria-label="Source: perf/test_df_row.py" class="inc-path" role="img" tabindex="0" title="perf/test_df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">odd_even</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">DfRow</span><span class="p">([{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">4</span><span class="p">}])</span>
-</code></pre></div>
-</div>
-<div data-inc="test_df_row.py" data-mark="filter"><span aria-label="Source: perf/test_df_row.py" class="inc-path" role="img" tabindex="0" title="perf/test_df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_filter</span><span class="p">():</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">odd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-
-    <span class="n">df</span> <span class="o">=</span> <span class="n">odd_even</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">odd</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">DfRow</span><span class="p">([{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">3</span><span class="p">}]))</span>
-</code></pre></div>
-</div>
+<p>[%inc test_df_row.py mark=fixture %] [%inc test_df_row.py mark=filter
+%]</p>
 </section>
 <section class="slide">
+</section>
+<section id="how-to-call" class="slide level2">
 <h2>How to Call?</h2>
 <ul>
-<li>Use <code>**</code> to <a class="gl-ref" href="../glossary/#spread">spread</a> the row</li>
+<li>Use <code>**</code> to [%g spread “spread” %] the row</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="row-wise-filter" class="slide level2">
 <h2>Row-wise Filter</h2>
-<div data-inc="df_row.py" data-mark="filter"><span aria-label="Source: perf/df_row.py" class="inc-path" role="img" tabindex="0" title="perf/df_row.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="o">**</span><span class="n">r</span><span class="p">)]</span>
-        <span class="k">return</span> <span class="n">DfRow</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc df_row.py mark=filter %]</p>
 <ul>
-<li>
-<p>Spread the rows out to match</p>
-</li>
-<li>
-<p>Convert the result to a row-wise dataframe</p>
-</li>
+<li><p>Spread the rows out to match</p></li>
+<li><p>Convert the result to a row-wise dataframe</p></li>
 </ul>
-<figure id="f:perf-row-filter">
-<img alt="Row-wise filtering" src="row_filter.svg"/>
-<figcaption>Figure 4: Row-wise filtering</figcaption>
-</figure>
+<p>[% figure slug=“perf-row-filter” img=“row_filter.svg” alt=“Row-wise
+filtering” caption=“Row-wise filtering” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="column-wise-starting" class="slide level2">
 <h2>Column-Wise: Starting</h2>
-<div data-inc="df_col.py" data-mark="top"><span aria-label="Source: perf/df_col.py" class="inc-path" role="img" tabindex="0" title="perf/df_col.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">df_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">util</span><span class="w"> </span><span class="kn">import</span> <span class="n">all_eq</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">DfCol</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-        <span class="k">assert</span> <span class="n">all_eq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">all_eq</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">kwargs</span>
-</code></pre></div>
-</div>
-<div data-inc="util.py" data-mark="eq"><span aria-label="Source: perf/util.py" class="inc-path" role="img" tabindex="0" title="perf/util.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">all_eq</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="ow">not</span> <span class="n">values</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc df_col.py mark=top %] [%inc util.py mark=eq %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="column-wise-operations" class="slide level2">
 <h2>Column-wise Operations</h2>
-<div data-inc="df_col.py" data-mark="simple"><span aria-label="Source: perf/df_col.py" class="inc-path" role="img" tabindex="0" title="perf/df_col.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">ncol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">cols</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">]</span>
-</code></pre></div>
-</div>
+<p>[%inc df_col.py mark=simple %]</p>
 <ul>
-<li>Doesn't allow for empty dataframes</li>
+<li>Doesn’t allow for empty dataframes</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="column-wise-selection" class="slide level2">
 <h2>Column-wise Selection</h2>
-<div data-inc="df_col.py" data-mark="select"><span aria-label="Source: perf/df_col.py" class="inc-path" role="img" tabindex="0" title="perf/df_col.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">DfCol</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">})</span>
-</code></pre></div>
-</div>
-<figure id="f:perf-col-select">
-<img alt="Column-wise selection" src="col_select.svg"/>
-<figcaption>Figure 5: Column-wise selection</figcaption>
-</figure>
+<p>[%inc df_col.py mark=select %]</p>
+<p>[% figure slug=“perf-col-select” img=“col_select.svg”
+alt=“Column-wise selection” caption=“Column-wise selection” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="column-wise-filter" class="slide level2">
 <h2>Column-wise Filter</h2>
-<div data-inc="df_col.py" data-mark="filter"><span aria-label="Source: perf/df_col.py" class="inc-path" role="img" tabindex="0" title="perf/df_col.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">}</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nrow</span><span class="p">()):</span>
-            <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">}</span>
-            <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
-                    <span class="n">result</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">DfCol</span><span class="p">(</span><span class="o">**</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<figure id="f:perf-col-filter">
-<img alt="Column-wise filter" src="col_filter.svg"/>
-<figcaption>Figure 6: Column-wise selection</figcaption>
-</figure>
+<p>[%inc df_col.py mark=filter %]</p>
+<p>[% figure slug=“perf-col-filter” img=“col_filter.svg”
+alt=“Column-wise filter” caption=“Column-wise selection” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="how-to-compare" class="slide level2">
 <h2>How to Compare?</h2>
 <ul>
-<li>
-<p>Select is (probably) fast for column-wise but slow for row-wise</p>
-</li>
-<li>
-<p>Filter is (probably) slower for column-wise than for row-wise</p>
-</li>
-<li>
-<p>Overall performance will depend on the ratio of selects to filters</p>
-</li>
-<li>
-<p>So we do experiments</p>
-</li>
+<li><p>Select is (probably) fast for column-wise but slow for
+row-wise</p></li>
+<li><p>Filter is (probably) slower for column-wise than for
+row-wise</p></li>
+<li><p>Overall performance will depend on the ratio of selects to
+filters</p></li>
+<li><p>So we do experiments</p></li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="experimental-setup" class="slide level2">
 <h2>Experimental Setup</h2>
-<div data-inc="timing.py" data-mark="create"><span aria-label="Source: perf/timing.py" class="inc-path" role="img" tabindex="0" title="perf/timing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">RANGE</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">make_col</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_col</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[((</span><span class="n">start</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">RANGE</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-    <span class="n">fill</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"label_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">_col</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncol</span><span class="p">)}</span>
-    <span class="k">return</span> <span class="n">DfCol</span><span class="p">(</span><span class="o">**</span><span class="n">fill</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">make_row</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">):</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"label_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncol</span><span class="p">)]</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_row</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="n">c</span><span class="p">:</span> <span class="p">((</span><span class="n">r</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">RANGE</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="n">fill</span> <span class="o">=</span> <span class="p">[</span><span class="n">_row</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">)]</span>
-    <span class="k">return</span> <span class="n">DfRow</span><span class="p">(</span><span class="n">fill</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>[%inc timing.py mark=create %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="experimental-setup-1" class="slide level2">
 <h2>Experimental Setup</h2>
-<div data-inc="make.out"><span aria-label="Source: perf/make.out" class="inc-path" role="img" tabindex="0" title="perf/make.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>column-wise
-{'label_0': [0, 1, 2], 'label_1': [1, 2, 3], 'label_2': [2, 3, 4]}
-
-row-wise
-[{'label_0': 0, 'label_1': 1, 'label_2': 2},
- {'label_0': 1, 'label_1': 2, 'label_2': 3},
- {'label_0': 2, 'label_1': 3, 'label_2': 4}]
-</code></pre></div>
-</div>
-<div data-inc="timing.py" data-mark="filter"><span aria-label="Source: perf/timing.py" class="inc-path" role="img" tabindex="0" title="perf/timing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">FILTER</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">time_filter</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">label_0</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">label_0</span> <span class="o">%</span> <span class="n">FILTER</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-</code></pre></div>
-</div>
+<p>[%inc make.out %]</p>
+<p>[%inc timing.py mark=filter %]</p>
 <ul>
-<li>Should vary the filtering criteria, the proportion of rows kept, etc.</li>
+<li>Should vary the filtering criteria, the proportion of rows kept,
+etc.</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="so-which-is-better" class="slide level2">
 <h2>So Which Is Better?</h2>
 <table>
 <thead>
 <tr>
-<th scope="col" style="text-align: right;">nrow</th>
-<th scope="col" style="text-align: right;">ncol</th>
-<th scope="col" style="text-align: right;">filter_col</th>
-<th scope="col" style="text-align: right;">select_col</th>
-<th scope="col" style="text-align: right;">filter_row</th>
-<th scope="col" style="text-align: right;">select_row</th>
+<th style="text-align: right;">nrow</th>
+<th style="text-align: right;">ncol</th>
+<th style="text-align: right;">filter_col</th>
+<th style="text-align: right;">select_col</th>
+<th style="text-align: right;">filter_row</th>
+<th style="text-align: right;">select_row</th>
 </tr>
 </thead>
 <tbody>
@@ -400,67 +282,225 @@ row-wise
 </table>
 </section>
 <section class="slide">
+</section>
+<section id="so-which-is-better-1" class="slide level2">
 <h2>So Which Is Better?</h2>
-<figure id="f:perf-analysis">
-<img alt="Comparing performance" src="analysis.svg"/>
-<figcaption>Figure 7: Comparing performance empirically</figcaption>
-</figure>
+<p>[% figure slug=“perf-analysis” img=“analysis.svg” alt=“Comparing
+performance” caption=“Comparing performance empirically” %]</p>
 </section>
 <section class="slide">
+</section>
+<section id="use-tools" class="slide level2">
 <h2>Use Tools</h2>
 <ul>
-<li>A <a class="gl-ref" href="../glossary/#profiler">profiler</a> measures where a program spends its time</li>
+<li>A [%g profiler “profiler” %] measures where a program spends its
+time</li>
 </ul>
-<div data-inc="profile.sh"><span aria-label="Source: perf/profile.sh" class="inc-path" role="img" tabindex="0" title="perf/profile.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>cProfile<span class="w"> </span>--sort<span class="o">=</span>tottime<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>timing.py<span class="w"> </span>--silent<span class="w"> </span>10x10<span class="w"> </span>50x50<span class="w"> </span>100x100<span class="w"> </span>500x500<span class="w"> </span>1000x1000
-</code></pre></div>
-</div>
-<div data-head="10" data-inc="profile.out"><span aria-label="Source: perf/profile.out" class="inc-path" role="img" tabindex="0" title="perf/profile.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>         3007281 function calls (3003108 primitive calls) in 2.120 seconds
-
-   Ordered by: internal time
-
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-  2319840    0.671    0.000    0.671    0.000 util.py:10(&lt;genexpr&gt;)
-        5    0.271    0.054    0.521    0.104 df_col.py:50(filter)
-     1660    0.261    0.000    0.261    0.000 timing.py:20(&lt;dictcomp&gt;)
-8066/3916    0.213    0.000    1.056    0.000 {built-in method builtins.all}
-     1660    0.191    0.000    0.191    0.000 df_col.py:53(&lt;dictcomp&gt;)
-</code></pre></div>
-</div>
+<p>[%inc profile.sh %] [%inc profile.out head=“10” %]</p>
 <ul>
 <li>Uh, what is line 7 of <code>util.py</code> doing?</li>
 </ul>
 </section>
 <section class="slide">
+</section>
+<section id="the-offending-lines" class="slide level2">
 <h2>The Offending Lines</h2>
 <ul>
-<li>
-<p>A quarter of our total runtime is calling <code>dict_match</code> to check that
-    all the rows in a row-wise dataframe
-    have the same types for the same keys</p>
-</li>
-<li>
-<p>Surely we can do better…</p>
-</li>
+<li><p>A quarter of our total runtime is calling <code>dict_match</code>
+to check that all the rows in a row-wise dataframe have the same types
+for the same keys</p></li>
+<li><p>Surely we can do better…</p></li>
 </ul>
 </section>
 <section class="slide">
-<h2>Summary</h2>
-<figure id="f:perf-concept-map">
-<img alt="Concept map of performance profiling" src="concept_map.svg"/>
-<figcaption>Figure 8: Concept map.</figcaption>
-</figure>
 </section>
-<div aria-live="polite" id="slide-counter"></div>
-</div>
-<script src="../_static/shower.js"></script>
-<script src="../_static/slides.js"></script>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>[% figure slug=“perf-concept-map” img=“concept_map.svg” alt=“Concept
+map of performance profiling” caption=“Concept map.” %]</p>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
+      });
+    </script>
+    </body>
 </html>

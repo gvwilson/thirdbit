@@ -2,10 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Estimating Price Elasticity of Demand</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
   <link rel="stylesheet" href="../../mccole/mccole-book.css">
   <link rel="stylesheet" href="../../mccole/tango.css">
-<link rel="stylesheet" href="../../mccole/mccole-forma.css">
-<script type="module" src="../../mccole/forma.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.getElementsByClassName("math");
+  for (var i = 0; i < elems.length; i++) {
+    var el = elems[i];
+    var tex = el.firstChild;
+    if (el.tagName === "SPAN" && tex) {
+      var text = tex.data;
+      if (text.slice(0, 2) === "\\(" || text.slice(0, 2) === "\\[") {
+        text = text.slice(2);
+      }
+      if (text.slice(-2) === "\\)" || text.slice(-2) === "\\]") {
+        text = text.slice(0, -2);
+      }
+      katex.render(text, el, {
+        displayMode: el.classList.contains("display"),
+        throwOnError: false
+      });
+    }
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -95,7 +118,7 @@ Wrong: that would describe a perfectly inelastic good (<span class="math inline"
 <li><span class="math inline">\(\text{RSS} = \sum_i (\ln Q_i - \hat{a} - \hat{\varepsilon} \ln P_i)^2\)</span> is the residual sum of squares</li>
 <li>A 95% confidence interval is <span class="math inline">\(\hat{\varepsilon} \pm t_{0.975,\,n-2} \cdot \text{SE}(\hat{\varepsilon})\)</span></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_log_ols(prices, quantities):</span>
+<div class="sourceCode" id="cb1" data-file="elasticity/elasticity.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_log_ols(prices, quantities):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fit log(quantity) = intercept + slope * log(price) by ordinary least squares.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    OLS formulas:</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        slope     = sum[(x_i - x_mean)(y_i - y_mean)] / sum[(x_i - x_mean)^2]</span></span>
@@ -143,7 +166,7 @@ Wrong: that would describe a perfectly inelastic good (<span class="math inline"
 <li>Each observed quantity is <span class="math inline">\(Q_i = A P_i^\varepsilon \cdot e^{\epsilon_i}\)</span>, where <span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
+<div class="sourceCode" id="cb2" data-file="elasticity/generate_elasticity.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">7493418</span>  <span class="co"># RNG seed for reproducibility</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>N_POINTS <span class="op">=</span> <span class="dv">80</span>  <span class="co"># number of price-quantity observations</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>TRUE_ELASTICITY <span class="op">=</span> <span class="op">-</span><span class="fl">1.5</span>  <span class="co"># true price elasticity (slope in log-log space)</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>TRUE_INTERCEPT <span class="op">=</span> <span class="fl">5.0</span>  <span class="co"># true log-scale intercept</span></span>
@@ -152,7 +175,7 @@ Wrong: that would describe a perfectly inelastic good (<span class="math inline"
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-quantity noise: chosen so that ~95% of observed quantities fall within</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># exp(±2 * NOISE_STD) ≈ ±35% of the true quantity at each price.</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>NOISE_STD <span class="op">=</span> <span class="fl">0.15</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_elasticity_data(</span>
+<div class="sourceCode" id="cb3" data-file="elasticity/generate_elasticity.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_elasticity_data(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span>N_POINTS,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    true_elasticity<span class="op">=</span>TRUE_ELASTICITY,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    true_intercept<span class="op">=</span>TRUE_INTERCEPT,</span>
@@ -178,7 +201,7 @@ Wrong: that would describe a perfectly inelastic good (<span class="math inline"
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    quantities <span class="op">=</span> np.exp(log_quantities)</span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pl.DataFrame({<span class="st">"price"</span>: prices, <span class="st">"quantity"</span>: quantities})</span></code></pre></div>
 <h2 data-number="30.5" id="fitting-and-reporting-the-elasticity"><span class="header-section-number">30.5</span> Fitting and Reporting the Elasticity</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_loglog(prices, quantities, intercept, slope, filename):</span>
+<div class="sourceCode" id="cb4" data-file="elasticity/elasticity.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_loglog(prices, quantities, intercept, slope, filename):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save a log-log scatter plot with the fitted OLS line.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Both axes are on a log scale.  The fitted curve is the power-law:</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">        quantity = exp(intercept) * price^slope</span></span>
@@ -242,7 +265,7 @@ Any estimated slope for downward-sloping demand must be negative. A positive slo
 With the fixed seed 7493418, the CI <span class="math inline">\([-1.518, -1.430]\)</span> reliably contains the true value <span class="math inline">\(-1.5\)</span>. This test would fail only with data where the noise draw happens to be extreme, which the fixed seed rules out.
 </dd>
 </dl>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode" id="cb5" data-file="elasticity/test_elasticity.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> generate_elasticity <span class="im">import</span> make_elasticity_data, TRUE_ELASTICITY, TRUE_INTERCEPT</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> elasticity <span class="im">import</span> log_log_ols</span>
@@ -332,6 +355,14 @@ A linear regression of <span class="math inline">\(\ln Q\)</span> on <span class
     <a class="pager-link next" href="../flood/index.html">Flood Frequency Analysis →</a>
   </nav>
 </footer>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
 
 
 </body></html>

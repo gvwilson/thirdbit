@@ -1,122 +1,43 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>A File Cache</title>
+  <link rel="stylesheet" href="../../mccole/mccole.css">
+  <link rel="stylesheet" href="../../mccole/mccole-book.css">
+  <link rel="stylesheet" href="../../mccole/tango.css">
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>A File Cache</title>
-<meta content="Software Design by Example" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async=""></script>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">sdxpy</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../oop/">Objects and Classes</a></li>
-<li><a href="../dup/">Finding Duplicate Files</a></li>
-<li><a href="../glob/">Matching Patterns</a></li>
-<li><a href="../parse/">Parsing Text</a></li>
-<li><a href="../test/">Running Tests</a></li>
-<li><a href="../interp/">An Interpreter</a></li>
-<li><a href="../func/">Functions and Closures</a></li>
-<li><a href="../protocols/">Protocols</a></li>
-<li><a href="../archive/">A File Archiver</a></li>
-<li><a href="../check/">An HTML Validator</a></li>
-<li><a href="../template/">A Template Expander</a></li>
-<li><a href="../lint/">A Code Linter</a></li>
-<li><a href="../layout/">Page Layout</a></li>
-<li><a href="../perf/">Performance Profiling</a></li>
-<li><a href="../persist/">Object Persistence</a></li>
-<li><a href="../binary/">Binary Data</a></li>
-<li><a href="../db/">A Database</a></li>
-<li><a href="../build/">A Build Manager</a></li>
-<li><a href="../pack/">A Package Manager</a></li>
-<li><a href="../ftp/">Transferring Files</a></li>
-<li><a href="../http/">Serving Web Pages</a></li>
-<li><a href="../viewer/">A File Viewer</a></li>
-<li><a href="../undo/">Undo and Redo</a></li>
-<li><a href="../vm/">A Virtual Machine</a></li>
-<li><a href="../debugger/">A Debugger</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../oop/slides.html">Objects and Classes</a></li>
-<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
-<li><a href="../glob/slides.html">Matching Patterns</a></li>
-<li><a href="../parse/slides.html">Parsing Text</a></li>
-<li><a href="../test/slides.html">Running Tests</a></li>
-<li><a href="../interp/slides.html">An Interpreter</a></li>
-<li><a href="../func/slides.html">Functions and Closures</a></li>
-<li><a href="../protocols/slides.html">Protocols</a></li>
-<li><a href="../archive/slides.html">A File Archiver</a></li>
-<li><a href="../check/slides.html">An HTML Validator</a></li>
-<li><a href="../template/slides.html">A Template Expander</a></li>
-<li><a href="../lint/slides.html">A Code Linter</a></li>
-<li><a href="../layout/slides.html">Page Layout</a></li>
-<li><a href="../perf/slides.html">Performance Profiling</a></li>
-<li><a href="../persist/slides.html">Object Persistence</a></li>
-<li><a href="../binary/slides.html">Binary Data</a></li>
-<li><a href="../db/slides.html">A Database</a></li>
-<li><a href="../build/slides.html">A Build Manager</a></li>
-<li><a href="../pack/slides.html">A Package Manager</a></li>
-<li><a href="../ftp/slides.html">Transferring Files</a></li>
-<li><a href="../http/slides.html">Serving Web Pages</a></li>
-<li><a href="../viewer/slides.html">A File Viewer</a></li>
-<li><a href="../undo/slides.html">Undo and Redo</a></li>
-<li><a href="../vm/slides.html">A Virtual Machine</a></li>
-<li><a href="../debugger/slides.html">A Debugger</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../syllabus/">Syllabus</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
-<li><a href="../observe/">Observers</a></li>
-<li><a href="../docgen/">Generating Documentation</a></li>
-<li><a class="active" href="../cache/">A File Cache</a></li>
-<li><a href="../concur/">Concurrency</a></li>
-<li><a href="../mapreduce/">MapReduce</a></li>
-<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
-<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
-<li><a href="../tracing/">Distributed Tracing</a></li>
-<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
-<li><a href="../oauth/">OAuth</a></li>
-<li><a href="../distlock/">Distributed Locks</a></li>
-<li><a href="../torrent/">BitTorrent</a></li>
-<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
-<li><a href="../saga/">The Saga Pattern</a></li>
-<li><a href="../tcp/">TCP</a></li>
-<li><a href="../dns/">DNS</a></li>
-<li><a href="../ntp/">NTP</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdxpy">Repository</a>
-</div>
-</nav>
-<main id="main-content">
-<h1>A File Cache</h1>
-<div aria-label="Learning objectives" class="syllabus" role="note">
+<header class="topbar">
+  <nav class="topnav">
+    <a class="topnav-item" href="../index.html">Home</a>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Chapters</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../intro/index.html">Introduction</a></li><li><a href="../oop/index.html">Objects and Classes</a></li><li><a href="../dup/index.html">Finding Duplicate Files</a></li><li><a href="../glob/index.html">Matching Patterns</a></li><li><a href="../parse/index.html">Parsing Text</a></li><li><a href="../test/index.html">Running Tests</a></li><li><a href="../interp/index.html">An Interpreter</a></li><li><a href="../func/index.html">Functions and Closures</a></li><li><a href="../protocols/index.html">Protocols</a></li><li><a href="../archive/index.html">A File Archiver</a></li><li><a href="../check/index.html">An HTML Validator</a></li><li><a href="../template/index.html">A Template Expander</a></li><li><a href="../lint/index.html">A Code Linter</a></li><li><a href="../layout/index.html">Page Layout</a></li><li><a href="../perf/index.html">Performance Profiling</a></li><li><a href="../persist/index.html">Object Persistence</a></li><li><a href="../binary/index.html">Binary Data</a></li><li><a href="../db/index.html">A Database</a></li><li><a href="../build/index.html">A Build Manager</a></li><li><a href="../pack/index.html">A Package Manager</a></li><li><a href="../ftp/index.html">Transferring Files</a></li><li><a href="../http/index.html">Serving Web Pages</a></li><li><a href="../viewer/index.html">A File Viewer</a></li><li><a href="../undo/index.html">Undo and Redo</a></li><li><a href="../vm/index.html">A Virtual Machine</a></li><li><a href="../debugger/index.html">A Debugger</a></li><li><a href="../finale/index.html">Conclusion</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Appendices</summary>
+      <div class="topnav-menu"><ul class="topnav-list"><li><a href="../license/index.html">License</a></li><li><a href="../conduct/index.html">Code of Conduct</a></li><li><a href="../contributing/index.html">Contributing</a></li><li><a href="../bibliography/index.html">Bibliography</a></li><li><a href="../glossary/index.html">Glossary</a></li><li><a href="../syllabus/index.html">Syllabus</a></li><li><a href="../bonus/index.html">Bonus Material</a></li><li><a href="../observe/index.html">Observers</a></li><li><a href="../docgen/index.html">Generating Documentation</a></li><li><a href="../cache/index.html">A File Cache</a></li><li><a href="../concur/index.html">Concurrency</a></li><li><a href="../mapreduce/index.html">MapReduce Framework</a></li><li><a href="../msgque/index.html">A Publish-Subscribe Message Queue</a></li><li><a href="../worksteal/index.html">A Work-Stealing Scheduler</a></li><li><a href="../tracing/index.html">Distributed Tracing</a></li><li><a href="../crdt/index.html">Conflict-Free Replicated Data Types</a></li><li><a href="../oauth/index.html">OAuth</a></li><li><a href="../distlock/index.html">Distributed Lock Manager</a></li><li><a href="../torrent/index.html">BitTorrent Protocol</a></li><li><a href="../eventual/index.html">Eventually Consistent Key-Value Store</a></li><li><a href="../saga/index.html">The Saga Pattern</a></li><li><a href="../tcp/index.html">Building TCP on UDP</a></li><li><a href="../dns/index.html">Domain Name System (DNS)</a></li><li><a href="../ntp/index.html">Network Time Protocol (NTP)</a></li><li><a href="../fs/index.html">A Simple Filesystem</a></li><li><a href="../slides/index.html">Slides</a></li></ul></div>
+    </details>
+    <details class="topnav-dropdown">
+      <summary class="topnav-item">Contents</summary>
+      <div class="topnav-menu"><ul>
+<li><a href="#cache-index" id="toc-cache-index"><span class="header-section-number">J.1</span> A File Index</a></li>
+<li><a href="#cache-local" id="toc-cache-local"><span class="header-section-number">J.2</span> A Local Cache</a></li>
+<li><a href="#cache-limit" id="toc-cache-limit"><span class="header-section-number">J.3</span> A Limited Cache</a></li>
+<li><a href="#cache-placeholders" id="toc-cache-placeholders"><span class="header-section-number">J.4</span> Placeholders</a></li>
+<li><a href="#cache-summary" id="toc-cache-summary"><span class="header-section-number">J.5</span> Summary</a></li>
+<li><a href="#cache-exercises" id="toc-cache-exercises"><span class="header-section-number">J.6</span> Exercises</a></li>
+</ul></div>
+    </details>
+    <a class="topnav-item source" href="https://github.com/gvwilson/sdxpy">Source</a>
+  </nav>
+</header>
+<main class="content"><header id="title-block-header" class="quarto-title-block"></header>
+<h1 class="title">A File Cache</h1>
+<div class="syllabus">
 <ul>
 <li>Software systems often use caches to store a subset of files in order to use less disk space.</li>
 <li>Caching systems can replace actual files with placeholders containing metadata.</li>
@@ -126,83 +47,44 @@
 </ul>
 </div>
 <p><strong>In Development</strong></p>
-<p>Data scientists often want to analyze the same files in several projects.
-Those files might be too sensitive or too large to store in version control.
-Even when that's not the case,
-storing several copies eventually results in someone analyzing an out-of-date version of the data.</p>
-<p>Tools like <a href="https://git-lfs.github.io/">Git LFS</a> and <a href="https://dvc.org/">DVC</a> are an alternative.
-These tools replace the actual data file with a <a class="gl-ref" href="../glossary/#placeholder_file">placeholder file</a>
-that contains a unique ID,
-such as a hash of the data file's contents
-(<a class="fig-ref" href="#f:cache-architecture">Figure 1</a>).
-The placeholder file is small,
-so it can be committed to version control,
-and if the file it refers to changes,
-that change will be visible in the version control history.</p>
-<figure id="f:cache-architecture">
-<img alt="Cache architecture" src="cache_architecture.svg"/>
-<figcaption>Figure 1: Architecture of a local file cache.</figcaption>
+<p>Data scientists often want to analyze the same files in several projects. Those files might be too sensitive or too large to store in version control. Even when that’s not the case, storing several copies eventually results in someone analyzing an out-of-date version of the data.</p>
+<p>Tools like <a href="https://git-lfs.github.io/">Git LFS</a> and <a href="https://dvc.org/">DVC</a> are an alternative. These tools replace the actual data file with a <a href="../glossary/index.html#placeholder_file">placeholder file</a> that contains a unique ID, such as a hash of the data file’s contents (<a href="#fig-cache-architecture" class="quarto-xref">Figure&nbsp;<span>J.1</span></a>). The placeholder file is small, so it can be committed to version control, and if the file it refers to changes, that change will be visible in the version control history.</p>
+<div id="fig-cache-architecture" class="quarto-float quarto-figure quarto-figure-center" alt="Components of a local file cache">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cache-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="cache_architecture.svg" alt="Components of a local file cache">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cache-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;J.1: Architecture of a local file cache.
+</figcaption>
 </figure>
-<p>The data file is stored on a server or in the cloud
-and downloaded on demand.
-Since the data file might be shared between several projects,
-it is usually not downloaded into any particular project.
-Instead,
-it is stored in a cache that all projects have access to.
-If the cache gets too large,
-files in it can be deleted
-and re-downloaded later.</p>
-<p>This architecture has four parts:
-the permanent archive of data files,
-an index of all the files it contains,
-the cache of locally-available files,
-and the placeholder files that are actually saved in version control.
-There are several ways to implement each of these,
-so our implementation will give us a chance to explore some ideas in object-oriented programming.</p>
-<h2 id="cache-index">A File Index</h2>
-<p>Let's start by creating the index of archived files.
-We need to record each file's unique identifier
-and the time it was added to the archive;
-we could define a class for this,
-but since instances of that class are just passive data records,
-we use a <a class="gl-ref" href="../glossary/#named_tuple">named tuple</a> instead:</p>
-<div data-inc="index_base.py" data-mark="tuple"><span aria-label="Source: cache/index_base.py" class="inc-path" role="img" tabindex="0" title="cache/index_base.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
-
-<span class="n">CacheEntry</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"CacheEntry"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"identifier"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">])</span>
-</code></pre></div>
 </div>
-<p>Next,
-we create an abstract class that defines the operation an index can do,
-but doesn't actually implement them—or rather,
-only implements the ones that can be defined in terms of lower-level operations
-that derived class will implement:</p>
-<div data-inc="index_base.py" data-mark="class"><span aria-label="Source: cache/index_base.py" class="inc-path" role="img" tabindex="0" title="cache/index_base.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">IndexBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="n">TIME_FORMAT</span> <span class="o">=</span> <span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">:%H:%M:%S"</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">set_index_dir</span><span class="p">(</span><span class="n">index_dir</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_dir</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">set_index_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">index_dir</span> <span class="o">=</span> <span class="n">index_dir</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_index</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">has</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">identifier</span> <span class="o">==</span> <span class="n">identifier</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">index</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">known</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">{</span><span class="n">entry</span><span class="o">.</span><span class="n">identifier</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()}</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-        <span class="n">entry</span> <span class="o">=</span> <span class="n">CacheEntry</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">current_time</span><span class="p">())</span>
-        <span class="n">index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-</code></pre></div>
-</div>
+<p>The data file is stored on a server or in the cloud and downloaded on demand. Since the data file might be shared between several projects, it is usually not downloaded into any particular project. Instead, it is stored in a cache that all projects have access to. If the cache gets too large, files in it can be deleted and re-downloaded later.</p>
+<p>This architecture has four parts: the permanent archive of data files, an index of all the files it contains, the cache of locally-available files, and the placeholder files that are actually saved in version control. There are several ways to implement each of these, so our implementation will give us a chance to explore some ideas in object-oriented programming.</p>
+<h2 data-number="J.1" id="cache-index"><span class="header-section-number">J.1</span> A File Index</h2>
+<p>Let’s start by creating the index of archived files. We need to record each file’s unique identifier and the time it was added to the archive; we could define a class for this, but since instances of that class are just passive data records, we use a <a href="../glossary/index.html#named_tuple">named tuple</a> instead:</p>
+<div class="sourceCode" id="cb1" data-file="cache/index_base.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> namedtuple</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>CacheEntry <span class="op">=</span> namedtuple(<span class="st">"CacheEntry"</span>, [<span class="st">"identifier"</span>, <span class="st">"timestamp"</span>])</span></code></pre></div>
+<p>Next, we create an abstract class that defines the operation an index can do, but doesn’t actually implement them—or rather, only implements the ones that can be defined in terms of lower-level operations that derived class will implement:</p>
+<div class="sourceCode" id="cb2" data-file="cache/index_base.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> IndexBase(ABC):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    TIME_FORMAT <span class="op">=</span> <span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">:%H:%M:%S"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, index_dir<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.set_index_dir(index_dir)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_index_dir(<span class="va">self</span>):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.index_dir</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_index_dir(<span class="va">self</span>, index_dir):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.index_dir <span class="op">=</span> index_dir</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._initialize_index()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> has(<span class="va">self</span>, identifier):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        index <span class="op">=</span> <span class="va">self</span>.load()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">any</span>(entry.identifier <span class="op">==</span> identifier <span class="cf">for</span> entry <span class="kw">in</span> index)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> known(<span class="va">self</span>):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {entry.identifier <span class="cf">for</span> entry <span class="kw">in</span> <span class="va">self</span>.load()}</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, identifier):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        index <span class="op">=</span> <span class="va">self</span>.load()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        entry <span class="op">=</span> CacheEntry(identifier, current_time())</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        index.append(entry)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.save(index)</span></code></pre></div>
 <p>The methods of <code>IndexBase</code> can:</p>
 <ul>
 <li>get and set the directory where the index file is stored;</li>
@@ -210,567 +92,309 @@ that derived class will implement:</p>
 <li>get a list of all known files (again, by identifier rather than name); and</li>
 <li>add an identifier to the index with a timestamp.</li>
 </ul>
-<p>These methods rely on three abstract methods to
-initialize the index if it doesn't already exist,
-load the index,
-and save the index.
-Their definitions are:</p>
-<div data-inc="index_base.py" data-mark="abstract"><span aria-label="Source: cache/index_base.py" class="inc-path" role="img" tabindex="0" title="cache/index_base.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Load entire index."""</span>
-
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Save entire index."""</span>
-
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Initialize index file if necessary."""</span>
-</code></pre></div>
+<p>These methods rely on three abstract methods to initialize the index if it doesn’t already exist, load the index, and save the index. Their definitions are:</p>
+<div class="sourceCode" id="cb3" data-file="cache/index_base.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load(<span class="va">self</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Load entire index."""</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save(<span class="va">self</span>, index):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Save entire index."""</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _initialize_index(<span class="va">self</span>):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize index file if necessary."""</span></span></code></pre></div>
+<p>Finally, we define a function <code>current_time</code> that returns a time we can use in an index record. Doing this gives us something that will be easy to mock for testing:</p>
+<div class="sourceCode" id="cb4" data-file="cache/index_base.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> current_time():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> datetime.datetime.now()</span></code></pre></div>
+<div>
+<blockquote>
+<p><strong>Naming Things</strong></p>
+<p>The index stores files’ unique IDs rather than their names because the latter are unreliable. A file may be moved or renamed several times within a project, or may have different names in different projects; our design therefore relies on something intrinsic to the file rather than something under the user’s control.</p>
+<p>The price for this decision is that files’ “names” are meaningless. Whether we use sequence numbers or hashes, remembering that <code>health_records.csv</code> is file 177234 increases the cognitive load on our users.</p>
+</blockquote>
 </div>
-<p>Finally,
-we define a function <code>current_time</code>
-that returns a time we can use in an index record.
-Doing this gives us something that will be easy to mock for testing:</p>
-<div data-inc="index_base.py" data-mark="time"><span aria-label="Source: cache/index_base.py" class="inc-path" role="img" tabindex="0" title="cache/index_base.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">current_time</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-</code></pre></div>
+<p>By writing <code>IndexBase</code>, we have turned a large, amorphous design problem into a smaller and more focused one (<a href="#fig-cache-methods" class="quarto-xref">Figure&nbsp;<span>J.2</span></a>). For example, if we decide to store the index as a JSON file or in a SQLite database, we should only need to provide the methods to handle that file format; we should not need to re-write or re-test any of the other methods. This rule gives us a way to evaluate our designs: the fewer methods we have to override, the better the original division of labor was.</p>
+<p>To try it out, let’s implement a concrete index class that stores data in a CSV file. <code>load</code> checks that the cache directory exists and that it contains an index file, then reads that file and turns its contents into <code>CacheEntry</code> records:</p>
+<div class="sourceCode" id="cb5" data-file="cache/index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> IndexCSV(IndexBase):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load(<span class="va">self</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.index_dir:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CacheException(<span class="st">"Cache directory not set in index"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        index_path <span class="op">=</span> <span class="va">self</span>._make_index_path()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> index_path.exists():</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CacheException(<span class="ss">f"Index file </span><span class="sc">{</span>index_path<span class="sc">}</span><span class="ss"> not found"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(index_path, <span class="st">"r"</span>) <span class="im">as</span> stream:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            reader <span class="op">=</span> csv.reader(stream)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> [</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                CacheEntry(r[<span class="dv">0</span>], datetime.strptime(r[<span class="dv">1</span>], <span class="va">self</span>.TIME_FORMAT))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> r <span class="kw">in</span> reader</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            ]</span></code></pre></div>
+<div id="fig-cache-methods" class="quarto-float quarto-figure quarto-figure-center" alt="Method call graph for the cache index">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cache-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="cache_methods.svg" alt="Method call graph for the cache index">
 </div>
-<div class="callout">
-<h3>Naming Things</h3>
-<p>The index stores files' unique IDs rather than their names
-because the latter are unreliable.
-A file may be moved or renamed several times within a project,
-or may have different names in different projects;
-our design therefore relies on something intrinsic to the file
-rather than something under the user's control.</p>
-<p>The price for this decision is that files' "names" are meaningless.
-Whether we use sequence numbers or hashes,
-remembering that <code>health_records.csv</code> is file 177234
-increases the cognitive load on our users.</p>
-</div>
-<p>By writing <code>IndexBase</code>,
-we have turned a large, amorphous design problem
-into a smaller and more focused one
-(<a class="fig-ref" href="#f:cache-methods">Figure 2</a>).
-For example,
-if we decide to store the index as a JSON file or in a SQLite database,
-we should only need to provide the methods to handle that file format;
-we should not need to re-write or re-test any of the other methods.
-This rule gives us a way to evaluate our designs:
-the fewer methods we have to override,
-the better the original division of labor was.</p>
-<p>To try it out,
-let's implement a concrete index class that stores data in a CSV file.
-<code>load</code> checks that the cache directory exists
-and that it contains an index file,
-then reads that file and turns its contents into <code>CacheEntry</code> records:</p>
-<div data-inc="index_csv.py" data-mark="load"><span aria-label="Source: cache/index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">IndexCSV</span><span class="p">(</span><span class="n">IndexBase</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_dir</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">CacheException</span><span class="p">(</span><span class="s2">"Cache directory not set in index"</span><span class="p">)</span>
-
-        <span class="n">index_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_index_path</span><span class="p">()</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">index_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="n">CacheException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Index file </span><span class="si">{</span><span class="n">index_path</span><span class="si">}</span><span class="s2"> not found"</span><span class="p">)</span>
-
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">index_path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
-            <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">[</span>
-                <span class="n">CacheEntry</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">TIME_FORMAT</span><span class="p">))</span>
-                <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">reader</span>
-            <span class="p">]</span>
-</code></pre></div>
-</div>
-<figure id="f:cache-methods">
-<img alt="Cache index methods" src="cache_methods.svg"/>
-<figcaption>Figure 2: Calling relationships between cache index methods.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cache-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;J.2: Calling relationships between cache index methods.
+</figcaption>
 </figure>
-<p>Similarly,
-<code>save</code> checks that the cache directory exists
-and then writes each record to the index file.
-This method automatically creates the index file
-if it doesn't already exist:</p>
-<div data-inc="index_csv.py" data-mark="save"><span aria-label="Source: cache/index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_dir</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">CacheException</span><span class="p">(</span><span class="s2">"Cache directory not set in index"</span><span class="p">)</span>
-
-        <span class="n">index_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_index_path</span><span class="p">()</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">index_path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
-            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-                <span class="n">when</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TIME_FORMAT</span><span class="p">)</span>
-                <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="n">entry</span><span class="o">.</span><span class="n">identifier</span><span class="p">,</span> <span class="n">when</span><span class="p">))</span>
-</code></pre></div>
 </div>
-<p>Finally,
-we need to write <code>_initialize_index</code>,
-which is called by the <code>set_index_dir</code> method in the base class
-rather than being invoked directly by the user.
-While we're doing that,
-we'll define the name for the index file
-and write a helper method that produces its full path:</p>
-<div data-inc="index_csv.py" data-mark="helper"><span aria-label="Source: cache/index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="n">INDEX_FILE</span> <span class="o">=</span> <span class="s2">"index.csv"</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_make_index_path</span><span class="p">()</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_make_index_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_dir</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">CacheException</span><span class="p">(</span><span class="s2">"Cache directory not set in index"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">INDEX_FILE</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>Time to do some testing.
-As in <a class="xref" href="../archive/">Chapter 10</a>,
-we will use <a href="https://pytest-pyfakefs.readthedocs.io/">pyfakefs</a> instead of creating files on disk
-and pytest's <code>fixture</code> decorator to set things up:</p>
-<div data-inc="test_index_csv.py" data-mark="setup"><span aria-label="Source: cache/test_index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/test_index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">CACHE_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/cache"</span><span class="p">)</span>
-<span class="n">INDEX_FILE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">,</span> <span class="n">IndexCSV</span><span class="o">.</span><span class="n">INDEX_FILE</span><span class="p">)</span>
-<span class="n">LOCAL_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">disk</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_dir</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>If we create a new cache,
-it should be empty:</p>
-<div data-inc="test_index_csv.py" data-mark="new"><span aria-label="Source: cache/test_index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/test_index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_csv_loads_initially</span><span class="p">(</span><span class="n">disk</span><span class="p">):</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="n">IndexCSV</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">index</span><span class="o">.</span><span class="n">load</span><span class="p">()</span> <span class="o">==</span> <span class="p">[]</span>
-    <span class="k">assert</span> <span class="n">index</span><span class="o">.</span><span class="n">known</span><span class="p">()</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<p>If we add an entry,
-it should still be there when we reload the index:</p>
-<div data-inc="test_index_csv.py" data-mark="save"><span aria-label="Source: cache/test_index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/test_index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_csv_saves_changes</span><span class="p">(</span><span class="n">disk</span><span class="p">):</span>
-    <span class="n">right_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="n">IndexCSV</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"index_base.current_time"</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">right_now</span><span class="p">):</span>
-        <span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"abcd1234"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">index</span><span class="o">.</span><span class="n">load</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="n">CacheEntry</span><span class="p">(</span><span class="s2">"abcd1234"</span><span class="p">,</span> <span class="n">right_now</span><span class="p">)]</span>
-    <span class="k">assert</span> <span class="n">index</span><span class="o">.</span><span class="n">known</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s2">"abcd1234"</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<p>And if we check whether or not something is in the index,
-the answer should be "yes" for things we've added
-and "no" for things we haven't:</p>
-<div data-inc="test_index_csv.py" data-mark="check"><span aria-label="Source: cache/test_index_csv.py" class="inc-path" role="img" tabindex="0" title="cache/test_index_csv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_csv_has_entry</span><span class="p">(</span><span class="n">disk</span><span class="p">):</span>
-    <span class="n">right_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="n">IndexCSV</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"index_base.current_time"</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">right_now</span><span class="p">):</span>
-        <span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"abcd1234"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">index</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">"abcd1234"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">index</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">"dcba4321"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<h2 id="cache-local">A Local Cache</h2>
-<p>Just as <code>IndexBase</code> defined the behavior every cache index must have,
-<code>CacheBase</code> defines the required behavior of caches themselves.
-As the listing below shows,
-it is less than three dozen lines long:</p>
-<div data-inc="cache_base.py" data-mark="class"><span aria-label="Source: cache/cache_base.py" class="inc-path" role="img" tabindex="0" title="cache/cache_base.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CacheBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="n">CACHE_SUFFIX</span> <span class="o">=</span> <span class="s2">"cache"</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span> <span class="o">=</span> <span class="n">cache_dir</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_path</span><span class="p">):</span>
-        <span class="n">identifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_identifier</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">identifier</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_cache_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">identifier</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">CacheException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unknown file identifier </span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_cache_path</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">has</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">known</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">known</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_make_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_path</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">hash_stream</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_make_cache_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">CACHE_SUFFIX</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">local_path</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Add a file with a given identifer from a given local path."""</span>
-</code></pre></div>
-</div>
-<p><code>CacheBase</code> encapsulates several design decisions.
-Cached files are named <code><em>identifier</em>.cache</code>,
-and are all stored in a single directory.
-This scheme works well if the cache only ever has a few thousand files,
-but if that number might grow into the tens or hundreds of thousands,
-we might want to divide the cached files between several sub-directories
-(which is what most browsers do).</p>
-<p>All of <code>CacheBase</code>'s operations are implemented in terms of
-an index derived from <code>IndexBase</code>,
-a helper method that makes a file identifier by hashing the file's contents,
-another helper method that constructs the path to a cached file,
-and a single abstract method called <code>_add</code>
-that actually adds a file to the cache.
-<code>CacheBase</code> <em>doesn't</em> rely on how the index is implemented,
-which means we can defer making that decision until we absolutely have to.
-Equally,
-encapsulating the specifics of file storage in a single method
-allows us to do most of the implementation
-before figuring that out.</p>
-<p>With <code>CacheBase</code> in place,
-we can create a class called <code>CacheFilesystem</code>
-that copies files to the local cache
-but doesn't actually archive them anywhere:</p>
-<div data-inc="cache_filesystem.py" data-mark="class"><span aria-label="Source: cache/cache_filesystem.py" class="inc-path" role="img" tabindex="0" title="cache/cache_filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CacheFilesystem</span><span class="p">(</span><span class="n">CacheBase</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">local_path</span><span class="p">):</span>
-        <span class="n">cache_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_cache_path</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">cache_path</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>A file archiving system that doesn't actually archive files
-isn't particularly useful in practice,
-but it enables us to write some useful tests.
-Developers often create
-a <a class="gl-ref" href="../glossary/#minimum_testable_class">minimum testable class</a>
-for this reason.
-Just as creating an abstract base class that implements operations
-in terms of a small number of methods
-helps us break a design problem into smaller, more manageable pieces,
-building a minimum testable class
-enables us to check some things right away
-so that we can focus later testing effort
-on implementation-specific details.</p>
-<p>By now our testing should look familiar.
-We create a fixture for the filesystem as a whole
-and another for the cache:</p>
-<div data-inc="test_cache_filesystem.py" data-mark="setup"><span aria-label="Source: cache/test_cache_filesystem.py" class="inc-path" role="img" tabindex="0" title="cache/test_cache_filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">CACHE_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/cache"</span><span class="p">)</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">disk</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
-    <span class="n">fs</span><span class="o">.</span><span class="n">create_dir</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fs</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">cache</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">CacheFilesystem</span><span class="p">(</span><span class="n">IndexCSV</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">),</span> <span class="n">CACHE_DIR</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>and then write a test to check that
-if we haven't ever added files to the cache,
-no files are present:</p>
-<div data-inc="test_cache_filesystem.py" data-mark="empty"><span aria-label="Source: cache/test_cache_filesystem.py" class="inc-path" role="img" tabindex="0" title="cache/test_cache_filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_filesystem_no_files_before_add</span><span class="p">(</span><span class="n">disk</span><span class="p">,</span> <span class="n">cache</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">cache</span><span class="o">.</span><span class="n">known</span><span class="p">()</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<p>We can then start testing that (for example)
-if we add two files with different names,
-the cache contains two files:</p>
-<div data-inc="test_cache_filesystem.py" data-mark="two"><span aria-label="Source: cache/test_cache_filesystem.py" class="inc-path" role="img" tabindex="0" title="cache/test_cache_filesystem.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_filesystem_two_files_present_after_add</span><span class="p">(</span><span class="n">disk</span><span class="p">,</span> <span class="n">cache</span><span class="p">):</span>
-    <span class="n">names</span> <span class="o">=</span> <span class="s2">"ab"</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.txt"</span>
-        <span class="n">disk</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">cache</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cache</span><span class="o">.</span><span class="n">known</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span>
-</code></pre></div>
-</div>
-<h2 id="cache-limit">A Limited Cache</h2>
-<p>The next step is to archive all the files remotely
-and only cache a few locally.
-We will simulate remote storage using a second directory on our own machine,
-and limit the number of files in the cache
-rather than their total size;
-we'll look at a size-based cache in the exercises.</p>
-<div class="callout">
-<h3>Figure It Out Later</h3>
-<p>As soon as we start storing files on remote servers,
-we need to figure out how to <a class="gl-ref" href="../glossary/#authentication">authenticate</a> the user,
-i.e.,
-how to establish that they are who they say they are.
-Again,
-building our system piece by piece lets us sort out other details now
-and worry about those ones later.
-We are taking a risk, though:
-it's possible that we won't be able to extend our design to handle those extra requirements,
-but will instead have to tear it down and start over.
-Experience is the only reliable guide;
-the real aim of lessons like this one is
-to pass on experience so that the next person doesn't have to step on all the landmines themselves.</p>
+<p>Similarly, <code>save</code> checks that the cache directory exists and then writes each record to the index file. This method automatically creates the index file if it doesn’t already exist:</p>
+<div class="sourceCode" id="cb6" data-file="cache/index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save(<span class="va">self</span>, index):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.index_dir:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CacheException(<span class="st">"Cache directory not set in index"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        index_path <span class="op">=</span> <span class="va">self</span>._make_index_path()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(index_path, <span class="st">"w"</span>) <span class="im">as</span> stream:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            writer <span class="op">=</span> csv.writer(stream)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> entry <span class="kw">in</span> index:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                when <span class="op">=</span> entry.timestamp.strftime(<span class="va">self</span>.TIME_FORMAT)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                writer.writerow((entry.identifier, when))</span></code></pre></div>
+<p>Finally, we need to write <code>_initialize_index</code>, which is called by the <code>set_index_dir</code> method in the base class rather than being invoked directly by the user. While we’re doing that, we’ll define the name for the index file and write a helper method that produces its full path:</p>
+<div class="sourceCode" id="cb7" data-file="cache/index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    INDEX_FILE <span class="op">=</span> <span class="st">"index.csv"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _initialize_index(<span class="va">self</span>):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._make_index_path().touch()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _make_index_path(<span class="va">self</span>):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.index_dir:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CacheException(<span class="st">"Cache directory not set in index"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Path(<span class="va">self</span>.index_dir, <span class="va">self</span>.INDEX_FILE)</span></code></pre></div>
+<p>Time to do some testing. As in <a href="../archive/index.html" class="quarto-xref"><span>Chapter 10</span></a>, we will use <a href="https://pytest-pyfakefs.readthedocs.io/">pyfakefs</a> instead of creating files on disk and pytest’s <code>fixture</code> decorator to set things up:</p>
+<div class="sourceCode" id="cb8" data-file="cache/test_index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>CACHE_DIR <span class="op">=</span> Path(<span class="st">"/cache"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>INDEX_FILE <span class="op">=</span> Path(CACHE_DIR, IndexCSV.INDEX_FILE)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>LOCAL_DIR <span class="op">=</span> Path(<span class="st">"."</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> disk(fs):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    fs.create_dir(CACHE_DIR)</span></code></pre></div>
+<p>If we create a new cache, it should be empty:</p>
+<div class="sourceCode" id="cb9" data-file="cache/test_index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_csv_loads_initially(disk):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    index <span class="op">=</span> IndexCSV(CACHE_DIR)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> index.load() <span class="op">==</span> []</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> index.known() <span class="op">==</span> <span class="bu">set</span>()</span></code></pre></div>
+<p>If we add an entry, it should still be there when we reload the index:</p>
+<div class="sourceCode" id="cb10" data-file="cache/test_index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_csv_saves_changes(disk):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    right_now <span class="op">=</span> datetime(<span class="dv">2022</span>, <span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    index <span class="op">=</span> IndexCSV(CACHE_DIR)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> patch(<span class="st">"index_base.current_time"</span>, return_value<span class="op">=</span>right_now):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        index.add(<span class="st">"abcd1234"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> index.load() <span class="op">==</span> [CacheEntry(<span class="st">"abcd1234"</span>, right_now)]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> index.known() <span class="op">==</span> {<span class="st">"abcd1234"</span>}</span></code></pre></div>
+<p>And if we check whether or not something is in the index, the answer should be “yes” for things we’ve added and “no” for things we haven’t:</p>
+<div class="sourceCode" id="cb11" data-file="cache/test_index_csv.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_csv_has_entry(disk):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    right_now <span class="op">=</span> datetime(<span class="dv">2022</span>, <span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    index <span class="op">=</span> IndexCSV(CACHE_DIR)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> patch(<span class="st">"index_base.current_time"</span>, return_value<span class="op">=</span>right_now):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        index.add(<span class="st">"abcd1234"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> index.has(<span class="st">"abcd1234"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="kw">not</span> index.has(<span class="st">"dcba4321"</span>)</span></code></pre></div>
+<h2 data-number="J.2" id="cache-local"><span class="header-section-number">J.2</span> A Local Cache</h2>
+<p>Just as <code>IndexBase</code> defined the behavior every cache index must have, <code>CacheBase</code> defines the required behavior of caches themselves. As the listing below shows, it is less than three dozen lines long:</p>
+<div class="sourceCode" id="cb12" data-file="cache/cache_base.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CacheBase(ABC):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    CACHE_SUFFIX <span class="op">=</span> <span class="st">"cache"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, index, cache_dir):</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.index <span class="op">=</span> index</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache_dir <span class="op">=</span> cache_dir</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>, local_path):</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        identifier <span class="op">=</span> <span class="va">self</span>._make_identifier(local_path)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.index.add(identifier)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._add(identifier, local_path)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> identifier</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_cache_path(<span class="va">self</span>, identifier):</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.index.has(identifier):</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CacheException(<span class="ss">f"Unknown file identifier </span><span class="sc">{</span>identifier<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._make_cache_path(identifier)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> has(<span class="va">self</span>, identifier):</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.index.has(identifier)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> known(<span class="va">self</span>):</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.index.known()</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _make_identifier(<span class="va">self</span>, local_path):</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(local_path, <span class="st">"rb"</span>) <span class="im">as</span> reader:</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> hash_stream(reader)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _make_cache_path(<span class="va">self</span>, identifier):</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Path(<span class="va">self</span>.cache_dir, <span class="ss">f"</span><span class="sc">{</span>identifier<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>CACHE_SUFFIX<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _add(<span class="va">self</span>, identifier, local_path):</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Add a file with a given identifer from a given local path."""</span></span></code></pre></div>
+<p><code>CacheBase</code> encapsulates several design decisions. Cached files are named <code><em>identifier</em>.cache</code>, and are all stored in a single directory. This scheme works well if the cache only ever has a few thousand files, but if that number might grow into the tens or hundreds of thousands, we might want to divide the cached files between several sub-directories (which is what most browsers do).</p>
+<p>All of <code>CacheBase</code>’s operations are implemented in terms of an index derived from <code>IndexBase</code>, a helper method that makes a file identifier by hashing the file’s contents, another helper method that constructs the path to a cached file, and a single abstract method called <code>_add</code> that actually adds a file to the cache. <code>CacheBase</code> <em>doesn’t</em> rely on how the index is implemented, which means we can defer making that decision until we absolutely have to. Equally, encapsulating the specifics of file storage in a single method allows us to do most of the implementation before figuring that out.</p>
+<p>With <code>CacheBase</code> in place, we can create a class called <code>CacheFilesystem</code> that copies files to the local cache but doesn’t actually archive them anywhere:</p>
+<div class="sourceCode" id="cb13" data-file="cache/cache_filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CacheFilesystem(CacheBase):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _add(<span class="va">self</span>, identifier, local_path):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        cache_path <span class="op">=</span> <span class="va">self</span>._make_cache_path(identifier)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> cache_path.exists():</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            shutil.copyfile(local_path, cache_path)</span></code></pre></div>
+<p>A file archiving system that doesn’t actually archive files isn’t particularly useful in practice, but it enables us to write some useful tests. Developers often create a <a href="../glossary/index.html#minimum_testable_class">minimum testable class</a> for this reason. Just as creating an abstract base class that implements operations in terms of a small number of methods helps us break a design problem into smaller, more manageable pieces, building a minimum testable class enables us to check some things right away so that we can focus later testing effort on implementation-specific details.</p>
+<p>By now our testing should look familiar. We create a fixture for the filesystem as a whole and another for the cache:</p>
+<div class="sourceCode" id="cb14" data-file="cache/test_cache_filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>CACHE_DIR <span class="op">=</span> Path(<span class="st">"/cache"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> disk(fs):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    fs.create_dir(CACHE_DIR)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fs</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cache():</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> CacheFilesystem(IndexCSV(CACHE_DIR), CACHE_DIR)</span></code></pre></div>
+<p>and then write a test to check that if we haven’t ever added files to the cache, no files are present:</p>
+<div class="sourceCode" id="cb15" data-file="cache/test_cache_filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_filesystem_no_files_before_add(disk, cache):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> cache.known() <span class="op">==</span> <span class="bu">set</span>()</span></code></pre></div>
+<p>We can then start testing that (for example) if we add two files with different names, the cache contains two files:</p>
+<div class="sourceCode" id="cb16" data-file="cache/test_cache_filesystem.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_filesystem_two_files_present_after_add(disk, cache):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> <span class="st">"ab"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> names:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">.txt"</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        disk.create_file(filename, contents<span class="op">=</span>name)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        cache.add(filename)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(cache.known()) <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h2 data-number="J.3" id="cache-limit"><span class="header-section-number">J.3</span> A Limited Cache</h2>
+<p>The next step is to archive all the files remotely and only cache a few locally. We will simulate remote storage using a second directory on our own machine, and limit the number of files in the cache rather than their total size; we’ll look at a size-based cache in the exercises.</p>
+<div>
+<blockquote>
+<p><strong>Figure It Out Later</strong></p>
+<p>As soon as we start storing files on remote servers, we need to figure out how to <a href="../glossary/index.html#authentication">authenticate</a> the user, i.e., how to establish that they are who they say they are. Again, building our system piece by piece lets us sort out other details now and worry about those ones later. We are taking a risk, though: it’s possible that we won’t be able to extend our design to handle those extra requirements, but will instead have to tear it down and start over. Experience is the only reliable guide; the real aim of lessons like this one is to pass on experience so that the next person doesn’t have to step on all the landmines themselves.</p>
+</blockquote>
 </div>
 <p>Our new class <code>CacheLimited</code> needs:</p>
 <ul>
 <li>an index to keep track of files;</li>
 <li>the path to the cache directory;</li>
-<li>the path to the archive directory
-    that we're using to simulate remote storage;
-    and</li>
+<li>the path to the archive directory that we’re using to simulate remote storage; and</li>
 <li>the maximum number of files the cache is allowed to contain.</li>
 </ul>
 <p>Its constructor is therefore:</p>
-<div data-inc="cache_limited.py" data-mark="constructor"><span aria-label="Source: cache/cache_limited.py" class="inc-path" role="img" tabindex="0" title="cache/cache_limited.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CacheLimited</span><span class="p">(</span><span class="n">CacheFilesystem</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">,</span> <span class="n">archive_dir</span><span class="p">,</span> <span class="n">local_limit</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">archive_dir</span> <span class="o">=</span> <span class="n">archive_dir</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">local_limit</span> <span class="o">=</span> <span class="n">local_limit</span>
-</code></pre></div>
-</div>
-<p>At this point we are going to do something that
-we said earlier we wouldn't need to do.
-<code>CacheBase</code> defines a method <code>get_cache_path</code>,
-and <code>CacheFilesystem</code> used that method without altering it.
-In contrast,
-our new <code>CacheLimited</code> class overrides it
-to ensure there's a local copy of a file
-whenever we want to read it.
-In doing so,
-<code>get_cache_path</code> ensures that
-the cache has enough space for that file.
-More specifically,
-if we add a file when the cache is full,
-<code>CacheLimited</code> will:</p>
+<div class="sourceCode" id="cb17" data-file="cache/cache_limited.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CacheLimited(CacheFilesystem):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, index, cache_dir, archive_dir, local_limit):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(index, cache_dir)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.archive_dir <span class="op">=</span> archive_dir</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.local_limit <span class="op">=</span> local_limit</span></code></pre></div>
+<p>At this point we are going to do something that we said earlier we wouldn’t need to do. <code>CacheBase</code> defines a method <code>get_cache_path</code>, and <code>CacheFilesystem</code> used that method without altering it. In contrast, our new <code>CacheLimited</code> class overrides it to ensure there’s a local copy of a file whenever we want to read it. In doing so, <code>get_cache_path</code> ensures that the cache has enough space for that file. More specifically, if we add a file when the cache is full, <code>CacheLimited</code> will:</p>
 <ul>
 <li>delete a file from the cache;</li>
 <li>add the new file to the cache; and</li>
 <li>add it to archival storage.</li>
 </ul>
-<div data-inc="cache_limited.py" data-mark="get"><span aria-label="Source: cache/cache_limited.py" class="inc-path" role="img" tabindex="0" title="cache/cache_limited.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">get_cache_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="n">cache_path</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_cache_path</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_cache_space</span><span class="p">()</span>
-            <span class="n">archive_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_archive_path</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">archive_path</span><span class="p">,</span> <span class="n">cache_path</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cache_path</span>
-</code></pre></div>
+<div class="sourceCode" id="cb18" data-file="cache/cache_limited.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_cache_path(<span class="va">self</span>, identifier):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        cache_path <span class="op">=</span> <span class="bu">super</span>().get_cache_path(identifier)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> cache_path.exists():</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>._ensure_cache_space()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>            archive_path <span class="op">=</span> <span class="va">self</span>._make_archive_path(identifier)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            shutil.copyfile(archive_path, cache_path)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cache_path</span></code></pre></div>
+<p>The method that ensures the cache has space for a new file checks the cache’s size and removes a file if necessary:</p>
+<div class="sourceCode" id="cb19" data-file="cache/cache_limited.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _ensure_cache_space(<span class="va">self</span>):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check size.</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        cache_dir <span class="op">=</span> Path(<span class="va">self</span>.cache_dir)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> cache_dir.exists()</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        cache_files <span class="op">=</span> <span class="bu">list</span>(cache_dir.iterdir())</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(cache_files) <span class="op">&lt;</span> <span class="va">self</span>.local_limit:</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove a file.</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        choice <span class="op">=</span> cache_files.pop()</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">len</span>(cache_files) <span class="op">&lt;</span> <span class="va">self</span>.local_limit</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        Path(choice).unlink()</span></code></pre></div>
+<p>We also need to implement <code>_add</code> to handle the case of adding an entirely new file</p>
+<div class="sourceCode" id="cb20" data-file="cache/cache_limited.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _add(<span class="va">self</span>, identifier, local_path):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._add_archive(identifier, local_path)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._ensure_cache_space()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>()._add(identifier, local_path)</span></code></pre></div>
+<p>The tests for <code>CacheLimited</code> look like those we’ve written before:</p>
+<div class="sourceCode" id="cb21" data-file="cache/test_cache_limited.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_limited_single_file_present_after_add(disk, cache):</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    disk.create_file(<span class="st">"test.txt"</span>, contents<span class="op">=</span><span class="st">"xyz"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    ident <span class="op">=</span> cache.add(<span class="st">"test.txt"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> cache.has(ident)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> cache.known() <span class="op">==</span> {ident}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    cache_path <span class="op">=</span> cache.get_cache_path(ident)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(cache_path.parent) <span class="op">==</span> <span class="bu">str</span>(CACHE_DIR)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    archive_path <span class="op">=</span> cache._make_archive_path(ident)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> Path(archive_path).exists()</span></code></pre></div>
+<p>One difference is that they check the archive directory as well as the cache directory. To do this, the tests may use a method like <code>_make_archive_path</code> that isn’t intended for general consumption. Application programs should never do this, but it’s generally regarded as acceptable for tests (not least because the alternative is to make that “private” method generally available).</p>
+<h2 data-number="J.4" id="cache-placeholders"><span class="header-section-number">J.4</span> Placeholders</h2>
+<p>The last thing we need for a fully-functional repository-friendly file-caching system is a reliable way to create the placeholder files that take the place of actual data files in version control. Each file holds a cache entry identifier, so if we do our job properly, users will never need to see these or remember them.</p>
+<p>Python provides an <code>open</code> function for opening files, so we will create a <code>cache_open</code> function to open cached files:</p>
+<div class="sourceCode" id="cb22" data-file="cache/cache_io.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cache_open(cache, filename):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> filename.endswith(cache.CACHE_SUFFIX):</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>CACHE_SUFFIX<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> Path(filename)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> filename.exists():</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="ss">f"No local cache file </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"r"</span>) <span class="im">as</span> reader:</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        identifier <span class="op">=</span> reader.read().strip()</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        cache_path <span class="op">=</span> cache.get_cache_path(identifier)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">open</span>(cache_path, <span class="st">"r"</span>)</span></code></pre></div>
+<p>If the actual file is called <code>a.txt</code>, this function looks for <code>a.txt.cache</code>, reads the file identifier from it, uses that to find the path to the cached file, and opens that file for reading. We don’t allow users to open files for writing, since that would almost certainly put the file’s contents out of step with its identifier. This restriction is similar to Python’s requirement that dictionaries’ keys be immutable; we will explore alternatives in the exercises.</p>
+<p><code>cache_save</code> is the complement to <code>cache_open</code>. Given the name of a local file that the user wants to cache, this function saves it in the cache and constructs a placeholder file:</p>
+<div class="sourceCode" id="cb23" data-file="cache/cache_io.py"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cache_save(cache, filename):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    identifier <span class="op">=</span> cache.add(filename)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    identifier_file <span class="op">=</span> Path(<span class="ss">f"</span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>cache<span class="sc">.</span>CACHE_SUFFIX<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(identifier_file, <span class="st">"w"</span>) <span class="im">as</span> writer:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        writer.write(identifier)</span></code></pre></div>
+<p>These two functions work as designed, but neither should be used in production. The problem is that neither function works atomically: in both cases, if something goes wrong part-way through the function, the caching system can be left in an inconsistent state. While there’s no obvious way for these functions to fail mid-flight, there’s always the possibility of a power failure or of the user typing Control-C to interrupt the program at just the wrong spot. Tools like <a href="https://dvc.org/">DVC</a> do a lot of extra work to guarantee that this can’t happen.</p>
+<h2 data-number="J.5" id="cache-summary"><span class="header-section-number">J.5</span> Summary</h2>
+<div id="fig-cache-concept-map" class="quarto-float quarto-figure quarto-figure-center" alt="Concept map of the file cache">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cache-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="cache_concept_map.svg" alt="Concept map of the file cache">
 </div>
-<p>The method that ensures the cache has space for a new file
-checks the cache's size
-and removes a file if necessary:</p>
-<div data-inc="cache_limited.py" data-mark="ensure"><span aria-label="Source: cache/cache_limited.py" class="inc-path" role="img" tabindex="0" title="cache/cache_limited.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_ensure_cache_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Check size.</span>
-        <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">cache_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-        <span class="n">cache_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cache_files</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_limit</span><span class="p">:</span>
-            <span class="k">return</span>
-
-        <span class="c1"># Remove a file.</span>
-        <span class="n">choice</span> <span class="o">=</span> <span class="n">cache_files</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cache_files</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_limit</span>
-        <span class="n">Path</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<p>We also need to implement <code>_add</code>
-to handle the case of adding an entirely new file</p>
-<div data-inc="cache_limited.py" data-mark="add"><span aria-label="Source: cache/cache_limited.py" class="inc-path" role="img" tabindex="0" title="cache/cache_limited.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">local_path</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_add_archive</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_cache_space</span><span class="p">()</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>The tests for <code>CacheLimited</code> look like those we've written before:</p>
-<div data-inc="test_cache_limited.py" data-mark="example"><span aria-label="Source: cache/test_cache_limited.py" class="inc-path" role="img" tabindex="0" title="cache/test_cache_limited.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_limited_single_file_present_after_add</span><span class="p">(</span><span class="n">disk</span><span class="p">,</span> <span class="n">cache</span><span class="p">):</span>
-    <span class="n">disk</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">"test.txt"</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="s2">"xyz"</span><span class="p">)</span>
-    <span class="n">ident</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"test.txt"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">cache</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">cache</span><span class="o">.</span><span class="n">known</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="n">ident</span><span class="p">}</span>
-    <span class="n">cache_path</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_cache_path</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">cache_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">CACHE_DIR</span><span class="p">)</span>
-    <span class="n">archive_path</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">_make_archive_path</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">archive_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<p>One difference is that they check the archive directory
-as well as the cache directory.
-To do this,
-the tests may use a method like <code>_make_archive_path</code>
-that isn't intended for general consumption.
-Application programs should never do this,
-but it's generally regarded as acceptable for tests
-(not least because the alternative is
-to make that "private" method generally available).</p>
-<h2 id="cache-placeholders">Placeholders</h2>
-<p>The last thing we need for a fully-functional repository-friendly file-caching system is
-a reliable way to create the placeholder files
-that take the place of actual data files in version control.
-Each file holds a cache entry identifier,
-so if we do our job properly,
-users will never need to see these or remember them.</p>
-<p>Python provides an <code>open</code> function for opening files,
-so we will create a <code>cache_open</code> function to open cached files:</p>
-<div data-inc="cache_io.py" data-mark="open"><span aria-label="Source: cache/cache_io.py" class="inc-path" role="img" tabindex="0" title="cache/cache_io.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cache_open</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">cache</span><span class="o">.</span><span class="n">CACHE_SUFFIX</span><span class="p">):</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">CACHE_SUFFIX</span><span class="si">}</span><span class="s2">"</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No local cache file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
-        <span class="n">identifier</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">cache_path</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_cache_path</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>If the actual file is called <code>a.txt</code>,
-this function looks for <code>a.txt.cache</code>,
-reads the file identifier from it,
-uses that to find the path to the cached file,
-and opens that file for reading.
-We don't allow users to open files for writing,
-since that would almost certainly put the file's contents
-out of step with its identifier.
-This restriction is similar to Python's requirement that dictionaries' keys be immutable;
-we will explore alternatives in the exercises.</p>
-<p><code>cache_save</code> is the complement to <code>cache_open</code>.
-Given the name of a local file that the user wants to cache,
-this function saves it in the cache
-and constructs a placeholder file:</p>
-<div data-inc="cache_io.py" data-mark="save"><span aria-label="Source: cache/cache_io.py" class="inc-path" role="img" tabindex="0" title="cache/cache_io.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cache_save</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="n">identifier</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="n">identifier_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">cache</span><span class="o">.</span><span class="n">CACHE_SUFFIX</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">identifier_file</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<p>These two functions work as designed,
-but neither should be used in production.
-The problem is that neither function works atomically:
-in both cases,
-if something goes wrong part-way through the function,
-the caching system can be left in an inconsistent state.
-While there's no obvious way for these functions to fail mid-flight,
-there's always the possibility of a power failure
-or of the user typing Control-C to interrupt the program
-at just the wrong spot.
-Tools like <a href="https://dvc.org/">DVC</a> do a lot of extra work
-to guarantee that this can't happen.</p>
-<h2 id="cache-summary">Summary</h2>
-<figure id="f:cache-concept-map">
-<img alt="Concept map for file cache" src="cache_concept_map.svg"/>
-<figcaption>Figure 3: Concepts for file cache.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cache-concept-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;J.3: Concepts for file cache.
+</figcaption>
 </figure>
-<section aria-label="Exercises" class="exercises">
-<h2 id="cache-exercises">Exercises</h2>
-<h3>An alternative index</h3>
-<p>Create a new class <code>IndexJSON</code> that stores the index as a JSON file
-instead of as CSV.
-You should be able to use your new class with the existing cache classes
-without changing the latter.</p>
-<h3>Another alternative index</h3>
-<p>Create a new class <code>IndexSQLite</code> that stores the index in a <a href="https://sqlite.org/">SQLite</a> database
-instead of as CSV.
-You should be able to use your new class with the existing cache classes
-without changing the latter.</p>
-<h3>Consolidation</h3>
-<p>Write a tool that finds all the placeholder files in a project
-and copies the files they refer to from the cache into the project,
-deleting placeholders as it does so.</p>
-<h3>Cache size</h3>
-<ol>
+</div>
+<h2 data-number="J.6" id="cache-exercises"><span class="header-section-number">J.6</span> Exercises</h2>
+<h3 data-number="J.6.1" id="an-alternative-index"><span class="header-section-number">J.6.1</span> An alternative index</h3>
+<p>Create a new class <code>IndexJSON</code> that stores the index as a JSON file instead of as CSV. You should be able to use your new class with the existing cache classes without changing the latter.</p>
+<h3 data-number="J.6.2" id="another-alternative-index"><span class="header-section-number">J.6.2</span> Another alternative index</h3>
+<p>Create a new class <code>IndexSQLite</code> that stores the index in a <a href="https://sqlite.org/">SQLite</a> database instead of as CSV. You should be able to use your new class with the existing cache classes without changing the latter.</p>
+<h3 data-number="J.6.3" id="consolidation"><span class="header-section-number">J.6.3</span> Consolidation</h3>
+<p>Write a tool that finds all the placeholder files in a project and copies the files they refer to from the cache into the project, deleting placeholders as it does so.</p>
+<h3 data-number="J.6.4" id="cache-size"><span class="header-section-number">J.6.4</span> Cache size</h3>
+<ol type="1">
 <li>Modify the cache so that it only stores files up to a specified total size.</li>
-<li>How should the cache decide which files to delete
-    when a new file would put it over its size limit?</li>
-<li>What should the cache do if someone tries to add a file
-    that is larger than the size limit?</li>
+<li>How should the cache decide which files to delete when a new file would put it over its size limit?</li>
+<li>What should the cache do if someone tries to add a file that is larger than the size limit?</li>
 </ol>
-<h3>Least recently used</h3>
-<ol>
-<li>Modify the cache and index to keep track of when files are used
-    as well as when they are created.</li>
-<li>Modify the cache cleanup code to delete least recently used file
-    when extra space is needed.</li>
+<h3 data-number="J.6.5" id="least-recently-used"><span class="header-section-number">J.6.5</span> Least recently used</h3>
+<ol type="1">
+<li>Modify the cache and index to keep track of when files are used as well as when they are created.</li>
+<li>Modify the cache cleanup code to delete least recently used file when extra space is needed.</li>
 </ol>
-<h3>Compressing files</h3>
-<ol>
-<li>
-<p>Modify the system to compress files when they are archived.
-    Use Python's <a href="https://docs.python.org/3/library/zipfile.html">zipfile</a> module to handle compression.</p>
-</li>
-<li>
-<p>Modify the system again so that users can specify
-    whether files should be compressed in both the archive and the cache,
-    only compressed in the archive,
-    or never compressed.</p>
-</li>
+<h3 data-number="J.6.6" id="compressing-files"><span class="header-section-number">J.6.6</span> Compressing files</h3>
+<ol type="1">
+<li><p>Modify the system to compress files when they are archived. Use Python’s <a href="https://docs.python.org/3/library/zipfile.html">zipfile</a> module to handle compression.</p></li>
+<li><p>Modify the system again so that users can specify whether files should be compressed in both the archive and the cache, only compressed in the archive, or never compressed.</p></li>
 </ol>
-<h3>Reading cached files</h3>
-<ol>
+<h3 data-number="J.6.7" id="reading-cached-files"><span class="header-section-number">J.6.7</span> Reading cached files</h3>
+<ol type="1">
 <li>Modify <code>cache_open</code> so that files can be opened in binary mode.</li>
-<li>Modify it again so that the function can be used as a context manager
-    in <code>with</code> statements.</li>
+<li>Modify it again so that the function can be used as a context manager in <code>with</code> statements.</li>
 </ol>
-<h3>Storing files remotely</h3>
-<ol>
-<li>Create a small web server (<a class="xref" href="../http/">Chapter 22</a>) that accepts
-    file upload and file download requests.</li>
-<li>Modify the cache so that it sends new files to the server
-    and downloads files from the server on demand.</li>
+<h3 data-number="J.6.8" id="storing-files-remotely"><span class="header-section-number">J.6.8</span> Storing files remotely</h3>
+<ol type="1">
+<li>Create a small web server (<a href="../http/index.html" class="quarto-xref"><span>Chapter 22</span></a>) that accepts file upload and file download requests.</li>
+<li>Modify the cache so that it sends new files to the server and downloads files from the server on demand.</li>
 </ol>
-<h3>Commenting</h3>
-<ol>
-<li>
-<p>Modify the system so that users can add comments about files
-    in the local placeholder files.</p>
-</li>
-<li>
-<p>Suppose two projects A and B are stored in separate version control repositories,
-    but use the same data files.
-    If comments are stored in placeholder files
-    then comments saved in A won't be visible in B and vice versa.
-    How could you modify your solution to part 1 to enable inter-project sharing of comments?</p>
-</li>
+<h3 data-number="J.6.9" id="commenting"><span class="header-section-number">J.6.9</span> Commenting</h3>
+<ol type="1">
+<li><p>Modify the system so that users can add comments about files in the local placeholder files.</p></li>
+<li><p>Suppose two projects A and B are stored in separate version control repositories, but use the same data files. If comments are stored in placeholder files then comments saved in A won’t be visible in B and vice versa. How could you modify your solution to part 1 to enable inter-project sharing of comments?</p></li>
 </ol>
-<h3>Appending</h3>
+<h3 data-number="J.6.10" id="appending"><span class="header-section-number">J.6.10</span> Appending</h3>
 <p>Modify the system so that users can append data to existing files:</p>
-<ol>
-<li>
-<p>Each placeholder file stores the IDs of one or more cached files
-    and the number of bytes in each.</p>
-</li>
-<li>
-<p>When a user wants to read from a file,
-    they may specify a byte offset from the start of the (logical) file
-    where reading is to start.</p>
-</li>
-<li>
-<p>When a user opens a file for appending,
-    another chunk is created in the cache
-    and writes are appended to it.
-    When they close the file,
-    an entry is added to the placeholder file
-    with information about the new chunk.</p>
-</li>
+<ol type="1">
+<li><p>Each placeholder file stores the IDs of one or more cached files and the number of bytes in each.</p></li>
+<li><p>When a user wants to read from a file, they may specify a byte offset from the start of the (logical) file where reading is to start.</p></li>
+<li><p>When a user opens a file for appending, another chunk is created in the cache and writes are appended to it. When they close the file, an entry is added to the placeholder file with information about the new chunk.</p></li>
 </ol>
-</section>
+
 </main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../docgen">Generating Documentation</a>
-</div>
-<div class="col-6 center">
-<a href="../">sdxpy</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../concur">Concurrency</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
+<footer class="page-footer">
+  <nav class="pager">
+    <a class="pager-link prev" href="../docgen/index.html">← Generating Documentation</a>
+    <a class="pager-link next" href="../concur/index.html">Concurrency →</a>
+  </nav>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a');
+  document.querySelectorAll('details.topnav-dropdown[open]').forEach(function (d) {
+    if (!d.contains(e.target) || (link && d.contains(link))) d.removeAttribute('open');
+  });
+});
+</script>
+
+
+</body></html>
